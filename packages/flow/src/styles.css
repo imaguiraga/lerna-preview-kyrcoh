@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+  background-color: #efefef ;
+}
+
+.flow-select {
+  width:100%;
+  padding:2px;
+  font-family: "Consolas"
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 99% !important;
+}
+
+#grid {
+  display: flex;
+  flex-direction: row;
+  width: 99vw;
+  height: 96vh;
+  background-color: white;
+}
+
+#preview-pane {
+  position: relative;
+}
+
+#preview-pane  canvas {
+  width: 100%;
+  height: 96% !important;
+
+}
+
+.g6-minimap {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+
+}
+.pane {
+  border: 1px solid lightgray;
+  width: 94vw;
+  height: 100%;
+}
+
+.pane > h6 {
+  margin:0;
+  padding:4px;
+}
+
+.separator {
+  width:100%;
+  height: 1px;
+  border-top: 1px solid lightgray;
+}
+
+.content-pane {
+  margin:0;
+  height: 94vh;
+
+}
+
+
+.gutter {
+  float: left;
+  background-color: #efefef;
+  background-repeat: no-repeat;
+}
+
+.gutter-horizontal {
+  float: left;
+  /*margin-top: 27px;*/
+  cursor: ew-resize;
+}
+
+.gutter-vertical {
+  float: left;
+  margin-top: 0px;
+  cursor: ns-resize;
+}

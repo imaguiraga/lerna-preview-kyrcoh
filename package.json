@@ -1,56 +1,29 @@
 {
-  "name": "flow-preview-kyrcoh",
-  "version": "1.0.0",
-  "description": "preview flow diagram project",
+  "name": "root",
   "private": true,
-  "main": "index.html",
-  "dependencies": {
-    "@antv/g6": "^3.4.0",
-    "@lumino/commands": "^1.10.1",
-    "@lumino/default-theme": "^0.2.4",
-    "@lumino/dragdrop": "^1.5.1",
-    "@lumino/messaging": "^1.3.3",
-    "@lumino/signaling": "^1.3.5",
-    "@lumino/widgets": "^1.11.1",
-    "codemirror": "^5.52.0",
-    "es6-promise": "^4.2.8",
-    "escodegen": "^1.14.1",
-    "esprima": "^4.0.1",
-    "events": "^3.1.0",
-    "jshint": "^2.11.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "split.js": "^1.5.11"
-  },
+  "workspaces": [
+    "examples/*",
+    "packages/*",
+    "tests/*"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "api": "lerna run api",
+    "build": "lerna run build",
+    "build:test": "lerna run build:test",
+    "clean": "lerna run clean",
+    "clean:tests": "lerna run clean:tests",
+    "docs": "rimraf docs/api && lerna run docs",
+    "get:dependency": "get-dependency",
+    "publish": "npm run clean && npm run build && lerna publish -m \"Publish\" from-package",
+    "remove:dependency": "remove-dependency",
+    "test": "lerna run test",
+    "test:chrome": "lerna run test:chrome",
+    "test:firefox": "lerna run test:firefox",
+    "test:ie": "lerna run test:ie --concurrency 1",
+    "update:dependency": "update-dependency --lerna",
+    "version": "lerna version"
   },
   "devDependencies": {
-    "@types/codemirror": "^0.0.87",
-    "@types/react": "16.9.19",
-    "@types/react-dom": "16.9.5",
-    "react-scripts": "3.4.0",
-    "typescript": "^3.8.2",
-    "@babel/core": "^7.0.0-0",
-    "@babel/preset-typescript": "^7.8.3"
-  },
-  "keywords": [
-    "javascript",
-    "starter"
-  ],
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "lerna": "^3.20.2"
   }
 }
