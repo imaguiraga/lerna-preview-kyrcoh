@@ -11,8 +11,8 @@ export class ParallelElt extends CompositePipelineElt {
    * @param {object} ctx - The ctx value.
    * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName)  {
-    super(elts,ctx,tagName || "parallel");
+  constructor(elts,ctx)  {
+    super(elts,ctx,"parallel");
   }
 
 }

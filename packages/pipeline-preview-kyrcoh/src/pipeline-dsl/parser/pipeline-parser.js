@@ -29,7 +29,9 @@ export function parseDsl(input,dslModule){
         step,
         job,
         stage,
-        parallel
+        parallel,
+        sequence,
+        pipeline
       } = module;
 
       ${input}
