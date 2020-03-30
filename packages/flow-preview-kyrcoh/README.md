@@ -1,8 +1,8 @@
 # flow-preview-kyrcoh
 
-[Open in CodeSandBox](https://codesandbox.io/s/github/imaguiraga/lerna-preview-kyrcoh/tree/master/flow-preview-kyrcoh)
+[Open in CodeSandBox](https://codesandbox.io/s/github/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/flow-preview-kyrcoh)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imaguiraga/lerna-preview-kyrcoh/tree/master/flow-preview-kyrcoh)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/flow-preview-kyrcoh)
 
 A flow DSL javascript Visualizer using [antvis G6 Graph](https://g6.antv.vision/en)
 and [CodeMirror](https://codemirror.net/) as text editor.
