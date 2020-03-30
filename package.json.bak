@@ -1,0 +1,26 @@
+{
+  "name": "flow-preview-kyrcoh",
+  "version": "1.0.0",
+  "description": "preview flow diagram project",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@antv/g6": "3.3.5",
+    "codemirror": "^5.52.0",
+    "escodegen": "1.14.1",
+    "esprima": "4.0.1",
+    "split.js": "1.5.11"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": [
+    "javascript",
+    "starter"
+  ]
+}
