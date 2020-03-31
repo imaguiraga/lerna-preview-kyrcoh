@@ -146,16 +146,16 @@ export const DEFAULT_NODE = {
         fill: "#fff",
         stroke: "#1890FF",
         size: 3
-      }, anchorPoints: [[1, 0.5], [0, 0.5]]
-      //, anchorPoints: [[1, 0.5], [0, 0.5]]
+      },
+      anchorPoints: [[1, 0.5], [0, 0.5]]
     };
 export const DEFAULT_EDGE = {
-  type: "line3",
+  type: "curveline",
       //type: "polyline",
       //type: "cubic-horizontal",
       style: {
-        radius: 10,
-        offset: 10,
+        radius: 16,
+        offset: 20,
         endArrow: true,
         lineWidth: 2,
         stroke: "#C2C8D5"
@@ -190,31 +190,88 @@ export const DEFAULT_EDGE = {
         return keyShape;
       }
     });
-    
-    G6.registerEdge("line3", {
+
+    function getCubicPath(cfg){
+      let paths = [ ];
+      const radius = (cfg.style && cfg.style.radius) || 0;
+      const offset = (cfg.style && cfg.style.offset) || 20;
+
+      const startPoint = cfg.startPoint;
+      const endPoint = cfg.endPoint;
+      // dir LR
+      if(startPoint.y === endPoint.y){
+        paths = [
+          ["M", startPoint.x, startPoint.y],
+          ["L", endPoint.x, endPoint.y]
+        ];
+      } else {
+        let k = 1;
+        if(startPoint.y < endPoint.y) { //TB
+         k = 1;
+        } else {
+          k = -1;
+        }
+        paths = [
+          ["M", startPoint.x, startPoint.y],
+          ["l", offset, 0],
+          ["q", radius,0 , radius,k*radius],
+          ["l", 0, endPoint.y - startPoint.y - k*2*radius],
+          ["q", 0,k*radius,radius,k*radius],
+          ["L", endPoint.x, endPoint.y]
+        ];
+      } 
+      return paths;
+    }
+
+    function getCubicPathbak(cfg){
+      let paths = [ ];
+      const radius = (cfg.style && cfg.style.radius) || 0;
+      const offset = (cfg.style && cfg.style.offset) || 20;
+
+      const startPoint = cfg.startPoint;
+      const endPoint = cfg.endPoint;
+      // dir LR
+      if(startPoint.y === endPoint.y){
+        paths = [
+          ["M", startPoint.x, startPoint.y],
+          ["L", endPoint.x, endPoint.y]
+        ];
+      } else if(startPoint.y < endPoint.y) { //TB
+        paths = [
+          ["M", startPoint.x, startPoint.y],
+          ["L", startPoint.x+offset, startPoint.y+0],
+          ["Q", startPoint.x+offset+radius,startPoint.y , 
+            startPoint.x+offset+radius,startPoint.y + radius],
+          ["L", startPoint.x+offset+radius,endPoint.y - radius],
+          ["Q", startPoint.x+offset+radius,endPoint.y,
+            startPoint.x+offset+radius+radius,endPoint.y],
+          ["L", endPoint.x, endPoint.y]
+        ];
+      } else {
+        paths = [
+          ["M", startPoint.x, startPoint.y],
+          ["L", startPoint.x+offset, startPoint.y+0],
+          ["Q", startPoint.x+offset+radius,startPoint.y , 
+            startPoint.x+offset+radius,startPoint.y - radius],
+          ["L", startPoint.x+offset + radius,endPoint.y + radius],
+          ["Q", startPoint.x+offset+radius,endPoint.y,
+            startPoint.x+offset+radius+radius,endPoint.y],
+          ["L", endPoint.x, endPoint.y]
+        ];
+      }
+      return paths;
+    }
+
+    G6.registerEdge("curveline", {
       draw: function draw(cfg, group) {
-        const startPoint = cfg.startPoint;
-        const endPoint = cfg.endPoint;
-    
+      
         const stroke = (cfg.style && cfg.style.stroke) || this.options.style.stroke;
         const startArrow = (cfg.style && cfg.style.startArrow) || undefined;
         const endArrow = (cfg.style && cfg.style.endArrow) || undefined;
-    
+        
         const keyShape = group.addShape("path", {
           attrs: {
-            /*
-            path: [
-              ["M", startPoint.x, startPoint.y],
-              ["L", (startPoint.x + endPoint.x) / 2, startPoint.y],
-              ["L", (startPoint.x + endPoint.x) / 2, endPoint.y],
-              ["L", endPoint.x, endPoint.y]
-            ],//*/
-            path: [
-              ["M", startPoint.x, startPoint.y],
-              ["L", endPoint.x - 30, startPoint.y],
-              ["L", endPoint.x - 30, endPoint.y],
-              ["L", endPoint.x, endPoint.y]
-            ],
+            path: getCubicPath(cfg),
             stroke,
             lineWidth: 2,
             startArrow,
