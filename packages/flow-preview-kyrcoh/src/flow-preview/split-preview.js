@@ -64,6 +64,9 @@ const uidvisitor = new FlowUIDVisitor();
 const graph = diagram.createFlowDiagram("preview-pane");
 
 function updatePreviewPane(content){
+  if( typeof content === "undefined"){
+    return;
+  }
   try {
     // Update preview
     let flows = parseDsl(content,flow);
@@ -78,6 +81,9 @@ function updatePreviewPane(content){
 }
 
 function renderFlow(input){
+  if( typeof input === "undefined"){
+    return;
+  }
   graph.data([]);
   try {
     // Update preview

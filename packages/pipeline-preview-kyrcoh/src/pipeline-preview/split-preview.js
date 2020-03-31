@@ -64,6 +64,9 @@ const uidvisitor = new PipelineUIDVisitor();
 const graph = diagram.createPipelineDiagram("preview-pane");
 
 function updatePreviewPane(content){
+  if( typeof content === "undefined"){
+    return;
+  }
   try {
     // Update preview
     let pipelines = parseDsl(content,pipeline);
@@ -78,6 +81,9 @@ function updatePreviewPane(content){
 }
 
 function renderPipeline(input){
+  if( typeof input === "undefined"){
+    return;
+  }
   graph.data([]);
   try {
     // Update preview

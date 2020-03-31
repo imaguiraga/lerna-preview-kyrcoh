@@ -10,6 +10,9 @@ export class FlowToG6Visitor {
    */
   visit(tree,filterFn){
     let result = null;
+    if( typeof tree === "undefined"){
+      return result;
+    }
     switch(tree.tagName){
       case "choice":
         result = this._visitChoice(tree,filterFn);

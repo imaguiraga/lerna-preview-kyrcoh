@@ -10,6 +10,9 @@ export class PipelineToG6Visitor {
    */
   visit(tree,filterFn){
     let result = null;
+    if( typeof tree === "undefined"){
+      return result;
+    }
     switch(tree.tagName){
       case "data":
         result = TerminalPipelineToG6Visitor.visit(this,tree,filterFn);

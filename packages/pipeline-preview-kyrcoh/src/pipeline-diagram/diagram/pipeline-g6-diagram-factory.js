@@ -27,8 +27,8 @@ G6.Global.nodeStateStyle.selected = {
 export function createPipelineDiagram(_container_,_width_,_height_){
   let containerElt = (typeof _container_ === "string") ? document.getElementById(_container_) : _container_;
 
-  const width = _width_ || 640;
-  const height = _height_ || 800;
+  const width = _width_ || containerElt.scrollWidth || 800;
+  const height = _height_ || containerElt.scrollHeight || 800;
 
   const graphOptions = {
     container: containerElt,
@@ -51,7 +51,7 @@ export function createPipelineDiagram(_container_,_width_,_height_){
     },
     fitView: true,
     minZoom: 0.002,
-    maxZoom: 20
+    maxZoom: 40
   };
 
 // Override node default config based on nodde.tagName
