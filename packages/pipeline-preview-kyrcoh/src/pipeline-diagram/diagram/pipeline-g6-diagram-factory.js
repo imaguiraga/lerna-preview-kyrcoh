@@ -16,6 +16,7 @@ G6.Global.nodeStateStyle.selected = {
   fill: "#5394ef"
 };
 
+
 /**
  * Create a Code.
  * @param {object} _container_ - The container.
@@ -36,7 +37,7 @@ export function createPipelineDiagram(_container_,_width_,_height_){
     layout: {
       type: "dagre",
       nodesepFunc: (d) => {
-        return 40;
+        return 60;
       },
       ranksep: 60,
       controlPoints: true,

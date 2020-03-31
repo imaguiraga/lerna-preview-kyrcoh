@@ -1,4 +1,6 @@
-const pipelineEltNodeOptions =    {
+import G6 from "@antv/g6";
+
+const pipelineEltNodeOptions = {
   drawShape(cfg, group) {
     let w = cfg.width || 150;
     let h = cfg.height || 50;
@@ -135,7 +137,7 @@ export const DEFAULT_NODE = {
       },
       labelCfg: {
         style: {
-          fontSize: 12,
+          fontSize: 14,
         }
       },
       linkPoints: {
@@ -144,11 +146,13 @@ export const DEFAULT_NODE = {
         fill: "#fff",
         stroke: "#1890FF",
         size: 3
-      },
-      anchorPoints: [[1, 0.5], [0, 0.5]]
+      }, anchorPoints: [[1, 0.5], [0, 0.5]]
+      //, anchorPoints: [[1, 0.5], [0, 0.5]]
     };
 export const DEFAULT_EDGE = {
-      type: "cubic-horizontal",
+  type: "line3",
+      //type: "polyline",
+      //type: "cubic-horizontal",
       style: {
         radius: 10,
         offset: 10,
@@ -157,3 +161,68 @@ export const DEFAULT_EDGE = {
         stroke: "#C2C8D5"
       }
     };
+
+    G6.registerEdge("line2", {
+      draw: function draw(cfg, group) {
+        const startPoint = cfg.startPoint;
+        const endPoint = cfg.endPoint;
+    
+        const stroke = (cfg.style && cfg.style.stroke) || this.options.style.stroke;
+        const startArrow = (cfg.style && cfg.style.startArrow) || undefined;
+        const endArrow = (cfg.style && cfg.style.endArrow) || undefined;
+    
+        const keyShape = group.addShape("path", {
+          attrs: {
+            path: [
+              ["M", startPoint.x, startPoint.y],
+              ["L", startPoint.x, (endPoint.y + startPoint.y) / 2],
+              ["L", endPoint.x, (endPoint.y + startPoint.y) / 2],
+              ["L", endPoint.x, endPoint.y]
+            ],
+            stroke,
+            lineWidth: 2,
+            startArrow,
+            endArrow
+          },
+          className: "edge-shape",
+          name: "edge-shape"
+        });
+        return keyShape;
+      }
+    });
+    
+    G6.registerEdge("line3", {
+      draw: function draw(cfg, group) {
+        const startPoint = cfg.startPoint;
+        const endPoint = cfg.endPoint;
+    
+        const stroke = (cfg.style && cfg.style.stroke) || this.options.style.stroke;
+        const startArrow = (cfg.style && cfg.style.startArrow) || undefined;
+        const endArrow = (cfg.style && cfg.style.endArrow) || undefined;
+    
+        const keyShape = group.addShape("path", {
+          attrs: {
+            /*
+            path: [
+              ["M", startPoint.x, startPoint.y],
+              ["L", (startPoint.x + endPoint.x) / 2, startPoint.y],
+              ["L", (startPoint.x + endPoint.x) / 2, endPoint.y],
+              ["L", endPoint.x, endPoint.y]
+            ],//*/
+            path: [
+              ["M", startPoint.x, startPoint.y],
+              ["L", endPoint.x - 30, startPoint.y],
+              ["L", endPoint.x - 30, endPoint.y],
+              ["L", endPoint.x, endPoint.y]
+            ],
+            stroke,
+            lineWidth: 2,
+            startArrow,
+            endArrow
+          },
+          className: "edge-shape",
+          name: "edge-shape"
+        });
+        return keyShape;
+      }
+    });    
