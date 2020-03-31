@@ -39,7 +39,9 @@ export function createPipelineDiagram(_container_,_width_,_height_){
         return 40;
       },
       ranksep: 60,
-      controlPoints: true
+      controlPoints: true,
+      rankdir: "LR",
+      align:"UL"
     },
     defaultNode: DEFAULT_NODE,
     defaultEdge: DEFAULT_EDGE,
