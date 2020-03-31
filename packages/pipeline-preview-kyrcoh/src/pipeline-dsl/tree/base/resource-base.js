@@ -33,6 +33,10 @@ export class TerminalResource {
     self.ctx = ctx;
   }
   
+  isTerminal(){
+    return true;
+  }
+
   resolveElt(elt){
     // Only accept primitive types as Terminal Element 
     let result = null;
@@ -82,7 +86,6 @@ export class TerminalResource {
   }
 
   _id_(_id){
-    debugger
     this.id = _id;
     return this;
   }
@@ -112,8 +115,8 @@ export class CompositeResource extends TerminalResource {
 
     if(Array.isArray(elts)) {
       self.elts = elts.map(
-          (elt) => { return self.resolveElt(elt) }
-        ).filter( e => { return e != null } );
+          (elt) => { return self.resolveElt(elt); }
+        ).filter( e => { return e != null; } );
 
     } else {
       let r = self.resolveElt(elts);
@@ -125,6 +128,10 @@ export class CompositeResource extends TerminalResource {
     if (self.title === null) {
       self.title = "" + self.id;
     }
+  }
+
+  isTerminal(){
+    return false;
   }
 
   resolveElt(elt){

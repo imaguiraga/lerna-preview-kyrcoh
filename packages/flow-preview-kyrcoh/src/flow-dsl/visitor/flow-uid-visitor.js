@@ -12,7 +12,7 @@ export class FlowUIDVisitor {
 
   visit(tree,filter){
     // Non terminal nodes have start and finish
-    if( tree.tagName !== "terminal"){
+    if(!tree.isTerminal()){
       tree.start.id = this._prefix + ":" + tree.tagName + ".start";
       tree.finish.id = this._prefix + ":" + tree.tagName + ".finish";
     }

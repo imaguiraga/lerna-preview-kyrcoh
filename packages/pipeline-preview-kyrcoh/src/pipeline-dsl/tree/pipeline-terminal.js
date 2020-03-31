@@ -1,6 +1,6 @@
 import {
-    StepResource,
-    CompositeResource
+  TerminalResource,
+  CompositeResource
 } from './base/resource-base.js';
 
 const FLOW_RESOURCE_TYPE = "pipeline";

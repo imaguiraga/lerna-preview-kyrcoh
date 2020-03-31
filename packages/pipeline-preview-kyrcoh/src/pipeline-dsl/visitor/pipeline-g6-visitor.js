@@ -27,7 +27,10 @@ export class PipelineToG6Visitor {
         result = MutltiPathToG6Visitor.visit(this,tree,filterFn,"parallel");
       break;
       case "sequence":
-        result = SequenceEltFlowToG6Visitor.visit(this,tree,filterFn);
+        result = SequenceEltFlowToG6Visitor.visit(this,tree,filterFn,"sequence");
+      break;
+      case "pipeline":
+        result = SequenceEltFlowToG6Visitor.visit(this,tree,filterFn,"pipeline");
       break;
       default:
       break;
@@ -47,15 +50,15 @@ class SequenceEltFlowToG6Visitor{
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
+   * @param {string} type - The dsl type. 
    * @return {object} g6 Graph data.
    */  
-  static visit(visitor,tree,filterFn) {
-    const SEQUENCE = "sequence";
+  static visit(visitor,tree,filterFn,type){
     const g6data = {
       nodes: [],
       edges: []
     };
-    if (tree.tagName !== SEQUENCE) {
+    if (tree.tagName !== type) {
       return g6data;
     }
     // start + finish nodes
@@ -64,22 +67,23 @@ class SequenceEltFlowToG6Visitor{
       label: tree.start.id,
       model: { 
         resourceType : tree.resourceType,  
-        tagName: SEQUENCE+'.start'
+        tagName: type+'.start'
       }
     });
     // nodes
-    if (tree.tagName === SEQUENCE) {
+    if (tree.tagName === type) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
-        if (node.tagName !== "terminal") {
+        if (!node.isTerminal()) {
           return;
         }
         let n = {
           id: node.id,
-          label: node.id,
+          label: node.title ,
+          width: (node.title.length + 4) * 12,
           model: { 
             resourceType : node.resourceType,  
-            tagName: SEQUENCE+'.terminal'
+            tagName: type+'.terminal'
           }
         };
         if (filterFn) {
@@ -96,7 +100,7 @@ class SequenceEltFlowToG6Visitor{
       label: tree.finish.id ,
       model: { 
         resourceType : tree.resourceType,  
-        tagName: SEQUENCE+'.finish'
+        tagName: type+'.finish'
       }
     });
     // edges
@@ -149,7 +153,8 @@ class TerminalPipelineToG6Visitor{
 
     let n = {
       id: tree.id,
-      label: tree.id ,
+      label: tree.title ,
+      width: (tree.title.length + 4) * 12,
       model: { 
         resourceType : tree.resourceType,  
         tagName: tree.tagName
@@ -176,6 +181,7 @@ class MutltiPathToG6Visitor{
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
+   * @param {string} type - The dsl type. 
    * @return {object} g6 Graph data.
    */  
   static visit(visitor,tree,filterFn,type){
@@ -202,12 +208,13 @@ class MutltiPathToG6Visitor{
     if (tree.tagName === type) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
-        if (node.tagName !== "terminal") {
+        if (!node.isTerminal()) {
           return;
         }
         let n = {
           id: node.id,
-          label: node.id,
+          label: node.title ,
+          width: (node.title.length + 4) * 12,
           model: {
             resourceType : node.resourceType,   
             tagName: type+'.terminal'

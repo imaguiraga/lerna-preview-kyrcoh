@@ -25,13 +25,29 @@ export function sequence(...elts) {
   return new SequenceElt([...elts]);
 }
 
+
+/**
+ * Class PipelineElt.
+ * @extends CompositePipelineElt
+ */
+export class PipelineElt extends CompositePipelineElt {
+  /**
+   * Create a PipelineElt.
+   * @param {object} elts - The elts value.
+   * @param {object} ctx - The ctx value.
+   */
+  constructor(elts,ctx) {
+    super(elts,ctx,"pipeline");
+  }
+
+}
 /**
  * Create a Pipeline dsl tree.
  * @param {array|object} elts - The elements.
  * @return {object} pipeline dsl.
  */
 export function pipeline(...elts) {
-  return new SequenceElt([...elts]);
+  return new PipelineElt([...elts]);
 }
 
 
