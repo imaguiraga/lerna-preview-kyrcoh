@@ -155,7 +155,7 @@ export const DEFAULT_EDGE = {
       //type: "cubic-horizontal",
       style: {
         radius: 16,
-        offset: 20,
+        offset: 60,
         endArrow: true,
         lineWidth: 2,
         stroke: "#C2C8D5"
@@ -213,52 +213,13 @@ export const DEFAULT_EDGE = {
         }
         paths = [
           ["M", startPoint.x, startPoint.y],
-          ["l", offset, 0],
+          ["l", (endPoint.x - startPoint.x - offset), 0],
           ["q", radius,0 , radius,k*radius],
           ["l", 0, endPoint.y - startPoint.y - k*2*radius],
           ["q", 0,k*radius,radius,k*radius],
           ["L", endPoint.x, endPoint.y]
         ];
       } 
-      return paths;
-    }
-
-    function getCubicPathbak(cfg){
-      let paths = [ ];
-      const radius = (cfg.style && cfg.style.radius) || 0;
-      const offset = (cfg.style && cfg.style.offset) || 20;
-
-      const startPoint = cfg.startPoint;
-      const endPoint = cfg.endPoint;
-      // dir LR
-      if(startPoint.y === endPoint.y){
-        paths = [
-          ["M", startPoint.x, startPoint.y],
-          ["L", endPoint.x, endPoint.y]
-        ];
-      } else if(startPoint.y < endPoint.y) { //TB
-        paths = [
-          ["M", startPoint.x, startPoint.y],
-          ["L", startPoint.x+offset, startPoint.y+0],
-          ["Q", startPoint.x+offset+radius,startPoint.y , 
-            startPoint.x+offset+radius,startPoint.y + radius],
-          ["L", startPoint.x+offset+radius,endPoint.y - radius],
-          ["Q", startPoint.x+offset+radius,endPoint.y,
-            startPoint.x+offset+radius+radius,endPoint.y],
-          ["L", endPoint.x, endPoint.y]
-        ];
-      } else {
-        paths = [
-          ["M", startPoint.x, startPoint.y],
-          ["L", startPoint.x+offset, startPoint.y+0],
-          ["Q", startPoint.x+offset+radius,startPoint.y , 
-            startPoint.x+offset+radius,startPoint.y - radius],
-          ["L", startPoint.x+offset + radius,endPoint.y + radius],
-          ["Q", startPoint.x+offset+radius,endPoint.y,
-            startPoint.x+offset+radius+radius,endPoint.y],
-          ["L", endPoint.x, endPoint.y]
-        ];
-      }
       return paths;
     }
 
