@@ -7,6 +7,15 @@ import {
   DEFAULT_EDGE 
 } from "./pipeline-g6-node-config.js";
 
+import {
+  CUSTOMLINE,
+  CURVELINE
+} from  "./pipeline-custom-edge.js";
+
+
+G6.registerEdge("customline", CUSTOMLINE);
+G6.registerEdge("curveline",CURVELINE );   
+
 G6.registerNode(
   CUSTOM_NODE_TYPE, NODE_OPTIONS, "single-node"
 );
@@ -41,8 +50,8 @@ export function createPipelineDiagram(_container_,_width_,_height_){
       },
       ranksep: 60,
       controlPoints: true,
-      rankdir: "LR",
-      align:"UL"
+      rankdir: "RL",
+      //align:"UL"
     },
     defaultNode: DEFAULT_NODE,
     defaultEdge: DEFAULT_EDGE,
