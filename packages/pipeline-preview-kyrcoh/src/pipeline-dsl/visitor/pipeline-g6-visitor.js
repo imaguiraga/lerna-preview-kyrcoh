@@ -39,10 +39,22 @@ export class PipelineToG6Visitor {
       break;
 
     }
+    this.updateWdith(result);
     return result;
   }
 
+  updateWdith(result) {
+    if( result && result.nodes) {
+      result.nodes.forEach((n) => {
+        n.width = (n.label.length + 4) * 8;
+      });
+    }
+
+  }
+
 }
+
+
 
 /**
  * Class SequenceEltFlowToG6Visitor.
@@ -82,8 +94,7 @@ class SequenceEltFlowToG6Visitor{
         }
         let n = {
           id: node.id,
-          label: node.title ,
-          width: (node.title.length + 4) * 12,
+          label: node.title,
           model: { 
             resourceType : node.resourceType,  
             tagName: type+'.terminal'
@@ -100,7 +111,7 @@ class SequenceEltFlowToG6Visitor{
     }
     g6data.nodes.push({
       id: tree.finish.id,
-      label: tree.finish.id ,
+      label: tree.finish.id,
       model: { 
         resourceType : tree.resourceType,  
         tagName: type+'.finish'
@@ -156,8 +167,7 @@ class TerminalPipelineToG6Visitor{
 
     let n = {
       id: tree.id,
-      label: tree.title ,
-      width: (tree.title.length + 4) * 12,
+      label: tree.title,
       model: { 
         resourceType : tree.resourceType,  
         tagName: tree.tagName
@@ -216,8 +226,7 @@ class MutltiPathToG6Visitor{
         }
         let n = {
           id: node.id,
-          label: node.title ,
-          width: (node.title.length + 4) * 12,
+          label: node.title,
           model: {
             resourceType : node.resourceType,   
             tagName: type+'.terminal'

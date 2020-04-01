@@ -36,7 +36,17 @@ export class FlowToG6Visitor {
       break;
 
     }
+    this.updateWdith(result);
     return result;
+  }
+
+  updateWdith(result) {
+    if( result && result.nodes) {
+      result.nodes.forEach((n) => {
+        n.width = (n.label.length + 4) * 8;
+      });
+    }
+
   }
 
   _visitSequence(tree,filterFn){

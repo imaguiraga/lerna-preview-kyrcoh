@@ -117,7 +117,10 @@ const NODE_TAGNAME_CONFIG = new Map([
 
 export const GET_NODE_CONFIG = function(node) {
   // Compute stroke and textColor
+  
   if(NODE_TAGNAME_CONFIG.has(node.model.tagName)) {
+    // Compute label Width and Height
+    //let width = (node.label.length + 4) * 12;
     return NODE_TAGNAME_CONFIG.get(node.model.tagName);
   }
 
