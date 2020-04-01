@@ -36,7 +36,7 @@ export class FlowToG6Visitor {
       break;
 
     }
-    this.updateWdith(result);
+    // TODO this.updateWdith(result);
     return result;
   }
 
