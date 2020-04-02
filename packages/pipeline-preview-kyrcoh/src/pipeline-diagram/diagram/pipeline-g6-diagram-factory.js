@@ -46,11 +46,14 @@ export function createPipelineDiagram(_container_,_width_,_height_){
     layout: {
       type: "dagre",
       nodesepFunc: (d) => {
-        return 60;
+        return 64;
       },
-      ranksep: 60,
+      ranksepFunc: (d) => {
+        return 64;
+      },
       controlPoints: true,
-      rankdir: "LR",
+      rankdir: "LR", // H
+      //rankdir: "TB", // V
       align:"UL"
     },
     defaultNode: DEFAULT_NODE,
