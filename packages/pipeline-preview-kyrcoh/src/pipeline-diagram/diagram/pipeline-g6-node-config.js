@@ -91,6 +91,29 @@ const NODE_TAGNAME_CONFIG = new Map([
       }
     }
   }],
+  // Pipeline
+  ["pipeline.start", {
+    style: {
+      fill: "#7e3ff2",
+      stroke: "#5300e8"
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }],
+  ["pipeline.finish", {
+    style: {
+      fill: "#7e3ff2",
+      stroke: "#5300e8"
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }],
   ["step.terminal", {
     style: {
       fill: "#774ff2",
@@ -148,7 +171,8 @@ export const DEFAULT_NODE = {
         stroke: "#1890FF",
         size: 2
       },
-      anchorPoints: [[1, 0.5], [0, 0.5]]
+      anchorPoints: [[1, 0.5], [0, 0.5]] // H
+      //anchorPoints: [[0.5, 1], [0.5,0]] // V
     };
 export const DEFAULT_EDGE = {
   type: "curveline",
@@ -156,7 +180,7 @@ export const DEFAULT_EDGE = {
       //type: "cubic-horizontal",
       style: {
         radius: 16,
-        offset: 48,
+        offset: 16,
         endArrow: true,
         lineWidth: 2,
         stroke: "#666666"

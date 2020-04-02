@@ -29,56 +29,120 @@ export const CUSTOMLINE = {
 };
 
 function getCubicPath(cfg) {
-  let paths = [];
-  const radius = (cfg.style && cfg.style.radius) || 0;
-  const offset = (cfg.style && cfg.style.offset) || 10;
+  return getHCubicPath(cfg);//H
+}
 
-  const startPoint = cfg.startPoint;
-  const endPoint = cfg.endPoint;
-  // dir LR
-  if (startPoint.x < endPoint.x) {
-    if (startPoint.y === endPoint.y) {
+function getHCubicPath(cfg) {
+  let paths = [];
+  const r = (cfg.style && cfg.style.radius) || 8;
+  const offset = (cfg.style && cfg.style.offset) || 8;
+
+  const sp = cfg.startPoint;
+  const ep = cfg.endPoint;
+  // LR
+  if (sp.x < ep.x) {
+    if (sp.y === ep.y) {
       paths = [
-        ["M", startPoint.x, startPoint.y],
-        ["L", endPoint.x, endPoint.y]
+        ["M", sp.x, sp.y],
+        ["L", ep.x, ep.y]
       ];
     } else {
       let k = 1;
-      if (startPoint.y < endPoint.y) { // UD
+      if (sp.y < ep.y) { // UD
         k = 1;
       } else { // DU
         k = -1;
       }
       paths = [
-        ["M", startPoint.x, startPoint.y],
-        ["l", (endPoint.x - startPoint.x - offset), 0],
-        ["q", radius, 0, radius, k * radius],
-        ["l", 0, endPoint.y - startPoint.y - k * 2 * radius],
-        ["q", 0, k * radius, radius, k * radius],
-        ["L", endPoint.x, endPoint.y]
+        ["M", sp.x, sp.y],
+        ["l", (ep.x - sp.x - offset - 2 * r), 0],
+        ["q", r, 0, r, k * r],
+        ["l", 0, ep.y - sp.y - k * 2 * r],
+        ["q", 0, k * r, r, k * r],
+        ["L", ep.x, ep.y]
       ];
     }
 
   } else { // RL
-    if (startPoint.y === endPoint.y) {
+
+    if (sp.y === ep.y) {
       paths = [
-        ["M", startPoint.x, startPoint.y],
-        ["L", endPoint.x, endPoint.y]
+        ["M", sp.x, sp.y],
+        ["L", ep.x, ep.y]
       ];
     } else {
       let k = 1;
-      if (startPoint.y < endPoint.y) { // UD
+      if (sp.y < ep.y) { // UD
         k = 1;
       } else { // DU
         k = -1;
       }
       paths = [
-        ["M", startPoint.x, startPoint.y],
-        ["l", (endPoint.x - startPoint.x + offset), 0],
-        ["q", -1*radius, 0, -1*radius, k * radius],
-        ["l", 0, endPoint.y - startPoint.y - k * 2 * radius],
-        ["q", 0, k * radius, -1*radius, k * radius],
-        ["L", endPoint.x, endPoint.y]
+        ["M", sp.x, sp.y],
+        ["l", (ep.x - sp.x + offset + 2 * r), 0],
+        ["q", -1*r, 0, -1*r, k * r],
+        ["l", 0, ep.y - sp.y - k * 2 * r],
+        ["q", 0, k * r, -1*r, k * r],
+        ["L", ep.x, ep.y]
+      ];
+    }
+  }
+  return paths;
+}
+
+// eslint-disable-next-line
+function getVCubicPath(cfg) {
+  let paths = [];
+  const r = (cfg.style && cfg.style.radius) || 8;
+  const offset = (cfg.style && cfg.style.offset) || 8;
+
+  const sp = cfg.startPoint;
+  const ep = cfg.endPoint;
+  // UD
+  if (sp.y < ep.y) {
+    if (sp.x === ep.x) {
+      paths = [
+        ["M", sp.x, sp.y],
+        ["L", ep.x, ep.y]
+      ];
+    } else {
+      let k = 1;
+      if (sp.x < ep.x) { // LR
+        k = 1;
+      } else { // RL
+        k = -1;
+      }
+      paths = [
+        ["M", sp.x, sp.y],
+        ["l", 0, (ep.y - sp.y - offset - 2 * r)],
+        ["q", 0, r, k * r, r],
+        ["l", ep.x - sp.x - k * 2 * r,0],
+        ["q", k * r, 0, k * r, r],
+        ["L", ep.x, ep.y]
+      ];
+    }
+
+  } else { // DU
+
+    if (sp.x === ep.x) {
+      paths = [
+        ["M", sp.x, sp.y],
+        ["L", ep.x, ep.y]
+      ];
+    } else {
+      let k = 1;
+      if (sp.x < ep.x) { // LR
+        k = 1;
+      } else { // RL
+        k = -1;
+      }
+      paths = [
+        ["M", sp.x, sp.y],
+        ["l", 0, (ep.y - sp.y + offset + 2 * r )],
+        ["q", 0, -1*r, k * r, -1*r],
+        ["l", ep.x - sp.x - k * 2 * r, 0],
+        ["q", k * r, 0, k * r, -1*r],
+        ["L", ep.x, ep.y]
       ];
     }
   }

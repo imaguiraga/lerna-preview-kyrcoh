@@ -44,16 +44,14 @@ export class PipelineToG6Visitor {
   }
 
   updateWdith(result) {
-    if( result && result.nodes) {
+    if(result && result.nodes) {
       result.nodes.forEach((n) => {
-        n.width = (n.label.length + 4) * 8;
+        //n.size = (n.label.length + 2) * 8;
       });
     }
-
   }
 
 }
-
 
 
 /**
