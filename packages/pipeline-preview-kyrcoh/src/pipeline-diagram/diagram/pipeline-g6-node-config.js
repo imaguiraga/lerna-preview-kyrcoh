@@ -18,9 +18,53 @@ const pipelineEltNodeOptions = {
     });
 
     return rect;
+  },
+  getAnchorPoints(cfg) {
+    return [
+      [1, 0.5], 
+      [0, 0.5]
+    ];// H
+      //anchorPoints: [[0.5, 1], [0.5,0]] // V
   }
 };
 
+export const NODE_OPTIONS = pipelineEltNodeOptions;
+export const CUSTOM_NODE_TYPE = "pipeline-elt";
+export const DEFAULT_NODE = {
+      type: CUSTOM_NODE_TYPE,
+      style: {
+        stroke:"#5B8FF9",
+        fill: "#C6E5FF",
+        textColor: "#00287E"
+      },
+      labelCfg: {
+        style: {
+          fontSize: 14,
+        }
+      },
+      linkPoints: {
+        left: true,
+        right: true,
+        fill: "#fff",
+        stroke: "#1890FF",
+        size: 2
+      }
+    };
+    
+export const DEFAULT_EDGE = {
+  type: "curveline",
+      //type: "polyline",
+      //type: "cubic-horizontal",
+      style: {
+        radius: 16,
+        offset: 16,
+        endArrow: true,
+        lineWidth: 2,
+        stroke: "#666666"
+      }
+    };
+ 
+    
 const NODE_TAGNAME_CONFIG = new Map([
   // Job
   ["job.start", {
@@ -149,41 +193,3 @@ export const GET_NODE_CONFIG = function(node) {
 
   return {};
 };
-
-export const NODE_OPTIONS = pipelineEltNodeOptions;
-export const CUSTOM_NODE_TYPE = "pipeline-elt";
-export const DEFAULT_NODE = {
-      type: CUSTOM_NODE_TYPE,
-      style: {
-        stroke:"#5B8FF9",
-        fill: "#C6E5FF",
-        textColor: "#00287E"
-      },
-      labelCfg: {
-        style: {
-          fontSize: 14,
-        }
-      },
-      linkPoints: {
-        left: true,
-        right: true,
-        fill: "#fff",
-        stroke: "#1890FF",
-        size: 2
-      },
-      anchorPoints: [[1, 0.5], [0, 0.5]] // H
-      //anchorPoints: [[0.5, 1], [0.5,0]] // V
-    };
-export const DEFAULT_EDGE = {
-  type: "curveline",
-      //type: "polyline",
-      //type: "cubic-horizontal",
-      style: {
-        radius: 16,
-        offset: 16,
-        endArrow: true,
-        lineWidth: 2,
-        stroke: "#666666"
-      }
-    };
- 
