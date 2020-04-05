@@ -59,7 +59,7 @@ export const DEFAULT_EDGE = {
       //type: "cubic-horizontal",      
       style: {
         radius: 16,
-        offset: 24,
+        offset: 48,
         startArrow: false,
         endArrow: true,
         lineWidth: 2,
