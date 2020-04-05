@@ -4,10 +4,10 @@ import Split from "split.js";
 import {samples} from "../samples.js";
 import {createEditor} from "../pipeline-editor";
 
-import * as pipeline from "../pipeline-dsl";
+import * as pipelineDSl from "../pipeline-dsl";
 import * as diagram from "../pipeline-diagram";
 
-const {parseDsl} = pipeline;
+const {parseDsl} = pipelineDSl;
 const DEBUG = true;
 
 document.body.innerHTML = `
@@ -56,7 +56,7 @@ Split(["#one", "#two"], {
 const {
   PipelineToG6Visitor,
   PipelineUIDVisitor
-} = pipeline;
+} = pipelineDSl;
 
 const visitor = new PipelineToG6Visitor();
 const uidvisitor = new PipelineUIDVisitor();
@@ -69,7 +69,7 @@ function updatePreviewPane(content){
   }
   try {
     // Update preview
-    let pipelines = parseDsl(content,pipeline);
+    let pipelines = parseDsl(content,pipelineDSl);
     renderPipeline(pipelines.get(pipelines.keys().next().value)); 
     initPipelineSelection(pipelines);   
 

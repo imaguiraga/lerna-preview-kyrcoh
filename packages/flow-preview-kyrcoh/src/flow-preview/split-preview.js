@@ -4,10 +4,10 @@ import Split from "split.js";
 import {samples} from "../samples.js";
 import {createEditor} from "../flow-editor";
 
-import * as flow from "../flow-dsl";
+import * as flowDsl from "../flow-dsl";
 import * as diagram from "../flow-diagram";
 
-const {parseDsl} = flow;
+const {parseDsl} = flowDsl;
 const DEBUG = true;
 
 document.body.innerHTML = `
@@ -56,7 +56,7 @@ const splitPane = Split(["#one", "#two"], {
 const {
   FlowToG6Visitor,
   FlowUIDVisitor
-} = flow;
+} = flowDsl;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
@@ -69,7 +69,7 @@ function updatePreviewPane(content){
   }
   try {
     // Update preview
-    let flows = parseDsl(content,flow);
+    let flows = parseDsl(content,flowDsl);
     renderFlow(flows.get(flows.keys().next().value)); 
     initFlowSelection(flows);   
 

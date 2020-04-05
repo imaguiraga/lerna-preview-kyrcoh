@@ -51,7 +51,7 @@ export function createPipelineDiagram(_container_,_width_,_height_){
       ranksepFunc: (d) => {
         return 64;
       },
-      controlPoints: true,
+      controlPoints: false,
       rankdir: "LR", // H
       //rankdir: "TB", // V
       align:"UL"

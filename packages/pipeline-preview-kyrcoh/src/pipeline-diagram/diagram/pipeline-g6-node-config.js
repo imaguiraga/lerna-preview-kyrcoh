@@ -1,7 +1,7 @@
 const pipelineEltNodeOptions = {
   drawShape(cfg, group) {
-    let w = cfg.width || 150;
-    let h = cfg.height || 50;
+    let w = (cfg.style && cfg.style.width) || 120;
+    let h = (cfg.style && cfg.style.height) || 60;
 
     const rect = group.addShape("rect", {
       attrs: {
@@ -19,6 +19,7 @@ const pipelineEltNodeOptions = {
 
     return rect;
   },
+
   getAnchorPoints(cfg) {
     return [
       [1, 0.5], 
@@ -42,6 +43,7 @@ export const DEFAULT_NODE = {
           fontSize: 14,
         }
       },
+      
       linkPoints: {
         left: true,
         right: true,
@@ -52,12 +54,13 @@ export const DEFAULT_NODE = {
     };
     
 export const DEFAULT_EDGE = {
-  type: "curveline",
-      //type: "polyline",
-      //type: "cubic-horizontal",
+      //type: "curveline",
+      type: "polyline",
+      //type: "cubic-horizontal",      
       style: {
         radius: 16,
-        offset: 16,
+        offset: 24,
+        startArrow: false,
         endArrow: true,
         lineWidth: 2,
         stroke: "#666666"

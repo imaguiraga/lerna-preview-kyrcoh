@@ -1,7 +1,7 @@
 const flowEltNodeOptions =    {
   drawShape(cfg, group) {
-    let w = cfg.width || 150;
-    let h = cfg.height || 50;
+    let w = (cfg.style && cfg.style.width) || 120;
+    let h = (cfg.style && cfg.style.height) || 60;
 
     const rect = group.addShape("rect", {
       attrs: {
