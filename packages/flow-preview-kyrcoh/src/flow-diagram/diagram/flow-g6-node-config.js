@@ -1,7 +1,7 @@
 const flowEltNodeOptions =    {
   drawShape(cfg, group) {
-    let w = cfg.width || 150;
-    let h = cfg.height || 50;
+    let w = (cfg.style && cfg.style.width) || 120;
+    let h = (cfg.style && cfg.style.height) || 60;
 
     const rect = group.addShape("rect", {
       attrs: {
@@ -21,7 +21,34 @@ const flowEltNodeOptions =    {
   }
 };
 
+export const NODE_OPTIONS = flowEltNodeOptions;
+export const CUSTOM_NODE_TYPE = "flow-elt";
+export const DEFAULT_NODE = {
+      type: CUSTOM_NODE_TYPE,
+      style: {
+        stroke:"#5B8FF9",
+        fill: "#C6E5FF",
+        textColor: "#00287E"
+      },
+      labelCfg: {
+        style: {
+          fontSize: 12,
+        }
+      }
+    };
 
+export const DEFAULT_EDGE = {
+      type: "polyline",
+      style: {
+        radius: 10,
+        offset: 45,
+        endArrow: true,
+        lineWidth: 2,
+        stroke: "#C2C8D5"
+      }
+    };
+
+    
 const NODE_TAGNAME_CONFIG = new Map([
   // Choice
   ["choice.start", {
@@ -148,29 +175,3 @@ export const GET_NODE_CONFIG = function(node) {
 
   return {};
 };
-
-export const NODE_OPTIONS = flowEltNodeOptions;
-export const CUSTOM_NODE_TYPE = "flow-elt";
-export const DEFAULT_NODE = {
-      type: CUSTOM_NODE_TYPE,
-      style: {
-        stroke:"#5B8FF9",
-        fill: "#C6E5FF",
-        textColor: "#00287E"
-      },
-      labelCfg: {
-        style: {
-          fontSize: 12,
-        }
-      }
-    };
-export const DEFAULT_EDGE = {
-      type: "polyline",
-      style: {
-        radius: 10,
-        offset: 45,
-        endArrow: true,
-        lineWidth: 2,
-        stroke: "#C2C8D5"
-      }
-    };
