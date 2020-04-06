@@ -194,5 +194,5 @@ export function resource(elt) {
  * @return {object} group dsl.
  */
 export function group(elts) {
-  return new CompositeResource(elts,null,"resource","resource");
+  return new CompositeResource(elts,null,"group","resource");
 }
