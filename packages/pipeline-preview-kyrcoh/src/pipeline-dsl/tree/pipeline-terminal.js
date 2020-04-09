@@ -3,7 +3,7 @@ import {
   CompositeResource
 } from './base/resource-base.js';
 
-const FLOW_RESOURCE_TYPE = "pipeline";
+const PIELINE_RESOURCE_TYPE = "pipeline";
 /**
  * Class StepPipelineElt.
  */
@@ -16,7 +16,7 @@ export class StepPipelineElt extends TerminalResource{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"step",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,"step",PIPELINE_RESOURCE_TYPE);
   }
 
 }
@@ -33,7 +33,7 @@ export class DataPipelineElt extends TerminalResource{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"data",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,"data",PIPELINE_RESOURCE_TYPE);
   }
 
 }
@@ -51,7 +51,7 @@ export class CompositePipelineElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName) {
-    super(elts,ctx,tagName,FLOW_RESOURCE_TYPE);
+    super(elts,ctx,tagName,PIPELINE_RESOURCE_TYPE);
   }
 }
 

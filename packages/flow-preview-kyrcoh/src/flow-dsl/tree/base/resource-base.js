@@ -31,6 +31,7 @@ export class TerminalResource {
     self.start = this;
     self.finish = this;
     self.ctx = ctx;
+    self.data = new Map();
   }
   
   isTerminal(){
@@ -75,21 +76,29 @@ export class TerminalResource {
     return visitor.visit(this,filterFn);
   }
 
-  _ctx_(_ctx){
+  ctx(_ctx){
     this.ctx = _ctx;
     return this;
   }
 
-  _title_(_title){
+  title(_title){
     this.title = _title;
     return this;
   }
 
-  _id_(_id){
+  id(_id){
     this.id = _id;
     return this;
   }
 
+  kv(key,value) {
+    this.data.set(key,value);
+    return this;
+  }
+
+  get(key){
+    return this.data.get(key);
+  }
 }
 
 
@@ -168,4 +177,22 @@ export class CompositeResource extends TerminalResource {
     
     return this;
   }
+}
+
+/**
+ * Create a resource dsl tree.
+ * @param {object} elt - The element.
+ * @return {object} resource dsl.
+ */
+export function resource(elt) {
+  return new TerminalResource(elt,null,"resource","resource");
+}
+
+/**
+ * Create a group dsl tree.
+ * @param {object} elt - The element.
+ * @return {object} group dsl.
+ */
+export function group(elts) {
+  return new CompositeResource(elts,null,"resource","resource");
 }
