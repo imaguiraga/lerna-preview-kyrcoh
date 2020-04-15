@@ -1,10 +1,10 @@
-import {CompositeFlowElt} from "./flow-terminal.js";
+import {CompositeResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class ChoiceElt.
- * @extends CompositeFlowElt
+ * @extends CompositeResource
  */
-export class ChoiceElt extends CompositeFlowElt {
+export class ChoiceElt extends CompositeResource {
   /**
    * Create a ChoiceElt.
    * @param {object} elts - The elts value.
@@ -12,7 +12,7 @@ export class ChoiceElt extends CompositeFlowElt {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,tagName || "choice");
+    super(elts,ctx,tagName || "choice",FLOW_RESOURCE_TYPE);
   }
 
 }

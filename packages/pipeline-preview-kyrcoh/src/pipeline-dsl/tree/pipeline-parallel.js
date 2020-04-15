@@ -1,10 +1,10 @@
-import {CompositePipelineElt} from "./pipeline-terminal.js";
+import {CompositeResource,PIPELINE_RESOURCE_TYPE} from "./pipeline-terminal.js";
 
 /**
  * Class ParallelElt.
- * @extends CompositePipelineElt
+ * @extends CompositeResource
  */
-export class ParallelElt extends CompositePipelineElt {
+export class ParallelElt extends CompositeResource {
   /**
    * Create a ParallelElt.
    * @param {object} elts - The elts value.
@@ -12,7 +12,7 @@ export class ParallelElt extends CompositePipelineElt {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx)  {
-    super(elts,ctx,"parallel");
+    super(elts,ctx,"parallel",PIPELINE_RESOURCE_TYPE);
   }
 
 }
