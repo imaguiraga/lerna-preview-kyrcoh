@@ -327,7 +327,6 @@ class OptionalEltFlowToG6Visitor{
     if(tree.skip) {
       g6data.nodes.push({
         id: tree.skip.id,
-        label: "skip" ,
         model: {
           resourceType : tree.resourceType,   
           tagName: OPTIONAL+'.skip'
@@ -444,7 +443,6 @@ class RepeatEltFlowToG6Visitor {
     if(tree.loop) {
       g6data.nodes.push({
         id: tree.loop.id,
-        label: "loop" ,
         model: {
           resourceType : tree.resourceType,   
           tagName: REPEAT+'.loop'
@@ -506,7 +504,8 @@ class RepeatEltFlowToG6Visitor {
         style: {
           startArrow: true,
           endArrow: false,
-          lineWidth: 2
+          lineWidth: 2,
+          stroke: "#555555"
         }
       });
       g6data.edges.push({
@@ -515,7 +514,8 @@ class RepeatEltFlowToG6Visitor {
         style: {
           startArrow: true,
           endArrow: false,
-          lineWidth: 2
+          lineWidth: 2,
+          stroke: "#555555"
         }
       });
     } else {

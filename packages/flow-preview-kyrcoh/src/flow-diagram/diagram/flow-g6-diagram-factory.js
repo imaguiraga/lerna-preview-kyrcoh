@@ -1,4 +1,5 @@
 import G6 from "@antv/g6";
+import {ICONFONTNODE_CONFIG} from "./iconfont-node-config.js";
 import { 
   GET_NODE_CONFIG, 
   NODE_OPTIONS, 
@@ -7,6 +8,7 @@ import {
   DEFAULT_EDGE 
 } from "./flow-g6-node-config.js";
 
+G6.registerNode('iconfont',ICONFONTNODE_CONFIG);
 G6.registerNode(
   CUSTOM_NODE_TYPE, NODE_OPTIONS, "single-node"
 );
@@ -35,10 +37,12 @@ export function createFlowDiagram(_container_,_width_,_height_){
     height,
     layout: {
       type: "dagre",
-      nodesepFunc: (d) => {
+      nodesepFunc: (n) => {
         return 40;
       },
-      ranksep: 60,
+      ranksepFunc: (n) => {
+        return 60;
+      },
       controlPoints: true
     },
     defaultNode: DEFAULT_NODE,
