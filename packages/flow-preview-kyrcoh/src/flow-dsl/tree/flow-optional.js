@@ -13,6 +13,11 @@ export class OptionalElt extends CompositeResource{
    */
   constructor(elts,ctx,tagName)  {
     super(elts,ctx,tagName || "optional",FLOW_RESOURCE_TYPE);
+    
+    // skip node
+    this.skip = {
+      id: this.id+".skip"
+    };//*/
   }
 
   add(elt){

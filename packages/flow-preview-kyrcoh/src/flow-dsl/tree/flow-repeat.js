@@ -13,6 +13,11 @@ export class RepeatElt extends CompositeResource {
    */
   constructor(elts,ctx,tagName) {
     super(elts,ctx,tagName ||"repeat",FLOW_RESOURCE_TYPE);
+    // loop node
+    
+    this.loop = {
+      id: this.id+".loop"
+    };//*/
   }
 
   add(elt){
