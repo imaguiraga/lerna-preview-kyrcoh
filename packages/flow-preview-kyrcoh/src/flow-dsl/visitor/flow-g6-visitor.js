@@ -368,7 +368,7 @@ class OptionalEltFlowToG6Visitor{
     });
     // edges
 
-    if(tree.elts.length >= 0) {
+    if(tree.elts.length > 0) {
       g6data.edges.push({
         source: tree.start.id,
         target: tree.elts[0].start.id
@@ -484,7 +484,7 @@ class RepeatEltFlowToG6Visitor {
       }
     });
     // edges
-    if(tree.elts.length >= 0) {
+    if(tree.elts.length > 0) {
       g6data.edges.push({
         source: tree.start.id,
         target: tree.elts[0].start.id
