@@ -132,12 +132,12 @@ const NODE_TAGNAME_CONFIG = new Map([
     }
   }],
   ["optional.skip", {
-    //type: 'rect',
-    //size: 40,
     style: {
       fill: "#aaf255",
       stroke: "#61d800",
-      //radius: 4,
+      radius: 4,
+      width: 40,
+      height: 40,
     },
     labelCfg: {
       style: {
@@ -169,12 +169,12 @@ const NODE_TAGNAME_CONFIG = new Map([
     }
   }],
   ["repeat.loop", {
-    //type: 'rect',
-    //size: 40,
     style: {
-      fill: "#aaf255",
-      stroke: "#61d800",
-      //radius: 4,
+      fill: "#df55f2",
+      stroke: "#ba00e5",
+      radius: 4,
+      width: 40,
+      height: 40,
       
     },
     labelCfg: {
