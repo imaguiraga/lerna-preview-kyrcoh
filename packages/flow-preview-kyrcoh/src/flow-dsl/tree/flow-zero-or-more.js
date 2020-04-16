@@ -1,5 +1,5 @@
-import {optional} from "./flow-optional.js"
-import {repeat} from "./flow-repeat.js"
+import {optional} from "./flow-optional.js";
+import {repeat} from "./flow-repeat.js";
 
 /**
  * Create a zeroOrMore dsl tree.

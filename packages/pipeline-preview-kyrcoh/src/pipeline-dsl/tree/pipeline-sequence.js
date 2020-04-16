@@ -1,17 +1,17 @@
-import {CompositePipelineElt} from "./pipeline-terminal.js";
+import {CompositeResource,PIPELINE_RESOURCE_TYPE} from "./pipeline-terminal.js";
 
 /**
  * Class SequenceElt.
- * @extends CompositePipelineElt
+ * @extends CompositeResource
  */
-export class SequenceElt extends CompositePipelineElt {
+export class SequenceElt extends CompositeResource {
   /**
    * Create a SequenceElt.
    * @param {object} elts - The elts value.
    * @param {object} ctx - The ctx value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"sequence");
+    super(elts,ctx,"sequence",PIPELINE_RESOURCE_TYPE);
   }
 
 }
@@ -28,16 +28,16 @@ export function sequence(...elts) {
 
 /**
  * Class PipelineElt.
- * @extends CompositePipelineElt
+ * @extends CompositeResource
  */
-export class PipelineElt extends CompositePipelineElt {
+export class PipelineElt extends CompositeResource {
   /**
    * Create a PipelineElt.
    * @param {object} elts - The elts value.
    * @param {object} ctx - The ctx value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"pipeline");
+    super(elts,ctx,"pipeline",PIPELINE_RESOURCE_TYPE);
   }
 
 }
@@ -53,16 +53,16 @@ export function pipeline(...elts) {
 
 /**
  * Class JobElt.
- * @extends CompositePipelineElt
+ * @extends CompositeResource
  */
-export class JobElt extends CompositePipelineElt {
+export class JobElt extends CompositeResource {
   /**
    * Create a JobElt.
    * @param {object} elts - The elts value.
    * @param {object} ctx - The ctx value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"job");
+    super(elts,ctx,"job",PIPELINE_RESOURCE_TYPE);
   }
 
 }
@@ -78,16 +78,16 @@ export function job(...elts) {
 
 /**
  * Class StageElt.
- * @extends CompositePipelineElt
+ * @extends CompositeResource
  */
-export class StageElt extends CompositePipelineElt {
+export class StageElt extends CompositeResource {
   /**
    * Create a StageElt.
    * @param {object} elts - The elts value.
    * @param {object} ctx - The ctx value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"stage");
+    super(elts,ctx,"stage",PIPELINE_RESOURCE_TYPE);
   }
 
 }

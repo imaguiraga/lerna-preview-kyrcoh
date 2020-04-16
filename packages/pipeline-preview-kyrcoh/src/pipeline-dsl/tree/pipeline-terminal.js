@@ -1,9 +1,9 @@
 import {
-  TerminalResource,
-  CompositeResource
+  TerminalResource
 } from './base/resource-base.js';
 
-const PIELINE_RESOURCE_TYPE = "pipeline";
+export * from './base/resource-base.js'; 
+export const PIPELINE_RESOURCE_TYPE = "pipeline";
 /**
  * Class StepPipelineElt.
  */
@@ -36,23 +36,6 @@ export class DataPipelineElt extends TerminalResource{
     super(elts,ctx,"data",PIPELINE_RESOURCE_TYPE);
   }
 
-}
-
-
-/**
- * Class CompositePipelineElt.
- * @extends CompositeResource
- */
-export class CompositePipelineElt extends CompositeResource {
-  /**
-   * Create a CompositePipelineElt.
-   * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
-   */
-  constructor(elts,ctx,tagName) {
-    super(elts,ctx,tagName,PIPELINE_RESOURCE_TYPE);
-  }
 }
 
 /**

@@ -1,10 +1,10 @@
-import {CompositeFlowElt} from "./flow-terminal.js";
+import {CompositeResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class ParallelElt.
- * @extends CompositeFlowElt
+ * @extends CompositeResource
  */
-export class ParallelElt extends CompositeFlowElt {
+export class ParallelElt extends CompositeResource {
   /**
    * Create a ParallelElt.
    * @param {object} elts - The elts value.
@@ -12,7 +12,7 @@ export class ParallelElt extends CompositeFlowElt {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,tagName || "parallel");
+    super(elts,ctx,tagName || "parallel",FLOW_RESOURCE_TYPE);
   }
 
 }

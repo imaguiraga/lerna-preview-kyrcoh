@@ -313,7 +313,7 @@ class OptionalEltFlowToG6Visitor{
     if (tree.tagName !== OPTIONAL) {
       return g6data;
     }
-    // start + finish nodes
+    // start node
     g6data.nodes.push({
       id: tree.start.id,
       label: tree.start.id ,
@@ -322,6 +322,18 @@ class OptionalEltFlowToG6Visitor{
         tagName: OPTIONAL+'.start'
       }
     });
+
+    // skip node
+    if(tree.skip) {
+      g6data.nodes.push({
+        id: tree.skip.id,
+        label: "skip" ,
+        model: {
+          resourceType : tree.resourceType,   
+          tagName: OPTIONAL+'.skip'
+        }
+      });
+    }
 
     // nodes
     if (tree.tagName === OPTIONAL) {
@@ -356,21 +368,34 @@ class OptionalEltFlowToG6Visitor{
       }
     });
     // edges
-    for (let i = 0; i < tree.elts.length; i++) {
+
+    if(tree.elts.length >= 0) {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[i].start.id
+        target: tree.elts[0].start.id
       });
       g6data.edges.push({
-        source: tree.elts[i].finish.id,
+        source: tree.elts[tree.elts.length-1].finish.id,
         target: tree.finish.id
       });
     }
 
-    g6data.edges.push({
-      source: tree.start.id,
-      target: tree.finish.id
-    });
+    // start -> skip? -> finish
+    if(typeof(tree.skip) !== "undefined"){
+      g6data.edges.push({
+        source: tree.start.id,
+        target: tree.skip.id
+      });
+      g6data.edges.push({
+        source: tree.skip.id,
+        target: tree.finish.id
+      });
+    } else {
+      g6data.edges.push({
+        source: tree.start.id,
+        target: tree.finish.id
+      });
+    }
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
@@ -405,7 +430,7 @@ class RepeatEltFlowToG6Visitor {
     if (tree.tagName !== REPEAT) {
       return g6data;
     }
-    // start + finish nodes
+    // start node
     g6data.nodes.push({
       id: tree.start.id,
       label: tree.start.id,
@@ -415,6 +440,17 @@ class RepeatEltFlowToG6Visitor {
       }
     });
 
+    // loop node
+    if(tree.loop) {
+      g6data.nodes.push({
+        id: tree.loop.id,
+        label: "loop" ,
+        model: {
+          resourceType : tree.resourceType,   
+          tagName: REPEAT+'.loop'
+        }
+      });
+    }
     // nodes
     if (tree.tagName === REPEAT) {
       tree.elts.forEach(node => {
@@ -440,6 +476,7 @@ class RepeatEltFlowToG6Visitor {
       });
     }
 
+    // finish node
     g6data.nodes.push({
       id: tree.finish.id,
       label: tree.finish.id,
@@ -449,21 +486,46 @@ class RepeatEltFlowToG6Visitor {
       }
     });
     // edges
-    for (let i = 0; i < tree.elts.length; i++) {
+    if(tree.elts.length >= 0) {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[i].start.id
+        target: tree.elts[0].start.id
       });
       g6data.edges.push({
-        source: tree.elts[i].finish.id,
+        source: tree.elts[tree.elts.length-1].finish.id,
         target: tree.finish.id
       });
     }
 
-    g6data.edges.push({
-      source: tree.finish.id,
-      target: tree.start.id
-    });
+    // start <- loop <- finish
+    // reverse the arrow direction
+    if(typeof(tree.loop) !== "undefined"){
+      g6data.edges.push({
+        source: tree.start.id,
+        target: tree.loop.id,
+        style: {
+          startArrow: true,
+          endArrow: false,
+          lineWidth: 2
+        }
+      });
+      g6data.edges.push({
+        source: tree.loop.id,
+        target: tree.finish.id,
+        style: {
+          startArrow: true,
+          endArrow: false,
+          lineWidth: 2
+        }
+      });
+    } else {
+      g6data.edges.push({
+        source: tree.finish.id,
+        target: tree.start.id
+      });
+    }
+    //*/
+    
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {

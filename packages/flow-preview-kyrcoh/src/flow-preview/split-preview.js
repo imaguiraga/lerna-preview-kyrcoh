@@ -36,7 +36,7 @@ document.body.innerHTML = `
 `;
 
 // Initialize Split Pane
-const splitPane = Split(["#one", "#two"], {
+Split(["#one", "#two"], {
   sizes: [40, 60],
   minSize: [200, 300],
   gutter: function(index, direction) {

@@ -1,10 +1,10 @@
-import {CompositeFlowElt} from "./flow-terminal.js";
+import {CompositeResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class OptionalElt.
- * @extends CompositeFlowElt
+ * @extends CompositeResource
  */
-export class OptionalElt extends CompositeFlowElt{
+export class OptionalElt extends CompositeResource{
   /**
    * Create a OptionalElt.
    * @param {object} elts - The elts value.
@@ -12,7 +12,12 @@ export class OptionalElt extends CompositeFlowElt{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,tagName || "optional");
+    super(elts,ctx,tagName || "optional",FLOW_RESOURCE_TYPE);
+    
+    // skip node
+    this.skip = {
+      id: this.id+".skip"
+    };//*/
   }
 
   add(elt){

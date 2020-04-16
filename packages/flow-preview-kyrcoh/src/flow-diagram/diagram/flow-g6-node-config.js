@@ -131,6 +131,20 @@ const NODE_TAGNAME_CONFIG = new Map([
       }
     }
   }],
+  ["optional.skip", {
+    style: {
+      fill: "#aaf255",
+      stroke: "#61d800",
+      radius: 4,
+      width: 40,
+      height: 40,
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }],
   ["optional.finish", {
     style: {
       fill: "#aaf255",
@@ -147,6 +161,21 @@ const NODE_TAGNAME_CONFIG = new Map([
     style: {
       fill: "#df55f2",
       stroke: "#ba00e5"
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }],
+  ["repeat.loop", {
+    style: {
+      fill: "#df55f2",
+      stroke: "#ba00e5",
+      radius: 4,
+      width: 40,
+      height: 40,
+      
     },
     labelCfg: {
       style: {
