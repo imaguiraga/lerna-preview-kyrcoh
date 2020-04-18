@@ -79,7 +79,7 @@ class SequenceEltFlowToG6Visitor{
       id: tree.start.id,
       label: tree.start.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: type+'.start'
       }
     });
@@ -94,7 +94,7 @@ class SequenceEltFlowToG6Visitor{
           id: node.id,
           label: node.title,
           model: { 
-            resourceType : node.resourceType,  
+            resourceType: node.resourceType,  
             tagName: type+'.terminal'
           }
         };
@@ -111,7 +111,7 @@ class SequenceEltFlowToG6Visitor{
       id: tree.finish.id,
       label: tree.finish.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: type+'.finish'
       }
     });
@@ -167,7 +167,7 @@ class TerminalPipelineToG6Visitor{
       id: tree.id,
       label: tree.title,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: tree.tagName
       }
     };
@@ -210,7 +210,7 @@ class MutltiPathToG6Visitor{
       id: tree.start.id,
       label: tree.start.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: type+'.start'
       }
     });
@@ -226,7 +226,7 @@ class MutltiPathToG6Visitor{
           id: node.id,
           label: node.title,
           model: {
-            resourceType : node.resourceType,   
+            resourceType: node.resourceType,   
             tagName: type+'.terminal'
           }
         };
@@ -244,7 +244,7 @@ class MutltiPathToG6Visitor{
       id: tree.finish.id,
       label: tree.finish.id ,
       model: {
-        resourceType : tree.resourceType,   
+        resourceType: tree.resourceType,   
         tagName: type+'.finish'
       }
     });
