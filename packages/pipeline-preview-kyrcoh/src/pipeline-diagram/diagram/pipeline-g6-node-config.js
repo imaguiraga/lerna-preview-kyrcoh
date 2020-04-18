@@ -68,7 +68,7 @@ export const DEFAULT_EDGE = {
     };
  
     
-const NODE_TAGNAME_CONFIG = new Map([
+const NODE_CONFIG_MAP = new Map([
   // Job
   ["job.start", {
     style: {
@@ -185,14 +185,12 @@ const NODE_TAGNAME_CONFIG = new Map([
   }]
 ]);
 
-export const GET_NODE_CONFIG = function(node) {
+export const NODE_FN = function(node) {
   // Compute stroke and textColor
-  
-  if(NODE_TAGNAME_CONFIG.has(node.model.tagName)) {
-    // Compute label Width and Height
-    //let width = (node.label.length + 4) * 12;
-    return NODE_TAGNAME_CONFIG.get(node.model.tagName);
+  let result = {};
+  if(NODE_CONFIG_MAP.has(node.model.tagName)) {
+    result = NODE_CONFIG_MAP.get(node.model.tagName);
   }
 
-  return {};
+  return result;
 };

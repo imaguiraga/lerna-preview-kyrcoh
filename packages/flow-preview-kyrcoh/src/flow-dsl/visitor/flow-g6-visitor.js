@@ -95,7 +95,7 @@ class TerminalFlowEltFlowToG6Visitor{
       id: tree.id,
       label: tree.id ,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: 'terminal'
       }
     };
@@ -136,7 +136,7 @@ class SequenceEltFlowToG6Visitor{
       id: tree.start.id,
       label: tree.start.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: SEQUENCE+'.start'
       }
     });
@@ -151,7 +151,7 @@ class SequenceEltFlowToG6Visitor{
           id: node.id,
           label: node.id,
           model: { 
-            resourceType : node.resourceType,  
+            resourceType: node.resourceType,  
             tagName: SEQUENCE+'.terminal'
           }
         };
@@ -168,26 +168,38 @@ class SequenceEltFlowToG6Visitor{
       id: tree.finish.id,
       label: tree.finish.id ,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: SEQUENCE+'.finish'
       }
     });
     // edges
     g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[0].start.id
+        target: tree.elts[0].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: SEQUENCE
+        },
       });
 
     for (let i = 0; i < tree.elts.length - 1; i++) {
       g6data.edges.push({
         source: tree.elts[i].finish.id,
-        target: tree.elts[i + 1].start.id
+        target: tree.elts[i + 1].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: SEQUENCE
+        },
       });
     }
 
     g6data.edges.push({
       source: tree.elts[tree.elts.length - 1].finish.id,
-      target: tree.finish.id
+      target: tree.finish.id,
+      model: { 
+        resourceType: tree.resourceType,
+        tagName: SEQUENCE
+      },
     });
     // concatenate G6 graphs
 
@@ -229,7 +241,7 @@ class MutltiPathEltFlowToG6Visitor{
       id: tree.start.id,
       label: tree.start.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: type+'.start'
       }
     });
@@ -245,7 +257,7 @@ class MutltiPathEltFlowToG6Visitor{
           id: node.id,
           label: node.id,
           model: {
-            resourceType : node.resourceType,   
+            resourceType: node.resourceType,   
             tagName: type+'.terminal'
           }
         };
@@ -263,7 +275,7 @@ class MutltiPathEltFlowToG6Visitor{
       id: tree.finish.id,
       label: tree.finish.id ,
       model: {
-        resourceType : tree.resourceType,   
+        resourceType: tree.resourceType,   
         tagName: type+'.finish'
       }
     });
@@ -271,11 +283,19 @@ class MutltiPathEltFlowToG6Visitor{
     for (let i = 0; i < tree.elts.length; i++) {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[i].start.id
+        target: tree.elts[i].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: type
+        },
       });
       g6data.edges.push({
         source: tree.elts[i].finish.id,
-        target: tree.finish.id
+        target: tree.finish.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: type
+        },
       });
     }
     // concatenate G6 graphs
@@ -318,7 +338,7 @@ class OptionalEltFlowToG6Visitor{
       id: tree.start.id,
       label: tree.start.id ,
       model: {
-        resourceType : tree.resourceType,   
+        resourceType: tree.resourceType,   
         tagName: OPTIONAL+'.start'
       }
     });
@@ -328,7 +348,7 @@ class OptionalEltFlowToG6Visitor{
       g6data.nodes.push({
         id: tree.skip.id,
         model: {
-          resourceType : tree.resourceType,   
+          resourceType: tree.resourceType,   
           tagName: OPTIONAL+'.skip'
         }
       });
@@ -345,7 +365,7 @@ class OptionalEltFlowToG6Visitor{
           id: node.id,
           label: node.id ,
           model: { 
-            resourceType : node.resourceType,  
+            resourceType: node.resourceType,  
             tagName: OPTIONAL+'.terminal'
           }
         };
@@ -362,7 +382,7 @@ class OptionalEltFlowToG6Visitor{
       id: tree.finish.id,
       label: tree.finish.id ,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: OPTIONAL+'.finish'
       }
     });
@@ -371,11 +391,19 @@ class OptionalEltFlowToG6Visitor{
     if(tree.elts.length > 0) {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[0].start.id
+        target: tree.elts[0].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: OPTIONAL
+        },
       });
       g6data.edges.push({
         source: tree.elts[tree.elts.length-1].finish.id,
-        target: tree.finish.id
+        target: tree.finish.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: OPTIONAL
+        },
       });
     }
 
@@ -383,16 +411,28 @@ class OptionalEltFlowToG6Visitor{
     if(typeof(tree.skip) !== "undefined"){
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.skip.id
+        target: tree.skip.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: OPTIONAL
+        },
       });
       g6data.edges.push({
         source: tree.skip.id,
-        target: tree.finish.id
+        target: tree.finish.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: OPTIONAL
+        },
       });
     } else {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.finish.id
+        target: tree.finish.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: OPTIONAL
+        },
       });
     }
     // concatenate G6 graphs
@@ -434,7 +474,7 @@ class RepeatEltFlowToG6Visitor {
       id: tree.start.id,
       label: tree.start.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: REPEAT+'.start'
       }
     });
@@ -444,7 +484,7 @@ class RepeatEltFlowToG6Visitor {
       g6data.nodes.push({
         id: tree.loop.id,
         model: {
-          resourceType : tree.resourceType,   
+          resourceType: tree.resourceType,   
           tagName: REPEAT+'.loop'
         }
       });
@@ -460,7 +500,7 @@ class RepeatEltFlowToG6Visitor {
           id: node.id,
           label: node.id ,
           model: {
-            resourceType : node.resourceType,   
+            resourceType: node.resourceType,   
             tagName: REPEAT+'.terminal'
           }
         };
@@ -479,7 +519,7 @@ class RepeatEltFlowToG6Visitor {
       id: tree.finish.id,
       label: tree.finish.id,
       model: { 
-        resourceType : tree.resourceType,  
+        resourceType: tree.resourceType,  
         tagName: REPEAT+'.finish'
       }
     });
@@ -487,11 +527,19 @@ class RepeatEltFlowToG6Visitor {
     if(tree.elts.length > 0) {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[0].start.id
+        target: tree.elts[0].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: REPEAT
+        },
       });
       g6data.edges.push({
         source: tree.elts[tree.elts.length-1].finish.id,
-        target: tree.finish.id
+        target: tree.finish.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: REPEAT
+        },
       });
     }
 
@@ -506,7 +554,11 @@ class RepeatEltFlowToG6Visitor {
           endArrow: false,
           lineWidth: 2,
           stroke: "#555555"
-        }
+        },
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: REPEAT
+        },
       });
       g6data.edges.push({
         source: tree.loop.id,
@@ -516,12 +568,20 @@ class RepeatEltFlowToG6Visitor {
           endArrow: false,
           lineWidth: 2,
           stroke: "#555555"
-        }
+        },
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: REPEAT
+        },
       });
     } else {
       g6data.edges.push({
         source: tree.finish.id,
-        target: tree.start.id
+        target: tree.start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: REPEAT
+        },
       });
     }
     //*/

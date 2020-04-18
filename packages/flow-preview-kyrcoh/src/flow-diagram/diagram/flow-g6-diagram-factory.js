@@ -1,7 +1,8 @@
 import G6 from "@antv/g6";
 import {ICONFONTNODE_CONFIG} from "./iconfont-node-config.js";
 import { 
-  GET_NODE_CONFIG, 
+  NODE_FN, 
+  EDGE_FN,
   NODE_OPTIONS, 
   CUSTOM_NODE_TYPE,
   DEFAULT_NODE, 
@@ -55,9 +56,10 @@ export function createFlowDiagram(_container_,_width_,_height_){
     maxZoom: 20
   };
 
-// Override node default config based on nodde.tagName
+// Override node default config based on node.tagName
   const graph = new G6.Graph(graphOptions);
-  graph.node(GET_NODE_CONFIG);
+  graph.node(NODE_FN);
+  graph.edge(EDGE_FN);
 
   // Instantiate the Minimap plugin
   const minimap = new G6.Minimap();
