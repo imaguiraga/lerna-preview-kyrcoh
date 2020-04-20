@@ -1,11 +1,11 @@
-import "../styles.css";
+import "./style/styles.css";
 // using ES6 modules
 import Split from "split.js";
-import {samples} from "../samples.js";
-import {createEditor} from "../pipeline-editor";
+import {samples} from "./samples.js";
+import {createEditor} from "./pipeline-editor";
 
 import * as pipelineDSl from "../pipeline-dsl";
-import * as diagram from "../pipeline-diagram";
+import * as diagram from "./pipeline-diagram";
 
 const {parseDsl} = pipelineDSl;
 const DEBUG = true;
