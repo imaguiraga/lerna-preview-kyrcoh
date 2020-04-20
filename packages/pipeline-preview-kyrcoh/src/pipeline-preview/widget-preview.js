@@ -76,7 +76,7 @@ function createMainWidget(palette,commands){
         let pipeline = uidvisitor.visit(pipelines.get(key));
         let value = visitor.visit(pipeline);
         pipelines.set(key,value);
-        console.log(key)
+        console.log(key);
       }
       // Update graph pipelines
       g6graph.pipelines = pipelines;

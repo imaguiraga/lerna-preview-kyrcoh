@@ -17,4 +17,4 @@ let fromClause = function a() {
 let fromClause = function a() {
     return  choice("1", "2", selectClause, "4");
 };`
-]
+];
