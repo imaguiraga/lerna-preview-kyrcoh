@@ -20,13 +20,13 @@ import {
 
 import {
   createMenu, createBarWidget, createPalette
-} from '../widgets/menu-util';
+} from './widgets/menu-util';
 
-import { CodeMirrorWidget } from "../widgets/codemirror-widget";
-import { G6GraphWidget } from "../widgets/g6graph-widget";
+import { CodeMirrorWidget } from "./widgets/codemirror-widget";
+import { G6GraphWidget } from "./widgets/g6graph-widget";
 
-import '../style/index.css';
-import {samples} from "../samples.js";
+import './style/index.css';
+import {samples} from "./samples.js";
 
 import * as pipeline from "../pipeline-dsl";
 

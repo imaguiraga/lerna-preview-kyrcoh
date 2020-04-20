@@ -1,11 +1,11 @@
-import "../styles.css";
+import "./style/styles.css";
 // using ES6 modules
 import Split from "split.js";
-import {samples} from "../samples.js";
-import {createEditor} from "../flow-editor";
+import {samples} from "./samples.js";
+import {createEditor} from "./flow-editor";
 
 import * as flowDsl from "../flow-dsl";
-import * as diagram from "../flow-diagram";
+import * as diagram from "./flow-diagram";
 
 const {parseDsl} = flowDsl;
 const DEBUG = true;

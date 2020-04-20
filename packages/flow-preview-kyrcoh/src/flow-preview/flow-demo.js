@@ -1,5 +1,5 @@
 import * as flow from "../flow-dsl";
-import * as diagram from "../flow-diagram";
+import * as diagram from "./flow-diagram";
 const {
   repeat,
   sequence,
