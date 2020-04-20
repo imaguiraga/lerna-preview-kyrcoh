@@ -76,7 +76,7 @@ function createMainWidget(palette,commands){
         let flow = uidvisitor.visit(flows.get(key));
         let value = visitor.visit(flow);
         flows.set(key,value);
-        console.log(key)
+        console.log(key);
       }
       // Update graph flows
       g6graph.flows = flows;
