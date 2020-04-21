@@ -56,7 +56,7 @@ Split(["#one", "#two"], {
 const {
   FlowToG6Visitor,
   FlowUIDVisitor
-} = flowDsl;
+} = diagram;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
