@@ -56,7 +56,7 @@ Split(["#one", "#two"], {
 const {
   PipelineToG6Visitor,
   PipelineUIDVisitor
-} = pipelineDSl;
+} = diagram;
 
 const visitor = new PipelineToG6Visitor();
 const uidvisitor = new PipelineUIDVisitor();

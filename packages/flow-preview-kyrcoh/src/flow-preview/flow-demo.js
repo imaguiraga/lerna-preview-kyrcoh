@@ -1,15 +1,20 @@
-import * as flow from "../flow-dsl";
+import * as flowDsl from "../flow-dsl";
 import * as diagram from "./flow-diagram";
+
 const {
   repeat,
   sequence,
   optional,
   choice,
   zeroOrMore,
-  terminal,
+  terminal
+} = flowDsl;
+
+const {
   FlowToG6Visitor,
   FlowUIDVisitor
-} = flow;
+} = diagram;
+
 
 let selectClause = () => sequence(a, b, repeat(optional("c")), zeroOrMore("d"));
 let fromClause = () => choice("1", "2", selectClause, "4");
@@ -39,7 +44,7 @@ let func = new Function("module",`const {
   );
   return f;`);
 try {
-  testflow = func(flow);
+  testflow = func(flowDsl);
 }catch(e){
   console.error(e.name + ': ' + e.message);
 }

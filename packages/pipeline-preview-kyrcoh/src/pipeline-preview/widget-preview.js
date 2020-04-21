@@ -28,14 +28,17 @@ import { G6GraphWidget } from "./widgets/g6graph-widget";
 import './style/index.css';
 import {samples} from "./samples.js";
 
-import * as pipeline from "../pipeline-dsl";
+import * as pipelineDsl from "../pipeline-dsl";
+import * as diagram from "./pipeline-diagram";
+
+const {
+  parseDsl
+} = pipelineDsl;
 
 const {
   PipelineToG6Visitor,
-  PipelineUIDVisitor,
-  parseDsl
-} = pipeline;
-
+  PipelineUIDVisitor
+} = diagram;
 
 const visitor = new PipelineToG6Visitor();
 const uidvisitor = new PipelineUIDVisitor();
@@ -69,7 +72,7 @@ function createMainWidget(palette,commands){
     try {
       // Update preview
       let content = instance.getDoc().getValue();
-      let pipelines = parseDsl(content,pipeline);
+      let pipelines = parseDsl(content,pipelineDsl);
 
       // Convert pipelines to node data
       for (let key of pipelines.keys()) {

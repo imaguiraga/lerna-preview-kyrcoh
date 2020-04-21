@@ -28,14 +28,17 @@ import { G6GraphWidget } from "./widgets/g6graph-widget";
 import './style/index.css';
 import {samples} from "./samples.js";
 
-import * as flow from "../flow-dsl";
+import * as flowDsl from "../flow-dsl";
+import * as diagram from "./flow-diagram";
+
+const {
+  parseDsl
+} = flowDsl;
 
 const {
   FlowToG6Visitor,
-  FlowUIDVisitor,
-  parseDsl
-} = flow;
-
+  FlowUIDVisitor
+} = diagram;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
@@ -69,7 +72,7 @@ function createMainWidget(palette,commands){
     try {
       // Update preview
       let content = instance.getDoc().getValue();
-      let flows = parseDsl(content,flow);
+      let flows = parseDsl(content,flowDsl);
 
       // Convert flows to node data
       for (let key of flows.keys()) {
