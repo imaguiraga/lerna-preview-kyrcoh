@@ -552,8 +552,6 @@ class RepeatEltFlowToG6Visitor {
         style: {
           startArrow: true,
           endArrow: false,
-          lineWidth: 2,
-          stroke: "#555555"
         },
         model: { 
           resourceType: tree.resourceType,
@@ -566,8 +564,6 @@ class RepeatEltFlowToG6Visitor {
         style: {
           startArrow: true,
           endArrow: false,
-          lineWidth: 2,
-          stroke: "#555555"
         },
         model: { 
           resourceType: tree.resourceType,

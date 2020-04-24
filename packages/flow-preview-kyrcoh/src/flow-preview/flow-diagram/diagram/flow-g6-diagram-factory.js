@@ -1,5 +1,5 @@
 import G6 from "@antv/g6";
-import {ICONFONTNODE_CONFIG} from "./iconfont-node-config.js";
+
 import { 
   NODE_FN, 
   EDGE_FN,
@@ -8,6 +8,8 @@ import {
   DEFAULT_NODE, 
   DEFAULT_EDGE 
 } from "./flow-g6-node-config.js";
+
+import {ICONFONTNODE_CONFIG} from "./iconfont-node-config.js";
 
 G6.registerNode('iconfont',ICONFONTNODE_CONFIG);
 G6.registerNode(
