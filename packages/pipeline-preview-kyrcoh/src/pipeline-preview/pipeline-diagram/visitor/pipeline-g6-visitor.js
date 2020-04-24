@@ -39,16 +39,7 @@ export class PipelineToG6Visitor {
       break;
 
     }
-    this.updateWdith(result);
     return result;
-  }
-
-  updateWdith(result) {
-    if(result && result.nodes) {
-      result.nodes.forEach((n) => {
-        //n.size = (n.label.length + 2) * 8;
-      });
-    }
   }
 
 }
@@ -118,19 +109,31 @@ class SequenceEltFlowToG6Visitor{
     // edges
     g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[0].start.id
+        target: tree.elts[0].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: type
+        },
       });
 
     for (let i = 0; i < tree.elts.length - 1; i++) {
       g6data.edges.push({
         source: tree.elts[i].finish.id,
-        target: tree.elts[i + 1].start.id
+        target: tree.elts[i + 1].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: type
+        },
       });
     }
 
     g6data.edges.push({
       source: tree.elts[tree.elts.length - 1].finish.id,
-      target: tree.finish.id
+      target: tree.finish.id,
+      model: { 
+        resourceType: tree.resourceType,
+        tagName: type
+      },
     });
     // concatenate G6 graphs
 
@@ -252,11 +255,19 @@ class MutltiPathToG6Visitor{
     for (let i = 0; i < tree.elts.length; i++) {
       g6data.edges.push({
         source: tree.start.id,
-        target: tree.elts[i].start.id
+        target: tree.elts[i].start.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: type
+        },
       });
       g6data.edges.push({
         source: tree.elts[i].finish.id,
-        target: tree.finish.id
+        target: tree.finish.id,
+        model: { 
+          resourceType: tree.resourceType,
+          tagName: type
+        },
       });
     }
     // concatenate G6 graphs

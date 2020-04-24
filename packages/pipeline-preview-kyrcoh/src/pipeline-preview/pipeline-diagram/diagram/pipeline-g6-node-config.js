@@ -43,38 +43,50 @@ export const DEFAULT_NODE = {
           fontSize: 14,
         }
       },
-      
-      linkPoints: {
-        left: true,
-        right: true,
-        fill: "#fff",
-        stroke: "#1890FF",
-        size: 2
-      }
+
     };
     
 export const DEFAULT_EDGE = {
       //type: "curveline",
-      type: "polyline",
-      //type: "cubic-horizontal",      
+      //type: "polyline",
+      type: "cubic-horizontal",      
       style: {
         radius: 16,
         offset: 48,
         startArrow: false,
         endArrow: true,
-        lineWidth: 2,
-        stroke: "#666666"
+        lineWidth: 4,
+        stroke: "#555555"
       }
     };
- 
-    
+
+const START_ICON = '\uf192'; // dot-circle-o  
+const END_ICON = '\uf111'; // circle    
+const ICON_SIZE = 64;
+
+const STAGE_STYLE = {
+  fill: "#9E2B0E",
+  stroke: "#9E2B0E"
+};
+
+const JOB_STYLE = {
+  fill: "#1D7324",
+  stroke: "#1D7324"
+};
+
+const PIPELINE_STYLE = {
+  fill: "#5300e8",
+  stroke: "#5300e8"
+};
+
 const NODE_CONFIG_MAP = new Map([
   // Job
   ["job.start", {
-    style: {
-      fill: "#7e3ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: START_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: JOB_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -82,10 +94,11 @@ const NODE_CONFIG_MAP = new Map([
     }
   }],
   ["job.finish", {
-    style: {
-      fill: "#7e3ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: END_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: JOB_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -94,10 +107,11 @@ const NODE_CONFIG_MAP = new Map([
   }],
   // Stage
   ["stage.start", {
-    style: {
-      fill: "#774ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: START_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: STAGE_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -105,10 +119,11 @@ const NODE_CONFIG_MAP = new Map([
     }
   }],
   ["stage.finish", {
-    style: {
-      fill: "#774ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: END_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: STAGE_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -117,10 +132,11 @@ const NODE_CONFIG_MAP = new Map([
   }],
   // Sequence
   ["sequence.start", {
-    style: {
-      fill: "#7e3ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: START_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: PIPELINE_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -128,10 +144,11 @@ const NODE_CONFIG_MAP = new Map([
     }
   }],
   ["sequence.finish", {
-    style: {
-      fill: "#7e3ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: END_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: PIPELINE_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -140,10 +157,11 @@ const NODE_CONFIG_MAP = new Map([
   }],
   // Pipeline
   ["pipeline.start", {
-    style: {
-      fill: "#7e3ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: START_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: PIPELINE_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -151,10 +169,11 @@ const NODE_CONFIG_MAP = new Map([
     }
   }],
   ["pipeline.finish", {
-    style: {
-      fill: "#7e3ff2",
-      stroke: "#5300e8"
-    },
+    type: 'iconfont',
+    text: END_ICON,
+    size: ICON_SIZE,
+    label: "" ,
+    style: PIPELINE_STYLE,
     labelCfg: {
       style: {
         fill: "#FFFFFF"
@@ -185,12 +204,60 @@ const NODE_CONFIG_MAP = new Map([
   }]
 ]);
 
+const EDGE_CONFIG_MAP = new Map([
+  // Choice
+  ["stage", {
+    style: {
+      stroke: STAGE_STYLE.stroke
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }],
+
+  // Parallel
+  ["job", {
+    style: { 
+      stroke: JOB_STYLE.stroke
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }],
+
+  // Sequence
+  ["pipeline", {
+    style: {
+      stroke: PIPELINE_STYLE.stroke
+    },
+    labelCfg: {
+      style: {
+        fill: "#FFFFFF"
+      }
+    }
+  }]
+]);
+
 export const NODE_FN = function(node) {
   // Compute stroke and textColor
   let result = {};
-  if(NODE_CONFIG_MAP.has(node.model.tagName)) {
+  if(node.model && node.model.tagName && NODE_CONFIG_MAP.has(node.model.tagName)) {
     result = NODE_CONFIG_MAP.get(node.model.tagName);
   }
 
-  return result;
+  return result || {};
+};
+
+export const EDGE_FN = function(edge) {
+  let result = {};
+
+  // if source and target have the same resourcetype use the source stroke color
+  if(edge.model && edge.model.tagName && EDGE_CONFIG_MAP.has(edge.model.tagName)) {
+    result = EDGE_CONFIG_MAP.get(edge.model.tagName);
+  }
+  return result || {};
 };

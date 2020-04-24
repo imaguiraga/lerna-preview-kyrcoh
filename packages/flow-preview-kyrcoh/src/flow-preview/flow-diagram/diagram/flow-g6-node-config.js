@@ -40,10 +40,11 @@ export const DEFAULT_NODE = {
 export const DEFAULT_EDGE = {
       type: "polyline",
       style: {
-        radius: 10,
-        offset: 45,
+        radius: 16,
+        offset: 48,
+        startArrow: false,
         endArrow: true,
-        lineWidth: 2,
+        lineWidth: 4,
         stroke: "#555555"
       }
     };
@@ -56,27 +57,27 @@ const SKIP_ICON = '\uf096'; // square-o
 const ICON_SIZE = 40;
 
 const CHOICE_STYLE =  {
-  fill: "#7e3ff2",
-  stroke: "#5300e8"
+  fill: "#A82255",
+  stroke: "#A82255"
 };
 
 const PARALLEL_STYLE = {
-  fill: "#774ff2",
+  fill: "#5300e8",
   stroke: "#5300e8"
 };
 
 const SEQUENCE_STYLE = {
-  fill: "#7e3ff2",
+  fill: "#5300e8",
   stroke: "#5300e8"
 };
 
 const OPTIONAL_STYLE = {
-  fill: "#aaf255",
-  stroke: "#61d800"
+  fill: "#1D7324",
+  stroke: "#1D7324"
 };
 
 const REPEAT_STYLE = {
-  fill: "#df55f2",
+  fill: "#ba00e5",
   stroke: "#ba00e5"
 };
 
@@ -176,11 +177,7 @@ const NODE_CONFIG_MAP = new Map([
     text: SKIP_ICON, // square-o   
     size: ICON_SIZE,
     label: "",//"skip" ,
-    style: {
-      fill: "#000000",
-      //fill: "#aaf255",
-      //stroke: "#61d800",
-    },
+    style: OPTIONAL_STYLE,
     labelCfg: {
       style: {
         fill: "#000000"
@@ -218,11 +215,7 @@ const NODE_CONFIG_MAP = new Map([
     text: LOOP_ICON,// undo
     size: ICON_SIZE,
     label: "" ,//"loop"
-    style: {
-      fill: "#df55f2",
-      stroke: "none",
-    },
-    backgroundConfigx: REPEAT_STYLE,
+    style: REPEAT_STYLE,
     labelCfg: {
       style: {
         fill: "#ffffff"
@@ -308,19 +301,19 @@ const EDGE_CONFIG_MAP = new Map([
 export const NODE_FN = function(node) {
   // Compute stroke and textColor
   let result = {};
-  if(NODE_CONFIG_MAP.has(node.model.tagName)) {
+  if(node.model && node.model.tagName && NODE_CONFIG_MAP.has(node.model.tagName)) {
     result = NODE_CONFIG_MAP.get(node.model.tagName);
   }
 
-  return result;
+  return result || {};
 };
 
 export const EDGE_FN = function(edge) {
   let result = {};
 
   // if source and target have the same resourcetype use the source stroke color
-  if(EDGE_CONFIG_MAP.has(edge.model.tagName)) {
+  if(edge.model && edge.model.tagName && EDGE_CONFIG_MAP.has(edge.model.tagName)) {
     result = EDGE_CONFIG_MAP.get(edge.model.tagName);
   }
-  return result;
+  return result || {};
 };

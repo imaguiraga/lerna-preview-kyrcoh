@@ -1,6 +1,7 @@
 import G6 from "@antv/g6";
 import { 
   NODE_FN, 
+  EDGE_FN, 
   NODE_OPTIONS, 
   CUSTOM_NODE_TYPE,
   DEFAULT_NODE, 
@@ -12,7 +13,9 @@ import {
   CURVELINE
 } from  "./pipeline-custom-edge.js";
 
+import {ICONFONTNODE_CONFIG} from "./iconfont-node-config.js";
 
+G6.registerNode('iconfont',ICONFONTNODE_CONFIG);
 G6.registerEdge("customline", CUSTOMLINE);
 G6.registerEdge("curveline",CURVELINE );   
 
@@ -69,6 +72,7 @@ export function createPipelineDiagram(_container_,_width_,_height_){
 // Override node default config based on node.tagName
   const graph = new G6.Graph(graphOptions);
   graph.node(NODE_FN);
+  graph.edge(EDGE_FN);
 
   // Instantiate the Minimap plugin
   const minimap = new G6.Minimap();
