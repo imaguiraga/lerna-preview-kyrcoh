@@ -1,3 +1,5 @@
+import "../../style/font-awesome-4.7.0/css/font-awesome.css";
+
 const flowEltNodeOptions =    {
   drawShape(cfg, group) {
     let w = (cfg.style && cfg.style.width) || 120;
@@ -58,27 +60,32 @@ const ICON_SIZE = 40;
 
 const CHOICE_STYLE =  {
   fill: "#A82255",
-  stroke: "#A82255"
+  stroke: "#A82255",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const PARALLEL_STYLE = {
   fill: "#5300e8",
-  stroke: "#5300e8"
+  stroke: "#5300e8",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const SEQUENCE_STYLE = {
   fill: "#5300e8",
-  stroke: "#5300e8"
+  stroke: "#5300e8",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const OPTIONAL_STYLE = {
   fill: "#1D7324",
-  stroke: "#1D7324"
+  stroke: "#1D7324",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const REPEAT_STYLE = {
   fill: "#ba00e5",
-  stroke: "#ba00e5"
+  stroke: "#ba00e5",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const NODE_CONFIG_MAP = new Map([

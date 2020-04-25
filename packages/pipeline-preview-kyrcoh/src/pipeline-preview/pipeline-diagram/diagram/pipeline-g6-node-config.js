@@ -1,3 +1,5 @@
+import "../../style/font-awesome-4.7.0/css/font-awesome.css";
+
 const pipelineEltNodeOptions = {
   drawShape(cfg, group) {
     let w = (cfg.style && cfg.style.width) || 120;
@@ -47,7 +49,6 @@ export const DEFAULT_NODE = {
     };
     
 export const DEFAULT_EDGE = {
-      //type: "curveline",
       //type: "polyline",
       type: "cubic-horizontal",      
       style: {
@@ -66,17 +67,20 @@ const ICON_SIZE = 64;
 
 const STAGE_STYLE = {
   fill: "#9E2B0E",
-  stroke: "#9E2B0E"
+  stroke: "#9E2B0E",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const JOB_STYLE = {
   fill: "#1D7324",
-  stroke: "#1D7324"
+  stroke: "#1D7324",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const PIPELINE_STYLE = {
   fill: "#5300e8",
-  stroke: "#5300e8"
+  stroke: "#5300e8",
+  fontFamily: 'FontAwesome', // font-family: "iconfont";
 };
 
 const NODE_CONFIG_MAP = new Map([
