@@ -20,7 +20,6 @@
       attrs: {
         x: 0,
         y: 0,
-        fontFamily: 'FontAwesome', // font-family: "iconfont";
         textAlign: 'center',
         textBaseline: 'middle',
         text: cfg.text,
