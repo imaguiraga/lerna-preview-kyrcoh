@@ -21,14 +21,6 @@ const pipelineEltNodeOptions = {
 
     return rect;
   },
-
-  getAnchorPoints(cfg) {
-    return [
-      [1, 0.5], 
-      [0, 0.5]
-    ];// H
-      //anchorPoints: [[0.5, 1], [0.5,0]] // V
-  }
 };
 
 export const NODE_OPTIONS = pipelineEltNodeOptions;
@@ -53,7 +45,7 @@ export const DEFAULT_EDGE = {
       type: "cubic-horizontal",      
       style: {
         radius: 16,
-        offset: 48,
+        offset: 32,
         startArrow: false,
         endArrow: true,
         lineWidth: 4,

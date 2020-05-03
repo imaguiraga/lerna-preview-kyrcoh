@@ -30,3 +30,12 @@ export class TerminalFlowElt extends TerminalResource{
 export function terminal(elt) {
   return new TerminalFlowElt(elt);
 }
+
+/**
+ * Create a state dsl tree.
+ * @param {object} elt - The element.
+ * @return {object} flow dsl.
+ */
+export function state(elt) {
+  return new TerminalFlowElt(elt);
+}

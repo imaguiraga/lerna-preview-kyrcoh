@@ -15,12 +15,30 @@ import {
 
 import {ICONFONTNODE_CONFIG} from "./iconfont-node-config.js";
 
-G6.registerNode('iconfont',ICONFONTNODE_CONFIG);
+G6.registerNode('iconfont',
+  {
+    ...ICONFONTNODE_CONFIG,
+    getAnchorPoints(cfg) {
+      return [
+        [1, 0.5], 
+        [0, 0.5]
+      ];// H
+    },
+  });
 G6.registerEdge("customline", CUSTOMLINE);
-G6.registerEdge("curveline",CURVELINE );   
+G6.registerEdge("curveline",CURVELINE);   
 
 G6.registerNode(
-  CUSTOM_NODE_TYPE, NODE_OPTIONS, "single-node"
+  CUSTOM_NODE_TYPE, 
+  {
+    ...NODE_OPTIONS,
+    getAnchorPoints(cfg) {
+      return [
+        [1, 0.5], 
+        [0, 0.5]
+      ];// H
+    },
+  }, "single-node"
 );
 
 G6.Global.nodeStateStyle.selected = {
@@ -59,7 +77,15 @@ export function createPipelineDiagram(_container_,_width_,_height_){
       //rankdir: "TB", // V
       align:"UL"
     },
-    defaultNode: DEFAULT_NODE,
+    defaultNode: {
+      ...DEFAULT_NODE,
+      getAnchorPoints(cfg) {
+        return [
+          [1, 0.5], 
+          [0, 0.5]
+        ];// H
+      },
+    },
     defaultEdge: DEFAULT_EDGE,
     modes: {
       default: [

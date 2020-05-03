@@ -32,6 +32,7 @@ export class TerminalResource {
     self.finish = this;
     self.ctx = ctx;
     self.data = new Map();
+    self.link = null;
   }
   
   isTerminal(){
@@ -98,6 +99,11 @@ export class TerminalResource {
 
   get(key){
     return this.data.get(key);
+  }
+
+  link(_text){
+    this.link = _text;
+    return this;
   }
 }
 
