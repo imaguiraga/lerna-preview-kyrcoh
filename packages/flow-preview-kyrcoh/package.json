@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.html",
   "dependencies": {
-    "@antv/g6": "^3.4.4",
+    "@antv/g6": "^3.4.8",
     "@lumino/commands": "^1.10.1",
     "@lumino/default-theme": "^0.2.4",
     "@lumino/dragdrop": "^1.5.1",
@@ -29,13 +29,13 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/codemirror": "^0.0.87",
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "react-scripts": "3.4.0",
-    "typescript": "^3.8.2",
-    "@babel/core": "^7.0.0-0",
-    "@babel/preset-typescript": "^7.8.3"
+    "typescript": "^3.8.2"
   },
   "keywords": [
     "javascript",
