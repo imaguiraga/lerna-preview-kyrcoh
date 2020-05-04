@@ -1,5 +1,5 @@
 //G6.registerNode('iconfont',
- export const ICONFONTNODE_CONFIG = {
+ export const ICONFONT_NODE_OPTIONS = {
   draw(cfg, group) {
     const { backgroundConfig: backgroundStyle, style, labelCfg: labelStyle } = cfg;
     let w = (cfg.size) || 64;
@@ -15,7 +15,7 @@
         //lineWidth: 2
         ...backgroundStyle,
       },
-      name: "rect-shape"
+      name: "box-shape"
     });
 
     /*if (backgroundStyle) {
@@ -31,7 +31,7 @@
       });
     }//*/
 
-    const keyShape = group.addShape('text', {
+    group.addShape('text', {
       attrs: {
         x: 0,
         y: 0,
@@ -58,6 +58,6 @@
       // must be assigned in G6 3.3 and later versions. it can be any value you want
       name: 'text-shape2',
     });
-    return boxShape;//keyShape;
+    return boxShape;
   },
 };
