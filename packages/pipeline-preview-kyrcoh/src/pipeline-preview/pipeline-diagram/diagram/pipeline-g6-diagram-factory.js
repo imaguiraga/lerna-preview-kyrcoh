@@ -7,16 +7,26 @@ import {
 
 import {ICONFONT_NODE_OPTIONS} from "./iconfont-node-config.js";
 
+import { VanillaDagreLayoutOpts } from './layout/dagre-layout';
+G6.registerLayout('dagre', VanillaDagreLayoutOpts);
+
 // Register iconfont and override anchorpoints 
 G6.registerNode('iconfont',
   {
     ...ICONFONT_NODE_OPTIONS,
     getAnchorPoints(cfg) {
-      // Horizontal layout
-      return [
-        [1, 0.5], 
-        [0, 0.5]
-      ];// H
+      // Set Anchor points based on layout direction
+      if (cfg.rankdir && (cfg.rankdir === 'LR' || cfg.rankdir === 'RL')) {
+        return [
+          [1,0.5], 
+          [0,0.5]
+        ];
+      } else {
+        return [
+          [0.5,1], 
+          [0.5,0]
+        ];
+      }
     },
   }, 
   "single-node"
@@ -29,11 +39,18 @@ G6.registerNode(
   {
     ...PIPELINE_NODE_OPTIONS,
     getAnchorPoints(cfg) {
-      // Horizontal layout
-      return [
-        [1, 0.5], 
-        [0, 0.5]
-      ];// H
+      // Set Anchor points based on layout direction
+      if (cfg.rankdir && (cfg.rankdir === 'LR' || cfg.rankdir === 'RL')) {
+        return [
+          [1,0.5], 
+          [0,0.5]
+        ];
+      } else {
+        return [
+          [0.5,1], 
+          [0.5,0]
+        ];
+      }
     },
   }, 
   "single-node"
@@ -41,6 +58,7 @@ G6.registerNode(
 
 const DEFAULT_NODE = {
   type: PIPELINE_NODE_TYPE,
+  size: [120,60],
   style: {
     stroke:"#5B8FF9",
     fill: "#C6E5FF",
@@ -54,14 +72,14 @@ const DEFAULT_NODE = {
 };
 
 const DEFAULT_EDGE = {
-  //type: "polyline",
-  type: "cubic-horizontal",      
+  type: "polyline",
+  //type: "cubic-horizontal",      
   style: {
     radius: 8,
     offset: 24,
     startArrow: false,
     endArrow: true,
-    lineWidth: 4,
+    lineWidth: 3,
     stroke: "#555555"
   }
 };
@@ -91,17 +109,19 @@ export function createPipelineDiagram(_container_,_width_,_height_){
     height,
     layout: {
       type: "dagre",
-      nodesepFunc: (d) => {
-        return 64;
+      rankdir: "LR", 
+      nodesepFunc: (n) => {
+        return 10;
       },
-      ranksepFunc: (d) => {
-        return 64;
+      ranksepFunc: (n) => {
+        return 10;
       },
       controlPoints: true,
-      rankdir: "LR", // H
-      //rankdir: "TB", // V
-      //align:"UL"
+      nodesep: 80, 
+      ranksep: 80,
+      offset: 10,
     },
+
     defaultNode: DEFAULT_NODE,
     defaultEdge: DEFAULT_EDGE,
     modes: {

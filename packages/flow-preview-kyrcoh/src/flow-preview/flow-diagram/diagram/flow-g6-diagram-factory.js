@@ -7,10 +7,28 @@ import {
 } from "./flow-g6-node-config.js";
 
 import {ICONFONT_NODE_OPTIONS} from "./iconfont-node-config.js";
+import { VanillaDagreLayoutOpts } from './layout/dagre-layout';
+G6.registerLayout('dagre', VanillaDagreLayoutOpts);
 
 G6.registerNode(
   'iconfont',
-  ICONFONT_NODE_OPTIONS, 
+  {
+    ...ICONFONT_NODE_OPTIONS,
+    getAnchorPoints(cfg) {
+      // Set Anchor points based on layout direction
+      if (cfg.rankdir && (cfg.rankdir === 'LR' || cfg.rankdir === 'RL')) {
+        return [
+          [1,0.5], 
+          [0,0.5]
+        ];
+      } else {
+        return [
+          [0.5,1], 
+          [0.5,0]
+        ];
+      }
+    },
+  }, 
   "single-node"
 );
 
@@ -18,12 +36,29 @@ const FLOW_NODE_TYPE = "flow-elt";
 
 G6.registerNode(
   FLOW_NODE_TYPE, 
-  FLOW_NODE_OPTIONS, 
+  {
+    ...FLOW_NODE_OPTIONS,
+    getAnchorPoints(cfg) {
+      // Set Anchor points based on layout direction
+      if (cfg.rankdir && (cfg.rankdir === 'LR' || cfg.rankdir === 'RL')) {
+        return [
+          [1,0.5], 
+          [0,0.5]
+        ];
+      } else {
+        return [
+          [0.5,1], 
+          [0.5,0]
+        ];
+      }
+    },
+  }, 
   "single-node"
 );
 
 const DEFAULT_NODE = {
       type: FLOW_NODE_TYPE,
+      size: [120,60],
       style: {
         stroke:"#5B8FF9",
         fill: "#C6E5FF",
@@ -43,7 +78,7 @@ const DEFAULT_NODE = {
         offset: 48,
         startArrow: false,
         endArrow: true,
-        lineWidth: 4,
+        lineWidth: 3,
         stroke: "#555555"
       }
     };
@@ -72,13 +107,17 @@ export function createFlowDiagram(_container_,_width_,_height_){
     height,
     layout: {
       type: "dagre",
+      rankdir: "TB", 
       nodesepFunc: (n) => {
-        return 40;
+        return 10;
       },
       ranksepFunc: (n) => {
-        return 60;
+        return 10;
       },
-      controlPoints: true
+      controlPoints: true,
+      nodesep: 80, 
+      ranksep: 80,
+      offset: 10,
     },
     defaultNode: DEFAULT_NODE,
     defaultEdge: DEFAULT_EDGE,
