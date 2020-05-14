@@ -1,10 +1,26 @@
 //G6.registerNode('iconfont',
- export const ICONFONTNODE_CONFIG = {
+ export const ICONFONT_NODE_OPTIONS = {
   draw(cfg, group) {
     const { backgroundConfig: backgroundStyle, style, labelCfg: labelStyle } = cfg;
+    let size = cfg.size || 64;
+    let w = size;
+    let h = size;
+    const boxShape = group.addShape("rect", {
+      attrs: {
+        x: (-1 * w) / 2,
+        y: (-1 * h) / 2,
+        width: w,
+        height: h,
+        radius: 8,
+        //stroke: cfg.style.stroke || "#5B8FF9",
+        //lineWidth: 2
+        ...backgroundStyle,
+      },
+      name: "box-shape"
+    });
 
-    if (backgroundStyle) {
-      group.addShape('circle', {
+    /*if (backgroundStyle) {
+      const boxShape = group.addShape('circle', {
         attrs: {
           x: 0,
           y: 0,
@@ -14,16 +30,16 @@
         // must be assigned in G6 3.3 and later versions. it can be any value you want
         name: 'circle-shape',
       });
-    }
+    }//*/
 
-    const keyShape = group.addShape('text', {
+    group.addShape('text', {
       attrs: {
         x: 0,
         y: 0,
         textAlign: 'center',
         textBaseline: 'middle',
         text: cfg.text,
-        fontSize: cfg.size-8,
+        fontSize: size-8,
         ...style,
       },
       // must be assigned in G6 3.3 and later versions. it can be any value you want
@@ -43,6 +59,6 @@
       // must be assigned in G6 3.3 and later versions. it can be any value you want
       name: 'text-shape2',
     });
-    return keyShape;
-  }
+    return boxShape;
+  },
 };

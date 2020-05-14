@@ -1,6 +1,6 @@
 import "../../style/font-awesome-4.7.0/css/font-awesome.css";
 
-const flowEltNodeOptions =    {
+export const FLOW_NODE_OPTIONS = {
   drawShape(cfg, group) {
     let w = (cfg.style && cfg.style.width) || 120;
     let h = (cfg.style && cfg.style.height) || 60;
@@ -22,34 +22,6 @@ const flowEltNodeOptions =    {
     return rect;
   }
 };
-
-export const NODE_OPTIONS = flowEltNodeOptions;
-export const CUSTOM_NODE_TYPE = "flow-elt";
-export const DEFAULT_NODE = {
-      type: CUSTOM_NODE_TYPE,
-      style: {
-        stroke:"#5B8FF9",
-        fill: "#C6E5FF",
-        textColor: "#00287E"
-      },
-      labelCfg: {
-        style: {
-          fontSize: 12,
-        }
-      }
-    };
-
-export const DEFAULT_EDGE = {
-      type: "polyline",
-      style: {
-        radius: 16,
-        offset: 48,
-        startArrow: false,
-        endArrow: true,
-        lineWidth: 4,
-        stroke: "#555555"
-      }
-    };
 
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle
@@ -305,7 +277,7 @@ const EDGE_CONFIG_MAP = new Map([
   }]
 ]);
 
-export const NODE_FN = function(node) {
+export const FLOW_NODE_FN = function(node) {
   // Compute stroke and textColor
   let result = {};
   if(node.model && node.model.tagName && NODE_CONFIG_MAP.has(node.model.tagName)) {
@@ -315,7 +287,7 @@ export const NODE_FN = function(node) {
   return result || {};
 };
 
-export const EDGE_FN = function(edge) {
+export const FLOW_EDGE_FN = function(edge) {
   let result = {};
 
   // if source and target have the same resourcetype use the source stroke color
