@@ -1,8 +1,10 @@
 
 export const samples = [
-`let testpipeline = pipeline(
+`let v = job("e", "d");
+
+let testpipeline = pipeline(
   step("a"),
-  job("e", "d"),
+  job("e", "d","t"+"r","s","w"),
   stage(step("b"), step("c"),job("c","d")),
   job("c","d")
 );

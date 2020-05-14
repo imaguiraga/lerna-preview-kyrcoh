@@ -2,8 +2,9 @@
 export const ICONFONT_NODE_OPTIONS = {
   draw(cfg, group) {
     const { backgroundConfig: backgroundStyle, style, labelCfg: labelStyle } = cfg;
-    let w = (cfg.size) || 64;
-    let h = (cfg.size) || 64;
+    let size = cfg.size || 64;
+    let w = size;
+    let h = size;
     const boxShape = group.addShape("rect", {
       attrs: {
         x: (-1 * w) / 2,
@@ -38,7 +39,7 @@ export const ICONFONT_NODE_OPTIONS = {
         textAlign: 'center',
         textBaseline: 'middle',
         text: cfg.text,
-        fontSize: cfg.size-8,
+        fontSize: size-8,
         ...style,
       },
       // must be assigned in G6 3.3 and later versions. it can be any value you want

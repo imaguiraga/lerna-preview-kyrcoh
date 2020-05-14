@@ -7,18 +7,38 @@ import {
 
 import {ICONFONT_NODE_OPTIONS} from "./iconfont-node-config.js";
 
+// Register iconfont and override anchorpoints 
 G6.registerNode('iconfont',
   {
     ...ICONFONT_NODE_OPTIONS,
     getAnchorPoints(cfg) {
+      // Horizontal layout
       return [
         [1, 0.5], 
         [0, 0.5]
       ];// H
     },
-  });
+  }, 
+  "single-node"
+);
 
 const PIPELINE_NODE_TYPE = "pipeline-elt";
+
+G6.registerNode(
+  PIPELINE_NODE_TYPE, 
+  {
+    ...PIPELINE_NODE_OPTIONS,
+    getAnchorPoints(cfg) {
+      // Horizontal layout
+      return [
+        [1, 0.5], 
+        [0, 0.5]
+      ];// H
+    },
+  }, 
+  "single-node"
+);
+
 const DEFAULT_NODE = {
   type: PIPELINE_NODE_TYPE,
   style: {
@@ -45,19 +65,6 @@ const DEFAULT_EDGE = {
     stroke: "#555555"
   }
 };
-
-G6.registerNode(
-  PIPELINE_NODE_TYPE, 
-  {
-    ...PIPELINE_NODE_OPTIONS,
-    getAnchorPoints(cfg) {
-      return [
-        [1, 0.5], 
-        [0, 0.5]
-      ];// H
-    },
-  }, "single-node"
-);
 
 G6.Global.nodeStateStyle.selected = {
   stroke: "#d9d9d9",
@@ -90,10 +97,10 @@ export function createPipelineDiagram(_container_,_width_,_height_){
       ranksepFunc: (d) => {
         return 64;
       },
-      controlPoints: false,
+      controlPoints: true,
       rankdir: "LR", // H
       //rankdir: "TB", // V
-      align:"UL"
+      //align:"UL"
     },
     defaultNode: DEFAULT_NODE,
     defaultEdge: DEFAULT_EDGE,

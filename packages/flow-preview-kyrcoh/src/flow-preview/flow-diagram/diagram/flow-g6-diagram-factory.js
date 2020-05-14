@@ -10,10 +10,18 @@ import {ICONFONT_NODE_OPTIONS} from "./iconfont-node-config.js";
 
 G6.registerNode(
   'iconfont',
-  ICONFONT_NODE_OPTIONS
+  ICONFONT_NODE_OPTIONS, 
+  "single-node"
 );
 
 const FLOW_NODE_TYPE = "flow-elt";
+
+G6.registerNode(
+  FLOW_NODE_TYPE, 
+  FLOW_NODE_OPTIONS, 
+  "single-node"
+);
+
 const DEFAULT_NODE = {
       type: FLOW_NODE_TYPE,
       style: {
@@ -39,12 +47,6 @@ const DEFAULT_NODE = {
         stroke: "#555555"
       }
     };
-
-G6.registerNode(
-  FLOW_NODE_TYPE, 
-  FLOW_NODE_OPTIONS, 
-  "single-node"
-);
 
 G6.Global.nodeStateStyle.selected = {
   stroke: "#d9d9d9",

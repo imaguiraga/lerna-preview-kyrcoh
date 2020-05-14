@@ -3,7 +3,7 @@ import "../../style/font-awesome-4.7.0/css/font-awesome.css";
 export const PIPELINE_NODE_OPTIONS = {
   drawShape(cfg, group) {
     let w = (cfg.style && cfg.style.width) || 120;
-    let h = (cfg.style && cfg.style.height) || 60;
+    let h = (cfg.style && cfg.style.height) || 64;
 
     const rect = group.addShape("rect", {
       attrs: {
@@ -25,7 +25,7 @@ export const PIPELINE_NODE_OPTIONS = {
 
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle    
-const ICON_SIZE = 64;
+const ICON_SIZE = 48;
 
 const STAGE_STYLE = {
   fill: "#9E2B0E",
