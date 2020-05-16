@@ -8,6 +8,9 @@ import {
 
 import {ICONFONT_NODE_OPTIONS} from "./iconfont-node-config.js";
 import { VanillaDagreLayoutOpts } from './layout/dagre-layout';
+import { LineArrowOptions } from './line-arrow';
+
+G6.registerEdge('line-arrow',LineArrowOptions,'line');
 G6.registerLayout('dagre', VanillaDagreLayoutOpts);
 
 G6.registerNode(
