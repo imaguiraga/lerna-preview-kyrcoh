@@ -55,11 +55,13 @@ Split(["#one", "#two"], {
 
 const {
   FlowToG6Visitor,
-  FlowUIDVisitor
+  FlowUIDVisitor,
+  FlowToELKVisitor
 } = diagram;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
+const elkvisitor = new FlowToELKVisitor();
 
 const graph = diagram.createFlowDiagram("preview-pane");
 
@@ -90,6 +92,18 @@ function renderFlow(input){
     let flow = uidvisitor.visit(input);
     const data = visitor.visit(flow);
     graph.data(data!== null ? data : []);
+
+    const elkgraph = elkvisitor.visit(flow);
+    elkgraph.id = "root";
+    elkgraph.layoutOptions = { 'elk.algorithm': 'layered' };
+  
+    elkgraph.children.forEach((n) => {
+      n.width = 80;
+      n.height = 60;     
+    });
+
+    console.log(JSON.stringify(elkgraph));
+    console.log(elkgraph);
 
   } catch(e) {
     console.error(e.name + ': ' + e.message);

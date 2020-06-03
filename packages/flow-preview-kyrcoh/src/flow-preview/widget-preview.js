@@ -37,11 +37,13 @@ const {
 
 const {
   FlowToG6Visitor,
-  FlowUIDVisitor
+  FlowUIDVisitor,
+  FlowToELKVisitor
 } = diagram;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
+const elkvisitor = new FlowToELKVisitor();
 
 function main() {
   const commands = new CommandRegistry();
