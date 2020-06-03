@@ -102,7 +102,7 @@ function renderFlow(input){
       n.height = 60;     
     });
 
-    console.log(JSON.stringify(elkgraph));
+    console.log(JSON.stringify(elkgraph,null,"  "));
     console.log(elkgraph);
 
   } catch(e) {
