@@ -55,11 +55,13 @@ Split(["#one", "#two"], {
 
 const {
   FlowToG6Visitor,
-  FlowUIDVisitor
+  FlowUIDVisitor,
+  FlowToELKVisitor
 } = diagram;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
+const elkvisitor = new FlowToELKVisitor();
 
 const graph = diagram.createFlowDiagram("preview-pane");
 
@@ -90,6 +92,31 @@ function renderFlow(input){
     let flow = uidvisitor.visit(input);
     const data = visitor.visit(flow);
     graph.data(data!== null ? data : []);
+
+    const elkgraph = elkvisitor.visit(flow);
+    elkgraph.id = "root";
+    elkgraph.layoutOptions = {     
+      "elk.algorithm": "layered",
+      "nodePlacement.strategy": "BRANDES_KOEPF",
+      //"crossingMinimization.semiInteractive": false,
+      //"elk.spacing.componentComponent": 70,
+      //"portAlignment.default": "CENTER",
+      //"spacing.componentComponent":90,
+      //"org.eclipse.elk.edgeRouting": "POLYLINE",
+      "org.eclipse.elk.port.borderOffset":10,
+      "org.eclipse.elk.layered.mergeEdges":true,
+      "spacing": 40,
+      "spacing.nodeNodeBetweenLayers": 60,
+      "layering.strategy": "LONGEST_PATH" 
+    };
+      
+    elkgraph.children.forEach((n) => {
+      n.width = 80;
+      n.height = 60;     
+    });
+
+    console.log(JSON.stringify(elkgraph,null,"  "));
+    console.log(elkgraph);
 
   } catch(e) {
     console.error(e.name + ': ' + e.message);

@@ -37,11 +37,13 @@ const {
 
 const {
   PipelineToG6Visitor,
-  PipelineUIDVisitor
+  PipelineUIDVisitor,
+  PipelineToELKVisitor,
 } = diagram;
 
 const visitor = new PipelineToG6Visitor();
 const uidvisitor = new PipelineUIDVisitor();
+const elkvisitor = new PipelineToELKVisitor();
 
 function main() {
   const commands = new CommandRegistry();
