@@ -1,0 +1,60 @@
+{
+  "name": "elkgraph",
+  "version": "0.1.0",
+  "description": "A web page with a text editor for ELK Graph and a synchronized graphical view",
+  "license": "EPL-1.0",
+  "dependencies": {
+    "bootstrap": "^4.4.0",
+    "devbridge-autocomplete": "^1.4.10",
+    "elkjs-3": "npm:elkjs@0.3.0",
+    "elkjs-4": "npm:elkjs@0.4.1",
+    "elkjs-5": "npm:elkjs@0.5.1",
+    "elkjs-6": "npm:elkjs@0.6.2",
+    "elkjs-latest": "npm:elkjs@latest",
+    "elkjs-next": "npm:elkjs@next",
+    "jquery": "^3.4.0",
+    "json5": "^2.1.0",
+    "lz-string": "^1.4.4",
+    "monaco-editor-core": "^0.14.6",
+    "monaco-languageclient": "^0.9.0",
+    "reconnecting-websocket": "^4.1.10",
+    "showdown": "^1.9.1",
+    "sprotty": "^0.8.0",
+    "vscode-ws-jsonrpc": "^0.0.2-1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.38",
+    "@types/node": "10.14.4",
+    "copy-webpack-plugin": "^4.6.0",
+    "globby": "^7.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "node-fetch": "^2.6.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.3",
+    "source-map-loader": "^0.2.4",
+    "tsc-watch": "^2.1.2",
+    "typescript": "^3.4.3",
+    "uglify-loader": "^3.0.0",
+    "umd-compat-loader": "^2.1.1",
+    "webpack": "^3.12.0"
+  },
+  "resolutions": {
+    "**/**/kind-of": "^6.0.3",
+    "**/**/lodash": "^4.17.12",
+    "**/**/mem": "^4.0.0",
+    "**/**/minimist": "^1.2.3",
+    "**/**/serialize-javascript": "^2.1.1",
+    "**/**/set-value": "^3.0.2"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "clean": "rimraf lib app/bootstrap app/jquery app/sprotty app/vs app/*.bundle.js app/*.bundle.js.map elk-models app/elk-models",
+    "clone:elk-models": "git -C elk-models pull || git clone https://github.com/eclipse/elk-models.git elk-models",
+    "copy:examples": "mkdir -p lib/examples/content/ && cp -r elk-models/examples/* lib/examples/content/",
+    "copy:models": "cp --parents `find elk-models/* -type f \\( -iname \\*.json -o -iname \\*.elkt \\)` app/",
+    "clone-and-copy": "yarn clone:elk-models && yarn copy:examples && yarn copy:models",
+    "build": "yarn clean && yarn clone-and-copy && yarn compile && webpack --env.production",
+    "build:dev": "yarn compile && webpack",
+    "watch": "tsc-watch --onSuccess webpack"
+  }
+}
