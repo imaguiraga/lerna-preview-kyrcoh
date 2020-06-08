@@ -18,14 +18,17 @@ function viewport() {
 let width = viewport().width;
 let height = viewport().height;
 
-let zoom = d3.zoom().on("zoom", redraw); 
 let idfun = function(d) { return d.id; };    
 
 let svg = d3.select("body")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
-    .call(zoom)
+    .call(
+      d3.zoom().on("zoom", function () {
+        svg.attr("transform", d3.event.transform);
+      })
+    )
     .append("g");
 // define an arrow head
 svg.append("svg:defs")
@@ -61,7 +64,7 @@ let layouter = elkmodule.d3kgraph()
       .size([width, height])
       .transformGroup(root)
       .options(options);
-      
+
 var layoutGraph;
 // load the data and render the elements
 d3.json("flow.json").then( function(graph) {  
@@ -118,6 +121,3 @@ d3.json("flow.json").then( function(graph) {
   
 });
 
-function redraw() {
-  //svg.attr("transform", `translate(${d3.event.translate}) scale(${d3.event.scale})`);
-}

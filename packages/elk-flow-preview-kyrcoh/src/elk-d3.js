@@ -26,11 +26,9 @@ function d3_rebind(target, source, method) {
     return init("kgraph");
   };
   function init(type) {
-    var d3elk = {};
-    var dispatch = d3.dispatch("finish");
-    // containers
-    var nodes = [];
-    var links = [];
+    const d3elk = {};
+    const dispatch = d3.dispatch("finish");
+
     var graph = {}; // internal (hierarchical graph)
     var ports = function (n) {
       // by default the 'ports' field
@@ -46,13 +44,7 @@ function d3_rebind(target, source, method) {
     var defaultNodeSize = [10, 10];
     var defaultPortSize = [4, 4];
     var transformGroup;
-    // kgraph properties that shall be copied
-    var kgraphKeys = [
-      'x', 'y',
-      'width', 'height',
-      'sourcePoint', 'targetPoint',
-      'properties'
-    ].reduce(function (p, c) { p[c] = 1; return p; }, {});
+
     // a function applied after each layout run
     var applyLayout = function () { };
 
