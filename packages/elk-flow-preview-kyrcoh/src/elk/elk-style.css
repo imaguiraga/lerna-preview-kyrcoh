@@ -1,7 +1,10 @@
+@import "./elk-style-flow.css";
+@import "./elk-style-pipeline.css";
+
 g.leaf > rect {
   stroke: #fff;
   stroke-width: 1px;
-  opacity: .5;
+  opacity: 1;
 }
 
 g.compound > rect {
@@ -14,7 +17,7 @@ g.compound > rect {
 
 .link {
   stroke: #999;
-  stroke-opacity: .6;
+  stroke-opacity: 1;
   fill: none;
 }
 

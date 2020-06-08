@@ -1,0 +1,40 @@
+.flow {
+  stroke-width: 2px;
+}
+
+.flow.choice {
+  fill: #A82255;
+  stroke: #A82255;
+}
+
+.flow.parallel {
+  fill: #5300e8;
+  stroke: #5300e8;
+}
+
+.flow.sequence {
+  fill: #5300e8;
+  stroke: #5300e8;
+}
+
+.flow.optional {
+  fill: #1D7324;
+  stroke: #1D7324;
+}
+
+.flow.repeat {
+  fill: #ba00e5;
+  stroke: #ba00e5;
+}
+
+.finish,
+.start,
+.loop,
+.skip {
+  font-family: 'FontAwesome';
+}
+
+.flow.link {
+  fill: transparent;
+  stroke-width: 2px;
+}

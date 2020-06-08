@@ -49,9 +49,6 @@ function d3_rebind(target, source, method) {
     var applyLayout = function () { };
 
     // the layouter instance with web worker
-    const layouter1 = new ELK({
-      workerUrl: './elk-worker.min.js'
-    });
     const layouter = new ELK();
     /**
      * Setting the available area, the
@@ -127,81 +124,11 @@ function d3_rebind(target, source, method) {
        */
       var d3_kgraph_applyLayout = function (kgraph) {
         zoomToFit(kgraph);
-        var nodeMap = {};
-        // convert to absolute positions
-        //toAbsolutePositions(kgraph, { x: 0, y: 0 }, nodeMap);
-        //toAbsolutePositionsEdges(kgraph, nodeMap);
         // invoke the 'finish' event
         dispatch.call("finish",{ graph: kgraph },kgraph);
       };
-      var toAbsolutePositions = function (n, offset, nodeMap) {
-        n.x = (n.x || 0) + offset.x;
-        n.y = (n.y || 0) + offset.y;
-        nodeMap[n.id] = n;
-        // the offset for the children has to include padding
-        var childOffset = { x: n.x, y: n.y };
-        if (n.padding) {
-          childOffset.x += n.padding.left || 0;
-          childOffset.y += n.padding.top || 0;
-        }
-        // children
-        (n.children || []).forEach(function (c) {
-          c.parent = n;
-          toAbsolutePositions(c, childOffset, nodeMap);
-        });
-      };
-      var isDescendant = function (node, child) {
-        if(node !== undefined && child !== undefined){
-          var parent = child.parent;
-          while (parent) {
-            if (parent === node) {
-              return true;
-            }
-            parent = parent.parent;
-          }
-        }
-        return false;
-      };
-      var toAbsolutePositionsEdges = function (n, nodeMap) {
-        // edges
-        (n.edges || []).forEach(function (e) {
-          // transform edge coordinates to absolute coordinates. Note that
-          //  node coordinates are already absolute and that
-          //  edge coordinates are relative to the source node's parent node
-          //  (unless the target node is a descendant of the source node)
-          var srcNode = nodeMap[e.source];
-          var tgtNode = nodeMap[e.target];
-          var relative = isDescendant(srcNode, tgtNode) ?
-            srcNode : srcNode.parent;
-          var offset = { x: 0, y: 0 };
-          if (relative) {
-            offset.x = relative.x;
-            offset.y = relative.y;
-          }
-          if (relative.padding) {
-            offset.x += relative.padding.left || 0;
-            offset.y += relative.padding.top || 0;
-          }
-          // ... and apply it to the edge
-          if (e.sourcePoint) {
-            e.sourcePoint.x += offset.x || 0;
-            e.sourcePoint.y += offset.y || 0;
-          }
-          if (e.targetPoint) {
-            e.targetPoint.x += offset.x || 0;
-            e.targetPoint.y += offset.y || 0;
-          }
-          (e.bendPoints || []).forEach(function (bp) {
-            bp.x += offset.x;
-            bp.y += offset.y;
-          });
-        });
-        // children
-        (n.children || []).forEach(function (c) {
-          toAbsolutePositionsEdges(c, nodeMap);
-        });
-      };
-    };
+
+    }
 
     /**
      * If a top level transform group is specified,
