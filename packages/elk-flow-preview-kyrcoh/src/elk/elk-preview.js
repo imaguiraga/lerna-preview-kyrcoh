@@ -47,7 +47,7 @@ svg.append("svg:defs")
 let root = svg.append("g");
 
 // load the data and render the elements
-d3.json("flow.json").then( function(graph) {  
+d3.json("hierarchy.json").then( function(graph) {  
 
   let options = {
     "elk.algorithm": "layered",
@@ -101,7 +101,8 @@ function renderd3Layoutv2(svg,node){
           path += "L" + d.endPoint.x + " " + d.endPoint.y + " ";
         }
         return path;
-      }).call(function(selection) { 
+      });
+      linkEnter.call(function(selection) { 
         let d = selection.datum();
         // extract class names from tagName
         if(d.model && d.model.tagName){
