@@ -104,17 +104,7 @@ function d3_rebind(target, source, method) {
 
       d3elk.kgraph = function (root) {
         applyLayout = d3_kgraph_applyLayout;
-        const options = {
-          "elk.algorithm": "layered",
-          "nodePlacement.strategy": "BRANDES_KOEPF",
-          "org.eclipse.elk.port.borderOffset":10,
-          "org.eclipse.elk.layered.mergeEdges":true,
-          "spacing": 40,
-          "spacing.nodeNodeBetweenLayers": 40,
-          "spacing.edgeNodeBetweenLayers": 40,
-          "spacing.edgeEdgeBetweenLayers": 40,
-          "layering.strategy": "LONGEST_PATH"
-        };
+
         // start the layouter
         layouter.layout(root, {
           layoutOptions: options,
@@ -164,7 +154,7 @@ function d3_rebind(target, source, method) {
         if(node !== undefined && child !== undefined){
           var parent = child.parent;
           while (parent) {
-            if (parent == node) {
+            if (parent === node) {
               return true;
             }
             parent = parent.parent;
@@ -173,7 +163,7 @@ function d3_rebind(target, source, method) {
         return false;
       };
       var toAbsolutePositionsEdges = function (n, nodeMap) {
-      }
+      };
       //@TODO
       var toAbsolutePositionsEdgesbak = function (n, nodeMap) {
         // edges
