@@ -147,7 +147,7 @@ function renderd3Layoutv2(svg,node){
         if(n.children){
           renderd3Layoutv2(d3.select(this),n);
         }
-        console.log(n);
+        //console.log(n);
       });    
     }
 }
