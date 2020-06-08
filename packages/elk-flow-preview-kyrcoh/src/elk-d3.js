@@ -129,8 +129,8 @@ function d3_rebind(target, source, method) {
         zoomToFit(kgraph);
         var nodeMap = {};
         // convert to absolute positions
-        toAbsolutePositions(kgraph, { x: 0, y: 0 }, nodeMap);
-        toAbsolutePositionsEdges(kgraph, nodeMap);
+        //toAbsolutePositions(kgraph, { x: 0, y: 0 }, nodeMap);
+        //toAbsolutePositionsEdges(kgraph, nodeMap);
         // invoke the 'finish' event
         dispatch.call("finish",{ graph: kgraph },kgraph);
       };
@@ -163,9 +163,6 @@ function d3_rebind(target, source, method) {
         return false;
       };
       var toAbsolutePositionsEdges = function (n, nodeMap) {
-      };
-      //@TODO
-      var toAbsolutePositionsEdgesbak = function (n, nodeMap) {
         // edges
         (n.edges || []).forEach(function (e) {
           // transform edge coordinates to absolute coordinates. Note that

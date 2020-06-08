@@ -47,9 +47,9 @@ svg.append("svg:defs")
 let root = svg.append("g");
 
 // load the data and render the elements
-d3.json("pipeline.json").then( function(graph) {  
+d3.json("hierarchy.json").then( function(graph) {  
 
-  const options = {
+  let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
     "org.eclipse.elk.port.borderOffset":10,
@@ -60,6 +60,8 @@ d3.json("pipeline.json").then( function(graph) {
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH"
   };
+
+  options = {"org.eclipse.elk.edgeRouting": "ORTHOGONAL"};
   
   
   let layouter = elkmodule.d3kgraph()
@@ -67,8 +69,8 @@ d3.json("pipeline.json").then( function(graph) {
     .transformGroup(root)
     .options(options);
 
-    layouter.on("finish", function(d) {
-      renderd3Layout(layouter);
+    layouter.on("finish", function(node) {
+      renderd3Layoutv2(root,node);
     });
   
     // start an initial layout
@@ -76,47 +78,58 @@ d3.json("pipeline.json").then( function(graph) {
   
 });
 
-function renderd3Layout(layouter){
-  var nodes = layouter.nodes();
-  var links = layouter.links(nodes);
+function renderd3Layoutv2(svg,node){
+  // Get current children nodes and links
+  var nodes = node.children;
+  var links = node.edges;
 
-  var linkData = root.selectAll(".link")
-    .data(links, idfun);
+  if(links){
+    var linkData = svg.selectAll(".link")
+      .data(links, idfun);
 
-  var linkEnter = linkData.enter()
-    .append("path")
-    .attr("class", "link")
-    .attr("marker-end", "url(#end)").attr("d", function(e) {
-      var path = "";
-      var d = e.sections[0];
-      if (d.startPoint && d.endPoint) {
-        path += "M" + d.startPoint.x + " " + d.startPoint.y + " ";
-          (d.bendPoints || []).forEach(function(bp, i) {
-            path += "L" + bp.x + " " + bp.y + " ";
-          });
-        path += "L" + d.endPoint.x + " " + d.endPoint.y + " ";
-      }
-      return path;
-    });
-
-  var nodeData = root.selectAll(".node")
-      .data(nodes, idfun);
-  
-  var nodeEnter = nodeData.enter()
-      .append("g")
-      .attr("class", function(d) { 
-        if (d.children) return "node compound"; else return "node leaf"; 
-      })
-  .attr("transform", function(d) { return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")"});
+    var linkEnter = linkData.enter()
+      .append("path")
+      .attr("class", "link")
+      .attr("marker-end", "url(#end)").attr("d", function(e) {
+        var path = "";
+        var d = e.sections[0];
+        if (d.startPoint && d.endPoint) {
+          path += "M" + d.startPoint.x + " " + d.startPoint.y + " ";
+            (d.bendPoints || []).forEach(function(bp, i) {
+              path += "L" + bp.x + " " + bp.y + " ";
+            });
+          path += "L" + d.endPoint.x + " " + d.endPoint.y + " ";
+        }
+        return path;
+      });
+    }
+    if(nodes){
+      var nodeData = svg.selectAll(".node")
+          .data(nodes, idfun);
       
-  var atoms = nodeEnter.append("rect")
-      .attr("width", 10)
-      .attr("height", 10)
-      .attr("x", 0)
-      .attr("y", 0)
-  .attr("width", function(d) { return d.width; })
-    .attr("height", function(d) { return d.height; });
+      var nodeEnter = nodeData.enter()
+          .append("g")
+          .attr("class", function(d) { 
+            if (d.children) return "node compound"; else return "node leaf"; 
+          })
+      .attr("transform", function(d) { return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")"});
+          
+      var atoms = nodeEnter.append("rect")
+          .attr("width", 10)
+          .attr("height", 10)
+          .attr("x", 0)
+          .attr("y", 0)
+      .attr("width", function(d) { return d.width; })
+        .attr("height", function(d) { return d.height; });
 
-  nodeEnter.append("title")
-      .text(function(d) { return d.id; });  
+      nodeEnter.append("title")
+          .text(function(d) { return d.id; });  
+      nodeEnter.each(function(n,i){
+        // If node has children make a recursive call
+        if(n.children){
+          renderd3Layoutv2(d3.select(this),n);
+        }
+        console.log(n);
+      });    
+    }
 }
