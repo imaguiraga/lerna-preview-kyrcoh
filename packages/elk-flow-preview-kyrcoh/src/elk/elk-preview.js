@@ -34,16 +34,16 @@ let svg = d3.select("body")
 let defs = svg.append("defs");
 defs.append("marker")
   .attr("id", "end")
-  .attr("viewBox", "0 -10 20 20")
-  .attr("refX", 20)
-  .attr("refY", 0)
+  .attr("viewBox", "0 0 10 10")
+  .attr("refX", 5)
+  .attr("refY", 5)
   .attr("markerWidth", 4)        // marker settings
-  .attr("markerHeight", 10)
+  .attr("markerHeight", 4)
   .attr("orient", "auto")
   .style("fill", "black")
   .style("stroke-opacity", 1)  // arrowhead color
   .append("path")
-    .attr("d", "M0,-10L20,0L0,10Z");
+    .attr("d", "M 0 0 L 10 5 L 0 10 z");
 
 defs.append("circle")
 .attr("id", "start")
@@ -54,6 +54,23 @@ defs.append("circle")
   .attr("cx", 0)
   .attr("cy", 0)
   .attr("r", 4);
+//*/
+  
+defs.append("symbol")
+.attr("id", "s-start")
+  .attr("viewBox", "0 0 16 16")
+  .style("fill", "transparent")
+  .style("stroke", "inherit")
+  .attr("width", 16)
+  .attr("height", 16)
+  .append("circle")
+    .style("fill", "transparent")
+    .style("stroke", "inherit")
+    .style("stroke-width", "2px")
+    .attr("cx", 8)
+    .attr("cy", 8)
+    .attr("r", 4);
+    //*/
 
 defs.append("rect")
   .attr("id", "finish")
@@ -187,8 +204,11 @@ function renderd3Layoutv2(svg,node){
           .style("fill", "inehrit")
           .style("stroke", "inehrit")
           .attr("xlink:href", "#"+suffix)
+          //.attr("x", function(d) { return 16; })
+          //.attr("y", function(d) { return 16; })
           .attr("x", function(d) { return d.width/2; })
-          .attr("y", function(d) { return d.height/2; });
+          .attr("y", function(d) { return d.height/2; })
+          ;
 
       } else {                
         var leaf = nodeEnter.append("rect")
