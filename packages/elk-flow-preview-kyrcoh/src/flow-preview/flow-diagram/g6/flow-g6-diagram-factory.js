@@ -6,7 +6,7 @@ import {
   FLOW_EDGE_FN
 } from "./flow-g6-node-config.js";
 
-import {ICONFONT_NODE_OPTIONS} from "./iconfont-node-config.js";
+import { ICONFONT_NODE_OPTIONS } from "./iconfont-node-config.js";
 import { VanillaDagreLayoutOpts } from './layout/dagre-layout';
 import { LineArrowOptions } from './line-arrow';
 
