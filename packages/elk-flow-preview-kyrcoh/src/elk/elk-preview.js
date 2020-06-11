@@ -46,42 +46,52 @@ defs.append("marker")
     .attr("d", "M 0 0 L 10 5 L 0 10 z");
 
 defs.append("circle")
-.attr("id", "start")
-  //.attr("viewBox", "0 -10 20 20")
+  .attr("id", "start")
+  .attr("viewBox", "0 0 24 24")
+  //.attr("width", 24)
+  //.attr("height", 24)
   .style("fill", "transparent")
   .style("stroke", "inherit")
   .style("stroke-width", "2px")
-  .attr("cx", 0)
-  .attr("cy", 0)
-  .attr("r", 4);
-//*/
-  
-defs.append("symbol")
-.attr("id", "s-start")
-  .attr("viewBox", "0 0 16 16")
-  .style("fill", "transparent")
-  .style("stroke", "inherit")
-  .attr("width", 16)
-  .attr("height", 16)
-  .append("circle")
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
+  .attr("cx", 12)
+  .attr("cy", 12)
+  .attr("r", 8);
+
+defs.append("circle")
+    .attr("id", "finish")
+    .attr("viewBox", "0 0 24 24")
+    //.attr("width", 24)
+    //.attr("height", 24)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
     .style("stroke-width", "2px")
-    .attr("cx", 8)
-    .attr("cy", 8)
-    .attr("r", 4);
-    //*/
+    .attr("cx", 12)
+    .attr("cy", 12)
+    .attr("r", 8);
+     
+//*/
+defs.append("rect")
+    .attr("id", "start1")
+    .attr("viewBox", "0 0 24 24")
+    .style("fill", "transparent")
+    .style("stroke", "inehrit")
+    .style("stroke-width", "2px")
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
 
 defs.append("rect")
-  .attr("id", "finish")
-    .attr("viewBox", "0 0 16 16")
+    .attr("id", "finish1")
+    .attr("viewBox", "0 0 24 24")
     .style("fill", "inehrit")
     .style("stroke", "transparent")
-    .style("stroke-width", "0")
-    .attr("width", 16)
-    .attr("height", 16)
-    .attr("x", 0)
-    .attr("y", 0)
+    .style("stroke-width", "2px")
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("x", 2)
+    .attr("y", 2)
     .attr("rx", 2);
   // group shizzle  
 // group shizzle
@@ -206,10 +216,10 @@ function renderd3Layoutv2(svg,node){
               let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
               let tmp = tagName.split(" ");
               let suffix = tmp[tmp.length-1];
-              return "#"+suffix;
+              return "#"+suffix+"1";
             } )
-            .attr("x", function(d) { return d.width/2; })
-            .attr("y", function(d) { return d.height/2; })
+            .attr("x", function(d) { return 0; })
+            .attr("y", function(d) { return 0; })
             .attr("width", function(d) { return d.width; })
             .attr("height", function(d) { return d.height; });
 

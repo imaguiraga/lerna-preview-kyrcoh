@@ -7,8 +7,8 @@
         "resourceType": "flow",
         "tagName": "choice.start"
       },
-      "width": 80,
-      "height": 60,"port":1
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.0:terminal",
@@ -27,8 +27,8 @@
         "resourceType": "flow",
         "tagName": "choice.finish"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.1:choice.start",
@@ -37,8 +37,8 @@
         "resourceType": "flow",
         "tagName": "choice.start"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.1.0:terminal",
@@ -67,8 +67,8 @@
         "resourceType": "flow",
         "tagName": "choice.finish"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.2:sequence.start",
@@ -77,8 +77,8 @@
         "resourceType": "flow",
         "tagName": "sequence.start"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.2.0:terminal",
@@ -107,8 +107,8 @@
         "resourceType": "flow",
         "tagName": "sequence.finish"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.2.2:sequence.start",
@@ -117,8 +117,8 @@
         "resourceType": "flow",
         "tagName": "sequence.start"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.2.2.0:terminal",
@@ -147,8 +147,8 @@
         "resourceType": "flow",
         "tagName": "sequence.finish"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.3:sequence.start",
@@ -157,8 +157,8 @@
         "resourceType": "flow",
         "tagName": "sequence.start"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     },
     {
       "id": "UID.3.0:terminal",
@@ -187,8 +187,8 @@
         "resourceType": "flow",
         "tagName": "sequence.finish"
       },
-      "width": 80,
-      "height": 60
+      "width": 24,
+      "height": 24
     }
   ],
   "edges": [
