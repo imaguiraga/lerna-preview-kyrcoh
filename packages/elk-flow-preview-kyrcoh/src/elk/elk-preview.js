@@ -109,7 +109,7 @@ const ICONMAP = new Map([
 ]);
 // load the data and render the elements
 //d3.json("hierarchy.json").then( function(graph) {  
-d3.json("flow.json").then( function(graph) {  
+d3.json("pipeline.json").then( function(graph) {  
   let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
@@ -167,7 +167,6 @@ function renderd3Layoutv2(svg,node){
       // Sytle edge
       linkEnter.call(function(selection) { 
         let d = selection.datum();
-        console.log("link "+d.model.tagName);
         // extract class names from tagName
         if(d.model && d.model.tagName){
           selection.attr("class", function(d) { 
@@ -176,7 +175,7 @@ function renderd3Layoutv2(svg,node){
         }       
       });
     }
-// Add nodees
+// Add nodes
     if(nodes){
       var nodeData = svg.selectAll(".node").data(nodes, idfun);
       
