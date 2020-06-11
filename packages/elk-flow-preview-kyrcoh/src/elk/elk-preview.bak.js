@@ -14,9 +14,9 @@ function viewport() {
     height: e[a + 'Height']
   };
 }
-
-let width = viewport().width-20;
-let height = viewport().height-20;
+//debugger;
+let width = viewport().width;
+let height = viewport().height;
 
 let idfun = function(d) { return d.id; };    
 
@@ -25,81 +25,30 @@ const zoomFn = d3.zoom().on("zoom", function () {
 });
 let svg = d3.select("body")
     .append("svg")
-    .attr("xmlns:xlink","http://www.w3.org/1999/xlink")
     .attr("width", width)
     .attr("height", height)
     .call(zoomFn)
     .append("g");
 // define an arrow head
-let defs = svg.append("defs");
-defs.append("marker")
-  .attr("id", "end")
-  .attr("viewBox", "0 0 10 10")
-  .attr("refX", 5)
-  .attr("refY", 5)
-  .attr("markerWidth", 4)        // marker settings
-  .attr("markerHeight", 4)
-  .attr("orient", "auto")
-  .style("fill", "black")
-  .style("stroke-opacity", 1)  // arrowhead color
-  .append("path")
-    .attr("d", "M 0 0 L 10 5 L 0 10 z");
-
-defs.append("circle")
-.attr("id", "start")
-  //.attr("viewBox", "0 -10 20 20")
-  .style("fill", "transparent")
-  .style("stroke", "inherit")
-  .style("stroke-width", "2px")
-  .attr("cx", 0)
-  .attr("cy", 0)
-  .attr("r", 4);
-//*/
-  
-defs.append("symbol")
-.attr("id", "s-start")
-  .attr("viewBox", "0 0 16 16")
-  .style("fill", "transparent")
-  .style("stroke", "inherit")
-  .attr("width", 16)
-  .attr("height", 16)
-  .append("circle")
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("cx", 8)
-    .attr("cy", 8)
-    .attr("r", 4);
-    //*/
-
-defs.append("rect")
-  .attr("id", "finish")
-    .attr("viewBox", "0 0 16 16")
-    .style("fill", "inehrit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "0")
-    .attr("width", 16)
-    .attr("height", 16)
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("rx", 2);
-  // group shizzle  
+svg.append("svg:defs")
+     .append("svg:marker")
+      .attr("id", "end")
+      .attr("viewBox", "0 -10 20 20")
+      .attr("refX", 20)
+      .attr("refY", 0)
+      .attr("markerWidth", 4)        // marker settings
+      .attr("markerHeight", 10)
+      .attr("orient", "auto")
+      .style("fill", "black")
+      .style("stroke-opacity", 1)  // arrowhead color
+     .append("svg:path")
+      .attr("d", "M0,-10L20,0L0,10");
 // group shizzle
 let root = svg.append("g");
 
-const START_ICON = '\uf192'; // dot-circle-o  
-const END_ICON = '\uf111'; // circle
-const LOOP_ICON = '\uf0e2';// undo
-const SKIP_ICON = '\uf096'; // square-o 
-const ICONMAP = new Map([
-  ["start",START_ICON],
-  ["finish",END_ICON],
-  ["loop",LOOP_ICON],
-  ["skip",SKIP_ICON]
-]);
 // load the data and render the elements
-//d3.json("hierarchy.json").then( function(graph) {  
 d3.json("flow.json").then( function(graph) {  
+
   let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
@@ -134,15 +83,14 @@ function renderd3Layoutv2(svg,node){
   var nodes = node.children;
   var links = node.edges;
 
-// Add edges
   if(links){
-    var linkData = svg.selectAll(".link").data(links, idfun);
+    var linkData = svg.selectAll(".link")
+      .data(links, idfun);
 
     var linkEnter = linkData.enter()
       .append("path")
       .attr("class", "link")
-      .attr("marker-end", "url(#end)")
-      .attr("d", function(e) {
+      .attr("marker-end", "url(#end)").attr("d", function(e) {
         var path = "";
         var d = e.sections[0];
         if (d.startPoint && d.endPoint) {
@@ -153,11 +101,8 @@ function renderd3Layoutv2(svg,node){
           path += "L" + d.endPoint.x + " " + d.endPoint.y + " ";
         }
         return path;
-      });
-      // Sytle edge
-      linkEnter.call(function(selection) { 
+      }).call(function(selection) { 
         let d = selection.datum();
-        console.log("link "+d.model.tagName);
         // extract class names from tagName
         if(d.model && d.model.tagName){
           selection.attr("class", function(d) { 
@@ -166,9 +111,10 @@ function renderd3Layoutv2(svg,node){
         }       
       });
     }
-// Add nodees
+
     if(nodes){
-      var nodeData = svg.selectAll(".node").data(nodes, idfun);
+      var nodeData = svg.selectAll(".node")
+          .data(nodes, idfun);
       
       var nodeEnter = nodeData.enter()
         .append("g")
@@ -186,7 +132,7 @@ function renderd3Layoutv2(svg,node){
         .attr("transform", function(d) { 
           return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
         });
-          /*
+          
       var atoms = nodeEnter.append("rect")
         .style("fill", "inehrit")
         .style("stroke", "inehrit")
@@ -195,43 +141,19 @@ function renderd3Layoutv2(svg,node){
         .attr("rx", 8)
         .attr("width", function(d) { return d.width; })
         .attr("height", function(d) { return d.height; });
-          //*/
-          let iconRegex = new RegExp("start|finish|loop|skip");
-          nodeEnter.filter((data) => {
-              return (data && data.model && iconRegex.test(data.model.tagName));
-          }).append("use")
-            .style("fill", "inehrit")
-            .style("stroke", "inehrit")
-            .attr("xlink:href",(data) =>{
-              let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
-              let tmp = tagName.split(" ");
-              let suffix = tmp[tmp.length-1];
-              return "#"+suffix;
-            } )
-            .attr("x", function(d) { return d.width/2; })
-            .attr("y", function(d) { return d.height/2; })
-            .attr("width", function(d) { return d.width; })
-            .attr("height", function(d) { return d.height; });
-
-            //sel.append(icon);
-  
-          nodeEnter.filter((data) => {
-            return !(data && data.model && iconRegex.test(data.model.tagName));
-          }).append("rect")
-            .style("fill", "inehrit")
-            .style("stroke", "inehrit")
-            .attr("x", 4)
-            .attr("y", 4)
-            .attr("width", function(d) { return d.width-4; })
-            .attr("height", function(d) { return d.height-4; })
-            .attr("rx", 8);
-
-        //*/
-      // if node has an icon
-  
+        /*
+      atoms.call(function(selection) { 
+          let d = selection.datum();
+          // extract class names from tagName
+          if(d.model && d.model.tagName){
+            selection.attr("class", function(d) { 
+              return d.model.resourceType+" "+d.model.tagName.replace(/\./gi," ");
+            });
+          }       
+        });
+      //*/
       nodeEnter.append("title")
           .text(function(d) { return d.id; });  
-
       nodeEnter.each(function(n,i){
         // If node has children make a recursive call
         if(n.children){

@@ -74,15 +74,15 @@ defs.append("symbol")
 
 defs.append("rect")
   .attr("id", "finish")
-    .attr("viewBox", "0 0 16 16")
+    //.attr("viewBox", "0 -10 20 20")
     .style("fill", "inehrit")
     .style("stroke", "transparent")
     .style("stroke-width", "0")
-    .attr("width", 16)
-    .attr("height", 16)
     .attr("x", 0)
     .attr("y", 0)
-    .attr("rx", 2);
+    .attr("width", 8)
+    .attr("height", 8)
+    .attr("radius", 2);
   // group shizzle  
 // group shizzle
 let root = svg.append("g");
@@ -196,18 +196,21 @@ function renderd3Layoutv2(svg,node){
         .attr("width", function(d) { return d.width; })
         .attr("height", function(d) { return d.height; });
           //*/
+      nodeEnter.call((sel) => {
           let iconRegex = new RegExp("start|finish|loop|skip");
-          nodeEnter.filter((data) => {
-              return (data && data.model && iconRegex.test(data.model.tagName));
-          }).append("use")
+        // Style node
+           // if node has an icon 
+          //let sel = d3.selection(this); 
+          let data = sel.datum();
+          if(data && data.model && iconRegex.test(data.model.tagName)){
+            console.log("each icon ==> "+data.id);
+            let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
+            let tmp = tagName.split(" ");
+            let suffix = tmp[tmp.length-1];
+            let icon = sel.append("use").datum(data)
             .style("fill", "inehrit")
             .style("stroke", "inehrit")
-            .attr("xlink:href",(data) =>{
-              let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
-              let tmp = tagName.split(" ");
-              let suffix = tmp[tmp.length-1];
-              return "#"+suffix;
-            } )
+            .attr("xlink:href", "#"+suffix)
             .attr("x", function(d) { return d.width/2; })
             .attr("y", function(d) { return d.height/2; })
             .attr("width", function(d) { return d.width; })
@@ -215,17 +218,18 @@ function renderd3Layoutv2(svg,node){
 
             //sel.append(icon);
   
-          nodeEnter.filter((data) => {
-            return !(data && data.model && iconRegex.test(data.model.tagName));
-          }).append("rect")
+          } else {                
+            console.log("each rect ==> "+data.id);
+            var leaf = sel.append("rect").datum(data)
             .style("fill", "inehrit")
             .style("stroke", "inehrit")
-            .attr("x", 4)
-            .attr("y", 4)
-            .attr("width", function(d) { return d.width-4; })
-            .attr("height", function(d) { return d.height-4; })
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", function(d) { return d.width; })
+            .attr("height", function(d) { return d.height; })
             .attr("rx", 8);
-
+          }       
+        });
         //*/
       // if node has an icon
   

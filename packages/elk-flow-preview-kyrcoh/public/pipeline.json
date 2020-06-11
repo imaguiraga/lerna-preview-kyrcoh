@@ -4,7 +4,6 @@
       "id": "UID:pipeline.start",
       "labels": [{"text":"UID:start",
       "properties": {
-
         "nodeLabels.placement": "[H_CENTER, V_CENTER, INSIDE]"
       }}],
       "model": {
