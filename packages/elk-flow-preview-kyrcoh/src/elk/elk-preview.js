@@ -197,16 +197,7 @@ function renderd3Layoutv2(svg,node){
         }).attr("id", function(d) { 
           return idfun(d);
         });
-          /*
-      var atoms = nodeEnter.append("rect")
-        .style("fill", "inherit")
-        .style("stroke", "inherit")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("rx", 8)
-        .attr("width", function(d) { return d.width; })
-        .attr("height", function(d) { return d.height; });
-          //*/
+
           // Add nodes
         let iconRegex = new RegExp("start|finish|loop|skip");
         nodeEnter.filter((data) => {
@@ -244,17 +235,25 @@ function renderd3Layoutv2(svg,node){
         // Add title  
         nodeEnter.append("title")
             .text(function(d) { return d.id; });
-        // Add Labels
-        nodeEnter.filter((d) => {
-            return (d && d.labels); 
-          }).append("text")
-            .text((d) => d.labels[0].text)
-            .style("stroke-width",1)
-            .style("font-size",12)
-            .attr("x", (d) => d.labels[0].x)
-            .attr("y", (d) => d.labels[0].y)
-            .attr("width", (d) => d.labels[0].width)
-            .attr("height", (d) => d.labels[0].height);  
+
+        //Add labels    
+        nodeEnter.call((selection)=> {
+            selection.selectAll(".label").data((d,i)=>{
+              if(d.labels) {
+                return d.labels;
+              }
+              return [];
+            }).enter()
+              .append("text")
+              .attr("class","label")
+              .text((l) => l.text)
+              .style("stroke-width",1)
+              .style("font-size",12)
+              .attr("x", (l) => l.x)
+              .attr("y", (l) => l.y)
+              .attr("width", (l) => l.width)
+              .attr("height", (l) => l.height);
+        }); 
         // Add Ports
 
         // Add Junctions
@@ -267,4 +266,6 @@ function renderd3Layoutv2(svg,node){
           //console.log(n);
         });    
     }
+
+    
 }
