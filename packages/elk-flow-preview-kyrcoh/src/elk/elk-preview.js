@@ -156,7 +156,10 @@ const nodesFn = function (n) {
 const linksFn = function (n) {
   return n.edges || [];
 };
-
+let iconRegex = new RegExp("start|finish|loop|skip");
+const isIconFn =  function (n) {
+  return (n && n.model && iconRegex.test(n.model.tagName));
+};
 function renderd3Layoutv2(svg,node){
   // Get current children nodes and links
   var nodes = nodesFn(node);
@@ -227,9 +230,9 @@ function renderd3Layoutv2(svg,node){
         });
 
         // Add marker nodes nodes
-        let iconRegex = new RegExp("start|finish|loop|skip");
-        nodeEnter.filter((data) => {
-            return (data && data.model && iconRegex.test(data.model.tagName));
+        
+        nodeEnter.filter((d) => {
+            return isIconFn(d);
         }).append("use")
           .style("fill", "inherit")
           .style("stroke", "inherit")
@@ -245,8 +248,8 @@ function renderd3Layoutv2(svg,node){
           .attr("width", function(d) { return d.width-4; })
           .attr("height", function(d) { return d.height-4; });
           // Non-marker nodes
-        nodeEnter.filter((data) => {
-          return !(data && data.model && iconRegex.test(data.model.tagName));
+        nodeEnter.filter((d) => {
+          return !isIconFn(d);
         }).append("rect")
           .style("fill", "inherit")
           .style("stroke", "inherit")
