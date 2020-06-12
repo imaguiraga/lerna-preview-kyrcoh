@@ -169,16 +169,14 @@ function renderd3Layoutv2(svg,node){
         let d = selection.datum();
         // extract class names from tagName
         if(d.model && d.model.tagName){
-          selection.attr("class", function(d) { 
-            return "link "+d.model.resourceType+" "+d.model.tagName.replace(/\./gi," ");
-          });
+          selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
         }       
       });
     }
 // Add nodes
     if(nodes){
       var nodeData = svg.selectAll(".node").data(nodes, idfun);
-      
+
       var nodeEnter = nodeData.enter()
         .append("g")
         .attr("class", function(d) { 
@@ -186,11 +184,13 @@ function renderd3Layoutv2(svg,node){
           if (d.children) {
             c = "node compound";
           } 
+          return c;    
+        }).each(function(d,i) { 
+          let selection = d3.select(this);
           // extract class names from tagName
           if(d.model && d.model.tagName){
-            c = c+" "+ d.model.resourceType+" "+d.model.tagName.replace(/\./gi," ");
-          }   
-          return c;    
+            selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
+          }       
         })
         .attr("transform", function(d) { 
           return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
@@ -217,8 +217,6 @@ function renderd3Layoutv2(svg,node){
           .attr("width", function(d) { return d.width-4; })
           .attr("height", function(d) { return d.height-4; });
 
-          //sel.append(icon);
-
         nodeEnter.filter((data) => {
           return !(data && data.model && iconRegex.test(data.model.tagName));
         }).append("rect")
@@ -230,7 +228,6 @@ function renderd3Layoutv2(svg,node){
           .attr("height", function(d) { return d.height-8; })
           .attr("rx", 8);
 
-        //*/
         // if node has an icon
         // Add title  
         nodeEnter.append("title")
@@ -267,5 +264,4 @@ function renderd3Layoutv2(svg,node){
         });    
     }
 
-    
 }

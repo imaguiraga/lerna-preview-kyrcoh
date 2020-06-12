@@ -57,6 +57,11 @@
         "resourceType": "flow",
         "tagName": "choice.terminal"
       },
+      "labels":[
+        {
+          "text": "UID.1.0:terminal"
+        } 
+      ],
       "width": 80,
       "height": 60
     },
@@ -107,6 +112,11 @@
         "resourceType": "flow",
         "tagName": "sequence.terminal"
       },
+      "labels":[
+        {
+          "text": "UID.2.1:terminal"
+        } 
+      ],
       "width": 80,
       "height": 60
     },
