@@ -249,6 +249,8 @@ function renderd3Layoutv2(svg,node){
             return (d && d.labels); 
           }).append("text")
             .text((d) => d.labels[0].text)
+            .style("stroke-width",1)
+            .style("font-size",12)
             .attr("x", (d) => d.labels[0].x)
             .attr("y", (d) => d.labels[0].y)
             .attr("width", (d) => d.labels[0].width)
