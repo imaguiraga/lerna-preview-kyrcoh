@@ -165,8 +165,16 @@ function renderd3Layoutv2(svg,node){
         return path;
       });
       // Sytle edge
+      /*
       linkEnter.call(function(selection) { 
         let d = selection.datum();
+        // extract class names from tagName
+        if(d.model && d.model.tagName){
+          selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
+        }       
+      });//*/
+      linkEnter.each(function(d,i) { 
+        let selection = d3.select(this);
         // extract class names from tagName
         if(d.model && d.model.tagName){
           selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
