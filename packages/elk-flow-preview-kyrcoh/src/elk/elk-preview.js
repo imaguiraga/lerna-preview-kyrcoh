@@ -139,10 +139,28 @@ d3.json("flow.json").then( function(graph) {
   
 });
 
+// Helper functions
+const portsFn = function (n) {
+  // by default the 'ports' field
+  return n.ports || [];
+};
+
+const labelsFn = function (n) {
+  return n.labels || [];
+};
+
+const nodesFn = function (n) {
+  return n.children || [];
+};
+
+const linksFn = function (n) {
+  return n.edges || [];
+};
+
 function renderd3Layoutv2(svg,node){
   // Get current children nodes and links
-  var nodes = node.children;
-  var links = node.edges;
+  var nodes = nodesFn(node);
+  var links = linksFn(node);
 
 // Add edges
   if(links){
@@ -174,6 +192,7 @@ function renderd3Layoutv2(svg,node){
         }       
       });//*/
       linkEnter.each(function(d,i) { 
+        // Update current selection attributes
         let selection = d3.select(this);
         // extract class names from tagName
         if(d.model && d.model.tagName){
@@ -189,11 +208,12 @@ function renderd3Layoutv2(svg,node){
         .append("g")
         .attr("class", function(d) { 
           let c = "node leaf";
-          if (d.children) {
+          if (nodesFn(d).length > 0) {
             c = "node compound";
           } 
           return c;    
         }).each(function(d,i) { 
+          // Update current selection attributes
           let selection = d3.select(this);
           // extract class names from tagName
           if(d.model && d.model.tagName){
@@ -206,7 +226,7 @@ function renderd3Layoutv2(svg,node){
           return idfun(d);
         });
 
-          // Add nodes
+        // Add marker nodes nodes
         let iconRegex = new RegExp("start|finish|loop|skip");
         nodeEnter.filter((data) => {
             return (data && data.model && iconRegex.test(data.model.tagName));
@@ -224,7 +244,7 @@ function renderd3Layoutv2(svg,node){
           .attr("y", function(d) { return 2; })
           .attr("width", function(d) { return d.width-4; })
           .attr("height", function(d) { return d.height-4; });
-
+          // Non-marker nodes
         nodeEnter.filter((data) => {
           return !(data && data.model && iconRegex.test(data.model.tagName));
         }).append("rect")
@@ -234,7 +254,11 @@ function renderd3Layoutv2(svg,node){
           .attr("y", 4)
           .attr("width", function(d) { return d.width-8; })
           .attr("height", function(d) { return d.height-8; })
-          .attr("rx", 8);
+          .attr("rx", 8)
+          .append("metadata")
+          .text((d) => {
+            return JSON.stringify(d.model,"  ");
+          });
 
         // if node has an icon
         // Add title  
@@ -242,12 +266,10 @@ function renderd3Layoutv2(svg,node){
             .text(function(d) { return d.id; });
 
         //Add labels    
-        nodeEnter.call((selection)=> {
+        nodeEnter.call((selection) => {
+          // Create new selection from current one
             selection.selectAll(".label").data((d,i)=>{
-              if(d.labels) {
-                return d.labels;
-              }
-              return [];
+              return labelsFn(d);
             }).enter()
               .append("text")
               .attr("class","label")
@@ -260,12 +282,23 @@ function renderd3Layoutv2(svg,node){
               .attr("height", (l) => l.height);
         }); 
         // Add Ports
-
+        nodeEnter.call((selection) => {
+          // Create new selection from current one
+            selection.selectAll(".port").data((d,i)=>{
+              return portsFn(d);
+            }).enter()
+              .append("rect")
+              .attr("class","port")
+              .attr("x", (l) => l.x)
+              .attr("y", (l) => l.y)
+              .attr("width", (l) => l.width)
+              .attr("height", (l) => l.height);
+          }); 
         // Add Junctions
 
         nodeEnter.each(function(n,i){
           // If node has children make a recursive call
-          if(n.children){
+          if(nodesFn(n).length > 0){
             renderd3Layoutv2(d3.select(this),n);
           }
           //console.log(n);

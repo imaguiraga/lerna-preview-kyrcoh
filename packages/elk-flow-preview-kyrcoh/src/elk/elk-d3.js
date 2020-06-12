@@ -30,19 +30,11 @@ function d3_rebind(target, source, method) {
     const dispatch = d3.dispatch("finish");
 
     var graph = {}; // internal (hierarchical graph)
-    var ports = function (n) {
-      // by default the 'ports' field
-      return n.ports || [];
-    };
-    var labels = function (n) {
-      return n.labels || [];
-    };
     var options = {};
     // dimensions
     var width = 0;
     var height = 0;
-    var defaultNodeSize = [10, 10];
-    var defaultPortSize = [4, 4];
+
     var transformGroup;
 
     // a function applied after each layout run
