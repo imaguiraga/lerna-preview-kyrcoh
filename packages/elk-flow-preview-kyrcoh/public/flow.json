@@ -7,6 +7,11 @@
         "resourceType": "flow",
         "tagName": "choice.start"
       },
+      "labels":[
+        {
+          "text": "UID:choice.start"
+        } 
+      ],
       "width": 24,
       "height": 24
     },
@@ -17,6 +22,11 @@
         "resourceType": "flow",
         "tagName": "choice.terminal"
       },
+      "labels":[
+        {
+          "text": "UID.0:terminal"
+        } 
+      ],
       "width": 80,
       "height": 60
     },
@@ -485,7 +495,6 @@
     "nodePlacement.strategy": "BRANDES_KOEPF",
     "org.eclipse.elk.port.borderOffset":10,
     "org.eclipse.elk.layered.mergeEdges":true,
-    "spacing": 40,
     "spacing.nodeNodeBetweenLayers": 40,
     "spacing.edgeNodeBetweenLayers": 40,
     "spacing.edgeEdgeBetweenLayers": 40,

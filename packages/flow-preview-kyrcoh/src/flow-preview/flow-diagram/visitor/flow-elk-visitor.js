@@ -100,7 +100,12 @@ class TerminalFlowEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: 'terminal'
-      }
+      },
+      labels: [
+        {
+          text: tree.id
+        } 
+      ],
     };
     if (filterFn) {
       if (!filterFn(n)) {
@@ -141,7 +146,12 @@ class SequenceEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: SEQUENCE+'.start'
-      }
+      },
+      labels: [
+        {
+          text: tree.start.id
+        } 
+      ],
     });
     // nodes
     if (tree.tagName === SEQUENCE) {
@@ -156,7 +166,12 @@ class SequenceEltFlowToELKVisitor{
           model: { 
             resourceType: node.resourceType,  
             tagName: SEQUENCE+'.terminal'
-          }
+          },
+          labels: [
+            {
+              text: node.id
+            } 
+          ],
         };
         if (filterFn) {
           if (!filterFn(n)) {
@@ -173,7 +188,13 @@ class SequenceEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: SEQUENCE+'.finish'
-      }
+      },
+      labels: [
+        {
+          text: tree.finish.id
+        } 
+      ],
+
     });
     // edges
     visitor.edgeCnt = visitor.edgeCnt+1;
@@ -252,7 +273,12 @@ class MutltiPathEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: type+'.start'
-      }
+      },
+      labels: [
+        {
+          text: tree.start.id
+        } 
+      ],
     });
 
     // nodes
@@ -268,7 +294,12 @@ class MutltiPathEltFlowToELKVisitor{
           model: {
             resourceType: node.resourceType,   
             tagName: type+'.terminal'
-          }
+          },
+          labels: [
+            {
+              text: node.id
+            } 
+          ],
         };
 
         if (filterFn) {
@@ -286,7 +317,12 @@ class MutltiPathEltFlowToELKVisitor{
       model: {
         resourceType: tree.resourceType,   
         tagName: type+'.finish'
-      }
+      },
+      labels: [
+        {
+          text: tree.finish.id
+        } 
+      ],
     });
     // edges
     for (let i = 0; i < tree.elts.length; i++) {
@@ -353,7 +389,12 @@ class OptionalEltFlowToELKVisitor{
       model: {
         resourceType: tree.resourceType,   
         tagName: OPTIONAL+'.start'
-      }
+      },
+      labels: [
+        {
+          text: tree.start.id
+        } 
+      ],
     });
 
     // skip node
@@ -363,7 +404,12 @@ class OptionalEltFlowToELKVisitor{
         model: {
           resourceType: tree.resourceType,   
           tagName: OPTIONAL+'.skip'
-        }
+        },
+        labels: [
+          {
+            text: tree.skip.id
+          } 
+        ],
       });
     }
 
@@ -380,7 +426,12 @@ class OptionalEltFlowToELKVisitor{
           model: { 
             resourceType: node.resourceType,  
             tagName: OPTIONAL+'.terminal'
-          }
+          },
+          labels: [
+            {
+              text: node.id
+            } 
+          ],
         };
         if (filterFn) {
           if (!filterFn(n)) {
@@ -397,7 +448,12 @@ class OptionalEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: OPTIONAL+'.finish'
-      }
+      },
+      labels: [
+        {
+          text: tree.finish.id
+        } 
+      ],
     });
     // edges
 
@@ -499,7 +555,12 @@ class RepeatEltFlowToELKVisitor {
       model: { 
         resourceType: tree.resourceType,  
         tagName: REPEAT+'.start'
-      }
+      },
+      labels: [
+        {
+          text: tree.start.id
+        } 
+      ],
     });
 
     // loop node
@@ -509,7 +570,12 @@ class RepeatEltFlowToELKVisitor {
         model: {
           resourceType: tree.resourceType,   
           tagName: REPEAT+'.loop'
-        }
+        },
+        labels: [
+          {
+            text: tree.loop.id
+          } 
+        ],
       });
     }
     // nodes
@@ -525,7 +591,12 @@ class RepeatEltFlowToELKVisitor {
           model: {
             resourceType: node.resourceType,   
             tagName: REPEAT+'.terminal'
-          }
+          },
+          labels: [
+            {
+              text: node.id
+            } 
+          ],
         };
         if (filterFn) {
           if (!filterFn(n)) {
@@ -544,7 +615,12 @@ class RepeatEltFlowToELKVisitor {
       model: { 
         resourceType: tree.resourceType,  
         tagName: REPEAT+'.finish'
-      }
+      },
+      labels: [
+        {
+          text: tree.finish.id
+        } 
+      ],
     });
     // edges
     if(tree.elts.length > 0) {

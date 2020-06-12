@@ -18,7 +18,7 @@ function viewport() {
 let width = viewport().width-20;
 let height = viewport().height-20;
 
-let idfun = function(d) { return d.id; };    
+let idfun = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
 
 const zoomFn = d3.zoom().on("zoom", function () {
   svg.attr("transform", d3.event.transform);
@@ -74,7 +74,7 @@ defs.append("rect")
     .attr("id", "start1")
     .attr("viewBox", "0 0 24 24")
     .style("fill", "transparent")
-    .style("stroke", "inehrit")
+    .style("stroke", "inherit")
     .style("stroke-width", "2px")
     .attr("width", 20)
     .attr("height", 20)
@@ -85,7 +85,7 @@ defs.append("rect")
 defs.append("rect")
     .attr("id", "finish1")
     .attr("viewBox", "0 0 24 24")
-    .style("fill", "inehrit")
+    .style("fill", "inherit")
     .style("stroke", "transparent")
     .style("stroke-width", "2px")
     .attr("width", 20)
@@ -106,10 +106,10 @@ const ICONMAP = new Map([
   ["finish",END_ICON],
   ["loop",LOOP_ICON],
   ["skip",SKIP_ICON]
-]);
+]); 
 // load the data and render the elements
 //d3.json("hierarchy.json").then( function(graph) {  
-d3.json("pipeline.json").then( function(graph) {  
+d3.json("flow.json").then( function(graph) {  
   let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
@@ -194,59 +194,75 @@ function renderd3Layoutv2(svg,node){
         })
         .attr("transform", function(d) { 
           return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
+        }).attr("id", function(d) { 
+          return idfun(d);
         });
           /*
       var atoms = nodeEnter.append("rect")
-        .style("fill", "inehrit")
-        .style("stroke", "inehrit")
+        .style("fill", "inherit")
+        .style("stroke", "inherit")
         .attr("x", 0)
         .attr("y", 0)
         .attr("rx", 8)
         .attr("width", function(d) { return d.width; })
         .attr("height", function(d) { return d.height; });
           //*/
-          let iconRegex = new RegExp("start|finish|loop|skip");
-          nodeEnter.filter((data) => {
-              return (data && data.model && iconRegex.test(data.model.tagName));
-          }).append("use")
-            .style("fill", "inehrit")
-            .style("stroke", "inehrit")
-            .attr("xlink:href",(data) =>{
-              let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
-              let tmp = tagName.split(" ");
-              let suffix = tmp[tmp.length-1];
-              return "#"+suffix+"1";
-            } )
-            .attr("x", function(d) { return 0; })
-            .attr("y", function(d) { return 0; })
-            .attr("width", function(d) { return d.width; })
-            .attr("height", function(d) { return d.height; });
+          // Add nodes
+        let iconRegex = new RegExp("start|finish|loop|skip");
+        nodeEnter.filter((data) => {
+            return (data && data.model && iconRegex.test(data.model.tagName));
+        }).append("use")
+          .style("fill", "inherit")
+          .style("stroke", "inherit")
+          .attr("href",(data) =>{
+            let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
+            let tmp = tagName.split(" ");
+            let suffix = tmp[tmp.length-1];
+            //return "Cloud Functions.svg#Layer_1";
+            return "#"+suffix+"1"; 
+          } )
+          .attr("x", function(d) { return 2; })
+          .attr("y", function(d) { return 2; })
+          .attr("width", function(d) { return d.width-4; })
+          .attr("height", function(d) { return d.height-4; });
 
-            //sel.append(icon);
-  
-          nodeEnter.filter((data) => {
-            return !(data && data.model && iconRegex.test(data.model.tagName));
-          }).append("rect")
-            .style("fill", "inehrit")
-            .style("stroke", "inehrit")
-            .attr("x", 4)
-            .attr("y", 4)
-            .attr("width", function(d) { return d.width-4; })
-            .attr("height", function(d) { return d.height-4; })
-            .attr("rx", 8);
+          //sel.append(icon);
+
+        nodeEnter.filter((data) => {
+          return !(data && data.model && iconRegex.test(data.model.tagName));
+        }).append("rect")
+          .style("fill", "inherit")
+          .style("stroke", "inherit")
+          .attr("x", 4)
+          .attr("y", 4)
+          .attr("width", function(d) { return d.width-8; })
+          .attr("height", function(d) { return d.height-8; })
+          .attr("rx", 8);
 
         //*/
-      // if node has an icon
-  
-      nodeEnter.append("title")
-          .text(function(d) { return d.id; });  
+        // if node has an icon
+        // Add title  
+        nodeEnter.append("title")
+            .text(function(d) { return d.id; });
+        // Add Labels
+        nodeEnter.filter((d) => {
+            return (d && d.labels); 
+          }).append("text")
+            .text((d) => d.labels[0].text)
+            .attr("x", (d) => d.labels[0].x)
+            .attr("y", (d) => d.labels[0].y)
+            .attr("width", (d) => d.labels[0].width)
+            .attr("height", (d) => d.labels[0].height);  
+        // Add Ports
 
-      nodeEnter.each(function(n,i){
-        // If node has children make a recursive call
-        if(n.children){
-          renderd3Layoutv2(d3.select(this),n);
-        }
-        //console.log(n);
-      });    
+        // Add Junctions
+
+        nodeEnter.each(function(n,i){
+          // If node has children make a recursive call
+          if(n.children){
+            renderd3Layoutv2(d3.select(this),n);
+          }
+          //console.log(n);
+        });    
     }
 }

@@ -75,7 +75,12 @@ class SequenceEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: type+'.start'
-      }
+      },
+      labels: [
+        {
+          text: tree.start.id
+        } 
+      ],
     });
     // nodes
     if (tree.tagName === type) {
@@ -90,7 +95,12 @@ class SequenceEltFlowToELKVisitor{
           model: { 
             resourceType: node.resourceType,  
             tagName: type+'.terminal'
-          }
+          },
+          labels: [
+            {
+              text: node.id
+            } 
+          ],
         };
         if (filterFn) {
           if (!filterFn(n)) {
@@ -107,7 +117,12 @@ class SequenceEltFlowToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: type+'.finish'
-      }
+      },
+      labels: [
+        {
+          text: tree.finish.id
+        } 
+      ],
     });
     // edges
     visitor.edgeCnt = visitor.edgeCnt+1;
@@ -181,7 +196,12 @@ class TerminalPipelineToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: tree.tagName
-      }
+      },
+      labels: [
+        {
+          text: tree.title
+        } 
+      ],
     };
     if (filterFn) {
       if (!filterFn(n)) {
@@ -224,7 +244,12 @@ class MutltiPathToELKVisitor{
       model: { 
         resourceType: tree.resourceType,  
         tagName: type+'.start'
-      }
+      },
+      labels: [
+        {
+          text: tree.start.id
+        } 
+      ],
     });
 
     // nodes
@@ -240,7 +265,12 @@ class MutltiPathToELKVisitor{
           model: {
             resourceType: node.resourceType,   
             tagName: type+'.terminal'
-          }
+          },
+          labels: [
+            {
+              text: node.title
+            } 
+          ],
         };
 
         if (filterFn) {
@@ -258,7 +288,12 @@ class MutltiPathToELKVisitor{
       model: {
         resourceType: tree.resourceType,   
         tagName: type+'.finish'
-      }
+      },
+      labels: [
+        {
+          text: tree.finish.id
+        } 
+      ],
     });
     // edges
     for (let i = 0; i < tree.elts.length; i++) {
