@@ -1,4 +1,4 @@
-import {CompositeResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
+import {CompositeResource,TerminalResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class RepeatElt.
@@ -12,12 +12,10 @@ export class RepeatElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName) {
-    super(elts,ctx,tagName ||"repeat",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"repeat",FLOW_RESOURCE_TYPE);
     // loop node
     
-    this.loop = {
-      id: this.id+".loop"
-    };//*/
+    this.loop = new TerminalResource("loop",null,"loop",this.resourceType,this.provider);
   }
 
   add(elt){

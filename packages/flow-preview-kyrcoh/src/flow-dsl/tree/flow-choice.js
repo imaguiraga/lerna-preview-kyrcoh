@@ -12,7 +12,7 @@ export class ChoiceElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,tagName || "choice",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"choice",FLOW_RESOURCE_TYPE);
   }
 
 }

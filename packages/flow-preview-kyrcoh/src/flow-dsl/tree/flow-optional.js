@@ -1,4 +1,4 @@
-import {CompositeResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
+import {CompositeResource,TerminalResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class OptionalElt.
@@ -12,12 +12,10 @@ export class OptionalElt extends CompositeResource{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,tagName || "optional",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"optional",FLOW_RESOURCE_TYPE);
     
     // skip node
-    this.skip = {
-      id: this.id+".skip"
-    };//*/
+    this.skip = new TerminalResource("skip",null,"skip",this.resourceType,this.provider);
   }
 
   add(elt){

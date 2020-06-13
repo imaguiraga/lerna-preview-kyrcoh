@@ -12,7 +12,7 @@ export class SequenceElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName) {
-    super(elts,ctx,tagName ||"sequence",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"sequence",FLOW_RESOURCE_TYPE);
   }
 
 }

@@ -1,6 +1,8 @@
 
 export const samples = [
-`let testflow = choice(
+`let d= choice("e", "d");`,
+`
+let testflow = choice(
   terminal("a"),
   choice("e", "d"),
   sequence(terminal("b"), terminal("c"),sequence("c","d")),

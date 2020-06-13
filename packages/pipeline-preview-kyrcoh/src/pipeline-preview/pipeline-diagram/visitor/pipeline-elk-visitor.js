@@ -16,7 +16,7 @@ export class PipelineToELKVisitor {
     if( typeof tree === "undefined"){
       return result;
     }
-    switch(tree.tagName){
+    switch(tree.resourceType){
       case "data":
         result = TerminalPipelineToELKVisitor.visit(this,tree,filterFn);
       break;
@@ -45,8 +45,36 @@ export class PipelineToELKVisitor {
     return result;
   }
 
-}
+  getNodeModel(n) {
+    let r = {
+      id: n.id,
+      label: n.id,
+      model: { 
+        provider: n.provider,
+        resourceType: n.resourceType,
+        tagName: n.tagName,
+        compound: n.compound
+      },
+      labels: [
+        {
+          text: n.id
+        } 
+      ],
+    };
+    return r;
+  }
 
+  getEdgeModel(n) {
+    let r = {
+      model: { 
+        provider: n.provider,
+        resourceType: n.resourceType,
+        tagName: null
+      }
+    };
+    return r;
+  }
+}
 
 /**
  * Class SequenceEltFlowToELKVisitor.
@@ -61,115 +89,71 @@ class SequenceEltFlowToELKVisitor{
    * @return {object} g6 Graph data.
    */  
   static visit(visitor,tree,filterFn,type){
-    const data = {
+    const graph = {
       children: [],
-      edges: []
+      edges: [],
+      ...visitor.getNodeModel(tree)
     };
-    if (tree.tagName !== type) {
-      return data;
+    if (tree.resourceType !== type) {
+      return graph;
     }
     // start + finish nodes
-    data.children.push({
-      id: tree.start.id,
-      label: tree.start.id,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: type+'.start'
-      },
-      labels: [
-        {
-          text: tree.start.id
-        } 
-      ],
-    });
+    graph.children.push(visitor.getNodeModel(tree.start));
     // nodes
-    if (tree.tagName === type) {
+    if (tree.resourceType === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
           return;
         }
-        let n = {
-          id: node.id,
-          label: node.title,
-          model: { 
-            resourceType: node.resourceType,  
-            tagName: type+'.terminal'
-          },
-          labels: [
-            {
-              text: node.id
-            } 
-          ],
-        };
+        let n = visitor.getNodeModel(node);
         if (filterFn) {
           if (!filterFn(n)) {
-            data.children.push(n);
+            graph.children.push(n);
           }
         } else {
-          data.children.push(n);
+          graph.children.push(n);
         }
       });
     }
-    data.children.push({
-      id: tree.finish.id,
-      label: tree.finish.id,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: type+'.finish'
-      },
-      labels: [
-        {
-          text: tree.finish.id
-        } 
-      ],
-    });
+    graph.children.push(visitor.getNodeModel(tree.finish));
     // edges
     visitor.edgeCnt = visitor.edgeCnt+1;
-      data.edges.push({
+      graph.edges.push({
         id: `${visitor.edgeCnt}`,
         sources: [tree.start.id],
         targets: [tree.elts[0].start.id],
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
 
     for (let i = 0; i < tree.elts.length - 1; i++) {
       visitor.edgeCnt = visitor.edgeCnt+1;
-      data.edges.push({
+      graph.edges.push({
         id: `${visitor.edgeCnt}`,
         sources: [tree.elts[i].finish.id],
         targets: [tree.elts[i + 1].start.id],
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
     }
 
     visitor.edgeCnt = visitor.edgeCnt+1;
-      data.edges.push({
+      graph.edges.push({
         id: `${visitor.edgeCnt}`,
       sources: [tree.elts[tree.elts.length - 1].finish.id],
       targets: [tree.finish.id],
-      model: { 
-        resourceType: tree.resourceType,
-        tagName: type
-      },
+      ...visitor.getEdgeModel(tree),
     });
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
       let g6 = elt.accept(visitor,n => tree.foundElt(n));
       if(g6 !== null) {
-        data.children = data.children.concat(g6.children);
-        data.edges = data.edges.concat(g6.edges);
+        graph.children = graph.children.concat(g6.children);
+        graph.edges = graph.edges.concat(g6.edges);
       }
     });
 
-    return data;
+    return graph;
   }
 }
 
@@ -185,32 +169,21 @@ class TerminalPipelineToELKVisitor{
    * @return {object} g6 Graph data.
    */
   static visit(visitor,tree,filterFn) {
-    const data = {
+    const graph = {
       children: [],
-      edges: []
+      edges: [],
+      ...visitor.getNodeModel(tree)
     };
 
-    let n = {
-      id: tree.id,
-      label: tree.title,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: tree.tagName
-      },
-      labels: [
-        {
-          text: tree.title
-        } 
-      ],
-    };
+    let n = visitor.getNodeModel(tree);
     if (filterFn) {
       if (!filterFn(n)) {
-        data.children.push(n);
+        graph.children.push(n);
       }
     } else {
-      data.children.push(n);
+      graph.children.push(n);
     }
-    return data;
+    return graph;
   }
 
 }
@@ -229,93 +202,53 @@ class MutltiPathToELKVisitor{
    */  
   static visit(visitor,tree,filterFn,type){
     //const type = "choice" | "parallel";
-    const data = {
+    const graph = {
       children: [],
-      edges: []
+      edges: [],
+      ...visitor.getNodeModel(tree)
     };
     //
-    if (tree.tagName !== type) {
-      return data;
+    if (tree.resourceType !== type) {
+      return graph;
     }
     // start + finish nodes
-    data.children.push({
-      id: tree.start.id,
-      label: tree.start.id,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: type+'.start'
-      },
-      labels: [
-        {
-          text: tree.start.id
-        } 
-      ],
-    });
+    graph.children.push(visitor.getNodeModel(tree.start));
+
 
     // nodes
-    if (tree.tagName === type) {
+    if (tree.resourceType === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
           return;
         }
-        let n = {
-          id: node.id,
-          label: node.title,
-          model: {
-            resourceType: node.resourceType,   
-            tagName: type+'.terminal'
-          },
-          labels: [
-            {
-              text: node.title
-            } 
-          ],
-        };
+        let n = visitor.getNodeModel(node);
 
         if (filterFn) {
           if (!filterFn(n)) {
-            data.children.push(n);
+            graph.children.push(n);
           }
         } else {
-          data.children.push(n);
+          graph.children.push(n);
         }
       });
     }
-    data.children.push({
-      id: tree.finish.id,
-      label: tree.finish.id ,
-      model: {
-        resourceType: tree.resourceType,   
-        tagName: type+'.finish'
-      },
-      labels: [
-        {
-          text: tree.finish.id
-        } 
-      ],
-    });
+    graph.children.push(visitor.getNodeModel(tree.finish));
     // edges
     for (let i = 0; i < tree.elts.length; i++) {
       visitor.edgeCnt = visitor.edgeCnt+1;
-      data.edges.push({
+      graph.edges.push({
         id: `${visitor.edgeCnt}`,
         sources: [tree.start.id],
         targets: [tree.elts[i].start.id],
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
       visitor.edgeCnt = visitor.edgeCnt+1;
-      data.edges.push({
+      graph.edges.push({
         id: `${visitor.edgeCnt}`,
         sources: [tree.elts[i].finish.id],
         targets: [tree.finish.id],
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
     }
     // concatenate G6 graphs
@@ -323,12 +256,12 @@ class MutltiPathToELKVisitor{
     tree.elts.forEach(elt => {
       let g6 = elt.accept(visitor,n => tree.foundElt(n));
       if(g6 !== null) {
-        data.children = data.children.concat(g6.children);
-        data.edges = data.edges.concat(g6.edges);
+        graph.children = graph.children.concat(g6.children);
+        graph.edges = graph.edges.concat(g6.edges);
       }
     });
 
-    return data;
+    return graph;
   }
   
 }

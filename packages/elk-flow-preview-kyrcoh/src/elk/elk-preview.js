@@ -109,11 +109,13 @@ const ICONMAP = new Map([
 ]); 
 // load the data and render the elements
 //d3.json("hierarchy.json").then( function(graph) {  
-d3.json("flow.json").then( function(graph) {  
+//d3.json("flow.json").then( function(graph) {  
+d3.json("pipeline.json").then( function(graph) { 
   let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
     "org.eclipse.elk.port.borderOffset":10,
+    "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.layered.mergeEdges":true,
     "spacing": 40,
     "spacing.nodeNodeBetweenLayers": 40,
@@ -121,10 +123,7 @@ d3.json("flow.json").then( function(graph) {
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH"
   };
-
-  options = {"org.eclipse.elk.edgeRouting": "ORTHOGONAL"};
-  
-  
+    
   let layouter = elkmodule.d3kgraph()
     .size([width, height])
     .transformGroup(root)
@@ -191,15 +190,17 @@ function renderd3Layoutv2(svg,node){
         let d = selection.datum();
         // extract class names from tagName
         if(d.model && d.model.tagName){
-          selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
+          selection.classed(d.model.provider,true);
+          selection.classed(d.model.resourceType,true);
         }       
       });//*/
       linkEnter.each(function(d,i) { 
         // Update current selection attributes
         let selection = d3.select(this);
         // extract class names from tagName
-        if(d.model && d.model.tagName){
-          selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
+        if(d.model){
+          selection.classed(d.model.provider,true);
+          selection.classed(d.model.resourceType,true);
         }       
       });
     }
@@ -219,8 +220,10 @@ function renderd3Layoutv2(svg,node){
           // Update current selection attributes
           let selection = d3.select(this);
           // extract class names from tagName
-          if(d.model && d.model.tagName){
-            selection.classed(d.model.resourceType+" "+d.model.tagName.replace(/\./gi," "),true);
+          if(d.model){
+            selection.classed(d.model.provider,true);
+            selection.classed(d.model.resourceType,true);
+            selection.classed(d.model.tagName,true);
           }       
         })
         .attr("transform", function(d) { 
@@ -237,9 +240,7 @@ function renderd3Layoutv2(svg,node){
           .style("fill", "inherit")
           .style("stroke", "inherit")
           .attr("href",(data) =>{
-            let tagName = data.model.resourceType+" "+data.model.tagName.replace(/\./gi," ").trim();
-            let tmp = tagName.split(" ");
-            let suffix = tmp[tmp.length-1];
+            let suffix = data.model.tagName;
             //return "Cloud Functions.svg#Layer_1";
             return "#"+suffix+"1"; 
           } )
@@ -260,7 +261,7 @@ function renderd3Layoutv2(svg,node){
           .attr("rx", 8)
           .append("metadata")
           .text((d) => {
-            return JSON.stringify(d.model,"  ");
+            return JSON.stringify(d.model,null," ");
           });
 
         // if node has an icon
@@ -304,7 +305,6 @@ function renderd3Layoutv2(svg,node){
           if(nodesFn(n).length > 0){
             renderd3Layoutv2(d3.select(this),n);
           }
-          //console.log(n);
         });    
     }
 

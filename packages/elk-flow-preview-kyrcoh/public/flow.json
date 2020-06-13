@@ -1,16 +1,42 @@
 {
+  "id": "choice.container.107",
+  "label": "choice.container.107",
+  "model": {
+    "provider": "flow",
+    "resourceType": "choice",
+    "tagName": "container",
+    "compound": true
+  },
+  "labels": [
+    {
+      "text": "choice.container.107"
+    }
+  ],
+  "layoutOptions": {
+    "elk.algorithm": "layered",
+    "nodePlacement.strategy": "BRANDES_KOEPF",
+    "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
+    "org.eclipse.elk.port.borderOffset": 10,
+    "org.eclipse.elk.layered.mergeEdges": true,
+    "spacing.nodeNodeBetweenLayers": 40,
+    "spacing.edgeNodeBetweenLayers": 40,
+    "spacing.edgeEdgeBetweenLayers": 40,
+    "layering.strategy": "LONGEST_PATH"
+  },
   "children": [
     {
-      "id": "UID:choice.start",
-      "label": "UID:choice.start",
+      "id": "UID:container.start",
+      "label": "UID:container.start",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.start"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": "start",
+        "compound": false
       },
-      "labels":[
+      "labels": [
         {
-          "text": "UID:choice.start"
-        } 
+          "text": "UID:container.start"
+        }
       ],
       "width": 24,
       "height": 24
@@ -19,34 +45,50 @@
       "id": "UID.0:terminal",
       "label": "UID.0:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
-      "labels":[
+      "labels": [
         {
           "text": "UID.0:terminal"
-        } 
+        }
       ],
       "width": 80,
       "height": 60
     },
     {
-      "id": "UID:choice.finish",
-      "label": "UID:choice.finish",
+      "id": "UID:container.finish",
+      "label": "UID:container.finish",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.finish"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": "finish",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID:container.finish"
+        }
+      ],
       "width": 24,
       "height": 24
     },
     {
-      "id": "UID.1:choice.start",
-      "label": "UID.1:choice.start",
+      "id": "UID.1:container.start",
+      "label": "UID.1:container.start",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.start"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": "start",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.1:container.start"
+        }
+      ],
       "width": 24,
       "height": 24
     },
@@ -54,13 +96,15 @@
       "id": "UID.1.0:terminal",
       "label": "UID.1.0:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
-      "labels":[
+      "labels": [
         {
           "text": "UID.1.0:terminal"
-        } 
+        }
       ],
       "width": 80,
       "height": 60
@@ -69,29 +113,50 @@
       "id": "UID.1.1:terminal",
       "label": "UID.1.1:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.1.1:terminal"
+        }
+      ],
       "width": 80,
       "height": 60
     },
     {
-      "id": "UID.1:choice.finish",
-      "label": "UID.1:choice.finish",
+      "id": "UID.1:container.finish",
+      "label": "UID.1:container.finish",
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice.finish"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": "finish",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.1:container.finish"
+        }
+      ],
       "width": 24,
       "height": 24
     },
     {
-      "id": "UID.2:sequence.start",
-      "label": "UID.2:sequence.start",
+      "id": "UID.2:container.start",
+      "label": "UID.2:container.start",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.start"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "start",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2:container.start"
+        }
+      ],
       "width": 24,
       "height": 24
     },
@@ -99,9 +164,16 @@
       "id": "UID.2.0:terminal",
       "label": "UID.2.0:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2.0:terminal"
+        }
+      ],
       "width": 80,
       "height": 60
     },
@@ -109,34 +181,50 @@
       "id": "UID.2.1:terminal",
       "label": "UID.2.1:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
-      "labels":[
+      "labels": [
         {
           "text": "UID.2.1:terminal"
-        } 
+        }
       ],
       "width": 80,
       "height": 60
     },
     {
-      "id": "UID.2:sequence.finish",
-      "label": "UID.2:sequence.finish",
+      "id": "UID.2:container.finish",
+      "label": "UID.2:container.finish",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.finish"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "finish",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2:container.finish"
+        }
+      ],
       "width": 24,
       "height": 24
     },
     {
-      "id": "UID.2.2:sequence.start",
-      "label": "UID.2.2:sequence.start",
+      "id": "UID.2.2:container.start",
+      "label": "UID.2.2:container.start",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.start"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "start",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2.2:container.start"
+        }
+      ],
       "width": 24,
       "height": 24
     },
@@ -144,9 +232,16 @@
       "id": "UID.2.2.0:terminal",
       "label": "UID.2.2.0:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2.2.0:terminal"
+        }
+      ],
       "width": 80,
       "height": 60
     },
@@ -154,29 +249,50 @@
       "id": "UID.2.2.1:terminal",
       "label": "UID.2.2.1:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2.2.1:terminal"
+        }
+      ],
       "width": 80,
       "height": 60
     },
     {
-      "id": "UID.2.2:sequence.finish",
-      "label": "UID.2.2:sequence.finish",
+      "id": "UID.2.2:container.finish",
+      "label": "UID.2.2:container.finish",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.finish"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "finish",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.2.2:container.finish"
+        }
+      ],
       "width": 24,
       "height": 24
     },
     {
-      "id": "UID.3:sequence.start",
-      "label": "UID.3:sequence.start",
+      "id": "UID.3:container.start",
+      "label": "UID.3:container.start",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.start"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "start",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.3:container.start"
+        }
+      ],
       "width": 24,
       "height": 24
     },
@@ -184,9 +300,16 @@
       "id": "UID.3.0:terminal",
       "label": "UID.3.0:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.3.0:terminal"
+        }
+      ],
       "width": 80,
       "height": 60
     },
@@ -194,321 +317,373 @@
       "id": "UID.3.1:terminal",
       "label": "UID.3.1:terminal",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.terminal"
+        "provider": "flow",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.3.1:terminal"
+        }
+      ],
       "width": 80,
       "height": 60
     },
     {
-      "id": "UID.3:sequence.finish",
-      "label": "UID.3:sequence.finish",
+      "id": "UID.3:container.finish",
+      "label": "UID.3:container.finish",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence.finish"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "finish",
+        "compound": false
       },
+      "labels": [
+        {
+          "text": "UID.3:container.finish"
+        }
+      ],
       "width": 24,
       "height": 24
     }
   ],
   "edges": [
     {
-      "id": "1",
+      "id": "27",
       "sources": [
-        "UID:choice.start"
+        "UID:container.start"
       ],
       "targets": [
         "UID.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "2",
+      "id": "28",
       "sources": [
         "UID.0:terminal"
       ],
       "targets": [
-        "UID:choice.finish"
+        "UID:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "3",
+      "id": "29",
       "sources": [
-        "UID:choice.start"
+        "UID:container.start"
       ],
       "targets": [
-        "UID.1:choice.start"
+        "UID.1:container.start"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "4",
+      "id": "30",
       "sources": [
-        "UID.1:choice.finish"
+        "UID.1:container.finish"
       ],
       "targets": [
-        "UID:choice.finish"
+        "UID:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "5",
+      "id": "31",
       "sources": [
-        "UID:choice.start"
+        "UID:container.start"
       ],
       "targets": [
-        "UID.2:sequence.start"
+        "UID.2:container.start"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "6",
+      "id": "32",
       "sources": [
-        "UID.2:sequence.finish"
+        "UID.2:container.finish"
       ],
       "targets": [
-        "UID:choice.finish"
+        "UID:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "7",
+      "id": "33",
       "sources": [
-        "UID:choice.start"
+        "UID:container.start"
       ],
       "targets": [
-        "UID.3:sequence.start"
+        "UID.3:container.start"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "8",
+      "id": "34",
       "sources": [
-        "UID.3:sequence.finish"
+        "UID.3:container.finish"
       ],
       "targets": [
-        "UID:choice.finish"
+        "UID:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "9",
+      "id": "35",
       "sources": [
-        "UID.1:choice.start"
+        "UID.1:container.start"
       ],
       "targets": [
         "UID.1.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "10",
+      "id": "36",
       "sources": [
         "UID.1.0:terminal"
       ],
       "targets": [
-        "UID.1:choice.finish"
+        "UID.1:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "11",
+      "id": "37",
       "sources": [
-        "UID.1:choice.start"
+        "UID.1:container.start"
       ],
       "targets": [
         "UID.1.1:terminal"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "12",
+      "id": "38",
       "sources": [
         "UID.1.1:terminal"
       ],
       "targets": [
-        "UID.1:choice.finish"
+        "UID.1:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "choice"
+        "provider": "flow",
+        "resourceType": "choice",
+        "tagName": null
       }
     },
     {
-      "id": "13",
+      "id": "39",
       "sources": [
-        "UID.2:sequence.start"
+        "UID.2:container.start"
       ],
       "targets": [
         "UID.2.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": null
       }
     },
     {
-      "id": "14",
+      "id": "UID.2:container",
       "sources": [
         "UID.2.0:terminal"
       ],
       "targets": [
         "UID.2.1:terminal"
       ],
+      "label": "UID.2:container",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
-      }
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "container",
+        "compound": true
+      },
+      "labels": [
+        {
+          "text": "UID.2:container"
+        }
+      ]
     },
     {
-      "id": "15",
+      "id": "UID.2:container",
       "sources": [
         "UID.2.1:terminal"
       ],
       "targets": [
-        "UID.2.2:sequence.start"
+        "UID.2.2:container.start"
       ],
+      "label": "UID.2:container",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
-      }
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "container",
+        "compound": true
+      },
+      "labels": [
+        {
+          "text": "UID.2:container"
+        }
+      ]
     },
     {
-      "id": "16",
+      "id": "42",
       "sources": [
-        "UID.2.2:sequence.finish"
+        "UID.2.2:container.finish"
       ],
       "targets": [
-        "UID.2:sequence.finish"
+        "UID.2:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": null
       }
     },
     {
-      "id": "17",
+      "id": "43",
       "sources": [
-        "UID.2.2:sequence.start"
+        "UID.2.2:container.start"
       ],
       "targets": [
         "UID.2.2.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": null
       }
     },
     {
-      "id": "18",
+      "id": "UID.2.2:container",
       "sources": [
         "UID.2.2.0:terminal"
       ],
       "targets": [
         "UID.2.2.1:terminal"
       ],
+      "label": "UID.2.2:container",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
-      }
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "container",
+        "compound": true
+      },
+      "labels": [
+        {
+          "text": "UID.2.2:container"
+        }
+      ]
     },
     {
-      "id": "19",
+      "id": "45",
       "sources": [
         "UID.2.2.1:terminal"
       ],
       "targets": [
-        "UID.2.2:sequence.finish"
+        "UID.2.2:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": null
       }
     },
     {
-      "id": "20",
+      "id": "46",
       "sources": [
-        "UID.3:sequence.start"
+        "UID.3:container.start"
       ],
       "targets": [
         "UID.3.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": null
       }
     },
     {
-      "id": "21",
+      "id": "UID.3:container",
       "sources": [
         "UID.3.0:terminal"
       ],
       "targets": [
         "UID.3.1:terminal"
       ],
+      "label": "UID.3:container",
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
-      }
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": "container",
+        "compound": true
+      },
+      "labels": [
+        {
+          "text": "UID.3:container"
+        }
+      ]
     },
     {
-      "id": "22",
+      "id": "48",
       "sources": [
         "UID.3.1:terminal"
       ],
       "targets": [
-        "UID.3:sequence.finish"
+        "UID.3:container.finish"
       ],
       "model": {
-        "resourceType": "flow",
-        "tagName": "sequence"
+        "provider": "flow",
+        "resourceType": "sequence",
+        "tagName": null
       }
     }
-  ],
-  "id": "root",
-  "layoutOptions": {
-    "elk.algorithm": "layered",
-    "nodePlacement.strategy": "BRANDES_KOEPF",
-    "org.eclipse.elk.port.borderOffset":10,
-    "org.eclipse.elk.layered.mergeEdges":true,
-    "spacing.nodeNodeBetweenLayers": 40,
-    "spacing.edgeNodeBetweenLayers": 40,
-    "spacing.edgeEdgeBetweenLayers": 40,
-    "layering.strategy": "LONGEST_PATH"
-  }
-
+  ]
 }
