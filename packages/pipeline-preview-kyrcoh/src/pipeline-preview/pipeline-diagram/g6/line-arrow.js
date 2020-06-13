@@ -19,7 +19,7 @@ export const LineArrowOptions = {
       const controlPoints = this.getControlPoints(cfg);
       let points = [startPoint]; 
       
-      if ((typeof controlPoints) === 'array') {
+      if (Array.isArray(controlPoints)) {
         points = points.concat(controlPoints);
       }
       points.push(endPoint);

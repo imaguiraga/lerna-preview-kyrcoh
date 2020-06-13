@@ -13,10 +13,10 @@ export class TerminalFlowElt extends TerminalResource{
    * Create a TerminalFlowElt.
    * @param {object} elts - The elts value.
    * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
+   * @param {string} resourceType - The resourceType value.
    */
-  constructor(elts,ctx,tagName) {
-    super(elts,ctx,tagName,FLOW_RESOURCE_TYPE);
+  constructor(elts,ctx,resourceType) {
+    super(elts,ctx,"terminal",resourceType,FLOW_RESOURCE_TYPE);
   }
 
 }

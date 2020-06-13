@@ -12,7 +12,7 @@ export class ParallelElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx)  {
-    super(elts,ctx,"parallel",PIPELINE_RESOURCE_TYPE);
+    super(elts,ctx,"container","parallel",PIPELINE_RESOURCE_TYPE);
   }
 
 }

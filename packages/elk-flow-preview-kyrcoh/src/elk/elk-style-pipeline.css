@@ -1,0 +1,27 @@
+.pipeline {
+  stroke-width: 2px;
+  fill: #5300e8;
+  stroke: #5300e8;
+}
+
+.pipeline.stage {
+  fill: #9E2B0E;
+  stroke: #9E2B0E;
+}
+
+.pipeline.job {
+  fill: #1D7324;
+  stroke: #1D7324;
+}
+
+.finish,
+.start,
+.loop,
+.skip {
+  font-family: 'FontAwesome';
+}
+
+.pipeline.link {
+  fill: transparent;
+  stroke-width: 2px;
+}
