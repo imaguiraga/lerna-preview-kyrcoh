@@ -13,7 +13,7 @@ export class PipelineToG6Visitor {
     if( typeof tree === "undefined"){
       return result;
     }
-    switch(tree.tagName){
+    switch(tree.resourceType){
       case "data":
         result = TerminalPipelineToG6Visitor.visit(this,tree,filterFn);
       break;
@@ -42,8 +42,36 @@ export class PipelineToG6Visitor {
     return result;
   }
 
-}
+  getNodeModel(n) {
+    let r = {
+      id: n.id,
+      label: n.id,
+      model: { 
+        provider: n.provider,
+        resourceType: n.resourceType,
+        tagName: n.tagName,
+        compound: n.compound
+      },
+      labels: [
+        {
+          text: n.id
+        } 
+      ],
+    };
+    return r;
+  }
 
+  getEdgeModel(n) {
+    let r = {
+      model: { 
+        provider: n.provider,
+        resourceType: n.resourceType,
+        tagName: null
+      }
+    };
+    return r;
+  }
+}
 
 /**
  * Class SequenceEltFlowToG6Visitor.
@@ -58,94 +86,65 @@ class SequenceEltFlowToG6Visitor{
    * @return {object} g6 Graph data.
    */  
   static visit(visitor,tree,filterFn,type){
-    const g6data = {
+    const graph = {
       nodes: [],
-      edges: []
+      edges: [],
+      ...visitor.getNodeModel(tree)
     };
-    if (tree.tagName !== type) {
-      return g6data;
+    if (tree.resourceType !== type) {
+      return graph;
     }
     // start + finish nodes
-    g6data.nodes.push({
-      id: tree.start.id,
-      label: tree.start.id,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: type+'.start'
-      }
-    });
+    graph.nodes.push(visitor.getNodeModel(tree.start));
     // nodes
-    if (tree.tagName === type) {
+    if (tree.resourceType === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
           return;
         }
-        let n = {
-          id: node.id,
-          label: node.title,
-          model: { 
-            resourceType: node.resourceType,  
-            tagName: type+'.terminal'
-          }
-        };
+        let n = visitor.getNodeModel(node);
         if (filterFn) {
           if (!filterFn(n)) {
-            g6data.nodes.push(n);
+            graph.nodes.push(n);
           }
         } else {
-          g6data.nodes.push(n);
+          graph.nodes.push(n);
         }
       });
     }
-    g6data.nodes.push({
-      id: tree.finish.id,
-      label: tree.finish.id,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: type+'.finish'
-      }
-    });
+    graph.nodes.push(visitor.getNodeModel(tree.finish));
     // edges
-    g6data.edges.push({
+    graph.edges.push({
         source: tree.start.id,
         target: tree.elts[0].start.id,
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
 
     for (let i = 0; i < tree.elts.length - 1; i++) {
-      g6data.edges.push({
+      graph.edges.push({
         source: tree.elts[i].finish.id,
         target: tree.elts[i + 1].start.id,
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
     }
 
-    g6data.edges.push({
+    graph.edges.push({
       source: tree.elts[tree.elts.length - 1].finish.id,
       target: tree.finish.id,
-      model: { 
-        resourceType: tree.resourceType,
-        tagName: type
-      },
+      ...visitor.getEdgeModel(tree),
     });
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
       let g6 = elt.accept(visitor,n => tree.foundElt(n));
       if(g6 !== null) {
-        g6data.nodes = g6data.nodes.concat(g6.nodes);
-        g6data.edges = g6data.edges.concat(g6.edges);
+        graph.nodes = graph.nodes.concat(g6.nodes);
+        graph.edges = graph.edges.concat(g6.edges);
       }
     });
 
-    return g6data;
+    return graph;
   }
 }
 
@@ -161,27 +160,21 @@ class TerminalPipelineToG6Visitor{
    * @return {object} g6 Graph data.
    */
   static visit(visitor,tree,filterFn) {
-    const g6data = {
+    const graph = {
       nodes: [],
-      edges: []
+      edges: [],
+      ...visitor.getNodeModel(tree)
     };
 
-    let n = {
-      id: tree.id,
-      label: tree.title,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: tree.tagName
-      }
-    };
+    let n = visitor.getNodeModel(tree);
     if (filterFn) {
       if (!filterFn(n)) {
-        g6data.nodes.push(n);
+        graph.nodes.push(n);
       }
     } else {
-      g6data.nodes.push(n);
+      graph.nodes.push(n);
     }
-    return g6data;
+    return graph;
   }
 
 }
@@ -200,74 +193,49 @@ class MutltiPathToG6Visitor{
    */  
   static visit(visitor,tree,filterFn,type){
     //const type = "choice" | "parallel";
-    const g6data = {
+    const graph = {
       nodes: [],
-      edges: []
+      edges: [],
+      ...visitor.getNodeModel(tree)
     };
     //
-    if (tree.tagName !== type) {
-      return g6data;
+    if (tree.resourceType !== type) {
+      return graph;
     }
     // start + finish nodes
-    g6data.nodes.push({
-      id: tree.start.id,
-      label: tree.start.id,
-      model: { 
-        resourceType: tree.resourceType,  
-        tagName: type+'.start'
-      }
-    });
+    graph.nodes.push(visitor.getNodeModel(tree.start));
+
 
     // nodes
-    if (tree.tagName === type) {
+    if (tree.resourceType === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
           return;
         }
-        let n = {
-          id: node.id,
-          label: node.title,
-          model: {
-            resourceType: node.resourceType,   
-            tagName: type+'.terminal'
-          }
-        };
+        let n = visitor.getNodeModel(node);
 
         if (filterFn) {
           if (!filterFn(n)) {
-            g6data.nodes.push(n);
+            graph.nodes.push(n);
           }
         } else {
-          g6data.nodes.push(n);
+          graph.nodes.push(n);
         }
       });
     }
-    g6data.nodes.push({
-      id: tree.finish.id,
-      label: tree.finish.id ,
-      model: {
-        resourceType: tree.resourceType,   
-        tagName: type+'.finish'
-      }
-    });
+    graph.nodes.push(visitor.getNodeModel(tree.finish));
     // edges
     for (let i = 0; i < tree.elts.length; i++) {
-      g6data.edges.push({
+      graph.edges.push({
         source: tree.start.id,
         target: tree.elts[i].start.id,
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
-      g6data.edges.push({
+      graph.edges.push({
         source: tree.elts[i].finish.id,
         target: tree.finish.id,
-        model: { 
-          resourceType: tree.resourceType,
-          tagName: type
-        },
+        ...visitor.getEdgeModel(tree),
       });
     }
     // concatenate G6 graphs
@@ -275,12 +243,12 @@ class MutltiPathToG6Visitor{
     tree.elts.forEach(elt => {
       let g6 = elt.accept(visitor,n => tree.foundElt(n));
       if(g6 !== null) {
-        g6data.nodes = g6data.nodes.concat(g6.nodes);
-        g6data.edges = g6data.edges.concat(g6.edges);
+        graph.nodes = graph.nodes.concat(g6.nodes);
+        graph.edges = graph.edges.concat(g6.edges);
       }
     });
 
-    return g6data;
+    return graph;
   }
   
 }

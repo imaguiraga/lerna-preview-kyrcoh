@@ -16,7 +16,7 @@ export class StepPipelineElt extends TerminalResource{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"step",PIPELINE_RESOURCE_TYPE);
+    super(elts,ctx,"terminal","step",PIPELINE_RESOURCE_TYPE);
   }
 
 }
@@ -33,7 +33,7 @@ export class DataPipelineElt extends TerminalResource{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx) {
-    super(elts,ctx,"data",PIPELINE_RESOURCE_TYPE);
+    super(elts,ctx,"terminal","data",PIPELINE_RESOURCE_TYPE);
   }
 
 }

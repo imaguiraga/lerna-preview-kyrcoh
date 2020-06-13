@@ -1,0 +1,29 @@
+@import "./elk-style-flow.css";
+@import "./elk-style-pipeline.css";
+@import "../flow-preview/style/font-awesome-4.7.0/css/font-awesome.css";
+
+g.leaf > rect {
+  stroke: #fff;
+  stroke-width: 1px;
+  opacity: 1;
+}
+
+g.compound > rect {
+  opacity: 0.1;
+}
+
+.node {
+  font-family: inherit;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: 1;
+  fill: none;
+}
+
+.port {
+  stroke: #000;
+  width: 1px;
+  opacity: .6;
+}

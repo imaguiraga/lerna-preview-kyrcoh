@@ -76,7 +76,7 @@ function updatePreviewPane(content){
     initPipelineSelection(pipelines);   
 
   } catch(e) {
-    console.error(e.name + ': ' + e.message);
+    console.error(e);
     graph.data([]);
     graph.render();
   }
@@ -94,30 +94,37 @@ function renderPipeline(input){
     graph.data(data!== null ? data : []);
 
     const elkgraph = elkvisitor.visit(pipeline);
-    elkgraph.id = "root";
     elkgraph.layoutOptions = {
       "elk.algorithm": "layered",
       "nodePlacement.strategy": "BRANDES_KOEPF",
       //"org.eclipse.elk.edgeRouting": "POLYLINE",
+      "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
       "org.eclipse.elk.port.borderOffset": 10,
       "org.eclipse.elk.layered.mergeEdges": true,
-      "spacing": 40,
       "spacing.nodeNodeBetweenLayers": 40,
       "spacing.edgeNodeBetweenLayers": 40,
       "spacing.edgeEdgeBetweenLayers": 40,
       "layering.strategy": "LONGEST_PATH"
     };
-  
+
     elkgraph.children.forEach((n) => {
       n.width = 80;
-      n.height = 60;     
+      n.height = 60;
+      if(n.model) {
+        let tag = n.model.tagName || null;
+        // Set start + finish to icon size
+        if(tag === "start" || tag === "finish"){
+          n.width = 24;
+          n.height = n.width;
+        }
+      }     
     });
 
     console.log(JSON.stringify(elkgraph,null,"  "));
     console.log(elkgraph);
 
   } catch(e) {
-    console.error(e.name + ': ' + e.message);
+    console.error(e);
   }
   graph.render();
   if(DEBUG) console.log("zoom="+graph.getZoom());

@@ -9,8 +9,9 @@ export class TerminalResource {
    * @param {object} ctx - The ctx value.
    * @param {string} tagName - The tagName value.
    * @param {string} resourceType - The resourceType value.
+   * @param {string} provider - The resource provider value.
    */
-  constructor(elts,ctx,tagName,resourceType) {
+  constructor(elts,ctx,tagName,resourceType,provider) {
     let self = this;
     self.title = "title";
     self.elts = [];
@@ -24,9 +25,11 @@ export class TerminalResource {
     
     //get new id
     TerminalResource.ID = TerminalResource.ID + 1;
-    self.resourceType = resourceType;
+    self.resourceType = resourceType || "resource";
     self.tagName = tagName || "terminal";
-    self.id = self.tagName + "." + TerminalResource.ID;
+    self.id = self.resourceType + "."+ self.tagName + "." + TerminalResource.ID;
+    self.provider = provider;
+    self.compound = false;
     
     self.start = this;
     self.finish = this;
@@ -119,14 +122,16 @@ export class CompositeResource extends TerminalResource {
    * @param {object} ctx - The ctx value.
    * @param {string} tagName - The tagName value.
    * @param {string} resourceType - The resourceType value.
+   * @param {string} provider - The resource provider value. 
    */
-  constructor(elts,ctx,tagName,resourceType) {
-    super(elts,ctx,tagName,resourceType);
+  constructor(elts,ctx,tagName,resourceType,provider) {
+    super(elts,ctx,"container",resourceType,provider);
     let self = this;
     self.elts = [];
     self.title = null;
-    self.start = new TerminalResource("start",null,"start",resourceType);
-    self.finish = new TerminalResource("finish",null,"finish",resourceType);
+    self.start = new TerminalResource("start",null,"start",resourceType,provider);
+    self.finish = new TerminalResource("finish",null,"finish",resourceType,provider);
+    self.compound = true;
 
     if(Array.isArray(elts)) {
       self.elts = elts.map(
@@ -154,7 +159,7 @@ export class CompositeResource extends TerminalResource {
       return elt.call();
     } else if (typeof elt !== "object") {
       // very likely a primitive type
-      return new TerminalResource(elt,null,"terminal",this.resourceType);
+      return new TerminalResource(elt,null,"terminal","resource",this.provider);
     }
     // default to object
     return elt;
@@ -191,7 +196,7 @@ export class CompositeResource extends TerminalResource {
  * @return {object} resource dsl.
  */
 export function resource(elt) {
-  return new TerminalResource(elt,null,"resource","resource");
+  return new TerminalResource(elt,null,"terminal","resource","generic");
 }
 
 /**
@@ -200,5 +205,5 @@ export function resource(elt) {
  * @return {object} group dsl.
  */
 export function group(elts) {
-  return new CompositeResource(elts,null,"resource","resource");
+  return new CompositeResource(elts,null,"container","resource","generic");
 }

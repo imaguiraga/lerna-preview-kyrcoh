@@ -1,0 +1,812 @@
+{
+  "id": "pipeline.container.25",
+  "label": "pipeline.container.25",
+  "model": {
+    "provider": "pipeline",
+    "resourceType": "pipeline",
+    "tagName": "container",
+    "compound": true
+  },
+  "labels": [
+    {
+      "text": "pipeline.container.25"
+    }
+  ],
+  "layoutOptions": {
+    "elk.algorithm": "layered",
+    "nodePlacement.strategy": "BRANDES_KOEPF",
+    "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
+    "org.eclipse.elk.port.borderOffset": 10,
+    "org.eclipse.elk.layered.mergeEdges": true,
+    "spacing.nodeNodeBetweenLayers": 40,
+    "spacing.edgeNodeBetweenLayers": 40,
+    "spacing.edgeEdgeBetweenLayers": 40,
+    "layering.strategy": "LONGEST_PATH",
+    "elk.alignment": "TOP",
+    "elk.direction": "DOWN"
+  },
+  "children": [
+    {
+      "id": "UID:container.start",
+      "label": "UID:container.start",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": "start",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID:container.start"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.0:terminal",
+      "label": "UID.0:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "step",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.0:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID:container.finish",
+      "label": "UID:container.finish",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": "finish",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID:container.finish"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.1:container.start",
+      "label": "UID.1:container.start",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": "start",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1:container.start"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.1.0:terminal",
+      "label": "UID.1.0:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1.0:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.1.1:terminal",
+      "label": "UID.1.1:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1.1:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.1.2:terminal",
+      "label": "UID.1.2:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1.2:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.1.3:terminal",
+      "label": "UID.1.3:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1.3:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.1.4:terminal",
+      "label": "UID.1.4:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1.4:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.1:container.finish",
+      "label": "UID.1:container.finish",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": "finish",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.1:container.finish"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.2:container.start",
+      "label": "UID.2:container.start",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": "start",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2:container.start"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.2.0:terminal",
+      "label": "UID.2.0:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "step",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2.0:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.2.1:terminal",
+      "label": "UID.2.1:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "step",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2.1:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.2:container.finish",
+      "label": "UID.2:container.finish",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": "finish",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2:container.finish"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.2.2:container.start",
+      "label": "UID.2.2:container.start",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": "start",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2.2:container.start"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.2.2.0:terminal",
+      "label": "UID.2.2.0:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2.2.0:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.2.2.1:terminal",
+      "label": "UID.2.2.1:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2.2.1:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.2.2:container.finish",
+      "label": "UID.2.2:container.finish",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": "finish",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.2.2:container.finish"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.3:container.start",
+      "label": "UID.3:container.start",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": "start",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.3:container.start"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "UID.3.0:terminal",
+      "label": "UID.3.0:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.3.0:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.3.1:terminal",
+      "label": "UID.3.1:terminal",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "resource",
+        "tagName": "terminal",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.3.1:terminal"
+        }
+      ],
+      "width": 80,
+      "height": 60
+    },
+    {
+      "id": "UID.3:container.finish",
+      "label": "UID.3:container.finish",
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": "finish",
+        "compound": false
+      },
+      "labels": [
+        {
+          "text": "UID.3:container.finish"
+        }
+      ],
+      "width": 24,
+      "height": 24
+    }
+  ],
+  "edges": [
+    {
+      "id": "1",
+      "sources": [
+        "UID:container.start"
+      ],
+      "targets": [
+        "UID.0:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": null
+      }
+    },
+    {
+      "id": "2",
+      "sources": [
+        "UID.0:terminal"
+      ],
+      "targets": [
+        "UID.1:container.start"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": null
+      }
+    },
+    {
+      "id": "3",
+      "sources": [
+        "UID.1:container.finish"
+      ],
+      "targets": [
+        "UID.2:container.start"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": null
+      }
+    },
+    {
+      "id": "4",
+      "sources": [
+        "UID.2:container.finish"
+      ],
+      "targets": [
+        "UID.3:container.start"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": null
+      }
+    },
+    {
+      "id": "5",
+      "sources": [
+        "UID.3:container.finish"
+      ],
+      "targets": [
+        "UID:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "pipeline",
+        "tagName": null
+      }
+    },
+    {
+      "id": "6",
+      "sources": [
+        "UID.1:container.start"
+      ],
+      "targets": [
+        "UID.1.0:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "7",
+      "sources": [
+        "UID.1.0:terminal"
+      ],
+      "targets": [
+        "UID.1:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "8",
+      "sources": [
+        "UID.1:container.start"
+      ],
+      "targets": [
+        "UID.1.1:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "9",
+      "sources": [
+        "UID.1.1:terminal"
+      ],
+      "targets": [
+        "UID.1:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "10",
+      "sources": [
+        "UID.1:container.start"
+      ],
+      "targets": [
+        "UID.1.2:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "11",
+      "sources": [
+        "UID.1.2:terminal"
+      ],
+      "targets": [
+        "UID.1:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "12",
+      "sources": [
+        "UID.1:container.start"
+      ],
+      "targets": [
+        "UID.1.3:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "13",
+      "sources": [
+        "UID.1.3:terminal"
+      ],
+      "targets": [
+        "UID.1:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "14",
+      "sources": [
+        "UID.1:container.start"
+      ],
+      "targets": [
+        "UID.1.4:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "15",
+      "sources": [
+        "UID.1.4:terminal"
+      ],
+      "targets": [
+        "UID.1:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "16",
+      "sources": [
+        "UID.2:container.start"
+      ],
+      "targets": [
+        "UID.2.0:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": null
+      }
+    },
+    {
+      "id": "17",
+      "sources": [
+        "UID.2.0:terminal"
+      ],
+      "targets": [
+        "UID.2:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": null
+      }
+    },
+    {
+      "id": "18",
+      "sources": [
+        "UID.2:container.start"
+      ],
+      "targets": [
+        "UID.2.1:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": null
+      }
+    },
+    {
+      "id": "19",
+      "sources": [
+        "UID.2.1:terminal"
+      ],
+      "targets": [
+        "UID.2:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": null
+      }
+    },
+    {
+      "id": "20",
+      "sources": [
+        "UID.2:container.start"
+      ],
+      "targets": [
+        "UID.2.2:container.start"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": null
+      }
+    },
+    {
+      "id": "21",
+      "sources": [
+        "UID.2.2:container.finish"
+      ],
+      "targets": [
+        "UID.2:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "stage",
+        "tagName": null
+      }
+    },
+    {
+      "id": "22",
+      "sources": [
+        "UID.2.2:container.start"
+      ],
+      "targets": [
+        "UID.2.2.0:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "23",
+      "sources": [
+        "UID.2.2.0:terminal"
+      ],
+      "targets": [
+        "UID.2.2:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "24",
+      "sources": [
+        "UID.2.2:container.start"
+      ],
+      "targets": [
+        "UID.2.2.1:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "25",
+      "sources": [
+        "UID.2.2.1:terminal"
+      ],
+      "targets": [
+        "UID.2.2:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "26",
+      "sources": [
+        "UID.3:container.start"
+      ],
+      "targets": [
+        "UID.3.0:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "27",
+      "sources": [
+        "UID.3.0:terminal"
+      ],
+      "targets": [
+        "UID.3:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "28",
+      "sources": [
+        "UID.3:container.start"
+      ],
+      "targets": [
+        "UID.3.1:terminal"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    },
+    {
+      "id": "29",
+      "sources": [
+        "UID.3.1:terminal"
+      ],
+      "targets": [
+        "UID.3:container.finish"
+      ],
+      "model": {
+        "provider": "pipeline",
+        "resourceType": "job",
+        "tagName": null
+      }
+    }
+  ]
+}
