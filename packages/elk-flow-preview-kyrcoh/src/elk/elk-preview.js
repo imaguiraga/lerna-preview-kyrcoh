@@ -224,7 +224,60 @@ function renderd3Layoutv2(svg,node){
             selection.classed(d.model.provider,true);
             selection.classed(d.model.resourceType,true);
             selection.classed(d.model.tagName,true);
-          }       
+          } 
+          // Node type  
+          if(isIconFn(d)){
+            selection.append("use")
+              .style("fill", "inherit")
+              .style("stroke", "inherit")
+              .attr("href",(data) =>{
+                let suffix = data.model.tagName;
+                //return "Cloud Functions.svg#Layer_1";
+                return "#"+suffix+"1"; 
+              })
+              .attr("x", function(d) { return 2; })
+              .attr("y", function(d) { return 2; })
+              .attr("width", function(d) { return d.width-4; })
+              .attr("height", function(d) { return d.height-4; });
+          } else {
+            selection.append("rect")
+            .style("fill", "inherit")
+            .style("stroke", "inherit")
+            .attr("x", 4)
+            .attr("y", 4)
+            .attr("width", function(d) { return d.width-8; })
+            .attr("height", function(d) { return d.height-8; })
+            .attr("rx", 8)
+            .append("metadata")
+            .text((d) => {
+              return JSON.stringify(d.model,null," ");
+            });
+          }   
+          // Labels
+          // Create new selection from current one
+          selection.selectAll(".label").data((d,i)=>{
+            return labelsFn(d);
+          }).enter()
+            .append("text")
+            .attr("class","label")
+            .text((l) => l.text)
+            .style("stroke-width",1)
+            .style("font-size",12)
+            .attr("x", (l) => l.x)
+            .attr("y", (l) => l.y)
+            .attr("width", (l) => l.width)
+            .attr("height", (l) => l.height);
+            // ports
+             // Create new selection from current one
+          selection.selectAll(".port").data((d,i)=>{
+            return portsFn(d);
+          }).enter()
+            .append("rect")
+            .attr("class","port")
+            .attr("x", (l) => l.x)
+            .attr("y", (l) => l.y)
+            .attr("width", (l) => l.width)
+            .attr("height", (l) => l.height);
         })
         .attr("transform", function(d) { 
           return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
@@ -232,73 +285,9 @@ function renderd3Layoutv2(svg,node){
           return idfun(d);
         });
 
-        // Add marker nodes nodes
-        
-        nodeEnter.filter((d) => {
-            return isIconFn(d);
-        }).append("use")
-          .style("fill", "inherit")
-          .style("stroke", "inherit")
-          .attr("href",(data) =>{
-            let suffix = data.model.tagName;
-            //return "Cloud Functions.svg#Layer_1";
-            return "#"+suffix+"1"; 
-          } )
-          .attr("x", function(d) { return 2; })
-          .attr("y", function(d) { return 2; })
-          .attr("width", function(d) { return d.width-4; })
-          .attr("height", function(d) { return d.height-4; });
-          // Non-marker nodes
-        nodeEnter.filter((d) => {
-          return !isIconFn(d);
-        }).append("rect")
-          .style("fill", "inherit")
-          .style("stroke", "inherit")
-          .attr("x", 4)
-          .attr("y", 4)
-          .attr("width", function(d) { return d.width-8; })
-          .attr("height", function(d) { return d.height-8; })
-          .attr("rx", 8)
-          .append("metadata")
-          .text((d) => {
-            return JSON.stringify(d.model,null," ");
-          });
-
-        // if node has an icon
         // Add title  
         nodeEnter.append("title")
             .text(function(d) { return d.id; });
-
-        //Add labels    
-        nodeEnter.call((selection) => {
-          // Create new selection from current one
-            selection.selectAll(".label").data((d,i)=>{
-              return labelsFn(d);
-            }).enter()
-              .append("text")
-              .attr("class","label")
-              .text((l) => l.text)
-              .style("stroke-width",1)
-              .style("font-size",12)
-              .attr("x", (l) => l.x)
-              .attr("y", (l) => l.y)
-              .attr("width", (l) => l.width)
-              .attr("height", (l) => l.height);
-        }); 
-        // Add Ports
-        nodeEnter.call((selection) => {
-          // Create new selection from current one
-            selection.selectAll(".port").data((d,i)=>{
-              return portsFn(d);
-            }).enter()
-              .append("rect")
-              .attr("class","port")
-              .attr("x", (l) => l.x)
-              .attr("y", (l) => l.y)
-              .attr("width", (l) => l.width)
-              .attr("height", (l) => l.height);
-          }); 
-        // Add Junctions
 
         nodeEnter.each(function(n,i){
           // If node has children make a recursive call
