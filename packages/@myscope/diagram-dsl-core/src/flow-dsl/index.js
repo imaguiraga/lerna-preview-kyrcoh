@@ -1,11 +1,5 @@
-/* flow-element */
-export * from "./tree/flow-terminal.js";
-export * from "./tree/flow-choice.js";
-export * from "./tree/flow-parallel.js";
-export * from "./tree/flow-optional.js";
-export * from "./tree/flow-repeat.js";
-export * from "./tree/flow-sequence.js";
-export * from "./tree/flow-zero-or-more.js";
+/* tree */
+export * from "./tree/index.js";
 
 /* parser */
-export * from "./parser/flow-parser.js";
+export * from "./parser/index.js";

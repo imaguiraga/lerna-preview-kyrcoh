@@ -1,6 +1,10 @@
 {
   "name": "flow-preview-kyrcoh",
   "version": "1.0.0",
+  "contributors": [
+    "Ibrahim Maguiraga <imaguiraga@hotmail.com> (https://github.com/imaguiraga/)"
+  ],
+  "license": "MIT",
   "description": "preview flow diagram project",
   "private": true,
   "main": "index.html",
