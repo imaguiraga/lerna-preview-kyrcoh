@@ -1,9 +1,16 @@
 /**
  * Class FlowToELKVisitor.
  */
+function* idGenFn(index) {
+  while (index >= 0) {
+    yield index;
+    index++;
+  }
+}
+
 export class FlowToELKVisitor {
   constructor(){
-    this.edgeCnt = 0;
+    this.edgeCntIt = idGenFn(0);   
   }
   /**
    * Convert a dsl tree to ELK Graph.
@@ -175,27 +182,27 @@ class SequenceEltFlowToELKVisitor{
     }
     graph.children.push(visitor.getNodeModel(tree.finish));
     // edges
-    visitor.edgeCnt = visitor.edgeCnt+1;
+    
     graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
       });
 
     for (let i = 0; i < tree.elts.length - 1; i++) {
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[i].finish.id],
         targets: [tree.elts[i + 1].start.id],
         ...visitor.getNodeModel(tree),
       });
     }
 
-    visitor.edgeCnt = visitor.edgeCnt+1;
+    
     graph.edges.push({
-      id: `${visitor.edgeCnt}`,
+      id: `${visitor.edgeCntIt.next().value}`,
       sources: [tree.elts[tree.elts.length - 1].finish.id],
       targets: [tree.finish.id],
       ...visitor.getEdgeModel(tree),
@@ -260,16 +267,16 @@ class MutltiPathEltFlowToELKVisitor{
     graph.children.push(visitor.getNodeModel(tree.finish));
     // edges
     for (let i = 0; i < tree.elts.length; i++) {
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.elts[i].start.id],
         ...visitor.getEdgeModel(tree),
       });
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[i].finish.id],
         targets: [tree.finish.id],
         ...visitor.getEdgeModel(tree),
@@ -340,17 +347,17 @@ class OptionalEltFlowToELKVisitor{
     // edges
 
     if(tree.elts.length > 0) {
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
 
       });
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[tree.elts.length-1].finish.id],
         targets: [tree.finish.id],
          ...visitor.getEdgeModel(tree),
@@ -359,24 +366,24 @@ class OptionalEltFlowToELKVisitor{
 
     // start -> skip? -> finish
     if(typeof(tree.skip) !== "undefined"){
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.skip.id],
         ...visitor.getEdgeModel(tree),
       });
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.skip.id],
         targets: [tree.finish.id],
         ...visitor.getEdgeModel(tree),
       });
     } else {
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.finish.id],
         ...visitor.getEdgeModel(tree),
@@ -446,16 +453,16 @@ class RepeatEltFlowToELKVisitor {
     graph.children.push(visitor.getNodeModel(tree.finish));
     // edges
     if(tree.elts.length > 0) {
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
       });
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[tree.elts.length-1].finish.id],
         targets: [tree.finish.id],
         ...visitor.getEdgeModel(tree),
@@ -465,9 +472,9 @@ class RepeatEltFlowToELKVisitor {
     // start <- loop <- finish
     // reverse the arrow direction
     if(typeof(tree.loop) !== "undefined"){
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.loop.id],
         style: {
@@ -476,9 +483,9 @@ class RepeatEltFlowToELKVisitor {
         },
         ...visitor.getEdgeModel(tree),
       });
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.loop.id],
         targets: [tree.finish.id],
         style: {
@@ -488,9 +495,9 @@ class RepeatEltFlowToELKVisitor {
         ...visitor.getEdgeModel(tree),
       });
     } else {
-      visitor.edgeCnt = visitor.edgeCnt+1;
+      
       graph.edges.push({
-        id: `${visitor.edgeCnt}`,
+        id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.finish.id],
         targets: [tree.start.id],
         ...visitor.getEdgeModel(tree),
