@@ -1,4 +1,8 @@
-import {CompositeResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
+import {
+  CompositeResource
+} from '../base/resource-base.js';
+
+import {FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class ParallelElt.

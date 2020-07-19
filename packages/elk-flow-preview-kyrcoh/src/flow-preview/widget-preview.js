@@ -28,7 +28,7 @@ import { G6GraphWidget } from "./widgets/g6graph-widget";
 import './style/index.css';
 import {samples} from "./samples.js";
 
-import * as flowDsl from "../flow-dsl";
+import * as flowDsl from "@myscope/diagram-dsl-core";
 import * as diagram from "./flow-diagram";
 
 const {

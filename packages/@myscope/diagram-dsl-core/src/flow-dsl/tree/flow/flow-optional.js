@@ -1,4 +1,8 @@
-import {CompositeResource,TerminalResource,FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
+import {
+  CompositeResource,TerminalResource
+} from '../base/resource-base.js';
+
+import {FLOW_RESOURCE_TYPE} from "./flow-terminal.js";
 
 /**
  * Class OptionalElt.
