@@ -1,8 +1,7 @@
 import {
     TerminalResource
-} from './base/resource-base.js';
+} from '../base/resource-base.js';
 
-export * from './base/resource-base.js';
 export const FLOW_RESOURCE_TYPE = "flow";
 /**
  * Class TerminalFlowElt.

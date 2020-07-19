@@ -1,5 +1,9 @@
 {
   "name": "root",
+  "contributors": [
+    "Ibrahim Maguiraga <imaguiraga@hotmail.com> (https://github.com/imaguiraga/)"
+  ],
+  "license": "MIT",
   "private": true,
   "workspaces": [
     "examples/*",
