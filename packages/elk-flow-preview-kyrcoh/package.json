@@ -26,7 +26,8 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "split.js": "^1.5.11",
-    "webworker-threads": "^0.7.17"
+    "webworker-threads": "^0.7.17",
+    "@myscope/diagram-dsl-core": "file:../@myscope/diagram-dsl-core"
   },
   "scripts": {
     "start": "react-scripts start",
