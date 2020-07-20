@@ -8,6 +8,7 @@ function* idGenFn(index) {
   }
 }
 
+const IDGENFN = idGenFn(0);
 export class TerminalResource {
   /**
    * Create a TerminalResource.
@@ -20,7 +21,7 @@ export class TerminalResource {
   constructor(elts,ctx,tagName,resourceType,provider) {
     let self = this;
     // Nex Id Generator
-    this.idGenIt = idGenFn(0);
+    this.idGenIt = IDGENFN;
 
     self.title = "title";
     self.elts = [];
