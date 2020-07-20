@@ -1,2 +1,2 @@
 /* parser */
-export * from "./flow-parser.js";
+export * from "./dsl-parser.js";

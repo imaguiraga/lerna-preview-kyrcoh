@@ -8,4 +8,4 @@ export * from "./tree/flow-sequence.js";
 export * from "./tree/flow-zero-or-more.js";
 
 /* parser */
-export * from "./parser/flow-parser.js";
+export * from "./parser/dsl-parser.js";
