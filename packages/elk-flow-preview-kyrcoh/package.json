@@ -34,6 +34,7 @@
     "webworker-threads": "^0.7.17"
   },
   "scripts": {
+    "update": "yarn upgrade @myscope/diagram-dsl-core",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
