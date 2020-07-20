@@ -120,8 +120,8 @@ function renderFlow(input){
       }     
     });
 
-    console.log(JSON.stringify(elkgraph,null,"  "));
-    console.log(elkgraph);
+    //console.log(JSON.stringify(elkgraph,null,"  "));
+    //console.log(elkgraph);
 
   } catch(e) {
     console.error(e);

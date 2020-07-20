@@ -1,8 +1,15 @@
 /**
  * Class TerminalResource.
  */
+function* idGenFn(index) {
+  while (index >= 0) {
+    yield index;
+    index++;
+  }
+}
+
+const IDGENFN = idGenFn(0);
 export class TerminalResource {
-  static ID = 0;
   /**
    * Create a TerminalResource.
    * @param {object} elts - The elts value.
@@ -13,6 +20,9 @@ export class TerminalResource {
    */
   constructor(elts,ctx,tagName,resourceType,provider) {
     let self = this;
+    // Nex Id Generator
+    this.idGenIt = IDGENFN;
+
     self.title = "title";
     self.elts = [];
 
@@ -24,10 +34,9 @@ export class TerminalResource {
     }
     
     //get new id
-    TerminalResource.ID = TerminalResource.ID + 1;
     self.resourceType = resourceType || "resource";
     self.tagName = tagName || "terminal";
-    self.id = self.resourceType + "."+ self.tagName + "." + TerminalResource.ID;
+    self.id = self.resourceType + "."+ self.tagName + "." + this.idGenIt.next().value;
     self.provider = provider;
     self.compound = false;
     
