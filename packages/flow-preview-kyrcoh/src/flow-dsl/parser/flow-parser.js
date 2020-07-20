@@ -3,46 +3,63 @@
 //import * as escodegen from 'escodegen';
 import * as esprima from 'esprima';
 
-const DEBUG = false;
+const DEBUG = true;
+
+function debug(msg) {
+  if(DEBUG) {
+    console.log(msg);
+  }
+}
 export function parseDsl(input,dslModule){
+  // Get module ids
+  let MODULE_IDS = Object.keys(dslModule); 
   // Parse text
   // eslint-disable-next-line
-  let factoryFn = new Function("module","return new Map();");
-  try {
-    let tree = esprima.parseScript(input);
-    // Modify AST
-    // Extract Identifiers
-    let ids = tree.body.filter((elt) => {return elt.type === 'VariableDeclaration'})
-      .map((elt) => {
-        let decl = elt.declarations[0];
-        let name = decl.id.name;
-        let value = name;
-        if(decl.init.type === "ArrowFunctionExpression" || decl.init.type === "FunctionExpression"){
-          value = name+"()";
-        }
-        return `result.set('${name}',${value});`;
-      });
-      
-    let text =
-      `const {
-        repeat,
-        sequence,
-        optional,
-        choice,
-        zeroOrMore,
-        terminal,
-        parallel
-      } = module;
+  let factoryFn = new Function("dslModule","return new Map();");
+  let variableIds = [];
+  let moduleIds = [];
 
-      ${input}
-      
-      let result = new Map();
-      ${ids.join("\n")}
-      return result;
-    `;
-    if(DEBUG) console.log(text);
+  let callbackFn = function (elt){
+    // Extract Identifiers
+    if(elt.type === 'VariableDeclaration'){
+      let decl = elt.declarations[0];
+      let name = decl.id.name;
+      let value = name;
+      if(decl.init.type === "ArrowFunctionExpression" || decl.init.type === "FunctionExpression"){
+        value = name+"()";
+      }
+      variableIds.push(`result.set('${name}',${value});`);
+
+    } else if (elt.type === 'CallExpression'){
+      let name = elt.callee.name;
+      moduleIds.push(name);
+    }
+  };
+
+  try {
+    let tree = esprima.parseScript(input,{},callbackFn);
+
+    // Extract call ids
+    // Keep only ids in the default  
+    // Remove duplicates
+    moduleIds = [...new Set(moduleIds)].filter((elt) => {
+      return (MODULE_IDS.indexOf(elt) >= 0);
+    });
+
+    let text =
+`const {
+${moduleIds.join(",\n")}
+} = dslModule;
+
+${input}
+
+let result = new Map();
+${variableIds.join("\n")}
+return result;
+`;
+  debug(text);
     // eslint-disable-next-line
-    factoryFn = new Function("module",text);
+    factoryFn = new Function("dslModule",text);
 
   } catch(e) {
     console.error(e.name + ': ' + e.message);
