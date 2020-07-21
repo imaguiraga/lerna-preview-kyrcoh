@@ -1,30 +1,8 @@
-import {CompositeResource,PIPELINE_RESOURCE_TYPE} from "./pipeline-terminal.js";
+import {
+  CompositeResource
+} from '../base/resource-base.js';
 
-/**
- * Class SequenceElt.
- * @extends CompositeResource
- */
-export class SequenceElt extends CompositeResource {
-  /**
-   * Create a SequenceElt.
-   * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   */
-  constructor(elts,ctx) {
-    super(elts,ctx,"container","sequence",PIPELINE_RESOURCE_TYPE);
-  }
-
-}
-
-/**
- * Create a Sequence dsl tree.
- * @param {array|object} elts - The elements.
- * @return {object} pipeline dsl.
- */
-export function sequence(...elts) {
-  return new SequenceElt([...elts]);
-}
-
+import {PIPELINE_RESOURCE_TYPE} from "./pipeline-terminal.js";
 
 /**
  * Class PipelineElt.

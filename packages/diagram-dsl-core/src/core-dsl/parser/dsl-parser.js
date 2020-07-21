@@ -4,19 +4,15 @@
 import * as esprima from 'esprima';
 
 const DEBUG = true;
-const MODULE_IDs = new Set([
-  "repeat",
-  "sequence",
-  "optional",
-  "choice",
-  "zeroOrMore",
-  "terminal",
-  "parallel",
-  "TerminalResource",
-  "CompositeResource"
-]);
 
+function debug(msg) {
+  if(DEBUG) {
+    console.log(msg);
+  }
+}
 export function parseDsl(input,dslModule){
+  // Get module ids
+  let MODULE_IDS = Object.keys(dslModule); 
   // Parse text
   // eslint-disable-next-line
   let factoryFn = new Function("dslModule","return new Map();");
@@ -47,7 +43,7 @@ export function parseDsl(input,dslModule){
     // Keep only ids in the default  
     // Remove duplicates
     moduleIds = [...new Set(moduleIds)].filter((elt) => {
-      return MODULE_IDs.has(elt);
+      return (MODULE_IDS.indexOf(elt) >= 0);
     });
 
     let text =
@@ -61,7 +57,7 @@ let result = new Map();
 ${variableIds.join("\n")}
 return result;
 `;
-    if(DEBUG) console.log(text);
+  debug(text);
     // eslint-disable-next-line
     factoryFn = new Function("dslModule",text);
 
