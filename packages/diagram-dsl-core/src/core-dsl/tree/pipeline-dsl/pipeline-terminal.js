@@ -1,8 +1,7 @@
 import {
   TerminalResource
-} from './base/resource-base.js';
+} from '../base/resource-base.js';
 
-export * from './base/resource-base.js'; 
 export const PIPELINE_RESOURCE_TYPE = "pipeline";
 /**
  * Class StepPipelineElt.

@@ -1,6 +1,6 @@
 
 export const samples = [
-`let d= choice("e", "d");`,
+`let d = choice("e", "d");`,
 `
 let testflow = choice(
   terminal("a"),
