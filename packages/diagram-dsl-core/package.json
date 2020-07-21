@@ -1,12 +1,12 @@
 {
   "name": "@imaguiraga/diagram-dsl-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "contributors": [
     "Ibrahim Maguiraga <imaguiraga@hotmail.com> (https://github.com/imaguiraga/)"
   ],
   "license": "MIT",
   "description": "diagram-dsl-core project",
-  "private": false,
+  "private": true,
   "main": "./dist/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
