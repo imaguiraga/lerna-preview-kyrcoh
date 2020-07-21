@@ -8,6 +8,16 @@
   "description": "diagram-dsl-core project",
   "private": true,
   "main": "./dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "allow-same-version": true,
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git",
+    "directory": "packages/diagram-dsl-core"
+  },
   "dependencies": {
     "d3": "^5.16.0",
     "es6-promise": "^4.2.8",
