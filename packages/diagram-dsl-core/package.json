@@ -8,11 +8,6 @@
   "description": "diagram-dsl-core project",
   "private": true,
   "main": "./dist/index.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "allow-same-version": true,
-    "access": "restricted"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git",
@@ -27,7 +22,7 @@
     "jshint": "^2.11.0"
   },
   "scripts": {
-    "build": "rm -rf ./dist && babel ./src --out-dir ./dist --source-maps --copy-files"
+    "build": "rimraf ./dist && babel ./src --out-dir ./dist --source-maps --copy-files"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
@@ -36,6 +31,7 @@
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.8.3",
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.2"
   },
   "keywords": [

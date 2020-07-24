@@ -7,6 +7,11 @@
   "license": "MIT",
   "description": "preview pipeline diagram project",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git",
+    "directory": "packages/pipeline-preview-kyrcoh"
+  },
   "main": "index.html",
   "dependencies": {
     "@antv/g6": "^3.4.8",
