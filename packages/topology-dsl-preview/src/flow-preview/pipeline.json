@@ -2,7 +2,7 @@
   "children": [
     {
       "id": "UID:pipeline.start",
-      "labels": [{'text':"UID:start",
+      "labels": [{"text":"UID:start",
       "properties": {
         //"portConstraints": "FIXED_ORDER",
         //"nodeLabels.padding" :80,
