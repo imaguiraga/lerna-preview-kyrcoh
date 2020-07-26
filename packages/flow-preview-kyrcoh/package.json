@@ -16,7 +16,7 @@
   "dependencies": {
     "@antv/g6": "^3.4.8",
     "@antv/util": "^2.0.9",
-    "@imaguiraga/diagram-dsl-core": "1.0.1",
+    "@imaguiraga/topology-dsl-core": "1.0.1",
     "@lumino/commands": "^1.10.1",
     "@lumino/default-theme": "^0.2.4",
     "@lumino/dragdrop": "^1.5.1",
@@ -40,7 +40,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "update": "yarn upgrade @imaguiraga/diagram-dsl-core"
+    "update": "yarn upgrade @imaguiraga/topology-dsl-core"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",

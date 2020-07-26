@@ -4,7 +4,7 @@ import Split from "split.js";
 import {samples} from "./samples.js";
 import {createEditor} from "./flow-editor";
 
-import * as flowDsl from "@imaguiraga/diagram-dsl-core";
+import * as flowDsl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "./flow-diagram";
 
 const {parseDsl} = flowDsl;

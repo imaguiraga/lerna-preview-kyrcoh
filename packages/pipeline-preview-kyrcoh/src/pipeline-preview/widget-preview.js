@@ -28,7 +28,7 @@ import { G6GraphWidget } from "./widgets/g6graph-widget";
 import './style/index.css';
 import {samples} from "./samples.js";
 
-import * as pipelineDsl from "@imaguiraga/diagram-dsl-core";
+import * as pipelineDsl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "./pipeline-diagram";
 
 const {

@@ -4,7 +4,7 @@ import Split from "split.js";
 import {samples} from "./samples.js";
 import {createEditor} from "./pipeline-editor";
 
-import * as pipelineDSl from "@imaguiraga/diagram-dsl-core";
+import * as pipelineDSl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "./pipeline-diagram";
 
 const {parseDsl} = pipelineDSl;

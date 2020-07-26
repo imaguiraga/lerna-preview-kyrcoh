@@ -1,17 +1,17 @@
 {
-  "name": "@imaguiraga/diagram-dsl-core",
+  "name": "@imaguiraga/topology-dsl-core",
   "version": "1.0.1",
   "contributors": [
     "Ibrahim Maguiraga <imaguiraga@hotmail.com> (https://github.com/imaguiraga/)"
   ],
   "license": "MIT",
-  "description": "diagram-dsl-core project",
+  "description": "topology-dsl-core project",
   "private": true,
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git",
-    "directory": "packages/diagram-dsl-core"
+    "directory": "packages/topology-dsl-core"
   },
   "dependencies": {
     "d3": "^5.16.0",
