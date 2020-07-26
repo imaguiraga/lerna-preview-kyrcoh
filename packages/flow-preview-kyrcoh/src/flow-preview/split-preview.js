@@ -55,13 +55,11 @@ Split(["#one", "#two"], {
 
 const {
   FlowToG6Visitor,
-  FlowUIDVisitor,
-  FlowToELKVisitor
+  FlowUIDVisitor
 } = diagram;
 
 const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
-const elkvisitor = new FlowToELKVisitor();
 
 const graph = diagram.createFlowDiagram("preview-pane");
 
@@ -92,36 +90,6 @@ function renderFlow(input){
     let flow = uidvisitor.visit(input);
     const data = visitor.visit(flow);
     graph.data(data!== null ? data : []);
-
-    const elkgraph = elkvisitor.visit(flow);
-    elkgraph.layoutOptions = {
-      "elk.algorithm": "layered",
-      "nodePlacement.strategy": "BRANDES_KOEPF",
-      //"org.eclipse.elk.edgeRouting": "POLYLINE",
-      "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
-      "org.eclipse.elk.port.borderOffset": 10,
-      "org.eclipse.elk.layered.mergeEdges": true,
-      "spacing.nodeNodeBetweenLayers": 40,
-      "spacing.edgeNodeBetweenLayers": 40,
-      "spacing.edgeEdgeBetweenLayers": 40,
-      "layering.strategy": "LONGEST_PATH"
-    };
-
-    elkgraph.children.forEach((n) => {
-      n.width = 80;
-      n.height = 60;
-      if(n.model) {
-        let tag = n.model.tagName || null;
-        // Set start + finish to icon size
-        if(tag === "start" || tag === "finish"){
-          n.width = 24;
-          n.height = n.width;
-        }
-      }     
-    });
-
-    //console.log(JSON.stringify(elkgraph,null,"  "));
-    //console.log(elkgraph);
 
   } catch(e) {
     console.error(e);
