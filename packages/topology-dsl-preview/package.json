@@ -1,16 +1,16 @@
 {
-  "name": "@imaguiraga/topology-preview-kyrcoh",
+  "name": "@imaguiraga/topology-dsl-preview",
   "version": "1.0.0",
   "contributors": [
     "Ibrahim Maguiraga <imaguiraga@hotmail.com> (https://github.com/imaguiraga/)"
   ],
   "license": "MIT",
-  "description": "preview flow diagram project",
+  "description": "preview topology diagram project",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git",
-    "directory": "packages/topology-preview-kyrcoh"
+    "directory": "packages/topology-dsl-preview"
   },
   "main": "index.html",
   "dependencies": {
