@@ -61,7 +61,6 @@ const {
 const uidvisitor = new FlowUIDVisitor();
 const elkvisitor = new FlowToELKVisitor();
 
-debugger
 const renderer = diagram.createElkRenderer("preview-pane");
 
 // load the data and render the elements

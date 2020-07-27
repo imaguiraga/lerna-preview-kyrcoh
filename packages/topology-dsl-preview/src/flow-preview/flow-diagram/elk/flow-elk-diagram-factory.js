@@ -23,8 +23,8 @@ let height = viewport().height-20;
 
 let containerElt = (typeof _container_ === "string") ? document.getElementById(_container_) : _container_;
 
-const width = (_width_ || containerElt.scrollWidth || 800) - 80;
-const height = (_height_ || containerElt.scrollHeight || 800) - 80;
+const width = (_width_ || containerElt.scrollWidth || 800);
+const height = (_height_ || containerElt.scrollHeight || 800);
 
 let idfun = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
 
@@ -101,10 +101,33 @@ defs.append("rect")
     .attr("x", 2)
     .attr("y", 2)
     .attr("rx", 2);
+
+    defs.append("rect")
+    .attr("id", "skip1")
+    .attr("viewBox", "0 0 24 24")
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+    
+    defs.append("rect")
+    .attr("id", "loop1")
+    .attr("viewBox", "0 0 24 24")
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
   // group shizzle  
 // group shizzle
 //let root = svg.append("g");
-
 
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle
@@ -116,6 +139,11 @@ const ICONMAP = new Map([
   ["loop",LOOP_ICON],
   ["skip",SKIP_ICON]
 ]); 
+
+let iconRegex = new RegExp("start|finish|loop|skip");
+const isIconFn = function (n) {
+  return (n && n.model && iconRegex.test(n.model.tagName));
+};
 
 function render(graph){
   // Clear and redraw
@@ -136,16 +164,14 @@ function render(graph){
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH"
   };
+  
   graph.children.forEach((n) => {
     n.width = 80;
     n.height = 60;
-    if(n.model) {
-      let tag = n.model.tagName || null;
+    if(isIconFn(n)) {
       // Set start + finish to icon size
-      if(tag === "start" || tag === "finish"){
         n.width = 24;
         n.height = n.width;
-      }
     }     
   });  
   let layouter = elkmodule.d3kgraph()
@@ -178,11 +204,6 @@ const nodesFn = function (n) {
 const linksFn = function (n) {
   return n.edges || [];
 };
-let iconRegex = new RegExp("start|finish|loop|skip");
-const isIconFn =  function (n) {
-  return (n && n.model && iconRegex.test(n.model.tagName));
-};
-
 
 function renderd3Layoutv2(svg,node){
   // Get current children nodes and links
