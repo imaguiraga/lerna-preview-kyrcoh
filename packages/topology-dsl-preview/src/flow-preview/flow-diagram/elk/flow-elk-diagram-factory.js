@@ -103,7 +103,7 @@ defs.append("rect")
     .attr("rx", 2);
   // group shizzle  
 // group shizzle
-let root = svg.append("g");
+//let root = svg.append("g");
 
 
 const START_ICON = '\uf192'; // dot-circle-o  
@@ -118,6 +118,12 @@ const ICONMAP = new Map([
 ]); 
 
 function render(graph){
+  // Clear and redraw
+  let root = svg.selectAll("g");
+  // reset diagram
+  root.remove();
+  root = svg.append("g");
+
   const options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
