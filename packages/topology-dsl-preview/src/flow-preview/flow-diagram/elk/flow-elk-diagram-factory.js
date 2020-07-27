@@ -119,10 +119,10 @@ const ICONMAP = new Map([
 
 function render(graph){
   // Clear and redraw
-  let root = svg.selectAll("g");
+  let root = svg.selectAll(".root");
   // reset diagram
   root.remove();
-  root = svg.append("g");
+  root = svg.append("g").attr("class", "root");
 
   const options = {
     "elk.algorithm": "layered",
