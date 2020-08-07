@@ -1,9 +1,9 @@
 /**
  * Class FlowToELKVisitor.
  */
-function* idGenFn(index) {
+function* idGenFn(prefix,index) {
   while (index >= 0) {
-    yield index;
+    yield prefix+index;
     index++;
   }
 }
@@ -16,7 +16,7 @@ export class FlowToELKVisitor {
   constructor(nodeWidth,nodeHeight){
     this.nodeWidth = nodeWidth || 80;
     this.nodeHeight = nodeHeight || 60;
-    this.edgeCntIt = idGenFn(0);   
+    this.edgeCntIt = idGenFn("edge.",0);   
   }
   
   getElkGraph(tree,filterFn){
@@ -214,7 +214,7 @@ class SequenceEltFlowToELKVisitor{
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[i].finish.id],
         targets: [tree.elts[i + 1].start.id],
-        ...visitor.getNodeModel(tree),
+        ...visitor.getEdgeModel(tree),
       });
     }
   
