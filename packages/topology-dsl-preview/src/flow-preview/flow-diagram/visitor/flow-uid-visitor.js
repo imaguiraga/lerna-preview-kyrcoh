@@ -16,15 +16,15 @@ export class FlowUIDVisitor {
     }
     // Non terminal nodes have start and finish
     if(!tree.isTerminal()){
-      tree.start.id = this._prefix + ":" + tree.tagName + ".start";
-      tree.finish.id = this._prefix + ":" + tree.tagName + ".finish";
+      tree.start.id = this._prefix + "_" + tree.tagName + "_start";
+      tree.finish.id = this._prefix + "_" + tree.tagName + "_finish";
     }
     
     tree.elts.filter(elt => elt instanceof Object).forEach(
       (elt,index) =>  {
         // keep only terminal nodes
-        let p = this._prefix.concat("."+index);
-        elt.id = p + ":" + elt.tagName;
+        let p = this._prefix.concat("_"+index);
+        elt.id = p + "_" + elt.tagName;
         elt.accept(new FlowUIDVisitor(p),null);
       });
     return tree;

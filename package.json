@@ -5,6 +5,10 @@
   ],
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git"
+  },
   "workspaces": [
     "examples/*",
     "packages/*",

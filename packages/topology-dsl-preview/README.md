@@ -1,10 +1,12 @@
-# elk-flow-preview-kyrcoh
-[Open in CodeSandBox](https://codesandbox.io/s/github/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/elk-flow-preview-kyrcoh)
+# topology-dsl-preview
+[Open in CodeSandBox](https://codesandbox.io/s/github/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/topology-dsl-preview)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/elk-flow-preview-kyrcoh)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/topology-dsl-preview)
 
 A flow DSL javascript Visualizer using [antvis G6 Graph](https://g6.antv.vision/en)
 and [CodeMirror](https://codemirror.net/) as text editor.
+
+[https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html](https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html)
 
 ## Flow elements ##
 - sequence(array)
