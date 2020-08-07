@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import {elkmodule} from './elk-d3.js';
 import './elk-style.css';
 
-export function createElkRenderer(_container_,_width_,_height_){
+export function createElkRenderer(_container_,_width_,_height_,_iconWidth_){
 /*
 function viewport() {
   let e = window,
@@ -23,10 +23,11 @@ let height = viewport().height-20;
 
 let containerElt = (typeof _container_ === "string") ? document.getElementById(_container_) : _container_;
 
+const iconWidth = _iconWidth_ || 24;
 const width = (_width_ || containerElt.scrollWidth || 800);
 const height = (_height_ || containerElt.scrollHeight || 800);
 
-let idfun = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
+const idFn = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
 
 const zoomFn = d3.zoom().on("zoom", function () {
   svg.attr("transform", d3.event.transform);
@@ -42,92 +43,91 @@ let svg = d3.select(containerElt)
 let defs = svg.append("defs");
 defs.append("marker")
   .attr("id", "end")
-  .attr("viewBox", "0 0 10 10")
-  .attr("refX", 5)
-  .attr("refY", 5)
+  .attr("viewBox", "-4 0 8 8")
+  //.attr("viewBox", "0 0 8 8")
+  .attr("refX", 4)
+  .attr("refY", 4)
   .attr("markerWidth", 4)        // marker settings
   .attr("markerHeight", 4)
   .attr("orient", "auto")
   .style("fill", "black")
   .style("stroke-opacity", 1)  // arrowhead color
   .append("path")
-    .attr("d", "M 0 0 L 10 5 L 0 10 z");
+  .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
+    //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
 
 defs.append("circle")
   .attr("id", "start")
-  .attr("viewBox", "0 0 24 24")
-  //.attr("width", 24)
-  //.attr("height", 24)
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  //.attr("width", iconWidth)
+  //.attr("height", iconWidth)
   .style("fill", "transparent")
   .style("stroke", "inherit")
   .style("stroke-width", "2px")
-  .attr("cx", 12)
-  .attr("cy", 12)
+  .attr("cx", iconWidth/2)
+  .attr("cy", iconWidth/2)
   .attr("r", 8);
 
 defs.append("circle")
     .attr("id", "finish")
-    .attr("viewBox", "0 0 24 24")
-    //.attr("width", 24)
-    //.attr("height", 24)
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr("width", ${iconWidth})
+    //.attr("height", ${iconWidth})
     .style("fill", "inherit")
     .style("stroke", "transparent")
     .style("stroke-width", "2px")
-    .attr("cx", 12)
-    .attr("cy", 12)
+    .attr("cx", iconWidth/2)
+    .attr("cy", iconWidth/2)
     .attr("r", 8);
      
 //*/
 defs.append("rect")
     .attr("id", "start1")
-    .attr("viewBox", "0 0 24 24")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
     .style("fill", "transparent")
     .style("stroke", "inherit")
     .style("stroke-width", "2px")
-    .attr("width", 20)
-    .attr("height", 20)
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
     .attr("x", 2)
     .attr("y", 2)
     .attr("rx", 2);
 
 defs.append("rect")
     .attr("id", "finish1")
-    .attr("viewBox", "0 0 24 24")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
     .style("fill", "inherit")
     .style("stroke", "transparent")
     .style("stroke-width", "2px")
-    .attr("width", 20)
-    .attr("height", 20)
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
     .attr("x", 2)
     .attr("y", 2)
     .attr("rx", 2);
 
     defs.append("rect")
     .attr("id", "skip1")
-    .attr("viewBox", "0 0 24 24")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
     .style("fill", "inherit")
     .style("stroke", "transparent")
     .style("stroke-width", "2px")
-    .attr("width", 20)
-    .attr("height", 20)
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
     .attr("x", 2)
     .attr("y", 2)
     .attr("rx", 2);
     
     defs.append("rect")
     .attr("id", "loop1")
-    .attr("viewBox", "0 0 24 24")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
     .style("fill", "inherit")
     .style("stroke", "transparent")
     .style("stroke-width", "2px")
-    .attr("width", 20)
-    .attr("height", 20)
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
     .attr("x", 2)
     .attr("y", 2)
     .attr("rx", 2);
-  // group shizzle  
-// group shizzle
-//let root = svg.append("g");
 
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle
@@ -152,10 +152,14 @@ function render(graph){
   root.remove();
   root = svg.append("g").attr("class", "root");
 
+  console.log(JSON.stringify(graph,null,"  "));
+  //console.log(elkgraph);
+
   const options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
-    "org.eclipse.elk.port.borderOffset":10,
+    "org.eclipse.elk.port.borderOffset": 10,
+    "org.eclipse.elk.padding":0,
     "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.layered.mergeEdges":true,
     "spacing": 40,
@@ -203,7 +207,7 @@ function renderd3Layoutv2(svg,node){
 
 // Add edges
   if(links){
-    var linkData = svg.selectAll(".link").data(links, idfun);
+    var linkData = svg.append("g").selectAll(".link").data(links, idFn);
 
     var linkEnter = linkData.enter()
       .append("path")
@@ -243,7 +247,7 @@ function renderd3Layoutv2(svg,node){
     }
 // Add nodes
     if(nodes){
-      var nodeData = svg.selectAll(".node").data(nodes, idfun);
+      var nodeData = svg.selectAll(".node").data(nodes, idFn);
 
       var nodeEnter = nodeData.enter()
         .append("g")
@@ -272,18 +276,18 @@ function renderd3Layoutv2(svg,node){
                 //return "Cloud Functions.svg#Layer_1";
                 return "#"+suffix+"1"; 
               })
-              .attr("x", function(d) { return 2; })
-              .attr("y", function(d) { return 2; })
-              .attr("width", function(d) { return d.width-4; })
-              .attr("height", function(d) { return d.height-4; });
+              .attr("x", function(d) { return 0; })
+              .attr("y", function(d) { return 0; })
+              .attr("width", function(d) { return d.width; })
+              .attr("height", function(d) { return d.height; });
           } else {
             selection.append("rect")
             .style("fill", "inherit")
             .style("stroke", "inherit")
-            .attr("x", 4)
-            .attr("y", 4)
-            .attr("width", function(d) { return d.width-8; })
-            .attr("height", function(d) { return d.height-8; })
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", function(d) { return d.width; })
+            .attr("height", function(d) { return d.height; })
             .attr("rx", 8)
             .append("metadata")
             .text((d) => {
@@ -319,7 +323,7 @@ function renderd3Layoutv2(svg,node){
         .attr("transform", function(d) { 
           return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
         }).attr("id", function(d) { 
-          return idfun(d);
+          return idFn(d);
         });
 
         // Add title  
