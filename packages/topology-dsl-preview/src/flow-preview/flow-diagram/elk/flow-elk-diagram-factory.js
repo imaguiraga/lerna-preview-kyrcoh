@@ -2,6 +2,11 @@ import * as d3 from "d3";
 import {elkmodule} from './elk-d3.js';
 import './elk-style.css';
 
+import {FlowUIDVisitor,FlowToELKVisitor} from "../visitor/index.js";
+
+const uidvisitor = new FlowUIDVisitor();
+const elkvisitor = new FlowToELKVisitor(80,60);
+
 export function createElkRenderer(_container_,_width_,_height_,_iconWidth_){
 /*
 function viewport() {
@@ -145,21 +150,31 @@ const isIconFn = function (n) {
   return (n && n.model && iconRegex.test(n.model.tagName));
 };
 
-function render(graph){
+function render(input){
+  let elkgraph = null;
+  try {
+    // Update preview
+    let flow = uidvisitor.visit(input);
+    // Add node width,height
+    elkgraph = elkvisitor.getElkGraph(flow);
+
+  } catch(e) {
+    console.error(e);
+  }
   // Clear and redraw
   let root = svg.selectAll(".root");
   // reset diagram
   root.remove();
   root = svg.append("g").attr("class", "root");
 
-  console.log(JSON.stringify(graph,null,"  "));
+  console.log(JSON.stringify(elkgraph,null,"  "));
   //console.log(elkgraph);
 
   const options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
     "org.eclipse.elk.port.borderOffset": 4,
-    "org.eclipse.elk.padding": 0,
+    "org.eclipse.elk.padding": 16,
     "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.layered.mergeEdges":true,
     "spacing": 40,
@@ -179,7 +194,7 @@ function render(graph){
     });
   
     // start an initial layout
-    layouter.kgraph(graph);
+    layouter.kgraph(elkgraph);
 }
 
 // Helper functions

@@ -53,14 +53,6 @@ Split(["#one", "#two"], {
     })
 });
 
-const {
-  FlowUIDVisitor,
-  FlowToELKVisitor
-} = diagram;
-
-const uidvisitor = new FlowUIDVisitor();
-const elkvisitor = new FlowToELKVisitor(80,60);
-
 const renderer = diagram.createElkRenderer("preview-pane");
 
 // load the data and render the elements
@@ -93,11 +85,7 @@ function renderFlow(input){
   }
 
   try {
-    // Update preview
-    let flow = uidvisitor.visit(input);
-    // Add node width,height
-    const elkgraph = elkvisitor.getElkGraph(flow);
-    renderer.render(elkgraph);
+    renderer.render(input);
  
   } catch(e) {
     console.error(e);
