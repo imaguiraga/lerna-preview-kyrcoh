@@ -1,4 +1,4 @@
-import * as flowDsl from "../flow-dsl";
+import * as flowDsl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "./flow-diagram";
 
 const {

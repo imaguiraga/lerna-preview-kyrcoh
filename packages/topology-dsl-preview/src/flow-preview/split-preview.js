@@ -4,7 +4,7 @@ import Split from "split.js";
 import {samples} from "./samples.js";
 import {createEditor} from "./flow-editor";
 
-import * as flowDsl from "@imaguiraga/diagram-dsl-core";
+import * as flowDsl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "./flow-diagram";
 
 const {parseDsl} = flowDsl;
@@ -120,8 +120,8 @@ function renderFlow(input){
       }     
     });
 
-    console.log(JSON.stringify(elkgraph,null,"  "));
-    console.log(elkgraph);
+    //console.log(JSON.stringify(elkgraph,null,"  "));
+    //console.log(elkgraph);
 
   } catch(e) {
     console.error(e);
@@ -148,9 +148,7 @@ function initFlowSelection(flows){
   }
 
   flows.forEach((value,key) => {
-    let opt = document.createElement("option");
-    opt.value = key;
-    opt.text = key;
+    let opt = new Option(key,key);
     selectElt.add(opt);
   });
   // Update flow when the selection changes 
@@ -158,6 +156,7 @@ function initFlowSelection(flows){
     const result = flows.get(event.target.value);
     renderFlow(result);
   });
+
 }
 
 
@@ -171,9 +170,7 @@ function initFlowSelection(flows){
   }
 
   samples.forEach((value,index) => {
-    let opt = document.createElement("option");
-    opt.value = index;
-    opt.text = `Sample #${index +1}`;
+    let opt = new Option(`Sample #${index +1}`,index);
     selectElt.add(opt);
   });
   // Update sample when the selection changes 

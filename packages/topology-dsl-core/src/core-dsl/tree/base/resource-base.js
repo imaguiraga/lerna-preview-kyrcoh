@@ -1,14 +1,14 @@
 /**
  * Class TerminalResource.
  */
-function* idGenFn(index) {
+function* idGenFn(prefix,index) {
   while (index >= 0) {
     yield index;
     index++;
   }
 }
 
-const IDGENFN = idGenFn(0);
+const IDGENFN = idGenFn("node.",0);
 export class TerminalResource {
   /**
    * Create a TerminalResource.

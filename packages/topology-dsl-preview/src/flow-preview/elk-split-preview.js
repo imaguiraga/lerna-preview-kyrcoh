@@ -54,14 +54,22 @@ Split(["#one", "#two"], {
 });
 
 const {
-  FlowToG6Visitor,
-  FlowUIDVisitor
+  FlowUIDVisitor,
+  FlowToELKVisitor
 } = diagram;
 
-const visitor = new FlowToG6Visitor();
 const uidvisitor = new FlowUIDVisitor();
+const elkvisitor = new FlowToELKVisitor(80,60);
 
-const graph = diagram.createFlowDiagram("preview-pane");
+const renderer = diagram.createElkRenderer("preview-pane");
+
+// load the data and render the elements
+//fetch("hierarchy.json").then( function(graph) {  
+//fetch("flow.json").then( function(graph) {  
+  fetch("pipeline.json").then( function(graph) { 
+    console.log(graph);
+    //renderer.render(graph);   
+  });
 
 function updatePreviewPane(content){
   if( typeof content === "undefined"){
@@ -75,8 +83,7 @@ function updatePreviewPane(content){
 
   } catch(e) {
     console.error(e);
-    graph.data([]);
-    graph.render();
+
   }
 }
 
@@ -84,19 +91,20 @@ function renderFlow(input){
   if( typeof input === "undefined"){
     return;
   }
-  graph.data([]);
+
   try {
     // Update preview
     let flow = uidvisitor.visit(input);
-    const data = visitor.visit(flow);
-    graph.data(data!== null ? data : []);
-
+    // Add node width,height
+    const elkgraph = elkvisitor.getElkGraph(flow);
+    console.log(JSON.stringify(elkgraph,null,"  "));
+    //console.log(elkgraph);
+    renderer.render(elkgraph);
+ 
   } catch(e) {
     console.error(e);
   }
-  graph.render();
-  if(DEBUG) console.log("zoom="+graph.getZoom());
-  
+ 
 }
 
 const editor = createEditor('editor-pane','');
@@ -116,9 +124,7 @@ function initFlowSelection(flows){
   }
 
   flows.forEach((value,key) => {
-    let opt = document.createElement("option");
-    opt.value = key;
-    opt.text = key;
+    let opt = new Option(key,key);
     selectElt.add(opt);
   });
   // Update flow when the selection changes 
@@ -126,8 +132,8 @@ function initFlowSelection(flows){
     const result = flows.get(event.target.value);
     renderFlow(result);
   });
-}
 
+}
 
 (function initSampleSelection(samples,editor){
   // Populate select component from list of samples
@@ -139,9 +145,7 @@ function initFlowSelection(flows){
   }
 
   samples.forEach((value,index) => {
-    let opt = document.createElement("option");
-    opt.value = index;
-    opt.text = `Sample #${index +1}`;
+    let opt = new Option(`Sample #${index +1}`,index);
     selectElt.add(opt);
   });
   // Update sample when the selection changes 
