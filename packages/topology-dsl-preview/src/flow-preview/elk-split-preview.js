@@ -97,8 +97,6 @@ function renderFlow(input){
     let flow = uidvisitor.visit(input);
     // Add node width,height
     const elkgraph = elkvisitor.getElkGraph(flow);
-    console.log(JSON.stringify(elkgraph,null,"  "));
-    //console.log(elkgraph);
     renderer.render(elkgraph);
  
   } catch(e) {
