@@ -47,7 +47,7 @@ defs.append("marker")
   //.attr("viewBox", "0 0 8 8")
   .attr("refX", 4)
   .attr("refY", 4)
-  .attr("markerWidth", 4)        // marker settings
+  .attr("markerWidth", 4)      // marker settings
   .attr("markerHeight", 4)
   .attr("orient", "auto")
   .style("fill", "black")
