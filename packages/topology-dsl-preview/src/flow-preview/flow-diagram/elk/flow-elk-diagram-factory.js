@@ -158,8 +158,8 @@ function render(graph){
   const options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
-    "org.eclipse.elk.port.borderOffset": 10,
-    "org.eclipse.elk.padding":0,
+    "org.eclipse.elk.port.borderOffset": 4,
+    "org.eclipse.elk.padding": 0,
     "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.layered.mergeEdges":true,
     "spacing": 40,
