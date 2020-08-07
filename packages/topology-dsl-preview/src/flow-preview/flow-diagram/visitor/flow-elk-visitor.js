@@ -83,14 +83,17 @@ export class FlowToELKVisitor {
         {
           text: n.id
         } 
-      ],
-      width: this.nodeWidth,
-      height: this.nodeHeight
+      ]
     };
-    if(isIconFn(r)) {
-      // Set start + finish to icon size
-        r.width = 24;
-        r.height = r.width;
+
+    if(r.model.compound === false){
+      r.width = this.nodeWidth;
+      r.height = this.nodeHeight;
+      if(isIconFn(r)) {
+        // Set start + finish to icon size
+          r.width = 24;
+          r.height = r.width;
+      }
     }
     return r;
   }
