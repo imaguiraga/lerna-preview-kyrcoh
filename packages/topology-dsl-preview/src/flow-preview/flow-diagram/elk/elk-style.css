@@ -24,6 +24,6 @@ g.compound > rect {
 
 .port {
   stroke: #000;
-  width: 1px;
-  opacity: .6;
+  stroke-width: 1px;
+  opacity: .6!important;
 }

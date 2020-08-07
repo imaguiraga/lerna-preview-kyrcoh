@@ -13,15 +13,18 @@ const isIconFn = function (n) {
   return (n && n.model && iconRegex.test(n.model.tagName));
 };
 export class FlowToELKVisitor {
-  constructor(nodeWidth,nodeHeight){
+  constructor(nodeWidth,nodeHeight,iconWidth,portWidth){
     this.nodeWidth = nodeWidth || 80;
     this.nodeHeight = nodeHeight || 60;
+    this.iconWidth = iconWidth || 24;
+    this.portWidth = portWidth || 8;
+
     this.edgeCntIt = idGenFn("edge.",0);   
   }
   
   getElkGraph(tree,filterFn){
     return {
-      id: "root",
+      id: "$root",
       children: [
         this.visit(tree,filterFn)
       ]
@@ -91,7 +94,7 @@ export class FlowToELKVisitor {
       r.height = this.nodeHeight;
       if(isIconFn(r)) {
         // Set start + finish to icon size
-          r.width = 24;
+          r.width = this.iconWidth;
           r.height = r.width;
       }
     }
@@ -99,11 +102,9 @@ export class FlowToELKVisitor {
   }
 
   getPortModel(n) {
-    let r = {
-     ...this.getNodeModel(n),
-     "width": 8.0,
-     "height": 8.0
-    };
+    let r = this.getNodeModel(n);
+    r.width = this.portWidth;
+    r.height = this.portWidth;
     return r;
   }
 
