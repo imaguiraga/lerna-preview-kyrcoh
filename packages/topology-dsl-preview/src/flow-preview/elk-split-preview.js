@@ -59,7 +59,7 @@ const {
 } = diagram;
 
 const uidvisitor = new FlowUIDVisitor();
-const elkvisitor = new FlowToELKVisitor();
+const elkvisitor = new FlowToELKVisitor(80,60);
 
 const renderer = diagram.createElkRenderer("preview-pane");
 
@@ -95,7 +95,10 @@ function renderFlow(input){
   try {
     // Update preview
     let flow = uidvisitor.visit(input);
-    const elkgraph = elkvisitor.visit(flow);
+    // Add node width,height
+    const elkgraph = elkvisitor.getElkGraph(flow);
+    console.log(JSON.stringify(elkgraph,null,"  "));
+    //console.log(elkgraph);
     renderer.render(elkgraph);
  
   } catch(e) {

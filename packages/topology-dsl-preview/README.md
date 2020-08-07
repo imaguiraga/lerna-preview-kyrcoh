@@ -6,6 +6,8 @@
 A flow DSL javascript Visualizer using [antvis G6 Graph](https://g6.antv.vision/en)
 and [CodeMirror](https://codemirror.net/) as text editor.
 
+[https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html](https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html)
+
 ## Flow elements ##
 - sequence(array)
 ```javascript

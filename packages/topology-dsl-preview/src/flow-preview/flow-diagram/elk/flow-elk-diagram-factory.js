@@ -164,16 +164,7 @@ function render(graph){
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH"
   };
-  
-  graph.children.forEach((n) => {
-    n.width = 80;
-    n.height = 60;
-    if(isIconFn(n)) {
-      // Set start + finish to icon size
-        n.width = 24;
-        n.height = n.width;
-    }     
-  });  
+
   let layouter = elkmodule.d3kgraph()
     .size([width, height])
     .transformGroup(root)
