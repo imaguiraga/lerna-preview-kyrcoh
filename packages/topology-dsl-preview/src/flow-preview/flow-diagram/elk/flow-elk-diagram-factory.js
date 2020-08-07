@@ -207,7 +207,7 @@ function renderd3Layoutv2(svg,node){
 
 // Add edges
   if(links){
-    var linkData = svg.append("g").selectAll(".link").data(links, idFn);
+    var linkData = svg.append("g").attr("class", "edges").selectAll(".link").data(links, idFn);
 
     var linkEnter = linkData.enter()
       .append("path")
