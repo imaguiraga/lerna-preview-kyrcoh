@@ -1,5 +1,6 @@
 import * as d3 from "d3";
-import {elkmodule} from './elk-d3.js';
+//const ELK = require('elkjs');
+import ELK from 'elkjs/lib/elk.bundled.js';
 import './elk-style.css';
 
 import {FlowUIDVisitor,FlowToELKVisitor} from "../visitor/index.js";
@@ -150,25 +151,24 @@ const isIconFn = function (n) {
   return (n && n.model && iconRegex.test(n.model.tagName));
 };
 
-function render(input){
+function generateElkGraph(dslObject){
   let elkgraph = null;
   try {
     // Update preview
-    let flow = uidvisitor.visit(input);
+    let flow = uidvisitor.visit(dslObject);
     // Add node width,height
     elkgraph = elkvisitor.getElkGraph(flow);
 
   } catch(e) {
     console.error(e);
   }
-  // Clear and redraw
-  let root = svg.selectAll(".root");
-  // reset diagram
-  root.remove();
-  root = svg.append("g").attr("class", "root");
+  return elkgraph;
+}
+
+function render(dslObject){
+  let elkgraph = generateElkGraph(dslObject);
 
   console.log(JSON.stringify(elkgraph,null,"  "));
-  //console.log(elkgraph);
 
   const options = {
     "elk.algorithm": "layered",
@@ -183,18 +183,25 @@ function render(input){
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH"
   };
+  // start the layout
+  const elk = new ELK();
+  let elkpromise = elk.layout(elkgraph, {
+    layoutOptions: options,
+    logging: true,
+    measureExecutionTime: true
+  });
 
-  let layouter = elkmodule.d3kgraph()
-    .size([width, height])
-    .transformGroup(root)
-    .options(options);
-
-    layouter.on("finish", function(node) {
-      renderd3Layoutv2(root,node);
-    });
+  elkpromise.then((elkLayoutGraph) =>{
+    // Clear and redraw
+    let root = svg.selectAll("g.root");
+    // reset diagram
+    root.remove();
+    root = svg.append("g").attr("class", "root");
+    renderd3Layout(root,elkLayoutGraph);
+  }).catch((e) => {
+    console.log(e);
+  });
   
-    // start an initial layout
-    layouter.kgraph(elkgraph);
 }
 
 // Helper functions
@@ -215,7 +222,7 @@ const linksFn = function (n) {
   return n.edges || [];
 };
 
-function renderd3Layoutv2(svg,node){
+function renderd3Layout(svg,node){
   // Get current children nodes and links
   var nodes = nodesFn(node);
   var links = linksFn(node);
@@ -348,11 +355,11 @@ function renderd3Layoutv2(svg,node){
         nodeEnter.each(function(n,i){
           // If node has children make a recursive call
           if(nodesFn(n).length > 0){
-            renderd3Layoutv2(d3.select(this),n);
+            renderd3Layout(d3.select(this),n);
           }
         });    
     }
-}
+  }
 
   return {
     render
