@@ -3,10 +3,15 @@ import * as d3 from "d3";
 import ELK from 'elkjs/lib/elk.bundled.js';
 import './elk-style.css';
 
-import {FlowUIDVisitor,FlowToELKVisitor} from "../visitor/index.js";
+import {
+  FlowUIDVisitor,
+  FlowToELKVisitor,
+  ELKDimensionVisitor
+} from "../visitor/index.js";
 
 const uidvisitor = new FlowUIDVisitor();
-const elkvisitor = new FlowToELKVisitor(80,60);
+const elkvisitor = new FlowToELKVisitor();
+const elkDimensionVisitor = new ELKDimensionVisitor(80,60);
 
 export function createElkRenderer(_container_,_width_,_height_,_iconWidth_){
 /*
@@ -35,105 +40,7 @@ const height = (_height_ || containerElt.scrollHeight || 800);
 
 const idFn = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
 
-const zoomFn = d3.zoom().on("zoom", function () {
-  svg.attr("transform", d3.event.transform);
-});
-let svg = d3.select(containerElt)
-    .append("svg")
-    .attr("xmlns:xlink","http://www.w3.org/1999/xlink")
-    .attr("width", width)
-    .attr("height", height)
-    .call(zoomFn)
-    .append("g");
-// define an arrow head
-let defs = svg.append("defs");
-defs.append("marker")
-  .attr("id", "end")
-  .attr("viewBox", "-4 0 8 8")
-  //.attr("viewBox", "0 0 8 8")
-  .attr("refX", 4)
-  .attr("refY", 4)
-  .attr("markerWidth", 4)      // marker settings
-  .attr("markerHeight", 4)
-  .attr("orient", "auto")
-  .style("fill", "black")
-  .style("stroke-opacity", 1)  // arrowhead color
-  .append("path")
-  .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
-    //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
-
-defs.append("circle")
-  .attr("id", "start")
-  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-  //.attr("width", iconWidth)
-  //.attr("height", iconWidth)
-  .style("fill", "transparent")
-  .style("stroke", "inherit")
-  .style("stroke-width", "2px")
-  .attr("cx", iconWidth/2)
-  .attr("cy", iconWidth/2)
-  .attr("r", 8);
-
-defs.append("circle")
-    .attr("id", "finish")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    //.attr("width", ${iconWidth})
-    //.attr("height", ${iconWidth})
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("cx", iconWidth/2)
-    .attr("cy", iconWidth/2)
-    .attr("r", 8);
-     
-//*/
-defs.append("rect")
-    .attr("id", "start1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-defs.append("rect")
-    .attr("id", "finish1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-    defs.append("rect")
-    .attr("id", "skip1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-    
-    defs.append("rect")
-    .attr("id", "loop1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
+let svg = init(containerElt,width,height,iconWidth);
 
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle
@@ -151,13 +58,15 @@ const isIconFn = function (n) {
   return (n && n.model && iconRegex.test(n.model.tagName));
 };
 
-function generateElkGraph(dslObject){
+function toElkGraph(dslObject){
   let elkgraph = null;
   try {
     // Update preview
-    let flow = uidvisitor.visit(dslObject);
-    // Add node width,height
-    elkgraph = elkvisitor.getElkGraph(flow);
+    dslObject = uidvisitor.visit(dslObject);
+    // dslObject to elkgraph
+    elkgraph = elkvisitor.toElkGraph(dslObject);
+    // Add node width.height
+    elkgraph = elkDimensionVisitor.visit(elkgraph);
 
   } catch(e) {
     console.error(e);
@@ -166,7 +75,7 @@ function generateElkGraph(dslObject){
 }
 
 function render(dslObject){
-  let elkgraph = generateElkGraph(dslObject);
+  let elkgraph = toElkGraph(dslObject);
 
   console.log(JSON.stringify(elkgraph,null,"  "));
 
@@ -198,6 +107,7 @@ function render(dslObject){
     root.remove();
     root = svg.append("g").attr("class", "root");
     renderd3Layout(root,elkLayoutGraph);
+
   }).catch((e) => {
     console.log(e);
   });
@@ -364,4 +274,109 @@ function renderd3Layout(svg,node){
   return {
     render
   };
+}
+
+function init(containerElt,width,height,iconWidth){
+  const zoomFn = d3.zoom().on("zoom", function () {
+    d3.select(this).select("g").attr("transform", d3.event.transform);
+    //svg.attr("transform", d3.event.transform);
+  });
+    
+  let svg = d3.select(containerElt)
+  .append("svg")
+  .attr("xmlns:xlink","http://www.w3.org/1999/xlink")
+  .attr("width", width)
+  .attr("height", height)
+  .call(zoomFn)
+  .append("g");
+    // define an arrow head
+    let defs = svg.append("defs");
+    defs.append("marker")
+    .attr("id", "end")
+    .attr("viewBox", "-4 0 8 8")
+    //.attr("viewBox", "0 0 8 8")
+    .attr("refX", 4)
+    .attr("refY", 4)
+    .attr("markerWidth", 4)      // marker settings
+    .attr("markerHeight", 4)
+    .attr("orient", "auto")
+    .style("fill", "black")
+    .style("stroke-opacity", 1)  // arrowhead color
+    .append("path")
+    .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
+    //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
+
+    defs.append("circle")
+    .attr("id", "start")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr("width", iconWidth)
+    //.attr("height", iconWidth)
+    .style("fill", "transparent")
+    .style("stroke", "inherit")
+    .style("stroke-width", "2px")
+    .attr("cx", iconWidth/2)
+    .attr("cy", iconWidth/2)
+    .attr("r", 8);
+
+    defs.append("circle")
+    .attr("id", "finish")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr("width", ${iconWidth})
+    //.attr("height", ${iconWidth})
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("cx", iconWidth/2)
+    .attr("cy", iconWidth/2)
+    .attr("r", 8);
+      
+    //*/
+    defs.append("rect")
+    .attr("id", "start1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "transparent")
+    .style("stroke", "inherit")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+
+    defs.append("rect")
+    .attr("id", "finish1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+
+    defs.append("rect")
+    .attr("id", "skip1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+
+  defs.append("rect")
+    .attr("id", "loop1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+  return svg;
 }
