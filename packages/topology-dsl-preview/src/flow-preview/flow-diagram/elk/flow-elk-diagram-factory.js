@@ -11,7 +11,6 @@ import {
 
 const uidvisitor = new FlowUIDVisitor();
 const elkvisitor = new FlowToELKVisitor();
-const elkDimensionVisitor = new ELKDimensionVisitor(80,60);
 
 export function createElkRenderer(_container_,_width_,_height_,_iconWidth_){
 /*
@@ -41,7 +40,7 @@ const height = (_height_ || containerElt.scrollHeight || 800);
 const idFn = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
 
 let svg = init(containerElt,width,height,iconWidth);
-
+/*
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle
 const LOOP_ICON = '\uf0e2';// undo
@@ -52,7 +51,7 @@ const ICONMAP = new Map([
   ["loop",LOOP_ICON],
   ["skip",SKIP_ICON]
 ]); 
-
+//*/
 let iconRegex = new RegExp("start|finish|loop|skip");
 const isIconFn = function (n) {
   return (n && n.model && iconRegex.test(n.model.tagName));
@@ -65,21 +64,16 @@ function toElkGraph(dslObject){
     dslObject = uidvisitor.visit(dslObject);
     // dslObject to elkgraph
     elkgraph = elkvisitor.toElkGraph(dslObject);
-    // Add node width.height
-    elkgraph = elkDimensionVisitor.visit(elkgraph);
-
   } catch(e) {
     console.error(e);
   }
   return elkgraph;
 }
 
-function render(dslObject){
-  let elkgraph = toElkGraph(dslObject);
+function elkLayout(){
+  const elkDimensionVisitor = new ELKDimensionVisitor();  
 
-  console.log(JSON.stringify(elkgraph,null,"  "));
-
-  const options = {
+  let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
     "org.eclipse.elk.port.borderOffset": 4,
@@ -92,15 +86,58 @@ function render(dslObject){
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH"
   };
-  // start the layout
-  const elk = new ELK();
-  let elkpromise = elk.layout(elkgraph, {
-    layoutOptions: options,
-    logging: true,
-    measureExecutionTime: true
-  });
 
-  elkpromise.then((elkLayoutGraph) =>{
+  function layoutFn(inelkgraph){
+    // Add node width.height
+    let elkgraph = elkDimensionVisitor.visit(inelkgraph);
+
+    console.log(JSON.stringify(elkgraph,null,"  "));
+
+    // start the layout
+    const elk = new ELK();
+    let elkpromise = elk.layout(elkgraph, {
+      layoutOptions: options,
+      logging: true,
+      measureExecutionTime: true
+    });
+  
+    return elkpromise;
+  }
+
+  layoutFn.nodeHeight = function(newSize) {	
+    if (!arguments.length) return elkDimensionVisitor._nodeHeight;
+    elkDimensionVisitor.nodeHeight(newSize);
+    return this;
+  };
+
+  layoutFn.nodeWidth = function(newSize) {	
+    if (!arguments.length) return elkDimensionVisitor._nodeWidth;
+    elkDimensionVisitor.nodeWidth(newSize);
+    return this;
+  };
+
+  layoutFn.portSize = function(newSize) {	
+    if (!arguments.length) return elkDimensionVisitor._portSize;
+    elkDimensionVisitor.portSize(newSize);
+    return this;
+  };
+  
+  layoutFn.options = function(newOptions) {	
+    if (!arguments.length) return options;
+    options = newOptions;
+    return this;
+  };
+
+  return layoutFn;
+}
+
+function render(dslObject){
+  let elkgraph = toElkGraph(dslObject);
+ 
+  const layout = elkLayout();
+  layout.nodeHeight(60).nodeWidth(60).portSize(16);
+
+  layout(elkgraph).then((elkLayoutGraph) =>{
     // Clear and redraw
     let root = svg.selectAll("g.root");
     // reset diagram
@@ -278,6 +315,7 @@ function renderd3Layout(svg,node){
 
 function init(containerElt,width,height,iconWidth){
   const zoomFn = d3.zoom().on("zoom", function () {
+    //d3.select(d3.event.target).attr("transform", d3.event.transform);
     d3.select(this).select("g").attr("transform", d3.event.transform);
     //svg.attr("transform", d3.event.transform);
   });

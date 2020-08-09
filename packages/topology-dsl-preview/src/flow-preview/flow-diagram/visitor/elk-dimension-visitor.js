@@ -4,11 +4,11 @@ import {
 } from "./util.js";
 
 export class ELKDimensionVisitor {
-  constructor(nodeWidth,nodeHeight,iconWidth,portWidth){
+  constructor(nodeWidth,nodeHeight,iconWidth,portSize){
     this._nodeWidth = nodeWidth || 80;
     this._nodeHeight = nodeHeight || 60;
     this._iconWidth = iconWidth || 24;
-    this._portWidth = portWidth || 8;
+    this._portSize = portSize || 8;
   }
 
   nodeWidth(value){
@@ -26,8 +26,8 @@ export class ELKDimensionVisitor {
     return this;
   }
 
-  portWidth(value){
-    this._portWidth = value;
+  portSize(value){
+    this._portSize = value;
     return this;
   }
 
@@ -45,8 +45,8 @@ export class ELKDimensionVisitor {
     
     if(Array.isArray(tree.ports)){
       tree.ports.forEach((n) => {
-        n.width = this._portWidth;
-        n.height = this._portWidth;
+        n.width = this._portSize;
+        n.height = this._portSize;
       },this);
     }
     
