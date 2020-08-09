@@ -116,6 +116,15 @@ function elkLayout(){
     return this;
   };
 
+  layoutFn.nodeSize = function(width,height) {	
+    if (!arguments.length) return [elkDimensionVisitor._nodeWidth,elkDimensionVisitor._nodeHeight];
+  
+    elkDimensionVisitor.nodeWidth(width);
+    elkDimensionVisitor.nodeHeight(height||width);
+
+    return this;
+  };
+
   layoutFn.portSize = function(newSize) {	
     if (!arguments.length) return elkDimensionVisitor._portSize;
     elkDimensionVisitor.portSize(newSize);
@@ -135,7 +144,7 @@ function render(dslObject){
   let elkgraph = toElkGraph(dslObject);
  
   const layout = elkLayout();
-  layout.nodeHeight(60).nodeWidth(60).portSize(16);
+  layout.nodeSize(80).portSize(8);
 
   layout(elkgraph).then((elkLayoutGraph) =>{
     // Clear and redraw
