@@ -1,28 +1,13 @@
-/**
- * Class FlowToELKVisitor.
- */
-function* idGenFn(prefix,index) {
-  while (index >= 0) {
-    yield prefix+index;
-    index++;
-  }
-}
+import {
+  idGenFn
+} from "./util.js";
 
-let iconRegex = new RegExp("start|finish|loop|skip");
-const isIconFn = function (n) {
-  return (n && n.model && iconRegex.test(n.model.tagName));
-};
 export class FlowToELKVisitor {
-  constructor(nodeWidth,nodeHeight,iconWidth,portWidth){
-    this.nodeWidth = nodeWidth || 80;
-    this.nodeHeight = nodeHeight || 60;
-    this.iconWidth = iconWidth || 24;
-    this.portWidth = portWidth || 8;
-
+  constructor(){
     this.edgeCntIt = idGenFn("edge.",0);   
   }
   
-  getElkGraph(tree,filterFn){
+  toElkGraph(tree,filterFn){
     return {
       id: "$root",
       children: [
@@ -88,23 +73,11 @@ export class FlowToELKVisitor {
         } 
       ]
     };
-
-    if(r.model.compound === false){
-      r.width = this.nodeWidth;
-      r.height = this.nodeHeight;
-      if(isIconFn(r)) {
-        // Set start + finish to icon size
-          r.width = this.iconWidth;
-          r.height = r.width;
-      }
-    }
     return r;
   }
 
   getPortModel(n) {
     let r = this.getNodeModel(n);
-    r.width = this.portWidth;
-    r.height = this.portWidth;
     return r;
   }
 
@@ -113,7 +86,7 @@ export class FlowToELKVisitor {
       model: { 
         provider: n.provider,
         resourceType: n.resourceType,
-        tagName: null
+        tagName: "edge"
       }
     };
     return r;
