@@ -279,9 +279,9 @@ function renderd3Layout(svg,node,refreshFn){
             selection.classed(d.model.provider,true);
             selection.classed(d.model.resourceType,true);
             selection.classed(d.model.tagName,true);
-            //if(d.model.compound === true){
+            if(d.model.compound === true || d.collapsed){
               selection.on('click',collapseNode);
-            //}
+            }
           } 
           // Node type  
           if(isIconFn(d)){
