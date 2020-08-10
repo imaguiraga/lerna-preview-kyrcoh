@@ -2,6 +2,53 @@ import {
   idGenFn
 } from "./util.js";
 
+function addStartFinishProperties(o){
+  o.isTerminal = function (){
+    return this.compund;
+  };
+
+  Object.defineProperties(o, {
+    'start' : {
+      get: function(){
+        if(this._start == null){
+          return {
+            resourceType: this.resourceType,
+            tagName: this.tagName,
+            id: this.id,
+            provider: this.provider,
+            compound: this.compound
+          };
+    
+        } else {
+          return this._start;
+        }
+      },
+      set: function(val){
+        this._start = val;
+      }
+    },
+    'finish' : {
+      get: function(){
+        if(this._finish == null){
+          return {
+            resourceType: this.resourceType,
+            tagName: this.tagName,
+            id: this.id,
+            provider: this.provider,
+            compound: this.compound
+          };
+    
+        } else {
+          return this._finish;
+        }
+      },
+      set: function(val){
+        this._finish = val;
+      }
+    }
+  });	
+}
+
 export class FlowToELKVisitor {
   constructor(){
     this.edgeCntIt = idGenFn("edge.",0);   
@@ -22,6 +69,13 @@ export class FlowToELKVisitor {
    * @return {object} ELK graph.
    */
   visit(tree,filterFn){
+    if( typeof tree === "undefined" || tree === null){
+      return null;
+    }
+    // Add start finish properties if missing
+    if(tree.start === undefined){
+      addStartFinishProperties(tree);
+    }
     let result = null;
     if( typeof tree === "undefined"){
       return result;

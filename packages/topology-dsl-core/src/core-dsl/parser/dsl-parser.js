@@ -10,7 +10,9 @@ function debug(msg) {
     console.log(msg);
   }
 }
+
 export function parseDsl(input,dslModule){
+
   // Get module ids
   let MODULE_IDS = Object.keys(dslModule); 
   // Parse text

@@ -1,0 +1,98 @@
+{
+  "idGenIt": {},
+  "title": "choice.container.0",
+  "elts": [
+    {
+      "idGenIt": {},
+      "title": "e",
+      "elts": [
+        "e"
+      ],
+      "resourceType": "resource",
+      "tagName": "terminal",
+      "id": "resource.terminal.3",
+      "provider": "flow",
+      "compound": false,
+      "_start": null,
+      "_finish": null,
+      "ctx": null,
+      "data": {},
+      "link": null
+    },
+    {
+      "idGenIt": {},
+      "title": "d",
+      "elts": [
+        "d"
+      ],
+      "resourceType": "resource",
+      "tagName": "terminal",
+      "id": "resource.terminal.4",
+      "provider": "flow",
+      "compound": false,
+      "_start": null,
+      "_finish": null,
+      "ctx": null,
+      "data": {},
+      "link": null
+    },
+    {
+      "idGenIt": {},
+      "title": "f",
+      "elts": [
+        "f"
+      ],
+      "resourceType": "resource",
+      "tagName": "terminal",
+      "id": "resource.terminal.5",
+      "provider": "flow",
+      "compound": false,
+      "_start": null,
+      "_finish": null,
+      "ctx": null,
+      "data": {},
+      "link": null
+    }
+  ],
+  "resourceType": "choice",
+  "tagName": "container",
+  "id": "choice.container.0",
+  "provider": "flow",
+  "compound": true,
+  "_start": {
+    "idGenIt": {},
+    "title": "start",
+    "elts": [
+      "start"
+    ],
+    "resourceType": "choice",
+    "tagName": "start",
+    "id": "choice.start.1",
+    "provider": "flow",
+    "compound": false,
+    "_start": null,
+    "_finish": null,
+    "ctx": null,
+    "data": {},
+    "link": null
+  },
+  "_finish": {
+    "idGenIt": {},
+    "title": "finish",
+    "elts": [
+      "finish"
+    ],
+    "resourceType": "choice",
+    "tagName": "finish",
+    "id": "choice.finish.2",
+    "provider": "flow",
+    "compound": false,
+    "_start": null,
+    "_finish": null,
+    "ctx": null,
+    "data": {},
+    "link": null
+  },
+  "data": {},
+  "link": null
+}

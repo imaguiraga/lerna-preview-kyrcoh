@@ -11,8 +11,8 @@ export class FlowUIDVisitor {
   }
 
   visit(tree,filterFn){
-    if( typeof tree === "undefined"){
-      return tree;
+    if( typeof tree === "undefined" || tree === null){
+      return null;
     }
     // Non terminal nodes have start and finish
     if(!tree.isTerminal()){

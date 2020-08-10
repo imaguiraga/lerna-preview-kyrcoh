@@ -143,13 +143,16 @@ function elkLayout(){
 }
 
 function render(dslObject){
+  if(dslObject !== null){
+    console.log(JSON.stringify(dslObject,null,"  "));
+  }
+
   let elkgraph = toElkGraph(dslObject);
  
   const layout = elkLayout();
   layout.nodeSize(80).portSize(8);
 
   function refreshFn() {
-    console.log("refresh");
     layout(elkgraph).then((elkLayoutGraph) =>{
       // Clear and redraw
       let root = svg.selectAll("g.root");
@@ -192,7 +195,7 @@ function renderd3Layout(svg,node,refreshFn){
   var links = linksFn(node);
   function collapseNode(d){
     d3.event.stopPropagation();
-    console.log("Collapse "+d.id );
+    //console.log("Collapse "+d.id );
     
     // is expanded
     if(d.model.compound){

@@ -10,8 +10,8 @@ import * as diagram from "./flow-diagram";
 const {parseDsl} = flowDsl;
 const DEBUG = true;
 
-document.body.innerHTML = `
-<div id="grid">
+document.body.innerHTML = 
+`<div id="grid">
 		<div id="one" class="pane">
 			<h6>Flow EDITOR</h6>
 			<div style="margin:2px;font-size:12px">
@@ -32,8 +32,8 @@ document.body.innerHTML = `
 			<div class="separator"></div>
 			<div id="preview-pane" class="content-pane"></div>
 		</div>
-	</div>
-`;
+  </div>`
+  ;
 
 // Initialize Split Pane
 Split(["#one", "#two"], {
@@ -64,7 +64,7 @@ const renderer = diagram.createElkRenderer("preview-pane");
   });
 
 function updatePreviewPane(content){
-  if( typeof content === "undefined"){
+  if( typeof content === "undefined" || content === null){
     return;
   }
   try {
@@ -75,12 +75,11 @@ function updatePreviewPane(content){
 
   } catch(e) {
     console.error(e);
-
   }
 }
 
 function renderFlow(input){
-  if( typeof input === "undefined"){
+  if( typeof input === "undefined" || input === null){
     return;
   }
 
@@ -101,9 +100,20 @@ editor.on("changes",(instance) => {
   updatePreviewPane(content);
 }); 
 
+let selectEltChangeHandler = null;
 function initFlowSelection(flows){
   // Populate select component from list of samples
   let selectElt = document.getElementById("flow-preview-select");
+  // Detach selection handler
+  if(selectEltChangeHandler != null) {
+    selectElt.removeEventListener('change', selectEltChangeHandler);
+  }
+
+  selectEltChangeHandler = (event) => {
+    const result = flows.get(event.target.value);
+    renderFlow(result);
+  }
+  
   // Recreate flow options
   while (selectElt.firstChild) {
     selectElt.firstChild.remove();
@@ -113,11 +123,8 @@ function initFlowSelection(flows){
     let opt = new Option(key,key);
     selectElt.add(opt);
   });
-  // Update flow when the selection changes 
-  selectElt.addEventListener('change', (event) => {
-    const result = flows.get(event.target.value);
-    renderFlow(result);
-  });
+  // Attach selection handler 
+  selectElt.addEventListener('change', selectEltChangeHandler);
 
 }
 

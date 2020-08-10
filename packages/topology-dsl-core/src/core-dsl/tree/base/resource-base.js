@@ -40,11 +40,49 @@ export class TerminalResource {
     self.provider = provider;
     self.compound = false;
     
-    self.start = this;
-    self.finish = this;
+    self._start = null;//this;
+    self._finish = null;//this;
     self.ctx = ctx;
     self.data = new Map();
     self.link = null;
+  }
+  
+  get start(){
+    if(this._start == null){
+      return {
+        resourceType: this.resourceType,
+        tagName: this.tagName,
+        id: this.id,
+        provider: this.provider,
+        compound: this.compound
+      };
+
+    } else {
+      return this._start;
+    }
+  }
+
+  set start(val){
+    this._start = val;
+  }
+
+  get finish(){
+    if(this._finish == null){
+      return {
+        resourceType: this.resourceType,
+        tagName: this.tagName,
+        id: this.id,
+        provider: this.provider,
+        compound: this.compound
+      };
+
+    } else {
+      return this._finish;
+    }
+  }
+
+  set finish(val){
+    this._finish = val;
   }
   
   isTerminal(){
