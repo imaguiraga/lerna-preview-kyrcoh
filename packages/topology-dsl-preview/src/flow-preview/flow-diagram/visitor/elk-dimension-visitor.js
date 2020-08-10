@@ -32,7 +32,13 @@ export class ELKDimensionVisitor {
   }
 
   visit(tree){
-    // Add dimesions
+    // Reset dimensions
+    
+    if(tree.width) delete tree.width;
+    if(tree.height) delete tree.height;
+    if(tree.x) delete tree.x;
+    if(tree.y) delete tree.y;
+    // Add dimensions
     if(isContainer(tree) === false){
       tree.width = this._nodeWidth;
       tree.height = this._nodeHeight;
@@ -41,7 +47,7 @@ export class ELKDimensionVisitor {
           tree.width = this._iconWidth;
           tree.height = tree.width;
       }
-    }
+    } 
     
     if(Array.isArray(tree.ports)){
       tree.ports.forEach((n) => {

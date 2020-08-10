@@ -72,7 +72,7 @@ function toElkGraph(dslObject){
 
 function elkLayout(){
   const elkDimensionVisitor = new ELKDimensionVisitor();  
-
+  const elk = new ELK();
   let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
@@ -80,6 +80,7 @@ function elkLayout(){
     "org.eclipse.elk.padding": 16,
     "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.layered.mergeEdges":true,
+    "org.eclipse.elk.zoomToFit":true,
     "spacing": 40,
     "spacing.nodeNodeBetweenLayers": 40,
     "spacing.edgeNodeBetweenLayers": 40,
@@ -91,10 +92,11 @@ function elkLayout(){
     // Add node width.height
     let elkgraph = elkDimensionVisitor.visit(inelkgraph);
 
-    console.log(JSON.stringify(elkgraph,null,"  "));
-
+    //console.log(JSON.stringify(elkgraph,null,"  "));
+    elk.knownLayoutOptions().then((d) => {
+      //console.log(d);
+    });
     // start the layout
-    const elk = new ELK();
     let elkpromise = elk.layout(elkgraph, {
       layoutOptions: options,
       logging: true,
@@ -146,17 +148,22 @@ function render(dslObject){
   const layout = elkLayout();
   layout.nodeSize(80).portSize(8);
 
-  layout(elkgraph).then((elkLayoutGraph) =>{
-    // Clear and redraw
-    let root = svg.selectAll("g.root");
-    // reset diagram
-    root.remove();
-    root = svg.append("g").attr("class", "root");
-    renderd3Layout(root,elkLayoutGraph);
+  function refreshFn() {
+    console.log("refresh");
+    layout(elkgraph).then((elkLayoutGraph) =>{
+      // Clear and redraw
+      let root = svg.selectAll("g.root");
+      // reset diagram
+      root.remove();
+      root = svg.append("g").attr("class", "root");
+      renderd3Layout(root,elkLayoutGraph,refreshFn);
+  
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
 
-  }).catch((e) => {
-    console.log(e);
-  });
+  refreshFn();
   
 }
 
@@ -178,11 +185,40 @@ const linksFn = function (n) {
   return n.edges || [];
 };
 
-function renderd3Layout(svg,node){
+
+function renderd3Layout(svg,node,refreshFn){
   // Get current children nodes and links
   var nodes = nodesFn(node);
   var links = linksFn(node);
+  function collapseNode(d){
+    d3.event.stopPropagation();
+    console.log("Collapse "+d.id );
+    
+    // is expanded
+    if(d.model.compound){
+      // Remove children and edges 
+      d._children = d.children;
+      d.children = [];
 
+      d._edges = d.edges;
+      d.edges = null;
+      d.model.compound = false;
+      d.collapsed = true;
+      
+    } else if(d.collapsed){
+      // Restore children and edges
+      d.children = d._children;
+      d._children = null;
+
+      d.edges = d._edges;
+      d._edges = null;
+      d.model.compound = true;
+      d.collapsed = false;
+    }
+
+    refreshFn();
+    //*/
+  }
 // Add edges
   if(links){
     var linkData = svg.append("g").attr("class", "edges").selectAll(".link").data(links, idFn);
@@ -243,6 +279,9 @@ function renderd3Layout(svg,node){
             selection.classed(d.model.provider,true);
             selection.classed(d.model.resourceType,true);
             selection.classed(d.model.tagName,true);
+            //if(d.model.compound === true){
+              selection.on('click',collapseNode);
+            //}
           } 
           // Node type  
           if(isIconFn(d)){
@@ -286,8 +325,8 @@ function renderd3Layout(svg,node){
             .attr("y", (l) => l.y)
             .attr("width", (l) => l.width)
             .attr("height", (l) => l.height);
-            // ports
-             // Create new selection from current one
+          // Ports
+          // Create new selection from current one
           selection.selectAll(".port").data((d,i)=>{
             return portsFn(d);
           }).enter()
@@ -311,7 +350,7 @@ function renderd3Layout(svg,node){
         nodeEnter.each(function(n,i){
           // If node has children make a recursive call
           if(nodesFn(n).length > 0){
-            renderd3Layout(d3.select(this),n);
+            renderd3Layout(d3.select(this),n,refreshFn);
           }
         });    
     }
