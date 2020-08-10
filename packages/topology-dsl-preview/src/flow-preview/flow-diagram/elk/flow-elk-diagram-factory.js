@@ -1,6 +1,16 @@
 import * as d3 from "d3";
-import {elkmodule} from './elk-d3.js';
+//const ELK = require('elkjs');
+import ELK from 'elkjs/lib/elk.bundled.js';
 import './elk-style.css';
+
+import {
+  FlowUIDVisitor,
+  FlowToELKVisitor,
+  ELKDimensionVisitor
+} from "../visitor/index.js";
+
+const uidvisitor = new FlowUIDVisitor();
+const elkvisitor = new FlowToELKVisitor();
 
 export function createElkRenderer(_container_,_width_,_height_,_iconWidth_){
 /*
@@ -29,106 +39,8 @@ const height = (_height_ || containerElt.scrollHeight || 800);
 
 const idFn = function(d) { return d.id.replace(/\.|:/gi,"_"); };    
 
-const zoomFn = d3.zoom().on("zoom", function () {
-  svg.attr("transform", d3.event.transform);
-});
-let svg = d3.select(containerElt)
-    .append("svg")
-    .attr("xmlns:xlink","http://www.w3.org/1999/xlink")
-    .attr("width", width)
-    .attr("height", height)
-    .call(zoomFn)
-    .append("g");
-// define an arrow head
-let defs = svg.append("defs");
-defs.append("marker")
-  .attr("id", "end")
-  .attr("viewBox", "-4 0 8 8")
-  //.attr("viewBox", "0 0 8 8")
-  .attr("refX", 4)
-  .attr("refY", 4)
-  .attr("markerWidth", 4)      // marker settings
-  .attr("markerHeight", 4)
-  .attr("orient", "auto")
-  .style("fill", "black")
-  .style("stroke-opacity", 1)  // arrowhead color
-  .append("path")
-  .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
-    //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
-
-defs.append("circle")
-  .attr("id", "start")
-  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-  //.attr("width", iconWidth)
-  //.attr("height", iconWidth)
-  .style("fill", "transparent")
-  .style("stroke", "inherit")
-  .style("stroke-width", "2px")
-  .attr("cx", iconWidth/2)
-  .attr("cy", iconWidth/2)
-  .attr("r", 8);
-
-defs.append("circle")
-    .attr("id", "finish")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    //.attr("width", ${iconWidth})
-    //.attr("height", ${iconWidth})
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("cx", iconWidth/2)
-    .attr("cy", iconWidth/2)
-    .attr("r", 8);
-     
-//*/
-defs.append("rect")
-    .attr("id", "start1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-defs.append("rect")
-    .attr("id", "finish1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-    defs.append("rect")
-    .attr("id", "skip1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-    
-    defs.append("rect")
-    .attr("id", "loop1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
+let svg = init(containerElt,width,height,iconWidth);
+/*
 const START_ICON = '\uf192'; // dot-circle-o  
 const END_ICON = '\uf111'; // circle
 const LOOP_ICON = '\uf0e2';// undo
@@ -139,29 +51,36 @@ const ICONMAP = new Map([
   ["loop",LOOP_ICON],
   ["skip",SKIP_ICON]
 ]); 
-
+//*/
 let iconRegex = new RegExp("start|finish|loop|skip");
 const isIconFn = function (n) {
   return (n && n.model && iconRegex.test(n.model.tagName));
 };
 
-function render(graph){
-  // Clear and redraw
-  let root = svg.selectAll(".root");
-  // reset diagram
-  root.remove();
-  root = svg.append("g").attr("class", "root");
+function toElkGraph(dslObject){
+  let elkgraph = null;
+  try {
+    // Update preview
+    dslObject = uidvisitor.visit(dslObject);
+    // dslObject to elkgraph
+    elkgraph = elkvisitor.toElkGraph(dslObject);
+  } catch(e) {
+    console.error(e);
+  }
+  return elkgraph;
+}
 
-  console.log(JSON.stringify(graph,null,"  "));
-  //console.log(elkgraph);
-
-  const options = {
+function elkLayout(){
+  const elkDimensionVisitor = new ELKDimensionVisitor();  
+  const elk = new ELK();
+  let options = {
     "elk.algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
     "org.eclipse.elk.port.borderOffset": 4,
-    "org.eclipse.elk.padding": 0,
+    "org.eclipse.elk.padding": 16,
     "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.layered.mergeEdges":true,
+    "org.eclipse.elk.zoomToFit":true,
     "spacing": 40,
     "spacing.nodeNodeBetweenLayers": 40,
     "spacing.edgeNodeBetweenLayers": 40,
@@ -169,17 +88,83 @@ function render(graph){
     "layering.strategy": "LONGEST_PATH"
   };
 
-  let layouter = elkmodule.d3kgraph()
-    .size([width, height])
-    .transformGroup(root)
-    .options(options);
+  function layoutFn(inelkgraph){
+    // Add node width.height
+    let elkgraph = elkDimensionVisitor.visit(inelkgraph);
 
-    layouter.on("finish", function(node) {
-      renderd3Layoutv2(root,node);
+    //console.log(JSON.stringify(elkgraph,null,"  "));
+    elk.knownLayoutOptions().then((d) => {
+      //console.log(d);
+    });
+    // start the layout
+    let elkpromise = elk.layout(elkgraph, {
+      layoutOptions: options,
+      logging: true,
+      measureExecutionTime: true
     });
   
-    // start an initial layout
-    layouter.kgraph(graph);
+    return elkpromise;
+  }
+
+  layoutFn.nodeHeight = function(newSize) {	
+    if (!arguments.length) return elkDimensionVisitor._nodeHeight;
+    elkDimensionVisitor.nodeHeight(newSize);
+    return this;
+  };
+
+  layoutFn.nodeWidth = function(newSize) {	
+    if (!arguments.length) return elkDimensionVisitor._nodeWidth;
+    elkDimensionVisitor.nodeWidth(newSize);
+    return this;
+  };
+
+  layoutFn.nodeSize = function(width,height) {	
+    if (!arguments.length) return [elkDimensionVisitor._nodeWidth,elkDimensionVisitor._nodeHeight];
+  
+    elkDimensionVisitor.nodeWidth(width);
+    elkDimensionVisitor.nodeHeight(height||width);
+
+    return this;
+  };
+
+  layoutFn.portSize = function(newSize) {	
+    if (!arguments.length) return elkDimensionVisitor._portSize;
+    elkDimensionVisitor.portSize(newSize);
+    return this;
+  };
+  
+  layoutFn.options = function(newOptions) {	
+    if (!arguments.length) return options;
+    options = newOptions;
+    return this;
+  };
+
+  return layoutFn;
+}
+
+function render(dslObject){
+  let elkgraph = toElkGraph(dslObject);
+ 
+  const layout = elkLayout();
+  layout.nodeSize(80).portSize(8);
+
+  function refreshFn() {
+    console.log("refresh");
+    layout(elkgraph).then((elkLayoutGraph) =>{
+      // Clear and redraw
+      let root = svg.selectAll("g.root");
+      // reset diagram
+      root.remove();
+      root = svg.append("g").attr("class", "root");
+      renderd3Layout(root,elkLayoutGraph,refreshFn);
+  
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
+
+  refreshFn();
+  
 }
 
 // Helper functions
@@ -200,11 +185,40 @@ const linksFn = function (n) {
   return n.edges || [];
 };
 
-function renderd3Layoutv2(svg,node){
+
+function renderd3Layout(svg,node,refreshFn){
   // Get current children nodes and links
   var nodes = nodesFn(node);
   var links = linksFn(node);
+  function collapseNode(d){
+    d3.event.stopPropagation();
+    console.log("Collapse "+d.id );
+    
+    // is expanded
+    if(d.model.compound){
+      // Remove children and edges 
+      d._children = d.children;
+      d.children = [];
 
+      d._edges = d.edges;
+      d.edges = null;
+      d.model.compound = false;
+      d.collapsed = true;
+      
+    } else if(d.collapsed){
+      // Restore children and edges
+      d.children = d._children;
+      d._children = null;
+
+      d.edges = d._edges;
+      d._edges = null;
+      d.model.compound = true;
+      d.collapsed = false;
+    }
+
+    refreshFn();
+    //*/
+  }
 // Add edges
   if(links){
     var linkData = svg.append("g").attr("class", "edges").selectAll(".link").data(links, idFn);
@@ -265,6 +279,9 @@ function renderd3Layoutv2(svg,node){
             selection.classed(d.model.provider,true);
             selection.classed(d.model.resourceType,true);
             selection.classed(d.model.tagName,true);
+            if(d.model.compound === true || d.collapsed){
+              selection.on('click',collapseNode);
+            }
           } 
           // Node type  
           if(isIconFn(d)){
@@ -308,8 +325,8 @@ function renderd3Layoutv2(svg,node){
             .attr("y", (l) => l.y)
             .attr("width", (l) => l.width)
             .attr("height", (l) => l.height);
-            // ports
-             // Create new selection from current one
+          // Ports
+          // Create new selection from current one
           selection.selectAll(".port").data((d,i)=>{
             return portsFn(d);
           }).enter()
@@ -333,13 +350,119 @@ function renderd3Layoutv2(svg,node){
         nodeEnter.each(function(n,i){
           // If node has children make a recursive call
           if(nodesFn(n).length > 0){
-            renderd3Layoutv2(d3.select(this),n);
+            renderd3Layout(d3.select(this),n,refreshFn);
           }
         });    
     }
-}
+  }
 
   return {
     render
   };
+}
+
+function init(containerElt,width,height,iconWidth){
+  const zoomFn = d3.zoom().on("zoom", function () {
+    //d3.select(d3.event.target).attr("transform", d3.event.transform);
+    d3.select(this).select("g").attr("transform", d3.event.transform);
+    //svg.attr("transform", d3.event.transform);
+  });
+    
+  let svg = d3.select(containerElt)
+  .append("svg")
+  .attr("xmlns:xlink","http://www.w3.org/1999/xlink")
+  .attr("width", width)
+  .attr("height", height)
+  .call(zoomFn)
+  .append("g");
+    // define an arrow head
+    let defs = svg.append("defs");
+    defs.append("marker")
+    .attr("id", "end")
+    .attr("viewBox", "-4 0 8 8")
+    //.attr("viewBox", "0 0 8 8")
+    .attr("refX", 4)
+    .attr("refY", 4)
+    .attr("markerWidth", 4)      // marker settings
+    .attr("markerHeight", 4)
+    .attr("orient", "auto")
+    .style("fill", "black")
+    .style("stroke-opacity", 1)  // arrowhead color
+    .append("path")
+    .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
+    //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
+
+    defs.append("circle")
+    .attr("id", "start")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr("width", iconWidth)
+    //.attr("height", iconWidth)
+    .style("fill", "transparent")
+    .style("stroke", "inherit")
+    .style("stroke-width", "2px")
+    .attr("cx", iconWidth/2)
+    .attr("cy", iconWidth/2)
+    .attr("r", 8);
+
+    defs.append("circle")
+    .attr("id", "finish")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr("width", ${iconWidth})
+    //.attr("height", ${iconWidth})
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("cx", iconWidth/2)
+    .attr("cy", iconWidth/2)
+    .attr("r", 8);
+      
+    //*/
+    defs.append("rect")
+    .attr("id", "start1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "transparent")
+    .style("stroke", "inherit")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+
+    defs.append("rect")
+    .attr("id", "finish1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+
+    defs.append("rect")
+    .attr("id", "skip1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+
+  defs.append("rect")
+    .attr("id", "loop1")
+    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+    .style("fill", "inherit")
+    .style("stroke", "transparent")
+    .style("stroke-width", "2px")
+    .attr("width", iconWidth-2)
+    .attr("height", iconWidth-2)
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("rx", 2);
+  return svg;
 }
