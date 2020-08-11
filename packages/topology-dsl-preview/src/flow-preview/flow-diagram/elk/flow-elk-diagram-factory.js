@@ -143,13 +143,16 @@ function elkLayout(){
 }
 
 function render(dslObject){
+  if(dslObject !== null){
+    //console.log(JSON.stringify(dslObject,null,"  "));
+  }
+
   let elkgraph = toElkGraph(dslObject);
  
   const layout = elkLayout();
   layout.nodeSize(80).portSize(8);
 
   function refreshFn() {
-    console.log("refresh");
     layout(elkgraph).then((elkLayoutGraph) =>{
       // Clear and redraw
       let root = svg.selectAll("g.root");
@@ -190,10 +193,11 @@ function renderd3Layout(svg,node,refreshFn){
   // Get current children nodes and links
   var nodes = nodesFn(node);
   var links = linksFn(node);
+
+  // Toggle expansion on/off
   function collapseNode(d){
     d3.event.stopPropagation();
-    console.log("Collapse "+d.id );
-    
+
     // is expanded
     if(d.model.compound){
       // Remove children and edges 
@@ -219,6 +223,7 @@ function renderd3Layout(svg,node,refreshFn){
     refreshFn();
     //*/
   }
+
 // Add edges
   if(links){
     var linkData = svg.append("g").attr("class", "edges").selectAll(".link").data(links, idFn);

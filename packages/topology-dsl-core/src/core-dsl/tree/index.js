@@ -1,5 +1,5 @@
 /* base */
-export * from "./base/resource-base.js";
+export * from "./base/index.js";
 /* flow-element */
 export * from "./flow-dsl/index.js";
 /* pipeline-element */

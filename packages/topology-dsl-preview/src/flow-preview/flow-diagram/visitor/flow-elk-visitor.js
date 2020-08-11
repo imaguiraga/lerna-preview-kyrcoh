@@ -2,6 +2,10 @@ import {
   idGenFn
 } from "./util.js";
 
+import {
+  jsonToDslObject
+} from "@imaguiraga/topology-dsl-core";
+
 export class FlowToELKVisitor {
   constructor(){
     this.edgeCntIt = idGenFn("edge.",0);   
@@ -21,7 +25,14 @@ export class FlowToELKVisitor {
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ELK graph.
    */
-  visit(tree,filterFn){
+  visit(_tree,filterFn){
+    if( typeof _tree === "undefined" || _tree === null){
+      return null;
+    }
+    let tree = _tree;
+    // Add start finish properties if missing
+    tree = jsonToDslObject(tree);
+
     let result = null;
     if( typeof tree === "undefined"){
       return result;

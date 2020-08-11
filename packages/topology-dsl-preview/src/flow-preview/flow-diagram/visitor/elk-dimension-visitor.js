@@ -1,7 +1,10 @@
 import {
-  isContainer,
   isIconFn
 } from "./util.js";
+
+import {
+  isContainer
+} from "@imaguiraga/topology-dsl-core";
 
 export class ELKDimensionVisitor {
   constructor(nodeWidth,nodeHeight,iconWidth,portSize){
@@ -33,7 +36,9 @@ export class ELKDimensionVisitor {
 
   visit(tree){
     // Reset dimensions
-    
+    if( typeof tree === "undefined" || tree === null){
+      return null;
+    }
     if(tree.width) delete tree.width;
     if(tree.height) delete tree.height;
     if(tree.x) delete tree.x;
