@@ -1,53 +1,7 @@
 import {
-  idGenFn
+  idGenFn,
+  addStartFinishProperties
 } from "./util.js";
-
-function addStartFinishProperties(o){
-  o.isTerminal = function (){
-    return this.compund;
-  };
-
-  Object.defineProperties(o, {
-    'start' : {
-      get: function(){
-        if(this._start == null){
-          return {
-            resourceType: this.resourceType,
-            tagName: this.tagName,
-            id: this.id,
-            provider: this.provider,
-            compound: this.compound
-          };
-    
-        } else {
-          return this._start;
-        }
-      },
-      set: function(val){
-        this._start = val;
-      }
-    },
-    'finish' : {
-      get: function(){
-        if(this._finish == null){
-          return {
-            resourceType: this.resourceType,
-            tagName: this.tagName,
-            id: this.id,
-            provider: this.provider,
-            compound: this.compound
-          };
-    
-        } else {
-          return this._finish;
-        }
-      },
-      set: function(val){
-        this._finish = val;
-      }
-    }
-  });	
-}
 
 export class FlowToELKVisitor {
   constructor(){
@@ -68,14 +22,14 @@ export class FlowToELKVisitor {
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ELK graph.
    */
-  visit(tree,filterFn){
-    if( typeof tree === "undefined" || tree === null){
+  visit(_tree,filterFn){
+    if( typeof _tree === "undefined" || _tree === null){
       return null;
     }
+    let tree = _tree;
     // Add start finish properties if missing
-    if(tree.start === undefined){
-      addStartFinishProperties(tree);
-    }
+    tree = addStartFinishProperties(tree);
+
     let result = null;
     if( typeof tree === "undefined"){
       return result;

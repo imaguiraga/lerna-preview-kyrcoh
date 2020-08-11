@@ -1,3 +1,6 @@
+import {
+  addStartFinishProperties
+} from "./util.js";
 /**
  * Class FlowUIDVisitor.
  */
@@ -10,10 +13,15 @@ export class FlowUIDVisitor {
     this._prefix = prefix || "UID";
   }
 
-  visit(tree,filterFn){
-    if( typeof tree === "undefined" || tree === null){
+  visit(_tree,filterFn){
+    if( typeof _tree === "undefined" || _tree === null){
       return null;
     }
+    let tree = _tree;
+
+    // Add start finish properties if missing
+    tree = addStartFinishProperties(tree);
+
     // Non terminal nodes have start and finish
     if(!tree.isTerminal()){
       tree.start.id = this._prefix + "_" + tree.tagName + "_start";
