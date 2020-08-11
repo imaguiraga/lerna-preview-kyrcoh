@@ -1,6 +1,9 @@
 
 export const samples = [
-`let d = choice("e", "d" ,"f");`,
+`let x1 = () => load("test.json");
+//let x2 = () => load("http://localhost:3000/test1.json");
+let x2 = () => load("test1.json");
+let d = choice(x1,"e", "d" ,x2);`,
 `
 let testflow = choice(
   terminal("a"),
