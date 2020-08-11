@@ -7,7 +7,10 @@ import {createEditor} from "./flow-editor";
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "./flow-diagram";
 
-const {parseDsl} = flowDsl;
+const {
+  parseDsl,
+  resolveImports
+} = flowDsl;
 const DEBUG = true;
 
 document.body.innerHTML = 
@@ -56,12 +59,64 @@ Split(["#one", "#two"], {
 const renderer = diagram.createElkRenderer("preview-pane");
 
 // load the data and render the elements
-//fetch("hierarchy.json").then( function(graph) {  
-//fetch("flow.json").then( function(graph) {  
-  fetch("pipeline.json").then( function(graph) { 
-    console.log(graph);
-    //renderer.render(graph);   
-  });
+fetch("pipeline.json").then( function(response) { 
+  console.log(response);
+  //renderer.render(response);   
+});
+
+;
+/**
+ * Class FlowToELKVisitor.
+ */
+function* idGenFn(index) {
+  while (index >= 0) {
+    yield index;
+    index++;
+  }
+}
+
+const seed = idGenFn(1);
+
+// Reset ids
+function resetIds(obj,idx) {
+  if(obj.id){
+    // Append a suffix
+    obj.id = obj.id+"_"+idx;
+
+    if(obj._start !== null){
+      obj._start.id = obj._start.id+"_"+idx;
+    }
+    if(obj._finish !== null){
+      obj._finish.id = obj._finish.id+"_"+idx;
+    }
+  }
+  return obj;
+}
+
+// Clone and reset ids
+function clone(obj,idx) {
+  if(obj === undefined || obj === null){
+    return obj;
+  }
+  let copy = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+  // Deep copy
+  if(copy.compound) {
+    if(Array.isArray(copy.elts)){
+      copy.elts = copy.elts.map((elt) => {
+        return clone(elt,idx);
+      });
+    }
+  }
+
+  if(copy._start !== null){
+    copy._start = clone(copy._start,idx);
+  }
+  if(copy._finish !== null){
+    copy._finish = clone(copy._finish,idx);
+  }
+
+  return resetIds(copy,idx);
+}
 
 function updatePreviewPane(content){
   if( typeof content === "undefined" || content === null){
@@ -69,10 +124,23 @@ function updatePreviewPane(content){
   }
   try {
     // Update preview
-    let flows = parseDsl(content,flowDsl);
-    renderFlow(flows.get(flows.keys().next().value)); 
-    initFlowSelection(flows);   
+    resolveImports(content).then((loadedImports) => {
+      // Inject load function
+      flowDsl.load = (key) => {
+        let obj = loadedImports.get(key);
+        //Clone to avoid ids collision
+        let copy = clone(obj,seed.next().value);
+        return copy;
+      };
 
+      let flows = parseDsl(content,flowDsl);
+      renderFlow(flows.get(flows.keys().next().value)); 
+      initFlowSelection(flows);   
+
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
+    
   } catch(e) {
     console.error(e);
   }

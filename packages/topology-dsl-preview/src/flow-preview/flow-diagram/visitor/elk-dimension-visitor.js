@@ -1,7 +1,10 @@
 import {
-  isContainer,
   isIconFn
 } from "./util.js";
+
+import {
+  isContainer
+} from "@imaguiraga/topology-dsl-core";
 
 export class ELKDimensionVisitor {
   constructor(nodeWidth,nodeHeight,iconWidth,portSize){

@@ -1,7 +1,10 @@
 import {
-  idGenFn,
-  jsonToDslObject
+  idGenFn
 } from "./util.js";
+
+import {
+  jsonToDslObject
+} from "@imaguiraga/topology-dsl-core";
 
 export class FlowToELKVisitor {
   constructor(){

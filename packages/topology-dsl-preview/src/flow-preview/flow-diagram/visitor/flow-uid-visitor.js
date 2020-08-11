@@ -1,6 +1,6 @@
 import {
   jsonToDslObject
-} from "./util.js";
+} from "@imaguiraga/topology-dsl-core";
 /**
  * Class FlowUIDVisitor.
  */
