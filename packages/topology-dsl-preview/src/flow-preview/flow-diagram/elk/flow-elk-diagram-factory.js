@@ -271,9 +271,9 @@ function renderd3Layout(svg,node,refreshFn){
       var nodeEnter = nodeData.enter()
         .append("g")
         .attr("class", function(d) { 
-          let c = "node leaf";
+          let c = "leaf";
           if (nodesFn(d).length > 0) {
-            c = "node compound";
+            c = "compound";
           } 
           return c;    
         }).each(function(d,i) { 
@@ -291,6 +291,7 @@ function renderd3Layout(svg,node,refreshFn){
           // Node type  
           if(isIconFn(d)){
             selection.append("use")
+              .attr("class","node")
               .style("fill", "inherit")
               .style("stroke", "inherit")
               .attr("href",(data) =>{
@@ -304,6 +305,7 @@ function renderd3Layout(svg,node,refreshFn){
               .attr("height", function(d) { return d.height; });
           } else {
             selection.append("rect")
+            .attr("class","node")
             .style("fill", "inherit")
             .style("stroke", "inherit")
             .attr("x", 0)
