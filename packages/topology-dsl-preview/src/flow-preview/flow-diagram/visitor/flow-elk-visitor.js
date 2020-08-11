@@ -1,6 +1,6 @@
 import {
   idGenFn,
-  addStartFinishProperties
+  jsonToDslObject
 } from "./util.js";
 
 export class FlowToELKVisitor {
@@ -28,7 +28,7 @@ export class FlowToELKVisitor {
     }
     let tree = _tree;
     // Add start finish properties if missing
-    tree = addStartFinishProperties(tree);
+    tree = jsonToDslObject(tree);
 
     let result = null;
     if( typeof tree === "undefined"){

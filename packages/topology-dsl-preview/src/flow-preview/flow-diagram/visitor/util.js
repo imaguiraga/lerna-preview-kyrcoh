@@ -50,7 +50,7 @@ export function completeAssign(target, ...sources) {
 }
 //*/
 
-export function addStartFinishProperties(o){
+export function jsonToDslObject(o){
   let result = o;
   if(o.start === undefined){  
     if(o.compound) {
@@ -61,56 +61,9 @@ export function addStartFinishProperties(o){
     if(Array.isArray(result.elts)) {
       // Recursively enrich elts
       result.elts = result.elts.map((v) => {
-        return addStartFinishProperties(v);
+        return jsonToDslObject(v);
       });
     }
   }
   return result;
-  /*
-
-  o.isTerminal = function (){
-    return this.compund;
-  };
-
-  Object.defineProperties(o, {
-    'start' : {
-      get: function(){
-        if(this._start == null){
-          return {
-            resourceType: this.resourceType,
-            tagName: this.tagName,
-            id: this.id,
-            provider: this.provider,
-            compound: this.compound
-          };
-    
-        } else {
-          return this._start;
-        }
-      },
-      set: function(val){
-        this._start = val;
-      }
-    },
-    'finish' : {
-      get: function(){
-        if(this._finish == null){
-          return {
-            resourceType: this.resourceType,
-            tagName: this.tagName,
-            id: this.id,
-            provider: this.provider,
-            compound: this.compound
-          };
-    
-        } else {
-          return this._finish;
-        }
-      },
-      set: function(val){
-        this._finish = val;
-      }
-    }
-  });	
-  //*/
 }

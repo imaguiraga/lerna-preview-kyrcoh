@@ -1,5 +1,5 @@
 import {
-  addStartFinishProperties
+  jsonToDslObject
 } from "./util.js";
 /**
  * Class FlowUIDVisitor.
@@ -20,7 +20,7 @@ export class FlowUIDVisitor {
     let tree = _tree;
 
     // Add start finish properties if missing
-    tree = addStartFinishProperties(tree);
+    tree = jsonToDslObject(tree);
 
     // Non terminal nodes have start and finish
     if(!tree.isTerminal()){
