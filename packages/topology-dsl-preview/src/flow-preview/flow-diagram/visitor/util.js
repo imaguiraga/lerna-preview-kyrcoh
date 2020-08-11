@@ -28,12 +28,11 @@ export function clone(obj){
   let copy = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
   return copy;
 }
-/*
+
 // This is an assign function that copies full descriptors
-function completeAssign(target, ...sources) {
+export function completeAssign(target, ...sources) {
   sources.forEach(source => {
     let descriptors = Object.keys(source).reduce((descriptors, key) => {
-      console.log("key = "+key);
       descriptors[key] = Object.getOwnPropertyDescriptor(source, key);
       return descriptors;
     }, {});
@@ -56,10 +55,8 @@ export function addStartFinishProperties(o){
   if(o.start === undefined){  
     if(o.compound) {
       Object.setPrototypeOf(o,CompositeResource.prototype);
-      //result = completeAssign(new CompositeResource(),new TerminalResource(),o);
     } else {
       Object.setPrototypeOf(o,TerminalResource.prototype);
-      //result = completeAssign(new TerminalResource(),o);
     }
     if(Array.isArray(result.elts)) {
       // Recursively enrich elts
