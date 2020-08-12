@@ -1,6 +1,6 @@
 @import "./elk-style-flow.css";
 @import "./elk-style-pipeline.css";
-@import "../../style/font-awesome-4.7.0/css/font-awesome.css";
+@import "../../../style/font-awesome-4.7.0/css/font-awesome.css";
 
 g.leaf > rect {
   stroke: #000;
