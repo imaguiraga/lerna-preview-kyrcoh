@@ -338,12 +338,6 @@ class OptionalEltFlowToELKVisitor{
 
       });
       
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[tree.elts.length-1].finish.id],
-        targets: [tree.finish.id],
-         ...visitor.getEdgeModel(tree),
-      });
     }
 
     // start -> skip? -> finish
@@ -369,6 +363,16 @@ class OptionalEltFlowToELKVisitor{
         sources: [tree.start.id],
         targets: [tree.finish.id],
         ...visitor.getEdgeModel(tree),
+      });
+    }
+
+    if(tree.elts.length > 0) {
+      
+      graph.edges.push({
+        id: `${visitor.edgeCntIt.next().value}`,
+        sources: [tree.elts[tree.elts.length-1].finish.id],
+        targets: [tree.finish.id],
+         ...visitor.getEdgeModel(tree),
       });
     }
     // concatenate G6 graphs
@@ -469,16 +473,16 @@ class RepeatEltFlowToELKVisitor {
       });
     }
     //*/
-        // edges
-        if(tree.elts.length > 0) {
-  
-          graph.edges.push({
-            id: `${visitor.edgeCntIt.next().value}`,
-            sources: [tree.elts[tree.elts.length-1].finish.id],
-            targets: [tree.finish.id],
-            ...visitor.getEdgeModel(tree),
-          });
-        }
+    // edges
+    if(tree.elts.length > 0) {
+
+      graph.edges.push({
+        id: `${visitor.edgeCntIt.next().value}`,
+        sources: [tree.elts[tree.elts.length-1].finish.id],
+        targets: [tree.finish.id],
+        ...visitor.getEdgeModel(tree),
+      });
+    }
     
     // concatenate G6 graphs
     // nodes
