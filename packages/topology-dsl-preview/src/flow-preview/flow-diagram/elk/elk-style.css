@@ -3,13 +3,20 @@
 @import "../../style/font-awesome-4.7.0/css/font-awesome.css";
 
 g.leaf > rect {
-  stroke: #fff;
+  stroke: #000;
   stroke-width: 1px;
   opacity: 1;
 }
 
-g.compound > rect {
-  opacity: 0.1;
+g.compound.container > rect.node {
+  opacity: 0.08!important;
+  stroke-width: 1px!important;
+}
+
+g.leaf.container > rect.node {
+  opacity: 0.6;
+  stroke: #000!important;
+  stroke-width: 2px!important;
 }
 
 .node {
@@ -23,7 +30,7 @@ g.compound > rect {
 }
 
 .port {
-  stroke: #000;
+  stroke: #000!important;
   stroke-width: 1px;
   opacity: .6!important;
 }

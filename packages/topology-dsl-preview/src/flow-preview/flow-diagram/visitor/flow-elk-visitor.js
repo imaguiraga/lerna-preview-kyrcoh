@@ -98,6 +98,10 @@ export class FlowToELKVisitor {
         provider: n.provider,
         resourceType: n.resourceType,
         tagName: "edge"
+      },
+      style: {
+        startArrow: false,
+        endArrow: true,
       }
     };
     return r;
@@ -438,29 +442,29 @@ class RepeatEltFlowToELKVisitor {
 
     // start <- loop <- finish
     // reverse the arrow direction
-    if(typeof(tree.loop) !== "undefined"){
-      
+    if(typeof(tree.loop) !== "undefined") {
+      let edgeModel = visitor.getEdgeModel(tree);
+      edgeModel.style.startArrow = false;
+      edgeModel.style.endArrow = false;
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.loop.id],
-        style: {
-          startArrow: true,
-          endArrow: false,
-        },
-        ...visitor.getEdgeModel(tree),
+        ...edgeModel,
       });
       
+      edgeModel = visitor.getEdgeModel(tree);
+      edgeModel.style.startArrow = true;
+      edgeModel.style.endArrow = false;
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.loop.id],
         targets: [tree.finish.id],
-        style: {
-          startArrow: true,
-          endArrow: false,
-        },
-        ...visitor.getEdgeModel(tree),
+        ...edgeModel,
       });
+
     } else {
       
       graph.edges.push({
