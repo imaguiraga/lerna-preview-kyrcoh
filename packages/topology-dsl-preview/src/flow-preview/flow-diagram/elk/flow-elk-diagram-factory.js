@@ -85,7 +85,9 @@ function elkLayout(){
     "spacing.nodeNodeBetweenLayers": 40,
     "spacing.edgeNodeBetweenLayers": 40,
     "spacing.edgeEdgeBetweenLayers": 40,
-    "layering.strategy": "LONGEST_PATH"
+    "layering.strategy": "LONGEST_PATH",
+    "org.eclipse.elk.spacing.labelNode": 20,
+    'elk.spacing.componentComponent': 80
   };
 
   function layoutFn(inelkgraph){
@@ -231,7 +233,18 @@ function renderd3Layout(svg,node,refreshFn){
     var linkEnter = linkData.enter()
       .append("path")
       .attr("class", "link")
-      .attr("marker-end", "url(#end)")
+      .attr("marker-start", function(d) {
+        if(d.style.startArrow){
+          return "url(#end)";
+        }
+        return "";
+      })
+      .attr("marker-end", function(d) {
+        if(d.style.endArrow){
+          return "url(#end)";
+        }
+        return "";
+      })
       .attr("d", function(e) {
         var path = "";
         var d = e.sections[0];
@@ -392,7 +405,7 @@ function init(containerElt,width,height,iconWidth){
     .attr("refY", 4)
     .attr("markerWidth", 4)      // marker settings
     .attr("markerHeight", 4)
-    .attr("orient", "auto")
+    .attr("orient", "auto-start-reverse")
     .style("fill", "black")
     .style("stroke-opacity", 1)  // arrowhead color
     .append("path")
