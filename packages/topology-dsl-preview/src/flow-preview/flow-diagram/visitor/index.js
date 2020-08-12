@@ -1,5 +1,5 @@
 /* visitors */
-export * from "./flow-g6-visitor.js";
-export * from "./flow-uid-visitor.js";
-export * from "./flow-elk-visitor.js";
+export * from "./g6-flow-visitor.js";
+export * from "./uid-flow-visitor.js";
+export * from "./elk-flow-visitor.js";
 export * from "./elk-dimension-visitor.js";
