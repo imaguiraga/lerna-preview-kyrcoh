@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 //const ELK = require('elkjs');
 import ELK from 'elkjs/lib/elk.bundled.js';
-import './elk-style.css';
+import './style/elk-style.css';
 
 import {
   FlowUIDVisitor,

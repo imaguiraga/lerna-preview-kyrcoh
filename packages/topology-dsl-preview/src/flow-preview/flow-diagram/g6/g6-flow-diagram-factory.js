@@ -4,11 +4,11 @@ import {
   FLOW_NODE_OPTIONS,
   FLOW_NODE_FN, 
   FLOW_EDGE_FN
-} from "./flow-g6-node-config.js";
+} from "./layout/flow-g6-node-config.js";
 
-import { ICONFONT_NODE_OPTIONS } from "./iconfont-node-config.js";
+import { ICONFONT_NODE_OPTIONS } from "./layout/iconfont-node-config.js";
 import { VanillaDagreLayoutOpts } from './layout/dagre-layout';
-import { LineArrowOptions } from './line-arrow';
+import { LineArrowOptions } from './layout/line-arrow';
 
 G6.registerEdge('line-arrow',LineArrowOptions,'line');
 G6.registerLayout('dagre', VanillaDagreLayoutOpts);
