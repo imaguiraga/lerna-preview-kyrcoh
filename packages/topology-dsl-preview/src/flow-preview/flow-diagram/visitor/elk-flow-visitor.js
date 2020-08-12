@@ -431,13 +431,7 @@ class RepeatEltFlowToELKVisitor {
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
       });
-      
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[tree.elts.length-1].finish.id],
-        targets: [tree.finish.id],
-        ...visitor.getEdgeModel(tree),
-      });
+
     }
 
     // start <- loop <- finish
@@ -475,6 +469,16 @@ class RepeatEltFlowToELKVisitor {
       });
     }
     //*/
+        // edges
+        if(tree.elts.length > 0) {
+  
+          graph.edges.push({
+            id: `${visitor.edgeCntIt.next().value}`,
+            sources: [tree.elts[tree.elts.length-1].finish.id],
+            targets: [tree.finish.id],
+            ...visitor.getEdgeModel(tree),
+          });
+        }
     
     // concatenate G6 graphs
     // nodes
