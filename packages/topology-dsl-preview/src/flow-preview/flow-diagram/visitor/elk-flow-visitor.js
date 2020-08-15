@@ -40,16 +40,11 @@ export class FlowToELKVisitor {
     if(tree.compound) {
       switch(tree.resourceType){
         case "choice":
-          result = this._visitChoice(tree,filterFn);
-        break;
         case "fan-in":
-          result = this._visitFanIn(tree,filterFn);
-        break;
         case "fan-out":
-          result = this._visitFanOut(tree,filterFn);
-        break;
         case "group":
-          result = this._visitGroup(tree,filterFn);
+        case "parallel":
+          result = MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,tree.resourceType);
         break;
         case "optional":
           result = this._visitOptional(tree,filterFn);
@@ -119,26 +114,6 @@ export class FlowToELKVisitor {
 
   _visitSequence(tree,filterFn){
     return SequenceEltFlowToELKVisitor.visit(this,tree,filterFn);
-  }
-
-  _visitChoice(tree,filterFn){
-    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"choice");
-  }
-
-  _visitFanIn(tree,filterFn){
-    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"fan-in");
-  }
-
-  _visitFanOut(tree,filterFn){
-    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"fan-out");
-  }
-
-  _visitGroup(tree,filterFn){
-    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"group");
-  }
-
-  _visitParallel(tree,filterFn){
-    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"parallel");
   }
 
   _visitOptional(tree,filterFn){
