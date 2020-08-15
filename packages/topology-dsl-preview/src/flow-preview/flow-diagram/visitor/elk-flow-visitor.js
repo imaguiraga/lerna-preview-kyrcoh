@@ -55,9 +55,6 @@ export class FlowToELKVisitor {
         case "repeat":
           result = this._visitRepeat(tree,filterFn);
         break;
-        case "parallel":
-          result = this._visitParallel(tree,filterFn);
-        break;
         case "terminal":
           result = this._visitTerminal(tree,filterFn);
         break;
