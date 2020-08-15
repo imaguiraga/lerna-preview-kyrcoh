@@ -236,21 +236,3 @@ export class CompositeResource extends TerminalResource {
     return this;
   }
 }
-
-/**
- * Create a resource dsl tree.
- * @param {object} elt - The element.
- * @return {object} resource dsl.
- */
-export function resource(elt) {
-  return new TerminalResource(elt,null,"terminal","resource","generic");
-}
-
-/**
- * Create a group dsl tree.
- * @param {object} elt - The element.
- * @return {object} group dsl.
- */
-export function group(elts) {
-  return new CompositeResource(elts,null,"container","resource","generic");
-}
