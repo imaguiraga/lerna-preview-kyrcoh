@@ -48,6 +48,9 @@ export class FlowToELKVisitor {
         case "fan-out":
           result = this._visitFanOut(tree,filterFn);
         break;
+        case "group":
+          result = this._visitGroup(tree,filterFn);
+        break;
         case "optional":
           result = this._visitOptional(tree,filterFn);
         break;
@@ -64,6 +67,7 @@ export class FlowToELKVisitor {
           result = this._visitTerminal(tree,filterFn);
         break;
         default:
+          console.error("==>WARNING: " + tree.resourceType +" type was not found");
         break;
       } 
 
@@ -127,6 +131,10 @@ export class FlowToELKVisitor {
 
   _visitFanOut(tree,filterFn){
     return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"fan-out");
+  }
+
+  _visitGroup(tree,filterFn){
+    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"group");
   }
 
   _visitParallel(tree,filterFn){
@@ -274,22 +282,25 @@ class MutltiPathEltFlowToELKVisitor{
     graph.ports.push(visitor.getPortModel(tree.start));
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
-    for (let i = 0; i < tree.elts.length; i++) { 
-      if( type !== "fan-in")  {
-        graph.edges.push({
-          id: `${visitor.edgeCntIt.next().value}`,
-          sources: [tree.start.id],
-          targets: [tree.elts[i].start.id],
-          ...visitor.getEdgeModel(tree),
-        });
-      }
-      if( type !== "fan-out")  {
-        graph.edges.push({
-          id: `${visitor.edgeCntIt.next().value}`,
-          sources: [tree.elts[i].finish.id],
-          targets: [tree.finish.id],
-          ...visitor.getEdgeModel(tree),
-        });
+    // groups are just containers
+    if( type !== "group") {
+      for (let i = 0; i < tree.elts.length; i++) { 
+        if( type !== "fan-in") {
+          graph.edges.push({
+            id: `${visitor.edgeCntIt.next().value}`,
+            sources: [tree.start.id],
+            targets: [tree.elts[i].start.id],
+            ...visitor.getEdgeModel(tree),
+          });
+        }
+        if( type !== "fan-out") {
+          graph.edges.push({
+            id: `${visitor.edgeCntIt.next().value}`,
+            sources: [tree.elts[i].finish.id],
+            targets: [tree.finish.id],
+            ...visitor.getEdgeModel(tree),
+          });
+        }
       }
     }
     // concatenate G6 graphs
