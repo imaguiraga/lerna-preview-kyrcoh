@@ -1,6 +1,6 @@
 import {
   CompositeResource
-} from '../base/resource-base.js';
+} from '../dsl-base/resource-base.js';
 
 import {PIPELINE_RESOURCE_TYPE} from "./pipeline-terminal.js";
 
