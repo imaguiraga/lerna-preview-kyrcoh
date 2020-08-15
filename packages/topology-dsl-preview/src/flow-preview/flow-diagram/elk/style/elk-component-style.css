@@ -2,7 +2,7 @@
   stroke-width: 2px;
 }
 
-.choice {
+.choice, .fan-in, .fan-out {
   fill: #A82255;
   stroke: #A82255;
 }
