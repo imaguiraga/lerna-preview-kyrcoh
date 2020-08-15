@@ -42,6 +42,12 @@ export class FlowToELKVisitor {
         case "choice":
           result = this._visitChoice(tree,filterFn);
         break;
+        case "fan-in":
+          result = this._visitFanIn(tree,filterFn);
+        break;
+        case "fan-out":
+          result = this._visitFanOut(tree,filterFn);
+        break;
         case "optional":
           result = this._visitOptional(tree,filterFn);
         break;
@@ -113,6 +119,14 @@ export class FlowToELKVisitor {
 
   _visitChoice(tree,filterFn){
     return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"choice");
+  }
+
+  _visitFanIn(tree,filterFn){
+    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"fan-in");
+  }
+
+  _visitFanOut(tree,filterFn){
+    return MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,"fan-out");
   }
 
   _visitParallel(tree,filterFn){
@@ -260,20 +274,23 @@ class MutltiPathEltFlowToELKVisitor{
     graph.ports.push(visitor.getPortModel(tree.start));
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
-    for (let i = 0; i < tree.elts.length; i++) {   
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
-        targets: [tree.elts[i].start.id],
-        ...visitor.getEdgeModel(tree),
-      });
-      
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[i].finish.id],
-        targets: [tree.finish.id],
-        ...visitor.getEdgeModel(tree),
-      });
+    for (let i = 0; i < tree.elts.length; i++) { 
+      if( type !== "fan-in")  {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [tree.start.id],
+          targets: [tree.elts[i].start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      }
+      if( type !== "fan-out")  {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [tree.elts[i].finish.id],
+          targets: [tree.finish.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      }
     }
     // concatenate G6 graphs
     // nodes
