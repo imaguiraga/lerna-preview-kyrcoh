@@ -43,7 +43,6 @@ export class FlowToELKVisitor {
         case "fan-in":
         case "fan-out":
         case "group":
-        case "parallel":
           result = MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,tree.resourceType);
         break;
         case "optional":
