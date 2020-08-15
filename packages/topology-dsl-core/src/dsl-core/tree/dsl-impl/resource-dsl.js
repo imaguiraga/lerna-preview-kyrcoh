@@ -32,6 +32,10 @@ export function fanIn(...elts) {
   return new FanInElt([...elts]);
 }
 
+export function merge(...elts) {
+  return fanIn([...elts]);
+}
+
 /**
  * Create a fanOut dsl tree.
  * @param {array|object} elts - The elements.
@@ -39,6 +43,14 @@ export function fanIn(...elts) {
  */
 export function fanOut(...elts) {
   return new FanOutElt([...elts]);
+}
+
+export function branch(...elts) {
+  return fanOut([...elts]);
+}
+
+export function split(...elts) {
+  return fanOut([...elts]);
 }
 
 /**
@@ -110,7 +122,7 @@ export function zeroOrMore(elt) {
  * @return {object} resource dsl.
  */
 export function resource(elt) {
-  return new TerminalResource(elt,null,"terminal","resource","generic");
+  return new TerminalResource(elt,null,"terminal","resource","base");
 }
 
 
@@ -120,7 +132,7 @@ export function resource(elt) {
  * @return {object} group dsl.
  */
 export function group(...elts) {
-  return new CompositeResource([...elts],null,undefined,"group","generic");
+  return new CompositeResource([...elts],null,"container","group","base");
 }
 
 // pipeline -> stages -> jobs -> tasks -> steps 

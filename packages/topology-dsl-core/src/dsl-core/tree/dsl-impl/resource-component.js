@@ -3,7 +3,7 @@ import {
   TerminalResource
 } from '../dsl-base/resource-base.js';
 
-export const FLOW_RESOURCE_TYPE = "flow";
+export const RESOURCE_TYPE = "flow";
 
 /**
  * Class ChoiceElt.
@@ -17,7 +17,7 @@ export class ChoiceElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"choice",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"choice",RESOURCE_TYPE);
   }
 
 }
@@ -34,7 +34,7 @@ export class FanInElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"fan-in",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"fan-in",RESOURCE_TYPE);
   }
 
 }
@@ -51,7 +51,7 @@ export class FanOutElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"fan-out",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"fan-out",RESOURCE_TYPE);
   }
 
 }
@@ -68,7 +68,7 @@ export class OptionalElt extends CompositeResource{
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"optional",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"optional",RESOURCE_TYPE);
     
     // skip node
     this.skip = new TerminalResource("skip",null,"skip",this.resourceType,this.provider);
@@ -96,7 +96,7 @@ export class ParallelElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"parallel",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"parallel",RESOURCE_TYPE);
   }
 
 }
@@ -113,7 +113,7 @@ export class RepeatElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName) {
-    super(elts,ctx,undefined,"repeat",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"repeat",RESOURCE_TYPE);
     // loop node
     
     this.loop = new TerminalResource("loop",null,"loop",this.resourceType,this.provider);
@@ -141,7 +141,7 @@ export class SequenceElt extends CompositeResource {
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName) {
-    super(elts,ctx,undefined,"sequence",FLOW_RESOURCE_TYPE);
+    super(elts,ctx,undefined,"sequence",RESOURCE_TYPE);
   }
 
 }
@@ -158,7 +158,7 @@ export class TerminalElt extends TerminalResource{
    * @param {string} resourceType - The resourceType value.
    */
   constructor(elts,ctx,resourceType) {
-    super(elts,ctx,"terminal",resourceType,FLOW_RESOURCE_TYPE);
+    super(elts,ctx,"terminal",resourceType,RESOURCE_TYPE);
   }
 
 }
