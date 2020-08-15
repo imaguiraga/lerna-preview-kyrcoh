@@ -28,8 +28,15 @@ export function createEditor(container, content, mode){
         lineWrapping: true,
         viewportMargin: 40,
         foldGutter: true,
-        lint: { 'esversion': '8', 'laxcomma': true }, 
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+        lint: { 
+          'esversion': '8', 
+          'laxcomma': true 
+        }, 
+        gutters: [
+          "CodeMirror-linenumbers", 
+          "CodeMirror-foldgutter",
+          "CodeMirror-lint-markers"
+        ],
     });
 
   return editor;
