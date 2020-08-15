@@ -1,12 +1,11 @@
 import {
   ChoiceElt,
+  FanInElt,
+  FanOutElt,
   OptionalElt,
-  ParallelElt,
   RepeatElt,
   SequenceElt,
-  TerminalElt,
-  FanInElt,
-  FanOutElt
+  TerminalElt
 } from "./resource-component";
 
 import {
@@ -33,7 +32,7 @@ export function fanIn(...elts) {
 }
 
 export function merge(...elts) {
-  return fanIn([...elts]);
+  return fanIn(...elts)._subType_("merge");
 }
 
 /**
@@ -46,11 +45,27 @@ export function fanOut(...elts) {
 }
 
 export function branch(...elts) {
-  return fanOut([...elts]);
+  return fanOut(...elts)._subType_("branch");
 }
 
 export function split(...elts) {
-  return fanOut([...elts]);
+  return fanOut(...elts)._subType_("split");
+}
+
+export function tree(...elts) {
+  return fanOut(...elts)._subType_("tree");
+}
+
+export function link(...elts) {
+  return fanOut(...elts)._subType_("link");
+}
+
+export function use(...elts) {
+  return fanOut(...elts)._subType_("use");
+}
+
+export function parallel(...elts) {
+  return fanOut(...elts)._subType_("parallel");
 }
 
 /**
@@ -60,15 +75,6 @@ export function split(...elts) {
  */
 export function optional(elt) {
   return new OptionalElt(elt);
-}
-
-/**
- * Create a parallel dsl tree.
- * @param {array|object} elts - The elements.
- * @return {object} flow dsl.
- */
-export function parallel(...elts) {
-  return new ParallelElt([...elts]);
 }
 
 /**

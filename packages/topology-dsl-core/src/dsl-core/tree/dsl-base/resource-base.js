@@ -18,7 +18,7 @@ export class TerminalResource {
    * @param {string} resourceType - The resourceType value.
    * @param {string} provider - The resource provider value.
    */
-  constructor(elts,ctx,tagName,resourceType,provider) {
+  constructor(elts,_ctx,tagName,resourceType,provider) {
     let self = this;
     // Nex Id Generator
     this.idGenIt = IDGENFN;
@@ -40,11 +40,12 @@ export class TerminalResource {
     self.provider = provider;
     self.compound = false;
     
-    self._start = null;//this;
-    self._finish = null;//this;
-    self.ctx = ctx;
+    self._start = null;
+    self._finish = null;
+    self.ctx = _ctx;
     self.data = new Map();
     self.link = null;
+    self.subType = resourceType;// use for extending the resource
   }
   
   get start(){
@@ -127,22 +128,27 @@ export class TerminalResource {
     return visitor.visit(this,filterFn);
   }
 
-  ctx(_ctx){
+  _ctx_(_ctx){
     this.ctx = _ctx;
     return this;
   }
 
-  title(_title){
+  _subType_(_subType){
+    this.subType = _subType;
+    return this;
+  }
+
+  _title_(_title){
     this.title = _title;
     return this;
   }
 
-  id(_id){
+  _id_(_id){
     this.id = _id;
     return this;
   }
 
-  kv(key,value) {
+  _kv_(key,value) {
     this.data.set(key,value);
     return this;
   }
@@ -151,7 +157,7 @@ export class TerminalResource {
     return this.data.get(key);
   }
 
-  link(_text){
+  _link_(_text){
     this.link = _text;
     return this;
   }

@@ -85,23 +85,6 @@ export class OptionalElt extends CompositeResource{
 }
 
 /**
- * Class ParallelElt.
- * @extends CompositeResource
- */
-export class ParallelElt extends CompositeResource {
-  /**
-   * Create a ParallelElt.
-   * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
-   */
-  constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"parallel",RESOURCE_TYPE);
-  }
-
-}
-
-/**
  * Class RepeatElt.
  * @extends CompositeResource
  */
