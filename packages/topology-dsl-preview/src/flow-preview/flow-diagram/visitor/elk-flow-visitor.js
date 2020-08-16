@@ -43,7 +43,6 @@ export class FlowToELKVisitor {
         case "fan-in":
         case "fan-out":
         case "group":
-        case "parallel":
           result = MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,tree.resourceType);
         break;
         case "optional":
@@ -70,6 +69,22 @@ export class FlowToELKVisitor {
     return result;
   }
 
+  _visitSequence(tree,filterFn){
+    return SequenceEltFlowToELKVisitor.visit(this,tree,filterFn);
+  }
+
+  _visitOptional(tree,filterFn){
+    return OptionalEltFlowToELKVisitor.visit(this,tree,filterFn);
+  }
+
+  _visitRepeat(tree,filterFn){
+    return RepeatEltFlowToELKVisitor.visit(this,tree,filterFn);
+  }
+
+  _visitTerminal(tree,filterFn){
+    return TerminalFlowEltFlowToELKVisitor.visit(this,tree,filterFn);
+  }
+  
   getNodeModel(n) {
     let r = {
       id: n.id,
@@ -77,6 +92,7 @@ export class FlowToELKVisitor {
       model: { 
         provider: n.provider,
         resourceType: n.resourceType,
+        subType: n.subType,
         tagName: n.tagName,
         compound: n.compound
       },
@@ -99,6 +115,7 @@ export class FlowToELKVisitor {
       model: { 
         provider: n.provider,
         resourceType: n.resourceType,
+        subType: n.subType,
         tagName: "edge"
       },
       style: {
@@ -109,21 +126,6 @@ export class FlowToELKVisitor {
     return r;
   }
 
-  _visitSequence(tree,filterFn){
-    return SequenceEltFlowToELKVisitor.visit(this,tree,filterFn);
-  }
-
-  _visitOptional(tree,filterFn){
-    return OptionalEltFlowToELKVisitor.visit(this,tree,filterFn);
-  }
-
-  _visitRepeat(tree,filterFn){
-    return RepeatEltFlowToELKVisitor.visit(this,tree,filterFn);
-  }
-
-  _visitTerminal(tree,filterFn){
-    return TerminalFlowEltFlowToELKVisitor.visit(this,tree,filterFn);
-  }
 }
 
 /**
