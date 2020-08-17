@@ -45,7 +45,7 @@ export class TerminalResource {
     self.ctx = _ctx;
     self.data = new Map();
     self.link = null;
-    self.subType = resourceType;// use for extending the resource
+    self.subType = tagName;// use for extending the resource
   }
   
   get start(){
@@ -107,7 +107,7 @@ export class TerminalResource {
     return result;
   }
 
-  add(elt){  
+  _add_(elt){  
     let r = this.resolveElt(elt); 
     if( r !== null) {
       // only one elt can be added
@@ -222,7 +222,7 @@ export class CompositeResource extends TerminalResource {
     return this.elts.filter(e => e.id === elt.id).length > 0;
   }
 
-  add(elt){
+  _add_(elt){
     let self = this;
     if(Array.isArray(elt)){
       elt.forEach((e) => {

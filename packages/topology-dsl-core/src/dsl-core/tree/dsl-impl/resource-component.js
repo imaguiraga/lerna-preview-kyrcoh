@@ -74,7 +74,7 @@ export class OptionalElt extends CompositeResource{
     this.skip = new TerminalResource("skip",null,"skip",this.resourceType,this.provider);
   }
 
-  add(elt){
+  _add_(elt){
     // only one elt can be added
     if(this.elts.length > 0){
       this.elts.splice(0,this.elts.length);
@@ -102,7 +102,7 @@ export class RepeatElt extends CompositeResource {
     this.loop = new TerminalResource("loop",null,"loop",this.resourceType,this.provider);
   }
 
-  add(elt){
+  _add_(elt){
     // only one elt can be added
     if(this.elts.length > 0){
       this.elts.splice(0,this.elts.length);

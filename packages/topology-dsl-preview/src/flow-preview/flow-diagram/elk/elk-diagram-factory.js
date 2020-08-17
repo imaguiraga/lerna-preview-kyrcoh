@@ -12,6 +12,8 @@ import {
 const uidvisitor = new FlowUIDVisitor();
 const elkvisitor = new FlowToELKVisitor();
 
+const EMPTY_ARRAY = [];
+
 export function createElkRenderer(_container_,_width_,_height_,_iconWidth_){
 /*
 function viewport() {
@@ -191,20 +193,17 @@ const linksFn = function (n) {
 };
 
 
-function renderd3Layout(svg,node,refreshFn){
-  // Get current children nodes and links
-  var nodes = nodesFn(node);
-  var links = linksFn(node);
 
+function drawNode(selection,d,i,refreshFn) {
   // Toggle expansion on/off
-  function collapseNode(d){
+  const collapseNode = function (d){
     d3.event.stopPropagation();
 
     // is expanded
     if(d.model.compound){
       // Remove children and edges 
       d._children = d.children;
-      d.children = [];
+      d.children = EMPTY_ARRAY;
 
       d._edges = d.edges;
       d.edges = null;
@@ -223,8 +222,90 @@ function renderd3Layout(svg,node,refreshFn){
     }
 
     refreshFn();
-    //*/
-  }
+  };
+  
+  // extract class names from tagName
+  if(d.model){
+    selection.classed(d.model.provider,true);
+    selection.classed(d.model.resourceType,true);
+    selection.classed(
+      d.model.subType,
+      d.model.subType !== undefined && d.model.subType !== d.model.resourceType
+    );
+    selection.classed(d.model.tagName,true);
+    if(d.model.compound === true || d.collapsed){
+      selection.on('click',collapseNode);
+    }
+  } 
+  // Node type  
+  if(isIconFn(d)){
+
+    selection.append("use")
+      .attr("class","node")
+      .style("fill", "inherit")
+      .style("stroke", "inherit")
+      .attr("href",(data) =>{
+        let suffix = data.model.tagName;
+        //return "Cloud Functions.svg#Layer_1";
+        return "#"+suffix+"1"; 
+      })
+      .attr("x", function(d) { return 0; })
+      .attr("y", function(d) { return 0; })
+      .attr("width", function(d) { return d.width; })
+      .attr("height", function(d) { return d.height; });
+
+  } else {
+
+    selection.append("rect")
+    .attr("class","node")
+    .style("fill", "inherit")
+    .style("stroke", "inherit")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", function(d) { return d.width; })
+    .attr("height", function(d) { return d.height; })
+    .attr("rx", 8)
+    .append("metadata")
+    .text((d) => {
+      return JSON.stringify(d.model,null," ");
+    });
+
+  } 
+}
+
+function drawLabel(selection,d,i,refreshFn) {
+  // Create new selection from current one
+  selection.selectAll(".label").data((d,i)=>{
+    return labelsFn(d);
+  }).enter()
+    .append("text")
+    .attr("class","label")
+    .text((l) => l.text)
+    .style("stroke-width",1)
+    .style("font-size",12)
+    .attr("x", (l) => l.x)
+    .attr("y", (l) => l.y)
+    .attr("width", (l) => l.width)
+    .attr("height", (l) => l.height);
+}
+
+function drawPort(selection,d,i,refreshFn) {
+  // Create new selection from current one
+  selection.selectAll(".port").data((d,i)=>{
+    return portsFn(d);
+  }).enter()
+    .append("rect")
+    .attr("class","port")
+    .attr("x", (l) => l.x)
+    .attr("y", (l) => l.y)
+    .attr("width", (l) => l.width)
+    .attr("height", (l) => l.height);
+}
+
+function renderd3Layout(svg,node,refreshFn){
+  // Get current children nodes and links
+  var nodes = nodesFn(node);
+  var links = linksFn(node);
 
 // Add edges
   if(links){
@@ -292,74 +373,12 @@ function renderd3Layout(svg,node,refreshFn){
         }).each(function(d,i) { 
           // Update current selection attributes
           let selection = d3.select(this);
-          // extract class names from tagName
-          if(d.model){
-            selection.classed(d.model.provider,true);
-            selection.classed(d.model.resourceType,true);
-            selection.classed(
-              d.model.subType,
-              d.model.subType !== undefined && d.model.subType !== d.model.resourceType
-            );
-            selection.classed(d.model.tagName,true);
-            if(d.model.compound === true || d.collapsed){
-              selection.on('click',collapseNode);
-            }
-          } 
-          // Node type  
-          if(isIconFn(d)){
-            selection.append("use")
-              .attr("class","node")
-              .style("fill", "inherit")
-              .style("stroke", "inherit")
-              .attr("href",(data) =>{
-                let suffix = data.model.tagName;
-                //return "Cloud Functions.svg#Layer_1";
-                return "#"+suffix+"1"; 
-              })
-              .attr("x", function(d) { return 0; })
-              .attr("y", function(d) { return 0; })
-              .attr("width", function(d) { return d.width; })
-              .attr("height", function(d) { return d.height; });
-          } else {
-            selection.append("rect")
-            .attr("class","node")
-            .style("fill", "inherit")
-            .style("stroke", "inherit")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr("width", function(d) { return d.width; })
-            .attr("height", function(d) { return d.height; })
-            .attr("rx", 8)
-            .append("metadata")
-            .text((d) => {
-              return JSON.stringify(d.model,null," ");
-            });
-          }   
+          drawNode(selection,d,i,refreshFn);      
           // Labels
-          // Create new selection from current one
-          selection.selectAll(".label").data((d,i)=>{
-            return labelsFn(d);
-          }).enter()
-            .append("text")
-            .attr("class","label")
-            .text((l) => l.text)
-            .style("stroke-width",1)
-            .style("font-size",12)
-            .attr("x", (l) => l.x)
-            .attr("y", (l) => l.y)
-            .attr("width", (l) => l.width)
-            .attr("height", (l) => l.height);
+          drawLabel(selection,d,i,refreshFn); 
           // Ports
-          // Create new selection from current one
-          selection.selectAll(".port").data((d,i)=>{
-            return portsFn(d);
-          }).enter()
-            .append("rect")
-            .attr("class","port")
-            .attr("x", (l) => l.x)
-            .attr("y", (l) => l.y)
-            .attr("width", (l) => l.width)
-            .attr("height", (l) => l.height);
+          drawPort(selection,d,i,refreshFn);
+          
         })
         .attr("transform", function(d) { 
           return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
