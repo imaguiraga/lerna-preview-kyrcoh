@@ -228,11 +228,11 @@ function drawNode(selection,d,i,refreshFn) {
   if(d.model){
     selection.classed(d.model.provider,true);
     selection.classed(d.model.resourceType,true);
+    selection.classed(d.model.tagName,true);
     selection.classed(
       d.model.subType,
       d.model.subType !== undefined && d.model.subType !== d.model.resourceType
-    );
-    selection.classed(d.model.tagName,true);
+    );  
     if(d.model.compound === true || d.collapsed){
       selection.on('click',collapseNode);
     }
