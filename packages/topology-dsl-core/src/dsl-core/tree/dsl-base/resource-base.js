@@ -222,7 +222,7 @@ export class CompositeResource extends TerminalResource {
     return this.elts.filter(e => e.id === elt.id).length > 0;
   }
 
-  _add_(elt){
+  _add_(...elt){
     let self = this;
     if(Array.isArray(elt)){
       elt.forEach((e) => {

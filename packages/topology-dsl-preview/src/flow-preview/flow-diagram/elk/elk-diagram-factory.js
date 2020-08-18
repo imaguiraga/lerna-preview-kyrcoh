@@ -192,8 +192,6 @@ const linksFn = function (n) {
   return n.edges || [];
 };
 
-
-
 function drawNode(selection,d,i,refreshFn) {
   // Toggle expansion on/off
   const collapseNode = function (d){
@@ -255,11 +253,32 @@ function drawNode(selection,d,i,refreshFn) {
       .attr("height", function(d) { return d.height; });
 
   } else {
+    
+    // Draw icon in the corner for compound
+    let x = 0;
+    let y = 0;
+    let w = d.width;
+    let h = d.height;
+    let fill = "transparent";
+    let stroke = "transparent";
 
+    if(d.children.length > 0){
+      x = -12;
+      y = 0;
+      h = 24;
+      w = 24;
+      fill = "inherit";
+      stroke = "inherit";
+    } 
+    if(d._children){
+      fill = "inherit";
+    }
+    // Draw the background
     selection.append("rect")
     .attr("class","node")
-    .style("fill", "inherit")
-    .style("stroke", "inherit")
+    .style("fill", fill)
+    .style("stroke", stroke)
+    .style("opacity", "0.4")
     .attr("x", 0)
     .attr("y", 0)
     .attr("width", function(d) { return d.width; })
@@ -270,6 +289,19 @@ function drawNode(selection,d,i,refreshFn) {
       return JSON.stringify(d.model,null," ");
     });
 
+    // If icon exist
+    selection.append("image")
+      .attr("class","node")
+      .style("fill", "inherit")
+      .style("stroke", "inherit")
+      .attr("href",(data) =>{
+        //let suffix = data.model.tagName;
+        return "icons/App Engine.svg";
+      })
+      .attr("x", function(d) { return x; })
+      .attr("y", function(d) { return y; })
+      .attr("width", function(d) { return w; })
+      .attr("height", function(d) { return h; });
   } 
 }
 
