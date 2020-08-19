@@ -1,5 +1,5 @@
 import {
-  ChoiceElt,
+  FanOutFanInElt,
   FanInElt,
   FanOutElt,
   OptionalElt,
@@ -14,12 +14,16 @@ import {
 } from '../dsl-base/resource-base.js';
 
 /**
- * Create a choice dsl tree.
+ * Create a fanOut_fanIn dsl tree.
  * @param {array|object} elts - The elements.
  * @return {object} flow dsl.
  */
+export function fanOut_fanIn(...elts) {
+  return new FanOutFanInElt([...elts]);
+}
+
 export function choice(...elts) {
-  return new ChoiceElt([...elts]);
+  return fanOut_fanIn(...elts)._subType_("choice");
 }
 
 /**

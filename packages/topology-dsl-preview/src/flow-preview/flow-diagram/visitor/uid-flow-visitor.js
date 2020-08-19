@@ -13,7 +13,18 @@ export class FlowUIDVisitor {
     this._prefix = prefix || "UID";
   }
 
-  visit(_tree,filterFn){
+  visit(_tree,filterFn) {
+    if( typeof _tree === "undefined" || _tree === null){
+      return null;
+    }
+    let tree = _tree;
+
+    // Add start finish properties if missing
+    tree = jsonToDslObject(tree);
+    return tree; // Skip UID rename
+  }
+
+  _visit_(_tree,filterFn) {
     if( typeof _tree === "undefined" || _tree === null){
       return null;
     }

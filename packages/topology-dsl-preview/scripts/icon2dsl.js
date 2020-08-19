@@ -1,47 +1,50 @@
 const iconSets = [
   {
-    "provider": "Azure",
-    "prefix": "az",
-    "path": "icons/Azure_Public_Service_Icons",  
-    "pattern" : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
-    "resourceType" : "cloud"
+    provider: "Azure",
+    prefix: "az",
+    path: "icons/Azure_Public_Service_Icons",  
+    pattern : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
+    resourceType : "cloud",
+    //excludes : ["/CXP","/Azure VMware Solution","/General"]
   },
   {
-    "provider": "Google Cloud Platform",
-    "prefix": "gcp",
-    "path": "icons/GCP Icons/Products and services",
-    "pattern": "(.*).svg",
-    "resourceType" : "cloud"
+    provider: "Google Cloud Platform",
+    prefix: "gcp",
+    path: "icons/GCP Icons/Products and services",
+    pattern: "(.*).svg",
+    resourceType : "cloud"
   }
 ];
 
 // Generate csv from iconSets
-//provider, category, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
+//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
 
 (function () {
-  //"use strict";
+  "use strict";
  
   var walk = require('walk');
   var fs = require('fs');
   var path = require('path');
-  var walker;
-  let options = {
-    filters: ["Temp", "_Temp"]
-  };
-
-  let resources = [];
 
   iconSets.forEach((s) => {
+    let resources = [];
+
     // Pattern
     let rex = new RegExp(s.pattern);
-    walker = walk.walk("public/"+s.path, options);
+    let options = {
+      filters: s.excludes
+    };
+  
+    let walker = walk.walk("public/"+s.path, options);
  
     walker.on("file", function (root, fileStats, next) {
       let found = fileStats.name.match(rex);
       if(found != null){
         
         let provider = s.provider;
+        
         let category = path.basename(root);
+        let product = found[1];
         let dsl = s.prefix+"_"+found[1];
         dsl = dsl.replace(/\-|\s+/g,'_');
         let isDecorator = false;
@@ -58,6 +61,7 @@ const iconSets = [
         let resource = {
           provider, 
           category, 
+          product,
           dsl, 
           isDecorator, 
           resourceType, 
@@ -88,7 +92,7 @@ const iconSets = [
       // Save resources as csv
       const fastcsv = require('fast-csv');
       const fs = require('fs');
-      const ws = fs.createWriteStream("public/out.csv");
+      const ws = fs.createWriteStream("public/out/"+s.prefix+"-out.csv");
       fastcsv
         .write(resources, { headers: true })
         .pipe(ws);

@@ -6,18 +6,18 @@ import {
 export const RESOURCE_TYPE = "flow";
 
 /**
- * Class ChoiceElt.
+ * Class FanInFanOutElt.
  * @extends CompositeResource
  */
-export class ChoiceElt extends CompositeResource {
+export class FanOutFanInElt extends CompositeResource {
   /**
-   * Create a ChoiceElt.
+   * Create a FanOutFanInElt.
    * @param {object} elts - The elts value.
    * @param {object} ctx - The ctx value.
    * @param {string} tagName - The tagName value.
    */
   constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"choice",RESOURCE_TYPE);
+    super(elts,ctx,undefined,"fan-out_fan-in",RESOURCE_TYPE);
   }
 
 }

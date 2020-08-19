@@ -4,12 +4,10 @@ import ELK from 'elkjs/lib/elk.bundled.js';
 import './style/elk-style.css';
 
 import {
-  FlowUIDVisitor,
   FlowToELKVisitor,
   ELKDimensionVisitor
 } from "../visitor/index.js";
 
-const uidvisitor = new FlowUIDVisitor();
 const elkvisitor = new FlowToELKVisitor();
 
 const EMPTY_ARRAY = [];
@@ -62,8 +60,6 @@ const isIconFn = function (n) {
 function toElkGraph(dslObject){
   let elkgraph = null;
   try {
-    // Update preview
-    dslObject = uidvisitor.visit(dslObject);
     // dslObject to elkgraph
     elkgraph = elkvisitor.toElkGraph(dslObject);
   } catch(e) {
