@@ -13,12 +13,11 @@ export class TerminalResource {
   /**
    * Create a TerminalResource.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    * @param {string} resourceType - The resourceType value.
+   * @param {string} tagName - The tagName value.
    * @param {string} provider - The resource provider value.
    */
-  constructor(elts,_ctx,tagName,resourceType,provider) {
+  constructor(elts,resourceType,tagName,provider) {
     let self = this;
     // Nex Id Generator
     this.idGenIt = IDGENFN;
@@ -34,24 +33,25 @@ export class TerminalResource {
     }
     
     //get new id
-    self.resourceType = resourceType || "resource";
-    self.tagName = tagName || "terminal";
-    self.id = self.resourceType + "."+ self.tagName + "." + this.idGenIt.next().value;
+    self.resourceType = resourceType || "terminal";
+    self.subType = self.resourceType;// use for extending the resource
+    self.tagName = tagName || "resource";
+    self.id = self.subType + "." + this.idGenIt.next().value;
     self.provider = provider;
     self.compound = false;
     
     self._start = null;
     self._finish = null;
-    self.ctx = _ctx;
     self.data = new Map();
     self.link = null;
-    self.subType = resourceType;// use for extending the resource
+    
   }
   
   get start(){
     if(this._start == null){
       return {
         resourceType: this.resourceType,
+        subType: this.subType,
         tagName: this.tagName,
         id: this.id,
         provider: this.provider,
@@ -71,6 +71,7 @@ export class TerminalResource {
     if(this._finish == null){
       return {
         resourceType: this.resourceType,
+        subType: this.subType,
         tagName: this.tagName,
         id: this.id,
         provider: this.provider,
@@ -107,7 +108,7 @@ export class TerminalResource {
     return result;
   }
 
-  add(elt){  
+  _add_(elt){  
     let r = this.resolveElt(elt); 
     if( r !== null) {
       // only one elt can be added
@@ -128,13 +129,14 @@ export class TerminalResource {
     return visitor.visit(this,filterFn);
   }
 
-  _ctx_(_ctx){
-    this.ctx = _ctx;
-    return this;
-  }
-
-  _subType_(_subType){
-    this.subType = _subType;
+  _subType_(_subType) {
+    if(_subType) {
+      this.subType = _subType;
+      // Replace prefix with subType
+      let tmp = this.id.split("\.");
+      tmp[0] = this.subType;
+      this.id = tmp.join(".");
+    }
     return this;
   }
 
@@ -172,18 +174,17 @@ export class CompositeResource extends TerminalResource {
   /**
    * Create a CompositeResource.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    * @param {string} resourceType - The resourceType value.
-   * @param {string} provider - The resource provider value. 
+   * @param {string} tagName - The tagName value.
+   * @param {string} provider - The resource provider value.
    */
-  constructor(elts,ctx,tagName,resourceType,provider) {
-    super(elts,ctx,"container",resourceType,provider);
+  constructor(elts,resourceType,tagName,provider) {
+    super(elts,resourceType,tagName,provider);
     let self = this;
     self.elts = [];
     self.title = null;
-    self.start = new TerminalResource("start",null,"start",resourceType,provider);
-    self.finish = new TerminalResource("finish",null,"finish",resourceType,provider);
+    self.start = new TerminalResource("start","terminal","mark",provider);
+    self.finish = new TerminalResource("finish","terminal","mark",provider);
     self.compound = true;
 
     if(Array.isArray(elts)) {
@@ -212,7 +213,7 @@ export class CompositeResource extends TerminalResource {
       return elt.call();
     } else if (typeof elt !== "object") {
       // very likely a primitive type
-      return new TerminalResource(elt,null,"terminal","resource",this.provider);
+      return new TerminalResource(elt,"terminal","resource",this.provider);
     }
     // default to object
     return elt;
@@ -222,7 +223,7 @@ export class CompositeResource extends TerminalResource {
     return this.elts.filter(e => e.id === elt.id).length > 0;
   }
 
-  add(elt){
+  _add_(...elt){
     let self = this;
     if(Array.isArray(elt)){
       elt.forEach((e) => {

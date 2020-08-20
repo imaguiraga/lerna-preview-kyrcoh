@@ -1,25 +1,25 @@
 import {
-  ChoiceElt,
+  FanOutFanInElt,
   FanInElt,
   FanOutElt,
   OptionalElt,
   RepeatElt,
   SequenceElt,
-  TerminalElt
+  TerminalElt,
+  GroupElt
 } from "./resource-component";
 
-import {
-  CompositeResource,
-  TerminalResource
-} from '../dsl-base/resource-base.js';
-
 /**
- * Create a choice dsl tree.
+ * Create a fanOut_fanIn dsl tree.
  * @param {array|object} elts - The elements.
  * @return {object} flow dsl.
  */
+export function fanOut_fanIn(...elts) {
+  return new FanOutFanInElt([...elts]);
+}
+
 export function choice(...elts) {
-  return new ChoiceElt([...elts]);
+  return fanOut_fanIn(...elts)._subType_("choice");
 }
 
 /**
@@ -110,7 +110,7 @@ export function terminal(elt) {
  * @return {object} flow dsl.
  */
 export function state(elt) {
-  return new TerminalElt(elt);
+  return terminal(elt)._subType_("state");
 }
 
 /**
@@ -128,17 +128,16 @@ export function zeroOrMore(elt) {
  * @return {object} resource dsl.
  */
 export function resource(elt) {
-  return new TerminalResource(elt,null,"terminal","resource","base");
+  return terminal(elt)._subType_("resource");
 }
-
 
 /**
  * Create a group dsl tree.
- * @param {object} elt - The element.
+ * @param {object} elts - The elements.
  * @return {object} group dsl.
  */
 export function group(...elts) {
-  return new CompositeResource([...elts],null,"container","group","base");
+  return new GroupElt([...elts]);
 }
 
 // pipeline -> stages -> jobs -> tasks -> steps 

@@ -1,0 +1,5 @@
+| provider | category | product | dsl | isDecorator | resourceType | tagName | subType | iconPath | typeURI | docURI |
+| -------- | -------- | ------- | --- | ----------- | ------------ | ------- | ------- | -------- | ------- | ------ |
+{% for item in items %}
+| {{ item.provider }} | {{ item.category }} | {{ item.product }} | {{ item.dsl }} | {{ item.isDecorator }} | {{ item.resourceType }} | {{ item.tagName }} | {{ item.subType }} | ![Image]({{ encodeURI('../../../public/'+path+'/'+item.iconPath) }} "icon") | {{ item.typeURI }} | {{ item.docURI }} |
+{% endfor %}

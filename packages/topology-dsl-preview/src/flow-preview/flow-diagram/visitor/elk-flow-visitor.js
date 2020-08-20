@@ -39,7 +39,7 @@ export class FlowToELKVisitor {
     }
     if(tree.compound) {
       switch(tree.resourceType){
-        case "choice":
+        case "fan-out_fan-in":
         case "fan-in":
         case "fan-out":
         case "group":

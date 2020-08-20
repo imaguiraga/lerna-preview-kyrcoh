@@ -1,0 +1,7 @@
+const ROOT_PATH = '{{ path }}/';
+let mapArray = [
+{% for item in items %}
+  ['{{ item.dsl }}' , encodeURI(ROOT_PATH + '{{ item.iconPath }}')],
+{% endfor %}
+];
+export const iconMap = new Map(mapArray);
