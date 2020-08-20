@@ -3,7 +3,7 @@ import {
   TerminalResource
 } from '../dsl-base/resource-base.js';
 
-export const RESOURCE_TYPE = "flow";
+export const DEFAULT_TAG = "flow";
 
 /**
  * Class FanInFanOutElt.
@@ -13,11 +13,9 @@ export class FanOutFanInElt extends CompositeResource {
   /**
    * Create a FanOutFanInElt.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"fan-out_fan-in",RESOURCE_TYPE);
+  constructor(elts)  {
+    super(elts,"fan-out_fan-in",DEFAULT_TAG,"default");
   }
 
 }
@@ -30,12 +28,11 @@ export class FanInElt extends CompositeResource {
   /**
    * Create a FanInElt.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"fan-in",RESOURCE_TYPE);
+  constructor(elts)  {
+    super(elts,"fan-in",DEFAULT_TAG,"default");
   }
+
 
 }
 
@@ -47,11 +44,9 @@ export class FanOutElt extends CompositeResource {
   /**
    * Create a FanOutElt.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"fan-out",RESOURCE_TYPE);
+  constructor(elts)  {
+    super(elts,"fan-out",DEFAULT_TAG,"default");
   }
 
 }
@@ -64,14 +59,11 @@ export class OptionalElt extends CompositeResource{
   /**
    * Create a OptionalElt.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName)  {
-    super(elts,ctx,undefined,"optional",RESOURCE_TYPE);
-    
+  constructor(elts)  {
+    super(elts,"optional",DEFAULT_TAG,"default");
     // skip node
-    this.skip = new TerminalResource("skip",null,"skip",this.resourceType,this.provider);
+    this.skip = (new TerminalResource("skip","terminal","mark",this.provider))._subType_("skip");
   }
 
   _add_(elt){
@@ -92,14 +84,11 @@ export class RepeatElt extends CompositeResource {
   /**
    * Create a RepeatElt.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName) {
-    super(elts,ctx,undefined,"repeat",RESOURCE_TYPE);
+  constructor(elts) {
+    super(elts,"repeat",DEFAULT_TAG,"default");
     // loop node
-    
-    this.loop = new TerminalResource("loop",null,"loop",this.resourceType,this.provider);
+    this.loop = (new TerminalResource("loop","terminal","mark",this.provider))._subType_("repeat");
   }
 
   _add_(elt){
@@ -120,11 +109,9 @@ export class SequenceElt extends CompositeResource {
   /**
    * Create a SequenceElt.
    * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} tagName - The tagName value.
    */
-  constructor(elts,ctx,tagName) {
-    super(elts,ctx,undefined,"sequence",RESOURCE_TYPE);
+  constructor(elts) {
+    super(elts,"sequence",DEFAULT_TAG,"default");
   }
 
 }
@@ -136,12 +123,25 @@ export class TerminalElt extends TerminalResource{
 
   /**
    * Create a TerminalElt.
-   * @param {object} elts - The elts value.
-   * @param {object} ctx - The ctx value.
-   * @param {string} resourceType - The resourceType value.
+   * @param {object} elt - The elt value.
    */
-  constructor(elts,ctx,resourceType) {
-    super(elts,ctx,"terminal",resourceType,RESOURCE_TYPE);
+  constructor(elt) {
+    super(elt,"terminal",DEFAULT_TAG,"default");
+  }
+
+}
+
+/**
+ * Class GroupElt.
+ * @extends CompositeResource
+ */
+export class GroupElt extends CompositeResource {
+  /**
+   * Create a SequenceElt.
+   * @param {object} elts - The elts value.
+   */
+  constructor(elts) {
+    super(elts,"group","container","default");
   }
 
 }

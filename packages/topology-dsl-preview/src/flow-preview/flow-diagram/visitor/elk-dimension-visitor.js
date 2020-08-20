@@ -10,7 +10,7 @@ export class ELKDimensionVisitor {
   constructor(nodeWidth,nodeHeight,iconWidth,portSize){
     this._nodeWidth = nodeWidth || 80;
     this._nodeHeight = nodeHeight || 60;
-    this._iconWidth = iconWidth || 24;
+    this._iconWidth = iconWidth || 16;
     this._portSize = portSize || 8;
   }
 

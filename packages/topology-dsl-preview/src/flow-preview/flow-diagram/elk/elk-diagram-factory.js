@@ -52,9 +52,9 @@ const ICONMAP = new Map([
   ["skip",SKIP_ICON]
 ]); 
 //*/
-let iconRegex = new RegExp("start|finish|loop|skip");
+
 const isIconFn = function (n) {
-  return (n && n.model && iconRegex.test(n.model.tagName));
+  return (n && n.model && n.model.tagName === "mark");
 };
 
 function toElkGraph(dslObject){
@@ -222,10 +222,10 @@ function drawNode(selection,d,i,refreshFn) {
   if(d.model){
     selection.classed(d.model.provider,true);
     selection.classed(d.model.resourceType,true);
-    selection.classed(d.model.tagName,true);
+    //selection.classed(d.model.tagName,true);
     selection.classed(
       d.model.subType,
-      d.model.subType !== undefined && d.model.subType !== d.model.resourceType
+      true//d.model.subType !== undefined && d.model.subType !== d.model.resourceType
     );  
     if(d.model.compound === true || d.collapsed){
       selection.on('click',collapseNode);
@@ -234,15 +234,10 @@ function drawNode(selection,d,i,refreshFn) {
   // Node type  
   if(isIconFn(d)){
 
-    selection.append("use")
+    selection.append("rect")
       .attr("class","node")
       .style("fill", "inherit")
       .style("stroke", "inherit")
-      .attr("href",(data) =>{
-        let suffix = data.model.tagName;
-        //return "Cloud Functions.svg#Layer_1";
-        return "#"+suffix+"1"; 
-      })
       .attr("x", function(d) { return 0; })
       .attr("y", function(d) { return 0; })
       .attr("width", function(d) { return d.width; })
@@ -274,7 +269,7 @@ function drawNode(selection,d,i,refreshFn) {
     .attr("class","node")
     .style("fill", fill)
     .style("stroke", stroke)
-    .style("opacity", "0.4")
+    .style("opacity", "0.75")
     .attr("x", 0)
     .attr("y", 0)
     .attr("width", function(d) { return d.width; })
@@ -371,7 +366,7 @@ function renderd3Layout(svg,node,refreshFn){
       linkEnter.call(function(selection) { 
         let d = selection.datum();
         // extract class names from tagName
-        if(d.model && d.model.tagName){
+        if(d.model){
           selection.classed(d.model.provider,true);
           selection.classed(d.model.resourceType,true);
         }       
@@ -383,6 +378,7 @@ function renderd3Layout(svg,node,refreshFn){
         if(d.model){
           selection.classed(d.model.provider,true);
           selection.classed(d.model.resourceType,true);
+          selection.classed(d.model.subType,true);
         }       
       });
     }
@@ -395,7 +391,7 @@ function renderd3Layout(svg,node,refreshFn){
         .attr("class", function(d) { 
           let c = "leaf";
           if (nodesFn(d).length > 0) {
-            c = "compound";
+            c = "compound container";
           } 
           return c;    
         }).each(function(d,i) { 
@@ -432,11 +428,99 @@ function renderd3Layout(svg,node,refreshFn){
   };
 }
 
+function createMarkers(defs,iconWidth) {
+  defs.append("marker")
+  .attr("id", "end")
+  .attr("viewBox", "-4 0 8 8")
+  //.attr("viewBox", "0 0 8 8")
+  .attr("refX", 4)
+  .attr("refY", 4)
+  .attr("markerWidth", 4)      // marker settings
+  .attr("markerHeight", 4)
+  .attr("orient", "auto-start-reverse")
+  .style("fill", "black")
+  .style("stroke-opacity", 1)  // arrowhead color
+  .append("path")
+  .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
+  //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
+
+  defs.append("circle")
+  .attr("id", "start")
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  //.attr("width", iconWidth)
+  //.attr("height", iconWidth)
+  .style("fill", "transparent")
+  .style("stroke", "inherit")
+  .style("stroke-width", "2px")
+  .attr("cx", iconWidth/2)
+  .attr("cy", iconWidth/2)
+  .attr("r", 8);
+
+  defs.append("circle")
+  .attr("id", "finish")
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  //.attr("width", ${iconWidth})
+  //.attr("height", ${iconWidth})
+  .style("fill", "inherit")
+  .style("stroke", "transparent")
+  .style("stroke-width", "2px")
+  .attr("cx", iconWidth/2)
+  .attr("cy", iconWidth/2)
+  .attr("r", 8);
+    
+  //*/
+  defs.append("rect")
+  .attr("id", "start1")
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  .style("fill", "transparent")
+  .style("stroke", "inherit")
+  .style("stroke-width", "2px")
+  .attr("width", iconWidth-2)
+  .attr("height", iconWidth-2)
+  .attr("x", 2)
+  .attr("y", 2)
+  .attr("rx", 2);
+
+  defs.append("rect")
+  .attr("id", "finish1")
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  .style("fill", "inherit")
+  .style("stroke", "transparent")
+  .style("stroke-width", "2px")
+  .attr("width", iconWidth-2)
+  .attr("height", iconWidth-2)
+  .attr("x", 2)
+  .attr("y", 2)
+  .attr("rx", 2);
+
+  defs.append("rect")
+  .attr("id", "skip1")
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  .style("fill", "inherit")
+  .style("stroke", "transparent")
+  .style("stroke-width", "2px")
+  .attr("width", iconWidth-2)
+  .attr("height", iconWidth-2)
+  .attr("x", 2)
+  .attr("y", 2)
+  .attr("rx", 2);
+
+  defs.append("rect")
+  .attr("id", "loop1")
+  .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
+  .style("fill", "inherit")
+  .style("stroke", "transparent")
+  .style("stroke-width", "2px")
+  .attr("width", iconWidth-2)
+  .attr("height", iconWidth-2)
+  .attr("x", 2)
+  .attr("y", 2)
+  .attr("rx", 2);
+}
+
 function init(containerElt,width,height,iconWidth){
   const zoomFn = d3.zoom().on("zoom", function () {
-    //d3.select(d3.event.target).attr("transform", d3.event.transform);
     d3.select(this).select("g").attr("transform", d3.event.transform);
-    //svg.attr("transform", d3.event.transform);
   });
     
   let svg = d3.select(containerElt)
@@ -447,93 +531,8 @@ function init(containerElt,width,height,iconWidth){
   .call(zoomFn)
   .append("g");
     // define an arrow head
-    let defs = svg.append("defs");
-    defs.append("marker")
-    .attr("id", "end")
-    .attr("viewBox", "-4 0 8 8")
-    //.attr("viewBox", "0 0 8 8")
-    .attr("refX", 4)
-    .attr("refY", 4)
-    .attr("markerWidth", 4)      // marker settings
-    .attr("markerHeight", 4)
-    .attr("orient", "auto-start-reverse")
-    .style("fill", "black")
-    .style("stroke-opacity", 1)  // arrowhead color
-    .append("path")
-    .attr("d", "M -4 0 L 4 4 L -4 8 z"); 
-    //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
+  let defs = svg.append("defs");
+  createMarkers(defs,iconWidth);  
 
-    defs.append("circle")
-    .attr("id", "start")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    //.attr("width", iconWidth)
-    //.attr("height", iconWidth)
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("cx", iconWidth/2)
-    .attr("cy", iconWidth/2)
-    .attr("r", 8);
-
-    defs.append("circle")
-    .attr("id", "finish")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    //.attr("width", ${iconWidth})
-    //.attr("height", ${iconWidth})
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("cx", iconWidth/2)
-    .attr("cy", iconWidth/2)
-    .attr("r", 8);
-      
-    //*/
-    defs.append("rect")
-    .attr("id", "start1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-    defs.append("rect")
-    .attr("id", "finish1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-    defs.append("rect")
-    .attr("id", "skip1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
-
-  defs.append("rect")
-    .attr("id", "loop1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth-2)
-    .attr("height", iconWidth-2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
   return svg;
 }
