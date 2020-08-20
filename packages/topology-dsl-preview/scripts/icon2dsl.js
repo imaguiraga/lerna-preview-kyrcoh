@@ -18,6 +18,14 @@ const iconSets = [
 
 // Generate csv from iconSets
 //provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
+const fs = require('fs');
+const { readFileSync, writeFileSync } = fs;
+const { resolve, dirname, extname } = require('path');
+const nunjucks = require('nunjucks');
+const glob = require('glob');
+const mkdirp = require('mkdirp');
+const chalk = require('chalk').default;
+const csv2json = require('csvjson-csv2json');
 
 (function () {
   "use strict";
@@ -39,20 +47,21 @@ const iconSets = [
  
     walker.on("file", function (root, fileStats, next) {
       let found = fileStats.name.match(rex);
-      if(found != null){
+      if(found != null ){
         
         let provider = s.provider;
         
         let category = path.basename(root);
         let product = found[1];
         let dsl = s.prefix+"_"+found[1];
-        dsl = dsl.replace(/\-|\s+/g,'_');
+        // Replace special characters
+        dsl = dsl.replace(/\-|\s+|\(|\)|\+/g,'_');
         let isDecorator = false;
         let resourceType = s.resourceType;
         let tagName = "terminal";
         let subType = dsl;
 
-        let iconPath = path.posix.join(s.path,category,fileStats.name);
+        let iconPath = encodeURI(path.posix.join(s.path,category,fileStats.name));
         let typeURI = ""; 
         let docURI = "";
 
@@ -92,12 +101,55 @@ const iconSets = [
       // Save resources as csv
       const fastcsv = require('fast-csv');
       const fs = require('fs');
-      const ws = fs.createWriteStream("public/out/"+s.prefix+"-out.csv");
+      const ws = fs.createWriteStream("scripts/out/"+s.prefix+"-out.csv");
+
+      //Generate csv file
       fastcsv
         .write(resources, { headers: true })
         .pipe(ws);
+
+      // Generate MD file
+      render({ items: resources },"scripts/views","scripts/MD/",s.prefix);
     });
 
   });
   
 }());
+
+const render = (
+	/** @type {Object} */ context, 
+	/** @type {string} */ templateDir, 
+  /** @type {string} */ outputDir,
+  /** @type {string} */ filename,
+ ) => {
+
+	/** @type {nunjucks.ConfigureOptions} */
+	const nunjucksOptions = { 
+		trimBlocks: true, 
+		lstripBlocks: true, 
+		noCache: true, 
+		autoescape: false 
+	};
+
+	/** @type {nunjucks.Environment} */
+  const nunjucksEnv = nunjucks.configure(templateDir, nunjucksOptions);
+  // Process all input
+  // Process all templates
+  fs.readdir(templateDir, function(err, files) {
+    console.log(files);
+
+    for (const file of files) {
+      const res = nunjucksEnv.render(file, context);
+      // Remove Template file extension
+      let outputFile = filename+"-"+file.substring(0,file.indexOf(extname(file)));
+
+      if (outputDir) {
+        outputFile = resolve(outputDir, outputFile);
+        mkdirp.sync(dirname(outputFile));
+      }
+
+      console.log(chalk.blue('Rendering: ' + file));
+      writeFileSync(outputFile, res);
+    }
+  });
+};
