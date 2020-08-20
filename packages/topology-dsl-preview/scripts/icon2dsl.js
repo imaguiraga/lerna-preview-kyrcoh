@@ -22,7 +22,6 @@ const fs = require('fs');
 const { readFileSync, writeFileSync } = fs;
 const { resolve, dirname, extname } = require('path');
 const nunjucks = require('nunjucks');
-const glob = require('glob');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk').default;
 const csv2json = require('csvjson-csv2json');
@@ -61,7 +60,7 @@ const csv2json = require('csvjson-csv2json');
         let tagName = "terminal";
         let subType = dsl;
 
-        let iconPath = encodeURI(path.posix.join(s.path,category,fileStats.name));
+        let iconPath = path.posix.join(category,fileStats.name);
         let typeURI = ""; 
         let docURI = "";
 
@@ -98,18 +97,8 @@ const csv2json = require('csvjson-csv2json');
    
     walker.on("end", function () {
       console.log("all done");
-      // Save resources as csv
-      const fastcsv = require('fast-csv');
-      const fs = require('fs');
-      const ws = fs.createWriteStream("scripts/out/"+s.prefix+"-out.csv");
-
-      //Generate csv file
-      fastcsv
-        .write(resources, { headers: true })
-        .pipe(ws);
-
-      // Generate MD file
-      render({ items: resources },"scripts/views","scripts/MD/",s.prefix);
+      // Generate resources file
+      render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
     });
 
   });
@@ -119,8 +108,7 @@ const csv2json = require('csvjson-csv2json');
 const render = (
 	/** @type {Object} */ context, 
 	/** @type {string} */ templateDir, 
-  /** @type {string} */ outputDir,
-  /** @type {string} */ filename,
+  /** @type {string} */ outputDir
  ) => {
 
 	/** @type {nunjucks.ConfigureOptions} */
@@ -141,14 +129,14 @@ const render = (
     for (const file of files) {
       const res = nunjucksEnv.render(file, context);
       // Remove Template file extension
-      let outputFile = filename+"-"+file.substring(0,file.indexOf(extname(file)));
+      let outputFile = context.prefix + "-" + file.substring(0,file.indexOf(extname(file)));
 
       if (outputDir) {
         outputFile = resolve(outputDir, outputFile);
         mkdirp.sync(dirname(outputFile));
       }
 
-      console.log(chalk.blue('Rendering: ' + file));
+      console.log(chalk.green('Rendering: ' + file));
       writeFileSync(outputFile, res);
     }
   });
