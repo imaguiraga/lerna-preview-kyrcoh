@@ -54,7 +54,8 @@
       "link": null
     }
   ],
-  "resourceType": "choice",
+  "resourceType": "fan-out_fan-in",
+  "subType": "choice",
   "tagName": "container",
   "id": "choice.container.0",
   "provider": "flow",
@@ -65,7 +66,8 @@
     "elts": [
       "start"
     ],
-    "resourceType": "choice",
+    "resourceType": "fan-out_fan-in",
+    "subType": "choice",
     "tagName": "start",
     "id": "choice.start.1",
     "provider": "flow",
@@ -82,7 +84,8 @@
     "elts": [
       "finish"
     ],
-    "resourceType": "choice",
+    "resourceType": "fan-out_fan-in",
+    "subType": "choice",
     "tagName": "finish",
     "id": "choice.finish.2",
     "provider": "flow",
