@@ -19,6 +19,7 @@ export class FlowToELKVisitor {
       ]
     };
   }
+  
   /**
    * Convert a dsl tree to ELK Graph.
    * @param {object} tree - The dsl tree.
@@ -147,13 +148,16 @@ class TerminalFlowEltFlowToELKVisitor{
       edges: []  
     };
 
-    let n = visitor.getNodeModel(tree);
-    if (filterFn) {
-      if (!filterFn(n)) {
+    // Check if the only element is not a string 
+    if(typeof tree.elts[0] === "object") {
+      let n = visitor.getNodeModel(tree);
+      if (filterFn) {
+        if (!filterFn(n)) {
+          graph.children.push(n);
+        }
+      } else {
         graph.children.push(n);
       }
-    } else {
-      graph.children.push(n);
     }
     return graph;
   }
