@@ -65,18 +65,6 @@ fetch("pipeline.json").then( function(response) {
   //renderer.render(response);   
 });
 
-;
-/**
- * Class FlowToELKVisitor.
- */
-function* idGenFn(index) {
-  while (index >= 0) {
-    yield index++;
-  }
-}
-
-const seed = idGenFn(1);
-
 // Reset ids
 function resetIds(obj,idx) {
   if(obj.id){
