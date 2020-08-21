@@ -9,7 +9,8 @@ import * as diagram from "./flow-diagram";
 
 const {
   parseDsl,
-  resolveImports
+  resolveImports,
+  NODEIDGENFN
 } = flowDsl;
 const DEBUG = true;
 
@@ -64,19 +65,6 @@ fetch("pipeline.json").then( function(response) {
   //renderer.render(response);   
 });
 
-;
-/**
- * Class FlowToELKVisitor.
- */
-function* idGenFn(index) {
-  while (index >= 0) {
-    yield index;
-    index++;
-  }
-}
-
-const seed = idGenFn(1);
-
 // Reset ids
 function resetIds(obj,idx) {
   if(obj.id){
@@ -119,17 +107,19 @@ function clone(obj,idx) {
 }
 
 function updatePreviewPane(content){
+  // Reset node ids
   if( typeof content === "undefined" || content === null){
     return;
   }
   try {
     // Update preview
     resolveImports(content).then((loadedImports) => {
+      NODEIDGENFN.next(true);
       // Inject load function
       flowDsl.load = (key) => {
         let obj = loadedImports.get(key);
         //Clone to avoid ids collision
-        let copy = clone(obj,seed.next().value);
+        let copy = clone(obj,NODEIDGENFN.next().value);
         return copy;
       };
 
@@ -170,6 +160,7 @@ editor.on("changes",(instance) => {
 
 let selectEltChangeHandler = null;
 function initFlowSelection(flows){
+  NODEIDGENFN.next(true);
   // Populate select component from list of samples
   let selectElt = document.getElementById("flow-preview-select");
   // Detach selection handler
@@ -180,7 +171,7 @@ function initFlowSelection(flows){
   selectEltChangeHandler = (event) => {
     const result = flows.get(event.target.value);
     renderFlow(result);
-  }
+  };
   
   // Recreate flow options
   while (selectElt.firstChild) {

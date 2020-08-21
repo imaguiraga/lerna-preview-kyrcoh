@@ -3,12 +3,14 @@
  */
 function* idGenFn(prefix,index) {
   while (index >= 0) {
-    yield index;
-    index++;
+    let reset = yield index++;
+    if(reset){
+        index = 0;
+    }
   }
 }
 
-const IDGENFN = idGenFn("node.",0);
+export const NODEIDGENFN = idGenFn("node.",0);
 export class TerminalResource {
   /**
    * Create a TerminalResource.
@@ -20,7 +22,7 @@ export class TerminalResource {
   constructor(elts,resourceType,tagName,provider) {
     let self = this;
     // Nex Id Generator
-    this.idGenIt = IDGENFN;
+    this.idGenIt = NODEIDGENFN;
 
     self.title = "title";
     self.elts = [];
@@ -98,8 +100,16 @@ export class TerminalResource {
       try {
         if (typeof elt === "function") {
           result = elt.call();
-        }        
-        result = elt.toString();
+        } 
+
+        if(typeof result === "object") {
+          // Allow complex element as terminal
+          result = elt;
+
+        } else {   
+          // primitive
+          result = elt.toString();
+        }
 
       } catch(err){
         console.error(err.message + " - " +err);
@@ -150,18 +160,23 @@ export class TerminalResource {
     return this;
   }
 
-  _kv_(key,value) {
+  _set_(key,value) {
     this.data.set(key,value);
     return this;
   }
 
-  get(key){
+  _get_(key){
     return this.data.get(key);
   }
 
   _link_(_text){
     this.link = _text;
     return this;
+  }
+
+  // Add a reference 
+  _ref_(elt){
+    return this._add_(elt);
   }
 }
 
@@ -223,10 +238,10 @@ export class CompositeResource extends TerminalResource {
     return this.elts.filter(e => e.id === elt.id).length > 0;
   }
 
-  _add_(...elt){
+  _add_(...elts){
     let self = this;
-    if(Array.isArray(elt)){
-      elt.forEach((e) => {
+    if(Array.isArray(elts)){
+      elts.forEach((e) => {
         let r = self.resolveElt(e);
         if( r != null) {
           self.elts.push(r);
@@ -234,10 +249,26 @@ export class CompositeResource extends TerminalResource {
       });
 
     } else {
-      let r = self.resolveElt(elt);
+      let r = self.resolveElt(elts);
       if( r != null) {
         self.elts.push(r);
       }
+    }
+    
+    return this;
+  }
+  // Add a reference if it doesn't exist
+  _ref_(...elts){
+    let self = this;
+    if(Array.isArray(elts)){
+      elts.forEach((e) => {
+        if(!self.foundElt(e)) {
+          self._add_(e);
+        }
+      });
+
+    } else if(!self.foundElt(elts)) {
+      self._add_(elts);
     }
     
     return this;
