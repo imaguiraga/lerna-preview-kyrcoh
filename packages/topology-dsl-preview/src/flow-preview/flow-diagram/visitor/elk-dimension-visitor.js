@@ -68,9 +68,18 @@ export class ELKDimensionVisitor {
     if(Array.isArray(tree.ports)){
       tree.ports.forEach((p) => {
         p.width = this._portSize;
-        p.height = this._portSize;
+        p.height = p.width;
       },this);
+      // If tree is compound set 1st port 4x _portSize
+      /*
+      if(isContainer(tree)){
+        let p = tree.ports[0];
+        p.width = 4*this._portSize;
+        p.height = p.width;
+      }
+      //*/
     }
+    
 
     // Set label dimensions
     if(Array.isArray(tree.labels)){

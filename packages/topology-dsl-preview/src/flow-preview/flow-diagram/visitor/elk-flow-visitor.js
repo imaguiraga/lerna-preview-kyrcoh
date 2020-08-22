@@ -108,6 +108,7 @@ export class FlowToELKVisitor {
 
   getPortModel(n) {
     let r = this.getNodeModel(n);
+    r.model.tagName = "port";
     return r;
   }
 
