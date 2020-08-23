@@ -273,4 +273,21 @@ export class CompositeResource extends TerminalResource {
     
     return this;
   }
+  
+  _to_(...elts) {
+    return this._ref_(...elts);
+  }
+
+  _from_(...elts) {
+    let self = this;
+    if(Array.isArray(elts)){  
+      elts.forEach((e) => {
+        e._ref_(self);
+      });
+
+    } else {
+      elts._ref_(self);
+    }
+    return this;
+  }
 }
