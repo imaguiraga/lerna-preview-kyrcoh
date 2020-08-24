@@ -8,6 +8,10 @@ import {
   ELKDimensionVisitor
 } from "../visitor/index.js";
 
+import {
+  BASE_ICONS_MAP
+} from "./base-icons-map.js";
+
 const elkvisitor = new FlowToELKVisitor();
 
 const EMPTY_ARRAY = [];
@@ -173,6 +177,10 @@ function render(dslObject){
 // Helper functions
 const portsFn = function (n) {
   // by default the 'ports' field
+  if(Array.isArray(n.ports) && n.ports.length > 1) {
+    n.ports[0].isIcon = false;//n.model.compound;
+    n.ports[1].isIcon = false;
+  }
   return n.ports || [];
 };
 
@@ -250,17 +258,19 @@ function drawNode(selection,d,i,refreshFn) {
     let y = 0;
     let w = d.width;
     let h = d.height;
-    let fill = "transparent";
+    let fill = "inherit";
     let stroke = "transparent";
 
     if(d.children.length > 0){
-      x = -12;
-      y = 0;
       h = 24;
       w = 24;
+      x = d.width/2;
+      y = -h/2;
+     
       fill = "inherit";
       stroke = "inherit";
     } 
+
     if(d._children){
       fill = "inherit";
     }
@@ -280,19 +290,19 @@ function drawNode(selection,d,i,refreshFn) {
       return JSON.stringify(d.model,null," ");
     });
 
+    let iconPath = BASE_ICONS_MAP.get(d.model.subType);
     // If icon exist
-    selection.append("image")
-      .attr("class","node")
-      .style("fill", "inherit")
-      .style("stroke", "inherit")
-      .attr("href",(data) =>{
-        //let suffix = data.model.tagName;
-        return "icons/App Engine.svg";
-      })
-      .attr("x", function(d) { return x; })
-      .attr("y", function(d) { return y; })
-      .attr("width", function(d) { return w; })
-      .attr("height", function(d) { return h; });
+    if(iconPath && iconPath !== null) {
+      selection.append("image")
+        .attr("class","node")
+        .style("fill", "inherit")
+        .style("stroke", "inherit")
+        .attr("href", iconPath)
+        .attr("x", function(d) { return x; })
+        .attr("y", function(d) { return y; })
+        .attr("width", function(d) { return w; })
+        .attr("height", function(d) { return h; });
+    }
   } 
 }
 
@@ -307,7 +317,7 @@ function drawLabel(selection,d,i,refreshFn) {
     .style("stroke-width",1)
     .style("font-size",12)
     .attr("x", (l) => l.x)
-    .attr("y", (l) => l.y)
+    .attr("y", (l) => l.y/2)
     .attr("width", (l) => l.width)
     .attr("height", (l) => l.height);
 }
@@ -316,13 +326,39 @@ function drawPort(selection,d,i,refreshFn) {
   // Create new selection from current one
   selection.selectAll(".port").data((d,i)=>{
     return portsFn(d);
-  }).enter()
+  }).enter().each(function(d,i) { 
+    // Update current selection attributes
+    let selection = d3.select(this);
+    if(d.isIcon){
+      selection.append("image")
+      .attr("class","port")
+      .attr("href",(l) =>{
+        return "icons/App Engine.svg";
+      })
+      .attr("x", (l) => l.x)
+      .attr("y", (l) => l.y)
+      .attr("width", (l) => l.width)
+      .attr("height", (l) => l.height);
+  
+    } else {
+      selection.append("rect")
+      .attr("class","port")
+      .attr("x", (l) => l.x)
+      .attr("y", (l) => l.y)
+      .attr("width", (l) => l.width)
+      .attr("height", (l) => l.height);
+    }
+  });
+  /*
     .append("rect")
     .attr("class","port")
     .attr("x", (l) => l.x)
     .attr("y", (l) => l.y)
     .attr("width", (l) => l.width)
     .attr("height", (l) => l.height);
+    //*/
+
+    
 }
 
 function renderd3Layout(svg,node,refreshFn){
