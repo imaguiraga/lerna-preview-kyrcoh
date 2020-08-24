@@ -8,6 +8,10 @@ import {
   ELKDimensionVisitor
 } from "../visitor/index.js";
 
+import {
+  BASE_ICONS_MAP
+} from "./base-icons-map.js";
+
 const elkvisitor = new FlowToELKVisitor();
 
 const EMPTY_ARRAY = [];
@@ -254,7 +258,7 @@ function drawNode(selection,d,i,refreshFn) {
     let y = 0;
     let w = d.width;
     let h = d.height;
-    let fill = "transparent";
+    let fill = "inherit";
     let stroke = "transparent";
 
     if(d.children.length > 0){
@@ -266,6 +270,7 @@ function drawNode(selection,d,i,refreshFn) {
       fill = "inherit";
       stroke = "inherit";
     } 
+
     if(d._children){
       fill = "inherit";
     }
@@ -285,19 +290,19 @@ function drawNode(selection,d,i,refreshFn) {
       return JSON.stringify(d.model,null," ");
     });
 
+    let iconPath = BASE_ICONS_MAP.get(d.model.subType);
     // If icon exist
-    selection.append("image")
-      .attr("class","node")
-      .style("fill", "inherit")
-      .style("stroke", "inherit")
-      .attr("href",(data) =>{
-        //let suffix = data.model.tagName;
-        return "icons/App Engine.svg";
-      })
-      .attr("x", function(d) { return x; })
-      .attr("y", function(d) { return y; })
-      .attr("width", function(d) { return w; })
-      .attr("height", function(d) { return h; });
+    if(iconPath && iconPath !== null) {
+      selection.append("image")
+        .attr("class","node")
+        .style("fill", "inherit")
+        .style("stroke", "inherit")
+        .attr("href", iconPath)
+        .attr("x", function(d) { return x; })
+        .attr("y", function(d) { return y; })
+        .attr("width", function(d) { return w; })
+        .attr("height", function(d) { return h; });
+    }
   } 
 }
 

@@ -1,0 +1,22 @@
+export const BASE_ICONS_MAP = new Map([
+  ["fanOut_fanIn","icons/base/fanOut_fanI]n-diagram-3-fill.svg"],
+  ["choice","icons/base/fanOut_fanIn-diagram-3-fill.svg"],
+  ["fanIn","icons/base/fanIn-diagram-3-fill.svg"],
+  ["merge","icons/base/fanIn-diagram-3-fill.svg"],
+  ["fanOut","icons/base/fanOut-diagram-3-fill.svg"],
+  ["branch","icons/base/fanOut-diagram-3-fill.svg"],
+  ["split","icons/base/fanOut-diagram-3-fill.svg"],
+  ["tree","icons/base/fanOut-diagram-3-fill.svg"],
+  ["link","icons/base/fanOut-diagram-3-fill.svg"],
+  ["use","icons/base/fanOut-diagram-3-fill.svg"],
+  ["parallel","icons/base/fanOut-diagram-3-fill.svg"],
+  ["optional","icons/base/optional-question-square-fill.svg"],
+  ["repeat","icons/base/repeat-bootstrap-reboot.svg"],
+  ["sequence","icons/base/sequence-diagram-3-fill.svg"],
+  ["terminal",null],
+  ["state",null],
+  ["zeroOrMore","icons/base/repeat-bootstrap-reboot.svg"],
+  ["resource",null],
+  ["group","icons/base/group-grid-fill.svg"]
+]
+);
