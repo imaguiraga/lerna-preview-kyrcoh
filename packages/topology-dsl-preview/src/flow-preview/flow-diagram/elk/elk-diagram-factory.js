@@ -254,10 +254,10 @@ function drawNode(selection,d,i,refreshFn) {
   } else {
     
     // Draw icon in the corner for compound
-    let x = 0;
-    let y = 0;
-    let w = d.width;
-    let h = d.height;
+    let x = 2;
+    let y = 2;
+    let w = d.width-4;
+    let h = d.height-4;
     let fill = "inherit";
     let stroke = "transparent";
 
@@ -279,7 +279,7 @@ function drawNode(selection,d,i,refreshFn) {
     .attr("class","node")
     .style("fill", fill)
     .style("stroke", stroke)
-    .style("opacity", "0.75")
+    .style("opacity", "0.6")
     .attr("x", 0)
     .attr("y", 0)
     .attr("width", function(d) { return d.width; })
