@@ -76,20 +76,19 @@ function elkLayout(){
   const elkDimensionVisitor = new ELKDimensionVisitor();  
   const elk = new ELK();
   let options = {
-    "elk.algorithm": "layered",
+    "algorithm": "layered",
     "nodePlacement.strategy": "BRANDES_KOEPF",
-    "org.eclipse.elk.port.borderOffset": 4,
-    "org.eclipse.elk.padding": 16,
-    "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
-    "org.eclipse.elk.layered.mergeEdges":true,
-    "org.eclipse.elk.zoomToFit":true,
+    "port.borderOffset": 4,
+    "padding": 20,
+    "edgeRouting": "ORTHOGONAL",
+    "layered.mergeEdges":true,
+    "zoomToFit": true,
     "spacing": 40,
     "spacing.nodeNodeBetweenLayers": 40,
     "spacing.edgeNodeBetweenLayers": 40,
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH",
-    "org.eclipse.elk.spacing.labelNode": 20,
-    'elk.spacing.componentComponent': 80
+    "spacing.labelNode": 16
   };
 
   function layoutFn(inelkgraph){
@@ -254,10 +253,10 @@ function drawNode(selection,d,i,refreshFn) {
   } else {
     
     // Draw icon in the corner for compound
-    let x = 0;
-    let y = 0;
-    let w = d.width;
-    let h = d.height;
+    let x = 2;
+    let y = 2;
+    let w = d.width-4;
+    let h = d.height-4;
     let fill = "inherit";
     let stroke = "transparent";
 
@@ -279,7 +278,7 @@ function drawNode(selection,d,i,refreshFn) {
     .attr("class","node")
     .style("fill", fill)
     .style("stroke", stroke)
-    .style("opacity", "0.75")
+    .style("opacity", "0.6")
     .attr("x", 0)
     .attr("y", 0)
     .attr("width", function(d) { return d.width; })
@@ -317,7 +316,7 @@ function drawLabel(selection,d,i,refreshFn) {
     .style("stroke-width",1)
     .style("font-size",12)
     .attr("x", (l) => l.x)
-    .attr("y", (l) => l.y/2)
+    .attr("y", (l) => l.y)
     .attr("width", (l) => l.width)
     .attr("height", (l) => l.height);
 }

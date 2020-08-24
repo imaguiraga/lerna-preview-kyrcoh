@@ -49,10 +49,7 @@ export class ELKDimensionVisitor {
     if(tree.height) delete tree.height;
     if(tree.x) delete tree.x;
     if(tree.y) delete tree.y;
-    // Set node properties
-    tree.properties = {
-      "nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]"
-    };
+    
     // Set Node dimensions
     if(isContainer(tree) === false){
       tree.width = this._nodeWidth;
@@ -62,7 +59,17 @@ export class ELKDimensionVisitor {
           tree.width = this._iconWidth;
           tree.height = tree.width;
       }
-    } 
+      // Set node properties
+      tree.properties = {
+        "nodeLabels.placement": "[H_LEFT, V_BOTTOM, OUTSIDE]"
+      };//*/
+    } else {
+      // Set node properties
+      tree.properties = {
+        "nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]"
+      };
+      
+    }
 
     // Set port dimensions
     if(Array.isArray(tree.ports)){
