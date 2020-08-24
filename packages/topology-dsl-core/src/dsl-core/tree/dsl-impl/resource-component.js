@@ -15,7 +15,7 @@ export class FanOutFanInElt extends CompositeResource {
    * @param {object} elts - The elts value.
    */
   constructor(elts)  {
-    super(elts,"fan-out_fan-in",DEFAULT_TAG,"default");
+    super(elts,"fanOut_fanIn",DEFAULT_TAG,"default");
   }
 
 }
@@ -30,7 +30,7 @@ export class FanInElt extends CompositeResource {
    * @param {object} elts - The elts value.
    */
   constructor(elts)  {
-    super(elts,"fan-in",DEFAULT_TAG,"default");
+    super(elts,"fanIn",DEFAULT_TAG,"default");
   }
 
 
@@ -46,7 +46,7 @@ export class FanOutElt extends CompositeResource {
    * @param {object} elts - The elts value.
    */
   constructor(elts)  {
-    super(elts,"fan-out",DEFAULT_TAG,"default");
+    super(elts,"fanOut",DEFAULT_TAG,"default");
   }
 
 }
