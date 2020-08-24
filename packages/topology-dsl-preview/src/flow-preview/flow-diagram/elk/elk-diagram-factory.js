@@ -264,7 +264,7 @@ function drawNode(selection,d,i,refreshFn) {
     if(d.children.length > 0){
       h = 24;
       w = 24;
-      x = d.width/2;//-12;
+      x = d.width/2;
       y = -h/2;
      
       fill = "inherit";

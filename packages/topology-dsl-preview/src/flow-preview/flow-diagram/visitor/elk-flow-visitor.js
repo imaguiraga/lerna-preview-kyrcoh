@@ -40,9 +40,9 @@ export class FlowToELKVisitor {
     }
     if(tree.compound) {
       switch(tree.resourceType){
-        case "fan-out_fan-in":
-        case "fan-in":
-        case "fan-out":
+        case "fanOut_fanIn":
+        case "fanIn":
+        case "fanOut":
         case "group":
           result = MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,tree.resourceType);
         break;

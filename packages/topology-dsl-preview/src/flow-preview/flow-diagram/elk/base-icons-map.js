@@ -1,5 +1,5 @@
 export const BASE_ICONS_MAP = new Map([
-  ["fanOut_fanIn","icons/base/fanOut_fanI]n-diagram-3-fill.svg"],
+  ["fanOut_fanIn","icons/base/fanOut_fanIn-diagram-3-fill.svg"],
   ["choice","icons/base/fanOut_fanIn-diagram-3-fill.svg"],
   ["fanIn","icons/base/fanIn-diagram-3-fill.svg"],
   ["merge","icons/base/fanIn-diagram-3-fill.svg"],
