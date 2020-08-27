@@ -11,7 +11,6 @@ const {
   parseDsl,
   resolveImports,
   NODEIDGENFN,
-  resetIds,
   clone
 } = flowDsl;
 
