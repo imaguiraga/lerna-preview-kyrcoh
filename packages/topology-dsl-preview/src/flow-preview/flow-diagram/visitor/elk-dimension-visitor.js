@@ -56,17 +56,24 @@ export class ELKDimensionVisitor {
       tree.height = this._nodeHeight;
       if(isIconFn(tree)) {
         // Set start + finish to icon size
-          tree.width = this._iconWidth;
-          tree.height = tree.width;
+        tree.width = this._iconWidth;
+        tree.height = tree.width;
+      } else if(tree.inbound || tree.outbound) {
+        tree.width = tree.width/2;
+        tree.height = tree.height/2;
       }
       // Set node properties
       tree.properties = {
-        "nodeLabels.placement": "[H_LEFT, V_BOTTOM, OUTSIDE]"
+        "nodeLabels.placement": "[H_LEFT, V_BOTTOM, OUTSIDE]",
+        "portAlignment.default" :"CENTER",
+        "portConstraints":"FREE"
       };//*/
     } else {
       // Set node properties
       tree.properties = {
-        "nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]"
+        "nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]",
+        "portAlignment.default" :"CENTER",
+        "portConstraints":"FREE"
       };
       
     }
@@ -91,7 +98,7 @@ export class ELKDimensionVisitor {
     // Set label dimensions
     if(Array.isArray(tree.labels)){
       tree.labels.forEach((l) => {
-        //l.height = this._labelHeight;
+        l.height = this._labelHeight;
       },this);
     }
 
@@ -100,6 +107,7 @@ export class ELKDimensionVisitor {
         this.visit(n);
       },this);
     }
+
     return tree;
   }
 

@@ -95,6 +95,14 @@ export function sequence(...elts) {
   return new SequenceElt([...elts]);
 }
 
+export function process(...elts) {
+  return sequence(...elts)._subType_("process");
+}
+
+export function activity(...elts) {
+  return sequence(...elts)._subType_("activity");
+}
+
 /**
  * Create a terminal dsl tree.
  * @param {object} elt - The element.
@@ -102,6 +110,10 @@ export function sequence(...elts) {
  */
 export function terminal(elt) {
   return new TerminalElt(elt);
+}
+
+export function transition(elt) {
+  return terminal(elt)._subType_("transition");
 }
 
 /**
