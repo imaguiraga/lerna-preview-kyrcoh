@@ -27,8 +27,8 @@ export class TerminalResource {
     self.title = "title";
     self.elts = [];
     // Support for dataflow with input and output bindings
-    self.inboundElts = []; 
-    self.outboundElts = [];
+    self.inputElts = []; 
+    self.outputElts = [];
 
     let r = self.resolveElt(elts); 
     if( r !== null) {
@@ -200,14 +200,14 @@ export class TerminalResource {
       elts.forEach((e) => {
         let r = self.toElt(e);
         if( r != null) {
-          self.inboundElts.push(r);
+          self.inputElts.push(r);
         }
       });
 
     } else {
       let r = self.toElt(elts);
       if( r != null) {
-        self.inboundElts.push(r);
+        self.inputElts.push(r);
       }
     }
     
@@ -221,14 +221,14 @@ export class TerminalResource {
       elts.forEach((e) => {
         let r = self.toElt(e);
         if( r != null) {
-          self.outboundElts.push(r);
+          self.outputElts.push(r);
         }
       });
 
     } else {
       let r = self.toElt(elts);
       if( r != null) {
-        self.outboundElts.push(r);
+        self.outputElts.push(r);
       }
     }
     
