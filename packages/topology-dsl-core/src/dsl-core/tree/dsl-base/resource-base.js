@@ -26,6 +26,9 @@ export class TerminalResource {
 
     self.title = "title";
     self.elts = [];
+    // Support for dataflow with input and output bindings
+    self.inboundElts = []; 
+    self.outboundElts = [];
 
     let r = self.resolveElt(elts); 
     if( r !== null) {
@@ -118,6 +121,17 @@ export class TerminalResource {
     return result;
   }
 
+  toElt(elt) {
+    if (typeof elt === "function") {
+      return elt.call();
+    } else if (typeof elt !== "object") {
+      // very likely a primitive type
+      return new TerminalResource(elt,"terminal","resource",this.provider);
+    }
+    // default to object
+    return elt;
+  }
+
   _add_(elt){  
     let r = this.resolveElt(elt); 
     if( r !== null) {
@@ -178,6 +192,56 @@ export class TerminalResource {
   _ref_(elt){
     return this._add_(elt);
   }
+
+  // Inbound bindings
+  _in_(...elts){
+    let self = this;
+    if(Array.isArray(elts)){
+      elts.forEach((e) => {
+        let r = self.toElt(e);
+        if( r != null) {
+          self.inboundElts.push(r);
+        }
+      });
+
+    } else {
+      let r = self.toElt(elts);
+      if( r != null) {
+        self.inboundElts.push(r);
+      }
+    }
+    
+    return this;
+  }
+
+  // Outbound bindings
+  _out_(...elts){
+    let self = this;
+    if(Array.isArray(elts)){
+      elts.forEach((e) => {
+        let r = self.toElt(e);
+        if( r != null) {
+          self.outboundElts.push(r);
+        }
+      });
+
+    } else {
+      let r = self.toElt(elts);
+      if( r != null) {
+        self.outboundElts.push(r);
+      }
+    }
+    
+    return this;
+  }
+
+  _from_(...elts) {
+    return this._in_(...elts);
+  }
+
+  _to_(...elts) {
+    return this._out_(...elts);
+  }
 }
 
 
@@ -224,14 +288,7 @@ export class CompositeResource extends TerminalResource {
   }
   
   resolveElt(elt){
-    if (typeof elt === "function") {
-      return elt.call();
-    } else if (typeof elt !== "object") {
-      // very likely a primitive type
-      return new TerminalResource(elt,"terminal","resource",this.provider);
-    }
-    // default to object
-    return elt;
+    return this.toElt(elt);
   }
 
   foundElt(elt) {
@@ -257,7 +314,8 @@ export class CompositeResource extends TerminalResource {
     
     return this;
   }
-  // Add a reference if it doesn't exist
+
+    // Add a reference if it doesn't exist
   _ref_(...elts){
     let self = this;
     if(Array.isArray(elts)){
@@ -273,21 +331,5 @@ export class CompositeResource extends TerminalResource {
     
     return this;
   }
-  
-  _to_(...elts) {
-    return this._ref_(...elts);
-  }
-
-  _from_(...elts) {
-    let self = this;
-    if(Array.isArray(elts)){  
-      elts.forEach((e) => {
-        e._ref_(self);
-      });
-
-    } else {
-      elts._ref_(self);
-    }
-    return this;
-  }
+ 
 }
