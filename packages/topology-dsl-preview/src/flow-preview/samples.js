@@ -9,7 +9,7 @@ let d = choice(x1,"e", "d" ,x2);`,
 let testflow = choice(
   terminal("a"),
   choice("e", "d"),
-  sequence(terminal("b"), terminal("c"),sequence("c","d")),
+  sequence(terminal("b"), terminal("c"),sequence("c","d")._in_("a","b")._out_("e","f")),
   sequence("c","d")
 );
 

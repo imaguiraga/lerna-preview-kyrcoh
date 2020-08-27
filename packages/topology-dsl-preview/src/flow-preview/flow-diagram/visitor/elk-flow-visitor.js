@@ -180,6 +180,10 @@ class SequenceEltFlowToELKVisitor{
     const SEQUENCE = "sequence";
     const graph = {
       ...visitor.getNodeModel(tree),
+     /* layoutOptions: 
+      { 
+        "nodePlacement.strategy": "NETWORK_SIMPLEX"
+      },//*/
       ports: [],
       children: [],
       edges: []  
@@ -233,6 +237,7 @@ class SequenceEltFlowToELKVisitor{
     tree.inboundElts.forEach(elt => {
       let g6 = elt.accept(visitor,n => tree.foundElt(n));
       if(g6 !== null) {
+        g6.inbound = true;
         graph.children.push(g6);
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
@@ -247,6 +252,7 @@ class SequenceEltFlowToELKVisitor{
     tree.outboundElts.forEach(elt => {
       let g6 = elt.accept(visitor,n => tree.foundElt(n));
       if(g6 !== null) {
+        g6.outbound = true;
         graph.children.push(g6);
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,

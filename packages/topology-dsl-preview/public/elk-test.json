@@ -1,0 +1,33 @@
+{
+  id: "root",
+  layoutOptions: { 'algorithm': 'layered',
+  "nodePlacement.strategy": "NETWORK_SIMPLEX",
+    "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
+    "org.eclipse.elk.port.borderOffset": 10,
+    "org.eclipse.elk.layered.mergeEdges": true,
+    "spacing.nodeNodeBetweenLayers": 40,
+    "spacing.edgeNodeBetweenLayers": 40,
+    "spacing.edgeEdgeBetweenLayers": 40,
+    "layering.strategy": "LONGEST_PATH",
+
+    "elk.direction": "RIGHT" },
+  children: [
+    { id: "n1", width: 30, height: 30,labels:[{text:"A"}],
+    properties : {
+        "nodeLabels.placement": "[H_LEFT, V_BOTTOM, OUTSIDE]",
+        "portAlignment.default" :"CENTER"
+      }
+         },
+    { id: "n2", width: 30, height: 30 },
+    { id: "n3", width: 30, height: 30 },
+    { id: "n4", width: 30, height: 30 },
+    { id: "n5", width: 30, height: 30 }
+  ],
+  edges: [
+    { id: "e1", sources: [ "n1" ], targets: [ "n2" ] },
+    { id: "e2", sources: [ "n1" ], targets: [ "n3" ] },
+    { id: "e3", sources: [ "n2" ], targets: [ "n4" ] },
+    { id: "e4", sources: [ "n3" ], targets: [ "n4" ] },
+    { id: "e5", sources: [ "n5" ], targets: [ "n4" ] }
+  ]
+}

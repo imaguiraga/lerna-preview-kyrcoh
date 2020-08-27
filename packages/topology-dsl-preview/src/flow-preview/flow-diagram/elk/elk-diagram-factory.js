@@ -77,7 +77,7 @@ function elkLayout(){
   const elk = new ELK();
   let options = {
     "algorithm": "layered",
-    "nodePlacement.strategy": "BRANDES_KOEPF",
+    "nodePlacement.strategy": "NETWORK_SIMPLEX",
     "port.borderOffset": 4,
     "padding": 20,
     "edgeRouting": "ORTHOGONAL",
