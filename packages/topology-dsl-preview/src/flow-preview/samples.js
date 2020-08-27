@@ -7,9 +7,9 @@ let x2 = () => load("test1.json");
 let d = choice(x1,"e", "d" ,x2);`,
 `
 let testflow = choice(
-  terminal("a"),
+  terminal("a")._in_("a","b")._out_("a","b"),
   choice("e", "d"),
-  sequence(terminal("b"), terminal("c"),sequence("c","d")._in_("a","b")._out_("e","f")),
+  sequence(terminal("b"), terminal("c")._in_("a","b"),sequence("c","d")._in_("a","b")._out_("e","f")),
   sequence("c","d")
 );
 

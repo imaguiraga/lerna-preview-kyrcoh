@@ -6,6 +6,40 @@ import {
   jsonToDslObject
 } from "@imaguiraga/topology-dsl-core";
 
+
+function updateInboundOutboundBindings(elt,graph,visitor) {
+  // Add Inbounds nodes and edges from children
+  elt.inboundElts = elt.inboundElts || [];
+  elt.inboundElts.forEach(t => {
+    let ctree = t.accept(visitor);
+    if(ctree !== null) {
+      ctree.inbound = true;
+      graph.children.push(ctree);
+      graph.edges.push({
+        id: `${visitor.edgeCntIt.next().value}`,
+        sources: [t.finish.id],
+        targets: [elt.start.id],
+        ...visitor.getEdgeModel(elt),
+      });
+    }
+  });
+
+  // Add Outbounds nodes and edges from children 
+  elt.outboundElts = elt.outboundElts || [];
+  elt.outboundElts.forEach(t => {
+    let ctree = t.accept(visitor);
+    if(ctree !== null) {
+      ctree.outbound = true;
+      graph.children.push(ctree);
+      graph.edges.push({
+        id: `${visitor.edgeCntIt.next().value}`,
+        sources: [elt.finish.id],
+        targets: [t.start.id],
+        ...visitor.getEdgeModel(elt),
+      });
+    }
+  });
+}
 export class FlowToELKVisitor {
   constructor(){
     this.edgeCntIt = idGenFn("edge.",0);   
@@ -135,11 +169,11 @@ export class FlowToELKVisitor {
  */
 class TerminalFlowEltFlowToELKVisitor{
   /**
-   * Convert a dsl tree to g6 Graph graph.
+   * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
-   * @return {object} g6 Graph graph.
+   * @return {object} ctree Graph graph.
    */
   static visit(visitor,tree,filterFn) {
     const graph = {
@@ -170,11 +204,11 @@ class TerminalFlowEltFlowToELKVisitor{
  */
 class SequenceEltFlowToELKVisitor{
   /**
-   * Convert a dsl tree to g6 Graph graph.
+   * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
-   * @return {object} g6 Graph graph.
+   * @return {object} ctree Graph graph.
    */  
   static visit(visitor,tree,filterFn) {
     const SEQUENCE = "sequence";
@@ -218,53 +252,29 @@ class SequenceEltFlowToELKVisitor{
       targets: [tree.finish.id],
       ...visitor.getEdgeModel(tree),
     });
-    // concatenate G6 graphs
-
+    // concatenate graphs
+    
     // nodes
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let ctree = elt.accept(visitor,n => tree.foundElt(n));
+      if(ctree !== null) {
         if (filterFn) {
-          if (!filterFn(g6)) {
-            graph.children.push(g6);
+          if (!filterFn(ctree)) {
+            graph.children.push(ctree);
+            updateInboundOutboundBindings(elt,graph,visitor);
           }
         } else {
-          graph.children.push(g6);
+          graph.children.push(ctree);
+          updateInboundOutboundBindings(elt,graph,visitor);
         }
       }
+     
     });
-    // Add Inbounds nodes and edges 
-    tree.inboundElts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
-        g6.inbound = true;
-        graph.children.push(g6);
-        graph.edges.push({
-          id: `${visitor.edgeCntIt.next().value}`,
-          sources: [elt.finish.id],
-          targets: [tree.elts[0].start.id],
-          ...visitor.getEdgeModel(tree),
-        });
-      }
-    });
-
-    // Add Outbounds nodes and edges 
-    tree.outboundElts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
-        g6.outbound = true;
-        graph.children.push(g6);
-        graph.edges.push({
-          id: `${visitor.edgeCntIt.next().value}`,
-          sources: [tree.elts[tree.elts.length-1].finish.id],
-          targets: [elt.start.id],
-          ...visitor.getEdgeModel(tree),
-        });
-      }
-    });
-
+    
     return graph;
   }
+
+  
 }
 
 /**
@@ -272,11 +282,11 @@ class SequenceEltFlowToELKVisitor{
  */
 class MutltiPathEltFlowToELKVisitor{
   /**
-   * Convert a dsl tree to g6 Graph graph.
+   * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
-   * @return {object} g6 Graph graph.
+   * @return {object} ctree Graph graph.
    */  
   static visit(visitor,tree,filterFn,type){
     //const type = "choice" | "parallel";
@@ -315,17 +325,19 @@ class MutltiPathEltFlowToELKVisitor{
         }
       }
     }
-    // concatenate G6 graphs
+    // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let ctree = elt.accept(visitor,n => tree.foundElt(n));
+      if(ctree !== null) {
         if (filterFn) {
-          if (!filterFn(g6)) {
-            graph.children.push(g6);
+          if (!filterFn(ctree)) {
+            graph.children.push(ctree);
+            updateInboundOutboundBindings(elt,graph,visitor);
           }
         } else {
-          graph.children.push(g6);
+          graph.children.push(ctree);
+          updateInboundOutboundBindings(elt,graph,visitor);
         }
       }
     });
@@ -340,11 +352,11 @@ class MutltiPathEltFlowToELKVisitor{
  */
 class OptionalEltFlowToELKVisitor{
   /**
-   * Convert a dsl tree to g6 Graph graph.
+   * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
-   * @return {object} g6 Graph graph.
+   * @return {object} ctree Graph graph.
    */  
   static visit(visitor,tree,filterFn) {
     const OPTIONAL = "optional";
@@ -415,17 +427,19 @@ class OptionalEltFlowToELKVisitor{
          ...visitor.getEdgeModel(tree),
       });
     }
-    // concatenate G6 graphs
+    // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let ctree = elt.accept(visitor,n => tree.foundElt(n));
+      if(ctree !== null) {
         if (filterFn) {
-          if (!filterFn(g6)) {
-            graph.children.push(g6);
+          if (!filterFn(ctree)) {
+            graph.children.push(ctree);
+            updateInboundOutboundBindings(elt,graph,visitor);
           }
         } else {
-          graph.children.push(g6);
+          graph.children.push(ctree);
+          updateInboundOutboundBindings(elt,graph,visitor);
         }
       }
     });
@@ -439,11 +453,11 @@ class OptionalEltFlowToELKVisitor{
  */
 class RepeatEltFlowToELKVisitor {
   /**
-   * Convert a dsl tree to g6 Graph graph.
+   * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
-   * @return {object} g6 Graph graph.
+   * @return {object} ctree Graph graph.
    */
   static visit(visitor,tree,filterFn) {
     const REPEAT = "repeat";
@@ -524,17 +538,19 @@ class RepeatEltFlowToELKVisitor {
       });
     }
     
-    // concatenate G6 graphs
+    // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let ctree = elt.accept(visitor,n => tree.foundElt(n));
+      if(ctree !== null) {
         if (filterFn) {
-          if (!filterFn(g6)) {
-            graph.children.push(g6);
+          if (!filterFn(ctree)) {
+            graph.children.push(ctree);
+            updateInboundOutboundBindings(elt,graph,visitor);
           }
         } else {
-          graph.children.push(g6);
+          graph.children.push(ctree);
+          updateInboundOutboundBindings(elt,graph,visitor);
         }
       }
     });
