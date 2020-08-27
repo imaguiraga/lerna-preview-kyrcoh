@@ -10,14 +10,17 @@ import * as diagram from "./flow-diagram";
 const {
   parseDsl,
   resolveImports,
-  NODEIDGENFN
+  NODEIDGENFN,
+  resetIds,
+  clone
 } = flowDsl;
+
 const DEBUG = true;
 
 document.body.innerHTML = 
 `<div id="grid">
 		<div id="one" class="pane">
-			<h6>Flow EDITOR</h6>
+			<h6>Topology EDITOR</h6>
 			<div style="margin:2px;font-size:12px">
 				<select id="flow-sample-select" class="flow-select">
           <option value="-1">Select a sample</option>
@@ -27,7 +30,7 @@ document.body.innerHTML =
 			<div id="editor-pane" class="content-pane"></div>
 		</div>
 		<div id="two" class="pane">
-			<h6>Flow PREVIEW</h6>
+			<h6>Topology PREVIEW</h6>
 			<div style="margin:2px;font-size:12px">
 				<select id="flow-preview-select" class="flow-select">
           <option value="-1">Select a flow</option>
@@ -59,54 +62,7 @@ Split(["#one", "#two"], {
 
 const renderer = diagram.createElkRenderer("preview-pane");
 
-// load the data and render the elements
-fetch("pipeline.json").then( function(response) { 
-  console.log(response);
-  //renderer.render(response);   
-});
-
-// Reset ids
-function resetIds(obj,idx) {
-  if(obj.id){
-    // Append a suffix
-    obj.id = obj.id+"_"+idx;
-
-    if(obj._start !== null){
-      obj._start.id = obj._start.id+"_"+idx;
-    }
-    if(obj._finish !== null){
-      obj._finish.id = obj._finish.id+"_"+idx;
-    }
-  }
-  return obj;
-}
-
-// Clone and reset ids
-function clone(obj,idx) {
-  if(obj === undefined || obj === null){
-    return obj;
-  }
-  let copy = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
-  // Deep copy
-  if(copy.compound) {
-    if(Array.isArray(copy.elts)){
-      copy.elts = copy.elts.map((elt) => {
-        return clone(elt,idx);
-      });
-    }
-  }
-
-  if(copy._start !== null){
-    copy._start = clone(copy._start,idx);
-  }
-  if(copy._finish !== null){
-    copy._finish = clone(copy._finish,idx);
-  }
-
-  return resetIds(copy,idx);
-}
-
-function updatePreviewPane(content){
+function updatePreviewPane(content) {
   // Reset node ids
   if( typeof content === "undefined" || content === null){
     return;
