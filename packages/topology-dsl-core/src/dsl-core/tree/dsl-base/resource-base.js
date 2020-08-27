@@ -26,6 +26,9 @@ export class TerminalResource {
 
     self.title = "title";
     self.elts = [];
+    // Support for dataflow with input and output bindings
+    self.inboundElts = []; 
+    self.outboundElts = [];
 
     let r = self.resolveElt(elts); 
     if( r !== null) {
@@ -257,6 +260,47 @@ export class CompositeResource extends TerminalResource {
     
     return this;
   }
+
+  _in_(...elts){
+    let self = this;
+    if(Array.isArray(elts)){
+      elts.forEach((e) => {
+        let r = self.resolveElt(e);
+        if( r != null) {
+          self.inboundElts.push(r);
+        }
+      });
+
+    } else {
+      let r = self.resolveElt(elts);
+      if( r != null) {
+        self.inboundElts.push(r);
+      }
+    }
+    
+    return this;
+  }
+
+  _out_(...elts){
+    let self = this;
+    if(Array.isArray(elts)){
+      elts.forEach((e) => {
+        let r = self.resolveElt(e);
+        if( r != null) {
+          self.outboundElts.push(r);
+        }
+      });
+
+    } else {
+      let r = self.resolveElt(elts);
+      if( r != null) {
+        self.outboundElts.push(r);
+      }
+    }
+    
+    return this;
+  }
+
   // Add a reference if it doesn't exist
   _ref_(...elts){
     let self = this;

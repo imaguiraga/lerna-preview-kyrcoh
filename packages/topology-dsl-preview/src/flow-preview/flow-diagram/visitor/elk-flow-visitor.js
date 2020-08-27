@@ -229,6 +229,33 @@ class SequenceEltFlowToELKVisitor{
         }
       }
     });
+    // Add Inbounds nodes and edges 
+    tree.inboundElts.forEach(elt => {
+      let g6 = elt.accept(visitor,n => tree.foundElt(n));
+      if(g6 !== null) {
+        graph.children.push(g6);
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [elt.finish.id],
+          targets: [tree.elts[0].start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      }
+    });
+
+    // Add Outbounds nodes and edges 
+    tree.outboundElts.forEach(elt => {
+      let g6 = elt.accept(visitor,n => tree.foundElt(n));
+      if(g6 !== null) {
+        graph.children.push(g6);
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [tree.elts[tree.elts.length-1].finish.id],
+          targets: [elt.start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      }
+    });
 
     return graph;
   }

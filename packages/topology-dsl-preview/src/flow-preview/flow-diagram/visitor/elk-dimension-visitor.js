@@ -100,6 +100,18 @@ export class ELKDimensionVisitor {
         this.visit(n);
       },this);
     }
+
+    if(Array.isArray(tree.inboundElts)){
+      tree.inboundElts.forEach((n) => {
+        this.visit(n);
+      },this);
+    }
+
+    if(Array.isArray(tree.outboundElts)){
+      tree.outboundElts.forEach((n) => {
+        this.visit(n);
+      },this);
+    }
     return tree;
   }
 
