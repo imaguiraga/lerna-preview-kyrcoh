@@ -9,8 +9,8 @@ import {
 
 function updateInboundOutboundBindings(elt,graph,visitor) {
   // Add Inbounds nodes and edges from children
-  elt.inboundElts = elt.inboundElts || [];
-  elt.inboundElts.forEach(t => {
+  elt.inputElts = elt.inputElts || [];
+  elt.inputElts.forEach(t => {
     let ctree = t.accept(visitor);
     if(ctree !== null) {
       ctree.inbound = true;
@@ -25,8 +25,8 @@ function updateInboundOutboundBindings(elt,graph,visitor) {
   });
 
   // Add Outbounds nodes and edges from children 
-  elt.outboundElts = elt.outboundElts || [];
-  elt.outboundElts.forEach(t => {
+  elt.outputElts = elt.outputElts || [];
+  elt.outputElts.forEach(t => {
     let ctree = t.accept(visitor);
     if(ctree !== null) {
       ctree.outbound = true;
