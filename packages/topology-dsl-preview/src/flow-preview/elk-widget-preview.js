@@ -37,6 +37,30 @@ const {
   clone
 } = flowDsl;
 
+function loadFnFactory() {
+  let loadedImports = new Map();
+  const loadFn = (key) => {
+    if(loadedImports.has(key)) {
+      let obj = loadedImports.get(key);
+      //Clone to avoid ids collision     
+      let copy = clone(obj,NODEIDGENFN.next().value);
+      return copy;
+    } else {
+      return null;
+    }
+  };
+
+  loadFn.loadedImports = function(newValue) {	
+    if (!arguments.length) return loadedImports;
+    loadedImports = newValue;
+    return this;
+  };
+
+  return loadFn;
+}
+
+flowDsl.load = loadFnFactory();
+
 function main() {
   const commands = new CommandRegistry();
   createMenu(commands);
@@ -67,16 +91,11 @@ function createMainWidget(palette,commands){
     let content = instance.getDoc().getValue();
     try {
       // Update preview
-      resolveImports(content).then((loadedImports) => {
+      resolveImports(content).then((resolvedImports) => {
         NODEIDGENFN.next(true);
         // Inject load function
-        flowDsl.load = (key) => {
-          let obj = loadedImports.get(key);
-          //Clone to avoid ids collision
-          let copy = clone(obj,NODEIDGENFN.next().value);
-          return copy;
-        };
-  
+        flowDsl.load.loadedImports(resolvedImports);
+        
         let flows = parseDsl(content,flowDsl);
         // Update graph flows
         elkgraphWidget.flows = flows;
