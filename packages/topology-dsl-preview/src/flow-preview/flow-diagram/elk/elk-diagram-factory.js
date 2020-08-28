@@ -562,8 +562,7 @@ function init(containerElt,width,height,iconWidth){
   let svg = d3.select(containerElt)
   .append("svg")
   .attr("xmlns:xlink","http://www.w3.org/1999/xlink")
-  .attr("width", width)
-  .attr("height", height)
+  .classed("svg-content", true)
   .call(zoomFn)
   .append("g");
     // define an arrow head
