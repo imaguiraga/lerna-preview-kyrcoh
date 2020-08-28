@@ -7,7 +7,7 @@ import {
 } from "@imaguiraga/topology-dsl-core";
 
 
-function updateInboundOutboundBindings(elt,graph,visitor) {
+function updateInputOutputBindings(elt,graph,visitor) {
   // Add Inbounds nodes and edges from children
   elt.inputElts = elt.inputElts || [];
   elt.inputElts.forEach(t => {
@@ -261,11 +261,11 @@ class SequenceEltFlowToELKVisitor{
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInboundOutboundBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt,graph,visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInboundOutboundBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt,graph,visitor);
         }
       }
      
@@ -333,11 +333,11 @@ class MutltiPathEltFlowToELKVisitor{
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInboundOutboundBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt,graph,visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInboundOutboundBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt,graph,visitor);
         }
       }
     });
@@ -435,11 +435,11 @@ class OptionalEltFlowToELKVisitor{
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInboundOutboundBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt,graph,visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInboundOutboundBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt,graph,visitor);
         }
       }
     });
@@ -546,11 +546,11 @@ class RepeatEltFlowToELKVisitor {
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInboundOutboundBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt,graph,visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInboundOutboundBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt,graph,visitor);
         }
       }
     });
