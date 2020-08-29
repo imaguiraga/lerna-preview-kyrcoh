@@ -56,6 +56,13 @@ export class CodeMirrorWidget extends Widget {
     this.node.appendChild(content);
     
     this._editor = CodeMirror(content, config);
+    let self = this;
+    self.editor.on("changes",(instance) => {
+      // Emit changes
+      let content = instance.getDoc().getValue();
+      self._valueChanged.emit(content);
+  
+    }); 
   }
 
   get editor(): CodeMirror.Editor {
@@ -72,10 +79,11 @@ export class CodeMirrorWidget extends Widget {
 
   loadTarget(target: string): void {
     var doc = this._editor.getDoc();
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', target);
-    xhr.onreadystatechange = () => doc.setValue(xhr.responseText);
-    xhr.send();
+    fetch(target)
+      .then(response => response.json())
+      .then( function(data) { 
+        doc.setValue(data);
+      });
   }
 
   protected onAfterAttach(msg: Message): void {
