@@ -26,7 +26,7 @@ export class AceEditorWidget extends Widget {
 
   constructor(config?: ace.Ace.EditorOptions) {
     super();
-    //this.addClass('CodeMirrorWidget');
+    this.addClass('CodeMirrorWidget');
 
     let div = document.createElement('div');
     div.setAttribute("style","padding:4px;background-color: #dfdfdf;");

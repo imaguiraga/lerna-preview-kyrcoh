@@ -31,7 +31,7 @@ export class CodeMirrorWidget extends Widget {
 
   constructor(config?: CodeMirror.EditorConfiguration) {
     super();
-    //this.addClass('CodeMirrorWidget');
+    this.addClass('CodeMirrorWidget');
 
     let div = document.createElement('div');
     div.setAttribute("style","padding:4px;background-color: #dfdfdf;");

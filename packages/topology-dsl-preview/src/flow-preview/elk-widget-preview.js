@@ -77,14 +77,14 @@ function main() {
 
 function createMainWidget(palette,commands){
   const elkgraphWidget = new ELKGraphWidget(640,640);
-
+/*
   const editorWidget = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,
     tabSize: 2,
   });
 //*/
-/*
+
   const editorWidget = new AceEditorWidget();
 //*/  
   editorWidget.title.label = 'Topology EDITOR';
