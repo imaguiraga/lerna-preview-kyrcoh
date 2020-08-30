@@ -44,14 +44,17 @@ body {
   min-width: 200px;
   min-height: 200px;
   width: 100%;
-  height: calc(100% - 36px);
+  height: 100%;
   margin: auto;
 }
 
-.AceEditorWidget { 
+.AceEditorWidget, .CodeMirrorWidget > .CodeMirror  { 
   border: 0px;
+  min-width: 200px;
+  min-height: 200px;
   width: 100%!important;
   height: calc(100% - 36px)!important;
+  margin: auto;
 }
 
 .scrollmargin {
