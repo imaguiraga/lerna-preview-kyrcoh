@@ -19,9 +19,7 @@ body {
   bottom: 0;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
-
 
 #menuBar {
   flex: 0 0 auto;
@@ -32,27 +30,33 @@ body {
   flex: 1 1 auto;
 }
 
-
 #palette {
   min-width: 300px;
   border-right: 1px solid #DDDDDD;
 }
 
-
 #dock {
   padding: 4px;
 }
 
-.CodeMirrorWidget, .AceEditorWidget {
+.CodeMirrorWidget {
   border: 1px solid #C0C0C0;
   min-width: 200px;
   min-height: 200px;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 36px);
+  margin: auto;
 }
 
 .AceEditorWidget { 
   border: 0px;
+  width: 100%!important;
+  height: calc(100% - 36px)!important;
+}
+
+.scrollmargin {
+  height: 80px;
+  text-align: center;
 }
 
 .p-TabBar-content, .lm-TabBar-content {
@@ -82,6 +86,7 @@ body {
 .flow-select {
   width: 100%;
   padding: 2px;
+  height: 24px;
   margin: auto;
   font-family: "Consolas";
 }

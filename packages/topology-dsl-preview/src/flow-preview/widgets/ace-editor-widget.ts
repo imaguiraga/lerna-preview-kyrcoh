@@ -14,7 +14,8 @@ import { ISignal, Signal } from '@lumino/signaling';
 import * as ace from "ace-builds";
 import '../style/index.css';
 
-ace.config.set("basePath", "ace-builds/src-noconflict");
+ace.config.set("basePath", "https://ajaxorg.github.io/ace-builds/src-noconflict");
+
 //import "tslint";
 //globalThis.JSHINT = JSHINT;
 
@@ -25,7 +26,7 @@ export class AceEditorWidget extends Widget {
 
   constructor(config?: ace.Ace.EditorOptions) {
     super();
-    this.addClass('CodeMirrorWidget');
+    //this.addClass('CodeMirrorWidget');
 
     let div = document.createElement('div');
     div.setAttribute("style","padding:4px;background-color: #dfdfdf;");
@@ -49,17 +50,21 @@ export class AceEditorWidget extends Widget {
     content.setAttribute("class","AceEditorWidget");
     this.node.appendChild(content);
     
-    this._editor = ace.edit(content, config || {
+    const editor = ace.edit(content, config || {
       mode: "ace/mode/javascript",
-      selectionStyle: "text",
-      autoScrollEditorIntoView: false,
-      copyWithEmptySelection: false,
-      enableAutoIndent: false,
+     // selectionStyle: "text",
+      autoScrollEditorIntoView: true,
+      copyWithEmptySelection: true,
+      enableAutoIndent: true,
+      hScrollBarAlwaysVisible: true,
+      vScrollBarAlwaysVisible: true,
+      theme: "ace/theme/textmate",
+      showPrintMargin: true
     });
 
-    this._editor.setTheme("ace/theme/textmate");
-    this._editor.setShowPrintMargin(true);
-    this._editor.session.setTabSize(2);
+    editor.session.setTabSize(2);
+    editor.renderer.setScrollMargin(0,10,10,10);
+    this._editor = editor;
 
     let self = this;
     self.editor.session.on('change', function(delta: ace.Ace.Delta) {
@@ -68,7 +73,10 @@ export class AceEditorWidget extends Widget {
       let content = self.editor.getValue();
       self._valueChanged.emit(content);
     });
-;
+
+    
+    
+
   }
 
   get editor(): any {
@@ -97,7 +105,12 @@ export class AceEditorWidget extends Widget {
   }
 
   protected onResize(msg: Widget.ResizeMessage): void {
-
+    this._editor.container.setAttribute("width",msg.width.toString());
+    if (msg.width > 0 && msg.height > 0) {
+      this._editor.container.style.width = msg.width + "px";
+      this._editor.container.style.height = msg.height + "px";
+      this._editor.resize();
+    } 
   }
 
   // samples
