@@ -23,6 +23,8 @@ import {
 } from './widgets/menu-util';
 
 import { CodeMirrorWidget } from "./widgets/codemirror-widget";
+import { AceEditorWidget } from "./widgets/ace-editor-widget";
+
 import { ELKGraphWidget } from "./widgets/elkgraph-widget";
 
 import './style/index.css';
@@ -75,20 +77,19 @@ function main() {
 
 function createMainWidget(palette,commands){
   const elkgraphWidget = new ELKGraphWidget(640,640);
-
-  const cmSource = new CodeMirrorWidget({
+/*
+  const editorWidget = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,
     tabSize: 2,
   });
+//*/
+
+  const editorWidget = new AceEditorWidget();
+//*/  
+  editorWidget.title.label = 'Topology EDITOR';
   
-  cmSource.title.label = 'Topology EDITOR';
-  
-  cmSource.editor.on("changes",(instance) => {
-    //if(DEBUG) 
-    console.log('changes');
-    // Update preview
-    let content = instance.getDoc().getValue();
+  const callbackFn = function (content) {
     try {
       // Update preview
       resolveImports(content).then((resolvedImports) => {
@@ -107,23 +108,22 @@ function createMainWidget(palette,commands){
     } catch(e) {
       console.error(e.name + ': ' + e.message);
     }
+  };
 
-  }); 
-//*/
-
-  cmSource.valueChanged.connect(
+  editorWidget.valueChanged.connect(
     (sender, value) => {
       console.log("valueChanged");
+      callbackFn(value);
     }
   );
   
   // set default samples
-  cmSource.samples = samples;
+  editorWidget.samples = samples;
 
   let dock = new DockPanel();
 
-  dock.addWidget(cmSource);
-  dock.addWidget(elkgraphWidget, { mode: 'split-right', ref: cmSource });
+  dock.addWidget(editorWidget);
+  dock.addWidget(elkgraphWidget, { mode: 'split-right', ref: editorWidget });
 
   dock.id = 'dock';
 

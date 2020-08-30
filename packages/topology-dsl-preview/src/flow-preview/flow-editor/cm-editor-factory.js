@@ -1,10 +1,13 @@
 
 import CodeMirror from "codemirror";
 import "codemirror/lib/codemirror.css";
+import "codemirror/addon/scroll/simplescrollbars.css";
+import "codemirror/addon/scroll/simplescrollbars.js";
 import "codemirror/mode/javascript/javascript.js";
 import "codemirror/addon/lint/lint.js";
 import "codemirror/addon/lint/javascript-lint.js";
 import "codemirror/addon/lint/lint.css";
+
 //import "jshint/src/jshint.js";
 //import * as jshint from "jshint";
 import { JSHINT } from "jshint";
@@ -37,6 +40,7 @@ export function createEditor(container, content, mode){
           "CodeMirror-foldgutter",
           "CodeMirror-lint-markers"
         ],
+        scrollbarStyle: "simple"
     });
 
   return editor;
