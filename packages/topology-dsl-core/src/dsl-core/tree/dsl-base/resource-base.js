@@ -22,21 +22,9 @@ export class TerminalResource {
   constructor(elts,resourceType,tagName,provider) {
     let self = this;
     // Nex Id Generator
-    this.idGenIt = NODEIDGENFN;
-
+    self.idGenIt = NODEIDGENFN;
     self.title = "title";
-    self.elts = [];
-    // Support for dataflow with input and output bindings
-    self.inputElts = []; 
-    self.outputElts = [];
 
-    let r = self.resolveElt(elts); 
-    if( r !== null) {
-      // only one elt can be added
-      self.elts.push(r);
-      self.title = r;
-    }
-    
     //get new id
     self.resourceType = resourceType || "terminal";
     self.subType = self.resourceType;// use for extending the resource
@@ -49,6 +37,19 @@ export class TerminalResource {
     self._finish = null;
     self.data = new Map();
     self.link = null;
+    self.name = self.id;
+    self.title = self.id;
+
+    self.elts = [];
+    // Support for dataflow with input and output bindings
+    self.inputElts = []; 
+    self.outputElts = [];
+
+    let r = self.resolveElt(elts); 
+    if( r !== null) {
+      // only one elt can be added
+      self.elts.push(r);
+    }
     
   }
   
@@ -96,6 +97,10 @@ export class TerminalResource {
     return true;
   }
 
+  isGroup() {
+    return (this.resourceType === "group");
+  }
+
   resolveElt(elt){
     // Only accept primitive types as Terminal Element 
     let result = null;
@@ -132,7 +137,15 @@ export class TerminalResource {
     return elt;
   }
 
-  _add_(elt){  
+  foundElt(elt) {
+    return this.id === elt.id;
+  }
+
+  accept(visitor,filterFn){
+    return visitor.visit(this,filterFn);
+  }
+
+  _add_(elt) {  
     let r = this.resolveElt(elt); 
     if( r !== null) {
       // only one elt can be added
@@ -145,17 +158,20 @@ export class TerminalResource {
     return this;
   }
 
-  foundElt(elt) {
-    return this.id === elt.id;
+  _require_(elt) {
+    let e = this.toElt(elt);
+    // Add self to group elt
+    if(e.isGroup()) {
+      e._add_(this);
+    } else {
+      this._add_(elt);
+    }
+    return this;
   }
 
-  accept(visitor,filterFn){
-    return visitor.visit(this,filterFn);
-  }
-
-  _subType_(_subType) {
-    if(_subType) {
-      this.subType = _subType;
+  _subType_(value) {
+    if(value) {
+      this.subType = value;
       // Replace prefix with subType
       let tmp = this.id.split("\.");
       tmp[0] = this.subType;
@@ -164,13 +180,18 @@ export class TerminalResource {
     return this;
   }
 
-  _title_(_title){
-    this.title = _title;
+  _title_(value){
+    this.title = value;
     return this;
   }
 
-  _id_(_id){
-    this.id = _id;
+  _name_(value){
+    this.name = value;
+    return this;
+  }
+
+  _id_(value){
+    this.id = value;
     return this;
   }
 
@@ -183,8 +204,8 @@ export class TerminalResource {
     return this.data.get(key);
   }
 
-  _link_(_text){
-    this.link = _text;
+  _link_(value){
+    this.link = value;
     return this;
   }
 
