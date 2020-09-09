@@ -2,7 +2,7 @@ const iconSets = [
   {
     provider: "Azure",
     prefix: "az",
-    path: "icons/Azure_Public_Service_Icons",  
+    path: "assets/icons/Azure_Public_Service_Icons",  
     pattern : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
     resourceType : "cloud",
     //excludes : ["/CXP","/Azure VMware Solution","/General"]
@@ -10,7 +10,7 @@ const iconSets = [
   {
     provider: "Google Cloud Platform",
     prefix: "gcp",
-    path: "icons/GCP Icons/Products and services",
+    path: "assets/icons/GCP Icons/Products and services",
     pattern: "(.*).svg",
     resourceType : "cloud"
   }
