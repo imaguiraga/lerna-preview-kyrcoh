@@ -1,4 +1,4 @@
-const iconSets = [
+const sets = [
   {
     provider: "Azure",
     prefix: "az",
@@ -24,85 +24,87 @@ const { resolve, dirname, extname } = require('path');
 const nunjucks = require('nunjucks');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk').default;
-const csv2json = require('csvjson-csv2json');
+
+
+function createResource(s,item) {
+  let provider = s.provider;
+        
+  let category = item.azureCategories.join(",");
+  let product = item.title;
+  let dsl = s.prefix+"_"+product;
+  // Replace special characters
+  dsl = dsl.replace(/\-|\s+|\(|\)|\+/g,'_');
+  let isDecorator = false;
+  let resourceType = s.resourceType;
+  let tagName = "terminal";
+  let subType = dsl;
+// imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
+// imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
+  const IMAGE_PREFIX = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/";
+  let iconPath = item.imageSrc;
+  if(iconPath[0] === ".") {
+    iconPath = IMAGE_PREFIX + iconPath;
+  }
+  let typeURI = ""; 
+  let docURI = item.url;
+  // Replace 'md' and 'yml' extensions
+  docURI = docURI.replace(/md|\(|\)|\+yml/g,'html');
+  // url: /azure/databricks/ => https://docs.microsoft.com/en-us/ + /azure/databricks/
+  // url: machine-learning/index.yml => https://docs.microsoft.com/en-us/azure/ + machine-learning/
+  // url: https://docs.microsoft.com/azure-stack/
+  const DOC_PREFIX = "https://docs.microsoft.com/en-us";
+  // doesn't starts with https
+  if(docURI.indexOf("https://") < 0 && docURI.indexOf("http://") < 0 ) {
+    if(docURI.indexOf("/azure/") >= 0){
+      docURI = DOC_PREFIX + "/" + docURI;
+    } else {
+      docURI = DOC_PREFIX + "/azure/" + docURI;
+    }
+  }
+
+  console.log(category+ " => " + iconPath + " | "+dsl);
+
+  let resource = {
+    provider, 
+    category, 
+    product,
+    dsl, 
+    isDecorator, 
+    resourceType, 
+    tagName, 
+    subType, 
+    iconPath, 
+    typeURI, 
+    docURI
+  };
+  return resource;
+}
 
 (function () {
   "use strict";
  
-  var walk = require('walk');
-  var fs = require('fs');
-  var path = require('path');
-
-  iconSets.forEach((s) => {
-    let resources = [];
-
-    // Pattern
-    let rex = new RegExp(s.pattern);
-    let options = {
-      filters: s.excludes
-    };
-  
-    let walker = walk.walk("public/"+s.path, options);
- 
-    walker.on("file", function (root, fileStats, next) {
-      let found = fileStats.name.match(rex);
-      if(found != null ){
-        
-        let provider = s.provider;
-        
-        let category = path.basename(root);
-        let product = found[1];
-        let dsl = s.prefix+"_"+found[1];
-        // Replace special characters
-        dsl = dsl.replace(/\-|\s+|\(|\)|\+/g,'_');
-        let isDecorator = false;
-        let resourceType = s.resourceType;
-        let tagName = "terminal";
-        let subType = dsl;
-
-        let iconPath = path.posix.join(category,fileStats.name);
-        let typeURI = ""; 
-        let docURI = "";
-
-        console.log(category+ " => " + iconPath + " | "+dsl);
-
-        let resource = {
-          provider, 
-          category, 
-          product,
-          dsl, 
-          isDecorator, 
-          resourceType, 
-          tagName, 
-          subType, 
-          iconPath, 
-          typeURI, 
-          docURI
-        };
-        // Add resource
-        resources.push(resource);
-      }
-
-      next();
-      /*
-      fs.readFile(fileStats.name, function () {
-        // doStuff
-        next();
-      });//*/
-    });
-   
-    walker.on("errors", function (root, nodeStatsArray, next) {
-      next();
-    });
-   
-    walker.on("end", function () {
-      console.log("all done");
-      // Generate resources file
-      render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
-    });
-
+  const fetch = require('node-fetch');
+  const yaml = require('js-yaml');
+  // Parse yaml file https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml
+  // Get document, or throw exception on error
+  fetch("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml")
+  .then(response => response.text())
+  .then( function(data) { 
+    try {
+      const s = sets[0];
+      yaml.safeLoadAll(data, function (doc) {
+        let resources = [];
+        doc.productDirectory.items.forEach((item) => {
+          resources.push(createResource(s,item));
+        });
+        // Generate resources file
+        render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
+      });
+    } catch (e) {
+        console.log(e);
+    }
   });
-  
+
 }()); 
 
 // Parse categories https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/bread/toc.yml
