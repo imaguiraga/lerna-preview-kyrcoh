@@ -6,27 +6,28 @@ const sets = [
     pattern : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
     resourceType : "cloud",
     //excludes : ["/CXP","/Azure VMware Solution","/General"]
-  },
+  }
+  /*,
   {
     provider: "Google Cloud Platform",
     prefix: "gcp",
     path: "assets/icons/GCP Icons/Products and services",
     pattern: "(.*).svg",
     resourceType : "cloud"
-  }
+  }//*/
 ];
 
 // Generate csv from iconSets
 //provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
 const fs = require('fs');
-const { readFileSync, writeFileSync } = fs;
+const { writeFileSync } = fs;
 const { resolve, dirname, extname } = require('path');
 const nunjucks = require('nunjucks');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk').default;
 
 
-function createResource(s,item) {
+function createAzResource(s,item) {
   let provider = s.provider;
         
   let category = item.azureCategories.join(",");
@@ -84,32 +85,33 @@ function createResource(s,item) {
   return resource;
 }
 
-(function () {
+function azDsl(s) {
   "use strict";
  
   const fetch = require('node-fetch');
   const yaml = require('js-yaml');
-  // Parse yaml file https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml
-  // Get document, or throw exception on error
-  fetch("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml")
-  .then(response => response.text())
-  .then( function(data) { 
-    try {
-      const s = sets[0];
-      yaml.safeLoadAll(data, function (doc) {
-        let resources = [];
-        doc.productDirectory.items.forEach((item) => {
-          resources.push(createResource(s,item));
+  let promise = new Promise( (resolutionFunc,rejectionFunc) => {
+   
+    // Parse yaml file https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml
+    // Get document, or throw exception on error
+    fetch("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml")
+    .then(response => response.text())
+    .then( function(data) { 
+      try {
+        yaml.safeLoadAll(data, function (doc) {
+          let resources = [];
+          doc.productDirectory.items.forEach((item) => {
+            resources.push(createAzResource(s,item));
+          });
+          resolutionFunc(resources);
         });
-        // Generate resources file
-        render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
-      });
-    } catch (e) {
-        console.log(e);
-    }
+      } catch (e) {
+          console.log(e);
+      }
+    });
   });
-
-}()); 
+  return promise;
+} 
 
 // Parse categories https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/bread/toc.yml
 
@@ -171,4 +173,16 @@ const render = (
       writeFileSync(outputFile, res);
     }
   });
+};
+
+sets.forEach((s) => {
+  azDsl(s).then((resources) => {
+    // Generate resources file
+    render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
+  });
+});
+
+module.exports = {
+  azDsl, 
+  render
 };

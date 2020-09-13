@@ -1,4 +1,4 @@
-const iconSets = [
+const sets = [
   {
     provider: "Azure",
     prefix: "az",
@@ -19,31 +19,27 @@ const iconSets = [
 // Generate csv from iconSets
 //provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
 const fs = require('fs');
-const { readFileSync, writeFileSync } = fs;
+const { writeFileSync } = fs;
 const { resolve, dirname, extname } = require('path');
 const nunjucks = require('nunjucks');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk').default;
-const csv2json = require('csvjson-csv2json');
 
-(function () {
+function cloudDsl(s) {
   "use strict";
- 
   var walk = require('walk');
-  var fs = require('fs');
   var path = require('path');
+  let resources = [];
 
-  iconSets.forEach((s) => {
-    let resources = [];
+  // Pattern
+  let rex = new RegExp(s.pattern);
+  let options = {
+    filters: s.excludes
+  };
 
-    // Pattern
-    let rex = new RegExp(s.pattern);
-    let options = {
-      filters: s.excludes
-    };
-  
+  let promise = new Promise((resolutionFunc,rejectionFunc) => {
     let walker = walk.walk("public/"+s.path, options);
- 
+
     walker.on("file", function (root, fileStats, next) {
       let found = fileStats.name.match(rex);
       if(found != null ){
@@ -84,26 +80,22 @@ const csv2json = require('csvjson-csv2json');
       }
 
       next();
-      /*
-      fs.readFile(fileStats.name, function () {
-        // doStuff
-        next();
-      });//*/
+
     });
-   
+    
     walker.on("errors", function (root, nodeStatsArray, next) {
       next();
     });
-   
+    
     walker.on("end", function () {
       console.log("all done");
       // Generate resources file
-      render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
+      resolutionFunc(resources);
     });
-
   });
-  
-}());
+
+  return promise;
+}
 
 const render = (
 	/** @type {Object} */ context, 
@@ -140,4 +132,16 @@ const render = (
       writeFileSync(outputFile, res);
     }
   });
+};
+
+sets.forEach((s) => {
+  cloudDsl(s).then((resources) => {
+    // Generate resources file
+    render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
+  });
+});
+
+module.exports = {
+  cloudDsl, 
+  render
 };

@@ -40,7 +40,7 @@
     "webworker-threads": "^0.7.17"
   },
   "scripts": {
-    "dsl": "node scripts/az2dsl.js",
+    "dsl": "node scripts/az-dsl.js",
     "start": "react-scripts --max-old-space-size=4096 start",
     "build": "react-scripts --max-old-space-size=4096 build",
     "test": "react-scripts test --env=jsdom",
