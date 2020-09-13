@@ -48,19 +48,23 @@ function createResource(s,item) {
   let typeURI = ""; 
   let docURI = item.url;
   // Replace 'md' and 'yml' extensions
-  docURI = docURI.replace(/md|\(|\)|\+yml/g,'html');
+  
   // url: /azure/databricks/ => https://docs.microsoft.com/en-us/ + /azure/databricks/
   // url: machine-learning/index.yml => https://docs.microsoft.com/en-us/azure/ + machine-learning/
   // url: https://docs.microsoft.com/azure-stack/
   const DOC_PREFIX = "https://docs.microsoft.com/en-us";
   // doesn't starts with https
   if(docURI.indexOf("https://") < 0 && docURI.indexOf("http://") < 0 ) {
+   // docURI = docURI.replace(/(\/(\w|\-)+\.md|\/(\w|\-)+\.yml)$/g,'/');
     if(docURI.indexOf("/azure/") >= 0){
       docURI = DOC_PREFIX + "/" + docURI;
     } else {
       docURI = DOC_PREFIX + "/azure/" + docURI;
     }
+    
   }
+
+  docURI = docURI.replace(/(\.md|\.yml)$/g,'');
 
   console.log(category+ " => " + iconPath + " | "+dsl);
 
