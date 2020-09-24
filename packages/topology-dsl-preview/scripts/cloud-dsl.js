@@ -56,7 +56,7 @@ function cloudDsl(s) {
         let tagName = "terminal";
         let subType = dsl;
 
-        let iconPath = path.posix.join(category,fileStats.name);
+        let iconPath = path.posix.join(s.path,category,fileStats.name);
         let typeURI = ""; 
         let docURI = "";
 

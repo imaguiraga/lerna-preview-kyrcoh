@@ -1,5 +1,5 @@
 /**
- * Class TerminalResource.
+ * idGenFn function.
  */
 function* idGenFn(prefix,index) {
   while (index >= 0) {
@@ -11,6 +11,10 @@ function* idGenFn(prefix,index) {
 }
 
 export const NODEIDGENFN = idGenFn("node.",0);
+
+/**
+ * Class TerminalResource.
+ */
 export class TerminalResource {
   /**
    * Create a TerminalResource.
@@ -52,7 +56,69 @@ export class TerminalResource {
     }
     
   }
-  
+
+  /**
+   * Performs preorder traversal.
+   * @param {(value: T, index: number, array: T[], thisArg: any) => void} callbackFn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
+   * @param {Object} thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+   */
+  preorder(callbackFn, i = -1, arr = [], thisArg = undefined) {
+    let self = this;
+    callbackFn(self,i,arr,thisArg);
+    self.forEach((v,n,a) => {
+      if(v.preorder){
+        v.preorder(callbackFn,n,a,self);
+      }
+    },self);
+
+  }
+
+   /**
+   * Performs postorder traversal.
+   * @param {(value: T, index: number, array: T[], thisArg: any)) => void} callbackFn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
+   * @param {Object} thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+   */
+  postorder(callbackFn, i = -1, arr = [], thisArg = undefined) { 
+    let self = this;
+    self.forEach((v,n,a) => {
+      if(v.postorder){
+        v.postorder(callbackFn,n,a,self);
+      }
+    },self);
+    callbackFn(self,i,arr,thisArg);
+  }
+
+  /**
+   * Performs the specified action for each element in an array.
+   * @param {(value: T, index: number, array: T[]) => void} callbackFn  A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.
+   * @param {Object} thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+   */
+  forEach(callbackFn, thisArg){
+    this.elts.forEach(callbackFn,thisArg);
+  }
+
+  /**
+   * Calls a defined callback function on each element of an array, and returns an array that contains the results.
+   * @param {(value: T, index: number, array: T[]) => U} callbackFn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
+   * @param {Object} thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
+   * @returns {U[]}
+   */
+  map(callbackFn, thisArg){
+    return this.elts.map(callbackFn,thisArg);
+  }
+
+  /**
+   * Returns the elements of an array that meet the condition specified in a callback function.
+   * @param {(value: T, index: number, array: T[]) => unknown} predicateFn A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
+   * @param {Object} thisArg An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
+   * @returns {T[]}
+   */
+  filter(predicateFn, thisArg) {
+    // Filter children
+    return this.elts.filter(predicateFn,thisArg);
+
+  }
+
   get start(){
     if(this._start == null){
       return {
