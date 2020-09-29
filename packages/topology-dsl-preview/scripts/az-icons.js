@@ -1,6 +1,6 @@
 const sets = [
   {
-    provider: "Azure",
+    provider: "Azure_Products_Icons",
     prefix: "az",
     path: "assets/icons/Azure_Public_Service_Icons",  
     pattern : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
@@ -18,14 +18,10 @@ const sets = [
 ];
 
 // Generate csv from iconSets
-//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
+//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconURL, typeURI, docURL
 const fs = require('fs');
-const { writeFileSync } = fs;
-const { resolve, dirname, extname } = require('path');
-const nunjucks = require('nunjucks');
 const mkdirp = require('mkdirp');
-const chalk = require('chalk').default;
-
+const yaml = require('js-yaml');
 
 function createAzResource(s,item) {
   let provider = s.provider;
@@ -42,12 +38,12 @@ function createAzResource(s,item) {
 // imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
 // imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
   const IMAGE_PREFIX = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/";
-  let iconPath = item.imageSrc;
-  if(iconPath[0] === ".") {
-    iconPath = IMAGE_PREFIX + iconPath;
+  let iconURL = item.imageSrc;
+  if(iconURL[0] === ".") {
+    iconURL = IMAGE_PREFIX + iconURL;
   }
   let typeURI = ""; 
-  let docURI = item.url;
+  let docURL = item.url;
   // Replace 'md' and 'yml' extensions
   
   // url: /azure/databricks/ => https://docs.microsoft.com/en-us/ + /azure/databricks/
@@ -55,19 +51,19 @@ function createAzResource(s,item) {
   // url: https://docs.microsoft.com/azure-stack/
   const DOC_PREFIX = "https://docs.microsoft.com/en-us";
   // doesn't starts with https
-  if(docURI.indexOf("https://") < 0 && docURI.indexOf("http://") < 0 ) {
-   // docURI = docURI.replace(/(\/(\w|\-)+\.md|\/(\w|\-)+\.yml)$/g,'/');
-    if(docURI.indexOf("/azure/") >= 0){
-      docURI = DOC_PREFIX + "/" + docURI;
+  if(docURL.indexOf("https://") < 0 && docURL.indexOf("http://") < 0 ) {
+   // docURL = docURL.replace(/(\/(\w|\-)+\.md|\/(\w|\-)+\.yml)$/g,'/');
+    if(docURL.indexOf("/azure/") >= 0){
+      docURL = DOC_PREFIX + "/" + docURL;
     } else {
-      docURI = DOC_PREFIX + "/azure/" + docURI;
+      docURL = DOC_PREFIX + "/azure/" + docURL;
     }
     
   }
 
-  docURI = docURI.replace(/(\.md|\.yml)$/g,'');
+  docURL = docURL.replace(/(\.md|\.yml)$/g,'');
 
-  console.log(category+ " => " + iconPath + " | "+dsl);
+  console.log(category+ " => " + iconURL + " | "+dsl);
 
   let resource = {
     provider, 
@@ -78,18 +74,19 @@ function createAzResource(s,item) {
     resourceType, 
     tagName, 
     subType, 
-    iconPath, 
+    iconURL, 
     typeURI, 
-    docURI
+    docURL
   };
   return resource;
 }
+
 
 function azDsl(s) {
   "use strict";
  
   const fetch = require('node-fetch');
-  const yaml = require('js-yaml');
+  
   let promise = new Promise( (resolutionFunc,rejectionFunc) => {
    
     // Parse yaml file https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml
@@ -138,51 +135,14 @@ function azDsl(s) {
 // imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
 // imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
 
-const render = (
-	/** @type {Object} */ context, 
-	/** @type {string} */ templateDir, 
-  /** @type {string} */ outputDir
- ) => {
-
-	/** @type {nunjucks.ConfigureOptions} */
-	const nunjucksOptions = { 
-		trimBlocks: true, 
-		lstripBlocks: true, 
-		noCache: true, 
-		autoescape: false 
-	};
-
-	/** @type {nunjucks.Environment} */
-  const nunjucksEnv = nunjucks.configure(templateDir, nunjucksOptions);
-  // Process all input
-  // Process all templates
-  fs.readdir(templateDir, function(err, files) {
-    console.log(files);
-
-    for (const file of files) {
-      const res = nunjucksEnv.render(file, context);
-      // Remove Template file extension
-      let outputFile = context.prefix + "-" + file.substring(0,file.indexOf(extname(file)));
-
-      if (outputDir) {
-        outputFile = resolve(outputDir, outputFile);
-        mkdirp.sync(dirname(outputFile));
-      }
-
-      console.log(chalk.green('Rendering: ' + file));
-      writeFileSync(outputFile, res);
-    }
-  });
-};
-
 sets.forEach((s) => {
   azDsl(s).then((resources) => {
     // Generate resources file
-    render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
+    mkdirp.sync("./scripts/yml/");
+    fs.writeFileSync("./scripts/yml/"+s.provider+".yml",yaml.safeDump({source: s,items: resources}));
   });
 });
 
 module.exports = {
-  azDsl, 
-  render
+  azDsl
 };
