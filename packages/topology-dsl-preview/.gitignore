@@ -3,4 +3,7 @@ build/
 package-lock.json
 yarn.lock
 scripts/out/
+scripts/yml/
 bootstrap-icons-1.0.0-alpha5/
+dist/
+.next/

@@ -22,7 +22,8 @@
     "jshint": "^2.11.0"
   },
   "scripts": {
-    "build": "rimraf ./dist && babel ./src --out-dir ./dist --source-maps --copy-files"
+    "build": "rimraf ./dist && babel ./src --out-dir ./dist --source-maps --copy-files",
+    "types": "pwd && tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir ./types"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
