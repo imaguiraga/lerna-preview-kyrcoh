@@ -1,6 +1,6 @@
 let mapArray = [
 {% for item in items %}
-  ['{{ item.dsl }}' , '{{ encodeURI(item.iconPath) }}'],
+  ['{{ item.dsl }}' , '{{ encodeURI(item.iconURL) }}'],
 {% endfor %}
 ];
 export const iconMap = new Map(mapArray);

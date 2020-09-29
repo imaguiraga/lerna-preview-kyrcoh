@@ -40,7 +40,9 @@
     "webworker-threads": "^0.7.17"
   },
   "scripts": {
-    "dsl": "node scripts/cloud-dsl.js",
+    "dsl": "yarn az-dsl && yarn cloud-dsl && node scripts/icons.js",
+    "az-dsl": "node scripts/az-icons.js",
+    "cloud-dsl": "node scripts/cloud-icons.js",
     "start": "react-scripts --max-old-space-size=4096 start",
     "build": "react-scripts --max-old-space-size=4096 build",
     "test": "react-scripts test --env=jsdom",

@@ -1,6 +1,6 @@
 const sets = [
   {
-    provider: "Azure",
+    provider: "Azure_Public_Service_Icons",
     prefix: "az",
     path: "assets/icons/Azure_Public_Service_Icons",  
     pattern : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
@@ -8,7 +8,7 @@ const sets = [
     //excludes : ["/CXP","/Azure VMware Solution","/General"]
   },
   {
-    provider: "Google Cloud Platform",
+    provider: "GCP_Icons",
     prefix: "gcp",
     path: "assets/icons/GCP Icons/Products and services",
     pattern: "(.*).svg",
@@ -17,13 +17,11 @@ const sets = [
 ];
 
 // Generate csv from iconSets
-//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconPath, typeURI, docURI
+//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconURL, typeURI, docURL
 const fs = require('fs');
-const { writeFileSync } = fs;
-const { resolve, dirname, extname } = require('path');
-const nunjucks = require('nunjucks');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk').default;
+const yaml = require('js-yaml');
 
 function cloudDsl(s) {
   "use strict";
@@ -56,11 +54,11 @@ function cloudDsl(s) {
         let tagName = "terminal";
         let subType = dsl;
 
-        let iconPath = path.posix.join(s.path,category,fileStats.name);
+        let iconURL = path.posix.join(s.path,category,fileStats.name);
         let typeURI = ""; 
-        let docURI = "";
+        let docURL = "";
 
-        console.log(category+ " => " + iconPath + " | "+dsl);
+        console.log(category+ " => " + iconURL + " | "+dsl);
 
         let resource = {
           provider, 
@@ -71,9 +69,9 @@ function cloudDsl(s) {
           resourceType, 
           tagName, 
           subType, 
-          iconPath, 
+          iconURL, 
           typeURI, 
-          docURI
+          docURL
         };
         // Add resource
         resources.push(resource);
@@ -97,51 +95,14 @@ function cloudDsl(s) {
   return promise;
 }
 
-const render = (
-	/** @type {Object} */ context, 
-	/** @type {string} */ templateDir, 
-  /** @type {string} */ outputDir
- ) => {
-
-	/** @type {nunjucks.ConfigureOptions} */
-	const nunjucksOptions = { 
-		trimBlocks: true, 
-		lstripBlocks: true, 
-		noCache: true, 
-		autoescape: false 
-	};
-
-	/** @type {nunjucks.Environment} */
-  const nunjucksEnv = nunjucks.configure(templateDir, nunjucksOptions);
-  // Process all input
-  // Process all templates
-  fs.readdir(templateDir, function(err, files) {
-    console.log(files);
-
-    for (const file of files) {
-      const res = nunjucksEnv.render(file, context);
-      // Remove Template file extension
-      let outputFile = context.prefix + "-" + file.substring(0,file.indexOf(extname(file)));
-
-      if (outputDir) {
-        outputFile = resolve(outputDir, outputFile);
-        mkdirp.sync(dirname(outputFile));
-      }
-
-      console.log(chalk.green('Rendering: ' + file));
-      writeFileSync(outputFile, res);
-    }
-  });
-};
-
 sets.forEach((s) => {
   cloudDsl(s).then((resources) => {
     // Generate resources file
-    render({ items: resources , ...s, encodeURI },"scripts/templates","scripts/out/"+s.prefix);
+    mkdirp.sync("./scripts/yml/");
+    fs.writeFileSync("./scripts/yml/"+s.provider+".yml",yaml.safeDump({source: s,items: resources}));
   });
 });
 
 module.exports = {
-  cloudDsl, 
-  render
+  cloudDsl
 };
