@@ -8,6 +8,10 @@
   "description": "topology-dsl-core project",
   "private": true,
   "main": "./dist/index.js",
+  "files":[
+    "src",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/imaguiraga/lerna-preview-kyrcoh.git",

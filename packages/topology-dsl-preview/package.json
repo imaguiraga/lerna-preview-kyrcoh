@@ -13,6 +13,10 @@
     "directory": "packages/topology-dsl-preview"
   },
   "main": "index.html",
+  "files":[
+    "src",
+    "dist"
+  ],
   "dependencies": {
     "@antv/g6": "^3.4.8",
     "@antv/util": "^2.0.9",
