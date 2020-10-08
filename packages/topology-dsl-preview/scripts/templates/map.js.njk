@@ -3,4 +3,4 @@ let mapArray = [
   ['{{ item.dsl }}' , '{{ encodeURI(item.iconURL) }}'],
 {% endfor %}
 ];
-export const iconMap = new Map(mapArray);
+module.exports.default = new Map(mapArray);

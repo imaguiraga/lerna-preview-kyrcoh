@@ -307,7 +307,7 @@ class MutltiPathEltFlowToELKVisitor{
     // groups are just containers
     if( type !== "group") {
       for (let i = 0; i < tree.elts.length; i++) { 
-        if( type !== "fan-in") {
+        if( type !== "fanIn") {
           graph.edges.push({
             id: `${visitor.edgeCntIt.next().value}`,
             sources: [tree.start.id],
@@ -315,7 +315,7 @@ class MutltiPathEltFlowToELKVisitor{
             ...visitor.getEdgeModel(tree),
           });
         }
-        if( type !== "fan-out") {
+        if( type !== "fanOut") {
           graph.edges.push({
             id: `${visitor.edgeCntIt.next().value}`,
             sources: [tree.elts[i].finish.id],

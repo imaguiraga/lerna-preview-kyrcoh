@@ -1,4 +1,4 @@
-import {
+const {
   fanIn,
   fanOut,
   fanOut_fanIn,
@@ -10,7 +10,7 @@ import {
   merge,
   branch,
   terminal
-} from "@imaguiraga/topology-dsl-core";
+} = require("@imaguiraga/topology-dsl-core");
 
 {% for item in items %}
 /**
@@ -18,8 +18,9 @@ import {
  * @param {array|object} elts - The elements.
  * @return {object} dsl object.
  */
-export function {{ item.dsl }}(...elts) {
+function {{ item.dsl }}(...elts) {
   return {{ item.tagName }}(...elts)._subType_("{{ item.subType }}");
 }
+module.exports.{{ item.dsl }} = {{ item.dsl }};
 
 {% endfor %}
