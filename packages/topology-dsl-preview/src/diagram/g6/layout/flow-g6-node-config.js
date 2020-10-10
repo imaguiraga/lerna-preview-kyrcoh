@@ -1,4 +1,4 @@
-import "../../../style/font-awesome-4.7.0/css/font-awesome.css";
+import "../../../preview/style/font-awesome-4.7.0/css/font-awesome.css";
 
 export const FLOW_NODE_OPTIONS = {
   drawShape(cfg, group) {
