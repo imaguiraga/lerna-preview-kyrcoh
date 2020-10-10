@@ -1,1 +1,5 @@
-export * from "./dsl-core/index.js";
+/* tree */
+export * from "./tree/index.js";
+
+/* parser */
+export * from "./parser/index.js";
