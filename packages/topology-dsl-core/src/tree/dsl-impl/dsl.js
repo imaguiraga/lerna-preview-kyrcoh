@@ -7,7 +7,7 @@ import {
   SequenceElt,
   TerminalElt,
   GroupElt
-} from "./resource";
+} from "./resource.js";
 
 /**
  * Create a fanOut_fanIn dsl tree.

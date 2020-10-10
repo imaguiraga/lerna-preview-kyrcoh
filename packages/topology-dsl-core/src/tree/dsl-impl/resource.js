@@ -1,7 +1,7 @@
 import {
   CompositeResource,
   TerminalResource
-} from '../dsl-base/resource-base.js';
+} from '../dsl-base/base.js';
 
 export const DEFAULT_TAG = "flow";
 
