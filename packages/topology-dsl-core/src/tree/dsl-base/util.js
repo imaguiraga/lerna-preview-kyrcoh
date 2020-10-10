@@ -1,7 +1,7 @@
 import {
   TerminalResource,
   CompositeResource
-} from "./resource-base.js";
+} from "./base.js";
 
 export function isContainer (n) {
   return (n.children && n.children != null && n.children.length > 0) || 
