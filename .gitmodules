@@ -1,0 +1,3 @@
+[submodule "packages/topology-dsl-core"]
+	path = packages/topology-dsl-core
+	url = https://github.com/imaguiraga/topology-dsl-core.git

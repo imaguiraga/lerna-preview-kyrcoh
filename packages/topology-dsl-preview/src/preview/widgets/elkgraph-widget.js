@@ -5,17 +5,17 @@ import {
  Widget
 } from '@lumino/widgets';
 
-import * as diagram from "../flow-diagram";
+import * as diagram from "../../diagram";
 
-export class G6GraphWidget extends Widget {
+export class ELKGraphWidget extends Widget {
 
   constructor(_width,_height) {
     super();
     this._flows = new Map();
     this.addClass('CodeMirrorWidget');
-    this.title.label = "Flow PREVIEW";
+    this.title.label = "Topology PREVIEW";
     this.title.closable = false;
-    this.title.caption = `Long description for:G6 Graph`;
+    this.title.caption = `Long description for ELK Graph`;
 
     let div = document.createElement('div'); 
     div.setAttribute("style","padding:4px;background-color: #dfdfdf;");
@@ -39,12 +39,23 @@ export class G6GraphWidget extends Widget {
     this.content.setAttribute("style","scroll-behavior: auto;overflow: scroll;");
     this.node.appendChild(this.content);
 
-    this._graph = diagram.createFlowDiagram(this.content,_width,_height);
-    this._graph.data([]);
-    this._graph.fitView(20); 
-    this._graph.render();
+    this.renderer = diagram.createElkRenderer(this.content,_width,_height);
 
     console.log(`ctor : W${this.content.scrollWidth} - H${this.content.scrollHeight}`);
+  }
+
+  renderFlow(input){
+    if( typeof input === "undefined" || input === null){
+      return;
+    }
+  
+    try {
+      this.renderer.render(input);
+   
+    } catch(e) {
+      console.error(e);
+    }
+   
   }
 
   onAfterAttach(msg) {   
@@ -53,16 +64,6 @@ export class G6GraphWidget extends Widget {
 
   onResize(msg) {
     console.log(`onResize : W${this.content.scrollWidth} - H${this.content.scrollHeight} # W${msg.width} - H${msg.height}`);
-    if(msg.width > 0 && msg.height > 0 ){
-        
-        this._graph.changeSize(
-            Math.max(this.content.clientWidth,this.node.clientWidth), 
-            Math.max(this.content.clientHeight,this.node.clientHeight)
-        ); 
-        this._graph.fitView(20); 
-        this._graph.render();
-        
-    }
   }
   
   get graph(){
@@ -97,14 +98,8 @@ export class G6GraphWidget extends Widget {
   }
 
   setData(_data){
-    // resise when data changes
-    this._graph.changeSize(
-        Math.min(this.content.clientWidth,this.node.clientWidth), 
-        Math.min(this.content.clientHeight,this.node.clientHeight)
-    );    
-    this._graph.data(_data);
-    this._graph.fitView(20); 
-    this._graph.render();
+    // render when data changes
+    this.renderFlow(_data);
   }
 
 }
