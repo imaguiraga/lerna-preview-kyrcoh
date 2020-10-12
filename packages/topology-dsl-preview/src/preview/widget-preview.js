@@ -29,7 +29,7 @@ import './style/index.css';
 import {samples} from "./samples.js";
 
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
-import * as diagram from "./flow-diagram";
+import * as diagram from "../diagram";
 
 const {
   parseDsl

@@ -2,10 +2,11 @@ import "./style/styles.css";
 // using ES6 modules
 import Split from "split.js";
 import {samples} from "./samples.js";
-import {createEditor} from "./flow-editor";
+import {createEditor} from "../editor";
+import * as diagram from "../diagram";
 
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
-import * as diagram from "./flow-diagram";
+
 
 const {
   parseDsl,
