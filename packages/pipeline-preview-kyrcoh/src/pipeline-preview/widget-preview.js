@@ -74,17 +74,17 @@ function createMainWidget(palette,commands){
     try {
       // Update preview
       let content = instance.getDoc().getValue();
-      let pipelines = parseDsl(content,pipelineDsl);
-
-      // Convert pipelines to node data
-      for (let key of pipelines.keys()) {
-        let pipeline = uidvisitor.visit(pipelines.get(key));
-        let value = visitor.visit(pipeline);
-        pipelines.set(key,value);
-        console.log(key);
-      }
-      // Update graph pipelines
-      g6graph.pipelines = pipelines;
+      parseDsl(content,pipelineDsl).then((pipelines) => {
+        // Convert pipelines to node data
+        for (let key of pipelines.keys()) {
+          let pipeline = uidvisitor.visit(pipelines.get(key));
+          let value = visitor.visit(pipeline);
+          pipelines.set(key,value);
+          console.log(key);
+        }
+        // Update graph pipelines
+        g6graph.pipelines = pipelines;
+      });
 
     } catch(e) {
       console.error(e.name + ': ' + e.message);

@@ -28,16 +28,19 @@ import { AceEditorWidget } from "./widgets/ace-editor-widget";
 import { ELKGraphWidget } from "./widgets/elkgraph-widget";
 
 import './style/index.css';
-import {samples} from "./samples.js";
+import { samples } from "./samples.js";
+import { samples2 } from "./samples2.js";
 
-import * as flowDsl from "@imaguiraga/topology-dsl-core";
+import * as flowDsl1 from "@imaguiraga/topology-dsl-core";
 
 const {
-  parseDsl,
+  parseDsl,parseDsl2,
   resolveImports,
   NODEIDGENFN,
   clone
-} = flowDsl;
+} = flowDsl1;
+
+const flowDsl = {...flowDsl1};
 
 function loadFnFactory() {
   let loadedImports = new Map();
@@ -91,18 +94,27 @@ function createMainWidget(palette,commands){
   
   const callbackFn = function (content) {
     try {
+      /*
       // Update preview
       resolveImports(content).then((resolvedImports) => {
         NODEIDGENFN.next(true);
         // Inject load function
         flowDsl.load.loadedImports(resolvedImports);
         
-        let flows = parseDsl(content,flowDsl);
-        // Update graph flows
-        elkgraphWidget.flows = flows;
-  
+        parseDsl(content,flowDsl).then((flows) => {
+          // Update graph flows
+          elkgraphWidget.flows = flows;
+        });
+
       }).catch((error) => {
         console.error('Error:', error);
+      });
+// */
+NODEIDGENFN.next(true);         
+      parseDsl2(content,flowDsl).then((flows) => {
+        // Update graph flows
+        elkgraphWidget.flows = flows;
+        console.log('parseDsl2');
       });
 
     } catch(e) {
@@ -118,7 +130,7 @@ function createMainWidget(palette,commands){
   );
   
   // set default samples
-  editorWidget.samples = samples;
+  editorWidget.samples = samples2;
 
   let dock = new DockPanel();
 
