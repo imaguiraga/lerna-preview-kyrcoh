@@ -28,16 +28,19 @@ import { AceEditorWidget } from "./widgets/ace-editor-widget";
 import { ELKGraphWidget } from "./widgets/elkgraph-widget";
 
 import './style/index.css';
-import {samples} from "./samples.js";
+import { samples } from "./samples1.js";
+import { samples2 } from "./samples2.js";
 
-import * as flowDsl from "@imaguiraga/topology-dsl-core";
+import * as flowDsl1 from "@imaguiraga/topology-dsl-core";
 
 const {
-  parseDsl,
+  parseDsl, parseDslModule,
   resolveImports,
   NODEIDGENFN,
   clone
-} = flowDsl;
+} = flowDsl1;
+
+const flowDsl = {...flowDsl1};
 
 function loadFnFactory() {
   let loadedImports = new Map();
@@ -77,7 +80,7 @@ function main() {
 
 function createMainWidget(palette,commands){
   const elkgraphWidget = new ELKGraphWidget(640,640);
-/*
+
   const editorWidget = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,
@@ -85,24 +88,32 @@ function createMainWidget(palette,commands){
   });
 //*/
 
-  const editorWidget = new AceEditorWidget();
-//*/  
+//  const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'Topology EDITOR';
   
   const callbackFn = function (content) {
     try {
+      /*
       // Update preview
       resolveImports(content).then((resolvedImports) => {
         NODEIDGENFN.next(true);
         // Inject load function
         flowDsl.load.loadedImports(resolvedImports);
         
-        let flows = parseDsl(content,flowDsl);
-        // Update graph flows
-        elkgraphWidget.flows = flows;
-  
+        parseDsl(content,flowDsl).then((flows) => {
+          // Update graph flows
+          elkgraphWidget.flows = flows;
+        });
+
       }).catch((error) => {
         console.error('Error:', error);
+      });
+// */
+      NODEIDGENFN.next(true);         
+      parseDslModule(content,flowDsl).then((flows) => {
+        // Update graph flows
+        elkgraphWidget.flows = flows;
+        console.log('parseDslModule');
       });
 
     } catch(e) {
@@ -118,7 +129,7 @@ function createMainWidget(palette,commands){
   );
   
   // set default samples
-  editorWidget.samples = samples;
+  editorWidget.samples = samples2;
 
   let dock = new DockPanel();
 

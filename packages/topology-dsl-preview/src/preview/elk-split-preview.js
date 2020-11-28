@@ -1,15 +1,14 @@
 import "./style/styles.css";
 // using ES6 modules
 import Split from "split.js";
-import {samples} from "./samples.js";
+import {samples} from "./samples1.js";
 import {createEditor} from "../editor";
 import * as diagram from "../diagram";
 
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
 
-
 const {
-  parseDsl,
+  parseDsl, parseDslModule,
   resolveImports,
   NODEIDGENFN,
   clone
@@ -98,9 +97,11 @@ function updatePreviewPane(content) {
       // Inject load function
       flowDsl.load.loadedImports(resolvedImports);
 
-      let flows = parseDsl(content,flowDsl);
-      renderFlow(flows.get(flows.keys().next().value)); 
-      initFlowSelection(flows);   
+      parseDsl(content,flowDsl).then((flows) => {
+        // Update graph flows
+        renderFlow(flows.get(flows.keys().next().value)); 
+        initFlowSelection(flows);   
+      });
 
     }).catch((error) => {
       console.error('Error:', error);

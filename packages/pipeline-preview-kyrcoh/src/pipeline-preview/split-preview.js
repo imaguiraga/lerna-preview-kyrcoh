@@ -71,10 +71,11 @@ function updatePreviewPane(content){
   }
   try {
     // Update preview
-    let pipelines = parseDsl(content,pipelineDSl);
-    renderPipeline(pipelines.get(pipelines.keys().next().value)); 
-    initPipelineSelection(pipelines);   
-
+    parseDsl(content,pipelineDsl).then((pipelines) => {
+      renderPipeline(pipelines.get(pipelines.keys().next().value)); 
+      initPipelineSelection(pipelines);  
+    });
+  
   } catch(e) {
     console.error(e);
     graph.data([]);
