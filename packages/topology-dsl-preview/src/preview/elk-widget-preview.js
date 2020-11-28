@@ -28,13 +28,13 @@ import { AceEditorWidget } from "./widgets/ace-editor-widget";
 import { ELKGraphWidget } from "./widgets/elkgraph-widget";
 
 import './style/index.css';
-import { samples } from "./samples.js";
+import { samples } from "./samples1.js";
 import { samples2 } from "./samples2.js";
 
 import * as flowDsl1 from "@imaguiraga/topology-dsl-core";
 
 const {
-  parseDsl,parseDsl2,
+  parseDsl, parseDslModule,
   resolveImports,
   NODEIDGENFN,
   clone
@@ -109,11 +109,11 @@ function createMainWidget(palette,commands){
         console.error('Error:', error);
       });
 // */
-NODEIDGENFN.next(true);         
-      parseDsl2(content,flowDsl).then((flows) => {
+      NODEIDGENFN.next(true);         
+      parseDslModule(content,flowDsl).then((flows) => {
         // Update graph flows
         elkgraphWidget.flows = flows;
-        console.log('parseDsl2');
+        console.log('parseDslModule');
       });
 
     } catch(e) {
