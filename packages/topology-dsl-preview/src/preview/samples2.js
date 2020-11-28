@@ -8,7 +8,7 @@ export function test() {
   return \`The moment is \${m1}, which was \${m2}\`;
 }`,
 // */
-`import { choice, terminal, sequence} from "@imaguiraga/topology-dsl-core";
+`import { choice, terminal, sequence} from "topology-dsl-core";
 export const testflow = choice(
   terminal("a")._in_("a","b")._out_("a","b"),
   choice("e", "d"),
@@ -19,7 +19,7 @@ export const testflow = choice(
   ),
   sequence("c","d")
 );`,
-`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from "@imaguiraga/topology-dsl-core";
+`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from "topology-dsl-core";
 export const testflow = choice(
   terminal("a")._in_("a","b")._out_("a","b"),
   choice("e", "d"),
@@ -39,7 +39,7 @@ let fromClause = function a() {
 export const v1 = selectClause();
 export const v2 = fromClause();
 `,
-`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from "@imaguiraga/topology-dsl-core";
+`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from "topology-dsl-core";
 let selectClause = () => sequence("a", "b", repeat(optional("c")), zeroOrMore("d"));
 let fromClause = function a() {
     return  choice("1", "2", selectClause, "4");
