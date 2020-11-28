@@ -80,7 +80,7 @@ function main() {
 
 function createMainWidget(palette,commands){
   const elkgraphWidget = new ELKGraphWidget(640,640);
-/*
+
   const editorWidget = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,
@@ -88,8 +88,7 @@ function createMainWidget(palette,commands){
   });
 //*/
 
-  const editorWidget = new AceEditorWidget();
-//*/  
+//  const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'Topology EDITOR';
   
   const callbackFn = function (content) {
