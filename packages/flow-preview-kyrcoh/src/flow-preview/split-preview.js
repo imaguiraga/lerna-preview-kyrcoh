@@ -69,9 +69,11 @@ function updatePreviewPane(content){
   }
   try {
     // Update preview
-    let flows = parseDsl(content,flowDsl);
-    renderFlow(flows.get(flows.keys().next().value)); 
-    initFlowSelection(flows);   
+    parseDsl(content,flowDsl);
+    parseDsl(content,flowDsl).then((flows) => {
+      renderFlow(flows.get(flows.keys().next().value)); 
+      initFlowSelection(flows);   
+    });
 
   } catch(e) {
     console.error(e);
