@@ -92,28 +92,15 @@ function createMainWidget(palette,commands){
   editorWidget.title.label = 'Topology EDITOR';
   
   const callbackFn = function (content) {
-    try {
-      /*
-      // Update preview
-      resolveImports(content).then((resolvedImports) => {
-        NODEIDGENFN.next(true);
-        // Inject load function
-        flowDsl.load.loadedImports(resolvedImports);
-        
-        parseDsl(content,flowDsl).then((flows) => {
-          // Update graph flows
-          elkgraphWidget.flows = flows;
-        });
-
-      }).catch((error) => {
-        console.error('Error:', error);
-      });
-// */
-      NODEIDGENFN.next(true);         
+    try {    
       parseDslModule(content,flowDsl).then((flows) => {
         // Update graph flows
-        elkgraphWidget.flows = flows;
-        console.log('parseDslModule');
+        if( flows ) {
+          elkgraphWidget.flows = flows;
+          console.log('parseDslModule');
+        }
+      }).catch((err) => {
+        console.log(err);
       });
 
     } catch(e) {
