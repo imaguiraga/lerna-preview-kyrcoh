@@ -72,11 +72,8 @@ export class AceEditorWidget extends Widget {
       // Emit changes
       let content = self.editor.getValue();
       self._valueChanged.emit(content);
+
     });
-
-    
-    
-
   }
 
   get editor(): any {
@@ -115,7 +112,8 @@ export class AceEditorWidget extends Widget {
 
   // samples
   set samples(values:Array<string>){
-    this._samples = values;
+    // Convert to Map
+    this._samples = new Map();
     // Populate select component from list of samples
     // Recreate sample options
     while (this.selectElt.firstChild) {
@@ -126,17 +124,28 @@ export class AceEditorWidget extends Widget {
       let opt:HTMLOptionElement = document.createElement("option");
       opt.value = index.toString();
       opt.text = `Sample #${index +1}`;
+      if(isScript(value)) {
+        opt.text = `Sample #${index +1} - ${value}`;
+        fetch(value).then((res) => {
+          return res.text();
+        }).then((text) => {
+          this._samples.set(opt.value,text);
+        });
+      } else {
+        this._samples.set(opt.value,value);
+      }
+
       this.selectElt.add(opt);
     });
     // Update sample when the selection changes 
     this.selectElt.addEventListener('change', (event:Event) => {
-      const result:string = this._samples[parseInt((event.target as HTMLSelectElement).value,10)];
+      const result:string = this._samples.get((event.target as HTMLSelectElement).value) || '';
       // Update Editor with current selection 
       this._editor.setValue(result,-1);
       this._valueChanged.emit(result);
     });
     // Set default
-    this._editor.setValue(this._samples[0],-1);
+    this._editor.setValue(this._samples.get('0') || '',-1);
   }
 
   get valueChanged(): ISignal<this, string> {
@@ -146,6 +155,10 @@ export class AceEditorWidget extends Widget {
   private _valueChanged = new Signal<this, string>(this);
   private _editor: ace.Ace.Editor;
   private selectElt: HTMLSelectElement;
-  private _samples: Array<string> = [];
+  private _samples: Map<string,string> = new Map();
 
+}
+
+function isScript(source:any) {
+  return (source.endsWith('.js') || source.endsWith('.jsx') || source.endsWith('.ts') || source.endsWith('.tsx'));
 }
