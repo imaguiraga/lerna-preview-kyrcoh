@@ -47,5 +47,13 @@ let fromClause = function a() {
 
 export const v1 = selectClause();
 export const v2 = fromClause();
+`,
+`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from "topology-dsl-core";
+import { path1, path2 } from "./assets/js/dummy.js";
+
+export const v1 = sequence(path1, path2);
+
+export const v2 = path1;
+export const v3 = path2;
 `
 ];
