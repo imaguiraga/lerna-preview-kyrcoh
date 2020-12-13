@@ -22,12 +22,12 @@ let fromClause = () => choice("1", "2", selectClause, "4");
 let testflow = choice(
   terminal("a"),
   choice("e", "d"),
-  sequence(terminal("b"), terminal("c"),sequence("c","d")),
-  sequence("c","d")
+  sequence(terminal("b"), terminal("c"), sequence("c", "d")),
+  sequence("c", "d")
 );
 //*/
 // Generate flow by parsing javascript text
-let func = new Function("module",`const {
+let func = new Function("module", `const {
     repeat,
     sequence,
     optional,
@@ -45,7 +45,7 @@ let func = new Function("module",`const {
   return f;`);
 try {
   testflow = func(flowDsl);
-}catch(e){
+} catch (e) {
   console.error(e.name + ': ' + e.message);
 }
 

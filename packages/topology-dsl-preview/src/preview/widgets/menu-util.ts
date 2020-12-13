@@ -2,7 +2,7 @@ import {
   CommandPalette, ContextMenu, Menu, MenuBar
 } from '@lumino/widgets';
 
-export function createMenu(commands:any): Menu {
+export function createMenu(commands: any): Menu {
   let sub1 = new Menu({ commands });
   sub1.title.label = 'More...';
   sub1.title.mnemonic = 0;
@@ -38,7 +38,7 @@ export function createMenu(commands:any): Menu {
   return root;
 }
 
-export function createPalette(commands:any){
+export function createPalette(commands: any) {
   let palette = new CommandPalette({ commands });
   palette.addItem({ command: 'example:cut', category: 'Edit' });
   palette.addItem({ command: 'example:copy', category: 'Edit' });
@@ -63,8 +63,8 @@ export function createPalette(commands:any){
   return palette;
 }
 
-export function createBarWidget(commands:any){
-   
+export function createBarWidget(commands: any) {
+
   commands.addCommand('example:cut', {
     label: 'Cut',
     mnemonic: 1,
@@ -280,4 +280,4 @@ export function createBarWidget(commands:any){
     commands.processKeydownEvent(event);
   });
   return bar;
- }
+}

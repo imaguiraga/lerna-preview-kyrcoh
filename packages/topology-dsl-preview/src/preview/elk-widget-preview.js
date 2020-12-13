@@ -7,7 +7,7 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-/* tslint:disable */ 
+/* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
@@ -40,22 +40,22 @@ const {
   clone
 } = flowDsl1;
 
-const flowDsl = {...flowDsl1};
+const flowDsl = { ...flowDsl1 };
 
 function loadFnFactory() {
   let loadedImports = new Map();
   const loadFn = (key) => {
-    if(loadedImports.has(key)) {
+    if (loadedImports.has(key)) {
       let obj = loadedImports.get(key);
       //Clone to avoid ids collision     
-      let copy = clone(obj,NODEIDGENFN.next().value);
+      let copy = clone(obj, NODEIDGENFN.next().value);
       return copy;
     } else {
       return null;
     }
   };
 
-  loadFn.loadedImports = function(newValue) {	
+  loadFn.loadedImports = function (newValue) {
     if (!arguments.length) return loadedImports;
     loadedImports = newValue;
     return this;
@@ -71,31 +71,32 @@ function main() {
   createMenu(commands);
   let bar = createBarWidget(commands);
   let palette = createPalette(commands);
-  let main = createMainWidget(palette,commands);
+  let main = createMainWidget(palette, commands);
 
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
 
 }
 
-function createMainWidget(palette,commands){
-  const elkgraphWidget = new ELKGraphWidget(640,640);
+function createMainWidget(palette, commands) {
+  const elkgraphWidget = new ELKGraphWidget(640, 640);
 
   const editorWidget = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,
     tabSize: 2,
   });
-//*/
+  //*/
 
-//  const editorWidget = new AceEditorWidget();
+  //  const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'Topology EDITOR';
-  
+
   const callbackFn = function (content) {
-    try {    
-      parseDslModule(content,flowDsl).then((flows) => {
+    try {
+      //TODO NODEIDGENFN.next(true);         
+      parseDslModule(content, flowDsl).then((flows) => {
         // Update graph flows
-        if( flows ) {
+        if (flows) {
           elkgraphWidget.flows = flows;
           console.log('parseDslModule');
         }
@@ -103,7 +104,7 @@ function createMainWidget(palette,commands){
         console.log(err);
       });
 
-    } catch(e) {
+    } catch (e) {
       console.error(e.name + ': ' + e.message);
     }
   };
@@ -114,9 +115,12 @@ function createMainWidget(palette,commands){
       callbackFn(value);
     }
   );
-  
+
   // set default samples
   editorWidget.samples = samples2;
+  editorWidget.selectElt.addEventListener('change', (event) => {
+    // TODO NODEIDGENFN.next(true);
+  });
 
   let dock = new DockPanel();
 

@@ -7,7 +7,7 @@
 |
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
-/* tslint:disable */ 
+/* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
@@ -26,7 +26,7 @@ import { CodeMirrorWidget } from "./widgets/codemirror-widget";
 import { G6GraphWidget } from "./widgets/g6graph-widget";
 
 import './style/index.css';
-import {samples} from "./samples.js";
+import { samples } from "./samples.js";
 
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
 import * as diagram from "../diagram";
@@ -50,48 +50,48 @@ function main() {
   createMenu(commands);
   let bar = createBarWidget(commands);
   let palette = createPalette(commands);
-  let main = createMainWidget(palette,commands);
+  let main = createMainWidget(palette, commands);
 
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
 
 }
 
-function createMainWidget(palette,commands){
-  const g6graph = new G6GraphWidget(640,640);
+function createMainWidget(palette, commands) {
+  const g6graph = new G6GraphWidget(640, 640);
 
   const cmSource = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,
     tabSize: 2,
   });
-  
+
   cmSource.title.label = 'Flow EDITOR';
-  
-  cmSource.editor.on("changes",(instance) => {
+
+  cmSource.editor.on("changes", (instance) => {
     //if(DEBUG) 
     console.log('changes');
     try {
       // Update preview
       let content = instance.getDoc().getValue();
-      let flows = parseDsl(content,flowDsl);
+      let flows = parseDsl(content, flowDsl);
 
       // Convert flows to node data
       for (let key of flows.keys()) {
         let flow = uidvisitor.visit(flows.get(key));
         let value = visitor.visit(flow);
-        flows.set(key,value);
+        flows.set(key, value);
         console.log(key);
       }
       // Update graph flows
       g6graph.flows = flows;
 
-    } catch(e) {
+    } catch (e) {
       console.error(e.name + ': ' + e.message);
     }
 
-  }); 
-//*/
+  });
+  //*/
 
   cmSource.valueChanged.connect(
     (sender, value) => {
@@ -114,10 +114,10 @@ function createMainWidget(palette,commands){
         } catch(e) {
             console.error(e.name + ': ' + e.message);
         }
-     //*/   
+     //*/
     }
   );
-  
+
   // set default samples
   cmSource.samples = samples;
 
