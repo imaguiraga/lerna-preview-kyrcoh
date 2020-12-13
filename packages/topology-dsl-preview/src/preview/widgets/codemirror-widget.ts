@@ -1,4 +1,4 @@
-/* tslint:disable */ 
+/* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
@@ -34,11 +34,11 @@ export class CodeMirrorWidget extends Widget {
     this.addClass('CodeMirrorWidget');
 
     let div = document.createElement('div');
-    div.setAttribute("style","padding:4px;background-color: #dfdfdf;");
+    div.setAttribute("style", "padding:4px;background-color: #dfdfdf;");
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
-    this.selectElt.setAttribute("class","flow-select");
+    this.selectElt.setAttribute("class", "flow-select");
 
     div.appendChild(this.selectElt);
 
@@ -48,21 +48,21 @@ export class CodeMirrorWidget extends Widget {
     this.selectElt.add(opt);
 
     let separator = document.createElement('div');
-    separator.setAttribute("class","separator");
+    separator.setAttribute("class", "separator");
     this.node.appendChild(separator);
 
     let content = document.createElement('div');
-    content.setAttribute("class","CodeMirrorWidget");
+    content.setAttribute("class", "CodeMirrorWidget");
     this.node.appendChild(content);
-    
+
     this._editor = CodeMirror(content, config);
     let self = this;
-    self.editor.on("changes",(instance) => {
+    self.editor.on("changes", (instance) => {
       // Emit changes
       let content = instance.getDoc().getValue();
       self._valueChanged.emit(content);
-  
-    }); 
+
+    });
   }
 
   get editor(): CodeMirror.Editor {
@@ -73,7 +73,7 @@ export class CodeMirrorWidget extends Widget {
     return this._editor.getDoc().getValue();
   }
 
-  set content(text:string) {
+  set content(text: string) {
     this._editor.getDoc().setValue(text);
   }
 
@@ -81,7 +81,7 @@ export class CodeMirrorWidget extends Widget {
     var doc = this._editor.getDoc();
     fetch(target)
       .then(response => response.json())
-      .then( function(data) { 
+      .then(function (data) {
         doc.setValue(data);
       });
   }
@@ -98,29 +98,41 @@ export class CodeMirrorWidget extends Widget {
     }
   }
   // samples
-  set samples(values:Array<string>){
-    this._samples = values;
+  set samples(values: Array<string>) {
+    // Convert to Map
+    this._samples = new Map();
     // Populate select component from list of samples
     // Recreate sample options
     while (this.selectElt.firstChild) {
       this.selectElt.firstChild.remove();
     }
 
-    values.forEach((value,index) => {
-      let opt:HTMLOptionElement = document.createElement("option");
+    values.forEach((value, index) => {
+      let opt: HTMLOptionElement = document.createElement("option");
       opt.value = index.toString();
-      opt.text = `Sample #${index +1}`;
+      opt.text = `Sample #${index + 1}`;
+      if (isScript(value)) {
+        opt.text = `Sample #${index + 1} - ${value}`;
+        fetch(value).then((res) => {
+          return res.text();
+        }).then((text) => {
+          this._samples.set(opt.value, text);
+        });
+      } else {
+        this._samples.set(opt.value, value);
+      }
+
       this.selectElt.add(opt);
     });
     // Update sample when the selection changes 
-    this.selectElt.addEventListener('change', (event:Event) => {
-      const result:string = this._samples[parseInt((event.target as HTMLSelectElement).value,10)];
+    this.selectElt.addEventListener('change', (event: Event) => {
+      const result: string = this._samples.get((event.target as HTMLSelectElement).value) || '';
       // Update Editor with current selection 
       this._editor.getDoc().setValue(result);
       this._valueChanged.emit(result);
     });
     // Set default
-    this._editor.getDoc().setValue(this._samples[0]);
+    this._editor.getDoc().setValue(this._samples.get('0') || '');
   }
 
   get valueChanged(): ISignal<this, string> {
@@ -130,6 +142,10 @@ export class CodeMirrorWidget extends Widget {
   private _valueChanged = new Signal<this, string>(this);
   private _editor: CodeMirror.Editor;
   private selectElt: HTMLSelectElement;
-  private _samples: Array<string> = [];
+  private _samples: Map<string, string> = new Map();
 
+}
+
+function isScript(source: any) {
+  return (source.endsWith('.js') || source.endsWith('.jsx') || source.endsWith('.ts') || source.endsWith('.tsx'));
 }
