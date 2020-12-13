@@ -1,13 +1,13 @@
 import "./style/styles.css";
 // using ES6 modules
 import Split from "split.js";
-import {samples} from "./samples.js";
-import {createEditor} from "../editor";
+import { samples } from "./samples.js";
+import { createEditor } from "../editor";
 import * as diagram from "../diagram";
 
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
 
-const {parseDsl} = flowDsl;
+const { parseDsl } = flowDsl;
 const DEBUG = true;
 
 document.body.innerHTML = `
@@ -39,18 +39,18 @@ document.body.innerHTML = `
 Split(["#one", "#two"], {
   sizes: [40, 60],
   minSize: [200, 300],
-  gutter: function(index, direction) {
+  gutter: function (index, direction) {
     var gutter = document.createElement("div");
     gutter.className = "gutter gutter-" + direction;
     return gutter;
   },
   gutterSize: 2,
   elementStyle: (dimension, size, gutterSize) => ({
-        'flex-basis': `calc(${size}% - ${gutterSize}px)`,
-    }),
-    gutterStyle: (dimension, gutterSize) => ({
-        'flex-basis':  `${gutterSize}px`,
-    })
+    'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+  }),
+  gutterStyle: (dimension, gutterSize) => ({
+    'flex-basis': `${gutterSize}px`,
+  })
 });
 
 const {
@@ -65,25 +65,25 @@ const elkvisitor = new FlowToELKVisitor();
 
 const graph = diagram.createFlowDiagram("preview-pane");
 
-function updatePreviewPane(content){
-  if( typeof content === "undefined"){
+function updatePreviewPane(content) {
+  if (typeof content === "undefined") {
     return;
   }
   try {
     // Update preview
-    let flows = parseDsl(content,flowDsl);
-    renderFlow(flows.get(flows.keys().next().value)); 
-    initFlowSelection(flows);   
+    let flows = parseDsl(content, flowDsl);
+    renderFlow(flows.get(flows.keys().next().value));
+    initFlowSelection(flows);
 
-  } catch(e) {
+  } catch (e) {
     console.error(e);
     graph.data([]);
     graph.render();
   }
 }
 
-function renderFlow(input){
-  if( typeof input === "undefined"){
+function renderFlow(input) {
+  if (typeof input === "undefined") {
     return;
   }
   graph.data([]);
@@ -91,7 +91,7 @@ function renderFlow(input){
     // Update preview
     let flow = uidvisitor.visit(input);
     const data = visitor.visit(flow);
-    graph.data(data!== null ? data : []);
+    graph.data(data !== null ? data : []);
 
     const elkgraph = elkvisitor.visit(flow);
     elkgraph.layoutOptions = {
@@ -110,36 +110,36 @@ function renderFlow(input){
     elkgraph.children.forEach((n) => {
       n.width = 80;
       n.height = 60;
-      if(n.model) {
+      if (n.model) {
         let tag = n.model.tagName || null;
         // Set start + finish to icon size
-        if(tag === "start" || tag === "finish"){
+        if (tag === "start" || tag === "finish") {
           n.width = 24;
           n.height = n.width;
         }
-      }     
+      }
     });
 
     //console.log(JSON.stringify(elkgraph,null,"  "));
     //console.log(elkgraph);
 
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
   graph.render();
-  if(DEBUG) console.log("zoom="+graph.getZoom());
-  
+  if (DEBUG) console.log("zoom=" + graph.getZoom());
+
 }
 
-const editor = createEditor('editor-pane','');
+const editor = createEditor('editor-pane', '');
 
-editor.on("changes",(instance) => {
-  if(DEBUG) console.log('changes');
+editor.on("changes", (instance) => {
+  if (DEBUG) console.log('changes');
   const content = instance.getDoc().getValue();
   updatePreviewPane(content);
-}); 
+});
 
-function initFlowSelection(flows){
+function initFlowSelection(flows) {
   // Populate select component from list of samples
   let selectElt = document.getElementById("flow-preview-select");
   // Recreate flow options
@@ -147,8 +147,8 @@ function initFlowSelection(flows){
     selectElt.firstChild.remove();
   }
 
-  flows.forEach((value,key) => {
-    let opt = new Option(key,key);
+  flows.forEach((value, key) => {
+    let opt = new Option(key, key);
     selectElt.add(opt);
   });
   // Update flow when the selection changes 
@@ -160,7 +160,7 @@ function initFlowSelection(flows){
 }
 
 
-(function initSampleSelection(samples,editor){
+(function initSampleSelection(samples, editor) {
   // Populate select component from list of samples
   let selectElt = document.getElementById("flow-sample-select");
 
@@ -169,8 +169,8 @@ function initFlowSelection(flows){
     selectElt.firstChild.remove();
   }
 
-  samples.forEach((value,index) => {
-    let opt = new Option(`Sample #${index +1}`,index);
+  samples.forEach((value, index) => {
+    let opt = new Option(`Sample #${index + 1}`, index);
     selectElt.add(opt);
   });
   // Update sample when the selection changes 
@@ -179,7 +179,7 @@ function initFlowSelection(flows){
     editor.getDoc().setValue(result);
     updatePreviewPane(result);
   });
-  
+
   editor.getDoc().setValue(samples[0]);
-  
-})(samples,editor);
+
+})(samples, editor);
