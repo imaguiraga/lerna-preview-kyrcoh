@@ -39,13 +39,13 @@ export const ICONFONT_NODE_OPTIONS = {
         textAlign: 'center',
         textBaseline: 'middle',
         text: cfg.text,
-        fontSize: size-8,
+        fontSize: size - 8,
         ...style,
       },
       // must be assigned in G6 3.3 and later versions. it can be any value you want
       name: 'text-shape1',
     });
-   // const labelY = backgroundStyle ? cfg.size * 2 : cfg.size;
+    // const labelY = backgroundStyle ? cfg.size * 2 : cfg.size;
 
     group.addShape('text', {
       attrs: {
