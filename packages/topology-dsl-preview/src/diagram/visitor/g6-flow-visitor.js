@@ -8,37 +8,37 @@ export class FlowToG6Visitor {
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} g6 graph.
    */
-  visit(tree,filterFn){
+  visit(tree, filterFn) {
     let result = null;
-    if( typeof tree === "undefined"){
+    if (typeof tree === "undefined") {
       return result;
     }
-    if(tree.compound) {
-      switch(tree.resourceType){
+    if (tree.compound) {
+      switch (tree.resourceType) {
         case "choice":
-          result = this._visitChoice(tree,filterFn);
-        break;
+          result = this._visitChoice(tree, filterFn);
+          break;
         case "optional":
-          result = this._visitOptional(tree,filterFn);
-        break;
+          result = this._visitOptional(tree, filterFn);
+          break;
         case "sequence":
-          result = this._visitSequence(tree,filterFn);
-        break;
+          result = this._visitSequence(tree, filterFn);
+          break;
         case "repeat":
-          result = this._visitRepeat(tree,filterFn);
-        break;
+          result = this._visitRepeat(tree, filterFn);
+          break;
         case "parallel":
-          result = this._visitParallel(tree,filterFn);
-        break;
+          result = this._visitParallel(tree, filterFn);
+          break;
         case "terminal":
-          result = this._visitTerminal(tree,filterFn);
-        break;
+          result = this._visitTerminal(tree, filterFn);
+          break;
         default:
-        break;
-      } 
+          break;
+      }
 
     } else {
-      result = this._visitTerminal(tree,filterFn);
+      result = this._visitTerminal(tree, filterFn);
     }
 
     return result;
@@ -48,7 +48,7 @@ export class FlowToG6Visitor {
     let r = {
       id: n.id,
       label: n.id,
-      model: { 
+      model: {
         provider: n.provider,
         resourceType: n.resourceType,
         tagName: n.tagName,
@@ -57,7 +57,7 @@ export class FlowToG6Visitor {
       labels: [
         {
           text: n.id
-        } 
+        }
       ],
     };
     return r;
@@ -65,7 +65,7 @@ export class FlowToG6Visitor {
 
   getEdgeModel(n) {
     let r = {
-      model: { 
+      model: {
         provider: n.provider,
         resourceType: n.resourceType,
         tagName: null
@@ -74,35 +74,35 @@ export class FlowToG6Visitor {
     return r;
   }
 
-  _visitSequence(tree,filterFn){
-    return SequenceEltFlowToG6Visitor.visit(this,tree,filterFn);
+  _visitSequence(tree, filterFn) {
+    return SequenceEltFlowToG6Visitor.visit(this, tree, filterFn);
   }
 
-  _visitChoice(tree,filterFn){
-    return MutltiPathEltFlowToG6Visitor.visit(this,tree,filterFn,"choice");
+  _visitChoice(tree, filterFn) {
+    return MutltiPathEltFlowToG6Visitor.visit(this, tree, filterFn, "choice");
   }
 
-  _visitParallel(tree,filterFn){
-    return MutltiPathEltFlowToG6Visitor.visit(this,tree,filterFn,"parallel");
+  _visitParallel(tree, filterFn) {
+    return MutltiPathEltFlowToG6Visitor.visit(this, tree, filterFn, "parallel");
   }
 
-  _visitOptional(tree,filterFn){
-    return OptionalEltFlowToG6Visitor.visit(this,tree,filterFn);
+  _visitOptional(tree, filterFn) {
+    return OptionalEltFlowToG6Visitor.visit(this, tree, filterFn);
   }
 
-  _visitRepeat(tree,filterFn){
-    return RepeatEltFlowToG6Visitor.visit(this,tree,filterFn);
+  _visitRepeat(tree, filterFn) {
+    return RepeatEltFlowToG6Visitor.visit(this, tree, filterFn);
   }
 
-  _visitTerminal(tree,filterFn){
-    return TerminalFlowEltFlowToG6Visitor.visit(this,tree,filterFn);
+  _visitTerminal(tree, filterFn) {
+    return TerminalFlowEltFlowToG6Visitor.visit(this, tree, filterFn);
   }
 }
 
 /**
  * Class TerminalFlowEltFlowToG6Visitor.
  */
-class TerminalFlowEltFlowToG6Visitor{
+class TerminalFlowEltFlowToG6Visitor {
   /**
    * Convert a dsl tree to g6 Graph data.
    * @param {object} visitor - The dsl tree visitor.
@@ -110,7 +110,7 @@ class TerminalFlowEltFlowToG6Visitor{
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} g6 Graph data.
    */
-  static visit(visitor,tree,filterFn) {
+  static visit(visitor, tree, filterFn) {
     const graph = {
       nodes: [],
       edges: [],
@@ -133,15 +133,15 @@ class TerminalFlowEltFlowToG6Visitor{
 /**
  * Class SequenceEltFlowToG6Visitor.
  */
-class SequenceEltFlowToG6Visitor{
+class SequenceEltFlowToG6Visitor {
   /**
    * Convert a dsl tree to g6 Graph data.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} g6 Graph data.
-   */  
-  static visit(visitor,tree,filterFn) {
+   */
+  static visit(visitor, tree, filterFn) {
     const SEQUENCE = "sequence";
     const graph = {
       nodes: [],
@@ -173,10 +173,10 @@ class SequenceEltFlowToG6Visitor{
     graph.nodes.push(visitor.getNodeModel(tree.finish));
     // edges
     graph.edges.push({
-        source: tree.start.id,
-        target: tree.elts[0].start.id,
-        ...visitor.getEdgeModel(tree),
-      });
+      source: tree.start.id,
+      target: tree.elts[0].start.id,
+      ...visitor.getEdgeModel(tree),
+    });
 
     for (let i = 0; i < tree.elts.length - 1; i++) {
       graph.edges.push({
@@ -194,8 +194,8 @@ class SequenceEltFlowToG6Visitor{
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let g6 = elt.accept(visitor, n => tree.foundElt(n));
+      if (g6 !== null) {
         graph.nodes = graph.nodes.concat(g6.nodes);
         graph.edges = graph.edges.concat(g6.edges);
       }
@@ -208,15 +208,15 @@ class SequenceEltFlowToG6Visitor{
 /**
  * Class MutltiPathEltFlowToG6Visitor.
  */
-class MutltiPathEltFlowToG6Visitor{
+class MutltiPathEltFlowToG6Visitor {
   /**
    * Convert a dsl tree to g6 Graph data.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} g6 Graph data.
-   */  
-  static visit(visitor,tree,filterFn,type){
+   */
+  static visit(visitor, tree, filterFn, type) {
     //const type = "choice" | "parallel";
     const graph = {
       nodes: [],
@@ -264,8 +264,8 @@ class MutltiPathEltFlowToG6Visitor{
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let g6 = elt.accept(visitor, n => tree.foundElt(n));
+      if (g6 !== null) {
         graph.nodes = graph.nodes.concat(g6.nodes);
         graph.edges = graph.edges.concat(g6.edges);
       }
@@ -273,21 +273,21 @@ class MutltiPathEltFlowToG6Visitor{
 
     return graph;
   }
-  
+
 }
 
 /**
  * Class OptionalEltFlowToG6Visitor.
  */
-class OptionalEltFlowToG6Visitor{
+class OptionalEltFlowToG6Visitor {
   /**
    * Convert a dsl tree to g6 Graph data.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} g6 Graph data.
-   */  
-  static visit(visitor,tree,filterFn) {
+   */
+  static visit(visitor, tree, filterFn) {
     const OPTIONAL = "optional";
     const graph = {
       nodes: [],
@@ -301,7 +301,7 @@ class OptionalEltFlowToG6Visitor{
     graph.nodes.push(visitor.getNodeModel(tree.start));
 
     // skip node
-    if(tree.skip) {
+    if (tree.skip) {
       graph.nodes.push(visitor.getNodeModel(tree.skip));
     }
 
@@ -325,21 +325,21 @@ class OptionalEltFlowToG6Visitor{
     graph.nodes.push(visitor.getNodeModel(tree.finish));
     // edges
 
-    if(tree.elts.length > 0) {
+    if (tree.elts.length > 0) {
       graph.edges.push({
         source: tree.start.id,
         target: tree.elts[0].start.id,
         ...visitor.getEdgeModel(tree),
       });
       graph.edges.push({
-        source: tree.elts[tree.elts.length-1].finish.id,
+        source: tree.elts[tree.elts.length - 1].finish.id,
         target: tree.finish.id,
         ...visitor.getEdgeModel(tree),
       });
     }
 
     // start -> skip? -> finish
-    if(typeof(tree.skip) !== "undefined"){
+    if (typeof (tree.skip) !== "undefined") {
       graph.edges.push({
         source: tree.start.id,
         target: tree.skip.id,
@@ -360,8 +360,8 @@ class OptionalEltFlowToG6Visitor{
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let g6 = elt.accept(visitor, n => tree.foundElt(n));
+      if (g6 !== null) {
         graph.nodes = graph.nodes.concat(g6.nodes);
         graph.edges = graph.edges.concat(g6.edges);
       }
@@ -382,7 +382,7 @@ class RepeatEltFlowToG6Visitor {
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} g6 Graph data.
    */
-  static visit(visitor,tree,filterFn) {
+  static visit(visitor, tree, filterFn) {
     const REPEAT = "repeat";
     const graph = {
       nodes: [],
@@ -396,7 +396,7 @@ class RepeatEltFlowToG6Visitor {
     graph.nodes.push(visitor.getNodeModel(tree.start));
 
     // loop node
-    if(tree.loop) {
+    if (tree.loop) {
       graph.nodes.push(visitor.getNodeModel(tree.loop));
     }
     // nodes
@@ -420,14 +420,14 @@ class RepeatEltFlowToG6Visitor {
     // finish node
     graph.nodes.push(visitor.getNodeModel(tree.finish));
     // edges
-    if(tree.elts.length > 0) {
+    if (tree.elts.length > 0) {
       graph.edges.push({
         source: tree.start.id,
         target: tree.elts[0].start.id,
         ...visitor.getEdgeModel(tree),
       });
       graph.edges.push({
-        source: tree.elts[tree.elts.length-1].finish.id,
+        source: tree.elts[tree.elts.length - 1].finish.id,
         target: tree.finish.id,
         ...visitor.getEdgeModel(tree),
       });
@@ -435,7 +435,7 @@ class RepeatEltFlowToG6Visitor {
 
     // start <- loop <- finish
     // reverse the arrow direction
-    if(typeof(tree.loop) !== "undefined"){
+    if (typeof (tree.loop) !== "undefined") {
       graph.edges.push({
         source: tree.start.id,
         target: tree.loop.id,
@@ -462,12 +462,12 @@ class RepeatEltFlowToG6Visitor {
       });
     }
     //*/
-    
+
     // concatenate G6 graphs
 
     tree.elts.forEach(elt => {
-      let g6 = elt.accept(visitor,n => tree.foundElt(n));
-      if(g6 !== null) {
+      let g6 = elt.accept(visitor, n => tree.foundElt(n));
+      if (g6 !== null) {
         graph.nodes = graph.nodes.concat(g6.nodes);
         graph.edges = graph.edges.concat(g6.edges);
       }

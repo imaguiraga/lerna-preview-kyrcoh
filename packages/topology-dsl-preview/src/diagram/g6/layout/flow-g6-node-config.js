@@ -30,7 +30,7 @@ const SKIP_ICON = '\uf096'; // square-o
 
 const ICON_SIZE = 40;
 
-const CHOICE_STYLE =  {
+const CHOICE_STYLE = {
   fill: "#A82255",
   stroke: "#A82255",
   fontFamily: 'FontAwesome', // font-family: "iconfont";
@@ -66,7 +66,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: START_ICON,
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: CHOICE_STYLE,
     labelCfg: {
       style: {
@@ -78,7 +78,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: END_ICON,// circle
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: CHOICE_STYLE,
     labelCfg: {
       style: {
@@ -91,7 +91,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: START_ICON,// dot-circle-o
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: PARALLEL_STYLE,
     labelCfg: {
       style: {
@@ -104,7 +104,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: END_ICON,// circle
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: PARALLEL_STYLE,
     labelCfg: {
       style: {
@@ -118,7 +118,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: START_ICON,// dot-circle-o
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: SEQUENCE_STYLE,
     labelCfg: {
       style: {
@@ -130,7 +130,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: END_ICON,// circle
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: SEQUENCE_STYLE,
     labelCfg: {
       style: {
@@ -143,7 +143,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: START_ICON,// dot-circle-o
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: OPTIONAL_STYLE,
     labelCfg: {
       style: {
@@ -167,7 +167,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: END_ICON,// circle
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: OPTIONAL_STYLE,
     labelCfg: {
       style: {
@@ -181,7 +181,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: START_ICON,// dot-circle-o
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: REPEAT_STYLE,
     labelCfg: {
       style: {
@@ -193,7 +193,7 @@ const NODE_CONFIG_MAP = new Map([
     type: 'iconfont',
     text: LOOP_ICON,// undo
     size: ICON_SIZE,
-    label: "" ,//"loop"
+    label: "",//"loop"
     style: REPEAT_STYLE,
     labelCfg: {
       style: {
@@ -201,11 +201,11 @@ const NODE_CONFIG_MAP = new Map([
       }
     }
   }],
-  ["repeat.finish", { 
+  ["repeat.finish", {
     type: 'iconfont',
     text: END_ICON,// circle
     size: ICON_SIZE,
-    label: "" ,
+    label: "",
     style: REPEAT_STYLE,
     labelCfg: {
       style: {
@@ -230,7 +230,7 @@ const EDGE_CONFIG_MAP = new Map([
 
   // Parallel
   ["parallel", {
-    style: { 
+    style: {
       stroke: PARALLEL_STYLE.stroke
     },
     labelCfg: {
@@ -277,12 +277,12 @@ const EDGE_CONFIG_MAP = new Map([
   }]
 ]);
 
-export const FLOW_NODE_FN = function(node) {
+export const FLOW_NODE_FN = function (node) {
   // Compute stroke and textColor
   let result = {};
-  if(node.model && node.model.resourceType) {
-    let key = node.model.resourceType + (node.model.tagName? "."+node.model.tagName: "");
-    if(NODE_CONFIG_MAP.has(key)) {
+  if (node.model && node.model.resourceType) {
+    let key = node.model.resourceType + (node.model.tagName ? "." + node.model.tagName : "");
+    if (NODE_CONFIG_MAP.has(key)) {
       result = NODE_CONFIG_MAP.get(key);
     }
   }
@@ -290,11 +290,11 @@ export const FLOW_NODE_FN = function(node) {
   return result || {};
 };
 
-export const FLOW_EDGE_FN = function(edge) {
+export const FLOW_EDGE_FN = function (edge) {
   let result = {};
 
   // if source and target have the same resourcetype use the source stroke color
-  if(edge.model && edge.model.resourceType && EDGE_CONFIG_MAP.has(edge.model.resourceType)) {
+  if (edge.model && edge.model.resourceType && EDGE_CONFIG_MAP.has(edge.model.resourceType)) {
     result = EDGE_CONFIG_MAP.get(edge.model.resourceType);
   }
   return result || {};
