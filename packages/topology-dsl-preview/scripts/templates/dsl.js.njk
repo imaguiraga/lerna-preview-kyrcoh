@@ -1,25 +1,14 @@
-const {
-  fanIn,
-  fanOut,
-  fanOut_fanIn,
-  group,
-  sequence,
-  optional,
-  repeat,
-  choice,
-  merge,
-  branch,
-  terminal
-} = require("@imaguiraga/topology-dsl-core");
+const { terminal } = require('@imaguiraga/topology-dsl-core');
+const mapArray = require('./{{ provider }}-map');
 
 {% for item in items %}
 /**
  * Create a '{{ item.dsl }}' dsl tree.
- * @param {array|object} elts - The elements.
+ * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-function {{ item.dsl }}(...elts) {
-  return {{ item.tagName }}(...elts)._subType_("{{ item.subType }}");
+function {{ item.dsl }}(elt) {
+  return {{ item.tagName }}(elt)._subType_('{{ item.subType }}')._set_('style', mapArray.get('{{ item.dsl }}'));
 }
 module.exports.{{ item.dsl }} = {{ item.dsl }};
 

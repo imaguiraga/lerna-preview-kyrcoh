@@ -1,6 +1,6 @@
 let mapArray = [
 {% for item in items %}
-  ['{{ item.dsl }}' , '{{ encodeURI(item.iconURL) }}'],
+  ['{{ item.dsl }}', {{ JSON.stringify(item, null, " ") }}],
 {% endfor %}
 ];
 module.exports.default = new Map(mapArray);
