@@ -1,6 +1,6 @@
-let mapArray = [
+let _mapArray_ = [
 {% for item in items %}
   ['{{ item.dsl }}', {{ JSON.stringify(item, null, " ") }}],
 {% endfor %}
 ];
-module.exports.default = new Map(mapArray);
+export const mapArray = new Map(_mapArray_);

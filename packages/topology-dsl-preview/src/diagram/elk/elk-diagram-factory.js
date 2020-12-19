@@ -286,7 +286,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
           return JSON.stringify(d.model, null, ' ');
         });
       let style = d.model.data.get('style');
-      let iconPath = style ? style.iconURL: null;
+      let iconPath = style ? encodeURI(style.iconURL) : null;
       // If icon exist
       if (iconPath && iconPath !== null) {
         selection.append('image')

@@ -8,6 +8,8 @@ export function test() {
   return \`The moment is \${m1}, which was \${m2}\`;
 }`,
 // */
+`import { az_Linux_Virtual_Machines } from './Azure_Products_Icons/index.js';
+export const testflow = az_Linux_Virtual_Machines("b");`,
 `import { choice, terminal, sequence} from "topology-dsl-core";
 export const testflow = choice(
   terminal("a")._in_("a","b")._out_("a","b"),

@@ -1,5 +1,5 @@
-const { terminal } = require('@imaguiraga/topology-dsl-core');
-const mapArray = require('./{{ provider }}-map');
+import { terminal } from '@imaguiraga/topology-dsl-core';
+import { mapArray } from './{{ provider }}-map.js';
 
 {% for item in items %}
 /**
@@ -7,9 +7,8 @@ const mapArray = require('./{{ provider }}-map');
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-function {{ item.dsl }}(elt) {
+export function {{ item.dsl }}(elt) {
   return {{ item.tagName }}(elt)._subType_('{{ item.subType }}')._set_('style', mapArray.get('{{ item.dsl }}'));
 }
-module.exports.{{ item.dsl }} = {{ item.dsl }};
 
 {% endfor %}
