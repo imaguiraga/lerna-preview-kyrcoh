@@ -280,7 +280,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
         .attr('y', 0)
         .attr('width', function (d) { return d.width; })
         .attr('height', function (d) { return d.height; })
-        .attr('rx', 8)
+        // .attr('rx', 8)
         .append('metadata')
         .text((d) => {
           return JSON.stringify(d.model, null, ' ');
