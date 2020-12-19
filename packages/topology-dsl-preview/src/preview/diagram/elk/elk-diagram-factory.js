@@ -261,7 +261,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
       // Draw the background
       let style = d.model.data.get('style');
       if (style && style.provider !== 'default') {
-        fill = 'none';
+        fill = 'white';
         stroke = 'inherit';
       }
 
