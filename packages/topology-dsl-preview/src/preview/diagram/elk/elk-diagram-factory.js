@@ -259,6 +259,12 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
         fill = 'inherit';
       }
       // Draw the background
+      let style = d.model.data.get('style');
+      if (style && style.provider !== 'default') {
+        fill = 'none';
+        stroke = 'inherit';
+      }
+
       selection.append('rect')
         .attr('class', 'node')
         .style('fill', fill)
@@ -273,7 +279,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
         .text((d) => {
           return JSON.stringify(d.model, null, ' ');
         });
-      let style = d.model.data.get('style');
+      // IconPath
       let iconPath = style ? encodeURI(style.iconURL) : null;
       // If icon exist
       if (iconPath && iconPath !== null) {
