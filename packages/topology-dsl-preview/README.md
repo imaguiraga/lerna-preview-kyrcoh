@@ -9,7 +9,7 @@ and [CodeMirror](https://codemirror.net/) as text editor.
 [https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html](https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html)
 ## PREVIEW
 ```
-cd package/topology-dsl-preview
+cd packages/topology-dsl-preview
 yarn
 yarn start
 ```
