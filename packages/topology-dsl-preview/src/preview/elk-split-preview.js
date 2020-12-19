@@ -1,8 +1,8 @@
 import "./style/styles.css";
 // using ES6 modules
 import Split from "split.js";
-import {samples} from "./samples1.js";
-import {createEditor} from "../editor";
+import { samples } from "./samples1.js";
+import { createEditor } from "../editor";
 import * as diagram from "../diagram";
 
 import * as flowDsl from "@imaguiraga/topology-dsl-core";
@@ -19,17 +19,17 @@ const DEBUG = true;
 function loadFnFactory() {
   let loadedImports = new Map();
   const loadFn = (key) => {
-    if(loadedImports.has(key)) {
+    if (loadedImports.has(key)) {
       let obj = loadedImports.get(key);
       //Clone to avoid ids collision
-      let copy = clone(obj,NODEIDGENFN.next().value);
+      let copy = clone(obj, NODEIDGENFN.next().value);
       return copy;
     } else {
       return null;
     }
   };
 
-  loadFn.loadedImports = function(newValue) {	
+  loadFn.loadedImports = function (newValue) {
     if (!arguments.length) return loadedImports;
     loadedImports = newValue;
     return this;
@@ -40,8 +40,8 @@ function loadFnFactory() {
 
 flowDsl.load = loadFnFactory();
 
-document.body.innerHTML = 
-`<div id="grid">
+document.body.innerHTML =
+  `<div id="grid">
 		<div id="one" class="pane">
 			<h6>Topology EDITOR</h6>
 			<div style="margin:2px;font-size:12px">
@@ -69,25 +69,25 @@ document.body.innerHTML =
 Split(["#one", "#two"], {
   sizes: [40, 60],
   minSize: [200, 300],
-  gutter: function(index, direction) {
+  gutter: function (index, direction) {
     var gutter = document.createElement("div");
     gutter.className = "gutter gutter-" + direction;
     return gutter;
   },
   gutterSize: 2,
   elementStyle: (dimension, size, gutterSize) => ({
-        'flex-basis': `calc(${size}% - ${gutterSize}px)`,
-    }),
-    gutterStyle: (dimension, gutterSize) => ({
-        'flex-basis':  `${gutterSize}px`,
-    })
+    'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+  }),
+  gutterStyle: (dimension, gutterSize) => ({
+    'flex-basis': `${gutterSize}px`,
+  })
 });
 
 const renderer = diagram.createElkRenderer("preview-pane");
 
 function updatePreviewPane(content) {
   // Reset node ids
-  if( typeof content === "undefined" || content === null){
+  if (typeof content === "undefined" || content === null) {
     return;
   }
   try {
@@ -97,50 +97,50 @@ function updatePreviewPane(content) {
       // Inject load function
       flowDsl.load.loadedImports(resolvedImports);
 
-      parseDsl(content,flowDsl).then((flows) => {
+      parseDsl(content, flowDsl).then((flows) => {
         // Update graph flows
-        renderFlow(flows.get(flows.keys().next().value)); 
-        initFlowSelection(flows);   
+        renderFlow(flows.get(flows.keys().next().value));
+        initFlowSelection(flows);
       });
 
     }).catch((error) => {
       console.error('Error:', error);
     });
-    
-  } catch(e) {
+
+  } catch (e) {
     console.error(e);
   }
 }
 
-function renderFlow(input){
-  if( typeof input === "undefined" || input === null){
+function renderFlow(input) {
+  if (typeof input === "undefined" || input === null) {
     return;
   }
 
   try {
     renderer.render(input);
- 
-  } catch(e) {
+
+  } catch (e) {
     console.error(e);
   }
- 
+
 }
 
-const editor = createEditor('editor-pane','');
+const editor = createEditor('editor-pane', '');
 
-editor.on("changes",(instance) => {
-  if(DEBUG) console.log('changes');
+editor.on("changes", (instance) => {
+  if (DEBUG) console.log('changes');
   const content = instance.getDoc().getValue();
   updatePreviewPane(content);
-}); 
+});
 
 let selectEltChangeHandler = null;
-function initFlowSelection(flows){
+function initFlowSelection(flows) {
   NODEIDGENFN.next(true);
   // Populate select component from list of samples
   let selectElt = document.getElementById("flow-preview-select");
   // Detach selection handler
-  if(selectEltChangeHandler != null) {
+  if (selectEltChangeHandler != null) {
     selectElt.removeEventListener('change', selectEltChangeHandler);
   }
 
@@ -148,14 +148,14 @@ function initFlowSelection(flows){
     const result = flows.get(event.target.value);
     renderFlow(result);
   };
-  
+
   // Recreate flow options
   while (selectElt.firstChild) {
     selectElt.firstChild.remove();
   }
 
-  flows.forEach((value,key) => {
-    let opt = new Option(key,key);
+  flows.forEach((value, key) => {
+    let opt = new Option(key, key);
     selectElt.add(opt);
   });
   // Attach selection handler 
@@ -163,7 +163,7 @@ function initFlowSelection(flows){
 
 }
 
-(function initSampleSelection(samples,editor){
+(function initSampleSelection(samples, editor) {
   // Populate select component from list of samples
   let selectElt = document.getElementById("flow-sample-select");
 
@@ -172,8 +172,8 @@ function initFlowSelection(flows){
     selectElt.firstChild.remove();
   }
 
-  samples.forEach((value,index) => {
-    let opt = new Option(`Sample #${index +1}`,index);
+  samples.forEach((value, index) => {
+    let opt = new Option(`Sample #${index + 1}`, index);
     selectElt.add(opt);
   });
   // Update sample when the selection changes 
@@ -182,7 +182,7 @@ function initFlowSelection(flows){
     editor.getDoc().setValue(result);
     updatePreviewPane(result);
   });
-  
+
   editor.getDoc().setValue(samples[0]);
-  
-})(samples,editor);
+
+})(samples, editor);

@@ -7,12 +7,12 @@ import {
 } from "@imaguiraga/topology-dsl-core";
 
 
-function updateInputOutputBindings(elt,graph,visitor) {
+function updateInputOutputBindings(elt, graph, visitor) {
   // Add Inbounds nodes and edges from children
   elt.inputElts = elt.inputElts || [];
   elt.inputElts.forEach(t => {
     let ctree = t.accept(visitor);
-    if(ctree !== null) {
+    if (ctree !== null) {
       ctree.inbound = true;
       graph.children.push(ctree);
       graph.edges.push({
@@ -28,7 +28,7 @@ function updateInputOutputBindings(elt,graph,visitor) {
   elt.outputElts = elt.outputElts || [];
   elt.outputElts.forEach(t => {
     let ctree = t.accept(visitor);
-    if(ctree !== null) {
+    if (ctree !== null) {
       ctree.outbound = true;
       graph.children.push(ctree);
       graph.edges.push({
@@ -41,27 +41,27 @@ function updateInputOutputBindings(elt,graph,visitor) {
   });
 }
 export class FlowToELKVisitor {
-  constructor(){
-    this.edgeCntIt = idGenFn("edge.",0);   
+  constructor() {
+    this.edgeCntIt = idGenFn("edge.", 0);
   }
-  
-  toElkGraph(tree,filterFn){
+
+  toElkGraph(tree, filterFn) {
     return {
       id: "$root",
       children: [
-        this.visit(tree,filterFn)
+        this.visit(tree, filterFn)
       ]
     };
   }
-  
+
   /**
    * Convert a dsl tree to ELK Graph.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ELK graph.
    */
-  visit(_tree,filterFn){
-    if( typeof _tree === "undefined" || _tree === null){
+  visit(_tree, filterFn) {
+    if (typeof _tree === "undefined" || _tree === null) {
       return null;
     }
     let tree = _tree;
@@ -69,72 +69,66 @@ export class FlowToELKVisitor {
     tree = jsonToDslObject(tree);
 
     let result = null;
-    if( typeof tree === "undefined"){
+    if (typeof tree === "undefined") {
       return result;
     }
-    if(tree.compound) {
-      switch(tree.resourceType){
+    if (tree.compound) {
+      switch (tree.resourceType) {
         case "fanOut_fanIn":
         case "fanIn":
         case "fanOut":
         case "group":
-          result = MutltiPathEltFlowToELKVisitor.visit(this,tree,filterFn,tree.resourceType);
-        break;
+          result = MutltiPathEltFlowToELKVisitor.visit(this, tree, filterFn, tree.resourceType);
+          break;
         case "optional":
-          result = this._visitOptional(tree,filterFn);
-        break;
+          result = this._visitOptional(tree, filterFn);
+          break;
         case "sequence":
-          result = this._visitSequence(tree,filterFn);
-        break;
+          result = this._visitSequence(tree, filterFn);
+          break;
         case "repeat":
-          result = this._visitRepeat(tree,filterFn);
-        break;
+          result = this._visitRepeat(tree, filterFn);
+          break;
         case "terminal":
-          result = this._visitTerminal(tree,filterFn);
-        break;
+          result = this._visitTerminal(tree, filterFn);
+          break;
         default:
-          console.error("==>WARNING: " + tree.resourceType +" type was not found");
-        break;
-      } 
+          console.error("==>WARNING: " + tree.resourceType + " type was not found");
+          break;
+      }
 
     } else {
-      result = this._visitTerminal(tree,filterFn);
+      result = this._visitTerminal(tree, filterFn);
     }
 
     return result;
   }
 
-  _visitSequence(tree,filterFn){
-    return SequenceEltFlowToELKVisitor.visit(this,tree,filterFn);
+  _visitSequence(tree, filterFn) {
+    return SequenceEltFlowToELKVisitor.visit(this, tree, filterFn);
   }
 
-  _visitOptional(tree,filterFn){
-    return OptionalEltFlowToELKVisitor.visit(this,tree,filterFn);
+  _visitOptional(tree, filterFn) {
+    return OptionalEltFlowToELKVisitor.visit(this, tree, filterFn);
   }
 
-  _visitRepeat(tree,filterFn){
-    return RepeatEltFlowToELKVisitor.visit(this,tree,filterFn);
+  _visitRepeat(tree, filterFn) {
+    return RepeatEltFlowToELKVisitor.visit(this, tree, filterFn);
   }
 
-  _visitTerminal(tree,filterFn){
-    return TerminalFlowEltFlowToELKVisitor.visit(this,tree,filterFn);
+  _visitTerminal(tree, filterFn) {
+    return TerminalFlowEltFlowToELKVisitor.visit(this, tree, filterFn);
   }
-  
+
   getNodeModel(n) {
     let r = {
       id: n.id,
       label: n.id,
-      model: { 
-        provider: n.provider,
-        resourceType: n.resourceType,
-        subType: n.subType,
-        tagName: n.tagName,
-        compound: n.compound
-      },
+      model: n,
       labels: [
         {
-          text: n.id
-        } 
+          text: n.title || n.id
+        }
       ]
     };
     return r;
@@ -148,7 +142,7 @@ export class FlowToELKVisitor {
 
   getEdgeModel(n) {
     let r = {
-      model: { 
+      model: {
         provider: n.provider,
         resourceType: n.resourceType,
         subType: n.subType,
@@ -167,7 +161,7 @@ export class FlowToELKVisitor {
 /**
  * Class TerminalFlowEltFlowToELKVisitor.
  */
-class TerminalFlowEltFlowToELKVisitor{
+class TerminalFlowEltFlowToELKVisitor {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -175,16 +169,16 @@ class TerminalFlowEltFlowToELKVisitor{
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ctree Graph graph.
    */
-  static visit(visitor,tree,filterFn) {
+  static visit(visitor, tree, filterFn) {
     const graph = {
       ...visitor.getNodeModel(tree),
       ports: [],
       children: [],
-      edges: []  
+      edges: []
     };
 
     // Check if the only element is not a string 
-    if(typeof tree.elts[0] === "object") {
+    if (typeof tree.elts[0] === "object") {
       let n = visitor.getNodeModel(tree);
       if (filterFn) {
         if (!filterFn(n)) {
@@ -202,25 +196,25 @@ class TerminalFlowEltFlowToELKVisitor{
 /**
  * Class SequenceEltFlowToELKVisitor.
  */
-class SequenceEltFlowToELKVisitor{
+class SequenceEltFlowToELKVisitor {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ctree Graph graph.
-   */  
-  static visit(visitor,tree,filterFn) {
+   */
+  static visit(visitor, tree, filterFn) {
     const SEQUENCE = "sequence";
     const graph = {
       ...visitor.getNodeModel(tree),
-     /* layoutOptions: 
-      { 
-        "nodePlacement.strategy": "NETWORK_SIMPLEX"
-      },//*/
+      /* layoutOptions: 
+       { 
+         "nodePlacement.strategy": "NETWORK_SIMPLEX"
+       },//*/
       ports: [],
       children: [],
-      edges: []  
+      edges: []
     };
     if (tree.resourceType !== SEQUENCE) {
       return graph;
@@ -229,15 +223,15 @@ class SequenceEltFlowToELKVisitor{
     graph.ports.push(visitor.getPortModel(tree.start));
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
-    
-    graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
-        targets: [tree.elts[0].start.id],
-        ...visitor.getEdgeModel(tree),
-      });
 
-    for (let i = 0; i < tree.elts.length - 1; i++) {   
+    graph.edges.push({
+      id: `${visitor.edgeCntIt.next().value}`,
+      sources: [tree.start.id],
+      targets: [tree.elts[0].start.id],
+      ...visitor.getEdgeModel(tree),
+    });
+
+    for (let i = 0; i < tree.elts.length - 1; i++) {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[i].finish.id],
@@ -245,7 +239,7 @@ class SequenceEltFlowToELKVisitor{
         ...visitor.getEdgeModel(tree),
       });
     }
-  
+
     graph.edges.push({
       id: `${visitor.edgeCntIt.next().value}`,
       sources: [tree.elts[tree.elts.length - 1].finish.id],
@@ -253,48 +247,48 @@ class SequenceEltFlowToELKVisitor{
       ...visitor.getEdgeModel(tree),
     });
     // concatenate graphs
-    
+
     // nodes
     tree.elts.forEach(elt => {
-      let ctree = elt.accept(visitor,n => tree.foundElt(n));
-      if(ctree !== null) {
+      let ctree = elt.accept(visitor, n => tree.foundElt(n));
+      if (ctree !== null) {
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInputOutputBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt, graph, visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInputOutputBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt, graph, visitor);
         }
       }
-     
+
     });
-    
+
     return graph;
   }
 
-  
+
 }
 
 /**
  * Class MutltiPathEltFlowToELKVisitor.
  */
-class MutltiPathEltFlowToELKVisitor{
+class MutltiPathEltFlowToELKVisitor {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ctree Graph graph.
-   */  
-  static visit(visitor,tree,filterFn,type){
+   */
+  static visit(visitor, tree, filterFn, type) {
     //const type = "choice" | "parallel";
     const graph = {
       ...visitor.getNodeModel(tree),
       ports: [],
       children: [],
-      edges: []  
+      edges: []
     };
     //
     if (tree.resourceType !== type) {
@@ -305,9 +299,9 @@ class MutltiPathEltFlowToELKVisitor{
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
     // groups are just containers
-    if( type !== "group") {
-      for (let i = 0; i < tree.elts.length; i++) { 
-        if( type !== "fanIn") {
+    if (type !== "group") {
+      for (let i = 0; i < tree.elts.length; i++) {
+        if (type !== "fanIn") {
           graph.edges.push({
             id: `${visitor.edgeCntIt.next().value}`,
             sources: [tree.start.id],
@@ -315,7 +309,7 @@ class MutltiPathEltFlowToELKVisitor{
             ...visitor.getEdgeModel(tree),
           });
         }
-        if( type !== "fanOut") {
+        if (type !== "fanOut") {
           graph.edges.push({
             id: `${visitor.edgeCntIt.next().value}`,
             sources: [tree.elts[i].finish.id],
@@ -328,43 +322,43 @@ class MutltiPathEltFlowToELKVisitor{
     // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
-      let ctree = elt.accept(visitor,n => tree.foundElt(n));
-      if(ctree !== null) {
+      let ctree = elt.accept(visitor, n => tree.foundElt(n));
+      if (ctree !== null) {
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInputOutputBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt, graph, visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInputOutputBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt, graph, visitor);
         }
       }
     });
 
     return graph;
   }
-  
+
 }
 
 /**
  * Class OptionalEltFlowToELKVisitor.
  */
-class OptionalEltFlowToELKVisitor{
+class OptionalEltFlowToELKVisitor {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
    * @param {object} tree - The dsl tree.
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ctree Graph graph.
-   */  
-  static visit(visitor,tree,filterFn) {
+   */
+  static visit(visitor, tree, filterFn) {
     const OPTIONAL = "optional";
     const graph = {
       ...visitor.getNodeModel(tree),
       ports: [],
       children: [],
-      edges: []  
+      edges: []
     };
     if (tree.resourceType !== OPTIONAL) {
       return graph;
@@ -373,15 +367,15 @@ class OptionalEltFlowToELKVisitor{
     graph.ports.push(visitor.getPortModel(tree.start));
 
     // skip node
-    if(tree.skip) {
+    if (tree.skip) {
       graph.children.push(visitor.getNodeModel(tree.skip));
     }
 
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
 
-    if(tree.elts.length > 0) {
-      
+    if (tree.elts.length > 0) {
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
@@ -389,19 +383,19 @@ class OptionalEltFlowToELKVisitor{
         ...visitor.getEdgeModel(tree),
 
       });
-      
+
     }
 
     // start -> skip? -> finish
-    if(typeof(tree.skip) !== "undefined"){
-      
+    if (typeof (tree.skip) !== "undefined") {
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
         targets: [tree.skip.id],
         ...visitor.getEdgeModel(tree),
       });
-      
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.skip.id],
@@ -409,7 +403,7 @@ class OptionalEltFlowToELKVisitor{
         ...visitor.getEdgeModel(tree),
       });
     } else {
-      
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
@@ -418,28 +412,28 @@ class OptionalEltFlowToELKVisitor{
       });
     }
 
-    if(tree.elts.length > 0) {
-      
+    if (tree.elts.length > 0) {
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[tree.elts.length-1].finish.id],
+        sources: [tree.elts[tree.elts.length - 1].finish.id],
         targets: [tree.finish.id],
-         ...visitor.getEdgeModel(tree),
+        ...visitor.getEdgeModel(tree),
       });
     }
     // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
-      let ctree = elt.accept(visitor,n => tree.foundElt(n));
-      if(ctree !== null) {
+      let ctree = elt.accept(visitor, n => tree.foundElt(n));
+      if (ctree !== null) {
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInputOutputBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt, graph, visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInputOutputBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt, graph, visitor);
         }
       }
     });
@@ -459,13 +453,13 @@ class RepeatEltFlowToELKVisitor {
    * @param {function} filterFn - The dsl filterFn function.
    * @return {object} ctree Graph graph.
    */
-  static visit(visitor,tree,filterFn) {
+  static visit(visitor, tree, filterFn) {
     const REPEAT = "repeat";
     const graph = {
       ...visitor.getNodeModel(tree),
       ports: [],
       children: [],
-      edges: []  
+      edges: []
     };
     if (tree.resourceType !== REPEAT) {
       return graph;
@@ -474,15 +468,15 @@ class RepeatEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.start));
 
     // loop node
-    if(tree.loop) {
+    if (tree.loop) {
       graph.children.push(visitor.getNodeModel(tree.loop));
     }
 
     // finish node
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
-    if(tree.elts.length > 0) {
-      
+    if (tree.elts.length > 0) {
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.start.id],
@@ -494,7 +488,7 @@ class RepeatEltFlowToELKVisitor {
 
     // start <- loop <- finish
     // reverse the arrow direction
-    if(typeof(tree.loop) !== "undefined") {
+    if (typeof (tree.loop) !== "undefined") {
       let edgeModel = visitor.getEdgeModel(tree);
       edgeModel.style.startArrow = false;
       edgeModel.style.endArrow = false;
@@ -505,7 +499,7 @@ class RepeatEltFlowToELKVisitor {
         targets: [tree.loop.id],
         ...edgeModel,
       });
-      
+
       edgeModel = visitor.getEdgeModel(tree);
       edgeModel.style.startArrow = true;
       edgeModel.style.endArrow = false;
@@ -518,7 +512,7 @@ class RepeatEltFlowToELKVisitor {
       });
 
     } else {
-      
+
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.finish.id],
@@ -528,29 +522,29 @@ class RepeatEltFlowToELKVisitor {
     }
     //*/
     // edges
-    if(tree.elts.length > 0) {
+    if (tree.elts.length > 0) {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[tree.elts.length-1].finish.id],
+        sources: [tree.elts[tree.elts.length - 1].finish.id],
         targets: [tree.finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }
-    
+
     // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
-      let ctree = elt.accept(visitor,n => tree.foundElt(n));
-      if(ctree !== null) {
+      let ctree = elt.accept(visitor, n => tree.foundElt(n));
+      if (ctree !== null) {
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
-            updateInputOutputBindings(elt,graph,visitor);
+            updateInputOutputBindings(elt, graph, visitor);
           }
         } else {
           graph.children.push(ctree);
-          updateInputOutputBindings(elt,graph,visitor);
+          updateInputOutputBindings(elt, graph, visitor);
         }
       }
     });

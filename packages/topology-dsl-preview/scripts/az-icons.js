@@ -1,19 +1,19 @@
 const sets = [
   {
-    provider: "Azure_Products_Icons",
-    prefix: "az",
-    path: "assets/icons/Azure_Public_Service_Icons",  
-    pattern : "\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg",
-    resourceType : "cloud",
-    //excludes : ["/CXP","/Azure VMware Solution","/General"]
+    provider: 'Azure_Products_Icons',
+    prefix: 'az',
+    path: 'assets/icons/Azure_Public_Service_Icons',
+    pattern: '\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg',
+    resourceType: 'cloud',
+    //excludes : ['/CXP','/Azure VMware Solution','/General']
   }
   /*,
   {
-    provider: "Google Cloud Platform",
-    prefix: "gcp",
-    path: "assets/icons/GCP Icons/Products and services",
-    pattern: "(.*).svg",
-    resourceType : "cloud"
+    provider: 'Google Cloud Platform',
+    prefix: 'gcp',
+    path: 'assets/icons/GCP Icons/Products and services',
+    pattern: '(.*).svg',
+    resourceType : 'cloud'
   }//*/
 ];
 
@@ -23,59 +23,59 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 const yaml = require('js-yaml');
 
-function createAzResource(s,item) {
+function createAzResource(s, item) {
   let provider = s.provider;
-        
-  let category = item.azureCategories.join(",");
+
+  let category = item.azureCategories.join(',');
   let product = item.title;
-  let dsl = s.prefix+"_"+product;
+  let dsl = s.prefix + '_' + product;
   // Replace special characters
-  dsl = dsl.replace(/\-|\s+|\(|\)|\+/g,'_');
+  dsl = dsl.replace(/\-|\s+|\(|\)|\+/g, '_');
   let isDecorator = false;
   let resourceType = s.resourceType;
-  let tagName = "terminal";
+  let tagName = 'terminal';
   let subType = dsl;
-// imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
-// imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
-  const IMAGE_PREFIX = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/";
+  // imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
+  // imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
+  const IMAGE_PREFIX = 'https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/';
   let iconURL = item.imageSrc;
-  if(iconURL[0] === ".") {
+  if (iconURL[0] === '.') {
     iconURL = IMAGE_PREFIX + iconURL;
   }
-  let typeURI = ""; 
+  let typeURI = '';
   let docURL = item.url;
   // Replace 'md' and 'yml' extensions
-  
+
   // url: /azure/databricks/ => https://docs.microsoft.com/en-us/ + /azure/databricks/
   // url: machine-learning/index.yml => https://docs.microsoft.com/en-us/azure/ + machine-learning/
   // url: https://docs.microsoft.com/azure-stack/
-  const DOC_PREFIX = "https://docs.microsoft.com/en-us";
+  const DOC_PREFIX = 'https://docs.microsoft.com/en-us';
   // doesn't starts with https
-  if(docURL.indexOf("https://") < 0 && docURL.indexOf("http://") < 0 ) {
-   // docURL = docURL.replace(/(\/(\w|\-)+\.md|\/(\w|\-)+\.yml)$/g,'/');
-    if(docURL.indexOf("/azure/") >= 0){
-      docURL = DOC_PREFIX + "/" + docURL;
+  if (docURL.indexOf('https://') < 0 && docURL.indexOf('http://') < 0) {
+    // docURL = docURL.replace(/(\/(\w|\-)+\.md|\/(\w|\-)+\.yml)$/g,'/');
+    if (docURL.indexOf('/azure/') >= 0) {
+      docURL = DOC_PREFIX + '/' + docURL;
     } else {
-      docURL = DOC_PREFIX + "/azure/" + docURL;
+      docURL = DOC_PREFIX + '/azure/' + docURL;
     }
-    
+
   }
 
-  docURL = docURL.replace(/(\.md|\.yml)$/g,'');
+  docURL = docURL.replace(/(\.md|\.yml)$/g, '');
 
-  console.log(category+ " => " + iconURL + " | "+dsl);
+  console.log(category + ' => ' + iconURL + ' | ' + dsl);
 
   let resource = {
-    provider, 
-    category, 
+    provider,
+    category,
     product,
-    dsl, 
-    isDecorator, 
-    resourceType, 
-    tagName, 
-    subType, 
-    iconURL, 
-    typeURI, 
+    dsl,
+    isDecorator,
+    resourceType,
+    tagName,
+    subType,
+    iconURL,
+    typeURI,
     docURL
   };
   return resource;
@@ -83,32 +83,32 @@ function createAzResource(s,item) {
 
 
 function azDsl(s) {
-  "use strict";
- 
+  'use strict';
+
   const fetch = require('node-fetch');
-  
-  let promise = new Promise( (resolutionFunc,rejectionFunc) => {
-   
+
+  let promise = new Promise((resolutionFunc, rejectionFunc) => {
+
     // Parse yaml file https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml
     // Get document, or throw exception on error
-    fetch("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml")
-    .then(response => response.text())
-    .then( function(data) { 
-      try {
-        yaml.safeLoadAll(data, function (doc) {
-          let resources = [];
-          doc.productDirectory.items.forEach((item) => {
-            resources.push(createAzResource(s,item));
+    fetch('https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/index.yml')
+      .then(response => response.text())
+      .then(function (data) {
+        try {
+          yaml.safeLoadAll(data, function (doc) {
+            let resources = [];
+            doc.productDirectory.items.forEach((item) => {
+              resources.push(createAzResource(s, item));
+            });
+            resolutionFunc(resources);
           });
-          resolutionFunc(resources);
-        });
-      } catch (e) {
+        } catch (e) {
           console.log(e);
-      }
-    });
+        }
+      });
   });
   return promise;
-} 
+}
 
 // Parse categories https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/bread/toc.yml
 
@@ -128,7 +128,7 @@ function azDsl(s) {
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/anomaly-detector/index.yml
-//*/      
+//*/
 // url: /azure/databricks/ => https://docs.microsoft.com/en-us/ + /azure/databricks/
 // url: machine-learning/index.yml => https://docs.microsoft.com/en-us/azure/ + machine-learning/
 // url: https://docs.microsoft.com/azure-stack/
@@ -138,8 +138,8 @@ function azDsl(s) {
 sets.forEach((s) => {
   azDsl(s).then((resources) => {
     // Generate resources file
-    mkdirp.sync("./scripts/yml/");
-    fs.writeFileSync("./scripts/yml/"+s.provider+".yml",yaml.safeDump({source: s,items: resources}));
+    mkdirp.sync('./scripts/yml/');
+    fs.writeFileSync('./scripts/yml/' + s.provider + '.yml', yaml.safeDump({ source: s, items: resources }));
   });
 });
 

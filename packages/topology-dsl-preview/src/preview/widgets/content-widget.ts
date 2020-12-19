@@ -1,4 +1,4 @@
-/* tslint:disable */ 
+/* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
@@ -6,7 +6,7 @@ import {
 } from '@lumino/messaging';
 
 import {
- Widget
+  Widget
 } from '@lumino/widgets';
 
 export class ContentWidget extends Widget {

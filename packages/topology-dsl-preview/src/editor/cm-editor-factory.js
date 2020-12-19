@@ -20,28 +20,28 @@ window.JSHINT = JSHINT;
  * @param {string} mode - The mode.
  * @return {object} The CodeMirror object.
  */
-export function createEditor(container, content, mode){
-    let containerElt = (typeof container === "string") ? document.getElementById(container) : container;
+export function createEditor(container, content, mode) {
+  let containerElt = (typeof container === "string") ? document.getElementById(container) : container;
   // Initialize Editor Pane
-    let editor = CodeMirror(
+  let editor = CodeMirror(
     containerElt, {
-        value: content,
-        mode: mode || "javascript",
-        lineNumbers: true,
-        lineWrapping: true,
-        viewportMargin: 40,
-        foldGutter: true,
-        lint: { 
-          'esversion': '8', 
-          'laxcomma': true 
-        }, 
-        gutters: [
-          "CodeMirror-linenumbers", 
-          "CodeMirror-foldgutter",
-          "CodeMirror-lint-markers"
-        ],
-        scrollbarStyle: "simple"
-    });
+    value: content,
+    mode: mode || "javascript",
+    lineNumbers: true,
+    lineWrapping: true,
+    viewportMargin: 40,
+    foldGutter: true,
+    lint: {
+      'esversion': '8',
+      'laxcomma': true
+    },
+    gutters: [
+      "CodeMirror-linenumbers",
+      "CodeMirror-foldgutter",
+      "CodeMirror-lint-markers"
+    ],
+    scrollbarStyle: "simple"
+  });
 
   return editor;
 }
