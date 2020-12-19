@@ -50,6 +50,17 @@ fs.readdir('scripts/yml', function (err, files) {
   files.forEach((f) => {
     try {
       yaml.safeLoadAll(fs.readFileSync('scripts/yml/' + f, 'utf8'), function (doc) {
+        // Remove duplicate items
+        const dups = new Set();
+        doc.items = doc.items.filter((i) => {
+          if( !dups.has(i.dsl) ){
+            dups.add(i.dsl);
+            return true;
+          } else {
+            return false;
+          }          
+        });
+
         // Generate resources file
         render({ items: doc.items, ...doc.source, encodeURI, JSON }, 'scripts/templates', 'scripts/out/' + doc.source.provider);
       });

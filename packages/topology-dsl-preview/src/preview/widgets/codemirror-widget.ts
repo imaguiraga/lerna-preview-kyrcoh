@@ -11,17 +11,17 @@ import {
 
 import { ISignal, Signal } from '@lumino/signaling';
 
-import CodeMirror from "codemirror";
-import "codemirror/lib/codemirror.css";
-import "codemirror/mode/javascript/javascript.js";
-import "codemirror/mode/css/css.js";
-import "codemirror/addon/display/panel.js";
-import "codemirror/addon/lint/lint.js";
-import "codemirror/addon/lint/javascript-lint.js";
-import "codemirror/addon/lint/lint.css";
+import CodeMirror from 'codemirror';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/mode/javascript/javascript.js';
+import 'codemirror/mode/css/css.js';
+import 'codemirror/addon/display/panel.js';
+import 'codemirror/addon/lint/lint.js';
+import 'codemirror/addon/lint/javascript-lint.js';
+import 'codemirror/addon/lint/lint.css';
 import '../style/index.css';
 
-//import "tslint";
+//import 'tslint';
 //globalThis.JSHINT = JSHINT;
 
 /**
@@ -34,30 +34,30 @@ export class CodeMirrorWidget extends Widget {
     this.addClass('CodeMirrorWidget');
 
     let div = document.createElement('div');
-    div.setAttribute("style", "padding:4px;background-color: #dfdfdf;");
+    div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
-    this.selectElt.setAttribute("class", "flow-select");
+    this.selectElt.setAttribute('class', 'flow-select');
 
     div.appendChild(this.selectElt);
 
     let opt = document.createElement('option');
-    opt.value = "Option 1";
-    opt.text = "Option 1";
+    opt.value = 'Option 1';
+    opt.text = 'Option 1';
     this.selectElt.add(opt);
 
     let separator = document.createElement('div');
-    separator.setAttribute("class", "separator");
+    separator.setAttribute('class', 'separator');
     this.node.appendChild(separator);
 
     let content = document.createElement('div');
-    content.setAttribute("class", "CodeMirrorWidget");
+    content.setAttribute('class', 'CodeMirrorWidget');
     this.node.appendChild(content);
 
     this._editor = CodeMirror(content, config);
     let self = this;
-    self.editor.on("changes", (instance) => {
+    self.editor.on('changes', (instance) => {
       // Emit changes
       let content = instance.getDoc().getValue();
       self._valueChanged.emit(content);
@@ -108,7 +108,7 @@ export class CodeMirrorWidget extends Widget {
     }
 
     values.forEach((value, index) => {
-      let opt: HTMLOptionElement = document.createElement("option");
+      let opt: HTMLOptionElement = document.createElement('option');
       opt.value = index.toString();
       opt.text = `Sample #${index + 1}`;
       if (isScript(value)) {

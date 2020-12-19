@@ -7,3 +7,4 @@ scripts/yml/
 bootstrap-icons-1.0.0-alpha5/
 dist/
 .next/
+debug.log

@@ -5,7 +5,7 @@ import {
   Widget
 } from '@lumino/widgets';
 
-import * as diagram from "../../diagram";
+import * as diagram from "../diagram";
 
 export class ELKGraphWidget extends Widget {
 
@@ -13,7 +13,7 @@ export class ELKGraphWidget extends Widget {
     super();
     this._flows = new Map();
     this.addClass('CodeMirrorWidget');
-    this.title.label = "Topology PREVIEW";
+    this.title.label = "PREVIEW";
     this.title.closable = false;
     this.title.caption = `Long description for ELK Graph`;
 

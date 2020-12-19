@@ -1,21 +1,12 @@
 export const samples2 = [
-  /*
-`import moment from 'https://unpkg.com/moment@2.29.1/moment.js';
-
-export function test() {
-  const m1 = moment().format('LLL');
-  const m2 = moment().fromNow();
-  return \`The moment is \${m1}, which was \${m2}\`;
-}`,
-// */
-`import { choice, terminal, sequence} from 'topology-dsl-core';
-import { az_Linux_Virtual_Machines } from './Azure_Products_Icons/index.js';
-import { gcp_Compute_Engine } from './GCP_Icons/index.js';
+`import { choice, terminal, sequence} from 'topology-dsl';
+import { az_Linux_Virtual_Machines } from './assets/js/Azure_Products_Icons/index.js';
+import { gcp_Compute_Engine, gcp_Cloud_Storage, gcp_Cloud_PubSub } from 'gcp-dsl';
 
 const am = az_Linux_Virtual_Machines;
 const gm = gcp_Compute_Engine;
 
-export const v1 =sequence(
+export const v1 = sequence(
   terminal('b'), 
   choice(
     'c',
@@ -25,14 +16,18 @@ export const v1 =sequence(
   sequence(
     gm('c')._title_('GCP VM-C'),
     am('c')._title_('AZ VM-C'),
+    gcp_Cloud_Storage('S1'),
+    gcp_Cloud_PubSub('PS1'),
     am('d')._title_('AZ VM-A')
   )
 );
 
+v1._title_('CLOUD DIAGRAM1')._id_('DIAGRAM1');
+
 export const testflow = am('b');
 testflow._title_('AZ VM-B');
 `,
-`import { choice, terminal, sequence} from 'topology-dsl-core';
+`import { choice, terminal, sequence} from 'topology-dsl';
 export const testflow = choice(
   terminal('a')._in_('a','b')._out_('a','b'),
   choice('e', 'd'),
@@ -43,7 +38,7 @@ export const testflow = choice(
   ),
   sequence('c','d')
 );`,
-`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from 'topology-dsl-core';
+`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from 'topology-dsl';
 export const testflow = choice(
   terminal('a')._in_('a','b')._out_('a','b'),
   choice('e', 'd'),
@@ -63,7 +58,7 @@ let fromClause = function a() {
 export const v1 = selectClause();
 export const v2 = fromClause();
 `,
-`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from 'topology-dsl-core';
+`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from 'topology-dsl';
 let selectClause = () => sequence('a', 'b', repeat(optional('c')), zeroOrMore('d'));
 let fromClause = function a() {
     return  choice('1', '2', selectClause, '4');
@@ -72,7 +67,7 @@ let fromClause = function a() {
 export const v1 = selectClause();
 export const v2 = fromClause();
 `,
-`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from 'topology-dsl-core';
+`import { choice, terminal, sequence, repeat, optional, zeroOrMore } from 'topology-dsl';
 import { path1, path2, path3 } from './assets/js/dummy.js';
 
 export const v1 = sequence(path1, path2);

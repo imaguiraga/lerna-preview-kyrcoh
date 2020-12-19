@@ -1,5 +1,5 @@
-import * as flowDsl from "@imaguiraga/topology-dsl-core";
-import * as diagram from "../diagram";
+import * as flowDsl from '@imaguiraga/topology-dsl-core';
+import * as diagram from './diagram';
 
 const {
   repeat,
@@ -16,18 +16,18 @@ const {
 } = diagram;
 
 
-let selectClause = () => sequence(a, b, repeat(optional("c")), zeroOrMore("d"));
-let fromClause = () => choice("1", "2", selectClause, "4");
+let selectClause = () => sequence(a, b, repeat(optional('c')), zeroOrMore('d'));
+let fromClause = () => choice('1', '2', selectClause, '4');
 
 let testflow = choice(
-  terminal("a"),
-  choice("e", "d"),
-  sequence(terminal("b"), terminal("c"), sequence("c", "d")),
-  sequence("c", "d")
+  terminal('a'),
+  choice('e', 'd'),
+  sequence(terminal('b'), terminal('c'), sequence('c', 'd')),
+  sequence('c', 'd')
 );
 //*/
 // Generate flow by parsing javascript text
-let func = new Function("module", `const {
+let func = new Function('module', `const {
     repeat,
     sequence,
     optional,
@@ -37,10 +37,10 @@ let func = new Function("module", `const {
   } = module;
   
   let f = choice(
-    "a",
-    choice("e", "d"),
-    sequence(terminal("b"), terminal("c"),choice("c","d")),
-    sequence("c","d")
+    'a',
+    choice('e', 'd'),
+    sequence(terminal('b'), terminal('c'),choice('c','d')),
+    sequence('c','d')
   );
   return f;`);
 try {
@@ -54,6 +54,6 @@ const uidvisitor = new FlowUIDVisitor();
 testflow = uidvisitor.visit(testflow);
 const data = visitor.visit(testflow);
 
-let graph = diagram.createFlowDiagram("container");
+let graph = diagram.createFlowDiagram('container');
 graph.data(data);
 graph.render();
