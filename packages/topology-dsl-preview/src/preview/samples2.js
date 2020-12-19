@@ -13,10 +13,11 @@ import { az_Linux_Virtual_Machines } from './Azure_Products_Icons/index.js';
 const vm = az_Linux_Virtual_Machines;
 export const v1 =sequence(
   terminal('b'), 
-  terminal('c')._in_('a',vm('b')),
-  sequence(vm('c'),vm('d'))
+  choice('c','a',vm('b')),
+  sequence(vm('c')._title_('VM-C'),vm('d'))
 );
 export const testflow = vm('b');
+testflow._title_('VM-B');
 `,
 `import { choice, terminal, sequence} from 'topology-dsl-core';
 export const testflow = choice(

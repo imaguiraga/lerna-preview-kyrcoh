@@ -127,7 +127,7 @@ export class FlowToELKVisitor {
       model: n,
       labels: [
         {
-          text: n.id
+          text: n.title || n.id
         }
       ]
     };
