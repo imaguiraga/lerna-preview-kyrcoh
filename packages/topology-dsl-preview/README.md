@@ -3,14 +3,13 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imaguiraga/lerna-preview-kyrcoh/tree/master/packages/topology-dsl-preview)
 
-A flow DSL javascript Visualizer using [antvis G6 Graph](https://g6.antv.vision/en)
-and [CodeMirror](https://codemirror.net/) as text editor.
+A Topology DSL viewer.
 
 [https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html](https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html)
 ## PREVIEW
-```
-cd packages/topology-dsl-preview
+```bash
 yarn
+cd packages/topology-dsl-preview
 yarn start
 ```
 Open url `http://localhost:3000/`
