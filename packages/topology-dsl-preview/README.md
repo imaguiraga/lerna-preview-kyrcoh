@@ -7,44 +7,6 @@ A flow DSL javascript Visualizer using [antvis G6 Graph](https://g6.antv.vision/
 and [CodeMirror](https://codemirror.net/) as text editor.
 
 [https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html](https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html)
-
-## Flow elements ##
-- sequence(array)
-```javascript
-  sequence('a', 'b', 
-    repeat(optional('c')), 
-    zeroOrMore('d')
-  )
-```  
-
-- choice(array)
-```javascript
-  choice(
-    terminal('a'),
-    choice('e', 'd')
-  )
-```  
-
-- optional(flowElement)
-```javascript
-  optional('c')
-```  
-
-- repeat(flowElement)
-```javascript
-  repeat(optional('c'))
-```  
-
-- terminal(string)
-  ```javascript
-  terminal('b')
-  ```
-
-- zeroOrMore(flowElement)
-  ```javascript
-  zeroOrMore('d')
-  ```
-
 ## PREVIEW
 ```
 cd package/topology-dsl-preview
@@ -87,3 +49,41 @@ testflow._title_('AZ VM-B');
 ![DSL preview](./img/topology-preview-1.png)
 
 ![DSL preview](./img/topology-preview-2.png)
+
+
+## Flow elements ##
+- sequence(array)
+```javascript
+  sequence('a', 'b', 
+    repeat(optional('c')), 
+    zeroOrMore('d')
+  )
+```  
+
+- choice(array)
+```javascript
+  choice(
+    terminal('a'),
+    choice('e', 'd')
+  )
+```  
+
+- optional(flowElement)
+```javascript
+  optional('c')
+```  
+
+- repeat(flowElement)
+```javascript
+  repeat(optional('c'))
+```  
+
+- terminal(string)
+  ```javascript
+  terminal('b')
+  ```
+
+- zeroOrMore(flowElement)
+  ```javascript
+  zeroOrMore('d')
+  ```
