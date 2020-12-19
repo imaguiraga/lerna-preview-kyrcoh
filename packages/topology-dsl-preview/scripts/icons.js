@@ -31,8 +31,8 @@ const render = (
       const res = nunjucksEnv.render(file, context);
       // Create filename
       // Remove Template file extension
-      let outputFile = context.provider + '-' + file.substring(0, file.indexOf(extname(file)));
-
+      let outputFile = file.substring(0, file.indexOf(extname(file)));
+      outputFile = outputFile.replace('#',context.provider);
       if (outputDir) {
         outputFile = resolve(outputDir, outputFile);
         mkdirp.sync(dirname(outputFile));

@@ -48,12 +48,7 @@ export class FlowToG6Visitor {
     let r = {
       id: n.id,
       label: n.id,
-      model: {
-        provider: n.provider,
-        resourceType: n.resourceType,
-        tagName: n.tagName,
-        compound: n.compound
-      },
+      model: n,
       labels: [
         {
           text: n.id
