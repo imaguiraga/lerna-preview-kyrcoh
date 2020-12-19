@@ -22,25 +22,31 @@ import {
   createMenu, createBarWidget, createPalette
 } from './widgets/menu-util';
 
-import { CodeMirrorWidget } from "./widgets/codemirror-widget";
-import { AceEditorWidget } from "./widgets/ace-editor-widget";
+import { CodeMirrorWidget } from './widgets/codemirror-widget';
+import { AceEditorWidget } from './widgets/ace-editor-widget';
 
-import { ELKGraphWidget } from "./widgets/elkgraph-widget";
+import { ELKGraphWidget } from './widgets/elkgraph-widget';
 
 import './style/index.css';
-import { samples } from "./samples1.js";
-import { samples2 } from "./samples2.js";
+import { samples } from './samples1.js';
+import { samples2 } from './samples2.js';
 
-import * as flowDsl1 from "@imaguiraga/topology-dsl-core";
+import * as flowDsl1 from '@imaguiraga/topology-dsl-core';
+import * as azure from '../assets/js/Azure_Products_Icons';
+import * as gcp from '../assets/js/GCP_Icons';
 
 const {
-  parseDsl, parseDslModule,
+  parseDsl,
+  parseDslModule,
+  registerJSModule,
   resolveImports,
   NODEIDGENFN,
   clone
 } = flowDsl1;
 
 const flowDsl = { ...flowDsl1 };
+registerJSModule('azure-dsl', azure);
+registerJSModule('gcp-dsl', gcp);
 
 function loadFnFactory() {
   let loadedImports = new Map();
@@ -111,7 +117,7 @@ function createMainWidget(palette, commands) {
 
   editorWidget.valueChanged.connect(
     (sender, value) => {
-      console.log("valueChanged");
+      console.log('valueChanged');
       callbackFn(value);
     }
   );

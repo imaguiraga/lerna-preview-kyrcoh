@@ -22,14 +22,14 @@ import {
   createMenu, createBarWidget, createPalette
 } from './widgets/menu-util';
 
-import { CodeMirrorWidget } from "./widgets/codemirror-widget";
-import { G6GraphWidget } from "./widgets/g6graph-widget";
+import { CodeMirrorWidget } from './widgets/codemirror-widget';
+import { G6GraphWidget } from './widgets/g6graph-widget';
 
 import './style/index.css';
-import { samples } from "./samples.js";
+import { samples } from './samples.js';
 
-import * as flowDsl from "@imaguiraga/topology-dsl-core";
-import * as diagram from "../diagram";
+import * as flowDsl from '@imaguiraga/topology-dsl-core';
+import * as diagram from './diagram';
 
 const {
   parseDsl
@@ -68,7 +68,7 @@ function createMainWidget(palette, commands) {
 
   cmSource.title.label = 'Flow EDITOR';
 
-  cmSource.editor.on("changes", (instance) => {
+  cmSource.editor.on('changes', (instance) => {
     //if(DEBUG) 
     console.log('changes');
     try {
@@ -95,7 +95,7 @@ function createMainWidget(palette, commands) {
 
   cmSource.valueChanged.connect(
     (sender, value) => {
-      console.log("valueChanged");
+      console.log('valueChanged');
       /*
         try {
             // Update preview

@@ -11,12 +11,12 @@ import {
 
 import { ISignal, Signal } from '@lumino/signaling';
 
-import * as ace from "ace-builds";
+import * as ace from 'ace-builds';
 import '../style/index.css';
 
-ace.config.set("basePath", "https://ajaxorg.github.io/ace-builds/src-noconflict");
+ace.config.set('basePath', 'https://ajaxorg.github.io/ace-builds/src-noconflict');
 
-//import "tslint";
+//import 'tslint';
 //globalThis.JSHINT = JSHINT;
 
 /**
@@ -29,36 +29,36 @@ export class AceEditorWidget extends Widget {
     this.addClass('CodeMirrorWidget');
 
     let div = document.createElement('div');
-    div.setAttribute("style", "padding:4px;background-color: #dfdfdf;");
+    div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
-    this.selectElt.setAttribute("class", "flow-select");
+    this.selectElt.setAttribute('class', 'flow-select');
 
     div.appendChild(this.selectElt);
 
     let opt = document.createElement('option');
-    opt.value = "Option 1";
-    opt.text = "Option 1";
+    opt.value = 'Option 1';
+    opt.text = 'Option 1';
     this.selectElt.add(opt);
 
     let separator = document.createElement('div');
-    separator.setAttribute("class", "separator");
+    separator.setAttribute('class', 'separator');
     this.node.appendChild(separator);
 
     let content = document.createElement('div');
-    content.setAttribute("class", "AceEditorWidget");
+    content.setAttribute('class', 'AceEditorWidget');
     this.node.appendChild(content);
 
     const editor = ace.edit(content, config || {
-      mode: "ace/mode/javascript",
-      // selectionStyle: "text",
+      mode: 'ace/mode/javascript',
+      // selectionStyle: 'text',
       autoScrollEditorIntoView: true,
       copyWithEmptySelection: true,
       enableAutoIndent: true,
       hScrollBarAlwaysVisible: true,
       vScrollBarAlwaysVisible: true,
-      theme: "ace/theme/textmate",
+      theme: 'ace/theme/textmate',
       showPrintMargin: true
     });
 
@@ -102,10 +102,10 @@ export class AceEditorWidget extends Widget {
   }
 
   protected onResize(msg: Widget.ResizeMessage): void {
-    this._editor.container.setAttribute("width", msg.width.toString());
+    this._editor.container.setAttribute('width', msg.width.toString());
     if (msg.width > 0 && msg.height > 0) {
-      this._editor.container.style.width = msg.width + "px";
-      this._editor.container.style.height = msg.height + "px";
+      this._editor.container.style.width = msg.width + 'px';
+      this._editor.container.style.height = msg.height + 'px';
       this._editor.resize();
     }
   }
@@ -121,7 +121,7 @@ export class AceEditorWidget extends Widget {
     }
 
     values.forEach((value, index) => {
-      let opt: HTMLOptionElement = document.createElement("option");
+      let opt: HTMLOptionElement = document.createElement('option');
       opt.value = index.toString();
       opt.text = `Sample #${index + 1}`;
       if (isScript(value)) {

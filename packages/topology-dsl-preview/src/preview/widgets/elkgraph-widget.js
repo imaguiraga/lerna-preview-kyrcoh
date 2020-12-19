@@ -5,7 +5,7 @@ import {
   Widget
 } from '@lumino/widgets';
 
-import * as diagram from "../../diagram";
+import * as diagram from "../diagram";
 
 export class ELKGraphWidget extends Widget {
 
