@@ -43,7 +43,7 @@ flowDsl.load = loadFnFactory();
 document.body.innerHTML =
   `<div id='grid'>
 		<div id='one' class='pane'>
-			<h6>Topology EDITOR</h6>
+			<h6>EDITOR</h6>
 			<div style='margin:2px;font-size:12px'>
 				<select id='flow-sample-select' class='flow-select'>
           <option value='-1'>Select a sample</option>
@@ -53,7 +53,7 @@ document.body.innerHTML =
 			<div id='editor-pane' class='content-pane'></div>
 		</div>
 		<div id='two' class='pane'>
-			<h6>Topology PREVIEW</h6>
+			<h6>PREVIEW</h6>
 			<div style='margin:2px;font-size:12px'>
 				<select id='flow-preview-select' class='flow-select'>
           <option value='-1'>Select a flow</option>

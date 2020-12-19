@@ -95,7 +95,7 @@ function createMainWidget(palette, commands) {
   //*/
 
   //  const editorWidget = new AceEditorWidget();
-  editorWidget.title.label = 'Topology EDITOR';
+  editorWidget.title.label = 'EDITOR';
 
   const callbackFn = function (content) {
     try {
