@@ -124,16 +124,10 @@ export class FlowToELKVisitor {
     let r = {
       id: n.id,
       label: n.id,
-      model: {
-        provider: n.provider,
-        resourceType: n.resourceType,
-        subType: n.subType,
-        tagName: n.tagName,
-        compound: n.compound
-      },
+      model: n,
       labels: [
         {
-          text: n.id
+          text: n.title || n.id
         }
       ]
     };
