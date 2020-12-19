@@ -10,14 +10,27 @@ export function test() {
 // */
 `import { choice, terminal, sequence} from 'topology-dsl-core';
 import { az_Linux_Virtual_Machines } from './Azure_Products_Icons/index.js';
-const vm = az_Linux_Virtual_Machines;
+import { gcp_Compute_Engine } from './GCP_Icons/index.js';
+
+const am = az_Linux_Virtual_Machines;
+const gm = gcp_Compute_Engine;
+
 export const v1 =sequence(
   terminal('b'), 
-  choice('c','a',vm('b')),
-  sequence(vm('c')._title_('VM-C'),vm('d'))
+  choice(
+    'c',
+    gm('a')._title_('GCP VM-A'),
+    am('b')._title_('AZ VM-B')
+  ),
+  sequence(
+    gm('c')._title_('GCP VM-C'),
+    am('c')._title_('AZ VM-C'),
+    am('d')._title_('AZ VM-A')
+  )
 );
-export const testflow = vm('b');
-testflow._title_('VM-B');
+
+export const testflow = am('b');
+testflow._title_('AZ VM-B');
 `,
 `import { choice, terminal, sequence} from 'topology-dsl-core';
 export const testflow = choice(
