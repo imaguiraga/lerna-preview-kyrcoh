@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import * as d3 from 'd3';
 //const ELK = require('elkjs');
 import ELK from 'elkjs/lib/elk.bundled.js';
 import './style/elk-style.css';
@@ -6,11 +6,7 @@ import './style/elk-style.css';
 import {
   FlowToELKVisitor,
   ELKDimensionVisitor
-} from "../visitor/index.js";
-
-import {
-  BASE_ICONS_MAP
-} from "./base-icons-map.js";
+} from '../visitor/index.js';
 
 const elkvisitor = new FlowToELKVisitor();
 
@@ -35,13 +31,13 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
   let height = viewport().height-20;
   //*/
 
-  let containerElt = (typeof _container_ === "string") ? document.getElementById(_container_) : _container_;
+  let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
 
   const iconWidth = _iconWidth_ || 24;
   const width = (_width_ || containerElt.scrollWidth || 800);
   const height = (_height_ || containerElt.scrollHeight || 800);
 
-  const idFn = function (d) { return d.id.replace(/\.|:/gi, "_"); };
+  const idFn = function (d) { return d.id.replace(/\.|:/gi, '_'); };
 
   let svg = init(containerElt, width, height, iconWidth);
   /*
@@ -50,15 +46,15 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
   const LOOP_ICON = '\uf0e2';// undo
   const SKIP_ICON = '\uf096'; // square-o 
   const ICONMAP = new Map([
-    ["start",START_ICON],
-    ["finish",END_ICON],
-    ["loop",LOOP_ICON],
-    ["skip",SKIP_ICON]
+    ['start',START_ICON],
+    ['finish',END_ICON],
+    ['loop',LOOP_ICON],
+    ['skip',SKIP_ICON]
   ]); 
   //*/
 
   const isIconFn = function (n) {
-    return (n && n.model && n.model.tagName === "mark");
+    return (n && n.model && n.model.tagName === 'mark');
   };
 
   function toElkGraph(dslObject) {
@@ -76,19 +72,19 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     const elkDimensionVisitor = new ELKDimensionVisitor();
     const elk = new ELK();
     let options = {
-      "algorithm": "layered",
-      "nodePlacement.strategy": "NETWORK_SIMPLEX", //"BRANDES_KOEPF"
-      "port.borderOffset": 4,
-      "padding": 20,
-      "edgeRouting": "ORTHOGONAL",
-      "layered.mergeEdges": true,
-      "zoomToFit": true,
-      "spacing": 40,
-      "spacing.nodeNodeBetweenLayers": 40,
-      "spacing.edgeNodeBetweenLayers": 40,
-      "spacing.edgeEdgeBetweenLayers": 40,
-      "layering.strategy": "LONGEST_PATH",
-      "spacing.labelNode": 16
+      'algorithm': 'layered',
+      'nodePlacement.strategy': 'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
+      'port.borderOffset': 4,
+      'padding': 20,
+      'edgeRouting': 'ORTHOGONAL',
+      'layered.mergeEdges': true,
+      'zoomToFit': true,
+      'spacing': 40,
+      'spacing.nodeNodeBetweenLayers': 40,
+      'spacing.edgeNodeBetweenLayers': 40,
+      'spacing.edgeEdgeBetweenLayers': 40,
+      'layering.strategy': 'LONGEST_PATH',
+      'spacing.labelNode': 16
     };
     //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html
     //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html
@@ -96,7 +92,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
       // Add node width.height
       let elkgraph = elkDimensionVisitor.visit(inelkgraph);
 
-      //console.log(JSON.stringify(elkgraph,null,"  "));
+      //console.log(JSON.stringify(elkgraph,null,'  '));
 
       elk.knownLayoutOptions().then((d) => {
         //console.log(d);
@@ -149,7 +145,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
 
   function render(dslObject) {
     if (dslObject !== null) {
-      //console.log(JSON.stringify(dslObject,null,"  "));
+      //console.log(JSON.stringify(dslObject,null,'  '));
     }
 
     let elkgraph = toElkGraph(dslObject);
@@ -159,10 +155,10 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     function refreshFn() {
       layout(elkgraph).then((elkLayoutGraph) => {
         // Clear and redraw
-        let root = svg.selectAll("g.root");
+        let root = svg.selectAll('g.root');
         // reset diagram
         root.remove();
-        root = svg.append("g").attr("class", "root");
+        root = svg.append('g').attr('class', 'root');
         renderd3Layout(root, elkLayoutGraph, refreshFn);
 
       }).catch((e) => {
@@ -242,14 +238,14 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     // Node type  
     if (isIconFn(d)) {
 
-      selection.append("rect")
-        .attr("class", "node")
-        .style("fill", "inherit")
-        .style("stroke", "inherit")
-        .attr("x", function (d) { return 0; })
-        .attr("y", function (d) { return 0; })
-        .attr("width", function (d) { return d.width; })
-        .attr("height", function (d) { return d.height; });
+      selection.append('rect')
+        .attr('class', 'node')
+        .style('fill', 'inherit')
+        .style('stroke', 'inherit')
+        .attr('x', function (d) { return 0; })
+        .attr('y', function (d) { return 0; })
+        .attr('width', function (d) { return d.width; })
+        .attr('height', function (d) { return d.height; });
 
     } else {
 
@@ -258,8 +254,8 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
       let y = 2;
       let w = d.width - 4;
       let h = d.height - 4;
-      let fill = "inherit";
-      let stroke = "transparent";
+      let fill = 'inherit';
+      let stroke = 'transparent';
 
       if (d.children.length > 0) {
         h = 24;
@@ -267,95 +263,95 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
         x = d.width / 2;
         y = -h / 2;
 
-        fill = "inherit";
-        stroke = "inherit";
+        fill = 'inherit';
+        stroke = 'inherit';
       }
 
       if (d._children) {
-        fill = "inherit";
+        fill = 'inherit';
       }
       // Draw the background
-      selection.append("rect")
-        .attr("class", "node")
-        .style("fill", fill)
-        .style("stroke", stroke)
-        .style("opacity", "0.6")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("width", function (d) { return d.width; })
-        .attr("height", function (d) { return d.height; })
-        .attr("rx", 8)
-        .append("metadata")
+      selection.append('rect')
+        .attr('class', 'node')
+        .style('fill', fill)
+        .style('stroke', stroke)
+        .style('opacity', '0.6')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', function (d) { return d.width; })
+        .attr('height', function (d) { return d.height; })
+        // .attr('rx', 8)
+        .append('metadata')
         .text((d) => {
-          return JSON.stringify(d.model, null, " ");
+          return JSON.stringify(d.model, null, ' ');
         });
-
-      let iconPath = BASE_ICONS_MAP.get(d.model.subType);
+      let style = d.model.data.get('style');
+      let iconPath = style ? encodeURI(style.iconURL) : null;
       // If icon exist
       if (iconPath && iconPath !== null) {
-        selection.append("image")
-          .attr("class", "node")
-          .style("fill", "inherit")
-          .style("stroke", "inherit")
-          .attr("href", iconPath)
-          .attr("x", function (d) { return x; })
-          .attr("y", function (d) { return y; })
-          .attr("width", function (d) { return w; })
-          .attr("height", function (d) { return h; });
+        selection.append('image')
+          .attr('class', 'node')
+          .style('fill', 'inherit')
+          .style('stroke', 'inherit')
+          .attr('href', iconPath)
+          .attr('x', function (d) { return x; })
+          .attr('y', function (d) { return y; })
+          .attr('width', function (d) { return w; })
+          .attr('height', function (d) { return h; });
       }
     }
   }
 
   function drawLabel(selection, d, i, refreshFn) {
     // Create new selection from current one
-    selection.selectAll(".label").data((d, i) => {
+    selection.selectAll('.label').data((d, i) => {
       return labelsFn(d);
     }).enter()
-      .append("text")
-      .attr("class", "label")
+      .append('text')
+      .attr('class', 'label')
       .text((l) => l.text)
-      .style("stroke-width", 1)
-      .style("font-size", 12)
-      .attr("x", (l) => l.x)
-      .attr("y", (l) => l.y)
-      .attr("width", (l) => l.width)
-      .attr("height", (l) => l.height);
+      .style('stroke-width', 1)
+      .style('font-size', 12)
+      .attr('x', (l) => l.x)
+      .attr('y', (l) => l.y)
+      .attr('width', (l) => l.width)
+      .attr('height', (l) => l.height);
   }
 
   function drawPort(selection, d, i, refreshFn) {
     // Create new selection from current one
-    selection.selectAll(".port").data((d, i) => {
+    selection.selectAll('.port').data((d, i) => {
       return portsFn(d);
     }).enter().each(function (d, i) {
       // Update current selection attributes
       let selection = d3.select(this);
       if (d.isIcon) {
-        selection.append("image")
-          .attr("class", "port")
-          .attr("href", (l) => {
-            return "icons/App Engine.svg";
+        selection.append('image')
+          .attr('class', 'port')
+          .attr('href', (l) => {
+            return 'icons/App Engine.svg';
           })
-          .attr("x", (l) => l.x)
-          .attr("y", (l) => l.y)
-          .attr("width", (l) => l.width)
-          .attr("height", (l) => l.height);
+          .attr('x', (l) => l.x)
+          .attr('y', (l) => l.y)
+          .attr('width', (l) => l.width)
+          .attr('height', (l) => l.height);
 
       } else {
-        selection.append("rect")
-          .attr("class", "port")
-          .attr("x", (l) => l.x)
-          .attr("y", (l) => l.y)
-          .attr("width", (l) => l.width)
-          .attr("height", (l) => l.height);
+        selection.append('rect')
+          .attr('class', 'port')
+          .attr('x', (l) => l.x)
+          .attr('y', (l) => l.y)
+          .attr('width', (l) => l.width)
+          .attr('height', (l) => l.height);
       }
     });
     /*
-      .append("rect")
-      .attr("class","port")
-      .attr("x", (l) => l.x)
-      .attr("y", (l) => l.y)
-      .attr("width", (l) => l.width)
-      .attr("height", (l) => l.height);
+      .append('rect')
+      .attr('class','port')
+      .attr('x', (l) => l.x)
+      .attr('y', (l) => l.y)
+      .attr('width', (l) => l.width)
+      .attr('height', (l) => l.height);
       //*/
 
 
@@ -368,32 +364,32 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
 
     // Add edges
     if (links) {
-      var linkData = svg.append("g").attr("class", "edges").selectAll(".link").data(links, idFn);
+      var linkData = svg.append('g').attr('class', 'edges').selectAll('.link').data(links, idFn);
 
       var linkEnter = linkData.enter()
-        .append("path")
-        .attr("class", "link")
-        .attr("marker-start", function (d) {
+        .append('path')
+        .attr('class', 'link')
+        .attr('marker-start', function (d) {
           if (d.style.startArrow) {
-            return "url(#end)";
+            return 'url(#end)';
           }
-          return "";
+          return '';
         })
-        .attr("marker-end", function (d) {
+        .attr('marker-end', function (d) {
           if (d.style.endArrow) {
-            return "url(#end)";
+            return 'url(#end)';
           }
-          return "";
+          return '';
         })
-        .attr("d", function (e) {
-          var path = "";
+        .attr('d', function (e) {
+          var path = '';
           var d = e.sections[0];
           if (d.startPoint && d.endPoint) {
-            path += "M" + d.startPoint.x + " " + d.startPoint.y + " ";
+            path += 'M' + d.startPoint.x + ' ' + d.startPoint.y + ' ';
             (d.bendPoints || []).forEach(function (bp, i) {
-              path += "L" + bp.x + " " + bp.y + " ";
+              path += 'L' + bp.x + ' ' + bp.y + ' ';
             });
-            path += "L" + d.endPoint.x + " " + d.endPoint.y + " ";
+            path += 'L' + d.endPoint.x + ' ' + d.endPoint.y + ' ';
           }
           return path;
         });
@@ -420,14 +416,14 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     }
     // Add nodes
     if (nodes) {
-      var nodeData = svg.selectAll(".node").data(nodes, idFn);
+      var nodeData = svg.selectAll('.node').data(nodes, idFn);
 
       var nodeEnter = nodeData.enter()
-        .append("g")
-        .attr("class", function (d) {
-          let c = "leaf";
+        .append('g')
+        .attr('class', function (d) {
+          let c = 'leaf';
           if (nodesFn(d).length > 0) {
-            c = "compound container";
+            c = 'compound container';
           }
           return c;
         }).each(function (d, i) {
@@ -440,14 +436,14 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
           drawPort(selection, d, i, refreshFn);
 
         })
-        .attr("transform", function (d) {
-          return "translate(" + (d.x || 0) + " " + (d.y || 0) + ")";
-        }).attr("id", function (d) {
+        .attr('transform', function (d) {
+          return 'translate(' + (d.x || 0) + ' ' + (d.y || 0) + ')';
+        }).attr('id', function (d) {
           return idFn(d);
         });
 
       // Add title  
-      nodeEnter.append("title")
+      nodeEnter.append('title')
         .text(function (d) { return d.id; });
 
       nodeEnter.each(function (n, i) {
@@ -465,108 +461,108 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
 }
 
 function createMarkers(defs, iconWidth) {
-  defs.append("marker")
-    .attr("id", "end")
-    .attr("viewBox", "-4 0 8 8")
-    //.attr("viewBox", "0 0 8 8")
-    .attr("refX", 4)
-    .attr("refY", 4)
-    .attr("markerWidth", 4)      // marker settings
-    .attr("markerHeight", 4)
-    .attr("orient", "auto-start-reverse")
-    .style("fill", "black")
-    .style("stroke-opacity", 1)  // arrowhead color
-    .append("path")
-    .attr("d", "M -4 0 L 4 4 L -4 8 z");
-  //.attr("d", "M 0 0 L 8 4 L 0 8 z"); 
+  defs.append('marker')
+    .attr('id', 'end')
+    .attr('viewBox', '-4 0 8 8')
+    //.attr('viewBox', '0 0 8 8')
+    .attr('refX', 4)
+    .attr('refY', 4)
+    .attr('markerWidth', 4)      // marker settings
+    .attr('markerHeight', 4)
+    .attr('orient', 'auto-start-reverse')
+    .style('fill', 'black')
+    .style('stroke-opacity', 1)  // arrowhead color
+    .append('path')
+    .attr('d', 'M -4 0 L 4 4 L -4 8 z');
+  //.attr('d', 'M 0 0 L 8 4 L 0 8 z'); 
 
-  defs.append("circle")
-    .attr("id", "start")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    //.attr("width", iconWidth)
-    //.attr("height", iconWidth)
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("cx", iconWidth / 2)
-    .attr("cy", iconWidth / 2)
-    .attr("r", 8);
+  defs.append('circle')
+    .attr('id', 'start')
+    .attr('viewBox', `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr('width', iconWidth)
+    //.attr('height', iconWidth)
+    .style('fill', 'transparent')
+    .style('stroke', 'inherit')
+    .style('stroke-width', '2px')
+    .attr('cx', iconWidth / 2)
+    .attr('cy', iconWidth / 2)
+    .attr('r', 8);
 
-  defs.append("circle")
-    .attr("id", "finish")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    //.attr("width", ${iconWidth})
-    //.attr("height", ${iconWidth})
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("cx", iconWidth / 2)
-    .attr("cy", iconWidth / 2)
-    .attr("r", 8);
+  defs.append('circle')
+    .attr('id', 'finish')
+    .attr('viewBox', `0 0 ${iconWidth} ${iconWidth}`)
+    //.attr('width', ${iconWidth})
+    //.attr('height', ${iconWidth})
+    .style('fill', 'inherit')
+    .style('stroke', 'transparent')
+    .style('stroke-width', '2px')
+    .attr('cx', iconWidth / 2)
+    .attr('cy', iconWidth / 2)
+    .attr('r', 8);
 
   //*/
-  defs.append("rect")
-    .attr("id", "start1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "transparent")
-    .style("stroke", "inherit")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth - 2)
-    .attr("height", iconWidth - 2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
+  defs.append('rect')
+    .attr('id', 'start1')
+    .attr('viewBox', `0 0 ${iconWidth} ${iconWidth}`)
+    .style('fill', 'transparent')
+    .style('stroke', 'inherit')
+    .style('stroke-width', '2px')
+    .attr('width', iconWidth - 2)
+    .attr('height', iconWidth - 2)
+    .attr('x', 2)
+    .attr('y', 2)
+    .attr('rx', 2);
 
-  defs.append("rect")
-    .attr("id", "finish1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth - 2)
-    .attr("height", iconWidth - 2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
+  defs.append('rect')
+    .attr('id', 'finish1')
+    .attr('viewBox', `0 0 ${iconWidth} ${iconWidth}`)
+    .style('fill', 'inherit')
+    .style('stroke', 'transparent')
+    .style('stroke-width', '2px')
+    .attr('width', iconWidth - 2)
+    .attr('height', iconWidth - 2)
+    .attr('x', 2)
+    .attr('y', 2)
+    .attr('rx', 2);
 
-  defs.append("rect")
-    .attr("id", "skip1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth - 2)
-    .attr("height", iconWidth - 2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
+  defs.append('rect')
+    .attr('id', 'skip1')
+    .attr('viewBox', `0 0 ${iconWidth} ${iconWidth}`)
+    .style('fill', 'inherit')
+    .style('stroke', 'transparent')
+    .style('stroke-width', '2px')
+    .attr('width', iconWidth - 2)
+    .attr('height', iconWidth - 2)
+    .attr('x', 2)
+    .attr('y', 2)
+    .attr('rx', 2);
 
-  defs.append("rect")
-    .attr("id", "loop1")
-    .attr("viewBox", `0 0 ${iconWidth} ${iconWidth}`)
-    .style("fill", "inherit")
-    .style("stroke", "transparent")
-    .style("stroke-width", "2px")
-    .attr("width", iconWidth - 2)
-    .attr("height", iconWidth - 2)
-    .attr("x", 2)
-    .attr("y", 2)
-    .attr("rx", 2);
+  defs.append('rect')
+    .attr('id', 'loop1')
+    .attr('viewBox', `0 0 ${iconWidth} ${iconWidth}`)
+    .style('fill', 'inherit')
+    .style('stroke', 'transparent')
+    .style('stroke-width', '2px')
+    .attr('width', iconWidth - 2)
+    .attr('height', iconWidth - 2)
+    .attr('x', 2)
+    .attr('y', 2)
+    .attr('rx', 2);
 }
 
 function init(containerElt, width, height, iconWidth) {
-  const zoomFn = d3.zoom().on("zoom", function () {
-    d3.select(this).select("g").attr("transform", d3.event.transform);
+  const zoomFn = d3.zoom().on('zoom', function () {
+    d3.select(this).select('g').attr('transform', d3.event.transform);
   });
 
   let svg = d3.select(containerElt)
-    .append("svg")
-    .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
-    .classed("svg-content", true)
+    .append('svg')
+    .attr('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    .classed('svg-content', true)
     .call(zoomFn)
-    .append("g");
+    .append('g');
   // define an arrow head
-  let defs = svg.append("defs");
+  let defs = svg.append('defs');
   createMarkers(defs, iconWidth);
 
   return svg;
