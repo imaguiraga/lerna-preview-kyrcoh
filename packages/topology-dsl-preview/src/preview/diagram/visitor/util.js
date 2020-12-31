@@ -13,6 +13,10 @@ export function isIconFn(n) {
   return (n && n.model && n.model.tagName === 'mark');
 }
 
+export function isDefaultResourceFn(n) {
+  return (n && n.model && n.model.resourceType === 'default');
+}
+
 // Reset ids
 export function resetIds(obj, idx) {
   if (obj.id) {
