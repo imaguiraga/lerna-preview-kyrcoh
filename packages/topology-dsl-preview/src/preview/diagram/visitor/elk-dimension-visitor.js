@@ -1,5 +1,6 @@
 import {
-  isIconFn
+  isIconFn,
+  isDefaultResourceFn
 } from './util.js';
 
 import {
@@ -45,30 +46,21 @@ export class ELKDimensionVisitor {
     if (typeof tree === 'undefined' || tree === null) {
       return null;
     }
-    if (tree.width) delete tree.width;
-    if (tree.height) delete tree.height;
-    if (tree.x) delete tree.x;
-    if (tree.y) delete tree.y;
+    if (tree.width) {
+      delete tree.width;
+    }
+    if (tree.height) {
+      delete tree.height;
+    }
+    if (tree.x) {
+      delete tree.x;
+    }
+    if (tree.y) {
+      delete tree.y;
+    }
 
     // Set Node dimensions
-    if (isContainer(tree) === false) {
-      tree.width = this._nodeWidth;
-      tree.height = this._nodeHeight;
-      if (isIconFn(tree)) {
-        // Set start + finish to icon size
-        tree.width = this._iconWidth;
-        tree.height = tree.width;
-      } else if (tree.inbound || tree.outbound) {
-        tree.width = tree.width / 2;
-        tree.height = tree.height / 2;
-      }
-      // Set node properties
-      tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_BOTTOM, OUTSIDE]',
-        'portAlignment.default': 'CENTER',
-        'portConstraints': 'FREE'
-      };//*/
-    } else {
+    if (isContainer(tree)) {
       // Set node properties
       tree.properties = {
         'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
@@ -76,6 +68,28 @@ export class ELKDimensionVisitor {
         'portConstraints': 'FREE'
       };
 
+    } else {
+      tree.width = this._nodeWidth;
+      tree.height = this._nodeHeight;
+      if (isDefaultResourceFn(tree)) {
+        if (isIconFn(tree)) {
+          // Set start + finish to icon size
+          tree.width = this._iconWidth;
+          tree.height = tree.width;
+        } else if (tree.inbound || tree.outbound) {
+          tree.width = tree.width / 2;
+          tree.height = tree.height / 2;
+        }
+      } else {
+        tree.width = 3*tree.width;
+        //tree.height = this._iconWidth;
+      }
+      // Set node properties
+      tree.properties = {
+        'nodeLabels.placement': '[H_LEFT, V_BOTTOM, OUTSIDE]',
+        'portAlignment.default': 'CENTER',
+        'portConstraints': 'FREE'
+      };//*/
     }
 
     // Set port dimensions
