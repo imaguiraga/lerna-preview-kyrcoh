@@ -125,11 +125,12 @@ export class FlowToELKVisitor {
       id: n.id,
       label: n.id,
       model: n,
-      labels: [
+      // use label for container elt
+      labels: n.elts.length > 1 ? [
         {
           text: n.title || n.id
         }
-      ]
+      ]: []
     };
     return r;
   }
