@@ -1,7 +1,17 @@
 export const samples2 = [
 `import { choice, terminal, sequence} from 'topology-dsl';
-import { az_Linux_Virtual_Machines } from './assets/js/Azure_Products_Icons/index.js';
-import { gcp_Compute_Engine, gcp_Cloud_Storage, gcp_Cloud_PubSub } from 'gcp-dsl';
+import { 
+  az_Linux_Virtual_Machines,
+  az_Blob_Storage,
+  az_Azure_SQL_Database,
+  az_Azure_Cache_for_Redis
+} from './assets/js/Azure_Products_Icons/index.js';
+
+import { 
+  gcp_Compute_Engine,
+  gcp_Cloud_Storage,
+  gcp_Cloud_PubSub 
+} from 'gcp-dsl';
 
 const am = az_Linux_Virtual_Machines;
 const gm = gcp_Compute_Engine;
@@ -15,10 +25,14 @@ export const v1 = sequence(
   ),
   sequence(
     gm('c')._title_('GCP VM-C'),
+    az_Azure_Cache_for_Redis('b')._title_('AZ CACHE-B'),
+    choice(
+      az_Blob_Storage('c')._title_('AZ BLOB-A'),
+      az_Azure_SQL_Database('a')._title_('AZ SQL-A')
+    ),
     am('c')._title_('AZ VM-C'),
     gcp_Cloud_Storage('S1'),
-    gcp_Cloud_PubSub('PS1'),
-    am('d')._title_('AZ VM-A')
+    gcp_Cloud_PubSub('PS1')
   )
 );
 

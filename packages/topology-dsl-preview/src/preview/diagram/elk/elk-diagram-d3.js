@@ -183,7 +183,10 @@ function drawLabel(selection, d, i, refreshFn) {
 // */
 const padding = 4;
   selection.selectAll('.label').data((d, i) => {
-    return labelsFn(d);
+    return labelsFn(d).map((l)=>{
+      //l.width = 3 * 80;
+      return l;
+    });
   }).enter().append('foreignObject')
     .attr('class', 'label')
     //.attr('class', 'node')
@@ -191,14 +194,16 @@ const padding = 4;
     .style('stroke', 'black')
     .attr('x', (l) => l.x)
     .attr('y', (l) => l.y)
-    .attr('width', (l) => l.width)
+    //.attr('width', (l) => l.width)
+    .attr('width', (l) => 3 * 80)
     .attr('height', (l) => l.height + 2 * padding)
   // text placeholder
     .append('xhtml:div').attr('xmlns','http://www.w3.org/1999/xhtml')
     .style('font-size', '1.5em')
     .style('border', '1px solid black')
     .style('background', 'white')
-    .attr('width', (l) => l.width)
+    //.attr('width', (l) => l.width)
+    .attr('width', (l) => 3 * 80)
     .attr('height', (l) => l.height)
     .style('padding','4px')
     .html( (l) => 

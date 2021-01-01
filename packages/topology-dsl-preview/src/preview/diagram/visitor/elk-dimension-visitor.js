@@ -114,8 +114,8 @@ export class ELKDimensionVisitor {
 
     if (Array.isArray(tree.labels)) {
       tree.labels.forEach((l) => {
-        l.height = 3 * this._labelHeight;
-        l.width = 3 * this._nodeWidth;
+        l.height = 2 * this._labelHeight;
+        //l.width = 3 * this._nodeWidth;
       }, this);
     }
 
