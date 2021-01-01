@@ -157,8 +157,7 @@ function drawNode(selection, d, i, refreshFn) {
       fo.append('xhtml:div').attr('xmlns','http://www.w3.org/1999/xhtml')
       .attr('width', function (d) { return d.width - h; })
       .attr('height', function (d) { return d.height - 2; })
-      .attr('style', function (d) { return 'padding: 4px'; })
-      //.text(style ? style.product : '');
+      .style('padding','4px')
       .html( 
         `<div><code>${style && style.product ? style.product : ''}</code></div>
         <div><code style='font-weight:bold;font-size:1.5em'>${d.model ? d.model.title : ''}</code></div>`);
@@ -168,6 +167,7 @@ function drawNode(selection, d, i, refreshFn) {
 
 function drawLabel(selection, d, i, refreshFn) {
   // Create new selection from current one
+/*
   selection.selectAll('.label').data((d, i) => {
     return labelsFn(d);
   }).enter()
@@ -175,11 +175,41 @@ function drawLabel(selection, d, i, refreshFn) {
     .attr('class', 'label')
     .text((l) => l.text)
     .style('stroke-width', 1)
-    .style('font-size', 12)
+    .style('font-size', '1.5em')
     .attr('x', (l) => l.x)
     .attr('y', (l) => l.y)
     .attr('width', (l) => l.width)
     .attr('height', (l) => l.height);
+// */
+const padding = 4;
+  selection.selectAll('.label').data((d, i) => {
+    return labelsFn(d).map((l)=>{
+      //l.width = 3 * 80;
+      return l;
+    });
+  }).enter().append('foreignObject')
+    .attr('class', 'label')
+    //.attr('class', 'node')
+    .style('fill', 'white')
+    .style('stroke', 'black')
+    .attr('x', (l) => l.x)
+    .attr('y', (l) => l.y)
+    //.attr('width', (l) => l.width)
+    .attr('width', (l) => 3 * 80)
+    .attr('height', (l) => l.height + 2 * padding)
+  // text placeholder
+    .append('xhtml:div').attr('xmlns','http://www.w3.org/1999/xhtml')
+    .style('font-size', '1.5em')
+    .style('border', '1px solid black')
+    .style('background', 'white')
+    //.attr('width', (l) => l.width)
+    .attr('width', (l) => 3 * 80)
+    .attr('height', (l) => l.height)
+    .style('padding','4px')
+    .html( (l) => 
+      `<code>${l.text}</code>`
+    );
+    //*/
 }
 
 function drawPort(selection, d, i, refreshFn) {

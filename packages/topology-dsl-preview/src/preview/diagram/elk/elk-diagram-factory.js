@@ -65,7 +65,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
       'spacing.edgeNodeBetweenLayers': 40,
       'spacing.edgeEdgeBetweenLayers': 40,
       'layering.strategy': 'LONGEST_PATH',
-      'spacing.labelNode': 16
+      'spacing.labelNode': 8
     };
     //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html
     //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html
@@ -116,7 +116,9 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     };
 
     layoutFn.options = function (newOptions) {
-      if (!arguments.length) return options;
+      if (!arguments.length) {
+        return options;
+      }
       options = newOptions;
       return this;
     };
@@ -127,6 +129,8 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
   function render(dslObject) {
     if (dslObject !== null) {
       //console.log(JSON.stringify(dslObject,null,'  '));
+    } else {
+      return;
     }
 
     let elkgraph = toElkGraph(dslObject);
