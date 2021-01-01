@@ -125,7 +125,8 @@ export class FlowToELKVisitor {
       id: n.id,
       label: n.id,
       model: n,
-      labels: [
+      // use label for container elt
+      labels: n.isTerminal() ? [] : [
         {
           text: n.title || n.id
         }
