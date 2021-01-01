@@ -102,6 +102,9 @@ function drawNode(selection, d, i, refreshFn) {
 
       fill = 'inherit';
       stroke = 'inherit';
+    } else {
+      fill = 'white';
+      stroke = 'black';
     }
 
     if (d._children) {
@@ -109,10 +112,6 @@ function drawNode(selection, d, i, refreshFn) {
     }
     // Draw the background
     let style = d.model.data.get('style');
-    if (style && style.provider !== 'default') {
-      fill = 'white';
-      stroke = 'black';
-    }
 
     selection.append('rect')
       .attr('class', 'node')
@@ -161,7 +160,7 @@ function drawNode(selection, d, i, refreshFn) {
       .attr('style', function (d) { return 'padding: 4px'; })
       //.text(style ? style.product : '');
       .html( 
-        `<div><code>${style ? style.product : ''}</code></div>
+        `<div><code>${style && style.product ? style.product : ''}</code></div>
         <div><code style='font-weight:bold;font-size:1.5em'>${d.model ? d.model.title : ''}</code></div>`);
     }
   }
@@ -249,11 +248,11 @@ export function renderd3Layout(svg, node, refreshFn) {
         var path = '';
         var d = e.sections[0];
         if (d.startPoint && d.endPoint) {
-          path += 'M' + d.startPoint.x + ' ' + d.startPoint.y + ' ';
+          path += `M${d.startPoint.x} ${d.startPoint.y} `;
           (d.bendPoints || []).forEach(function (bp, i) {
-            path += 'L' + bp.x + ' ' + bp.y + ' ';
+            path += `L${bp.x} ${bp.y } `;
           });
-          path += 'L' + d.endPoint.x + ' ' + d.endPoint.y + ' ';
+          path += `L${d.endPoint.x} ${d.endPoint.y } `;
         }
         return path;
       });
@@ -301,7 +300,7 @@ export function renderd3Layout(svg, node, refreshFn) {
 
       })
       .attr('transform', function (d) {
-        return 'translate(' + (d.x || 0) + ' ' + (d.y || 0) + ')';
+        return `translate(${(d.x || 0)} ${(d.y || 0)})`;
       }).attr('id', function (d) {
         return idFn(d);
       });
