@@ -7,13 +7,15 @@ import {
   isContainer
 } from '@imaguiraga/topology-dsl-core';
 
+const fontSize = 16;
+const padding = 8;
 export class ELKDimensionVisitor {
   constructor(nodeWidth, nodeHeight, iconWidth, portSize, labelHeight) {
     this._nodeWidth = nodeWidth || 80;
     this._nodeHeight = nodeHeight || 60;
-    this._iconWidth = iconWidth || 16;
-    this._portSize = portSize || 8;
-    this._labelHeight = labelHeight || 16;
+    this._iconWidth = iconWidth || fontSize;
+    this._portSize = portSize || fontSize/2;
+    this._labelHeight = labelHeight || fontSize;
   }
 
   nodeWidth(value) {
@@ -63,7 +65,7 @@ export class ELKDimensionVisitor {
     if (isContainer(tree)) {
       // Set node properties
       tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
+        'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]',
         'portAlignment.default': 'CENTER',
         'portConstraints': 'FREE'
       };
@@ -81,12 +83,12 @@ export class ELKDimensionVisitor {
           tree.height = tree.height / 2;
         }
       } else {
-        tree.width = 3*tree.width;
+        tree.width = 3 * tree.width;
         //tree.height = this._iconWidth;
       }
       // Set node properties
       tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_BOTTOM, OUTSIDE]',
+        'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
         'portAlignment.default': 'CENTER',
         'portConstraints': 'FREE'
       };//*/
@@ -108,11 +110,12 @@ export class ELKDimensionVisitor {
       //*/
     }
 
-
     // Set label dimensions
+
     if (Array.isArray(tree.labels)) {
       tree.labels.forEach((l) => {
-        l.height = this._labelHeight;
+        l.height = 3 * this._labelHeight;
+        l.width = 3 * this._nodeWidth;
       }, this);
     }
 
