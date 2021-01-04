@@ -251,6 +251,9 @@ function drawPort(selection, d, i, refreshFn) {
 }
 
 export function renderd3Layout(svg, node, refreshFn) {
+  if (node === null) {
+    return;
+  }
   // Get current children nodes and links
   var nodes = nodesFn(node);
   var links = linksFn(node);
