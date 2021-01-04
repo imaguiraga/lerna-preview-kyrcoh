@@ -70,9 +70,14 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html
     //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html
     function layoutFn(inelkgraph) {
+      if (inelkgraph === null ) {
+        return Promise.resolve(null);
+      }
       // Add node width.height
       let elkgraph = elkDimensionVisitor.visit(inelkgraph);
-
+      if (elkgraph === null ) {
+        return Promise.resolve(null);
+      }
       //console.log(JSON.stringify(elkgraph,null,'  '));
 
       elk.knownLayoutOptions().then((d) => {
@@ -144,6 +149,7 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
         // reset diagram
         root.remove();
         root = svg.append('g').attr('class', 'root');
+
         renderd3Layout(root, elkLayoutGraph, refreshFn);
 
       }).catch((e) => {
