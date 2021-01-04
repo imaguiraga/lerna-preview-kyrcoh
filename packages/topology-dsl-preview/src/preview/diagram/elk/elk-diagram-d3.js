@@ -132,34 +132,34 @@ function drawNode(selection, d, i, refreshFn) {
     // If icon exist
     if (iconPath && iconPath !== null) {
       selection.append('image')
-      .attr('class', 'node')
-      .style('fill', 'inherit')
-      .style('stroke', 'inherit')
-      .attr('href', iconPath)
-      //.attr('x', function (d) { return x; })
-      .attr('x', function (d) { return 2; })
-      .attr('y', function (d) { return y; })
-      //.attr('width', function (d) { return w; })
-      .attr('width', function (d) { return h-2; })
-      .attr('height', function (d) { return h-2; });
+        .attr('class', 'node')
+        .style('fill', 'inherit')
+        .style('stroke', 'inherit')
+        .attr('href', iconPath)
+        //.attr('x', function (d) { return x; })
+        .attr('x', function (d) { return 2; })
+        .attr('y', function (d) { return y; })
+        //.attr('width', function (d) { return w; })
+        .attr('width', function (d) { return h - 2; })
+        .attr('height', function (d) { return h - 2; });
     }
 
     if (d.children.length === 0) {
       const fo = selection.append('foreignObject')
-      //.attr('class', 'node')
-      .style('fill', fill)
-      .style('stroke', stroke)
-      .attr('x', function (d) { return h; })
-      .attr('y', function (d) { return y; })
-      .attr('width', function (d) { return d.width - h; })
-      .attr('height', function (d) { return d.height - 2; });
-    // text placeholder
-      fo.append('xhtml:div').attr('xmlns','http://www.w3.org/1999/xhtml')
-      .attr('width', function (d) { return d.width - h; })
-      .attr('height', function (d) { return d.height - 2; })
-      .style('padding','4px')
-      .html( 
-        `<div><code>${style && style.product ? style.product : ''}</code></div>
+        //.attr('class', 'node')
+        .style('fill', fill)
+        .style('stroke', stroke)
+        .attr('x', function (d) { return h; })
+        .attr('y', function (d) { return y; })
+        .attr('width', function (d) { return d.width - h; })
+        .attr('height', function (d) { return d.height - 2; });
+      // text placeholder
+      fo.append('xhtml:div').attr('xmlns', 'http://www.w3.org/1999/xhtml')
+        .attr('width', function (d) { return d.width - h; })
+        .attr('height', function (d) { return d.height - 2; })
+        .style('padding', '4px')
+        .html(
+          `<div><code>${style && style.product ? style.product : ''}</code></div>
         <div><code style='font-weight:bold;font-size:1.5em'>${d.model ? d.model.title : ''}</code></div>`);
     }
   }
@@ -167,23 +167,23 @@ function drawNode(selection, d, i, refreshFn) {
 
 function drawLabel(selection, d, i, refreshFn) {
   // Create new selection from current one
-/*
+  /*
+    selection.selectAll('.label').data((d, i) => {
+      return labelsFn(d);
+    }).enter()
+      .append('text')
+      .attr('class', 'label')
+      .text((l) => l.text)
+      .style('stroke-width', 1)
+      .style('font-size', '1.5em')
+      .attr('x', (l) => l.x)
+      .attr('y', (l) => l.y)
+      .attr('width', (l) => l.width)
+      .attr('height', (l) => l.height);
+  // */
+  const padding = 4;
   selection.selectAll('.label').data((d, i) => {
-    return labelsFn(d);
-  }).enter()
-    .append('text')
-    .attr('class', 'label')
-    .text((l) => l.text)
-    .style('stroke-width', 1)
-    .style('font-size', '1.5em')
-    .attr('x', (l) => l.x)
-    .attr('y', (l) => l.y)
-    .attr('width', (l) => l.width)
-    .attr('height', (l) => l.height);
-// */
-const padding = 4;
-  selection.selectAll('.label').data((d, i) => {
-    return labelsFn(d).map((l)=>{
+    return labelsFn(d).map((l) => {
       //l.width = 3 * 80;
       return l;
     });
@@ -197,19 +197,19 @@ const padding = 4;
     //.attr('width', (l) => l.width)
     .attr('width', (l) => 3 * 80)
     .attr('height', (l) => l.height + 2 * padding)
-  // text placeholder
-    .append('xhtml:div').attr('xmlns','http://www.w3.org/1999/xhtml')
+    // text placeholder
+    .append('xhtml:div').attr('xmlns', 'http://www.w3.org/1999/xhtml')
     .style('font-size', '1.5em')
     .style('border', '1px solid black')
     .style('background', 'white')
     //.attr('width', (l) => l.width)
     .attr('width', (l) => 3 * 80)
     .attr('height', (l) => l.height)
-    .style('padding','4px')
-    .html( (l) => 
+    .style('padding', '4px')
+    .html((l) =>
       `<code>${l.text}</code>`
     );
-    //*/
+  //*/
 }
 
 function drawPort(selection, d, i, refreshFn) {
@@ -280,9 +280,9 @@ export function renderd3Layout(svg, node, refreshFn) {
         if (d.startPoint && d.endPoint) {
           path += `M${d.startPoint.x} ${d.startPoint.y} `;
           (d.bendPoints || []).forEach(function (bp, i) {
-            path += `L${bp.x} ${bp.y } `;
+            path += `L${bp.x} ${bp.y} `;
           });
-          path += `L${d.endPoint.x} ${d.endPoint.y } `;
+          path += `L${d.endPoint.x} ${d.endPoint.y} `;
         }
         return path;
       });

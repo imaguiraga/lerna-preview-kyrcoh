@@ -14,7 +14,7 @@ export class ELKDimensionVisitor {
     this._nodeWidth = nodeWidth || 80;
     this._nodeHeight = nodeHeight || 60;
     this._iconWidth = iconWidth || fontSize;
-    this._portSize = portSize || fontSize/2;
+    this._portSize = portSize || fontSize / 2;
     this._labelHeight = labelHeight || fontSize;
   }
 
