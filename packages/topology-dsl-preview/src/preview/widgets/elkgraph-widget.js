@@ -34,36 +34,33 @@ export class ELKGraphWidget extends Widget {
     separator.setAttribute("class", "separator");
     this.node.appendChild(separator);
 
-    this.content = document.createElement('div');
-    this.content.setAttribute("class", "content-pane");
-    this.content.setAttribute("style", "scroll-behavior: auto;overflow: scroll;");
-    this.node.appendChild(this.content);
+    this.contentPane = this.createVisibleContentPane();
+    this.node.appendChild(this.contentPane);
 
-    this.renderer = diagram.createElkRenderer(this.content, _width, _height);
+    this.errorPane = this.createVisibleContentPane(false);
+    this.errorPane.style.padding = '10px';
+    this.errorPane.style.fontSize = '2em';
+    this.node.appendChild(this.errorPane);
 
-    console.log(`ctor : W${this.content.scrollWidth} - H${this.content.scrollHeight}`);
+    this.renderer = diagram.createElkRenderer(this.contentPane, _width, _height);
+
+    console.log(`ctor : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
   }
 
-  renderFlow(input) {
-    if (typeof input === "undefined" || input === null) {
-      return;
-    }
-
-    try {
-      this.renderer.render(input);
-
-    } catch (e) {
-      console.error(e);
-    }
-
+  createVisibleContentPane(visible = true) {
+    const content = document.createElement('div');
+    content.setAttribute("class", "content-pane");
+    content.setAttribute("style", "scroll-behavior: auto; overflow: scroll;");
+    content.style.display = visible ? 'block' : 'none';
+    return content;
   }
 
   onAfterAttach(msg) {
-    console.log(`onAfterAttach : W${this.content.scrollWidth} - H${this.content.scrollHeight}`);
+    console.log(`onAfterAttach : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
   }
 
   onResize(msg) {
-    console.log(`onResize : W${this.content.scrollWidth} - H${this.content.scrollHeight} # W${msg.width} - H${msg.height}`);
+    console.log(`onResize : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight} # W${msg.width} - H${msg.height}`);
   }
 
   get graph() {
@@ -88,18 +85,40 @@ export class ELKGraphWidget extends Widget {
       opt.text = key;
       this.selectElt.add(opt);
     });
-    // Update flow when the selection changes 
-    let self = this;
-    this.selectElt.addEventListener('change', (event) => {
-      const result = self._flows.get(event.target.value);
-      self.setData(result);
-    });
-    this.setData(values.get(values.keys().next().value));
+    const current = values.get(values.keys().next().value);
+    if (current instanceof Error) {
+      // Display Error Pane
+      this.contentPane.style.display = 'none';
+      this.errorPane.style.display = 'block';
+      this.errorPane.innerHTML = '<code>' + current + '</code>';
+
+    } else {
+      // Display flow
+      // Update flow when the selection changes 
+      this.contentPane.style.display = 'block';
+      this.errorPane.style.display = 'none';
+
+      let self = this;
+      this.selectElt.addEventListener('change', (event) => {
+        const result = self._flows.get(event.target.value);
+        self.renderFlow(result);
+      });
+      this.renderFlow(current);
+    }
   }
 
-  setData(_data) {
-    // render when data changes
-    this.renderFlow(_data);
+  renderFlow(input) {
+    if (input === undefined || input === null) {
+      return;
+    }
+
+    try {
+      this.renderer.render(input);
+
+    } catch (e) {
+      console.error(e);
+    }
+
   }
 
 }
