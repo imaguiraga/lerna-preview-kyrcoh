@@ -108,6 +108,9 @@ function createMainWidget(palette, commands) {
         }
       }).catch((err) => {
         console.log(err);
+        let variables = new Map();
+        variables.set('ERROR', null);
+        elkgraphWidget.flows = variables;
       });
 
     } catch (e) {
