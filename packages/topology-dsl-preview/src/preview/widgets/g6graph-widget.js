@@ -91,12 +91,12 @@ export class G6GraphWidget extends Widget {
     let self = this;
     this.selectElt.addEventListener('change', (event) => {
       const result = self._flows.get(event.target.value);
-      self.setData(result);
+      self.renderFlow(result);
     });
-    this.setData(values.get(values.keys().next().value));
+    this.renderFlow(values.get(values.keys().next().value));
   }
 
-  setData(_data) {
+  renderFlow(_data) {
     // resise when data changes
     this._graph.changeSize(
       Math.min(this.content.clientWidth, this.node.clientWidth),
