@@ -143,7 +143,13 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
     layout.nodeSize(80).portSize(8);
 
     function refreshFn() {
-      layout(elkgraph).then((elkLayoutGraph) => {
+      layout(elkgraph)
+      .then((elkLayoutGraph) => {
+        const g = toAbsolute(elkLayoutGraph);
+        console.log(g);
+        return g;
+      })
+      .then((elkLayoutGraph) => {
         // Clear and redraw
         let root = svg.selectAll('g.root');
         // reset diagram
@@ -164,4 +170,101 @@ export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
   return {
     render
   };
+}
+
+export function toAbsolute(elkNode,x0=0,y0=0) {
+
+   // Clone node 
+  const n = elkNode ;
+  // absolute coordinate
+  n.ax = n.x + x0;
+  n.ay = n.y + y0;
+
+  elkNode.children = elkNode.children || []; 
+  elkNode.children.forEach((c) => {
+    toAbsolute(c,n.ax,n.ay);
+  }); 
+
+  elkNode.edges = elkNode.edges || []; 
+  elkNode.edges.forEach((e) => {
+    const t = e;
+    // absolute coordinate
+    t.ax = n.ax;
+    t.ay = n.ay;
+    t.source = e.sources[0];
+    t.target = e.targets[0];
+    // junctionPoints
+    t.junctionPoints = t.junctionPoints || [];
+    t.junctionPoints.forEach((j) => {
+      j.ax = j.x + n.ax; 
+      j.ay = j.y + n.ay; 
+    });
+
+    // Update sections
+    t.sections = t.sections || [];
+    t.sections.forEach((s) => {
+      // startPoint
+      s.startPoint.ax = s.startPoint.x + n.ax; 
+      s.startPoint.ay = s.startPoint.y + n.ay; 
+      // endPoint
+      s.endPoint.ax = s.endPoint.x + n.ax; 
+      s.endPoint.ay = s.endPoint.y + n.ay; 
+      // bendPoints
+      s.bendPoints = s.bendPoints || [];
+      s.bendPoints.forEach((b) => {
+        b.ax = b.x + n.ax; 
+        b.ay = b.y + n.ay;
+      });
+    });
+
+  });
+  
+  elkNode.ports = elkNode.ports || []; 
+  elkNode.ports.forEach((p) => {
+    const t = p;
+    // absolute coordinate
+    t.ax = n.ax + t.x;
+    t.ay = n.ay + t.y;
+  });  
+  return n;
+}
+
+export function toAbsolute1(elkNode,x0=0,y0=0) {
+  const g = {
+    nodes:[], edges:[]
+  };
+   // Clone node 
+  const n = { ...elkNode };
+  // absolute coordinate
+  n.ax = n.x + x0;
+  n.ay = n.y + y0;
+
+  n.children = [];
+  g.nodes.push(n);
+  
+  elkNode.children = elkNode.children || []; 
+  elkNode.children.forEach((c) => {
+    n.children.push(c.id);
+    const t = toAbsolute(c,n.ax,n.ay);
+    g.nodes = g.nodes.concat(t.nodes);
+    g.edges = g.edges.concat(t.edges);
+  }); 
+
+  elkNode.edges = elkNode.edges || []; 
+  elkNode.edges.forEach((e) => {
+    const t = {
+      ...e
+    };
+    // absolute coordinate
+    t.ax = n.ax;
+    t.ay = n.ay;
+
+    if( t.edges) {
+      delete t.edges;
+    }
+    t.source = e.sources[0];
+    t.target = e.targets[0];
+    g.edges.push(t);
+  });  
+  return g;
 }
