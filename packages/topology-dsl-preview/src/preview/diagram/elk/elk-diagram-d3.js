@@ -441,7 +441,7 @@ function createMarkers(defs, iconWidth) {
     .attr('rx', 2);
 }
 
-export function init(containerElt, width, height, iconWidth) {
+export function initD3(containerElt, width, height, iconWidth) {
   const zoomFn = d3.zoom().on('zoom', function () {
     d3.select(this).select('g').attr('transform', d3.event.transform);
   });
