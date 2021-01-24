@@ -177,6 +177,9 @@ class TerminalFlowEltFlowToELKVisitor {
       children: [],
       edges: []
     };
+    // start + finish nodes
+    graph.ports.push(visitor.getPortModel(tree.start));
+    graph.ports.push(visitor.getPortModel(tree.finish));
 
     // Check if the only element is not a string 
     if (typeof tree.elts[0] === 'object') {

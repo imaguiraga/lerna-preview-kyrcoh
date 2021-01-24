@@ -161,42 +161,127 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
   });  
   return n;
 }
-
-export function toAbsolute1(elkNode,x0=0,y0=0) {
+/*
+{
+  "id": "choice.28",
+  "label": "choice.28",
+  "model": {
+    "provider": "default",
+    "resourceType": "fanOut_fanIn",
+    "subType": "choice",
+    "tagName": "flow",
+    "compound": true
+  },
+  "labels": [
+    {
+      "text": "choice.28",
+      "height": 16
+    }
+  ],
+  "ports": [
+    {
+      "id": "terminal.29",
+      "label": "terminal.29",
+      "model": {
+        "provider": "default",
+        "resourceType": "terminal",
+        "subType": "terminal",
+        "tagName": "port",
+        "compound": false
+      },
+// */
+export function toX6Graph(elkNode) {
   const g = {
     nodes:[], edges:[]
   };
    // Clone node 
-  const n = { ...elkNode };
-  // absolute coordinate
-  n.ax = n.x + x0;
-  n.ay = n.y + y0;
+  const n = { 
+    id: elkNode.id,
+    label: elkNode.label,
+    data: elkNode.model,
+    x: elkNode.ax,
+    y: elkNode.ay,
+    width: elkNode.width,
+    height: elkNode.height,
+  };
+  g.nodes.push(n);
+
+  // Ports
+  elkNode.ports = elkNode.ports || []; 
+  const items = elkNode.ports.map((p) => {
+    const r = {
+      group: 'abs',
+      id: p.id,
+      args: {
+        x: p.ax,
+        y: p.ay
+      },
+      data: p.model
+    };
+    return r;
+  });
+
+  n.ports = {
+    items: items,
+    groups: {
+      abs: {
+        position: {
+          name: 'absolute'
+        },
+        zIndex: 10,
+        attrs: {
+          circle: {
+            r: 8,//p.width,
+            magnet: true,
+            stroke: '#31d0c6',
+            strokeWidth: 2,
+            fill: '#fff'
+          },
+          text: {
+            fontSize: 12,
+            fill: '#888'
+          }
+        }
+      }
+    }
+  };
 
   n.children = [];
-  g.nodes.push(n);
-  
   elkNode.children = elkNode.children || []; 
   elkNode.children.forEach((c) => {
     n.children.push(c.id);
-    const t = toAbsolute(c,n.ax,n.ay);
+    const t = toX6Graph(c);
     g.nodes = g.nodes.concat(t.nodes);
     g.edges = g.edges.concat(t.edges);
   }); 
 
+  // Edges
   elkNode.edges = elkNode.edges || []; 
   elkNode.edges.forEach((e) => {
-    const t = {
-      ...e
-    };
-    // absolute coordinate
-    t.ax = n.ax;
-    t.ay = n.ay;
+    const t = {};
+    t.id = e.id;
+    const source = e.sources[0];
+    const target = e.targets[0];
+    t.source = { cell: source };
 
-    if( t.edges) {
-      delete t.edges;
+    if (source.ports) {
+      t.port = source.ports[1].id;
     }
-    t.source = e.sources[0];
-    t.target = e.targets[0];
+
+    t.target = { cell: target };
+    if (target.ports) {
+      t.target = target.ports[0].id;
+    }
+
+    var d = e.sections[0];
+    const vertices = [];
+    if (d.startPoint && d.endPoint) {
+      vertices.push({ x: d.startPoint.ax, y: d.startPoint.ay });
+      (d.bendPoints || []).forEach(function (bp, i) {
+        vertices.push({ x: bp.ax, y: bp.ay });
+      });
+      vertices.push({ x: d.endPoint.ax, y: d.endPoint.ay });
+    }
     g.edges.push(t);
   });  
   return g;
