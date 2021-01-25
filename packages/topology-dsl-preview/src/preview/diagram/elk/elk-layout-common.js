@@ -261,28 +261,18 @@ export function toX6Graph(elkNode) {
     // t.data = e.model;
     const source = e.sources[0];
     const target = e.targets[0];
-    t.source = { cell: source };
-
-    if (source.ports) {
-      t.port = source.ports[1].id;
-    }
-
-    t.target = { cell: target };
-    if (target.ports) {
-      t.target = target.ports[0].id;
-    }
+    t.source = { cell: source.replace(/\.(start|finish)/ig,''), port: source };
+    t.target = { cell: target.replace(/\.(start|finish)/ig,''), port: target };
 
     var d = e.sections[0];
     const vertices = [];
     if (d.startPoint && d.endPoint) {
-      vertices.push({ x: d.startPoint.ax, y: d.startPoint.ay });
       (d.bendPoints || []).forEach(function (bp, i) {
         vertices.push({ x: bp.ax, y: bp.ay });
       });
-      vertices.push({ x: d.endPoint.ax, y: d.endPoint.ay });
     }
     t.vertices = vertices;
-    // g.edges.push(t);
+    g.edges.push(t);
   });  
   return g;
 }

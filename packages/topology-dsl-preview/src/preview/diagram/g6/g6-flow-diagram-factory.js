@@ -86,11 +86,6 @@ const DEFAULT_EDGE = {
   }
 };
 
-G6.Global.nodeStateStyle.selected = {
-  stroke: '#d9d9d9',
-  fill: '#5394ef'
-};
-
 /**
  * Create a Code.
  * @param {object} _container_ - The container.

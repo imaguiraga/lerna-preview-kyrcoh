@@ -28,7 +28,7 @@ export class AceEditorWidget extends Widget {
     super();
     this.addClass('CodeMirrorWidget');
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
     this.node.appendChild(div);
 
@@ -37,16 +37,16 @@ export class AceEditorWidget extends Widget {
 
     div.appendChild(this.selectElt);
 
-    let opt = document.createElement('option');
+    const opt = document.createElement('option');
     opt.value = 'Option 1';
     opt.text = 'Option 1';
     this.selectElt.add(opt);
 
-    let separator = document.createElement('div');
+    const separator = document.createElement('div');
     separator.setAttribute('class', 'separator');
     this.node.appendChild(separator);
 
-    let content = document.createElement('div');
+    const content = document.createElement('div');
     content.setAttribute('class', 'AceEditorWidget');
     this.node.appendChild(content);
 
@@ -66,11 +66,11 @@ export class AceEditorWidget extends Widget {
     editor.renderer.setScrollMargin(0, 10, 10, 10);
     this._editor = editor;
 
-    let self = this;
+    const self = this;
     self.editor.session.on('change', function (delta: ace.Ace.Delta) {
       // delta.start, delta.end, delta.lines, delta.action
       // Emit changes
-      let content = self.editor.getValue();
+      const content = self.editor.getValue();
       self._valueChanged.emit(content);
 
     });
@@ -89,7 +89,7 @@ export class AceEditorWidget extends Widget {
   }
 
   loadTarget(target: string): void {
-    var doc = this._editor;
+    const doc = this._editor;
     fetch(target)
       .then(response => response.json())
       .then(function (data) {
@@ -97,11 +97,11 @@ export class AceEditorWidget extends Widget {
       });
   }
 
-  protected onAfterAttach(msg: Message): void {
+  onAfterAttach(msg: Message): void {
 
   }
 
-  protected onResize(msg: Widget.ResizeMessage): void {
+  onResize(msg: Widget.ResizeMessage): void {
     this._editor.container.setAttribute('width', msg.width.toString());
     if (msg.width > 0 && msg.height > 0) {
       this._editor.container.style.width = msg.width + 'px';
@@ -121,7 +121,7 @@ export class AceEditorWidget extends Widget {
     }
 
     values.forEach((value, index) => {
-      let opt: HTMLOptionElement = document.createElement('option');
+      const opt: HTMLOptionElement = document.createElement('option');
       opt.value = index.toString();
       opt.text = `Sample #${index + 1}`;
       if (isScript(value)) {
