@@ -300,9 +300,10 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
       layout(elkgraph).then((elkLayoutGraph) => {
         // Clear and redraw
         // reset diagram
+        //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
         const result = toX6Graph(elkLayoutGraph);
         console.log(result);
-        console.log(JSON.stringify(result,null, ' '));
+        //console.log(JSON.stringify(result,null, ' '));
 
       }).catch((e) => {
         console.log(e);

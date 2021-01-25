@@ -113,17 +113,10 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
   n.ax = n.x + x0;
   n.ay = n.y + y0;
 
-  elkNode.children = elkNode.children || []; 
-  elkNode.children.forEach((c) => {
-    toAbsolute(c,n.ax,n.ay);
-  }); 
-
   elkNode.edges = elkNode.edges || []; 
   elkNode.edges.forEach((e) => {
     const t = e;
     // absolute coordinate
-    t.ax = n.ax;
-    t.ay = n.ay;
     t.source = e.sources[0];
     t.target = e.targets[0];
     // junctionPoints
@@ -154,11 +147,16 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
   
   elkNode.ports = elkNode.ports || []; 
   elkNode.ports.forEach((p) => {
-    const t = p;
     // absolute coordinate
-    t.ax = n.ax + t.x;
-    t.ay = n.ay + t.y;
+    p.ax = p.x; 
+    p.ay = p.y;
   });  
+
+  elkNode.children = elkNode.children || []; 
+  elkNode.children.forEach((c) => {
+    toAbsolute(c,n.ax,n.ay);
+  }); 
+
   return n;
 }
 /*
@@ -198,7 +196,7 @@ export function toX6Graph(elkNode) {
   const n = { 
     id: elkNode.id,
     label: elkNode.label,
-    data: elkNode.model,
+    // data: elkNode.model,
     x: elkNode.ax,
     y: elkNode.ay,
     width: elkNode.width,
@@ -213,10 +211,10 @@ export function toX6Graph(elkNode) {
       group: 'abs',
       id: p.id,
       args: {
-        x: p.ax,
-        y: p.ay
+        x: p.ax + 4,
+        y: p.ay + 4
       },
-      data: p.model
+     // data: p.model
     };
     return r;
   });
@@ -231,7 +229,7 @@ export function toX6Graph(elkNode) {
         zIndex: 10,
         attrs: {
           circle: {
-            r: 8,//p.width,
+            r: 4,//p.width,
             magnet: true,
             stroke: '#31d0c6',
             strokeWidth: 2,
@@ -260,6 +258,7 @@ export function toX6Graph(elkNode) {
   elkNode.edges.forEach((e) => {
     const t = {};
     t.id = e.id;
+    // t.data = e.model;
     const source = e.sources[0];
     const target = e.targets[0];
     t.source = { cell: source };
@@ -282,7 +281,8 @@ export function toX6Graph(elkNode) {
       });
       vertices.push({ x: d.endPoint.ax, y: d.endPoint.ay });
     }
-    g.edges.push(t);
+    t.vertices = vertices;
+    // g.edges.push(t);
   });  
   return g;
 }
