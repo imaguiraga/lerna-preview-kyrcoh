@@ -183,5 +183,42 @@ export const data = {
       children: []
     }
   ],
-  edges: []
+  edges: [
+    {
+      id: "edge.0",
+      source: {
+        cell: "sequence.2",
+        port: "sequence.2.start"
+      },
+      target: {
+        cell: "terminal.0",
+        port: "terminal.0.start"
+      },
+      vertices: []
+    },
+    {
+      id: "edge.1",
+      source: {
+        cell: "terminal.0",
+        port: "terminal.0.finish"
+      },
+      target: {
+        cell: "terminal.1",
+        port: "terminal.1.start"
+      },
+      vertices: []
+    },
+    {
+      id: "edge.2",
+      source: {
+        cell: "terminal.1",
+        port: "terminal.1.finish"
+      },
+      target: {
+        cell: "sequence.2",
+        port: "sequence.2.finish"
+      },
+      vertices: []
+    }
+  ]
 };

@@ -1,4 +1,10 @@
 export const samples2 = [
+  `import { choice, terminal, sequence } from 'topology-dsl';
+  export const testflow = 
+    sequence(
+      terminal('a'), 
+      terminal('b')
+    );`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   az_Linux_Virtual_Machines,
