@@ -1,8 +1,9 @@
 import './style/elk-style.css';
 import { Graph, Shape } from '@antv/x6';
+import { data } from './new-data.js';
 import { toElkGraph, toX6Graph, elkLayout } from './elk-layout-common';
 import { initD3, renderd3Layout } from './elk-diagram-d3';
-import { data } from './new-data.js';
+
 
 export function createElkD3Renderer(_container_, _width_, _height_, _iconWidth_) {
   /*
@@ -71,7 +72,19 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const iconWidth = _iconWidth_ || 24;
   const width = (_width_ || containerElt.scrollWidth || 800);
   const height = (_height_ || containerElt.scrollHeight || 800);
- 
+  const graph = new Graph({
+    container: containerElt,
+    width: 960,
+    height: 800,
+    grid: { visible: true },
+    scroller: {
+      enabled: true,
+      pageVisible: true,
+      pageBreak: true,
+      pannable: true,
+    }
+  });
+  graph.fromJSON(data);
 /*
   const graph = new Graph({
     container: containerElt,
@@ -121,19 +134,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
     },
   });
   //*/
-  const graph = new Graph({
-    container: containerElt,
-    width: 960,
-    height: 800,
-    grid: { visible: true },
-    scroller: {
-      enabled: true,
-      pageVisible: true,
-      pageBreak: true,
-      pannable: true,
-    }
-  });
-  graph.fromJSON(data);
+
   // */
   /*
   const graph = new Graph({

@@ -43,7 +43,7 @@ export class ELKGraphWidget extends Widget {
     this.node.appendChild(this.errorPane);
 
     this.renderer = diagram.createElkD3Renderer(this.contentPane, _width, _height);
-    // this.renderer = diagram.createElkX6Renderer(this.contentPane, _width, _height);
+    //this.renderer = diagram.createElkX6Renderer(this.contentPane, _width, _height);
     
     console.log(`ctor : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
   }

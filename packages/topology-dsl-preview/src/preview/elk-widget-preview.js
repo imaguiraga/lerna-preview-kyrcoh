@@ -9,6 +9,8 @@
 |----------------------------------------------------------------------------*/
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
+import { Graph, Shape } from '@antv/x6';
+import { data } from './diagram/elk/new-data.js';
 
 import {
   CommandRegistry
@@ -78,10 +80,25 @@ function main() {
   let bar = createBarWidget(commands);
   let palette = createPalette(commands);
   let main = createMainWidget(palette, commands);
-
+/*
+  const graph = new Graph({
+    container: document.body,
+    width: 960,
+    height: 800,
+    grid: { visible: true },
+    scroller: {
+      enabled: true,
+      pageVisible: true,
+      pageBreak: true,
+      pannable: true,
+    }
+  });
+  graph.fromJSON(data);
+  //*/
+ 
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
-
+//*/
 }
 
 function createMainWidget(palette, commands) {
