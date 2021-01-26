@@ -9,8 +9,6 @@
 |----------------------------------------------------------------------------*/
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
-import { Graph, Shape } from '@antv/x6';
-import { data } from './diagram/elk/new-data.js';
 
 import {
   CommandRegistry

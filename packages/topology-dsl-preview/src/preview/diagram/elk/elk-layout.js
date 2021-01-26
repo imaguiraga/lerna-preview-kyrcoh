@@ -148,8 +148,8 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
   elkNode.ports = elkNode.ports || []; 
   elkNode.ports.forEach((p) => {
     // absolute coordinate
-    p.ax = p.x; 
-    p.ay = p.y;
+    p.ax = p.x + n.ax; 
+    p.ay = p.y + n.ay;
   });  
 
   elkNode.children = elkNode.children || []; 
@@ -188,91 +188,3 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
         "compound": false
       },
 // */
-export function toX6Graph(elkNode) {
-  const g = {
-    nodes:[], edges:[]
-  };
-   // Clone node 
-  const n = { 
-    id: elkNode.id,
-    label: elkNode.label,
-    // data: elkNode.model,
-    x: elkNode.ax,
-    y: elkNode.ay,
-    width: elkNode.width,
-    height: elkNode.height,
-  };
-  g.nodes.push(n);
-
-  // Ports
-  elkNode.ports = elkNode.ports || []; 
-  const items = elkNode.ports.map((p) => {
-    const r = {
-      group: 'abs',
-      id: p.id,
-      args: {
-        x: p.ax + 4,
-        y: p.ay + 4
-      },
-     // data: p.model
-    };
-    return r;
-  });
-
-  n.ports = {
-    items: items,
-    groups: {
-      abs: {
-        position: {
-          name: 'absolute'
-        },
-        zIndex: 10,
-        attrs: {
-          circle: {
-            r: 4,//p.width,
-            magnet: true,
-            stroke: '#31d0c6',
-            strokeWidth: 2,
-            fill: '#fff'
-          },
-          text: {
-            fontSize: 12,
-            fill: '#888'
-          }
-        }
-      }
-    }
-  };
-
-  n.children = [];
-  elkNode.children = elkNode.children || []; 
-  elkNode.children.forEach((c) => {
-    n.children.push(c.id);
-    const t = toX6Graph(c);
-    g.nodes = g.nodes.concat(t.nodes);
-    g.edges = g.edges.concat(t.edges);
-  }); 
-
-  // Edges
-  elkNode.edges = elkNode.edges || []; 
-  elkNode.edges.forEach((e) => {
-    const t = {};
-    t.id = e.id;
-    // t.data = e.model;
-    const source = e.sources[0];
-    const target = e.targets[0];
-    t.source = { cell: source.replace(/\.(start|finish)/ig,''), port: source };
-    t.target = { cell: target.replace(/\.(start|finish)/ig,''), port: target };
-
-    var d = e.sections[0];
-    const vertices = [];
-    if (d.startPoint && d.endPoint) {
-      (d.bendPoints || []).forEach(function (bp, i) {
-        vertices.push({ x: bp.ax, y: bp.ay });
-      });
-    }
-    t.vertices = vertices;
-    g.edges.push(t);
-  });  
-  return g;
-}
