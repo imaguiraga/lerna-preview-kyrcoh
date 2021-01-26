@@ -60,7 +60,7 @@ export class ELKGraphWidget extends Widget {
   }
 
   onResize(msg) {
-    console.log(`onResize : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight} # W${msg.width} - H${msg.height}`);
+    // console.log(`onResize : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight} # W${msg.width} - H${msg.height}`);
   }
 
   get graph() {

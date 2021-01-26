@@ -7,7 +7,7 @@ import { createElkG6Renderer } from './g6-elk-diagram';
 
 
 export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
-  return createElkG6Renderer(_container_, _width_, _height_, _iconWidth_);
+  return createElkX6Renderer(_container_, _width_, _height_, _iconWidth_);
 }
 
 function createElkD3Renderer(_container_, _width_, _height_, _iconWidth_) {

@@ -57,7 +57,7 @@ G6.registerNode(
 );
 //*/
 const DEFAULT_NODE = {
-  type: 'rect',
+  type: 'rect1',
   size: [80, 80],
   style: {
     stroke: '#5B8FF9',
@@ -76,11 +76,11 @@ const DEFAULT_NODE = {
     bottom: true,
     left: true,
     /* linkPoints' size, 8 by default */
-    //   size: 5,
+       size: 16,
     /* linkPoints' style */
-    //   fill: '#ccc',
-    //   stroke: '#333',
-    //   lineWidth: 2,
+       fill: '#ccc',
+       stroke: '#333',
+       lineWidth: 2,
   },
 };
 //*/
@@ -127,14 +127,33 @@ G6.registerNode(
 );
 
 G6.registerNode(
-  'rect',
-  {
+  'rect1',
+  {/*
+    getShapeStyle: function getShapeStyle(cfg) {
+      var defaultStyle = this.getOptions(cfg).style;
+      var strokeStyle = {
+        stroke: cfg.color
+      }; // 如果设置了color，则覆盖默认的stroke属性
+  
+      var style = Object.assign({}, defaultStyle, strokeStyle);
+      var size = this.getSize(cfg);
+      var width = style.width || size[0];
+      var height = style.height || size[1];
+      var styles = Object.assign({
+        x: -width / 2,
+        y: -height / 2,
+        width: width,
+        height: height
+      }, cfg.style);
+      return styles;
+    },//*/
+  
     draw(cfg, group) {
       const size = this.getSize(cfg); // translate to [width, height]
       const color = cfg.color;
       const width = size[0];
       const height = size[1];
-
+      //group.attrs.matrix = [1, 0, 0, 0, 1, 0, 0, 0, 1];
       const style = Object.assign(
         {},
         {
@@ -154,10 +173,9 @@ G6.registerNode(
       });
       // return the keyShape
       return keyShape;
-    },
+    },//*/
   },
-  // Extend the 'single-node'
-  'single-node',
+  'rect',//'single-node',
 );
 /**
  * Create a Code.
@@ -180,7 +198,7 @@ function createGraph(_container_, _width_, _height_) {
     defaultNode: DEFAULT_NODE,
     defaultEdge: DEFAULT_EDGE,
     // translate the graph to align the canvas's center, support by v3.5.1
-   // fitCenter: true,
+    fitCenter: true,
     // make the edge link to the centers of the end nodes
     linkCenter: false,
     modes: {
@@ -322,7 +340,7 @@ export function toG6Graph(elkNode) {
       vertices.push({ x: d.endPoint.ax, y: d.endPoint.ay });
     }
     t.controlPoints = vertices;
-    g.edges.push(t);
+    // g.edges.push(t);
   });  
   return g;
 }

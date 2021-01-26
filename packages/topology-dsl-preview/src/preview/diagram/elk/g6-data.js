@@ -2,8 +2,8 @@ export const data = {
   "nodes": [
    {
     "id": "$root",
-    "x": -320,
-    "y": -82.5,
+    "x": 0,
+    "y": 0,
     "size": [
      640,
      165
@@ -15,8 +15,8 @@ export const data = {
    {
     "id": "sequence.2",
     "label": "sequence.2",
-    "x": -272,
-    "y": -58.5,
+    "x": 24,
+    "y": 12,
     "size": [
      592,
      141
@@ -29,8 +29,8 @@ export const data = {
    {
     "id": "terminal.0",
     "label": "terminal.0",
-    "x": -72,
-    "y": 21,
+    "x": 48,
+    "y": 61,
     "size": [
      240,
      80
@@ -40,8 +40,8 @@ export const data = {
    {
     "id": "terminal.1",
     "label": "terminal.1",
-    "x": 232,
-    "y": 21,
+    "x": 352,
+    "y": 61,
     "size": [
      240,
      80
@@ -49,51 +49,5 @@ export const data = {
     "children": []
    }
   ],
-  "edges": [
-   {
-    "id": "edge.0",
-    "source": "sequence.2",
-    "target": "terminal.0",
-    "controlPoints": [
-     {
-      "x": 20,
-      "y": 101
-     },
-     {
-      "x": 36,
-      "y": 101
-     }
-    ]
-   },
-   {
-    "id": "edge.1",
-    "source": "terminal.0",
-    "target": "terminal.1",
-    "controlPoints": [
-     {
-      "x": 300,
-      "y": 101
-     },
-     {
-      "x": 340,
-      "y": 101
-     }
-    ]
-   },
-   {
-    "id": "edge.2",
-    "source": "terminal.1",
-    "target": "sequence.2",
-    "controlPoints": [
-     {
-      "x": 604,
-      "y": 101
-     },
-     {
-      "x": 620,
-      "y": 101
-     }
-    ]
-   }
-  ]
+  "edges": []
  };
