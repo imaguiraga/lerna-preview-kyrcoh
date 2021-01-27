@@ -172,38 +172,41 @@ export function toX6Graph(elkNode) {
     t.data = e.model;
     const source = e.sources[0];
     const target = e.targets[0];
-    t.source = { };//cell: source.replace(/\.(start|finish)/ig,''), port: source };
-    t.target = { };//cell: target.replace(/\.(start|finish)/ig,''), port: target };
-/*
-source: { x: 240, y: 240 },
-  target: { x: 280, y: 380 },
-  vertices: [{ x: 240, y: 340 }],
-  //*/
+    t.source = { cell: source.replace(/\.(start|finish)/ig,''), port: source };
+    t.target = { cell: target.replace(/\.(start|finish)/ig,''), port: target };
 
     var d = e.sections[0];
     
     if (d.startPoint && d.endPoint) {
-      const vertices = [];
-      
-      t.source.x = d.startPoint.ax;
-      t.source.y = d.startPoint.ay;
+     /*
+      source: { x: 240, y: 240 },
+      target: { x: 280, y: 380 },
+      vertices: [{ x: 240, y: 340 }],
+      //*/ 
+ /*     
+      t.source = {
+        x: d.startPoint.ax,
+        y: d.startPoint.ay
+      };
 
-      t.target.x = d.endPoint.ax;
-      t.target.y = d.endPoint.ay;
-      //*/
-      //vertices.push({ x: d.startPoint.ax, y: d.startPoint.ay });
-      (d.bendPoints || []).forEach(function (bp, i) {
-        vertices.push({ x: bp.ax, y: bp.ay });
-      });
+      t.target = {
+        x: d.endPoint.ax,
+        y: d.endPoint.ay
+      };
+//*/
+    }
+    
+    const vertices = [];
+    (d.bendPoints || []).forEach(function (bp, i) {
+      vertices.push({ x: bp.ax, y: bp.ay });
+    });
 
-      (d.junctionPoints || []).forEach(function (bp, i) {
-        vertices.push({ x: bp.ax, y: bp.ay });
-      });
+    (d.junctionPoints || []).forEach(function (bp, i) {
+      vertices.push({ x: bp.ax, y: bp.ay });
+    });
 
-      //vertices.push({ x: d.endPoint.ax, y: d.endPoint.ay });
-      if (vertices.length > 0) {
-        t.vertices = vertices;
-      }
+    if (vertices.length > 0) {
+      t.vertices = vertices;
     }
     g.edges.push(t);
   });  
@@ -229,7 +232,7 @@ function createX6Graph(containerElt,width,height) {
       }),//false,
       edgeMovable: false
     },//*/
-    async: true,
+    async: false,
     //frozen: true,
     scroller: {
       enabled: true,
@@ -251,6 +254,7 @@ function createX6Graph(containerElt,width,height) {
       connectionPoint: 'boundary',
       router: {//https://x6.antv.vision/en/docs/tutorial/basic/edge/#router
         //node_modules\@antv\x6\lib\registry\router
+        //https://x6.antv.vision/en/docs/api/registry/router#oneside
         name: LINE, // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
         args: {
           offset: 'center',//24,
