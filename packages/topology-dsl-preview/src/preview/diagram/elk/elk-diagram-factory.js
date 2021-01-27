@@ -3,8 +3,6 @@ import './style/elk-style.css';
 import { toElkGraph, elkLayout } from './elk-layout';
 import { initD3, renderd3Layout } from './d3-elk-diagram';
 import { createElkX6Renderer } from './x6-elk-diagram';
-import { createElkG6Renderer } from './g6-elk-diagram';
-
 
 export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
   return createElkX6Renderer(_container_, _width_, _height_, _iconWidth_);
