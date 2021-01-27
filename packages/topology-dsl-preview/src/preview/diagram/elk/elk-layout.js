@@ -60,7 +60,7 @@ export function elkLayout() {
       measureExecutionTime: true
     }).then((elkLayoutGraph) => {
       const g = toAbsolute(elkLayoutGraph);
-      console.log(g);
+      //console.log(g);
       return g;
     });
 

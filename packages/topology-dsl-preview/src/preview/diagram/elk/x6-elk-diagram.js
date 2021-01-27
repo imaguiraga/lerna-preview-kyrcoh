@@ -12,7 +12,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
   const graph = createX6Graph(containerElt,width,height);
-  graph.fromJSON(data);
+  // graph.fromJSON(data);
 
 /*
   const wrap = document.createElement('div');
@@ -76,9 +76,9 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
         // reset diagram
         //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
         const result = toX6Graph(elkLayoutGraph);
-        console.log(result);
-        console.log(JSON.stringify(result,null, ' '));
-
+        //console.log(result);
+        //console.log(JSON.stringify(result,null, ' '));
+        graph.fromJSON(result);
       }).catch((e) => {
         console.log(e);
       });
@@ -99,7 +99,7 @@ export function toX6Graph(elkNode) {
   const n = { 
     id: elkNode.id,
     label: elkNode.label,
-    // data: elkNode.model,
+    data: elkNode.model,
     x: elkNode.ax,
     y: elkNode.ay,
     width: elkNode.width,
@@ -117,7 +117,7 @@ export function toX6Graph(elkNode) {
         x: p.x + 4,
         y: p.y + 4
       },
-     // data: p.model
+      data: p.model
     };
     return r;
   });
@@ -133,7 +133,7 @@ export function toX6Graph(elkNode) {
         attrs: {
           circle: {
             r: 4,//p.width,
-            magnet: true,
+            magnet: false,
             stroke: '#31d0c6',
             strokeWidth: 2,
             fill: '#fff'
@@ -165,7 +165,7 @@ export function toX6Graph(elkNode) {
   elkNode.edges.forEach((e) => {
     const t = {};
     t.id = e.id;
-    // t.data = e.model;
+    t.data = e.model;
     const source = e.sources[0];
     const target = e.targets[0];
     t.source = { };//cell: source.replace(/\.(start|finish)/ig,''), port: source };
@@ -189,6 +189,11 @@ source: { x: 240, y: 240 },
       (d.bendPoints || []).forEach(function (bp, i) {
         vertices.push({ x: bp.ax, y: bp.ay });
       });
+
+      (d.junctionPoints || []).forEach(function (bp, i) {
+        vertices.push({ x: bp.ax, y: bp.ay });
+      });
+      
       if (vertices.lentgh > 0) {
         t.vertices = vertices;
       }
@@ -212,22 +217,27 @@ function createX6Graph(containerElt,width,height) {
       size: 10,
       visible: true,
     }, 
-    interacting: {
+    interacting: false, /*{
       nodeMovable: ((graph, cellView) => {
-        return true;
+        return false;
       }),//false,
       edgeMovable: false
-    },
+    },//*/
     connecting: {
-      snap: true,
+      //snap: true,
       allowBlank: false,
       allowLoop: false,
       highlight: true,
-      connector: 'rounded',
       anchor: 'orth',
-      connectionPoint: 'anchor',
-      router: {
+      connector: 'rounded',
+      connectionPoint: 'boundary',
+      router: {//https://x6.antv.vision/en/docs/tutorial/basic/edge/#router
+        //node_modules\@antv\x6\lib\registry\router
         name: 'er', // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
+        args: {
+          offset: 'center',//24,
+          direction: 'H',
+        },
       },
       createEdge() {
         return new Shape.Edge({
@@ -237,7 +247,7 @@ function createX6Graph(containerElt,width,height) {
               strokeWidth: 1,
               targetMarker: {
                 name: 'classic',
-                size: 2
+                size: 1
               }
             }
           }
