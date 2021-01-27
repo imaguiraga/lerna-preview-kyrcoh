@@ -65,7 +65,7 @@ export class ELKDimensionVisitor {
     if (isContainer(tree)) {
       // Set node properties
       tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
+        'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]',
         'portAlignment.default': 'CENTER',
         'portConstraints': 'FREE'
       };
