@@ -1,7 +1,14 @@
 
-import { Graph, Shape } from '@antv/x6';
+import { Graph, Shape, Point } from '@antv/x6';
 import { data } from './x6-data.js';
 import { toElkGraph, elkLayout } from './elk-layout';
+
+function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/, view/*: EdgeView*/) {
+  const points = vertices.map((p) => Point.create(p));
+  return points;
+}
+const LINE = 'line';
+Graph.registerRouter(LINE, lineRouter);
 
 export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_) {
 
@@ -108,8 +115,7 @@ export function toX6Graph(elkNode) {
   g.nodes.push(n);
 
   // Ports
-  elkNode.ports = elkNode.ports || []; 
-  const items = elkNode.ports.map((p) => {
+  const items = (elkNode.ports || []).map((p) => {
     const r = {
       group: 'abs',
       id: p.id,
@@ -148,21 +154,19 @@ export function toX6Graph(elkNode) {
   };
 
   const children = [];
-  elkNode.children = elkNode.children || []; 
-  elkNode.children.forEach((c) => {
+  (elkNode.children || []).forEach((c) => {
     children.push(c.id);
     const t = toX6Graph(c);
     g.nodes = g.nodes.concat(t.nodes);
     g.edges = g.edges.concat(t.edges);
   }); 
 
-  if (children.lentgh > 0) {
+  if (children.length > 0) {
     n.children = children;
   }
 
   // Edges
-  elkNode.edges = elkNode.edges || []; 
-  elkNode.edges.forEach((e) => {
+  (elkNode.edges || []).forEach((e) => {
     const t = {};
     t.id = e.id;
     t.data = e.model;
@@ -175,17 +179,19 @@ source: { x: 240, y: 240 },
   target: { x: 280, y: 380 },
   vertices: [{ x: 240, y: 340 }],
   //*/
+
     var d = e.sections[0];
     
     if (d.startPoint && d.endPoint) {
       const vertices = [];
-
+      
       t.source.x = d.startPoint.ax;
       t.source.y = d.startPoint.ay;
 
       t.target.x = d.endPoint.ax;
       t.target.y = d.endPoint.ay;
-
+      //*/
+      //vertices.push({ x: d.startPoint.ax, y: d.startPoint.ay });
       (d.bendPoints || []).forEach(function (bp, i) {
         vertices.push({ x: bp.ax, y: bp.ay });
       });
@@ -193,12 +199,12 @@ source: { x: 240, y: 240 },
       (d.junctionPoints || []).forEach(function (bp, i) {
         vertices.push({ x: bp.ax, y: bp.ay });
       });
-      
-      if (vertices.lentgh > 0) {
+
+      //vertices.push({ x: d.endPoint.ax, y: d.endPoint.ay });
+      if (vertices.length > 0) {
         t.vertices = vertices;
       }
     }
-
     g.edges.push(t);
   });  
   return g;
@@ -223,17 +229,29 @@ function createX6Graph(containerElt,width,height) {
       }),//false,
       edgeMovable: false
     },//*/
+    async: true,
+    //frozen: true,
+    scroller: {
+      enabled: true,
+      pannable: true,
+      pageVisible: true,
+      pageBreak: true,
+    },
+    mousewheel: {
+      enabled: true,
+      modifiers: ['ctrl', 'meta'],
+    },
     connecting: {
       //snap: true,
       allowBlank: false,
       allowLoop: false,
-      highlight: true,
+      highlight: true,  
       anchor: 'orth',
       connector: 'rounded',
       connectionPoint: 'boundary',
       router: {//https://x6.antv.vision/en/docs/tutorial/basic/edge/#router
         //node_modules\@antv\x6\lib\registry\router
-        name: 'er', // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
+        name: LINE, // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
         args: {
           offset: 'center',//24,
           direction: 'H',
@@ -252,53 +270,11 @@ function createX6Graph(containerElt,width,height) {
             }
           }
         });
-      }
+      }//*/
     },
-    scroller: {
-      enabled: true,
-      pannable: true,
-      pageVisible: true,
-      pageBreak: true,
-    },
-    mousewheel: {
-      enabled: true,
-      modifiers: ['ctrl', 'meta'],
-    },
+
   });
   //*/
-  
-  /*
-  const graph = new Graph({
-    container: containerElt,
-    width: 400,
-    grid: { visible: true },
-    scroller: {
-      enabled: true,
-      pageVisible: true,
-      pageBreak: false,
-      pannable: true,
-    },
-  
-    minimap: {
-      enabled: true,
-      container: this.minimapContainer,
-      width: 200,
-      height: 160,
-      padding: 10,
-      graphOptions: {
-        async: true,
-        getCellView(cell) {
-          if (cell.isNode()) {
-            return SimpleNodeView;
-          }
-        },
-        createCellView(cell) {
-          if (cell.isEdge()) {
-            return null;
-          }
-        },
-      },
-    },
-  });//*/
+
   return graph;
 }

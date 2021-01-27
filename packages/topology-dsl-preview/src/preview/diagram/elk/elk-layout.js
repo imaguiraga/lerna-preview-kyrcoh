@@ -113,22 +113,20 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
   n.ax = n.x + x0;
   n.ay = n.y + y0;
 
-  elkNode.edges = elkNode.edges || []; 
-  elkNode.edges.forEach((e) => {
+  (elkNode.edges || []).forEach((e) => {
     const t = e;
     // absolute coordinate
     t.source = e.sources[0];
     t.target = e.targets[0];
-    // junctionPoints
-    t.junctionPoints = t.junctionPoints || [];
-    t.junctionPoints.forEach((j) => {
-      j.ax = j.x + n.ax; 
-      j.ay = j.y + n.ay; 
-    });
 
     // Update sections
-    t.sections = t.sections || [];
-    t.sections.forEach((s) => {
+    (t.sections || []).forEach((s) => {
+       // junctionPoints
+      (s.junctionPoints || []).forEach((j) => {
+        j.ax = j.x + n.ax; 
+        j.ay = j.y + n.ay; 
+      });
+
       // startPoint
       s.startPoint.ax = s.startPoint.x + n.ax; 
       s.startPoint.ay = s.startPoint.y + n.ay; 
@@ -136,8 +134,7 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
       s.endPoint.ax = s.endPoint.x + n.ax; 
       s.endPoint.ay = s.endPoint.y + n.ay; 
       // bendPoints
-      s.bendPoints = s.bendPoints || [];
-      s.bendPoints.forEach((b) => {
+      (s.bendPoints || []).forEach((b) => {
         b.ax = b.x + n.ax; 
         b.ay = b.y + n.ay;
       });
@@ -145,15 +142,13 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
 
   });
   
-  elkNode.ports = elkNode.ports || []; 
-  elkNode.ports.forEach((p) => {
+  (elkNode.ports || []).forEach((p) => {
     // absolute coordinate
     p.ax = p.x + n.ax; 
     p.ay = p.y + n.ay;
   });  
 
-  elkNode.children = elkNode.children || []; 
-  elkNode.children.forEach((c) => {
+  (elkNode.children || []).forEach((c) => {
     toAbsolute(c,n.ax,n.ay);
   }); 
 
