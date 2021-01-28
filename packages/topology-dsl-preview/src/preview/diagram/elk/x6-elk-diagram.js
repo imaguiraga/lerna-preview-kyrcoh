@@ -102,6 +102,20 @@ export function toX6Graph(elkNode) {
   return toX6GraphRec(elkNode);
 }
 
+const HTML = {
+  render(node) { //: Cell
+    const model = node.getData(); //as any
+    const style = model.data.get('style');
+    return (
+      `<div><code>${style && style.product ? style.product : ''}</code></div>
+      <div><code style='font-weight:bold;font-size:1.5em'>${model !== undefined ? model.title : ''}</code></div>`
+    );
+  },
+  shouldComponentUpdate(node) { //: Cell
+    return node.hasChanged('data');
+  },
+};
+
 function toX6GraphRec(elkNode) {
   const g = {
     nodes:[], edges:[]
@@ -119,8 +133,12 @@ function toX6GraphRec(elkNode) {
     attrs: {
       body: {
         class: 'node',
+      },
+      fo: {
+        class: 'node',
       }  
-    }
+    },
+    
   };
 
   const clazz = ['node'];
@@ -155,14 +173,11 @@ function toX6GraphRec(elkNode) {
           name: 'absolute'
         },
         zIndex: 10,
-        attrs: {
-          class: 'port',
+        attrs: {    
           circle: {
+            class: 'port',
             r: 4,//p.width,
             magnet: false,
-            stroke: '#31d0c6',
-            strokeWidth: 2,
-            fill: '#fff'
           },
           text: {
             fontSize: 12,
@@ -180,6 +195,12 @@ function toX6GraphRec(elkNode) {
     g.nodes = g.nodes.concat(t.nodes);
     g.edges = g.edges.concat(t.edges);
   }); 
+//node_modules\@antv\x6\lib\shape\standard\html.d.ts
+  if(children.length === 0) {
+    n.label = '';
+    n.shape = 'html';
+    n.html = HTML;
+  }
 
   n.attrs.body.strokeWidth = (children.length > 0) ? '0px' : '1px';
   n.attrs.body.opacity = (children.length > 0) ? 0.15 : 0.9;
@@ -189,7 +210,7 @@ function toX6GraphRec(elkNode) {
     const t = {
         attrs: {
         line: {
-          class: 'link',
+          class: 'edge',
           targetMarker: {
             name: 'classic',
             size: 8

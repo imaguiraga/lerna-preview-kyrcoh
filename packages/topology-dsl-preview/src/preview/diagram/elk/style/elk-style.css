@@ -1,5 +1,5 @@
 @import "./elk-component-style.css";
-
+/*
 g.leaf > rect {
   stroke: #000;
   stroke-width: 1px;
@@ -16,25 +16,31 @@ g.leaf.container > rect.node {
   stroke: #000!important;
   stroke-width: 2px!important;
 }
-
-.node {
+*/
+rect.node {
   font-family: inherit;
-
-  fill: 'white';
-  stroke: 'black';
-  border: '1px solid black';
+  stroke: black;
 }
 
-.link {
+foreignObject.node {
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.85)!important;
+  color: black;
+  padding: 4px;
+  border: 1px solid #777;
+}
+
+.edge {
   stroke: #777;
-  stroke-width: 2;
+  stroke-width: 2px!important;
   stroke-opacity: 1;
   fill: none;
 }
 
 .port {
-  stroke: #000!important;
-  stroke-width: 1px;
+  fill: #fff;
+  stroke:blue!important;
+  stroke-width: 2px;
   opacity: .6!important;
 }
 
