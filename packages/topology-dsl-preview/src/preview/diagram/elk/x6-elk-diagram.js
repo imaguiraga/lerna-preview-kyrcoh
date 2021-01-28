@@ -105,11 +105,45 @@ export function toX6Graph(elkNode) {
 const HTML = {
   render(node) { //: Cell
     const model = node.getData(); //as any
-    const style = model.data.get('style');
-    return (
+    const style = model.data.get('style');// IconPath
+    
+    const wrap = document.createElement('div');
+    //wrap.style.width = '100%';
+    //wrap.style.height = '100%';
+    //wrap.style.background = '#f0f0f0';
+    wrap.style.display = 'flex';
+    //wrap.style.justifyContent = 'center';
+    //wrap.style.alignItems = 'center';
+
+    let iconPath = style ? encodeURI(style.iconURL) : null;
+    // If icon exist
+    if (iconPath !== null) {
+      const img = document.createElement('img');
+      const margin = 4;
+      img.src = iconPath;
+      //img.style.margin = margin;
+      img.width = model.height - 2*margin; 
+      img.height = img.width;
+      wrap.appendChild(img);
+    }
+
+    const textdiv = document.createElement('div');
+    //textdiv.style.width = '100%';
+    //textdiv.style.height = '100%';
+    //wrap.style.background = '#f0f0f0';
+    //textdiv.style.marginLeft = 4;
+    textdiv.style.padding = 4;
+    textdiv.style.display = 'inline-block';
+    //textdiv.style.justifyContent = 'center';
+    //textdiv.style.alignItems = 'center';
+
+    textdiv.innerHTML = 
       `<div><code>${style && style.product ? style.product : ''}</code></div>
       <div><code style='font-weight:bold;font-size:1.5em'>${model !== undefined ? model.title : ''}</code></div>`
-    );
+    ;
+    wrap.appendChild(textdiv);
+
+    return wrap;
   },
   shouldComponentUpdate(node) { //: Cell
     return node.hasChanged('data');
@@ -125,7 +159,7 @@ function toX6GraphRec(elkNode) {
   const n = { 
     id: elkNode.id,
     label: elkNode.label,
-    data: elkNode.model,
+    data: elkNode.model || {},
     x: elkNode.ax,
     y: elkNode.ay,
     width: elkNode.width,
@@ -140,6 +174,8 @@ function toX6GraphRec(elkNode) {
     },
     
   };
+  n.data.width = elkNode.width;
+  n.data.height = elkNode.height;
 
   const clazz = ['node'];
   if (elkNode.model !== undefined) {
