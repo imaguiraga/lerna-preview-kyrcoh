@@ -38,6 +38,7 @@ import * as gcp from '../assets/js/GCP_Icons';
 const {
   parseDsl,
   parseDslModule,
+  debugOn,
   registerJSModule,
   resolveImports,
   NODEIDGENFN,
@@ -78,22 +79,7 @@ function main() {
   let bar = createBarWidget(commands);
   let palette = createPalette(commands);
   let main = createMainWidget(palette, commands);
-/*
-  const graph = new Graph({
-    container: document.body,
-    width: 960,
-    height: 800,
-    grid: { visible: true },
-    scroller: {
-      enabled: true,
-      pageVisible: true,
-      pageBreak: true,
-      pannable: true,
-    }
-  });
-  graph.fromJSON(data);
-  //*/
- 
+
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
 //*/
