@@ -19,10 +19,15 @@ g.leaf.container > rect.node {
 
 .node {
   font-family: inherit;
+
+  fill: 'white';
+  stroke: 'black';
+  border: '1px solid black';
 }
 
 .link {
-  stroke: #999;
+  stroke: #777;
+  stroke-width: 2;
   stroke-opacity: 1;
   fill: none;
 }

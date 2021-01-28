@@ -99,9 +99,14 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
 }
 
 export function toX6Graph(elkNode) {
+  return toX6GraphRec(elkNode);
+}
+
+function toX6GraphRec(elkNode) {
   const g = {
     nodes:[], edges:[]
   };
+
    // Clone node 
   const n = { 
     id: elkNode.id,
@@ -111,7 +116,21 @@ export function toX6Graph(elkNode) {
     y: elkNode.ay,
     width: elkNode.width,
     height: elkNode.height,
+    attrs: {
+      body: {
+        class: 'node',
+      }  
+    }
   };
+
+  const clazz = ['node'];
+  if (elkNode.model !== undefined) {
+    clazz.push(elkNode.model.provider);
+    clazz.push(elkNode.model.resourceType);
+    clazz.push(elkNode.model.subType);
+  }
+  n.attrs.body.class = clazz.join(' ');
+//*/
   g.nodes.push(n);
 
   // Ports
@@ -137,6 +156,7 @@ export function toX6Graph(elkNode) {
         },
         zIndex: 10,
         attrs: {
+          class: 'port',
           circle: {
             r: 4,//p.width,
             magnet: false,
@@ -156,18 +176,27 @@ export function toX6Graph(elkNode) {
   const children = [];
   (elkNode.children || []).forEach((c) => {
     children.push(c.id);
-    const t = toX6Graph(c);
+    const t = toX6GraphRec(c);
     g.nodes = g.nodes.concat(t.nodes);
     g.edges = g.edges.concat(t.edges);
   }); 
 
-  if (children.length > 0) {
-    n.children = children;
-  }
+  n.attrs.body.strokeWidth = (children.length > 0) ? '0px' : '1px';
+  n.attrs.body.opacity = (children.length > 0) ? 0.15 : 0.9;
 
   // Edges
   (elkNode.edges || []).forEach((e) => {
-    const t = {};
+    const t = {
+        attrs: {
+        line: {
+          class: 'link',
+          targetMarker: {
+            name: 'classic',
+            size: 8
+          }
+        }
+      }
+    };
     t.id = e.id;
     t.data = e.model;
     const source = e.sources[0];
@@ -195,7 +224,7 @@ export function toX6Graph(elkNode) {
       };
 //*/
     }
-    
+
     const vertices = [];
     (d.bendPoints || []).forEach(function (bp, i) {
       vertices.push({ x: bp.ax, y: bp.ay });
@@ -220,16 +249,15 @@ function createX6Graph(containerElt,width,height) {
     width: width,
     height: height,
     background: {
-      color: '#fffbe6',
+      color: '#fff',
     },
     grid: {
       size: 10,
-      visible: true,
+      visible: false,
     }, 
-    interacting: false, /*{
-      nodeMovable: ((graph, cellView) => {
-        return false;
-      }),//false,
+    interacting: false, 
+    /*{
+      nodeMovable: false,
       edgeMovable: false
     },//*/
     async: false,
@@ -239,6 +267,10 @@ function createX6Graph(containerElt,width,height) {
       pannable: true,
       pageVisible: true,
       pageBreak: true,
+    },
+    panning: {
+      enabled: true,
+      modifiers: 'shift',
     },
     mousewheel: {
       enabled: true,
@@ -252,20 +284,19 @@ function createX6Graph(containerElt,width,height) {
       anchor: 'orth',
       connector: 'rounded',
       connectionPoint: 'boundary',
-      router: {//https://x6.antv.vision/en/docs/tutorial/basic/edge/#router
-        //node_modules\@antv\x6\lib\registry\router
-        //https://x6.antv.vision/en/docs/api/registry/router#oneside
-        name: LINE, // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
-        args: {
-          offset: 'center',//24,
-          direction: 'H',
-        },
-      },
+      router: {
+        // https://x6.antv.vision/en/docs/tutorial/basic/edge/#router
+        // node_modules\@antv\x6\lib\registry\router
+        // https://x6.antv.vision/en/docs/api/registry/router#oneside
+        // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
+        name: LINE, 
+      },/*
       createEdge() {
         return new Shape.Edge({
           attrs: {
             line: {
-              stroke: '#a0a0a0',
+              class: 'link',
+              stroke: '#999',
               strokeWidth: 1,
               targetMarker: {
                 name: 'classic',
@@ -278,7 +309,6 @@ function createX6Graph(containerElt,width,height) {
     },
 
   });
-  //*/
 
   return graph;
 }

@@ -105,8 +105,11 @@ export function elkLayout() {
   return layoutFn;
 }
 
-export function toAbsolute(elkNode,x0=0,y0=0) {
+export function toAbsolute(elkNode,) {
+  return toAbsoluteIt(elkNode);
+}
 
+function toAbsoluteRec(elkNode,x0=0,y0=0) {
    // Clone node 
   const n = elkNode ;
   // absolute coordinate
@@ -149,37 +152,61 @@ export function toAbsolute(elkNode,x0=0,y0=0) {
   });  
 
   (elkNode.children || []).forEach((c) => {
-    toAbsolute(c,n.ax,n.ay);
+    toAbsoluteRec(c,n.ax,n.ay);
   }); 
 
   return n;
+  //*/
 }
-/*
-{
-  "id": "choice.28",
-  "label": "choice.28",
-  "model": {
-    "provider": "default",
-    "resourceType": "fanOut_fanIn",
-    "subType": "choice",
-    "tagName": "flow",
-    "compound": true
-  },
-  "labels": [
-    {
-      "text": "choice.28",
-      "height": 16
-    }
-  ],
-  "ports": [
-    {
-      "id": "terminal.29",
-      "label": "terminal.29",
-      "model": {
-        "provider": "default",
-        "resourceType": "terminal",
-        "subType": "terminal",
-        "tagName": "port",
-        "compound": false
-      },
-// */
+
+function toAbsoluteIt(elkNode) {
+  // absolute coordinate
+  elkNode.ax = elkNode.x;
+  elkNode.ay = elkNode.y;
+  const stack = [elkNode];
+
+  while( stack.length >0) {
+    let n = stack.pop();
+    (n.edges || []).forEach((e) => {
+      const t = e;
+      // absolute coordinate
+      t.source = e.sources[0];
+      t.target = e.targets[0];
+
+      // Update sections
+      (t.sections || []).forEach((s) => {
+        // junctionPoints
+        (s.junctionPoints || []).forEach((j) => {
+          j.ax = j.x + n.ax; 
+          j.ay = j.y + n.ay; 
+        });
+
+        // startPoint
+        s.startPoint.ax = s.startPoint.x + n.ax; 
+        s.startPoint.ay = s.startPoint.y + n.ay; 
+        // endPoint
+        s.endPoint.ax = s.endPoint.x + n.ax; 
+        s.endPoint.ay = s.endPoint.y + n.ay; 
+        // bendPoints
+        (s.bendPoints || []).forEach((b) => {
+          b.ax = b.x + n.ax; 
+          b.ay = b.y + n.ay;      
+        });
+      });
+
+    });
+    
+    (n.ports || []).forEach((p) => {
+      // absolute coordinate
+      p.ax = p.x + n.ax; 
+      p.ay = p.y + n.ay;
+    });  
+
+    (n.children || []).forEach((c) => {
+      c.ax = c.x + n.ax; 
+      c.ay = c.y + n.ay;
+      stack.unshift(c);
+    }); 
+  }
+  return elkNode;
+}
