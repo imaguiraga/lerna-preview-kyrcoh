@@ -116,6 +116,12 @@ function toAbsoluteRec(elkNode,x0=0,y0=0) {
   n.ax = n.x + x0;
   n.ay = n.y + y0;
 
+  (n.labels || []).forEach((l) => {
+    // absolute coordinate
+    l.ax = l.x + x0;
+    l.ay = l.y + y0;
+  });
+
   (elkNode.edges || []).forEach((e) => {
     const t = e;
     // absolute coordinate
@@ -165,8 +171,14 @@ function toAbsoluteIt(elkNode) {
   elkNode.ay = elkNode.y;
   const stack = [elkNode];
 
-  while( stack.length >0) {
+  while(stack.length >0) {
     let n = stack.pop();
+    (n.labels || []).forEach((l) => {
+      // absolute coordinate
+      l.ax = l.x + n.ax;
+      l.ay = l.y + n.ay;
+    });
+
     (n.edges || []).forEach((e) => {
       const t = e;
       // absolute coordinate

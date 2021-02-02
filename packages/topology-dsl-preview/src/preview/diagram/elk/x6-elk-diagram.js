@@ -102,7 +102,7 @@ export function toX6Graph(elkNode) {
   return toX6GraphRec(elkNode);
 }
 
-const HTML = {
+const RESOURCE_HTML = {
   render(node) { //: Cell
     const model = node.getData(); //as any
     const style = model.data.get('style');// IconPath
@@ -156,10 +156,15 @@ function toX6GraphRec(elkNode) {
   };
 
    // Clone node 
+  let model = elkNode.model || {};
   const n = { 
     id: elkNode.id,
     label: elkNode.label,
-    data: elkNode.model || {},
+    data: {
+      ...model,
+      width: elkNode.width,
+      height: elkNode.height,
+    },
     x: elkNode.ax,
     y: elkNode.ay,
     width: elkNode.width,
@@ -233,9 +238,40 @@ function toX6GraphRec(elkNode) {
   }); 
 //node_modules\@antv\x6\lib\shape\standard\html.d.ts
   if(children.length === 0) {
-    n.label = '';
+    n.label = null;
     n.shape = 'html';
-    n.html = HTML;
+    n.html = RESOURCE_HTML;
+
+  } else if(elkNode.labels !== undefined) {
+    const label = elkNode.labels[0];
+    // Label Node
+    model = elkNode.model || {};
+    const l = { 
+      id: elkNode.id+'.label',
+      //label: elkNode.label,
+      data: {
+        ...model,
+        width: 3 * 80,//label.width,
+        height: label.height,
+      },
+      x: label.ax,
+      y: label.ay,
+      width: 3 * 80,//label.width,
+      height: label.height,
+      attrs: {
+        body: {
+          class: 'node',
+        },
+        fo: {
+          class: 'node',
+        }  
+      },
+      
+    };
+    l.label = null;
+    l.shape = 'html';
+    l.html = RESOURCE_HTML;
+    g.nodes.push(l);
   }
 
   n.attrs.body.strokeWidth = (children.length > 0) ? '0px' : '1px';
@@ -264,11 +300,6 @@ function toX6GraphRec(elkNode) {
     var d = e.sections[0];
     
     if (d.startPoint && d.endPoint) {
-     /*
-      source: { x: 240, y: 240 },
-      target: { x: 280, y: 380 },
-      vertices: [{ x: 240, y: 340 }],
-      //*/ 
  /*     
       t.source = {
         x: d.startPoint.ax,
