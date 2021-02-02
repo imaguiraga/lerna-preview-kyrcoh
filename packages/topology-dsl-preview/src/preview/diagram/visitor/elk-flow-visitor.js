@@ -132,6 +132,12 @@ export class FlowToELKVisitor {
         }
       ]
     };
+    // Layout direction
+    if (n.direction !== null) {
+      r.layoutOptions = { 
+        'org.eclipse.elk.direction' : n.direction 
+      };
+    }
     return r;
   }
 

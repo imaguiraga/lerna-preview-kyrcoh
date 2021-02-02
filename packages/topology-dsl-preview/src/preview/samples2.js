@@ -25,7 +25,7 @@ const gm = gcp_Compute_Engine;
 const choice1 = choice(
       az_Blob_Storage('c')._title_('AZ BLOB-A'),
       az_Azure_SQL_Database('a')._title_('AZ SQL-A')
-    );
+    ).down();
 	
 export const sequence1 = sequence(
     gm('c')._title_('GCP VM-C'),
