@@ -18,54 +18,54 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const width = (_width_ || containerElt.scrollWidth || 800) + 240;
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
-  const graph = createX6Graph(containerElt,width,height);
+  const graph = createX6Graph(containerElt, width, height);
   // graph.fromJSON(data);
 
-/*
-  const wrap = document.createElement('div');
-  wrap.style.width = '100%';
-  wrap.style.height = '100%';
-  wrap.style.background = '#f0f0f0';
-  wrap.style.display = 'flex';
-  wrap.style.justifyContent = 'center';
-  wrap.style.alignItems = 'center';
-  wrap.innerText = 'World';
-
-  const target1 = graph.addNode({
-    x: 180,
-    y: 160,
-    width: 100,
-    height: 40,
-    shape: 'html',
-    html: wrap,
-  });
-
-  const node = graph.addNode({
-    x: 80,
-    y: 80,
-    width: 160,
-    height: 60,
-    shape: 'html',
-    data: {
-      time: new Date().toString(),
-    },
-    html: {
-      render(node) { //: Cell
-        const data = node.getData(); //as any
-        return (
-          `<div>
-          <span>${data.time}</span>
-        </div>`
-        );
+  /*
+    const wrap = document.createElement('div');
+    wrap.style.width = '100%';
+    wrap.style.height = '100%';
+    wrap.style.background = '#f0f0f0';
+    wrap.style.display = 'flex';
+    wrap.style.justifyContent = 'center';
+    wrap.style.alignItems = 'center';
+    wrap.innerText = 'World';
+  
+    const target1 = graph.addNode({
+      x: 180,
+      y: 160,
+      width: 100,
+      height: 40,
+      shape: 'html',
+      html: wrap,
+    });
+  
+    const node = graph.addNode({
+      x: 80,
+      y: 80,
+      width: 160,
+      height: 60,
+      shape: 'html',
+      data: {
+        time: new Date().toString(),
       },
-      shouldComponentUpdate(node) { //: Cell
-        // 控制节点重新渲染
-        return node.hasChanged('data');
+      html: {
+        render(node) { //: Cell
+          const data = node.getData(); //as any
+          return (
+            `<div>
+            <span>${data.time}</span>
+          </div>`
+          );
+        },
+        shouldComponentUpdate(node) { //: Cell
+          // 控制节点重新渲染
+          return node.hasChanged('data');
+        },
       },
-    },
-  });
-  graph.zoomTo(1.8);
-// */
+    });
+    graph.zoomTo(1.8);
+  // */
   function render(dslObject) {
     if (dslObject !== null) {
       //console.log(JSON.stringify(dslObject,null,'  '));
@@ -86,7 +86,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
         //console.log(result);
         //console.log(JSON.stringify(result,null, ' '));
         graph.fromJSON(result);
-        
+
 
       }).catch((e) => {
         console.log(e);
@@ -97,13 +97,13 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
 
   return {
     render,
-    resize: (width,height) => {
-      if(graph.scroller.widgetOptions.enabled) {
+    resize: (width, height) => {
+      if (graph.scroller.widgetOptions.enabled) {
         //graph.scroller.resize(width,height);
       }
       //graph.resize(width,height);
     },
-    zoomToFit: (width,height) => {
+    zoomToFit: (width, height) => {
       graph.scaleContentToFit({
         x: 0,
         y: 0,
@@ -122,7 +122,7 @@ const RESOURCE_HTML = {
   render(node) { //: Cell
     const model = node.getData(); //as any
     const style = model.data.get('style');// IconPath
-    
+
     const wrap = document.createElement('div');
     //wrap.style.width = '100%';
     //wrap.style.height = '100%';
@@ -138,7 +138,7 @@ const RESOURCE_HTML = {
       const margin = 4;
       img.src = iconPath;
       //img.style.margin = margin;
-      img.width = model.height - 2*margin; 
+      img.width = model.height - 2 * margin;
       img.height = img.width;
       wrap.appendChild(img);
     }
@@ -153,10 +153,10 @@ const RESOURCE_HTML = {
     //textdiv.style.justifyContent = 'center';
     //textdiv.style.alignItems = 'center';
 
-    textdiv.innerHTML = 
+    textdiv.innerHTML =
       `<div><code>${style && style.product ? style.product : ''}</code></div>
       <div><code style='font-weight:bold;font-size:1.5em'>${model !== undefined ? model.title : ''}</code></div>`
-    ;
+      ;
     wrap.appendChild(textdiv);
 
     return wrap;
@@ -168,12 +168,12 @@ const RESOURCE_HTML = {
 
 function toX6GraphRec(elkNode) {
   const g = {
-    nodes:[], edges:[]
+    nodes: [], edges: []
   };
 
-   // Clone node 
+  // Clone node 
   let model = elkNode.model || {};
-  const n = { 
+  const n = {
     id: elkNode.id,
     label: elkNode.label,
     data: {
@@ -191,9 +191,9 @@ function toX6GraphRec(elkNode) {
       },
       fo: {
         class: 'node',
-      }  
+      }
     },
-    
+
   };
   n.data.width = elkNode.width;
   n.data.height = elkNode.height;
@@ -205,7 +205,7 @@ function toX6GraphRec(elkNode) {
     clazz.push(elkNode.model.subType);
   }
   n.attrs.body.class = clazz.join(' ');
-//*/
+  //*/
   g.nodes.push(n);
 
   // Ports
@@ -230,7 +230,7 @@ function toX6GraphRec(elkNode) {
           name: 'absolute'
         },
         zIndex: 10,
-        attrs: {    
+        attrs: {
           circle: {
             class: 'port',
             r: 4,//p.width,
@@ -251,17 +251,17 @@ function toX6GraphRec(elkNode) {
     const t = toX6GraphRec(c);
     g.nodes = g.nodes.concat(t.nodes);
     g.edges = g.edges.concat(t.edges);
-  }); 
-//node_modules\@antv\x6\lib\shape\standard\html.d.ts
-  if(children.length === 0) {
+  });
+  //node_modules\@antv\x6\lib\shape\standard\html.d.ts
+  if (children.length === 0) {
     // Port rendering
-    if(n.data.tagName === 'port') {
+    const tagName = n.data.tagName;
+    if (tagName === 'port' || tagName === 'start' || tagName === 'finish') {
       n.label = null;
       n.shape = 'rect';
-      n.attrs = {    
+      n.attrs = {
         body: {
-          class: 'port',
-          fill: 'red'
+          class: n.data.tagName,
         },
         text: {
           fontSize: 12,
@@ -275,12 +275,12 @@ function toX6GraphRec(elkNode) {
       n.html = RESOURCE_HTML;
     }
 
-  } else if(elkNode.labels !== undefined) {
+  } else if (elkNode.labels !== undefined) {
     const label = elkNode.labels[0];
     // Label Node
     model = elkNode.model || {};
-    const l = { 
-      id: elkNode.id+'.label',
+    const l = {
+      id: elkNode.id + '.label',
       //label: elkNode.label,
       data: {
         ...model,
@@ -297,9 +297,9 @@ function toX6GraphRec(elkNode) {
         },
         fo: {
           class: 'node',
-        }  
+        }
       },
-      
+
     };
     l.label = null;
     l.shape = 'html';
@@ -313,7 +313,7 @@ function toX6GraphRec(elkNode) {
   // Edges
   (elkNode.edges || []).forEach((e) => {
     const t = {
-        attrs: {
+      attrs: {
         line: {
           class: 'edge',
           targetMarker: {
@@ -328,35 +328,35 @@ function toX6GraphRec(elkNode) {
     const source = e.sources[0];
     const target = e.targets[0];
     const regex1 = /\.(start|finish)/ig;
-    const regex2 = /\.(start|finish)\.synth/ig;
-    
-    if(source.match(regex2)) {
+    const regex2 = /\.(start|finish)\.port/ig;
+
+    if (source.match(regex2)) {
       t.source = { cell: source };
     } else {
-      t.source = { cell: source.replace(regex1,''), port: source };
+      t.source = { cell: source.replace(regex1, ''), port: source };
     }
 
-    if(target.match(regex2)) {
+    if (target.match(regex2)) {
       t.target = { cell: target };
     } else {
-      t.target = { cell: target.replace(regex1,''), port: target };
+      t.target = { cell: target.replace(regex1, ''), port: target };
     }
 
-    if( e.sections !== undefined) {
+    if (e.sections !== undefined) {
       let d = e.sections[0];
-      
-      if (d.startPoint && d.endPoint) {
-  /*     
-        t.source = {
-          x: d.startPoint.ax,
-          y: d.startPoint.ay
-        };
 
-        t.target = {
-          x: d.endPoint.ax,
-          y: d.endPoint.ay
-        };
-  //*/
+      if (d.startPoint && d.endPoint) {
+        /*     
+              t.source = {
+                x: d.startPoint.ax,
+                y: d.startPoint.ay
+              };
+      
+              t.target = {
+                x: d.endPoint.ax,
+                y: d.endPoint.ay
+              };
+        //*/
       }
 
       const vertices = [];
@@ -373,12 +373,12 @@ function toX6GraphRec(elkNode) {
       }
     }
     g.edges.push(t);
-  });  
+  });
   return g;
 }
 
 
-function createX6Graph(containerElt,width,height) {
+function createX6Graph(containerElt, width, height) {
   const graph = new Graph({
     container: containerElt,
     width: width,
@@ -390,8 +390,8 @@ function createX6Graph(containerElt,width,height) {
     grid: {
       size: 10,
       visible: false,
-    }, 
-    interacting: false, 
+    },
+    interacting: false,
     /*{
       nodeMovable: false,
       edgeMovable: false
@@ -417,7 +417,7 @@ function createX6Graph(containerElt,width,height) {
       //snap: true,
       allowBlank: false,
       allowLoop: false,
-      highlight: true,  
+      highlight: true,
       anchor: 'orth',
       connector: 'rounded',
       connectionPoint: 'boundary',
@@ -426,7 +426,7 @@ function createX6Graph(containerElt,width,height) {
         // node_modules\@antv\x6\lib\registry\router
         // https://x6.antv.vision/en/docs/api/registry/router#oneside
         // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
-        name: LINE, 
+        name: LINE,
       },/*
       createEdge() {
         return new Shape.Edge({

@@ -71,7 +71,7 @@ export class ELKDimensionVisitor {
       };
       if (tree.layoutOptions !== undefined) {
         const dir = tree.layoutOptions['org.eclipse.elk.direction'];
-        if(dir === 'RIGHT' || dir === 'RIGHT') {
+        if (dir === 'RIGHT' || dir === 'RIGHT') {
           tree.properties['nodeLabels.placement'] = '[H_LEFT, V_TOP, OUTSIDE]';
         } else {
           tree.properties['nodeLabels.placement'] = '[V_TOP, H_LEFT, OUTSIDE]';
@@ -91,8 +91,9 @@ export class ELKDimensionVisitor {
           tree.height = tree.height / 2;
         }
       } else {
-        if(tree.model.tagName === 'port') {
-          tree.width = this._portSize;
+        const tagName = tree.model.tagName;
+        if (tagName === 'port' || tagName === 'start' || tagName === 'finish') {
+          tree.width = 1.5 * this._portSize;
           tree.height = tree.width;
         } else {
           tree.width = 3 * tree.width;

@@ -134,8 +134,8 @@ export class FlowToELKVisitor {
     };
     // Layout direction
     if (n.direction !== null) {
-      r.layoutOptions = { 
-        'org.eclipse.elk.direction' : n.direction 
+      r.layoutOptions = {
+        'org.eclipse.elk.direction': n.direction
       };
     }
     return r;
@@ -162,10 +162,10 @@ export class FlowToELKVisitor {
     return r;
   }
 
-  getSynthPortModel(n) {
+  getSynthPortModel(n, tagName = 'port') {
     let r = this.getPortModel(n);
-    r.model.tagName = 'port';
-    r.id = r.id + '.synth';
+    r.model.tagName = tagName;
+    r.id = r.id + '.port';
     r.model.id = r.id;
     r.model.compound = false;
     return r;
@@ -257,9 +257,9 @@ class SequenceEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.start));
     graph.ports.push(visitor.getPortModel(tree.finish));
 
-    const start = visitor.getSynthPortModel(tree.start);
+    const start = visitor.getSynthPortModel(tree.start, 'start');
     graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish);
+    const finish = visitor.getSynthPortModel(tree.finish, 'finish');
     graph.children.push(finish);
 
     // edges
@@ -270,7 +270,7 @@ class SequenceEltFlowToELKVisitor {
       targets: [tree.elts[0].start.id],
       ...visitor.getEdgeModel(tree),
     });
-//*/
+    //*/
     for (let i = 0; i < tree.elts.length - 1; i++) {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
@@ -340,7 +340,7 @@ class MutltiPathEltFlowToELKVisitor {
     // edges
     // groups are just containers
     if (type === 'fanOut') {
-      const start = visitor.getSynthPortModel(tree.start);
+      const start = visitor.getSynthPortModel(tree.start, 'start');
       graph.children.push(start);
 
       (tree.elts || []).forEach((elt) => {
@@ -351,9 +351,9 @@ class MutltiPathEltFlowToELKVisitor {
           ...visitor.getEdgeModel(tree),
         });
       });
-      
-    } else  if (type === 'fanIn') {
-      const finish = visitor.getSynthPortModel(tree.finish);
+
+    } else if (type === 'fanIn') {
+      const finish = visitor.getSynthPortModel(tree.finish, 'finish');
       graph.children.push(finish);
       (tree.elts || []).forEach((elt) => {
         graph.edges.push({
@@ -363,11 +363,11 @@ class MutltiPathEltFlowToELKVisitor {
           ...visitor.getEdgeModel(tree),
         });
       });
-      
-    } else  if (type === 'fanOut_fanIn') {
-      const start = visitor.getSynthPortModel(tree.start);
+
+    } else if (type === 'fanOut_fanIn') {
+      const start = visitor.getSynthPortModel(tree.start, 'start');
       graph.children.push(start);
-      const finish = visitor.getSynthPortModel(tree.finish);
+      const finish = visitor.getSynthPortModel(tree.finish, 'finish');
       graph.children.push(finish);
       (tree.elts || []).forEach((elt) => {
         graph.edges.push({
@@ -440,9 +440,9 @@ class OptionalEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
 
-    const start = visitor.getSynthPortModel(tree.start);
+    const start = visitor.getSynthPortModel(tree.start, 'start');
     graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish);
+    const finish = visitor.getSynthPortModel(tree.finish, 'finish');
     graph.children.push(finish);
 
     if (tree.elts.length > 0) {
@@ -546,9 +546,9 @@ class RepeatEltFlowToELKVisitor {
     // finish node
     graph.ports.push(visitor.getPortModel(tree.finish));
 
-    const start = visitor.getSynthPortModel(tree.start);
+    const start = visitor.getSynthPortModel(tree.start, 'start');
     graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish);
+    const finish = visitor.getSynthPortModel(tree.finish, 'finish');
     graph.children.push(finish);
     // edges
     if (tree.elts.length > 0) {

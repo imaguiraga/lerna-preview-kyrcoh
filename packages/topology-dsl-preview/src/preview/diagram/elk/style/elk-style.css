@@ -37,11 +37,16 @@ foreignObject.node {
   fill: none;
 }
 
-.port {
+.port, .start {
   fill: #fff;
   stroke:blue!important;
   stroke-width: 2px;
   opacity: .6!important;
+}
+
+.finish {
+  fill: #000;
+  opacity: .8!important;
 }
 
 .svg-container {

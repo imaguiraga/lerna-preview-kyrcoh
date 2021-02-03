@@ -25,7 +25,7 @@ export function elkLayout() {
   let options = {
     'algorithm': 'layered',
     'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
-    'org.eclipse.elk.direction' : 'RIGHT',
+    'org.eclipse.elk.direction': 'RIGHT',
     'port.borderOffset': 4,
     'padding': 20,
     'edgeRouting': 'ORTHOGONAL',
@@ -42,12 +42,12 @@ export function elkLayout() {
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html
   function layoutFn(inelkgraph) {
-    if (inelkgraph === null ) {
+    if (inelkgraph === null) {
       return Promise.resolve(null);
     }
     // Add node width.height
     let elkgraph = elkDimensionVisitor.visit(inelkgraph);
-    if (elkgraph === null ) {
+    if (elkgraph === null) {
       return Promise.resolve(null);
     }
     //console.log(JSON.stringify(elkgraph,null,'  '));
@@ -111,9 +111,9 @@ export function toAbsolute(elkNode,) {
   return toAbsoluteIt(elkNode);
 }
 
-function toAbsoluteRec(elkNode,x0=0,y0=0) {
-   // Clone node 
-  const n = elkNode ;
+function toAbsoluteRec(elkNode, x0 = 0, y0 = 0) {
+  // Clone node 
+  const n = elkNode;
   // absolute coordinate
   n.ax = n.x + x0;
   n.ay = n.y + y0;
@@ -132,36 +132,36 @@ function toAbsoluteRec(elkNode,x0=0,y0=0) {
 
     // Update sections
     (t.sections || []).forEach((s) => {
-       // junctionPoints
+      // junctionPoints
       (s.junctionPoints || []).forEach((j) => {
-        j.ax = j.x + n.ax; 
-        j.ay = j.y + n.ay; 
+        j.ax = j.x + n.ax;
+        j.ay = j.y + n.ay;
       });
 
       // startPoint
-      s.startPoint.ax = s.startPoint.x + n.ax; 
-      s.startPoint.ay = s.startPoint.y + n.ay; 
+      s.startPoint.ax = s.startPoint.x + n.ax;
+      s.startPoint.ay = s.startPoint.y + n.ay;
       // endPoint
-      s.endPoint.ax = s.endPoint.x + n.ax; 
-      s.endPoint.ay = s.endPoint.y + n.ay; 
+      s.endPoint.ax = s.endPoint.x + n.ax;
+      s.endPoint.ay = s.endPoint.y + n.ay;
       // bendPoints
       (s.bendPoints || []).forEach((b) => {
-        b.ax = b.x + n.ax; 
+        b.ax = b.x + n.ax;
         b.ay = b.y + n.ay;
       });
     });
 
   });
-  
+
   (elkNode.ports || []).forEach((p) => {
     // absolute coordinate
-    p.ax = p.x + n.ax; 
+    p.ax = p.x + n.ax;
     p.ay = p.y + n.ay;
-  });  
+  });
 
   (elkNode.children || []).forEach((c) => {
-    toAbsoluteRec(c,n.ax,n.ay);
-  }); 
+    toAbsoluteRec(c, n.ax, n.ay);
+  });
 
   return n;
   //*/
@@ -173,7 +173,7 @@ function toAbsoluteIt(elkNode) {
   elkNode.ay = elkNode.y;
   const stack = [elkNode];
 
-  while(stack.length >0) {
+  while (stack.length > 0) {
     let n = stack.pop();
     (n.labels || []).forEach((l) => {
       // absolute coordinate
@@ -191,36 +191,36 @@ function toAbsoluteIt(elkNode) {
       (t.sections || []).forEach((s) => {
         // junctionPoints
         (s.junctionPoints || []).forEach((j) => {
-          j.ax = j.x + n.ax; 
-          j.ay = j.y + n.ay; 
+          j.ax = j.x + n.ax;
+          j.ay = j.y + n.ay;
         });
 
         // startPoint
-        s.startPoint.ax = s.startPoint.x + n.ax; 
-        s.startPoint.ay = s.startPoint.y + n.ay; 
+        s.startPoint.ax = s.startPoint.x + n.ax;
+        s.startPoint.ay = s.startPoint.y + n.ay;
         // endPoint
-        s.endPoint.ax = s.endPoint.x + n.ax; 
-        s.endPoint.ay = s.endPoint.y + n.ay; 
+        s.endPoint.ax = s.endPoint.x + n.ax;
+        s.endPoint.ay = s.endPoint.y + n.ay;
         // bendPoints
         (s.bendPoints || []).forEach((b) => {
-          b.ax = b.x + n.ax; 
-          b.ay = b.y + n.ay;      
+          b.ax = b.x + n.ax;
+          b.ay = b.y + n.ay;
         });
       });
 
     });
-    
+
     (n.ports || []).forEach((p) => {
       // absolute coordinate
-      p.ax = p.x + n.ax; 
+      p.ax = p.x + n.ax;
       p.ay = p.y + n.ay;
-    });  
+    });
 
     (n.children || []).forEach((c) => {
-      c.ax = c.x + n.ax; 
+      c.ax = c.x + n.ax;
       c.ay = c.y + n.ay;
       stack.unshift(c);
-    }); 
+    });
   }
   return elkNode;
 }
