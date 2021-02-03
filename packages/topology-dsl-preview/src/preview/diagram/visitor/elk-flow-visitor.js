@@ -142,8 +142,32 @@ export class FlowToELKVisitor {
   }
 
   getPortModel(n) {
-    let r = this.getNodeModel(n);
+    let r = {
+      id: n.id,
+      label: n.id,
+      model: {
+        tagName: 'port',
+        compound: false,
+        id: n.id,
+        children: [],
+        elts: []
+      },
+      // use label for container elt
+      labels: n.isTerminal() ? [] : [
+        {
+          text: n.title || n.id
+        }
+      ]
+    };
+    return r;
+  }
+
+  getSynthPortModel(n) {
+    let r = this.getPortModel(n);
     r.model.tagName = 'port';
+    r.id = r.id + '.synth';
+    r.model.id = r.id;
+    r.model.compound = false;
     return r;
   }
 
@@ -232,15 +256,21 @@ class SequenceEltFlowToELKVisitor {
     // start + finish nodes
     graph.ports.push(visitor.getPortModel(tree.start));
     graph.ports.push(visitor.getPortModel(tree.finish));
+
+    const start = visitor.getSynthPortModel(tree.start);
+    graph.children.push(start);
+    const finish = visitor.getSynthPortModel(tree.finish);
+    graph.children.push(finish);
+
     // edges
 
     graph.edges.push({
       id: `${visitor.edgeCntIt.next().value}`,
-      sources: [tree.start.id],
+      sources: [start.id],
       targets: [tree.elts[0].start.id],
       ...visitor.getEdgeModel(tree),
     });
-
+//*/
     for (let i = 0; i < tree.elts.length - 1; i++) {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
@@ -253,9 +283,10 @@ class SequenceEltFlowToELKVisitor {
     graph.edges.push({
       id: `${visitor.edgeCntIt.next().value}`,
       sources: [tree.elts[tree.elts.length - 1].finish.id],
-      targets: [tree.finish.id],
+      targets: [finish.id],
       ...visitor.getEdgeModel(tree),
     });
+    //*/
     // concatenate graphs
 
     // nodes
@@ -277,7 +308,6 @@ class SequenceEltFlowToELKVisitor {
 
     return graph;
   }
-
 
 }
 
@@ -309,25 +339,51 @@ class MutltiPathEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
     // groups are just containers
-    if (type !== 'group') {
-      for (let i = 0; i < tree.elts.length; i++) {
-        if (type !== 'fanIn') {
-          graph.edges.push({
-            id: `${visitor.edgeCntIt.next().value}`,
-            sources: [tree.start.id],
-            targets: [tree.elts[i].start.id],
-            ...visitor.getEdgeModel(tree),
-          });
-        }
-        if (type !== 'fanOut') {
-          graph.edges.push({
-            id: `${visitor.edgeCntIt.next().value}`,
-            sources: [tree.elts[i].finish.id],
-            targets: [tree.finish.id],
-            ...visitor.getEdgeModel(tree),
-          });
-        }
-      }
+    if (type === 'fanOut') {
+      const start = visitor.getSynthPortModel(tree.start);
+      graph.children.push(start);
+
+      (tree.elts || []).forEach((elt) => {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [start.id],
+          targets: [elt.start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      });
+      
+    } else  if (type === 'fanIn') {
+      const finish = visitor.getSynthPortModel(tree.finish);
+      graph.children.push(finish);
+      (tree.elts || []).forEach((elt) => {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [elt.finish.id],
+          targets: [finish.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      });
+      
+    } else  if (type === 'fanOut_fanIn') {
+      const start = visitor.getSynthPortModel(tree.start);
+      graph.children.push(start);
+      const finish = visitor.getSynthPortModel(tree.finish);
+      graph.children.push(finish);
+      (tree.elts || []).forEach((elt) => {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [start.id],
+          targets: [elt.start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [elt.finish.id],
+          targets: [finish.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      });
     }
     // concatenate graphs
     // nodes
@@ -384,11 +440,16 @@ class OptionalEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
 
+    const start = visitor.getSynthPortModel(tree.start);
+    graph.children.push(start);
+    const finish = visitor.getSynthPortModel(tree.finish);
+    graph.children.push(finish);
+
     if (tree.elts.length > 0) {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
 
@@ -401,7 +462,7 @@ class OptionalEltFlowToELKVisitor {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.skip.id],
         ...visitor.getEdgeModel(tree),
       });
@@ -409,15 +470,15 @@ class OptionalEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.skip.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     } else {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
-        targets: [tree.finish.id],
+        sources: [start.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -427,7 +488,7 @@ class OptionalEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[tree.elts.length - 1].finish.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -484,12 +545,17 @@ class RepeatEltFlowToELKVisitor {
 
     // finish node
     graph.ports.push(visitor.getPortModel(tree.finish));
+
+    const start = visitor.getSynthPortModel(tree.start);
+    graph.children.push(start);
+    const finish = visitor.getSynthPortModel(tree.finish);
+    graph.children.push(finish);
     // edges
     if (tree.elts.length > 0) {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
       });
@@ -505,7 +571,7 @@ class RepeatEltFlowToELKVisitor {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.loop.id],
         ...edgeModel,
       });
@@ -517,7 +583,7 @@ class RepeatEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.loop.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...edgeModel,
       });
 
@@ -525,8 +591,8 @@ class RepeatEltFlowToELKVisitor {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.finish.id],
-        targets: [tree.start.id],
+        sources: [finish.id],
+        targets: [start.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -537,7 +603,7 @@ class RepeatEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[tree.elts.length - 1].finish.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }

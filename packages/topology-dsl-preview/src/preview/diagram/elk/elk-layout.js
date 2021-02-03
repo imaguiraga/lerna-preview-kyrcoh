@@ -25,7 +25,6 @@ export function elkLayout() {
   let options = {
     'algorithm': 'layered',
     'nodePlacement.strategy': 'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
-    //'org.eclipse.elk.hierarchyHandling': 'INCLUDE_CHILDREN',
     'org.eclipse.elk.direction' : 'RIGHT',
     'port.borderOffset': 4,
     'padding': 20,

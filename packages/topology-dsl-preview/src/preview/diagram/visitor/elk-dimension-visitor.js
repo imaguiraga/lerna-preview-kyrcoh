@@ -83,8 +83,12 @@ export class ELKDimensionVisitor {
           tree.height = tree.height / 2;
         }
       } else {
-        tree.width = 3 * tree.width;
-        //tree.height = this._iconWidth;
+        if(tree.model.tagName === 'port') {
+          tree.width = this._portSize;
+          tree.height = tree.width;
+        } else {
+          tree.width = 3 * tree.width;
+        }
       }
       // Set node properties
       tree.properties = {
@@ -100,14 +104,7 @@ export class ELKDimensionVisitor {
         p.width = this._portSize;
         p.height = p.width;
       }, this);
-      // If tree is compound set 1st port 4x _portSize
-      /*
-      if(isContainer(tree)){
-        let p = tree.ports[0];
-        p.width = 4*this._portSize;
-        p.height = p.width;
-      }
-      //*/
+
     }
 
     // Set label dimensions

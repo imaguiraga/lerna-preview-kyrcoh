@@ -86,6 +86,8 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
         //console.log(result);
         //console.log(JSON.stringify(result,null, ' '));
         graph.fromJSON(result);
+        
+
       }).catch((e) => {
         console.log(e);
       });
@@ -94,7 +96,21 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   }
 
   return {
-    render
+    render,
+    resize: (width,height) => {
+      if(graph.scroller.widgetOptions.enabled) {
+        //graph.scroller.resize(width,height);
+      }
+      //graph.resize(width,height);
+    },
+    zoomToFit: (width,height) => {
+      graph.scaleContentToFit({
+        x: 0,
+        y: 0,
+        width: width,
+        height: height
+      });
+    }
   };
 }
 
@@ -238,9 +254,26 @@ function toX6GraphRec(elkNode) {
   }); 
 //node_modules\@antv\x6\lib\shape\standard\html.d.ts
   if(children.length === 0) {
-    n.label = null;
-    n.shape = 'html';
-    n.html = RESOURCE_HTML;
+    // Port rendering
+    if(n.data.tagName === 'port') {
+      n.label = null;
+      n.shape = 'rect';
+      n.attrs = {    
+        body: {
+          class: 'port',
+          fill: 'red'
+        },
+        text: {
+          fontSize: 12,
+          fill: '#888'
+        }
+      };
+
+    } else {
+      n.label = null;
+      n.shape = 'html';
+      n.html = RESOURCE_HTML;
+    }
 
   } else if(elkNode.labels !== undefined) {
     const label = elkNode.labels[0];
@@ -294,36 +327,50 @@ function toX6GraphRec(elkNode) {
     t.data = e.model;
     const source = e.sources[0];
     const target = e.targets[0];
-    t.source = { cell: source.replace(/\.(start|finish)/ig,''), port: source };
-    t.target = { cell: target.replace(/\.(start|finish)/ig,''), port: target };
-
-    var d = e.sections[0];
+    const regex1 = /\.(start|finish)/ig;
+    const regex2 = /\.(start|finish)\.synth/ig;
     
-    if (d.startPoint && d.endPoint) {
- /*     
-      t.source = {
-        x: d.startPoint.ax,
-        y: d.startPoint.ay
-      };
-
-      t.target = {
-        x: d.endPoint.ax,
-        y: d.endPoint.ay
-      };
-//*/
+    if(source.match(regex2)) {
+      t.source = { cell: source };
+    } else {
+      t.source = { cell: source.replace(regex1,''), port: source };
     }
 
-    const vertices = [];
-    (d.bendPoints || []).forEach(function (bp, i) {
-      vertices.push({ x: bp.ax, y: bp.ay });
-    });
+    if(target.match(regex2)) {
+      t.target = { cell: target };
+    } else {
+      t.target = { cell: target.replace(regex1,''), port: target };
+    }
 
-    (d.junctionPoints || []).forEach(function (bp, i) {
-      vertices.push({ x: bp.ax, y: bp.ay });
-    });
+    if( e.sections !== undefined) {
+      let d = e.sections[0];
+      
+      if (d.startPoint && d.endPoint) {
+  /*     
+        t.source = {
+          x: d.startPoint.ax,
+          y: d.startPoint.ay
+        };
 
-    if (vertices.length > 0) {
-      t.vertices = vertices;
+        t.target = {
+          x: d.endPoint.ax,
+          y: d.endPoint.ay
+        };
+  //*/
+      }
+
+      const vertices = [];
+      (d.bendPoints || []).forEach(function (bp, i) {
+        vertices.push({ x: bp.ax, y: bp.ay });
+      });
+
+      (d.junctionPoints || []).forEach(function (bp, i) {
+        vertices.push({ x: bp.ax, y: bp.ay });
+      });
+
+      if (vertices.length > 0) {
+        t.vertices = vertices;
+      }
     }
     g.edges.push(t);
   });  
@@ -336,6 +383,7 @@ function createX6Graph(containerElt,width,height) {
     container: containerElt,
     width: width,
     height: height,
+    resizing: false,
     background: {
       color: '#fff',
     },
@@ -355,6 +403,7 @@ function createX6Graph(containerElt,width,height) {
       pannable: true,
       pageVisible: true,
       pageBreak: true,
+      //className: 'app-content-pane'
     },
     panning: {
       enabled: true,

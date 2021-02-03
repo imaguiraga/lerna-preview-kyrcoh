@@ -128,29 +128,29 @@ export const v4 = path3;
 `import { choice, terminal, sequence, fanOut, fanIn, group } from 'topology-dsl
 const phase1 = sequence(
 	fanIn(
-		"GBP.EUR",
-		"GBP.BRL",
-		"EUR.AUD",
-		"GBP.JPY"
-	)._title_("Step 1"),
+		'GBP.EUR',
+		'GBP.BRL',
+		'EUR.AUD',
+		'GBP.JPY'
+	)._title_('Step 1'),
 	sequence(
-		"Create \\nAggregations",
-		"Store \\nAggregations"
-	).down()._title_("Step 2")
-)._title_("Phase 1");
+		'Create \\nAggregations',
+		'Store \\nAggregations'
+	).down()._title_('Step 2')
+)._title_('Phase 1');
 
 const phase2 = sequence(
 	group(
-		"Create Operating \\nWindows"
-	)._title_("Step 3"),
+		'Create Operating \\nWindows'
+	)._title_('Step 3'),
 	sequence(
-		"Compute \\nCorrelations"
+		'Compute \\nCorrelations'
 		fanOut(
-			"Store \\nCorrelations",
-			"Publish \\nCorrelations",
+			'Store \\nCorrelations',
+			'Publish \\nCorrelations',
 		)
-	).down()._title_("Step 4")
-)._title_("Phase 2");
+	).down()._title_('Step 4')
+)._title_('Phase 2');
 
 export const flow = sequence(phase1,phase2);`
 ];
