@@ -125,7 +125,12 @@ export const v2 = path1;
 export const v3 = path2;
 export const v4 = path3;
 `,
-`import { choice, terminal, sequence, fanOut, fanIn, group } from 'topology-dsl
+`import { choice, terminal, sequence, fanOut, fanIn, group } from 'topology-dsl';
+export const v1 = sequence(
+  'Create \\nAggregations',
+  'Store \\nAggregations'
+).down()._title_('Step 2');
+
 const phase1 = sequence(
 	fanIn(
 		'GBP.EUR',
@@ -133,10 +138,7 @@ const phase1 = sequence(
 		'EUR.AUD',
 		'GBP.JPY'
 	)._title_('Step 1'),
-	sequence(
-		'Create \\nAggregations',
-		'Store \\nAggregations'
-	).down()._title_('Step 2')
+	v1
 )._title_('Phase 1');
 
 const phase2 = sequence(

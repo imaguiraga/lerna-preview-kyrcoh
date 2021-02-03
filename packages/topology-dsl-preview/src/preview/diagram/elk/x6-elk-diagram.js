@@ -121,7 +121,7 @@ export function toX6Graph(elkNode) {
 const RESOURCE_HTML = {
   render(node) { //: Cell
     const model = node.getData(); //as any
-    const style = model.data.get('style');// IconPath
+    const style = model.data.style;// IconPath
 
     const wrap = document.createElement('div');
     //wrap.style.width = '100%';
@@ -131,9 +131,9 @@ const RESOURCE_HTML = {
     //wrap.style.justifyContent = 'center';
     //wrap.style.alignItems = 'center';
 
-    let iconPath = style ? encodeURI(style.iconURL) : null;
+    let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
     // If icon exist
-    if (iconPath !== null) {
+    if (iconPath !== undefined && iconPath !== null) {
       const img = document.createElement('img');
       const margin = 4;
       img.src = iconPath;

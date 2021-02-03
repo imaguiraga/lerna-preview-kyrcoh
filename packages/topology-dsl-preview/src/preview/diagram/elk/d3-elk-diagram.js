@@ -111,7 +111,7 @@ function drawNode(selection, d, i, refreshFn) {
       fill = 'inherit';
     }
     // Draw the background
-    let style = d.model.data.get('style');
+    let style = d.model.data.style;
 
     selection.append('rect')
       .attr('class', 'node')
@@ -128,9 +128,9 @@ function drawNode(selection, d, i, refreshFn) {
         return JSON.stringify(d.model, null, ' ');
       });
     // IconPath
-    let iconPath = style ? encodeURI(style.iconURL) : null;
+    let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
     // If icon exist
-    if (iconPath && iconPath !== null) {
+    if (iconPath !== undefined && iconPath !== null) {
       selection.append('image')
         .attr('class', 'node')
         .style('fill', 'inherit')

@@ -123,12 +123,25 @@ export class FlowToELKVisitor {
   getNodeModel(n) {
     let r = {
       id: n.id,
-      label: n.id,
-      model: n,
+      label: n.title,
+      model: {
+        resourceType: n.resourceType,
+        title: n.title,
+        direction: n.direction,
+        subType: n.subType,
+        tagName: n.tagName,
+        id: n.id,
+        provider: n.provider,
+        compound: n.compound,
+        data: n.data
+      },
       // use label for container elt
       labels: n.isTerminal() ? [] : [
         {
-          text: n.title || n.id
+          text: n.title || n.id,
+          properties: {
+            'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]',
+          }
         }
       ]
     };
@@ -149,8 +162,7 @@ export class FlowToELKVisitor {
         tagName: 'port',
         compound: false,
         id: n.id,
-        children: [],
-        elts: []
+        data: n.data
       },
       // use label for container elt
       labels: n.isTerminal() ? [] : [
