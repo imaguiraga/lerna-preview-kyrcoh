@@ -24,7 +24,7 @@ export function elkLayout() {
   const elk = new ELK();
   let options = {
     'algorithm': 'layered',
-    'nodePlacement.strategy': 'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
+    'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
     'org.eclipse.elk.direction' : 'RIGHT',
     'port.borderOffset': 4,
     'padding': 20,
@@ -35,7 +35,8 @@ export function elkLayout() {
     'spacing.nodeNodeBetweenLayers': 40,
     'spacing.edgeNodeBetweenLayers': 40,
     'spacing.edgeEdgeBetweenLayers': 40,
-    'layering.strategy': 'LONGEST_PATH',
+    //'layering.strategy': 'LONGEST_PATH', 'NETWORK_SIMPLEX'
+    'layering.strategy': 'COFFMAN_GRAHAM ',
     'spacing.labelNode': 8
   };
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html

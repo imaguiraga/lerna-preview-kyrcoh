@@ -65,10 +65,18 @@ export class ELKDimensionVisitor {
     if (isContainer(tree)) {
       // Set node properties
       tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]',
+        'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
         'portAlignment.default': 'CENTER',
         'portConstraints': 'FREE'
       };
+      if (tree.layoutOptions !== undefined) {
+        const dir = tree.layoutOptions['org.eclipse.elk.direction'];
+        if(dir === 'RIGHT' || dir === 'RIGHT') {
+          tree.properties['nodeLabels.placement'] = '[H_LEFT, V_TOP, OUTSIDE]';
+        } else {
+          tree.properties['nodeLabels.placement'] = '[V_TOP, H_LEFT, OUTSIDE]';
+        }
+      }
 
     } else {
       tree.width = this._nodeWidth;
