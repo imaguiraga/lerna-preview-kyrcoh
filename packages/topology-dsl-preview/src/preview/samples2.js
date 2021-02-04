@@ -25,7 +25,7 @@ const gm = gcp_Compute_Engine;
 const choice1 = choice(
       az_Blob_Storage('c')._title_('AZ BLOB-A'),
       az_Azure_SQL_Database('a')._title_('AZ SQL-A')
-    ).down();
+    )._down_();
 	
 export const sequence1 = sequence(
     gm('c')._title_('GCP VM-C'),
@@ -129,7 +129,7 @@ export const v4 = path3;
 export const v1 = sequence(
   'Create \\nAggregations',
   'Store \\nAggregations'
-).down()._title_('Step 2');
+)._down_()._title_('Step 2');
 
 const phase1 = sequence(
 	fanIn(
@@ -151,7 +151,7 @@ const phase2 = sequence(
 			'Store \\nCorrelations',
 			'Publish \\nCorrelations',
 		)
-	).down()._title_('Step 4')
+	)._down_()._title_('Step 4')
 )._title_('Phase 2');
 
 export const flow = sequence(phase1,phase2);`

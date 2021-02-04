@@ -213,8 +213,9 @@ class TerminalFlowEltFlowToELKVisitor {
    * @return {object} ctree Graph graph.
    */
   static visit(visitor, tree, filterFn) {
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -226,6 +227,7 @@ class TerminalFlowEltFlowToELKVisitor {
     // Check if the only element is not a string 
     if (typeof tree.elts[0] === 'object') {
       let n = visitor.getNodeModel(tree);
+      n.parent = parent;
       if (filterFn) {
         if (!filterFn(n)) {
           graph.children.push(n);
@@ -252,8 +254,9 @@ class SequenceEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn) {
     const SEQUENCE = 'sequence';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       /* layoutOptions: 
        { 
          'nodePlacement.strategy': 'NETWORK_SIMPLEX'
@@ -305,6 +308,7 @@ class SequenceEltFlowToELKVisitor {
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
@@ -336,8 +340,9 @@ class MutltiPathEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn, type) {
     //const type = 'choice' | 'parallel';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -402,6 +407,7 @@ class MutltiPathEltFlowToELKVisitor {
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
@@ -432,8 +438,9 @@ class OptionalEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn) {
     const OPTIONAL = 'optional';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -509,6 +516,7 @@ class OptionalEltFlowToELKVisitor {
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
@@ -538,8 +546,9 @@ class RepeatEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn) {
     const REPEAT = 'repeat';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -625,6 +634,7 @@ class RepeatEltFlowToELKVisitor {
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
