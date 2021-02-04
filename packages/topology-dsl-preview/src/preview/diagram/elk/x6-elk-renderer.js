@@ -1,7 +1,7 @@
 
 import { Graph, Shape, Point } from '@antv/x6';
 import { data } from './x6-data.js';
-import { toElkGraph, elkLayout } from './elk-layout';
+import { toElkGraph, elkLayout } from './elk-layout-factory';
 
 function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/, view/*: EdgeView*/) {
   const points = vertices.map((p) => Point.create(p));
@@ -138,7 +138,7 @@ const RESOURCE_HTML = {
       const margin = 4;
       img.src = iconPath;
       //img.style.margin = margin;
-      img.width = model.height - 2 * margin;
+      img.width = (model.compound === true ? model.height : model.height / 2) - 2 * margin;
       img.height = img.width;
       wrap.appendChild(img);
     }
@@ -155,7 +155,7 @@ const RESOURCE_HTML = {
 
     textdiv.innerHTML =
       `<div><code>${style && style.product ? style.product : ''}</code></div>
-      <div><code style='font-weight:bold;font-size:1.5em'>${model !== undefined ? model.title : ''}</code></div>`
+      <div><code style='font-weight:bold;font-size:1.25em'>${model !== undefined ? model.title : ''}</code></div>`
       ;
     wrap.appendChild(textdiv);
 
@@ -289,14 +289,14 @@ function toX6GraphRec(elkNode) {
       },
       x: label.ax,
       y: label.ay,
-      width: 3 * 80,//label.width,
+      width: elkNode.width,//3 * 80,//label.width,
       height: label.height,
       attrs: {
         body: {
-          class: 'node',
+          class: 'label',
         },
         fo: {
-          class: 'node',
+          class: 'label',
         }
       },
 
@@ -347,15 +347,15 @@ function toX6GraphRec(elkNode) {
 
       if (d.startPoint && d.endPoint) {
         /*     
-              t.source = {
-                x: d.startPoint.ax,
-                y: d.startPoint.ay
-              };
-      
-              t.target = {
-                x: d.endPoint.ax,
-                y: d.endPoint.ay
-              };
+        t.source = {
+          x: d.startPoint.ax,
+          y: d.startPoint.ay
+        };
+
+        t.target = {
+          x: d.endPoint.ax,
+          y: d.endPoint.ay
+        };
         //*/
       }
 

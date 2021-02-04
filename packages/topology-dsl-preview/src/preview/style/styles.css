@@ -60,7 +60,20 @@ body {
   height: 94vh;
 
 }
+.app {
+  font-family: sans-serif;
+  padding: 0;
+  display: flex;
+  padding: 16px 8px;
+}
 
+.app-content-pane {
+  flex: 1;
+  height: 94vh;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0 0 10px 1px #e9e9e9;
+}
 
 .gutter {
   float: left;

@@ -40,7 +40,7 @@ function updateInputOutputBindings(elt, graph, visitor) {
     }
   });
 }
-export class FlowToELKVisitor {
+export class DslToELKGenerator {
   constructor() {
     this.edgeCntIt = idGenFn('edge.', 0);
   }
@@ -78,7 +78,7 @@ export class FlowToELKVisitor {
         case 'fanIn':
         case 'fanOut':
         case 'group':
-          result = MutltiPathEltFlowToELKVisitor.visit(this, tree, filterFn, tree.resourceType);
+          result = MutltiPathEltDslToELKGenerator.visit(this, tree, filterFn, tree.resourceType);
           break;
         case 'optional':
           result = this._visitOptional(tree, filterFn);
@@ -105,19 +105,19 @@ export class FlowToELKVisitor {
   }
 
   _visitSequence(tree, filterFn) {
-    return SequenceEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return SequenceEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   _visitOptional(tree, filterFn) {
-    return OptionalEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return OptionalEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   _visitRepeat(tree, filterFn) {
-    return RepeatEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return RepeatEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   _visitTerminal(tree, filterFn) {
-    return TerminalFlowEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return TerminalFlowEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   getNodeModel(n) {
@@ -202,9 +202,9 @@ export class FlowToELKVisitor {
 }
 
 /**
- * Class TerminalFlowEltFlowToELKVisitor.
+ * Class TerminalFlowEltDslToELKGenerator.
  */
-class TerminalFlowEltFlowToELKVisitor {
+class TerminalFlowEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -242,9 +242,9 @@ class TerminalFlowEltFlowToELKVisitor {
 }
 
 /**
- * Class SequenceEltFlowToELKVisitor.
+ * Class SequenceEltDslToELKGenerator.
  */
-class SequenceEltFlowToELKVisitor {
+class SequenceEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -328,9 +328,9 @@ class SequenceEltFlowToELKVisitor {
 }
 
 /**
- * Class MutltiPathEltFlowToELKVisitor.
+ * Class MutltiPathEltDslToELKGenerator.
  */
-class MutltiPathEltFlowToELKVisitor {
+class MutltiPathEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -426,9 +426,9 @@ class MutltiPathEltFlowToELKVisitor {
 }
 
 /**
- * Class OptionalEltFlowToELKVisitor.
+ * Class OptionalEltDslToELKGenerator.
  */
-class OptionalEltFlowToELKVisitor {
+class OptionalEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -534,9 +534,9 @@ class OptionalEltFlowToELKVisitor {
 }
 
 /**
- * Class RepeatEltFlowToELKVisitor.
+ * Class RepeatEltDslToELKGenerator.
  */
-class RepeatEltFlowToELKVisitor {
+class RepeatEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.

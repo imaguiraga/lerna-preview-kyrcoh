@@ -1,4 +1,4 @@
 /* flow-diagram */
-export * from './elk/elk-diagram-factory.js';
+export * from './elk/elk-renderer-factory.js';
 /* visitors */
 export * from './visitor/index.js';

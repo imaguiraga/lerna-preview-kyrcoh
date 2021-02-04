@@ -69,7 +69,7 @@ export class ELKDimensionVisitor {
         'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
         //'portAlignment.default': 'CENTER',
         //'portConstraints': 'FREE'
-      };//*/
+      };
     } else {
       tree.width = this._nodeWidth;
       tree.height = this._nodeHeight;
@@ -88,16 +88,10 @@ export class ELKDimensionVisitor {
           tree.width = 2 * this._portSize;
           tree.height = tree.width;
         } else {
-          tree.width = 3 * tree.width;
+          tree.width = 2 * tree.width;
         }
       }
-      // Set node properties
-      /*
-      tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
-        //'portAlignment.default': 'CENTER',
-        //'portConstraints': 'FREE'
-      };//*/
+
     }
 
     // Set port dimensions

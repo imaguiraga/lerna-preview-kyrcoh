@@ -1,8 +1,8 @@
 import './style/elk-style.css';
 
-import { toElkGraph, elkLayout } from './elk-layout';
-import { initD3, renderd3Layout } from './d3-elk-diagram';
-import { createElkX6Renderer } from './x6-elk-diagram';
+import { toElkGraph, elkLayout } from './elk-layout-factory';
+import { initD3, renderd3Layout } from './d3-elk-renderer';
+import { createElkX6Renderer } from './x6-elk-renderer';
 
 export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
   return createElkX6Renderer(_container_, _width_, _height_, _iconWidth_);

@@ -2,17 +2,17 @@
 import ELK from 'elkjs/lib/elk.bundled.js';
 
 import {
-  FlowToELKVisitor,
+  DslToELKGenerator,
   ELKDimensionVisitor
 } from '../visitor/index.js';
 
-const elkvisitor = new FlowToELKVisitor();
+const elkGenerator = new DslToELKGenerator();
 
 export function toElkGraph(dslObject) {
   let elkgraph = null;
   try {
     // dslObject to elkgraph
-    elkgraph = elkvisitor.toElkGraph(dslObject);
+    elkgraph = elkGenerator.toElkGraph(dslObject);
   } catch (e) {
     console.error(e);
   }
