@@ -70,7 +70,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
     if (dslObject !== null) {
       //console.log(JSON.stringify(dslObject,null,'  '));
     } else {
-      return;
+      return Promise.resolve(null);
     }
 
     let elkgraph = toElkGraph(dslObject);
@@ -78,7 +78,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
     layout.nodeSize(80).portSize(8);
 
     function refreshFn() {
-      layout(elkgraph).then((elkLayoutGraph) => {
+      return layout(elkgraph).then((elkLayoutGraph) => {
         // Clear and redraw
         // reset diagram
         //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
@@ -86,30 +86,25 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
         //console.log(result);
         //console.log(JSON.stringify(result,null, ' '));
         graph.fromJSON(result);
-
-
+        return graph;
       }).catch((e) => {
         console.log(e);
       });
     }
-    refreshFn();
+    return refreshFn();
   }
 
   return {
     render,
-    resize: (width, height) => {
-      if (graph.scroller.widgetOptions.enabled) {
-        //graph.scroller.resize(width,height);
+    zoomGraph(factor/*: number | 'fit' | 'real'*/) {
+      if (typeof factor === 'number') {
+        graph.zoom(factor);
+      } else if (factor === 'fit') {
+        graph.zoomToFit({ padding: 0 });
+      } else if (factor) {
+        graph.scale(1);
+        graph.centerContent();
       }
-      //graph.resize(width,height);
-    },
-    zoomToFit: (width, height) => {
-      graph.scaleContentToFit({
-        x: 0,
-        y: 0,
-        width: width,
-        height: height
-      });
     }
   };
 }

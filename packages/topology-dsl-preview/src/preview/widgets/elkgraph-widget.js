@@ -109,7 +109,11 @@ export class ELKGraphWidget extends Widget {
       let self = this;
       this.selectElt.addEventListener('change', (event) => {
         const result = self._flows.get(event.target.value);
-        self.renderFlow(result);
+        self.renderFlow(result).then((result) => {
+          if(result !== null){
+            self.renderer.zoomGraph('fit');
+          }
+        });
       });
       this.renderFlow(current);
     }
@@ -117,23 +121,14 @@ export class ELKGraphWidget extends Widget {
 
   renderFlow(input) {
     if (input === undefined || input === null) {
-      return;
+      return Promise.resolve(null);
     }
 
     try {
-      this.renderer.render(input);
-      /*
-      this._graph.changeSize(
-      Math.min(this.content.clientWidth, this.node.clientWidth),
-      Math.min(this.content.clientHeight, this.node.clientHeight)
-    );
-    this._graph.data(_data);
-    this._graph.fitView(20);
-    this._graph.render();
-    //*/
-
+      return this.renderer.render(input);
     } catch (e) {
       console.error(e);
+      return Promise.reject(e);
     }
 
   }
