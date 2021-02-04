@@ -175,7 +175,7 @@ function toX6GraphRec(elkNode) {
   let model = elkNode.model || {};
   const n = {
     id: elkNode.id,
-    label: elkNode.label,
+    //label: elkNode.label,
     data: {
       ...model,
       width: elkNode.width,
