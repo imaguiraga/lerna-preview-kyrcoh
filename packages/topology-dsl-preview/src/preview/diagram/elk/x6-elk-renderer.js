@@ -392,10 +392,7 @@ function createX6Graph(containerElt, width, height) {
       visible: false,
     },
     interacting: false,
-    /*{
-      nodeMovable: false,
-      edgeMovable: false
-    },//*/
+
     async: false,
     //frozen: true,
     scroller: {
@@ -403,7 +400,7 @@ function createX6Graph(containerElt, width, height) {
       pannable: true,
       pageVisible: true,
       pageBreak: true,
-      //className: 'app-content-pane'
+      className: 'app-content-pane'
     },
     panning: {
       enabled: true,
@@ -427,22 +424,7 @@ function createX6Graph(containerElt, width, height) {
         // https://x6.antv.vision/en/docs/api/registry/router#oneside
         // er orth metro manhattan https://x6.antv.vision/en/examples/edge/edge#edge
         name: LINE,
-      },/*
-      createEdge() {
-        return new Shape.Edge({
-          attrs: {
-            line: {
-              class: 'link',
-              stroke: '#999',
-              strokeWidth: 1,
-              targetMarker: {
-                name: 'classic',
-                size: 1
-              }
-            }
-          }
-        });
-      }//*/
+      }
     },
 
   });

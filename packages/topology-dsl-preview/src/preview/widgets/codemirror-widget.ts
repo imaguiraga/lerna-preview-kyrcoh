@@ -19,7 +19,7 @@ import 'codemirror/addon/display/panel.js';
 import 'codemirror/addon/lint/lint.js';
 import 'codemirror/addon/lint/javascript-lint.js';
 import 'codemirror/addon/lint/lint.css';
-import '../style/index.css';
+import '../style/widget-style.css';
 
 //import 'tslint';
 //globalThis.JSHINT = JSHINT;

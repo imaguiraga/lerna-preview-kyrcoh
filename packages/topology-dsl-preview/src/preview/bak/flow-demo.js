@@ -1,5 +1,5 @@
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
-import * as diagram from './diagram';
+import * as diagram from '../diagram';
 
 const {
   repeat,

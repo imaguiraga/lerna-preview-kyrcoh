@@ -99,3 +99,15 @@ body {
   height: 1px;
   border-top: 1px solid lightgray;
 }
+
+.app {
+  font-family: sans-serif;
+  display: flex;
+  padding: 8px;
+}
+
+.app-content-pane {
+  flex: 1;
+  height: 90vh;
+  width: 90vw;
+}

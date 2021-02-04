@@ -34,13 +34,17 @@ export class ELKGraphWidget extends Widget {
     separator.setAttribute("class", "separator");
     this.node.appendChild(separator);
 
+    const content = document.createElement('div');
+    content.setAttribute("class", "app");
+    this.node.appendChild(content);
+
     this.contentPane = this.createVisibleContentPane();
-    this.node.appendChild(this.contentPane);
+    content.appendChild(this.contentPane);
 
     this.errorPane = this.createVisibleContentPane(false);
     this.errorPane.style.padding = '10px';
     this.errorPane.style.fontSize = '2em';
-    this.node.appendChild(this.errorPane);
+    content.appendChild(this.errorPane);
 
     this.renderer = diagram.createElkRenderer(this.contentPane, _width, _height);
     
@@ -49,30 +53,22 @@ export class ELKGraphWidget extends Widget {
 
   createVisibleContentPane(visible = true) {
     const content = document.createElement('div');
-    content.setAttribute("class", "content-pane");
+    content.setAttribute("class", "app-content-pane");
     content.setAttribute("style", "scroll-behavior: auto; overflow: scroll;");
     content.style.display = visible ? 'block' : 'none';
     return content;
   }
 
   onAfterAttach(msg) {
+    /*
     console.log(`onAfterAttach : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
+    //*/
   }
 
   onResize(msg) {
     /*
-    console.log(`onResize : W${this.content.scrollWidth} - H${this.content.scrollHeight} # W${msg.width} - H${msg.height}`);
-    if (msg.width > 0 && msg.height > 0) {
-
-      this._graph.changeSize(
-        Math.max(this.content.clientWidth, this.node.clientWidth),
-        Math.max(this.content.clientHeight, this.node.clientHeight)
-      );
-      this._graph.fitView(20);
-      this._graph.render();
-
-    }//*/
-    // console.log(`onResize : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight} # W${msg.width} - H${msg.height}`);
+    console.log(`onResize : W${this.contentPane.clientWidth} - H${this.contentPane.clientHeight} # W${msg.width} - H${msg.height}`);
+    //*/
   }
 
   get graph() {
