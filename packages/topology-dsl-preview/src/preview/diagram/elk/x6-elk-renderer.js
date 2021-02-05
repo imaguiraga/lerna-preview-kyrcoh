@@ -251,7 +251,7 @@ function toX6GraphRec(elkNode) {
   if (children.length === 0) {
     // Port rendering
     const tagName = n.data.tagName;
-    if (tagName === 'port' || tagName === 'start' || tagName === 'finish') {
+    if (tagName === 'port' || tagName === 'start' || tagName === 'finish' || tagName === 'mark') {
       n.label = null;
       n.shape = 'rect';
       n.attrs = {
@@ -263,6 +263,11 @@ function toX6GraphRec(elkNode) {
           fill: '#888'
         }
       };
+      if(tagName === 'mark'){
+        n.label = n.data.title;
+        n.attrs.body.rx = 4;
+        n.attrs.body.ry = 4;
+      }
 
     } else {
       n.label = null;
