@@ -50,7 +50,7 @@ export function elkLayout() {
     if (elkgraph === null) {
       return Promise.resolve(null);
     }
-    console.log(JSON.stringify(elkgraph, null, '  '));
+   // console.log(JSON.stringify(elkgraph, null, '  '));
 
     elk.knownLayoutOptions().then((d) => {
       //console.log(d);

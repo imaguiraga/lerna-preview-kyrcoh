@@ -10,6 +10,7 @@ function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/,
 const LINE = 'line';
 Graph.registerRouter(LINE, lineRouter);
 
+const EMPTY_ARRAY = [];
 export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_) {
 
   let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
@@ -19,53 +20,25 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
   const graph = createX6Graph(containerElt, width, height);
-  // graph.fromJSON(data);
+  const layout = elkLayout();
+  layout.nodeSize(80).portSize(8);
 
-  /*
-    const wrap = document.createElement('div');
-    wrap.style.width = '100%';
-    wrap.style.height = '100%';
-    wrap.style.background = '#f0f0f0';
-    wrap.style.display = 'flex';
-    wrap.style.justifyContent = 'center';
-    wrap.style.alignItems = 'center';
-    wrap.innerText = 'World';
-  
-    const target1 = graph.addNode({
-      x: 180,
-      y: 160,
-      width: 100,
-      height: 40,
-      shape: 'html',
-      html: wrap,
+  function refreshFn(_elkgraph_) {
+    return layout(_elkgraph_).then((elkLayoutGraph) => {
+      // Clear and redraw
+      // reset diagram
+      //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
+      const result = toX6Graph(elkLayoutGraph);
+      //console.log(result);
+      //console.log(JSON.stringify(result,null, ' '));
+      graph.fromJSON(result);
+      //graph.resetCells([...result.nodes, ...result.edges]);
+      return graph;
+    }).catch((e) => {
+      console.log(e);
     });
-  
-    const node = graph.addNode({
-      x: 80,
-      y: 80,
-      width: 160,
-      height: 60,
-      shape: 'html',
-      data: {
-        time: new Date().toString(),
-      },
-      html: {
-        render(node) { //: Cell
-          const data = node.getData(); //as any
-          return (
-            `<div>
-            <span>${data.time}</span>
-          </div>`
-          );
-        },
-        shouldComponentUpdate(node) { //: Cell
-          // 控制节点重新渲染
-          return node.hasChanged('data');
-        },
-      },
-    });
-    graph.zoomTo(1.8);
-  // */
+  }
+
   function render(dslObject) {
     if (dslObject !== null) {
       //console.log(JSON.stringify(dslObject,null,'  '));
@@ -74,24 +47,45 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
     }
 
     let elkgraph = toElkGraph(dslObject);
-    const layout = elkLayout();
-    layout.nodeSize(80).portSize(8);
+    const toggleCollapseNode = function (d) {
+      // is expanded
+      if (d.model.compound) {
+        if (d.collapsed !== true) {
+          // Remove children and edges 
+          d._children = d.children;
+          d.children = EMPTY_ARRAY;
 
-    function refreshFn() {
-      return layout(elkgraph).then((elkLayoutGraph) => {
-        // Clear and redraw
-        // reset diagram
-        //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
-        const result = toX6Graph(elkLayoutGraph);
-        //console.log(result);
-        //console.log(JSON.stringify(result,null, ' '));
-        graph.fromJSON(result);
-        return graph;
-      }).catch((e) => {
-        console.log(e);
-      });
-    }
-    return refreshFn();
+          d._edges = d.edges;
+          d.edges = null;
+          d.model.compound = false;
+          d.collapsed = true;
+
+        } else {
+          // Restore children and edges
+          d.children = d._children;
+          d._children = null;
+
+          d.edges = d._edges;
+          d._edges = null;
+          d.model.compound = true;
+          d.collapsed = false;
+        }
+
+        refreshFn(elkgraph);
+      }
+    };
+
+    graph.on('node:dblclick', ({ e, x, y, node, vew }) => {
+      console.log(node);
+      const elkNode = node.getData().elkNode;
+      if (elkNode !== undefined) {
+        toggleCollapseNode(elkNode);
+      }
+    });
+
+
+    //*/
+    return refreshFn(elkgraph);
   }
 
   return {
@@ -175,6 +169,7 @@ function toX6GraphRec(elkNode) {
       ...model,
       width: elkNode.width,
       height: elkNode.height,
+      elkNode: elkNode
     },
     x: elkNode.ax,
     y: elkNode.ay,
@@ -204,13 +199,14 @@ function toX6GraphRec(elkNode) {
   g.nodes.push(n);
 
   // Ports
+  const PORT_RADIUS = 4;
   const items = (elkNode.ports || []).map((p) => {
     const r = {
       group: 'abs',
       id: p.id,
       args: {
-        x: p.x + 4,
-        y: p.y + 4
+        x: p.x + PORT_RADIUS,
+        y: p.y + PORT_RADIUS
       },
       data: p.model
     };
@@ -228,7 +224,7 @@ function toX6GraphRec(elkNode) {
         attrs: {
           circle: {
             class: 'port',
-            r: 4,//p.width,
+            r: PORT_RADIUS,
             magnet: false,
           },
           text: {
@@ -263,7 +259,7 @@ function toX6GraphRec(elkNode) {
           fill: '#888'
         }
       };
-      if(tagName === 'mark'){
+      if (tagName === 'mark') {
         n.label = n.data.title;
         n.attrs.body.rx = 4;
         n.attrs.body.ry = 4;
@@ -316,13 +312,18 @@ function toX6GraphRec(elkNode) {
       attrs: {
         line: {
           class: 'edge',
-          targetMarker: {
-            name: 'classic',
+          sourceMarker: {
+            name: e.style.startArrow ? 'classic' : null,
             size: 8
-          }
+          },
+          targetMarker: {
+            name: e.style.endArrow ? 'classic' : null,
+            size: 8
+          },
         }
       }
     };
+
     t.id = e.id;
     t.data = e.model;
     const source = e.sources[0];
