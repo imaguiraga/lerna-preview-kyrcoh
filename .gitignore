@@ -5,4 +5,4 @@ yarn.lock
 settings.json
 .eslintcache
 .idea
-/packages/topology-dsl-preview/.eslintcache
+/packages/*/.eslintcache

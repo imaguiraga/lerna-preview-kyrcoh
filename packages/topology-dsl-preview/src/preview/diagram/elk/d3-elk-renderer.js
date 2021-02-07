@@ -176,17 +176,13 @@ function drawLabel(selection, d, i, refreshFn) {
     .style('stroke', 'black')
     .attr('x', (l) => l.x)
     .attr('y', (l) => l.y)
-    //.attr('width', (l) => l.width)
-    .attr('width', (l) => 3 * 80)
-    .attr('height', (l) => l.height + 2 * padding)
+    .attr('width', (l) => d.width)
+    .attr('height', (l) => l.height)
     // text placeholder
     .append('xhtml:div').attr('xmlns', 'http://www.w3.org/1999/xhtml')
-    .style('font-size', '1.5em')
-    .style('border', '1px solid black')
+    .style('font-size', '1.25em')
+    //.style('border', '1px solid black')
     .style('background', 'white')
-    //.attr('width', (l) => l.width)
-    .attr('width', (l) => 3 * 80)
-    .attr('height', (l) => l.height)
     .style('padding', '4px')
     .html((l) =>
       `<code>${l.text}</code>`
