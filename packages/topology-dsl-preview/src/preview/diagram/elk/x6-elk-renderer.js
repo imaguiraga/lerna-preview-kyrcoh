@@ -113,12 +113,7 @@ const RESOURCE_HTML = {
     const style = model.data.style;// IconPath
 
     const wrap = document.createElement('div');
-    //wrap.style.width = '100%';
-    //wrap.style.height = '100%';
-    //wrap.style.background = '#f0f0f0';
     wrap.style.display = 'flex';
-    //wrap.style.justifyContent = 'center';
-    //wrap.style.alignItems = 'center';
 
     let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
     // If icon exist
@@ -133,14 +128,8 @@ const RESOURCE_HTML = {
     }
 
     const textdiv = document.createElement('div');
-    //textdiv.style.width = '100%';
-    //textdiv.style.height = '100%';
-    //wrap.style.background = '#f0f0f0';
-    //textdiv.style.marginLeft = 4;
     textdiv.style.padding = 4;
     textdiv.style.display = 'inline-block';
-    //textdiv.style.justifyContent = 'center';
-    //textdiv.style.alignItems = 'center';
 
     textdiv.innerHTML =
       `<div><code>${style && style.product ? style.product : ''}</code></div>

@@ -1,32 +1,14 @@
-import './style/elk-style.css';
+import './style/d3-elk-style.css';
 
 import { toElkGraph, elkLayout } from './elk-layout-factory';
 import { initD3, renderd3Layout } from './d3-elk-renderer';
 import { createElkX6Renderer } from './x6-elk-renderer';
 
 export function createElkRenderer(_container_, _width_, _height_, _iconWidth_) {
-  return createElkX6Renderer(_container_, _width_, _height_, _iconWidth_);
+  return createElkD3Renderer(_container_, _width_, _height_, _iconWidth_);
 }
 
 function createElkD3Renderer(_container_, _width_, _height_, _iconWidth_) {
-  /*
-  function viewport() {
-    let e = window,
-      a = 'inner';
-    if (!('innerWidth' in window)) {
-      a = 'client';
-      e = document.documentElement || document.body;
-    }
-    return {
-      width: e[a + 'Width'],
-      height: e[a + 'Height']
-    };
-  }
-  
-  let width = viewport().width-20;
-  let height = viewport().height-20;
-  //*/
-
   let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
 
   const iconWidth = _iconWidth_ || 24;

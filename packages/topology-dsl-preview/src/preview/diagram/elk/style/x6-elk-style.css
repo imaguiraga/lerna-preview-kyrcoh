@@ -58,7 +58,7 @@ foreignObject.label {
 }
 
 .finish {
-  fill: #000;
+  fill: #000!important;
   opacity: .8!important;
 }
 
@@ -82,4 +82,3 @@ foreignObject.label {
   width: 100%;
   height: 100%;
 }
-

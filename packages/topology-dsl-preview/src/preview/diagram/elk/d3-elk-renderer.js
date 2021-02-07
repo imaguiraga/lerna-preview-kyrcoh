@@ -61,13 +61,10 @@ function drawNode(selection, d, i, refreshFn) {
 
   // extract class names from tagName
   if (d.model) {
-    selection.classed(d.model.provider, true);
-    selection.classed(d.model.resourceType, true);
-    //selection.classed(d.model.tagName,true);
-    selection.classed(
-      d.model.subType,
-      true//d.model.subType !== undefined && d.model.subType !== d.model.resourceType
-    );
+    selection.classed(d.model.provider, d.model.provider !== undefined);
+    selection.classed(d.model.resourceType, d.model.resourceType !== undefined);
+    selection.classed(d.model.tagName, d.model.tagName !== undefined);
+    selection.classed(d.model.subType, d.model.subType !== undefined);
     if (d.model.compound === true || d.collapsed) {
       selection.on('click', collapseNode);
     }
@@ -82,7 +79,8 @@ function drawNode(selection, d, i, refreshFn) {
       .attr('x', function (d) { return 0; })
       .attr('y', function (d) { return 0; })
       .attr('width', function (d) { return d.width; })
-      .attr('height', function (d) { return d.height; });
+      .attr('height', function (d) { return d.height; })
+      .classed(d.model.tagName, d.model.tagName !== undefined);
 
   } else {
 
@@ -94,12 +92,7 @@ function drawNode(selection, d, i, refreshFn) {
     let fill = 'inherit';
     let stroke = 'transparent';
 
-    if (d.children.length > 0) {
-      h = 24;
-      w = 24;
-      x = d.width / 2;
-      y = -h / 2;
-
+    if (d.children !== undefined && d.children.length > 0) {
       fill = 'inherit';
       stroke = 'inherit';
     } else {
@@ -111,10 +104,13 @@ function drawNode(selection, d, i, refreshFn) {
       fill = 'inherit';
     }
     // Draw the background
-    let style = d.model.data.style;
+    let style = (d.model.data !== undefined) ? d.model.data.style : null;
+
+    const tagName = d.model.tagName;
 
     selection.append('rect')
       .attr('class', 'node')
+      .classed(tagName, tagName !== undefined)
       .style('fill', fill)
       .style('stroke', stroke)
       .style('opacity', '0.6')
@@ -127,60 +123,46 @@ function drawNode(selection, d, i, refreshFn) {
       .text((d) => {
         return JSON.stringify(d.model, null, ' ');
       });
-    // IconPath
-    let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
-    // If icon exist
-    if (iconPath !== undefined && iconPath !== null) {
-      selection.append('image')
-        .attr('class', 'node')
-        .style('fill', 'inherit')
-        .style('stroke', 'inherit')
-        .attr('href', iconPath)
-        //.attr('x', function (d) { return x; })
-        .attr('x', function (d) { return 2; })
-        .attr('y', function (d) { return y; })
-        //.attr('width', function (d) { return w; })
-        .attr('width', function (d) { return h - 2; })
-        .attr('height', function (d) { return h - 2; });
-    }
 
-    if (d.children.length === 0) {
+    if (d.model.compound === false && tagName !== 'port' && tagName !== 'start' && tagName !== 'finish' && tagName !== 'mark') {
+      // IconPath
+      let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
       const fo = selection.append('foreignObject')
-        //.attr('class', 'node')
+        .attr('class', 'node')
         .style('fill', fill)
         .style('stroke', stroke)
-        .attr('x', function (d) { return h; })
-        .attr('y', function (d) { return y; })
-        .attr('width', function (d) { return d.width - h; })
-        .attr('height', function (d) { return d.height - 2; });
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', function (d) { return d.width; })
+        .attr('height', function (d) { return d.height; });
       // text placeholder
-      fo.append('xhtml:div').attr('xmlns', 'http://www.w3.org/1999/xhtml')
-        .attr('width', function (d) { return d.width - h; })
-        .attr('height', function (d) { return d.height - 2; })
+      const wrap = fo.append('xhtml:div').attr('xmlns', 'http://www.w3.org/1999/xhtml')
+        .attr('width', function (d) { return d.width; })
+        .attr('height', function (d) { return d.height; })
+        .style('display', 'flex');
+      // If icon exist
+      if (iconPath !== undefined && iconPath !== null) {
+        const margin = 4;
+        const width = (d.height / 2) - 2 * margin;
+        wrap.append('img')
+          .style('margin', '4px')
+          .attr('width', function (d) { return width; })
+          .attr('height', function (d) { return width; })
+          .attr('src', iconPath);
+      }
+      wrap.append('div')
+        .style('display', 'inline-block')
         .style('padding', '4px')
         .html(
           `<div><code>${style && style.product ? style.product : ''}</code></div>
-        <div><code style='font-weight:bold;font-size:1.5em'>${d.model ? d.model.title : ''}</code></div>`);
+        <div><code style='font-weight:bold;font-size:1.25em'>${d.model ? d.model.title : ''}</code></div>`
+        );
     }
   }
 }
 
 function drawLabel(selection, d, i, refreshFn) {
   // Create new selection from current one
-  /*
-    selection.selectAll('.label').data((d, i) => {
-      return labelsFn(d);
-    }).enter()
-      .append('text')
-      .attr('class', 'label')
-      .text((l) => l.text)
-      .style('stroke-width', 1)
-      .style('font-size', '1.5em')
-      .attr('x', (l) => l.x)
-      .attr('y', (l) => l.y)
-      .attr('width', (l) => l.width)
-      .attr('height', (l) => l.height);
-  // */
   const padding = 4;
   selection.selectAll('.label').data((d, i) => {
     return labelsFn(d).map((l) => {
@@ -239,14 +221,6 @@ function drawPort(selection, d, i, refreshFn) {
         .attr('height', (l) => l.height);
     }
   });
-  /*
-    .append('rect')
-    .attr('class','port')
-    .attr('x', (l) => l.x)
-    .attr('y', (l) => l.y)
-    .attr('width', (l) => l.width)
-    .attr('height', (l) => l.height);
-    //*/
 
 }
 
@@ -264,7 +238,7 @@ export function renderd3Layout(svg, node, refreshFn) {
 
     var linkEnter = linkData.enter()
       .append('path')
-      .attr('class', 'link')
+      .attr('class', 'edge')
       .attr('marker-start', function (d) {
         if (d.style.startArrow) {
           return 'url(#end)';
@@ -290,23 +264,14 @@ export function renderd3Layout(svg, node, refreshFn) {
         return path;
       });
     // Sytle edge
-    /*
-    linkEnter.call(function(selection) { 
-      let d = selection.datum();
-      // extract class names from tagName
-      if(d.model){
-        selection.classed(d.model.provider,true);
-        selection.classed(d.model.resourceType,true);
-      }       
-    });//*/
     linkEnter.each(function (d, i) {
       // Update current selection attributes
       let selection = d3.select(this);
       // extract class names from tagName
       if (d.model) {
-        selection.classed(d.model.provider, true);
-        selection.classed(d.model.resourceType, true);
-        selection.classed(d.model.subType, true);
+        selection.classed(d.model.provider, d.model.provider !== undefined);
+        selection.classed(d.model.resourceType, d.model.resourceType !== undefined);
+        selection.classed(d.model.subType, d.model.subType !== undefined);
       }
     });
   }
