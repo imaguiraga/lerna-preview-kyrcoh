@@ -50,7 +50,7 @@ export function elkLayout() {
     if (elkgraph === null) {
       return Promise.resolve(null);
     }
-   // console.log(JSON.stringify(elkgraph, null, '  '));
+    // console.log(JSON.stringify(elkgraph, null, '  '));
 
     elk.knownLayoutOptions().then((d) => {
       //console.log(d);
@@ -107,7 +107,7 @@ export function elkLayout() {
   return layoutFn;
 }
 
-export function toAbsolute(elkNode,) {
+export function toAbsolute(elkNode) {
   return toAbsoluteIt(elkNode);
 }
 
@@ -171,17 +171,20 @@ export function buildNodeLookup(elkNode) {
   const index = new Map();
 
   const stack = [elkNode];
-
-  while (stack.length > 0) {
-    let n = stack.pop();
-    index.set(n.id,n);
+  // FIFO
+  let i = 0;
+  while (i < stack.length) {
+    //let n = stack.pop();
+    let n = stack[i];
+    i++;
+    index.set(n.id, n);
 
     (n.ports || []).forEach((p) => {
-
+      stack.push(p);
     });
 
     (n.children || []).forEach((c) => {
-      stack.unshift(c);
+      stack.push(c);
     });
   }
   return index;
@@ -193,8 +196,11 @@ function toAbsoluteIt(elkNode) {
   elkNode.ay = elkNode.y;
   const stack = [elkNode];
 
-  while (stack.length > 0) {
-    let n = stack.pop();
+  let i = 0;
+  // FIFO
+  while (i < stack.length) {
+    let n = stack[i];
+    i++;
     (n.labels || []).forEach((l) => {
       // absolute coordinate
       l.ax = l.x + n.ax;
@@ -239,7 +245,7 @@ function toAbsoluteIt(elkNode) {
     (n.children || []).forEach((c) => {
       c.ax = c.x + n.ax;
       c.ay = c.y + n.ay;
-      stack.unshift(c);
+      stack.push(c);
     });
   }
   return elkNode;
