@@ -144,12 +144,28 @@ const RESOURCE_HTML = {
   },
 };
 
-function toX6GraphRec(elkNode) {
-  const g = {
-    nodes: [], edges: []
-  };
-
+function toX6GraphRec(elkNode, g = { nodes: [], edges: [] }) {
   // Clone node 
+  const n = createX6Node(elkNode, g);
+
+  const children = [];
+  (elkNode.children || []).forEach((c) => {
+    children.push(c.id);
+    toX6GraphRec(c, g);
+  });
+
+  if (children.length > 0) {
+    n.children = children;
+  }
+
+  // Edges
+  (elkNode.edges || []).forEach((e) => {
+    const t = createX6Edge(e, g);
+  });
+  return g;
+}
+
+function createX6Node(elkNode, g) {
   let model = elkNode.model || {};
   const n = {
     id: elkNode.id,
@@ -172,7 +188,6 @@ function toX6GraphRec(elkNode) {
         class: 'node',
       }
     },
-
   };
   n.data.width = elkNode.width;
   n.data.height = elkNode.height;
@@ -184,12 +199,11 @@ function toX6GraphRec(elkNode) {
     clazz.push(elkNode.model.subType);
   }
   n.attrs.body.class = clazz.join(' ');
-  //*/
-  g.nodes.push(n);
 
   // Ports
   const PORT_RADIUS = 4;
-  const items = (elkNode.ports || []).map((p) => {
+  const ports = (elkNode.ports || []);
+  const items = ports.map((p) => {
     const r = {
       group: 'abs',
       id: p.id,
@@ -202,171 +216,173 @@ function toX6GraphRec(elkNode) {
     return r;
   });
 
-  n.ports = {
-    items: items,
-    groups: {
-      abs: {
-        position: {
-          name: 'absolute'
-        },
-        zIndex: 10,
-        attrs: {
-          circle: {
-            class: 'port',
-            r: PORT_RADIUS,
-            magnet: false,
+  if (ports.length > 0) {
+    n.ports = {
+      items: items,
+      groups: {
+        abs: {
+          position: {
+            name: 'absolute'
           },
-          text: {
-            fontSize: 12,
-            fill: '#888'
+          zIndex: 10,
+          attrs: {
+            circle: {
+              class: 'port',
+              r: PORT_RADIUS,
+              magnet: false,
+            },
+            text: {
+              fontSize: 12,
+              fill: '#888'
+            }
           }
         }
       }
-    }
-  };
+    };
+  }
 
-  const children = [];
-  (elkNode.children || []).forEach((c) => {
-    children.push(c.id);
-    const t = toX6GraphRec(c);
-    g.nodes = g.nodes.concat(t.nodes);
-    g.edges = g.edges.concat(t.edges);
-  });
   //node_modules\@antv\x6\lib\shape\standard\html.d.ts
-  if (children.length === 0) {
-    // Port rendering
-    const tagName = n.data.tagName;
-    if (tagName === 'port' || tagName === 'start' || tagName === 'finish' || tagName === 'mark') {
-      n.label = null;
-      n.shape = 'rect';
-      n.attrs = {
-        body: {
-          class: n.data.tagName,
-        },
-        text: {
-          fontSize: 12,
-          fill: '#888'
-        }
-      };
-      if (tagName === 'mark') {
-        n.label = n.data.title;
-        n.attrs.body.rx = 4;
-        n.attrs.body.ry = 4;
+  // Port rendering
+  const children = (elkNode.children || []);
+  const tagName = n.data.tagName;
+  if (tagName === 'port' || tagName === 'start' || tagName === 'finish' || tagName === 'mark') {
+    n.label = null;
+    n.shape = 'rect';
+    n.attrs = {
+      body: {
+        class: n.data.tagName,
+      },
+      text: {
+        fontSize: 12,
+        fill: '#888'
       }
+    };
+    // Round corners
+    if (tagName === 'mark') {
+      n.label = n.data.title;
+      n.attrs.body.rx = 4;
+      n.attrs.body.ry = 4;
+    }
 
-    } else {
+  } else {
+    if (children.length === 0) {
       n.label = null;
       n.shape = 'html';
       n.html = RESOURCE_HTML;
+
+    } else if (elkNode.labels !== undefined) {
+      const l = createX6Label(elkNode, g);
+
     }
-
-  } else if (elkNode.labels !== undefined) {
-    const label = elkNode.labels[0];
-    // Label Node
-    model = elkNode.model || {};
-    const l = {
-      id: elkNode.id + '.label',
-      //label: elkNode.label,
-      data: {
-        ...model,
-        width: 3 * 80,//label.width,
-        height: label.height,
-      },
-      x: label.ax,
-      y: label.ay,
-      width: elkNode.width,//3 * 80,//label.width,
-      height: label.height,
-      attrs: {
-        body: {
-          class: 'label',
-        },
-        fo: {
-          class: 'label',
-        }
-      },
-
-    };
-    l.label = null;
-    l.shape = 'html';
-    l.html = RESOURCE_HTML;
-    g.nodes.push(l);
   }
 
   n.attrs.body.strokeWidth = (children.length > 0) ? '0px' : '1px';
   n.attrs.body.opacity = (children.length > 0) ? 0.15 : 0.9;
-
-  // Edges
-  (elkNode.edges || []).forEach((e) => {
-    const t = {
-      attrs: {
-        line: {
-          class: 'edge',
-          sourceMarker: {
-            name: e.style.startArrow ? 'classic' : null,
-            size: 8
-          },
-          targetMarker: {
-            name: e.style.endArrow ? 'classic' : null,
-            size: 8
-          },
-        }
-      }
-    };
-
-    t.id = e.id;
-    t.data = e.model;
-    const source = e.sources[0];
-    const target = e.targets[0];
-    const regex1 = /\.(start|finish)/ig;
-    const regex2 = /\.(start|finish)\.port/ig;
-
-    if (source.match(regex2)) {
-      t.source = { cell: source };
-    } else {
-      t.source = { cell: source.replace(regex1, ''), port: source };
-    }
-
-    if (target.match(regex2)) {
-      t.target = { cell: target };
-    } else {
-      t.target = { cell: target.replace(regex1, ''), port: target };
-    }
-
-    if (e.sections !== undefined) {
-      let d = e.sections[0];
-
-      if (d.startPoint && d.endPoint) {
-        /*     
-        t.source = {
-          x: d.startPoint.ax,
-          y: d.startPoint.ay
-        };
-
-        t.target = {
-          x: d.endPoint.ax,
-          y: d.endPoint.ay
-        };
-        //*/
-      }
-
-      const vertices = [];
-      (d.bendPoints || []).forEach(function (bp, i) {
-        vertices.push({ x: bp.ax, y: bp.ay });
-      });
-
-      (d.junctionPoints || []).forEach(function (bp, i) {
-        vertices.push({ x: bp.ax, y: bp.ay });
-      });
-
-      if (vertices.length > 0) {
-        t.vertices = vertices;
-      }
-    }
-    g.edges.push(t);
-  });
-  return g;
+  g.nodes.push(n);
+  return n;
 }
 
+function createX6Label(elkNode, g) {
+  const label = elkNode.labels[0];
+  // Label Node
+  const model = elkNode.model || {};
+  const l = {
+    id: elkNode.id + '.label',
+    //label: elkNode.label,
+    data: {
+      ...model,
+      width: 3 * 80,//label.width,
+      height: label.height,
+    },
+    x: label.ax,
+    y: label.ay,
+    width: elkNode.width,//3 * 80,//label.width,
+    height: label.height,
+    attrs: {
+      body: {
+        class: 'label',
+      },
+      fo: {
+        class: 'label',
+      }
+    },
+
+  };
+  l.label = null;
+  l.shape = 'html';
+  l.html = RESOURCE_HTML;
+  g.nodes.push(l);
+  return l;
+}
+function createX6Edge(e, g) {
+  const t = {
+    attrs: {
+      line: {
+        class: 'edge',
+        sourceMarker: {
+          name: e.style.startArrow ? 'classic' : null,
+          size: 8
+        },
+        targetMarker: {
+          name: e.style.endArrow ? 'classic' : null,
+          size: 8
+        },
+      }
+    }
+  };
+
+  t.id = e.id;
+  t.data = e.model;
+  const source = e.sources[0];
+  const target = e.targets[0];
+  const regex1 = /\.(start|finish)/ig;
+  const regex2 = /\.(start|finish)\.port/ig;
+
+  if (source.match(regex2)) {
+    t.source = { cell: source };
+  } else {
+    t.source = { cell: source.replace(regex1, ''), port: source };
+  }
+
+  if (target.match(regex2)) {
+    t.target = { cell: target };
+  } else {
+    t.target = { cell: target.replace(regex1, ''), port: target };
+  }
+
+  if (e.sections !== undefined) {
+    let d = e.sections[0];
+
+    if (d.startPoint && d.endPoint) {
+      /*     
+      t.source = {
+        x: d.startPoint.ax,
+        y: d.startPoint.ay
+      };
+
+      t.target = {
+        x: d.endPoint.ax,
+        y: d.endPoint.ay
+      };
+      //*/
+    }
+
+    const vertices = [];
+    (d.bendPoints || []).forEach(function (bp, i) {
+      vertices.push({ x: bp.ax, y: bp.ay });
+    });
+
+    (d.junctionPoints || []).forEach(function (bp, i) {
+      vertices.push({ x: bp.ax, y: bp.ay });
+    });
+
+    if (vertices.length > 0) {
+      t.vertices = vertices;
+    }
+  }
+  g.edges.push(t);
+  return t;
+}
 
 function createX6Graph(containerElt, width, height) {
   const graph = new Graph({
