@@ -11,7 +11,7 @@ const LINE = 'line';
 Graph.registerRouter(LINE, lineRouter);
 
 const EMPTY_ARRAY = [];
-export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_) {
+export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _iconWidth_) {
 
   let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
 
@@ -19,7 +19,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const width = (_width_ || containerElt.scrollWidth || 800) + 240;
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
-  const graph = createX6Graph(containerElt, width, height);
+  const graph = createX6Graph(containerElt, _minimap_, width, height);
   const layout = elkLayout();
   layout.nodeSize(80).portSize(8);
 
@@ -77,7 +77,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
       }
     };
 
-    graph.on('node:dblclick', ({ e, x, y, node, vew }) => {
+    graph.on('node:dblclick', ({ e, x, y, node, view }) => {
       console.log(node);
       const elkNode = lookup.get(node.id);//node.getData().elkNode;
       if (elkNode !== undefined) {
@@ -272,7 +272,6 @@ function createX6Node(elkNode, g) {
 
     } else if (elkNode.labels !== undefined) {
       const l = createX6Label(elkNode, g);
-
     }
   }
 
@@ -386,7 +385,7 @@ function createX6Edge(e, g) {
   return t;
 }
 
-function createX6Graph(containerElt, width, height) {
+function createX6Graph(containerElt, minimapContainer, width, height) {
   const graph = new Graph({
     container: containerElt,
     width: width,
@@ -394,10 +393,6 @@ function createX6Graph(containerElt, width, height) {
     resizing: false,
     background: {
       color: '#fff',
-    },
-    grid: {
-      size: 10,
-      visible: false,
     },
     interacting: false,
 
@@ -434,8 +429,33 @@ function createX6Graph(containerElt, width, height) {
         name: LINE,
       }
     },
-
+    minimap: {
+      enabled: true,
+      container: minimapContainer,
+      minScale: 0.5,
+      maxScale: 2.5,
+      padding: 4
+    },
   });
-
+  graph.on('cell:mouseenter', ({ e, cell, view }) => {
+    if (cell.isNode()) {
+      cell.addTools([
+        {
+          name: 'boundary',
+          args: {
+            attrs: {
+              fill: '#7c68fc',
+              //stroke: '#333',
+              'stroke-width': 1,
+              'fill-opacity': 0.2,
+            },
+          },
+        },
+      ]);
+    }
+  });
+  graph.on('cell:mouseleave', ({ e, cell, view }) => {
+    cell.removeTools();
+  });
   return graph;
 }
