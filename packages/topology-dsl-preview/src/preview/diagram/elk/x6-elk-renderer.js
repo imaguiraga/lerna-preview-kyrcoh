@@ -1,7 +1,7 @@
 
-import { Graph, Shape, Point } from '@antv/x6';
+import { Graph, Shape, Point, Node, Edge } from '@antv/x6';
 import { data } from './x6-data.js';
-import { toElkGraph, elkLayout } from './elk-layout-factory';
+import { toElkGraph, elkLayout, buildNodeLookup } from './elk-layout-factory';
 
 function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/, view/*: EdgeView*/) {
   const points = vertices.map((p) => Point.create(p));
@@ -23,8 +23,6 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const layout = elkLayout();
   layout.nodeSize(80).portSize(8);
 
-
-
   function render(dslObject) {
     if (dslObject !== null) {
       //console.log(JSON.stringify(dslObject,null,'  '));
@@ -33,7 +31,8 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
     }
 
     let elkgraph = toElkGraph(dslObject);
-    
+    const lookup = buildNodeLookup(elkgraph);
+
     function refreshFn(_elkgraph_) {
       return layout(_elkgraph_).then((elkLayoutGraph) => {
         // Clear and redraw
@@ -52,7 +51,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
 
     const toggleCollapseNode = function (d) {
       // is expanded
-      if (d.model.compound) {
+      if (d.model.compound || d.collapsed === true) {
         if (d.collapsed !== true) {
           // Remove children and edges 
           d._children = d.children;
@@ -80,12 +79,11 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
 
     graph.on('node:dblclick', ({ e, x, y, node, vew }) => {
       console.log(node);
-      const elkNode = node.getData().elkNode;
+      const elkNode = lookup.get(node.id);//node.getData().elkNode;
       if (elkNode !== undefined) {
         toggleCollapseNode(elkNode);
       }
     });
-
 
     //*/
     return refreshFn(elkgraph);
@@ -176,8 +174,7 @@ function createX6Node(elkNode, g) {
     data: {
       ...model,
       width: elkNode.width,
-      height: elkNode.height,
-      elkNode: elkNode
+      height: elkNode.height
     },
     x: elkNode.ax,
     y: elkNode.ay,
@@ -317,6 +314,7 @@ function createX6Label(elkNode, g) {
   g.nodes.push(l);
   return l;
 }
+
 function createX6Edge(e, g) {
   const t = {
     attrs: {
@@ -384,6 +382,7 @@ function createX6Edge(e, g) {
     }
   }
   g.edges.push(t);
+  //g.edges.push(Edge.create(t));
   return t;
 }
 

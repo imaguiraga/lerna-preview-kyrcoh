@@ -167,6 +167,26 @@ function toAbsoluteRec(elkNode, x0 = 0, y0 = 0) {
   //*/
 }
 
+export function buildNodeLookup(elkNode) {
+  const index = new Map();
+
+  const stack = [elkNode];
+
+  while (stack.length > 0) {
+    let n = stack.pop();
+    index.set(n.id,n);
+
+    (n.ports || []).forEach((p) => {
+
+    });
+
+    (n.children || []).forEach((c) => {
+      stack.unshift(c);
+    });
+  }
+  return index;
+}
+
 function toAbsoluteIt(elkNode) {
   // absolute coordinate
   elkNode.ax = elkNode.x;
