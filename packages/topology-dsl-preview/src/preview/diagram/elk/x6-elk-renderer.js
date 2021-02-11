@@ -23,21 +23,7 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
   const layout = elkLayout();
   layout.nodeSize(80).portSize(8);
 
-  function refreshFn(_elkgraph_) {
-    return layout(_elkgraph_).then((elkLayoutGraph) => {
-      // Clear and redraw
-      // reset diagram
-      //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
-      const result = toX6Graph(elkLayoutGraph);
-      //console.log(result);
-      //console.log(JSON.stringify(result,null, ' '));
-      graph.fromJSON(result);
-      //graph.resetCells([...result.nodes, ...result.edges]);
-      return graph;
-    }).catch((e) => {
-      console.log(e);
-    });
-  }
+
 
   function render(dslObject) {
     if (dslObject !== null) {
@@ -47,6 +33,23 @@ export function createElkX6Renderer(_container_, _width_, _height_, _iconWidth_)
     }
 
     let elkgraph = toElkGraph(dslObject);
+    
+    function refreshFn(_elkgraph_) {
+      return layout(_elkgraph_).then((elkLayoutGraph) => {
+        // Clear and redraw
+        // reset diagram
+        //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
+        const result = toX6Graph(elkLayoutGraph);
+        //console.log(result);
+        //console.log(JSON.stringify(result,null, ' '));
+        graph.fromJSON(result);
+        //graph.resetCells([...result.nodes, ...result.edges]);
+        return graph;
+      }).catch((e) => {
+        console.log(e);
+      });
+    }
+
     const toggleCollapseNode = function (d) {
       // is expanded
       if (d.model.compound) {

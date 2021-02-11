@@ -422,7 +422,7 @@ export function initD3(containerElt, width, height, iconWidth) {
 }
 
 
-function createElkD3Renderer(_container_, _width_, _height_, _iconWidth_) {
+export function createElkD3Renderer(_container_, _width_, _height_, _iconWidth_) {
   let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
 
   const iconWidth = _iconWidth_ || 24;
