@@ -19,7 +19,7 @@ import 'codemirror/addon/display/panel.js';
 import 'codemirror/addon/lint/lint.js';
 import 'codemirror/addon/lint/javascript-lint.js';
 import 'codemirror/addon/lint/lint.css';
-import '../style/index.css';
+import '../style/widget-style.css';
 
 //import 'tslint';
 //globalThis.JSHINT = JSHINT;
@@ -33,7 +33,7 @@ export class CodeMirrorWidget extends Widget {
     super();
     this.addClass('CodeMirrorWidget');
 
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
     this.node.appendChild(div);
 
@@ -42,24 +42,24 @@ export class CodeMirrorWidget extends Widget {
 
     div.appendChild(this.selectElt);
 
-    let opt = document.createElement('option');
+    const opt = document.createElement('option');
     opt.value = 'Option 1';
     opt.text = 'Option 1';
     this.selectElt.add(opt);
 
-    let separator = document.createElement('div');
+    const separator = document.createElement('div');
     separator.setAttribute('class', 'separator');
     this.node.appendChild(separator);
 
-    let content = document.createElement('div');
+    const content = document.createElement('div');
     content.setAttribute('class', 'CodeMirrorWidget');
     this.node.appendChild(content);
 
     this._editor = CodeMirror(content, config);
-    let self = this;
+    const self = this;
     self.editor.on('changes', (instance) => {
       // Emit changes
-      let content = instance.getDoc().getValue();
+      const content = instance.getDoc().getValue();
       self._valueChanged.emit(content);
 
     });
@@ -78,7 +78,7 @@ export class CodeMirrorWidget extends Widget {
   }
 
   loadTarget(target: string): void {
-    var doc = this._editor.getDoc();
+    const doc = this._editor.getDoc();
     fetch(target)
       .then(response => response.json())
       .then(function (data) {
@@ -86,11 +86,11 @@ export class CodeMirrorWidget extends Widget {
       });
   }
 
-  protected onAfterAttach(msg: Message): void {
+  onAfterAttach(msg: Message): void {
     this._editor.refresh();
   }
 
-  protected onResize(msg: Widget.ResizeMessage): void {
+  onResize(msg: Widget.ResizeMessage): void {
     if (msg.width < 0 || msg.height < 0) {
       this._editor.refresh();
     } else {
@@ -108,7 +108,7 @@ export class CodeMirrorWidget extends Widget {
     }
 
     values.forEach((value, index) => {
-      let opt: HTMLOptionElement = document.createElement('option');
+      const opt: HTMLOptionElement = document.createElement('option');
       opt.value = index.toString();
       opt.text = `Sample #${index + 1}`;
       if (isScript(value)) {

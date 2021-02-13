@@ -43,89 +43,93 @@ export class ELKDimensionVisitor {
     return this;
   }
 
-  visit(tree) {
-    // Reset dimensions
-    if (typeof tree === 'undefined' || tree === null) {
-      return null;
-    }
-    if (tree.width) {
-      delete tree.width;
-    }
-    if (tree.height) {
-      delete tree.height;
-    }
-    if (tree.x) {
-      delete tree.x;
-    }
-    if (tree.y) {
-      delete tree.y;
-    }
+  visit(root) {
 
-    // Set Node dimensions
-    if (isContainer(tree)) {
-      // Set node properties
-      tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]',
-        'portAlignment.default': 'CENTER',
-        'portConstraints': 'FREE'
-      };
+    // FIFO 
+    const stack = [root];
+    // FIFO
+    let i = 0;
+    while (i < stack.length) {
+      let tree = stack[i]; i++;
+      // Reset dimensions
+      if (typeof tree === 'undefined' || tree === null) {
+        return null;
+      }
+      if (tree.width) {
+        delete tree.width;
+      }
+      if (tree.height) {
+        delete tree.height;
+      }
+      if (tree.x) {
+        delete tree.x;
+      }
+      if (tree.y) {
+        delete tree.y;
+      }
 
-    } else {
-      tree.width = this._nodeWidth;
-      tree.height = this._nodeHeight;
-      if (isDefaultResourceFn(tree)) {
-        if (isIconFn(tree)) {
-          // Set start + finish to icon size
-          tree.width = this._iconWidth;
-          tree.height = tree.width;
-        } else if (tree.inbound || tree.outbound) {
-          tree.width = tree.width / 2;
-          tree.height = tree.height / 2;
-        }
+      // Set Node dimensions
+      if (isContainer(tree)) {
+        // Set node properties
+
+        tree.properties = {
+          'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
+          //'portAlignment.default': 'CENTER',
+          //'portConstraints': 'FREE'
+        };
       } else {
-        tree.width = 3 * tree.width;
-        //tree.height = this._iconWidth;
+        tree.width = this._nodeWidth;
+        tree.height = this._nodeHeight;
+        if (isDefaultResourceFn(tree)) {
+          if (isIconFn(tree)) {
+            // Set start + finish to icon size
+            tree.width = this._iconWidth;
+            tree.height = tree.width;
+          } else if (tree.inbound || tree.outbound) {
+            tree.width = tree.width / 2;
+            tree.height = tree.height / 2;
+          }
+        } else {
+          const tagName = tree.model.tagName;
+          if (tagName === 'port' || tagName === 'start' || tagName === 'finish') {
+            tree.width = 2 * this._portSize;
+            tree.height = tree.width;
+          } else if (tagName === 'mark') {
+            tree.width = 4 * this._portSize;
+            tree.height = 2 * this._portSize;
+          } else {
+            tree.width = 2 * tree.width;
+          }
+        }
+
       }
-      // Set node properties
-      tree.properties = {
-        'nodeLabels.placement': '[H_LEFT, V_TOP, OUTSIDE]',
-        'portAlignment.default': 'CENTER',
-        'portConstraints': 'FREE'
-      };//*/
-    }
 
-    // Set port dimensions
-    if (Array.isArray(tree.ports)) {
-      tree.ports.forEach((p) => {
-        p.width = this._portSize;
-        p.height = p.width;
-      }, this);
-      // If tree is compound set 1st port 4x _portSize
-      /*
-      if(isContainer(tree)){
-        let p = tree.ports[0];
-        p.width = 4*this._portSize;
-        p.height = p.width;
+      // Set port dimensions
+      if (Array.isArray(tree.ports)) {
+        tree.ports.forEach((p) => {
+          p.width = this._portSize;
+          p.height = p.width;
+        }, this);
+
       }
-      //*/
+
+      // Set label dimensions
+
+      if (Array.isArray(tree.labels)) {
+        tree.labels.forEach((l) => {
+          l.height = 2 * this._labelHeight;
+          //l.width = 3 * this._nodeWidth;
+        }, this);
+      }
+
+      if (Array.isArray(tree.children)) {
+        tree.children.forEach((n) => {
+          //this.visit(n);
+          stack.push(n);
+        }, this);
+      }
     }
-
-    // Set label dimensions
-
-    if (Array.isArray(tree.labels)) {
-      tree.labels.forEach((l) => {
-        l.height = 2 * this._labelHeight;
-        //l.width = 3 * this._nodeWidth;
-      }, this);
-    }
-
-    if (Array.isArray(tree.children)) {
-      tree.children.forEach((n) => {
-        this.visit(n);
-      }, this);
-    }
-
-    return tree;
+    return root;
   }
 
 }
