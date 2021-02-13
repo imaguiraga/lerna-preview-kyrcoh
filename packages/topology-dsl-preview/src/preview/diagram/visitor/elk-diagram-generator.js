@@ -40,7 +40,7 @@ function updateInputOutputBindings(elt, graph, visitor) {
     }
   });
 }
-export class FlowToELKVisitor {
+export class DslToELKGenerator {
   constructor() {
     this.edgeCntIt = idGenFn('edge.', 0);
   }
@@ -78,7 +78,7 @@ export class FlowToELKVisitor {
         case 'fanIn':
         case 'fanOut':
         case 'group':
-          result = MutltiPathEltFlowToELKVisitor.visit(this, tree, filterFn, tree.resourceType);
+          result = MutltiPathEltDslToELKGenerator.visit(this, tree, filterFn, tree.resourceType);
           break;
         case 'optional':
           result = this._visitOptional(tree, filterFn);
@@ -105,26 +105,65 @@ export class FlowToELKVisitor {
   }
 
   _visitSequence(tree, filterFn) {
-    return SequenceEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return SequenceEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   _visitOptional(tree, filterFn) {
-    return OptionalEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return OptionalEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   _visitRepeat(tree, filterFn) {
-    return RepeatEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return RepeatEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   _visitTerminal(tree, filterFn) {
-    return TerminalFlowEltFlowToELKVisitor.visit(this, tree, filterFn);
+    return TerminalFlowEltDslToELKGenerator.visit(this, tree, filterFn);
   }
 
   getNodeModel(n) {
     let r = {
       id: n.id,
+      label: n.title,
+      model: {
+        resourceType: n.resourceType,
+        title: n.title,
+        direction: n.direction,
+        subType: n.subType,
+        tagName: n.tagName,
+        id: n.id,
+        provider: n.provider,
+        compound: n.compound,
+        data: n.data
+      },
+      // use label for container elt
+      labels: n.isTerminal() ? [] : [
+        {
+          text: n.title || n.id,
+          properties: {
+            'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]',
+          }
+        }
+      ]
+    };
+    // Layout direction
+    if (n.direction !== null) {
+      r.layoutOptions = {
+        'org.eclipse.elk.direction': n.direction
+      };
+    }
+    return r;
+  }
+
+  getPortModel(n) {
+    let r = {
+      id: n.id,
       label: n.id,
-      model: n,
+      model: {
+        tagName: 'port',
+        compound: false,
+        id: n.id,
+        data: n.data
+      },
       // use label for container elt
       labels: n.isTerminal() ? [] : [
         {
@@ -135,9 +174,12 @@ export class FlowToELKVisitor {
     return r;
   }
 
-  getPortModel(n) {
-    let r = this.getNodeModel(n);
-    r.model.tagName = 'port';
+  getSynthPortModel(n, tagName = 'port') {
+    let r = this.getPortModel(n);
+    r.model.tagName = tagName;
+    r.id = r.id + '.port';
+    r.model.id = r.id;
+    r.model.compound = false;
     return r;
   }
 
@@ -160,9 +202,9 @@ export class FlowToELKVisitor {
 }
 
 /**
- * Class TerminalFlowEltFlowToELKVisitor.
+ * Class TerminalFlowEltDslToELKGenerator.
  */
-class TerminalFlowEltFlowToELKVisitor {
+class TerminalFlowEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -171,16 +213,21 @@ class TerminalFlowEltFlowToELKVisitor {
    * @return {object} ctree Graph graph.
    */
   static visit(visitor, tree, filterFn) {
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
     };
+    // start + finish nodes
+    graph.ports.push(visitor.getPortModel(tree.start));
+    graph.ports.push(visitor.getPortModel(tree.finish));
 
     // Check if the only element is not a string 
     if (typeof tree.elts[0] === 'object') {
       let n = visitor.getNodeModel(tree);
+      n.parent = parent;
       if (filterFn) {
         if (!filterFn(n)) {
           graph.children.push(n);
@@ -195,9 +242,9 @@ class TerminalFlowEltFlowToELKVisitor {
 }
 
 /**
- * Class SequenceEltFlowToELKVisitor.
+ * Class SequenceEltDslToELKGenerator.
  */
-class SequenceEltFlowToELKVisitor {
+class SequenceEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -207,8 +254,9 @@ class SequenceEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn) {
     const SEQUENCE = 'sequence';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       /* layoutOptions: 
        { 
          'nodePlacement.strategy': 'NETWORK_SIMPLEX'
@@ -223,15 +271,21 @@ class SequenceEltFlowToELKVisitor {
     // start + finish nodes
     graph.ports.push(visitor.getPortModel(tree.start));
     graph.ports.push(visitor.getPortModel(tree.finish));
+
+    const start = visitor.getSynthPortModel(tree.start, 'start');
+    graph.children.push(start);
+    const finish = visitor.getSynthPortModel(tree.finish, 'finish');
+    graph.children.push(finish);
+
     // edges
 
     graph.edges.push({
       id: `${visitor.edgeCntIt.next().value}`,
-      sources: [tree.start.id],
+      sources: [start.id],
       targets: [tree.elts[0].start.id],
       ...visitor.getEdgeModel(tree),
     });
-
+    //*/
     for (let i = 0; i < tree.elts.length - 1; i++) {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
@@ -244,15 +298,17 @@ class SequenceEltFlowToELKVisitor {
     graph.edges.push({
       id: `${visitor.edgeCntIt.next().value}`,
       sources: [tree.elts[tree.elts.length - 1].finish.id],
-      targets: [tree.finish.id],
+      targets: [finish.id],
       ...visitor.getEdgeModel(tree),
     });
+    //*/
     // concatenate graphs
 
     // nodes
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
@@ -269,13 +325,12 @@ class SequenceEltFlowToELKVisitor {
     return graph;
   }
 
-
 }
 
 /**
- * Class MutltiPathEltFlowToELKVisitor.
+ * Class MutltiPathEltDslToELKGenerator.
  */
-class MutltiPathEltFlowToELKVisitor {
+class MutltiPathEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -285,8 +340,9 @@ class MutltiPathEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn, type) {
     //const type = 'choice' | 'parallel';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -300,31 +356,58 @@ class MutltiPathEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
     // groups are just containers
-    if (type !== 'group') {
-      for (let i = 0; i < tree.elts.length; i++) {
-        if (type !== 'fanIn') {
-          graph.edges.push({
-            id: `${visitor.edgeCntIt.next().value}`,
-            sources: [tree.start.id],
-            targets: [tree.elts[i].start.id],
-            ...visitor.getEdgeModel(tree),
-          });
-        }
-        if (type !== 'fanOut') {
-          graph.edges.push({
-            id: `${visitor.edgeCntIt.next().value}`,
-            sources: [tree.elts[i].finish.id],
-            targets: [tree.finish.id],
-            ...visitor.getEdgeModel(tree),
-          });
-        }
-      }
+    if (type === 'fanOut') {
+      const start = visitor.getSynthPortModel(tree.start, 'start');
+      graph.children.push(start);
+
+      (tree.elts || []).forEach((elt) => {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [start.id],
+          targets: [elt.start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      });
+
+    } else if (type === 'fanIn') {
+      const finish = visitor.getSynthPortModel(tree.finish, 'finish');
+      graph.children.push(finish);
+      (tree.elts || []).forEach((elt) => {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [elt.finish.id],
+          targets: [finish.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      });
+
+    } else if (type === 'fanOut_fanIn') {
+      const start = visitor.getSynthPortModel(tree.start, 'start');
+      graph.children.push(start);
+      const finish = visitor.getSynthPortModel(tree.finish, 'finish');
+      graph.children.push(finish);
+      (tree.elts || []).forEach((elt) => {
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [start.id],
+          targets: [elt.start.id],
+          ...visitor.getEdgeModel(tree),
+        });
+
+        graph.edges.push({
+          id: `${visitor.edgeCntIt.next().value}`,
+          sources: [elt.finish.id],
+          targets: [finish.id],
+          ...visitor.getEdgeModel(tree),
+        });
+      });
     }
     // concatenate graphs
     // nodes
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
@@ -343,9 +426,9 @@ class MutltiPathEltFlowToELKVisitor {
 }
 
 /**
- * Class OptionalEltFlowToELKVisitor.
+ * Class OptionalEltDslToELKGenerator.
  */
-class OptionalEltFlowToELKVisitor {
+class OptionalEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -355,8 +438,9 @@ class OptionalEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn) {
     const OPTIONAL = 'optional';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -375,11 +459,16 @@ class OptionalEltFlowToELKVisitor {
     graph.ports.push(visitor.getPortModel(tree.finish));
     // edges
 
+    const start = visitor.getSynthPortModel(tree.start, 'start');
+    graph.children.push(start);
+    const finish = visitor.getSynthPortModel(tree.finish, 'finish');
+    graph.children.push(finish);
+
     if (tree.elts.length > 0) {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
 
@@ -392,7 +481,7 @@ class OptionalEltFlowToELKVisitor {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.skip.id],
         ...visitor.getEdgeModel(tree),
       });
@@ -400,15 +489,15 @@ class OptionalEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.skip.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     } else {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
-        targets: [tree.finish.id],
+        sources: [start.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -418,7 +507,7 @@ class OptionalEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[tree.elts.length - 1].finish.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -427,6 +516,7 @@ class OptionalEltFlowToELKVisitor {
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);
@@ -444,9 +534,9 @@ class OptionalEltFlowToELKVisitor {
 }
 
 /**
- * Class RepeatEltFlowToELKVisitor.
+ * Class RepeatEltDslToELKGenerator.
  */
-class RepeatEltFlowToELKVisitor {
+class RepeatEltDslToELKGenerator {
   /**
    * Convert a dsl tree to ctree Graph graph.
    * @param {object} visitor - The dsl tree visitor.
@@ -456,8 +546,9 @@ class RepeatEltFlowToELKVisitor {
    */
   static visit(visitor, tree, filterFn) {
     const REPEAT = 'repeat';
+    const parent = visitor.getNodeModel(tree);
     const graph = {
-      ...visitor.getNodeModel(tree),
+      ...parent,
       ports: [],
       children: [],
       edges: []
@@ -475,12 +566,17 @@ class RepeatEltFlowToELKVisitor {
 
     // finish node
     graph.ports.push(visitor.getPortModel(tree.finish));
+
+    const start = visitor.getSynthPortModel(tree.start, 'start');
+    graph.children.push(start);
+    const finish = visitor.getSynthPortModel(tree.finish, 'finish');
+    graph.children.push(finish);
     // edges
     if (tree.elts.length > 0) {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.elts[0].start.id],
         ...visitor.getEdgeModel(tree),
       });
@@ -496,7 +592,7 @@ class RepeatEltFlowToELKVisitor {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.start.id],
+        sources: [start.id],
         targets: [tree.loop.id],
         ...edgeModel,
       });
@@ -508,7 +604,7 @@ class RepeatEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.loop.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...edgeModel,
       });
 
@@ -516,8 +612,8 @@ class RepeatEltFlowToELKVisitor {
 
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.finish.id],
-        targets: [tree.start.id],
+        sources: [finish.id],
+        targets: [start.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -528,7 +624,7 @@ class RepeatEltFlowToELKVisitor {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: [tree.elts[tree.elts.length - 1].finish.id],
-        targets: [tree.finish.id],
+        targets: [finish.id],
         ...visitor.getEdgeModel(tree),
       });
     }
@@ -538,6 +634,7 @@ class RepeatEltFlowToELKVisitor {
     tree.elts.forEach(elt => {
       let ctree = elt.accept(visitor, n => tree.foundElt(n));
       if (ctree !== null) {
+        ctree.parent = parent;
         if (filterFn) {
           if (!filterFn(ctree)) {
             graph.children.push(ctree);

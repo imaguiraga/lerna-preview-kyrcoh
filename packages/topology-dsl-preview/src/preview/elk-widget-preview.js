@@ -27,9 +27,9 @@ import { AceEditorWidget } from './widgets/ace-editor-widget';
 
 import { ELKGraphWidget } from './widgets/elkgraph-widget';
 
-import './style/index.css';
-import { samples } from './samples1.js';
-import { samples2 } from './samples2.js';
+import './style/widget-style.css';
+import { samples } from './samples-1.js';
+import { samples2 } from './samples-2.js';
 
 import * as flowDsl1 from '@imaguiraga/topology-dsl-core';
 import * as azure from '../assets/js/Azure_Products_Icons';
@@ -38,6 +38,7 @@ import * as gcp from '../assets/js/GCP_Icons';
 const {
   parseDsl,
   parseDslModule,
+  debugOn,
   registerJSModule,
   resolveImports,
   NODEIDGENFN,
@@ -81,7 +82,7 @@ function main() {
 
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
-
+//*/
 }
 
 function createMainWidget(palette, commands) {

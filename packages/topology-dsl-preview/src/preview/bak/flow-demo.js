@@ -1,5 +1,5 @@
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
-import * as diagram from './diagram';
+import * as diagram from '../diagram';
 
 const {
   repeat,
@@ -54,6 +54,3 @@ const uidvisitor = new FlowUIDVisitor();
 testflow = uidvisitor.visit(testflow);
 const data = visitor.visit(testflow);
 
-let graph = diagram.createFlowDiagram('container');
-graph.data(data);
-graph.render();

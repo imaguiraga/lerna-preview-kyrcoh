@@ -1,4 +1,10 @@
 export const samples2 = [
+  `import { choice, terminal, sequence } from 'topology-dsl';
+  export const testflow = 
+    sequence(
+      terminal('a'), 
+      terminal('b')
+    );`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   az_Linux_Virtual_Machines,
@@ -19,7 +25,7 @@ const gm = gcp_Compute_Engine;
 const choice1 = choice(
       az_Blob_Storage('c')._title_('AZ BLOB-A'),
       az_Azure_SQL_Database('a')._title_('AZ SQL-A')
-    );
+    )._down_();
 	
 export const sequence1 = sequence(
     gm('c')._title_('GCP VM-C'),
@@ -118,5 +124,35 @@ export const v1 = sequence(path1, path2);
 export const v2 = path1;
 export const v3 = path2;
 export const v4 = path3;
-`
+`,
+`import { choice, terminal, sequence, fanOut, fanIn, group } from 'topology-dsl';
+export const v1 = sequence(
+  'Create \\nAggregations',
+  'Store \\nAggregations'
+)._down_()._title_('Step 2');
+
+const phase1 = sequence(
+	fanIn(
+		'GBP.EUR',
+		'GBP.BRL',
+		'EUR.AUD',
+		'GBP.JPY'
+	)._title_('Step 1'),
+	v1
+)._title_('Phase 1');
+
+const phase2 = sequence(
+	group(
+		'Create Operating \\nWindows'
+	)._title_('Step 3'),
+	sequence(
+		'Compute \\nCorrelations'
+		fanOut(
+			'Store \\nCorrelations',
+			'Publish \\nCorrelations',
+		)
+	)._down_()._title_('Step 4')
+)._title_('Phase 2');
+
+export const flow = sequence(phase1,phase2);`
 ];
