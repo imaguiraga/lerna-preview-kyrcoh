@@ -7,6 +7,7 @@ import {
 } from '../visitor/index.js';
 
 const elkGenerator = new DslToELKGenerator();
+const UNIT = 8;
 
 export function toElkGraph(dslObject) {
   let elkgraph = null;
@@ -26,18 +27,18 @@ export function elkLayout() {
     'algorithm': 'layered',
     'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
     'org.eclipse.elk.direction': 'RIGHT',
-    'port.borderOffset': 4,
-    'padding': 20,
+    'port.borderOffset': UNIT/2,
+    'padding': 2 * UNIT,
     'edgeRouting': 'ORTHOGONAL',
     'layered.mergeEdges': true,
     'zoomToFit': true,
-    'spacing': 40,
-    'spacing.nodeNodeBetweenLayers': 40,
-    'spacing.edgeNodeBetweenLayers': 40,
-    'spacing.edgeEdgeBetweenLayers': 40,
+    'spacing': 4 * UNIT,
+    'spacing.nodeNodeBetweenLayers': 4 * UNIT,
+    'spacing.edgeNodeBetweenLayers': 4 * UNIT,
+    'spacing.edgeEdgeBetweenLayers': 4 * UNIT,
     //'layering.strategy': 'LONGEST_PATH', 'NETWORK_SIMPLEX'
     'layering.strategy': 'COFFMAN_GRAHAM ',
-    'spacing.labelNode': 8
+    'spacing.labelNode': UNIT
   };
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html
