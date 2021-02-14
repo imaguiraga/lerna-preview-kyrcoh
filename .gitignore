@@ -3,3 +3,6 @@ build/
 package-lock.json
 yarn.lock
 settings.json
+.eslintcache
+.idea
+/packages/*/.eslintcache

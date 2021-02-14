@@ -5,7 +5,7 @@ import {
   Widget
 } from '@lumino/widgets';
 
-import * as diagram from "../diagram";
+import * as diagram from '../diagram';
 
 export class ELKGraphWidget extends Widget {
 
@@ -13,54 +13,66 @@ export class ELKGraphWidget extends Widget {
     super();
     this._flows = new Map();
     this.addClass('CodeMirrorWidget');
-    this.title.label = "PREVIEW";
+    this.title.label = 'PREVIEW';
     this.title.closable = false;
     this.title.caption = `Long description for ELK Graph`;
 
     let div = document.createElement('div');
-    div.setAttribute("style", "padding:4px;background-color: #dfdfdf;");
+    div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
-    this.selectElt.setAttribute("class", "flow-select");
+    this.selectElt.setAttribute('class', 'flow-select');
     div.appendChild(this.selectElt);
 
     let opt = document.createElement('option');
-    opt.value = "Option 1";
-    opt.text = "Option 1";
+    opt.value = 'Option 1';
+    opt.text = 'Option 1';
     this.selectElt.add(opt);
 
     let separator = document.createElement('div');
-    separator.setAttribute("class", "separator");
+    separator.setAttribute('class', 'separator');
     this.node.appendChild(separator);
 
+    const content = document.createElement('div');
+    content.setAttribute('class', 'app');
+    this.node.appendChild(content);
+
     this.contentPane = this.createVisibleContentPane();
-    this.node.appendChild(this.contentPane);
+    content.appendChild(this.contentPane);
 
     this.errorPane = this.createVisibleContentPane(false);
     this.errorPane.style.padding = '10px';
     this.errorPane.style.fontSize = '2em';
-    this.node.appendChild(this.errorPane);
+    content.appendChild(this.errorPane);
 
-    this.renderer = diagram.createElkRenderer(this.contentPane, _width, _height);
+    const minimapContainer = document.createElement('div');
+    minimapContainer.setAttribute('class', 'minimap-container');
+    content.appendChild(minimapContainer);
 
+    this.renderer = diagram.createElkRenderer(this.contentPane,minimapContainer, _width, _height);
+    
     console.log(`ctor : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
   }
 
   createVisibleContentPane(visible = true) {
     const content = document.createElement('div');
-    content.setAttribute("class", "content-pane");
-    content.setAttribute("style", "scroll-behavior: auto; overflow: scroll;");
+    content.setAttribute('class', 'app-content-pane');
+    content.setAttribute('style', 'scroll-behavior: auto; overflow: scroll;');
     content.style.display = visible ? 'block' : 'none';
     return content;
   }
 
   onAfterAttach(msg) {
+    /*
     console.log(`onAfterAttach : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
+    //*/
   }
 
   onResize(msg) {
-    console.log(`onResize : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight} # W${msg.width} - H${msg.height}`);
+    /*
+    console.log(`onResize : W${this.contentPane.clientWidth} - H${this.contentPane.clientHeight} # W${msg.width} - H${msg.height}`);
+    //*/
   }
 
   get graph() {
@@ -80,7 +92,7 @@ export class ELKGraphWidget extends Widget {
     }
 
     values.forEach((value, key) => {
-      let opt = document.createElement("option");
+      let opt = document.createElement('option');
       opt.value = key;
       opt.text = key;
       this.selectElt.add(opt);
@@ -101,7 +113,11 @@ export class ELKGraphWidget extends Widget {
       let self = this;
       this.selectElt.addEventListener('change', (event) => {
         const result = self._flows.get(event.target.value);
-        self.renderFlow(result);
+        self.renderFlow(result).then((result) => {
+          if(result !== null){
+            self.renderer.zoomGraph('fit');
+          }
+        });
       });
       this.renderFlow(current);
     }
@@ -109,14 +125,14 @@ export class ELKGraphWidget extends Widget {
 
   renderFlow(input) {
     if (input === undefined || input === null) {
-      return;
+      return Promise.resolve(null);
     }
 
     try {
-      this.renderer.render(input);
-
+      return this.renderer.render(input);
     } catch (e) {
       console.error(e);
+      return Promise.reject(e);
     }
 
   }

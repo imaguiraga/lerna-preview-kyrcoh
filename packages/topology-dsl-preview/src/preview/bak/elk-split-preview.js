@@ -1,19 +1,49 @@
 import './style/styles.css';
 // using ES6 modules
 import Split from 'split.js';
-import { samples } from './samples.js';
-import { createEditor } from './editor';
-import * as diagram from './diagram';
+import { samples } from '../samples1.js';
+import { createEditor } from '../editor';
+import * as diagram from '../diagram';
 
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
 
-const { parseDsl } = flowDsl;
+const {
+  parseDsl, parseDslModule,
+  resolveImports,
+  NODEIDGENFN,
+  clone
+} = flowDsl;
+
 const DEBUG = true;
 
-document.body.innerHTML = `
-<div id='grid'>
+function loadFnFactory() {
+  let loadedImports = new Map();
+  const loadFn = (key) => {
+    if (loadedImports.has(key)) {
+      let obj = loadedImports.get(key);
+      //Clone to avoid ids collision
+      let copy = clone(obj, NODEIDGENFN.next().value);
+      return copy;
+    } else {
+      return null;
+    }
+  };
+
+  loadFn.loadedImports = function (newValue) {
+    if (!arguments.length) return loadedImports;
+    loadedImports = newValue;
+    return this;
+  };
+
+  return loadFn;
+}
+
+flowDsl.load = loadFnFactory();
+
+document.body.innerHTML =
+  `<div id='grid'>
 		<div id='one' class='pane'>
-			<h6>Flow EDITOR</h6>
+			<h6>EDITOR</h6>
 			<div style='margin:2px;font-size:12px'>
 				<select id='flow-sample-select' class='flow-select'>
           <option value='-1'>Select a sample</option>
@@ -23,7 +53,7 @@ document.body.innerHTML = `
 			<div id='editor-pane' class='content-pane'></div>
 		</div>
 		<div id='two' class='pane'>
-			<h6>Flow PREVIEW</h6>
+			<h6>PREVIEW</h6>
 			<div style='margin:2px;font-size:12px'>
 				<select id='flow-preview-select' class='flow-select'>
           <option value='-1'>Select a flow</option>
@@ -32,8 +62,8 @@ document.body.innerHTML = `
 			<div class='separator'></div>
 			<div id='preview-pane' class='content-pane'></div>
 		</div>
-	</div>
-`;
+  </div>`
+  ;
 
 // Initialize Split Pane
 Split(['#one', '#two'], {
@@ -53,81 +83,46 @@ Split(['#one', '#two'], {
   })
 });
 
-const {
-  FlowToG6Visitor,
-  FlowUIDVisitor,
-  FlowToELKVisitor
-} = diagram;
-
-const visitor = new FlowToG6Visitor();
-const uidvisitor = new FlowUIDVisitor();
-const elkvisitor = new FlowToELKVisitor();
-
-const graph = diagram.createFlowDiagram('preview-pane');
+const renderer = diagram.createElkRenderer('preview-pane');
 
 function updatePreviewPane(content) {
-  if (typeof content === 'undefined') {
+  // Reset node ids
+  if (typeof content === 'undefined' || content === null) {
     return;
   }
   try {
     // Update preview
-    let flows = parseDsl(content, flowDsl);
-    renderFlow(flows.get(flows.keys().next().value));
-    initFlowSelection(flows);
+    resolveImports(content).then((resolvedImports) => {
+      NODEIDGENFN.next(true);
+      // Inject load function
+      flowDsl.load.loadedImports(resolvedImports);
+
+      parseDsl(content, flowDsl).then((flows) => {
+        // Update graph flows
+        renderFlow(flows.get(flows.keys().next().value));
+        initFlowSelection(flows);
+      });
+
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
 
   } catch (e) {
     console.error(e);
-    graph.data([]);
-    graph.render();
   }
 }
 
 function renderFlow(input) {
-  if (typeof input === 'undefined') {
+  if (typeof input === 'undefined' || input === null) {
     return;
   }
-  graph.data([]);
+
   try {
-    // Update preview
-    let flow = uidvisitor.visit(input);
-    const data = visitor.visit(flow);
-    graph.data(data !== null ? data : []);
-
-    const elkgraph = elkvisitor.visit(flow);
-    elkgraph.layoutOptions = {
-      'elk.algorithm': 'layered',
-      'nodePlacement.strategy': 'BRANDES_KOEPF',
-      //'org.eclipse.elk.edgeRouting': 'POLYLINE',
-      'org.eclipse.elk.edgeRouting': 'ORTHOGONAL',
-      'org.eclipse.elk.port.borderOffset': 10,
-      'org.eclipse.elk.layered.mergeEdges': true,
-      'spacing.nodeNodeBetweenLayers': 40,
-      'spacing.edgeNodeBetweenLayers': 40,
-      'spacing.edgeEdgeBetweenLayers': 40,
-      'layering.strategy': 'LONGEST_PATH'
-    };
-
-    elkgraph.children.forEach((n) => {
-      n.width = 80;
-      n.height = 60;
-      if (n.model) {
-        let tag = n.model.tagName || null;
-        // Set start + finish to icon size
-        if (tag === 'start' || tag === 'finish') {
-          n.width = 24;
-          n.height = n.width;
-        }
-      }
-    });
-
-    //console.log(JSON.stringify(elkgraph,null,'  '));
-    //console.log(elkgraph);
+    renderer.render(input);
 
   } catch (e) {
     console.error(e);
   }
-  graph.render();
-  if (DEBUG) console.log('zoom=' + graph.getZoom());
 
 }
 
@@ -139,9 +134,21 @@ editor.on('changes', (instance) => {
   updatePreviewPane(content);
 });
 
+let selectEltChangeHandler = null;
 function initFlowSelection(flows) {
+  NODEIDGENFN.next(true);
   // Populate select component from list of samples
   let selectElt = document.getElementById('flow-preview-select');
+  // Detach selection handler
+  if (selectEltChangeHandler != null) {
+    selectElt.removeEventListener('change', selectEltChangeHandler);
+  }
+
+  selectEltChangeHandler = (event) => {
+    const result = flows.get(event.target.value);
+    renderFlow(result);
+  };
+
   // Recreate flow options
   while (selectElt.firstChild) {
     selectElt.firstChild.remove();
@@ -151,14 +158,10 @@ function initFlowSelection(flows) {
     let opt = new Option(key, key);
     selectElt.add(opt);
   });
-  // Update flow when the selection changes 
-  selectElt.addEventListener('change', (event) => {
-    const result = flows.get(event.target.value);
-    renderFlow(result);
-  });
+  // Attach selection handler 
+  selectElt.addEventListener('change', selectEltChangeHandler);
 
 }
-
 
 (function initSampleSelection(samples, editor) {
   // Populate select component from list of samples
