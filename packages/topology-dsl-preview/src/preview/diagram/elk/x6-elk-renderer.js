@@ -450,11 +450,14 @@ function createX6Graph(containerElt, minimapContainer, width, height) {
         {
           name: 'boundary',
           args: {
+            padding: 0,
+            useCellGeometry: true,
             attrs: {
-              fill: '#7c68fc',
-              //stroke: '#333',
-              'stroke-width': 1,
-              'fill-opacity': 0.2,
+              fill: 'lightgrey',
+              stroke: 'blue',
+              strokeWidth: 3,
+              strokeDasharray: 'none',
+              fillOpacity: 0.45,
             },
           },
         },
