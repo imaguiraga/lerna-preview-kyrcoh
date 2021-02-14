@@ -1,9 +1,4 @@
 import {
-  isIconFn,
-  isDefaultResourceFn
-} from './util.js';
-
-import {
   isContainer
 } from '@imaguiraga/topology-dsl-core';
 
