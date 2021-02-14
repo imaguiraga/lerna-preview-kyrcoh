@@ -10,18 +10,19 @@ function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/,
 const LINE = 'line';
 Graph.registerRouter(LINE, lineRouter);
 
+const UNIT = 8;
 const EMPTY_ARRAY = [];
 export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _iconWidth_) {
 
   let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
 
-  const iconWidth = _iconWidth_ || 24;
+  const iconWidth = _iconWidth_ || 3 * UNIT;
   const width = (_width_ || containerElt.scrollWidth || 800) + 240;
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
   const graph = createX6Graph(containerElt, _minimap_, width, height);
   const layout = elkLayout();
-  layout.nodeSize(80).portSize(8);
+  layout.nodeSize(10 * UNIT).portSize(UNIT);
 
   function render(dslObject) {
     if (dslObject !== null) {
@@ -50,6 +51,9 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
     }
 
     const toggleCollapseNode = function (d) {
+      if (d === undefined || d === null) {
+        return;
+      }
       // is expanded
       if (d.model.compound || d.collapsed === true) {
         if (d.collapsed !== true) {
@@ -79,10 +83,8 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
 
     graph.on('node:dblclick', ({ e, x, y, node, view }) => {
       console.log(node);
-      const elkNode = lookup.get(node.id);//node.getData().elkNode;
-      if (elkNode !== undefined) {
-        toggleCollapseNode(elkNode);
-      }
+      const elkNode = lookup.get(node.id);
+      toggleCollapseNode(elkNode);
     });
 
     //*/
@@ -120,21 +122,21 @@ const RESOURCE_HTML = {
     // If icon exist
     if (iconPath !== undefined && iconPath !== null) {
       const img = document.createElement('img');
-      const margin = 4;
+
       img.src = iconPath;
-      //img.style.margin = margin;
-      img.width = (model.compound === true ? model.height : model.height / 2) - 2 * margin;
+      img.width = (model.compound === true ? model.height : model.height / 2) - UNIT;
       img.height = img.width;
       wrap.appendChild(img);
     }
 
     const textdiv = document.createElement('div');
-    textdiv.style.padding = 4;
+    textdiv.style.padding = UNIT / 2;
     textdiv.style.display = 'inline-block';
+    textdiv.style.margin = 'auto';
 
     textdiv.innerHTML =
-      `<div><code>${style && style.product ? style.product : ''}</code></div>
-      <div><code style='font-weight:bold;font-size:1.25em'>${model !== undefined ? model.title : ''}</code></div>`
+      (style && style.product ? `<div><code>${style.product}</code></div>` : '') +
+      `<div><code style='font-weight:bold;font-size:1.25em'>${model !== undefined ? model.title : ''}</code></div>`
       ;
     wrap.appendChild(textdiv);
 
@@ -201,7 +203,7 @@ function createX6Node(elkNode, g) {
   n.attrs.body.class = clazz.join(' ');
 
   // Ports
-  const PORT_RADIUS = 4;
+  const PORT_RADIUS = UNIT / 2;
   const ports = (elkNode.ports || []);
   const items = ports.map((p) => {
     const r = {
@@ -232,7 +234,7 @@ function createX6Node(elkNode, g) {
               magnet: false,
             },
             text: {
-              fontSize: 12,
+              fontSize: UNIT,
               fill: '#888'
             }
           }
@@ -253,15 +255,15 @@ function createX6Node(elkNode, g) {
         class: n.data.tagName,
       },
       text: {
-        fontSize: 12,
+        fontSize: UNIT,
         fill: '#888'
       }
     };
     // Round corners
     if (tagName === 'mark') {
       n.label = n.data.title;
-      n.attrs.body.rx = 4;
-      n.attrs.body.ry = 4;
+      n.attrs.body.rx = UNIT / 2;
+      n.attrs.body.ry = UNIT / 2;
     }
 
   } else {
@@ -290,12 +292,12 @@ function createX6Label(elkNode, g) {
     //label: elkNode.label,
     data: {
       ...model,
-      width: 3 * 80,//label.width,
+      width: 30 * UNIT,//label.width,
       height: label.height,
     },
     x: label.ax,
     y: label.ay,
-    width: elkNode.width,//3 * 80,//label.width,
+    width: elkNode.width,
     height: label.height,
     attrs: {
       body: {
@@ -321,11 +323,11 @@ function createX6Edge(e, g) {
         class: 'edge',
         sourceMarker: {
           name: e.style.startArrow ? 'classic' : null,
-          size: 8
+          size: UNIT
         },
         targetMarker: {
           name: e.style.endArrow ? 'classic' : null,
-          size: 8
+          size: UNIT
         },
       }
     }
@@ -434,7 +436,7 @@ function createX6Graph(containerElt, minimapContainer, width, height) {
       container: minimapContainer,
       minScale: 0.5,
       maxScale: 2.5,
-      padding: 4
+      padding: UNIT / 2
     },
   });
   graph.on('cell:mouseenter', ({ e, cell, view }) => {
