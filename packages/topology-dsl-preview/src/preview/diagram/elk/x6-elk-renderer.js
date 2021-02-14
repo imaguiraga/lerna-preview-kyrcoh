@@ -124,7 +124,7 @@ const RESOURCE_HTML = {
       const img = document.createElement('img');
 
       img.src = iconPath;
-      img.width = (model.compound === true ? model.height : model.height / 2) - UNIT;
+      img.width = (model.compound === undefined || model.compound === true ? model.height : model.height / 2) - UNIT;
       img.height = img.width;
       wrap.appendChild(img);
     }
@@ -249,6 +249,7 @@ function createX6Node(elkNode, g) {
   const tagName = n.data.tagName;
   if (tagName === 'port' || tagName === 'start' || tagName === 'finish' || tagName === 'mark') {
     n.label = null;
+    n.data.compound = undefined;
     n.shape = 'rect';
     n.attrs = {
       body: {
@@ -309,6 +310,7 @@ function createX6Label(elkNode, g) {
     },
 
   };
+  l.data.compound = undefined;
   l.label = null;
   l.shape = 'html';
   l.html = RESOURCE_HTML;
@@ -435,12 +437,15 @@ function createX6Graph(containerElt, minimapContainer, width, height) {
       enabled: true,
       container: minimapContainer,
       minScale: 0.5,
-      maxScale: 2.5,
-      padding: UNIT / 2
+      maxScale: 2,
+      padding: UNIT / 2,
+      width: 200,
+      height: 160
     },
   });
+
   graph.on('cell:mouseenter', ({ e, cell, view }) => {
-    if (cell.isNode()) {
+    if (cell.isNode() && cell.getData().compound !== undefined) {
       cell.addTools([
         {
           name: 'boundary',
@@ -459,5 +464,6 @@ function createX6Graph(containerElt, minimapContainer, width, height) {
   graph.on('cell:mouseleave', ({ e, cell, view }) => {
     cell.removeTools();
   });
+  //*/
   return graph;
 }
