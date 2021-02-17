@@ -1,4 +1,4 @@
-import { terminal } from '@imaguiraga/topology-dsl-core';
+import { resource } from '@imaguiraga/topology-dsl-core';
 import { mapArray } from './{{ provider }}-map.js';
 
 {% for item in items %}
@@ -7,8 +7,8 @@ import { mapArray } from './{{ provider }}-map.js';
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function {{ item.dsl }}(elt) {
-  return {{ item.tagName }}(elt)._subType_('{{ item.subType }}')._set_('style', mapArray.get('{{ item.dsl }}'));
+export function {{ item.dsl }}(...elt) {
+  return resource(...elt)._subType_('{{ item.subType }}')._set_('style', mapArray.get('{{ item.dsl }}'));
 }
 
 {% endfor %}
