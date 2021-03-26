@@ -1,7 +1,7 @@
 
 import { Graph, Shape, Point, Node, Edge } from '@antv/x6';
 import { data } from './x6-data.js';
-import { toElkGraph, elkLayout, buildNodeLookup } from './elk-layout-factory';
+import { elkLayout, buildNodeLookup } from './elk-layout-factory';
 
 function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/, view/*: EdgeView*/) {
   const points = vertices.map((p) => Point.create(p));
@@ -24,14 +24,11 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
   const toElkLayout = elkLayout();
   toElkLayout.nodeSize(10 * UNIT).portSize(UNIT);
 
-  function render(dslObject) {
-    if (dslObject !== null) {
-      //console.log(JSON.stringify(dslObject,null,'  '));
-    } else {
+  function render(elkgraph) {
+    if (elkgraph === null) {
       return Promise.resolve(null);
     }
 
-    let elkgraph = toElkGraph(dslObject);
     const lookup = buildNodeLookup(elkgraph);
 
     function refreshLayoutFn(_elkgraph_) {
