@@ -27,7 +27,7 @@ export function elkLayout() {
     'algorithm': 'layered',
     'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
     'org.eclipse.elk.direction': 'RIGHT',
-    'port.borderOffset': UNIT/2,
+    'port.borderOffset': UNIT / 2,
     'padding': 2 * UNIT,
     'edgeRouting': 'ORTHOGONAL',
     'layered.mergeEdges': true,
@@ -61,10 +61,10 @@ export function elkLayout() {
       layoutOptions: options,
       logging: false,
       measureExecutionTime: false
-    }).then((elkLayoutGraph) => {
-      const g = toAbsolute(elkLayoutGraph);
-      //console.log(g);
-      return g;
+    }).then((relativeElkLayout) => {
+      const absoluteElkLayout = toAbsoluteElkLayout(relativeElkLayout);
+      //console.log(absoluteElkLayout);
+      return absoluteElkLayout;
     });
 
     return elkpromise;
@@ -108,11 +108,11 @@ export function elkLayout() {
   return layoutFn;
 }
 
-export function toAbsolute(elkNode) {
-  return toAbsoluteIt(elkNode);
+export function toAbsoluteElkLayout(elkLayout) {
+  return toAbsoluteElkLayoutIt(elkLayout);
 }
 
-function toAbsoluteRec(elkNode, x0 = 0, y0 = 0) {
+function toAbsoluteElkLayoutRec(elkNode, x0 = 0, y0 = 0) {
   // Clone node 
   const n = elkNode;
   // absolute coordinate
@@ -161,7 +161,7 @@ function toAbsoluteRec(elkNode, x0 = 0, y0 = 0) {
   });
 
   (elkNode.children || []).forEach((c) => {
-    toAbsoluteRec(c, n.ax, n.ay);
+    toAbsoluteElkLayoutRec(c, n.ax, n.ay);
   });
 
   return n;
@@ -191,7 +191,7 @@ export function buildNodeLookup(elkNode) {
   return index;
 }
 
-function toAbsoluteIt(elkNode) {
+function toAbsoluteElkLayoutIt(elkNode) {
   // absolute coordinate
   elkNode.ax = elkNode.x;
   elkNode.ay = elkNode.y;

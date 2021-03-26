@@ -21,8 +21,8 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
   const graph = createX6Graph(containerElt, _minimap_, width, height);
-  const layout = elkLayout();
-  layout.nodeSize(10 * UNIT).portSize(UNIT);
+  const toElkLayout = elkLayout();
+  toElkLayout.nodeSize(10 * UNIT).portSize(UNIT);
 
   function render(dslObject) {
     if (dslObject !== null) {
@@ -34,16 +34,16 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
     let elkgraph = toElkGraph(dslObject);
     const lookup = buildNodeLookup(elkgraph);
 
-    function refreshFn(_elkgraph_) {
-      return layout(_elkgraph_).then((elkLayoutGraph) => {
+    function refreshLayoutFn(_elkgraph_) {
+      return toElkLayout(_elkgraph_).then((elkLayout) => {
         // Clear and redraw
         // reset diagram
-        //console.log(JSON.stringify(elkLayoutGraph,null, ' '));
-        const result = toX6Graph(elkLayoutGraph);
-        //console.log(result);
-        //console.log(JSON.stringify(result,null, ' '));
-        graph.fromJSON(result);
-        //graph.resetCells([...result.nodes, ...result.edges]);
+        //console.log(JSON.stringify(elkLayout,null, ' '));
+        const x6Layout = toX6Layout(elkLayout);
+        //console.log(x6Layout);
+        //console.log(JSON.stringify(x6Layout,null, ' '));
+        graph.fromJSON(x6Layout);
+        //graph.resetCells([...x6Layout.nodes, ...x6Layout.edges]);
         return graph;
       }).catch((e) => {
         console.log(e);
@@ -77,18 +77,18 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
           d.collapsed = false;
         }
 
-        refreshFn(elkgraph);
+        refreshLayoutFn(elkgraph);
       }
     };
 
     graph.on('node:dblclick', ({ e, x, y, node, view }) => {
       console.log(node);
-      const elkNode = lookup.get(node.id);
-      toggleCollapseNode(elkNode);
+      const elkLayoutNode = lookup.get(node.id);
+      toggleCollapseNode(elkLayoutNode);
     });
 
     //*/
-    return refreshFn(elkgraph);
+    return refreshLayoutFn(elkgraph);
   }
 
   return {
@@ -106,8 +106,8 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
   };
 }
 
-export function toX6Graph(elkNode) {
-  return toX6GraphRec(elkNode);
+export function toX6Layout(elkLayoutNode) {
+  return toX6LayoutRec(elkLayoutNode);
 }
 
 const RESOURCE_HTML = {
@@ -147,14 +147,14 @@ const RESOURCE_HTML = {
   },
 };
 
-function toX6GraphRec(elkNode, g = { nodes: [], edges: [] }) {
+function toX6LayoutRec(elkLayoutNode, g = { nodes: [], edges: [] }) {
   // Clone node 
-  const n = createX6Node(elkNode, g);
+  const n = createX6Node(elkLayoutNode, g);
 
   const children = [];
-  (elkNode.children || []).forEach((c) => {
+  (elkLayoutNode.children || []).forEach((c) => {
     children.push(c.id);
-    toX6GraphRec(c, g);
+    toX6LayoutRec(c, g);
   });
 
   if (children.length > 0) {
@@ -162,26 +162,26 @@ function toX6GraphRec(elkNode, g = { nodes: [], edges: [] }) {
   }
 
   // Edges
-  (elkNode.edges || []).forEach((e) => {
+  (elkLayoutNode.edges || []).forEach((e) => {
     const t = createX6Edge(e, g);
   });
   return g;
 }
 
-function createX6Node(elkNode, g) {
-  let model = elkNode.model || {};
+function createX6Node(elkLayoutNode, g) {
+  let model = elkLayoutNode.model || {};
   const n = {
-    id: elkNode.id,
-    //label: elkNode.label,
+    id: elkLayoutNode.id,
+    //label: elkLayoutNode.label,
     data: {
       ...model,
-      width: elkNode.width,
-      height: elkNode.height
+      width: elkLayoutNode.width,
+      height: elkLayoutNode.height
     },
-    x: elkNode.ax,
-    y: elkNode.ay,
-    width: elkNode.width,
-    height: elkNode.height,
+    x: elkLayoutNode.ax,
+    y: elkLayoutNode.ay,
+    width: elkLayoutNode.width,
+    height: elkLayoutNode.height,
     attrs: {
       body: {
         class: 'node',
@@ -191,20 +191,20 @@ function createX6Node(elkNode, g) {
       }
     },
   };
-  n.data.width = elkNode.width;
-  n.data.height = elkNode.height;
+  n.data.width = elkLayoutNode.width;
+  n.data.height = elkLayoutNode.height;
 
   const clazz = ['node'];
-  if (elkNode.model !== undefined) {
-    clazz.push(elkNode.model.provider);
-    clazz.push(elkNode.model.resourceType);
-    clazz.push(elkNode.model.subType);
+  if (elkLayoutNode.model !== undefined) {
+    clazz.push(elkLayoutNode.model.provider);
+    clazz.push(elkLayoutNode.model.resourceType);
+    clazz.push(elkLayoutNode.model.subType);
   }
   n.attrs.body.class = clazz.join(' ');
 
   // Ports
   const PORT_RADIUS = UNIT / 2;
-  const ports = (elkNode.ports || []);
+  const ports = (elkLayoutNode.ports || []);
   const items = ports.map((p) => {
     const r = {
       group: 'abs',
@@ -245,7 +245,7 @@ function createX6Node(elkNode, g) {
 
   //node_modules\@antv\x6\lib\shape\standard\html.d.ts
   // Port rendering
-  const children = (elkNode.children || []);
+  const children = (elkLayoutNode.children || []);
   const tagName = n.data.tagName;
   if (tagName === 'port' || tagName === 'start' || tagName === 'finish' || tagName === 'mark') {
     n.label = null;
@@ -273,8 +273,8 @@ function createX6Node(elkNode, g) {
       n.shape = 'html';
       n.html = RESOURCE_HTML;
 
-    } else if (elkNode.labels !== undefined) {
-      const l = createX6Label(elkNode, g);
+    } else if (elkLayoutNode.labels !== undefined) {
+      const l = createX6Label(elkLayoutNode, g);
     }
   }
 
@@ -284,13 +284,13 @@ function createX6Node(elkNode, g) {
   return n;
 }
 
-function createX6Label(elkNode, g) {
-  const label = elkNode.labels[0];
+function createX6Label(elkLayoutNode, g) {
+  const label = elkLayoutNode.labels[0];
   // Label Node
-  const model = elkNode.model || {};
+  const model = elkLayoutNode.model || {};
   const l = {
-    id: elkNode.id + '.label',
-    //label: elkNode.label,
+    id: elkLayoutNode.id + '.label',
+    //label: elkLayoutNode.label,
     data: {
       ...model,
       width: 30 * UNIT,//label.width,
@@ -298,7 +298,7 @@ function createX6Label(elkNode, g) {
     },
     x: label.ax,
     y: label.ay,
-    width: elkNode.width,
+    width: elkLayoutNode.width,
     height: label.height,
     attrs: {
       body: {
