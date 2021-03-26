@@ -61,10 +61,10 @@ export function elkLayout() {
       layoutOptions: options,
       logging: false,
       measureExecutionTime: false
-    }).then((relativeElkLayout) => {
-      const absoluteElkLayout = toAbsoluteElkLayout(relativeElkLayout);
-      //console.log(absoluteElkLayout);
-      return absoluteElkLayout;
+    }).then((elkLayoutRelative) => {
+      const elkLayoutAbsolute = toAbsoluteElkLayout(elkLayoutRelative);
+      //console.log(elkLayoutAbsolute);
+      return elkLayoutAbsolute;
     });
 
     return elkpromise;
