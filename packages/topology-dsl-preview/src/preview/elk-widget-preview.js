@@ -1,12 +1,4 @@
-// Copyright (c) Jupyter Development Team.
-// Distributed under the terms of the Modified BSD License.
-/*-----------------------------------------------------------------------------
-| Copyright (c) 2014-2017, PhosphorJS Contributors
-|
-| Distributed under the terms of the BSD 3-Clause License.
-|
-| The full license is in the file LICENSE, distributed with this software.
-|----------------------------------------------------------------------------*/
+// text -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
@@ -34,7 +26,7 @@ import { samples2 } from './samples-2.js';
 import * as flowDsl1 from '@imaguiraga/topology-dsl-core';
 import * as azure from '../assets/js/Azure_Products_Icons';
 import * as gcp from '../assets/js/GCP_Icons';
-
+import { toElkGraph } from './diagram';
 const {
   parseDsl,
   parseDslModule,
@@ -82,7 +74,7 @@ function main() {
 
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
-//*/
+  //*/
 }
 
 function createMainWidget(palette, commands) {
@@ -95,23 +87,52 @@ function createMainWidget(palette, commands) {
   });
   //*/
 
-  //  const editorWidget = new AceEditorWidget();
+  // const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'EDITOR';
+
+  window.addEventListener('message', (event) => {
+    if (event.origin !== window.location.origin) {
+      return;
+    }
+    if (event.data.jsonrpc !== undefined) {
+      console.log('event => ' + event.data.method);
+      if (event.data.method === 'update.flows') {
+        // Convert entries array to map
+        elkgraphWidget.flows = event.data.params;
+      }
+    }
+
+  }, false);
 
   const callbackFn = function (content) {
     try {
-      //TODO NODEIDGENFN.next(true);         
+      // TODO NODEIDGENFN.next(true);         
       parseDslModule(content, flowDsl).then((flows) => {
         // Update graph flows
-        if (flows) {
-          elkgraphWidget.flows = flows;
+        if (flows !== undefined && flows !== null) {
+          const result = new Map();
+          flows.forEach((dslObject, key, map) => {
+            if (dslObject !== null) {
+              //console.log(JSON.stringify(dslObject,null,'  '));
+              const elkgraph = toElkGraph(dslObject);
+              result.set(key, elkgraph);
+            }
+
+          });
+
           console.log('parseDslModule');
+          // Convert to array
+          const message = { jsonrpc: '2.0', method: 'update.flows', params: result };
+          // Update flows
+          window.postMessage(message, window.location.origin);
         }
       }).catch((err) => {
         console.log(err);
         let variables = new Map();
-        variables.set('ERROR', err);
-        elkgraphWidget.flows = variables;
+        variables.set('ERROR', err.message);
+        const message = { jsonrpc: '2.0', method: 'update.flows', params: variables };
+        // Update flows
+        window.postMessage(message, window.location.origin);
       });
 
     } catch (e) {

@@ -1,4 +1,4 @@
-import { terminal } from '@imaguiraga/topology-dsl-core';
+import { resource } from '@imaguiraga/topology-dsl-core';
 import { mapArray } from './Azure_Products_Icons-map.js';
 
 /**
@@ -6,8 +6,8 @@ import { mapArray } from './Azure_Products_Icons-map.js';
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Anomaly_Detector(elt) {
-  return terminal(elt)._subType_('az_Anomaly_Detector')._set_('style', mapArray.get('az_Anomaly_Detector'));
+export function az_Anomaly_Detector(...elt) {
+  return resource(...elt)._subType_('az_Anomaly_Detector')._set_('style', mapArray.get('az_Anomaly_Detector'));
 }
 
 /**
@@ -15,8 +15,8 @@ export function az_Anomaly_Detector(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Bot_Service(elt) {
-  return terminal(elt)._subType_('az_Azure_Bot_Service')._set_('style', mapArray.get('az_Azure_Bot_Service'));
+export function az_Azure_Bot_Service(...elt) {
+  return resource(...elt)._subType_('az_Azure_Bot_Service')._set_('style', mapArray.get('az_Azure_Bot_Service'));
 }
 
 /**
@@ -24,8 +24,8 @@ export function az_Azure_Bot_Service(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Cognitive_Search(elt) {
-  return terminal(elt)._subType_('az_Azure_Cognitive_Search')._set_('style', mapArray.get('az_Azure_Cognitive_Search'));
+export function az_Azure_Cognitive_Search(...elt) {
+  return resource(...elt)._subType_('az_Azure_Cognitive_Search')._set_('style', mapArray.get('az_Azure_Cognitive_Search'));
 }
 
 /**
@@ -33,8 +33,8 @@ export function az_Azure_Cognitive_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Cognitive_Services(elt) {
-  return terminal(elt)._subType_('az_Azure_Cognitive_Services')._set_('style', mapArray.get('az_Azure_Cognitive_Services'));
+export function az_Azure_Cognitive_Services(...elt) {
+  return resource(...elt)._subType_('az_Azure_Cognitive_Services')._set_('style', mapArray.get('az_Azure_Cognitive_Services'));
 }
 
 /**
@@ -42,8 +42,8 @@ export function az_Azure_Cognitive_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Databricks(elt) {
-  return terminal(elt)._subType_('az_Azure_Databricks')._set_('style', mapArray.get('az_Azure_Databricks'));
+export function az_Azure_Databricks(...elt) {
+  return resource(...elt)._subType_('az_Azure_Databricks')._set_('style', mapArray.get('az_Azure_Databricks'));
 }
 
 /**
@@ -51,8 +51,8 @@ export function az_Azure_Databricks(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Machine_Learning(elt) {
-  return terminal(elt)._subType_('az_Azure_Machine_Learning')._set_('style', mapArray.get('az_Azure_Machine_Learning'));
+export function az_Azure_Machine_Learning(...elt) {
+  return resource(...elt)._subType_('az_Azure_Machine_Learning')._set_('style', mapArray.get('az_Azure_Machine_Learning'));
 }
 
 /**
@@ -60,8 +60,8 @@ export function az_Azure_Machine_Learning(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Open_Datasets(elt) {
-  return terminal(elt)._subType_('az_Azure_Open_Datasets')._set_('style', mapArray.get('az_Azure_Open_Datasets'));
+export function az_Azure_Open_Datasets(...elt) {
+  return resource(...elt)._subType_('az_Azure_Open_Datasets')._set_('style', mapArray.get('az_Azure_Open_Datasets'));
 }
 
 /**
@@ -69,8 +69,8 @@ export function az_Azure_Open_Datasets(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_RTOS(elt) {
-  return terminal(elt)._subType_('az_Azure_RTOS')._set_('style', mapArray.get('az_Azure_RTOS'));
+export function az_Azure_RTOS(...elt) {
+  return resource(...elt)._subType_('az_Azure_RTOS')._set_('style', mapArray.get('az_Azure_RTOS'));
 }
 
 /**
@@ -78,8 +78,8 @@ export function az_Azure_RTOS(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Autosuggest(elt) {
-  return terminal(elt)._subType_('az_Bing_Autosuggest')._set_('style', mapArray.get('az_Bing_Autosuggest'));
+export function az_Bing_Autosuggest(...elt) {
+  return resource(...elt)._subType_('az_Bing_Autosuggest')._set_('style', mapArray.get('az_Bing_Autosuggest'));
 }
 
 /**
@@ -87,8 +87,8 @@ export function az_Bing_Autosuggest(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Custom_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_Custom_Search')._set_('style', mapArray.get('az_Bing_Custom_Search'));
+export function az_Bing_Custom_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_Custom_Search')._set_('style', mapArray.get('az_Bing_Custom_Search'));
 }
 
 /**
@@ -96,8 +96,8 @@ export function az_Bing_Custom_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Entity_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_Entity_Search')._set_('style', mapArray.get('az_Bing_Entity_Search'));
+export function az_Bing_Entity_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_Entity_Search')._set_('style', mapArray.get('az_Bing_Entity_Search'));
 }
 
 /**
@@ -105,8 +105,8 @@ export function az_Bing_Entity_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Image_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_Image_Search')._set_('style', mapArray.get('az_Bing_Image_Search'));
+export function az_Bing_Image_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_Image_Search')._set_('style', mapArray.get('az_Bing_Image_Search'));
 }
 
 /**
@@ -114,8 +114,8 @@ export function az_Bing_Image_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_News_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_News_Search')._set_('style', mapArray.get('az_Bing_News_Search'));
+export function az_Bing_News_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_News_Search')._set_('style', mapArray.get('az_Bing_News_Search'));
 }
 
 /**
@@ -123,8 +123,8 @@ export function az_Bing_News_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Spell_Check(elt) {
-  return terminal(elt)._subType_('az_Bing_Spell_Check')._set_('style', mapArray.get('az_Bing_Spell_Check'));
+export function az_Bing_Spell_Check(...elt) {
+  return resource(...elt)._subType_('az_Bing_Spell_Check')._set_('style', mapArray.get('az_Bing_Spell_Check'));
 }
 
 /**
@@ -132,8 +132,8 @@ export function az_Bing_Spell_Check(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Video_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_Video_Search')._set_('style', mapArray.get('az_Bing_Video_Search'));
+export function az_Bing_Video_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_Video_Search')._set_('style', mapArray.get('az_Bing_Video_Search'));
 }
 
 /**
@@ -141,8 +141,8 @@ export function az_Bing_Video_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Visual_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_Visual_Search')._set_('style', mapArray.get('az_Bing_Visual_Search'));
+export function az_Bing_Visual_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_Visual_Search')._set_('style', mapArray.get('az_Bing_Visual_Search'));
 }
 
 /**
@@ -150,8 +150,8 @@ export function az_Bing_Visual_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Bing_Web_Search(elt) {
-  return terminal(elt)._subType_('az_Bing_Web_Search')._set_('style', mapArray.get('az_Bing_Web_Search'));
+export function az_Bing_Web_Search(...elt) {
+  return resource(...elt)._subType_('az_Bing_Web_Search')._set_('style', mapArray.get('az_Bing_Web_Search'));
 }
 
 /**
@@ -159,8 +159,8 @@ export function az_Bing_Web_Search(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Communication_Services__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Communication_Services__Preview_')._set_('style', mapArray.get('az_Azure_Communication_Services__Preview_'));
+export function az_Azure_Communication_Services__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Communication_Services__Preview_')._set_('style', mapArray.get('az_Azure_Communication_Services__Preview_'));
 }
 
 /**
@@ -168,8 +168,8 @@ export function az_Azure_Communication_Services__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Computer_Vision(elt) {
-  return terminal(elt)._subType_('az_Computer_Vision')._set_('style', mapArray.get('az_Computer_Vision'));
+export function az_Computer_Vision(...elt) {
+  return resource(...elt)._subType_('az_Computer_Vision')._set_('style', mapArray.get('az_Computer_Vision'));
 }
 
 /**
@@ -177,8 +177,8 @@ export function az_Computer_Vision(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Content_Moderator(elt) {
-  return terminal(elt)._subType_('az_Content_Moderator')._set_('style', mapArray.get('az_Content_Moderator'));
+export function az_Content_Moderator(...elt) {
+  return resource(...elt)._subType_('az_Content_Moderator')._set_('style', mapArray.get('az_Content_Moderator'));
 }
 
 /**
@@ -186,8 +186,8 @@ export function az_Content_Moderator(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Custom_Vision(elt) {
-  return terminal(elt)._subType_('az_Custom_Vision')._set_('style', mapArray.get('az_Custom_Vision'));
+export function az_Custom_Vision(...elt) {
+  return resource(...elt)._subType_('az_Custom_Vision')._set_('style', mapArray.get('az_Custom_Vision'));
 }
 
 /**
@@ -195,8 +195,8 @@ export function az_Custom_Vision(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Data_Science_Virtual_Machines(elt) {
-  return terminal(elt)._subType_('az_Data_Science_Virtual_Machines')._set_('style', mapArray.get('az_Data_Science_Virtual_Machines'));
+export function az_Data_Science_Virtual_Machines(...elt) {
+  return resource(...elt)._subType_('az_Data_Science_Virtual_Machines')._set_('style', mapArray.get('az_Data_Science_Virtual_Machines'));
 }
 
 /**
@@ -204,8 +204,8 @@ export function az_Data_Science_Virtual_Machines(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Face(elt) {
-  return terminal(elt)._subType_('az_Face')._set_('style', mapArray.get('az_Face'));
+export function az_Face(...elt) {
+  return resource(...elt)._subType_('az_Face')._set_('style', mapArray.get('az_Face'));
 }
 
 /**
@@ -213,8 +213,8 @@ export function az_Face(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Form_Recognizer(elt) {
-  return terminal(elt)._subType_('az_Form_Recognizer')._set_('style', mapArray.get('az_Form_Recognizer'));
+export function az_Form_Recognizer(...elt) {
+  return resource(...elt)._subType_('az_Form_Recognizer')._set_('style', mapArray.get('az_Form_Recognizer'));
 }
 
 /**
@@ -222,8 +222,8 @@ export function az_Form_Recognizer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Immersive_Reader(elt) {
-  return terminal(elt)._subType_('az_Immersive_Reader')._set_('style', mapArray.get('az_Immersive_Reader'));
+export function az_Immersive_Reader(...elt) {
+  return resource(...elt)._subType_('az_Immersive_Reader')._set_('style', mapArray.get('az_Immersive_Reader'));
 }
 
 /**
@@ -231,8 +231,8 @@ export function az_Immersive_Reader(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Ink_Recognizer__Preview_(elt) {
-  return terminal(elt)._subType_('az_Ink_Recognizer__Preview_')._set_('style', mapArray.get('az_Ink_Recognizer__Preview_'));
+export function az_Ink_Recognizer__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Ink_Recognizer__Preview_')._set_('style', mapArray.get('az_Ink_Recognizer__Preview_'));
 }
 
 /**
@@ -240,8 +240,8 @@ export function az_Ink_Recognizer__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Kinect_DK(elt) {
-  return terminal(elt)._subType_('az_Kinect_DK')._set_('style', mapArray.get('az_Kinect_DK'));
+export function az_Kinect_DK(...elt) {
+  return resource(...elt)._subType_('az_Kinect_DK')._set_('style', mapArray.get('az_Kinect_DK'));
 }
 
 /**
@@ -249,8 +249,8 @@ export function az_Kinect_DK(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Language_Understanding(elt) {
-  return terminal(elt)._subType_('az_Language_Understanding')._set_('style', mapArray.get('az_Language_Understanding'));
+export function az_Language_Understanding(...elt) {
+  return resource(...elt)._subType_('az_Language_Understanding')._set_('style', mapArray.get('az_Language_Understanding'));
 }
 
 /**
@@ -258,8 +258,8 @@ export function az_Language_Understanding(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Microsoft_Genomics(elt) {
-  return terminal(elt)._subType_('az_Microsoft_Genomics')._set_('style', mapArray.get('az_Microsoft_Genomics'));
+export function az_Microsoft_Genomics(...elt) {
+  return resource(...elt)._subType_('az_Microsoft_Genomics')._set_('style', mapArray.get('az_Microsoft_Genomics'));
 }
 
 /**
@@ -267,8 +267,8 @@ export function az_Microsoft_Genomics(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Metrics_Advisor__Preview_(elt) {
-  return terminal(elt)._subType_('az_Metrics_Advisor__Preview_')._set_('style', mapArray.get('az_Metrics_Advisor__Preview_'));
+export function az_Metrics_Advisor__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Metrics_Advisor__Preview_')._set_('style', mapArray.get('az_Metrics_Advisor__Preview_'));
 }
 
 /**
@@ -276,8 +276,8 @@ export function az_Metrics_Advisor__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Personalizer(elt) {
-  return terminal(elt)._subType_('az_Personalizer')._set_('style', mapArray.get('az_Personalizer'));
+export function az_Personalizer(...elt) {
+  return resource(...elt)._subType_('az_Personalizer')._set_('style', mapArray.get('az_Personalizer'));
 }
 
 /**
@@ -285,8 +285,8 @@ export function az_Personalizer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Project_Bonsai__Preview_(elt) {
-  return terminal(elt)._subType_('az_Project_Bonsai__Preview_')._set_('style', mapArray.get('az_Project_Bonsai__Preview_'));
+export function az_Project_Bonsai__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Project_Bonsai__Preview_')._set_('style', mapArray.get('az_Project_Bonsai__Preview_'));
 }
 
 /**
@@ -294,8 +294,8 @@ export function az_Project_Bonsai__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_QnA_Maker(elt) {
-  return terminal(elt)._subType_('az_QnA_Maker')._set_('style', mapArray.get('az_QnA_Maker'));
+export function az_QnA_Maker(...elt) {
+  return resource(...elt)._subType_('az_QnA_Maker')._set_('style', mapArray.get('az_QnA_Maker'));
 }
 
 /**
@@ -303,8 +303,8 @@ export function az_QnA_Maker(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Speaker_Recognition__Preview_(elt) {
-  return terminal(elt)._subType_('az_Speaker_Recognition__Preview_')._set_('style', mapArray.get('az_Speaker_Recognition__Preview_'));
+export function az_Speaker_Recognition__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Speaker_Recognition__Preview_')._set_('style', mapArray.get('az_Speaker_Recognition__Preview_'));
 }
 
 /**
@@ -312,8 +312,8 @@ export function az_Speaker_Recognition__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Speech_to_Text(elt) {
-  return terminal(elt)._subType_('az_Speech_to_Text')._set_('style', mapArray.get('az_Speech_to_Text'));
+export function az_Speech_to_Text(...elt) {
+  return resource(...elt)._subType_('az_Speech_to_Text')._set_('style', mapArray.get('az_Speech_to_Text'));
 }
 
 /**
@@ -321,8 +321,8 @@ export function az_Speech_to_Text(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Speech_Translation(elt) {
-  return terminal(elt)._subType_('az_Speech_Translation')._set_('style', mapArray.get('az_Speech_Translation'));
+export function az_Speech_Translation(...elt) {
+  return resource(...elt)._subType_('az_Speech_Translation')._set_('style', mapArray.get('az_Speech_Translation'));
 }
 
 /**
@@ -330,8 +330,8 @@ export function az_Speech_Translation(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Text_Analytics(elt) {
-  return terminal(elt)._subType_('az_Text_Analytics')._set_('style', mapArray.get('az_Text_Analytics'));
+export function az_Text_Analytics(...elt) {
+  return resource(...elt)._subType_('az_Text_Analytics')._set_('style', mapArray.get('az_Text_Analytics'));
 }
 
 /**
@@ -339,8 +339,8 @@ export function az_Text_Analytics(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Text_to_Speech(elt) {
-  return terminal(elt)._subType_('az_Text_to_Speech')._set_('style', mapArray.get('az_Text_to_Speech'));
+export function az_Text_to_Speech(...elt) {
+  return resource(...elt)._subType_('az_Text_to_Speech')._set_('style', mapArray.get('az_Text_to_Speech'));
 }
 
 /**
@@ -348,8 +348,8 @@ export function az_Text_to_Speech(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Translator(elt) {
-  return terminal(elt)._subType_('az_Translator')._set_('style', mapArray.get('az_Translator'));
+export function az_Translator(...elt) {
+  return resource(...elt)._subType_('az_Translator')._set_('style', mapArray.get('az_Translator'));
 }
 
 /**
@@ -357,8 +357,8 @@ export function az_Translator(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Video_Indexer(elt) {
-  return terminal(elt)._subType_('az_Video_Indexer')._set_('style', mapArray.get('az_Video_Indexer'));
+export function az_Video_Indexer(...elt) {
+  return resource(...elt)._subType_('az_Video_Indexer')._set_('style', mapArray.get('az_Video_Indexer'));
 }
 
 /**
@@ -366,8 +366,8 @@ export function az_Video_Indexer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Analysis_Services(elt) {
-  return terminal(elt)._subType_('az_Azure_Analysis_Services')._set_('style', mapArray.get('az_Azure_Analysis_Services'));
+export function az_Azure_Analysis_Services(...elt) {
+  return resource(...elt)._subType_('az_Azure_Analysis_Services')._set_('style', mapArray.get('az_Azure_Analysis_Services'));
 }
 
 /**
@@ -375,8 +375,8 @@ export function az_Azure_Analysis_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Data_Explorer(elt) {
-  return terminal(elt)._subType_('az_Azure_Data_Explorer')._set_('style', mapArray.get('az_Azure_Data_Explorer'));
+export function az_Azure_Data_Explorer(...elt) {
+  return resource(...elt)._subType_('az_Azure_Data_Explorer')._set_('style', mapArray.get('az_Azure_Data_Explorer'));
 }
 
 /**
@@ -384,8 +384,8 @@ export function az_Azure_Data_Explorer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Data_Lake_Storage(elt) {
-  return terminal(elt)._subType_('az_Azure_Data_Lake_Storage')._set_('style', mapArray.get('az_Azure_Data_Lake_Storage'));
+export function az_Azure_Data_Lake_Storage(...elt) {
+  return resource(...elt)._subType_('az_Azure_Data_Lake_Storage')._set_('style', mapArray.get('az_Azure_Data_Lake_Storage'));
 }
 
 /**
@@ -393,8 +393,8 @@ export function az_Azure_Data_Lake_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Data_Share(elt) {
-  return terminal(elt)._subType_('az_Azure_Data_Share')._set_('style', mapArray.get('az_Azure_Data_Share'));
+export function az_Azure_Data_Share(...elt) {
+  return resource(...elt)._subType_('az_Azure_Data_Share')._set_('style', mapArray.get('az_Azure_Data_Share'));
 }
 
 /**
@@ -402,8 +402,8 @@ export function az_Azure_Data_Share(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Stream_Analytics(elt) {
-  return terminal(elt)._subType_('az_Azure_Stream_Analytics')._set_('style', mapArray.get('az_Azure_Stream_Analytics'));
+export function az_Azure_Stream_Analytics(...elt) {
+  return resource(...elt)._subType_('az_Azure_Stream_Analytics')._set_('style', mapArray.get('az_Azure_Stream_Analytics'));
 }
 
 /**
@@ -411,8 +411,8 @@ export function az_Azure_Stream_Analytics(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Synapse_Analytics(elt) {
-  return terminal(elt)._subType_('az_Azure_Synapse_Analytics')._set_('style', mapArray.get('az_Azure_Synapse_Analytics'));
+export function az_Azure_Synapse_Analytics(...elt) {
+  return resource(...elt)._subType_('az_Azure_Synapse_Analytics')._set_('style', mapArray.get('az_Azure_Synapse_Analytics'));
 }
 
 /**
@@ -420,8 +420,8 @@ export function az_Azure_Synapse_Analytics(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Data_Catalog(elt) {
-  return terminal(elt)._subType_('az_Data_Catalog')._set_('style', mapArray.get('az_Data_Catalog'));
+export function az_Data_Catalog(...elt) {
+  return resource(...elt)._subType_('az_Data_Catalog')._set_('style', mapArray.get('az_Data_Catalog'));
 }
 
 /**
@@ -429,8 +429,8 @@ export function az_Data_Catalog(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Purview(elt) {
-  return terminal(elt)._subType_('az_Azure_Purview')._set_('style', mapArray.get('az_Azure_Purview'));
+export function az_Azure_Purview(...elt) {
+  return resource(...elt)._subType_('az_Azure_Purview')._set_('style', mapArray.get('az_Azure_Purview'));
 }
 
 /**
@@ -438,8 +438,8 @@ export function az_Azure_Purview(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Data_Factory(elt) {
-  return terminal(elt)._subType_('az_Data_Factory')._set_('style', mapArray.get('az_Data_Factory'));
+export function az_Data_Factory(...elt) {
+  return resource(...elt)._subType_('az_Data_Factory')._set_('style', mapArray.get('az_Data_Factory'));
 }
 
 /**
@@ -447,8 +447,8 @@ export function az_Data_Factory(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Data_Lake_Analytics(elt) {
-  return terminal(elt)._subType_('az_Data_Lake_Analytics')._set_('style', mapArray.get('az_Data_Lake_Analytics'));
+export function az_Data_Lake_Analytics(...elt) {
+  return resource(...elt)._subType_('az_Data_Lake_Analytics')._set_('style', mapArray.get('az_Data_Lake_Analytics'));
 }
 
 /**
@@ -456,8 +456,8 @@ export function az_Data_Lake_Analytics(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Event_Hubs(elt) {
-  return terminal(elt)._subType_('az_Event_Hubs')._set_('style', mapArray.get('az_Event_Hubs'));
+export function az_Event_Hubs(...elt) {
+  return resource(...elt)._subType_('az_Event_Hubs')._set_('style', mapArray.get('az_Event_Hubs'));
 }
 
 /**
@@ -465,8 +465,8 @@ export function az_Event_Hubs(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_HDInsight(elt) {
-  return terminal(elt)._subType_('az_HDInsight')._set_('style', mapArray.get('az_HDInsight'));
+export function az_HDInsight(...elt) {
+  return resource(...elt)._subType_('az_HDInsight')._set_('style', mapArray.get('az_HDInsight'));
 }
 
 /**
@@ -474,8 +474,8 @@ export function az_HDInsight(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Log_Analytics(elt) {
-  return terminal(elt)._subType_('az_Log_Analytics')._set_('style', mapArray.get('az_Log_Analytics'));
+export function az_Log_Analytics(...elt) {
+  return resource(...elt)._subType_('az_Log_Analytics')._set_('style', mapArray.get('az_Log_Analytics'));
 }
 
 /**
@@ -483,8 +483,8 @@ export function az_Log_Analytics(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Power_BI_Embedded(elt) {
-  return terminal(elt)._subType_('az_Power_BI_Embedded')._set_('style', mapArray.get('az_Power_BI_Embedded'));
+export function az_Power_BI_Embedded(...elt) {
+  return resource(...elt)._subType_('az_Power_BI_Embedded')._set_('style', mapArray.get('az_Power_BI_Embedded'));
 }
 
 /**
@@ -492,8 +492,8 @@ export function az_Power_BI_Embedded(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_R_Server_for_HDInsight(elt) {
-  return terminal(elt)._subType_('az_R_Server_for_HDInsight')._set_('style', mapArray.get('az_R_Server_for_HDInsight'));
+export function az_R_Server_for_HDInsight(...elt) {
+  return resource(...elt)._subType_('az_R_Server_for_HDInsight')._set_('style', mapArray.get('az_R_Server_for_HDInsight'));
 }
 
 /**
@@ -501,8 +501,8 @@ export function az_R_Server_for_HDInsight(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Blockchain_Service__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Blockchain_Service__Preview_')._set_('style', mapArray.get('az_Azure_Blockchain_Service__Preview_'));
+export function az_Azure_Blockchain_Service__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Blockchain_Service__Preview_')._set_('style', mapArray.get('az_Azure_Blockchain_Service__Preview_'));
 }
 
 /**
@@ -510,8 +510,8 @@ export function az_Azure_Blockchain_Service__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Blockchain_Workbench__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Blockchain_Workbench__Preview_')._set_('style', mapArray.get('az_Azure_Blockchain_Workbench__Preview_'));
+export function az_Azure_Blockchain_Workbench__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Blockchain_Workbench__Preview_')._set_('style', mapArray.get('az_Azure_Blockchain_Workbench__Preview_'));
 }
 
 /**
@@ -519,8 +519,8 @@ export function az_Azure_Blockchain_Workbench__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Cosmos_DB(elt) {
-  return terminal(elt)._subType_('az_Azure_Cosmos_DB')._set_('style', mapArray.get('az_Azure_Cosmos_DB'));
+export function az_Azure_Cosmos_DB(...elt) {
+  return resource(...elt)._subType_('az_Azure_Cosmos_DB')._set_('style', mapArray.get('az_Azure_Cosmos_DB'));
 }
 
 /**
@@ -528,8 +528,8 @@ export function az_Azure_Cosmos_DB(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Logic_Apps(elt) {
-  return terminal(elt)._subType_('az_Logic_Apps')._set_('style', mapArray.get('az_Logic_Apps'));
+export function az_Logic_Apps(...elt) {
+  return resource(...elt)._subType_('az_Logic_Apps')._set_('style', mapArray.get('az_Logic_Apps'));
 }
 
 /**
@@ -537,8 +537,8 @@ export function az_Logic_Apps(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_API_Apps(elt) {
-  return terminal(elt)._subType_('az_API_Apps')._set_('style', mapArray.get('az_API_Apps'));
+export function az_API_Apps(...elt) {
+  return resource(...elt)._subType_('az_API_Apps')._set_('style', mapArray.get('az_API_Apps'));
 }
 
 /**
@@ -546,8 +546,8 @@ export function az_API_Apps(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_App_Service(elt) {
-  return terminal(elt)._subType_('az_App_Service')._set_('style', mapArray.get('az_App_Service'));
+export function az_App_Service(...elt) {
+  return resource(...elt)._subType_('az_App_Service')._set_('style', mapArray.get('az_App_Service'));
 }
 
 /**
@@ -555,8 +555,8 @@ export function az_App_Service(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_CycleCloud(elt) {
-  return terminal(elt)._subType_('az_Azure_CycleCloud')._set_('style', mapArray.get('az_Azure_CycleCloud'));
+export function az_Azure_CycleCloud(...elt) {
+  return resource(...elt)._subType_('az_Azure_CycleCloud')._set_('style', mapArray.get('az_Azure_CycleCloud'));
 }
 
 /**
@@ -564,8 +564,8 @@ export function az_Azure_CycleCloud(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Dedicated_Host(elt) {
-  return terminal(elt)._subType_('az_Azure_Dedicated_Host')._set_('style', mapArray.get('az_Azure_Dedicated_Host'));
+export function az_Azure_Dedicated_Host(...elt) {
+  return resource(...elt)._subType_('az_Azure_Dedicated_Host')._set_('style', mapArray.get('az_Azure_Dedicated_Host'));
 }
 
 /**
@@ -573,8 +573,8 @@ export function az_Azure_Dedicated_Host(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Functions(elt) {
-  return terminal(elt)._subType_('az_Azure_Functions')._set_('style', mapArray.get('az_Azure_Functions'));
+export function az_Azure_Functions(...elt) {
+  return resource(...elt)._subType_('az_Azure_Functions')._set_('style', mapArray.get('az_Azure_Functions'));
 }
 
 /**
@@ -582,8 +582,8 @@ export function az_Azure_Functions(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Kubernetes_Service__AKS_(elt) {
-  return terminal(elt)._subType_('az_Azure_Kubernetes_Service__AKS_')._set_('style', mapArray.get('az_Azure_Kubernetes_Service__AKS_'));
+export function az_Azure_Kubernetes_Service__AKS_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Kubernetes_Service__AKS_')._set_('style', mapArray.get('az_Azure_Kubernetes_Service__AKS_'));
 }
 
 /**
@@ -591,8 +591,8 @@ export function az_Azure_Kubernetes_Service__AKS_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Spring_Cloud(elt) {
-  return terminal(elt)._subType_('az_Azure_Spring_Cloud')._set_('style', mapArray.get('az_Azure_Spring_Cloud'));
+export function az_Azure_Spring_Cloud(...elt) {
+  return resource(...elt)._subType_('az_Azure_Spring_Cloud')._set_('style', mapArray.get('az_Azure_Spring_Cloud'));
 }
 
 /**
@@ -600,8 +600,8 @@ export function az_Azure_Spring_Cloud(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_VMware_Solution(elt) {
-  return terminal(elt)._subType_('az_Azure_VMware_Solution')._set_('style', mapArray.get('az_Azure_VMware_Solution'));
+export function az_Azure_VMware_Solution(...elt) {
+  return resource(...elt)._subType_('az_Azure_VMware_Solution')._set_('style', mapArray.get('az_Azure_VMware_Solution'));
 }
 
 /**
@@ -609,8 +609,8 @@ export function az_Azure_VMware_Solution(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Batch(elt) {
-  return terminal(elt)._subType_('az_Batch')._set_('style', mapArray.get('az_Batch'));
+export function az_Batch(...elt) {
+  return resource(...elt)._subType_('az_Batch')._set_('style', mapArray.get('az_Batch'));
 }
 
 /**
@@ -618,8 +618,8 @@ export function az_Batch(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Cloud_Services(elt) {
-  return terminal(elt)._subType_('az_Cloud_Services')._set_('style', mapArray.get('az_Cloud_Services'));
+export function az_Cloud_Services(...elt) {
+  return resource(...elt)._subType_('az_Cloud_Services')._set_('style', mapArray.get('az_Cloud_Services'));
 }
 
 /**
@@ -627,8 +627,8 @@ export function az_Cloud_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Container_Instances(elt) {
-  return terminal(elt)._subType_('az_Container_Instances')._set_('style', mapArray.get('az_Container_Instances'));
+export function az_Container_Instances(...elt) {
+  return resource(...elt)._subType_('az_Container_Instances')._set_('style', mapArray.get('az_Container_Instances'));
 }
 
 /**
@@ -636,8 +636,8 @@ export function az_Container_Instances(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Linux_Virtual_Machines(elt) {
-  return terminal(elt)._subType_('az_Linux_Virtual_Machines')._set_('style', mapArray.get('az_Linux_Virtual_Machines'));
+export function az_Linux_Virtual_Machines(...elt) {
+  return resource(...elt)._subType_('az_Linux_Virtual_Machines')._set_('style', mapArray.get('az_Linux_Virtual_Machines'));
 }
 
 /**
@@ -645,8 +645,8 @@ export function az_Linux_Virtual_Machines(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Service_Fabric(elt) {
-  return terminal(elt)._subType_('az_Service_Fabric')._set_('style', mapArray.get('az_Service_Fabric'));
+export function az_Service_Fabric(...elt) {
+  return resource(...elt)._subType_('az_Service_Fabric')._set_('style', mapArray.get('az_Service_Fabric'));
 }
 
 /**
@@ -654,8 +654,8 @@ export function az_Service_Fabric(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_SQL_Server_on_Virtual_Machines(elt) {
-  return terminal(elt)._subType_('az_SQL_Server_on_Virtual_Machines')._set_('style', mapArray.get('az_SQL_Server_on_Virtual_Machines'));
+export function az_SQL_Server_on_Virtual_Machines(...elt) {
+  return resource(...elt)._subType_('az_SQL_Server_on_Virtual_Machines')._set_('style', mapArray.get('az_SQL_Server_on_Virtual_Machines'));
 }
 
 /**
@@ -663,8 +663,8 @@ export function az_SQL_Server_on_Virtual_Machines(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Static_Web_Apps__Preview_(elt) {
-  return terminal(elt)._subType_('az_Static_Web_Apps__Preview_')._set_('style', mapArray.get('az_Static_Web_Apps__Preview_'));
+export function az_Static_Web_Apps__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Static_Web_Apps__Preview_')._set_('style', mapArray.get('az_Static_Web_Apps__Preview_'));
 }
 
 /**
@@ -672,8 +672,8 @@ export function az_Static_Web_Apps__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Virtual_Machine_Scale_Sets(elt) {
-  return terminal(elt)._subType_('az_Virtual_Machine_Scale_Sets')._set_('style', mapArray.get('az_Virtual_Machine_Scale_Sets'));
+export function az_Virtual_Machine_Scale_Sets(...elt) {
+  return resource(...elt)._subType_('az_Virtual_Machine_Scale_Sets')._set_('style', mapArray.get('az_Virtual_Machine_Scale_Sets'));
 }
 
 /**
@@ -681,8 +681,8 @@ export function az_Virtual_Machine_Scale_Sets(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Web_Apps(elt) {
-  return terminal(elt)._subType_('az_Web_Apps')._set_('style', mapArray.get('az_Web_Apps'));
+export function az_Web_Apps(...elt) {
+  return resource(...elt)._subType_('az_Web_Apps')._set_('style', mapArray.get('az_Web_Apps'));
 }
 
 /**
@@ -690,8 +690,8 @@ export function az_Web_Apps(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Windows_Virtual_Desktop(elt) {
-  return terminal(elt)._subType_('az_Windows_Virtual_Desktop')._set_('style', mapArray.get('az_Windows_Virtual_Desktop'));
+export function az_Windows_Virtual_Desktop(...elt) {
+  return resource(...elt)._subType_('az_Windows_Virtual_Desktop')._set_('style', mapArray.get('az_Windows_Virtual_Desktop'));
 }
 
 /**
@@ -699,8 +699,8 @@ export function az_Windows_Virtual_Desktop(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Windows_Virtual_Machines(elt) {
-  return terminal(elt)._subType_('az_Windows_Virtual_Machines')._set_('style', mapArray.get('az_Windows_Virtual_Machines'));
+export function az_Windows_Virtual_Machines(...elt) {
+  return resource(...elt)._subType_('az_Windows_Virtual_Machines')._set_('style', mapArray.get('az_Windows_Virtual_Machines'));
 }
 
 /**
@@ -708,8 +708,8 @@ export function az_Windows_Virtual_Machines(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Dev_Spaces(elt) {
-  return terminal(elt)._subType_('az_Azure_Dev_Spaces')._set_('style', mapArray.get('az_Azure_Dev_Spaces'));
+export function az_Azure_Dev_Spaces(...elt) {
+  return resource(...elt)._subType_('az_Azure_Dev_Spaces')._set_('style', mapArray.get('az_Azure_Dev_Spaces'));
 }
 
 /**
@@ -717,8 +717,8 @@ export function az_Azure_Dev_Spaces(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Red_Hat_OpenShift(elt) {
-  return terminal(elt)._subType_('az_Azure_Red_Hat_OpenShift')._set_('style', mapArray.get('az_Azure_Red_Hat_OpenShift'));
+export function az_Azure_Red_Hat_OpenShift(...elt) {
+  return resource(...elt)._subType_('az_Azure_Red_Hat_OpenShift')._set_('style', mapArray.get('az_Azure_Red_Hat_OpenShift'));
 }
 
 /**
@@ -726,8 +726,8 @@ export function az_Azure_Red_Hat_OpenShift(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Container_Registry(elt) {
-  return terminal(elt)._subType_('az_Container_Registry')._set_('style', mapArray.get('az_Container_Registry'));
+export function az_Container_Registry(...elt) {
+  return resource(...elt)._subType_('az_Container_Registry')._set_('style', mapArray.get('az_Container_Registry'));
 }
 
 /**
@@ -735,8 +735,8 @@ export function az_Container_Registry(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Web_App_for_Containers(elt) {
-  return terminal(elt)._subType_('az_Web_App_for_Containers')._set_('style', mapArray.get('az_Web_App_for_Containers'));
+export function az_Web_App_for_Containers(...elt) {
+  return resource(...elt)._subType_('az_Web_App_for_Containers')._set_('style', mapArray.get('az_Web_App_for_Containers'));
 }
 
 /**
@@ -744,8 +744,8 @@ export function az_Web_App_for_Containers(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_API_for_FHIR(elt) {
-  return terminal(elt)._subType_('az_Azure_API_for_FHIR')._set_('style', mapArray.get('az_Azure_API_for_FHIR'));
+export function az_Azure_API_for_FHIR(...elt) {
+  return resource(...elt)._subType_('az_Azure_API_for_FHIR')._set_('style', mapArray.get('az_Azure_API_for_FHIR'));
 }
 
 /**
@@ -753,8 +753,8 @@ export function az_Azure_API_for_FHIR(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Cache_for_Redis(elt) {
-  return terminal(elt)._subType_('az_Azure_Cache_for_Redis')._set_('style', mapArray.get('az_Azure_Cache_for_Redis'));
+export function az_Azure_Cache_for_Redis(...elt) {
+  return resource(...elt)._subType_('az_Azure_Cache_for_Redis')._set_('style', mapArray.get('az_Azure_Cache_for_Redis'));
 }
 
 /**
@@ -762,8 +762,8 @@ export function az_Azure_Cache_for_Redis(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Database_for_MariaDB(elt) {
-  return terminal(elt)._subType_('az_Azure_Database_for_MariaDB')._set_('style', mapArray.get('az_Azure_Database_for_MariaDB'));
+export function az_Azure_Database_for_MariaDB(...elt) {
+  return resource(...elt)._subType_('az_Azure_Database_for_MariaDB')._set_('style', mapArray.get('az_Azure_Database_for_MariaDB'));
 }
 
 /**
@@ -771,8 +771,8 @@ export function az_Azure_Database_for_MariaDB(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Database_for_MySQL(elt) {
-  return terminal(elt)._subType_('az_Azure_Database_for_MySQL')._set_('style', mapArray.get('az_Azure_Database_for_MySQL'));
+export function az_Azure_Database_for_MySQL(...elt) {
+  return resource(...elt)._subType_('az_Azure_Database_for_MySQL')._set_('style', mapArray.get('az_Azure_Database_for_MySQL'));
 }
 
 /**
@@ -780,8 +780,8 @@ export function az_Azure_Database_for_MySQL(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Database_for_PostgreSQL(elt) {
-  return terminal(elt)._subType_('az_Azure_Database_for_PostgreSQL')._set_('style', mapArray.get('az_Azure_Database_for_PostgreSQL'));
+export function az_Azure_Database_for_PostgreSQL(...elt) {
+  return resource(...elt)._subType_('az_Azure_Database_for_PostgreSQL')._set_('style', mapArray.get('az_Azure_Database_for_PostgreSQL'));
 }
 
 /**
@@ -789,8 +789,8 @@ export function az_Azure_Database_for_PostgreSQL(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Database_Migration_Service(elt) {
-  return terminal(elt)._subType_('az_Azure_Database_Migration_Service')._set_('style', mapArray.get('az_Azure_Database_Migration_Service'));
+export function az_Azure_Database_Migration_Service(...elt) {
+  return resource(...elt)._subType_('az_Azure_Database_Migration_Service')._set_('style', mapArray.get('az_Azure_Database_Migration_Service'));
 }
 
 /**
@@ -798,8 +798,8 @@ export function az_Azure_Database_Migration_Service(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_SQL(elt) {
-  return terminal(elt)._subType_('az_Azure_SQL')._set_('style', mapArray.get('az_Azure_SQL'));
+export function az_Azure_SQL(...elt) {
+  return resource(...elt)._subType_('az_Azure_SQL')._set_('style', mapArray.get('az_Azure_SQL'));
 }
 
 /**
@@ -807,8 +807,8 @@ export function az_Azure_SQL(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_SQL_Database(elt) {
-  return terminal(elt)._subType_('az_Azure_SQL_Database')._set_('style', mapArray.get('az_Azure_SQL_Database'));
+export function az_Azure_SQL_Database(...elt) {
+  return resource(...elt)._subType_('az_Azure_SQL_Database')._set_('style', mapArray.get('az_Azure_SQL_Database'));
 }
 
 /**
@@ -816,8 +816,8 @@ export function az_Azure_SQL_Database(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_SQL_Managed_Instance(elt) {
-  return terminal(elt)._subType_('az_Azure_SQL_Managed_Instance')._set_('style', mapArray.get('az_Azure_SQL_Managed_Instance'));
+export function az_Azure_SQL_Managed_Instance(...elt) {
+  return resource(...elt)._subType_('az_Azure_SQL_Managed_Instance')._set_('style', mapArray.get('az_Azure_SQL_Managed_Instance'));
 }
 
 /**
@@ -825,8 +825,8 @@ export function az_Azure_SQL_Managed_Instance(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_SQL_Edge(elt) {
-  return terminal(elt)._subType_('az_Azure_SQL_Edge')._set_('style', mapArray.get('az_Azure_SQL_Edge'));
+export function az_Azure_SQL_Edge(...elt) {
+  return resource(...elt)._subType_('az_Azure_SQL_Edge')._set_('style', mapArray.get('az_Azure_SQL_Edge'));
 }
 
 /**
@@ -834,8 +834,8 @@ export function az_Azure_SQL_Edge(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Table_Storage(elt) {
-  return terminal(elt)._subType_('az_Table_Storage')._set_('style', mapArray.get('az_Table_Storage'));
+export function az_Table_Storage(...elt) {
+  return resource(...elt)._subType_('az_Table_Storage')._set_('style', mapArray.get('az_Table_Storage'));
 }
 
 /**
@@ -843,8 +843,8 @@ export function az_Table_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_App_Configuration(elt) {
-  return terminal(elt)._subType_('az_App_Configuration')._set_('style', mapArray.get('az_App_Configuration'));
+export function az_App_Configuration(...elt) {
+  return resource(...elt)._subType_('az_App_Configuration')._set_('style', mapArray.get('az_App_Configuration'));
 }
 
 /**
@@ -852,8 +852,8 @@ export function az_App_Configuration(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Data_Studio(elt) {
-  return terminal(elt)._subType_('az_Azure_Data_Studio')._set_('style', mapArray.get('az_Azure_Data_Studio'));
+export function az_Azure_Data_Studio(...elt) {
+  return resource(...elt)._subType_('az_Azure_Data_Studio')._set_('style', mapArray.get('az_Azure_Data_Studio'));
 }
 
 /**
@@ -861,8 +861,8 @@ export function az_Azure_Data_Studio(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_DevOps(elt) {
-  return terminal(elt)._subType_('az_Azure_DevOps')._set_('style', mapArray.get('az_Azure_DevOps'));
+export function az_Azure_DevOps(...elt) {
+  return resource(...elt)._subType_('az_Azure_DevOps')._set_('style', mapArray.get('az_Azure_DevOps'));
 }
 
 /**
@@ -870,8 +870,8 @@ export function az_Azure_DevOps(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_DevTest_Labs(elt) {
-  return terminal(elt)._subType_('az_Azure_DevTest_Labs')._set_('style', mapArray.get('az_Azure_DevTest_Labs'));
+export function az_Azure_DevTest_Labs(...elt) {
+  return resource(...elt)._subType_('az_Azure_DevTest_Labs')._set_('style', mapArray.get('az_Azure_DevTest_Labs'));
 }
 
 /**
@@ -879,8 +879,8 @@ export function az_Azure_DevTest_Labs(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Lab_Services(elt) {
-  return terminal(elt)._subType_('az_Azure_Lab_Services')._set_('style', mapArray.get('az_Azure_Lab_Services'));
+export function az_Azure_Lab_Services(...elt) {
+  return resource(...elt)._subType_('az_Azure_Lab_Services')._set_('style', mapArray.get('az_Azure_Lab_Services'));
 }
 
 /**
@@ -888,8 +888,8 @@ export function az_Azure_Lab_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Pipelines(elt) {
-  return terminal(elt)._subType_('az_Azure_Pipelines')._set_('style', mapArray.get('az_Azure_Pipelines'));
+export function az_Azure_Pipelines(...elt) {
+  return resource(...elt)._subType_('az_Azure_Pipelines')._set_('style', mapArray.get('az_Azure_Pipelines'));
 }
 
 /**
@@ -897,8 +897,8 @@ export function az_Azure_Pipelines(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Visual_Studio(elt) {
-  return terminal(elt)._subType_('az_Visual_Studio')._set_('style', mapArray.get('az_Visual_Studio'));
+export function az_Visual_Studio(...elt) {
+  return resource(...elt)._subType_('az_Visual_Studio')._set_('style', mapArray.get('az_Visual_Studio'));
 }
 
 /**
@@ -906,8 +906,8 @@ export function az_Visual_Studio(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Visual_Studio_Code(elt) {
-  return terminal(elt)._subType_('az_Visual_Studio_Code')._set_('style', mapArray.get('az_Visual_Studio_Code'));
+export function az_Visual_Studio_Code(...elt) {
+  return resource(...elt)._subType_('az_Visual_Studio_Code')._set_('style', mapArray.get('az_Visual_Studio_Code'));
 }
 
 /**
@@ -915,8 +915,8 @@ export function az_Visual_Studio_Code(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Visual_Studio_Codespaces__Preview_(elt) {
-  return terminal(elt)._subType_('az_Visual_Studio_Codespaces__Preview_')._set_('style', mapArray.get('az_Visual_Studio_Codespaces__Preview_'));
+export function az_Visual_Studio_Codespaces__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Visual_Studio_Codespaces__Preview_')._set_('style', mapArray.get('az_Visual_Studio_Codespaces__Preview_'));
 }
 
 /**
@@ -924,8 +924,8 @@ export function az_Visual_Studio_Codespaces__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Application_Insights(elt) {
-  return terminal(elt)._subType_('az_Application_Insights')._set_('style', mapArray.get('az_Application_Insights'));
+export function az_Application_Insights(...elt) {
+  return resource(...elt)._subType_('az_Application_Insights')._set_('style', mapArray.get('az_Application_Insights'));
 }
 
 /**
@@ -933,8 +933,8 @@ export function az_Application_Insights(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Artifacts(elt) {
-  return terminal(elt)._subType_('az_Azure_Artifacts')._set_('style', mapArray.get('az_Azure_Artifacts'));
+export function az_Azure_Artifacts(...elt) {
+  return resource(...elt)._subType_('az_Azure_Artifacts')._set_('style', mapArray.get('az_Azure_Artifacts'));
 }
 
 /**
@@ -942,8 +942,8 @@ export function az_Azure_Artifacts(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Boards(elt) {
-  return terminal(elt)._subType_('az_Azure_Boards')._set_('style', mapArray.get('az_Azure_Boards'));
+export function az_Azure_Boards(...elt) {
+  return resource(...elt)._subType_('az_Azure_Boards')._set_('style', mapArray.get('az_Azure_Boards'));
 }
 
 /**
@@ -951,8 +951,8 @@ export function az_Azure_Boards(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Monitor(elt) {
-  return terminal(elt)._subType_('az_Azure_Monitor')._set_('style', mapArray.get('az_Azure_Monitor'));
+export function az_Azure_Monitor(...elt) {
+  return resource(...elt)._subType_('az_Azure_Monitor')._set_('style', mapArray.get('az_Azure_Monitor'));
 }
 
 /**
@@ -960,8 +960,8 @@ export function az_Azure_Monitor(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Repos(elt) {
-  return terminal(elt)._subType_('az_Azure_Repos')._set_('style', mapArray.get('az_Azure_Repos'));
+export function az_Azure_Repos(...elt) {
+  return resource(...elt)._subType_('az_Azure_Repos')._set_('style', mapArray.get('az_Azure_Repos'));
 }
 
 /**
@@ -969,8 +969,8 @@ export function az_Azure_Repos(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Test_Plans(elt) {
-  return terminal(elt)._subType_('az_Azure_Test_Plans')._set_('style', mapArray.get('az_Azure_Test_Plans'));
+export function az_Azure_Test_Plans(...elt) {
+  return resource(...elt)._subType_('az_Azure_Test_Plans')._set_('style', mapArray.get('az_Azure_Test_Plans'));
 }
 
 /**
@@ -978,8 +978,8 @@ export function az_Azure_Test_Plans(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_GitHub_Actions_for_Azure(elt) {
-  return terminal(elt)._subType_('az_GitHub_Actions_for_Azure')._set_('style', mapArray.get('az_GitHub_Actions_for_Azure'));
+export function az_GitHub_Actions_for_Azure(...elt) {
+  return resource(...elt)._subType_('az_GitHub_Actions_for_Azure')._set_('style', mapArray.get('az_GitHub_Actions_for_Azure'));
 }
 
 /**
@@ -987,8 +987,8 @@ export function az_GitHub_Actions_for_Azure(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Active_Directory__AD_(elt) {
-  return terminal(elt)._subType_('az_Azure_Active_Directory__AD_')._set_('style', mapArray.get('az_Azure_Active_Directory__AD_'));
+export function az_Azure_Active_Directory__AD_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Active_Directory__AD_')._set_('style', mapArray.get('az_Azure_Active_Directory__AD_'));
 }
 
 /**
@@ -996,8 +996,8 @@ export function az_Azure_Active_Directory__AD_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Arc__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Arc__Preview_')._set_('style', mapArray.get('az_Azure_Arc__Preview_'));
+export function az_Azure_Arc__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Arc__Preview_')._set_('style', mapArray.get('az_Azure_Arc__Preview_'));
 }
 
 /**
@@ -1005,8 +1005,8 @@ export function az_Azure_Arc__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_ExpressRoute(elt) {
-  return terminal(elt)._subType_('az_Azure_ExpressRoute')._set_('style', mapArray.get('az_Azure_ExpressRoute'));
+export function az_Azure_ExpressRoute(...elt) {
+  return resource(...elt)._subType_('az_Azure_ExpressRoute')._set_('style', mapArray.get('az_Azure_ExpressRoute'));
 }
 
 /**
@@ -1014,8 +1014,8 @@ export function az_Azure_ExpressRoute(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Sentinel(elt) {
-  return terminal(elt)._subType_('az_Azure_Sentinel')._set_('style', mapArray.get('az_Azure_Sentinel'));
+export function az_Azure_Sentinel(...elt) {
+  return resource(...elt)._subType_('az_Azure_Sentinel')._set_('style', mapArray.get('az_Azure_Sentinel'));
 }
 
 /**
@@ -1023,8 +1023,8 @@ export function az_Azure_Sentinel(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Stack(elt) {
-  return terminal(elt)._subType_('az_Azure_Stack')._set_('style', mapArray.get('az_Azure_Stack'));
+export function az_Azure_Stack(...elt) {
+  return resource(...elt)._subType_('az_Azure_Stack')._set_('style', mapArray.get('az_Azure_Stack'));
 }
 
 /**
@@ -1032,8 +1032,8 @@ export function az_Azure_Stack(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Stack_HCI__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Stack_HCI__Preview_')._set_('style', mapArray.get('az_Azure_Stack_HCI__Preview_'));
+export function az_Azure_Stack_HCI__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Stack_HCI__Preview_')._set_('style', mapArray.get('az_Azure_Stack_HCI__Preview_'));
 }
 
 /**
@@ -1041,8 +1041,8 @@ export function az_Azure_Stack_HCI__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Stack_Hub(elt) {
-  return terminal(elt)._subType_('az_Azure_Stack_Hub')._set_('style', mapArray.get('az_Azure_Stack_Hub'));
+export function az_Azure_Stack_Hub(...elt) {
+  return resource(...elt)._subType_('az_Azure_Stack_Hub')._set_('style', mapArray.get('az_Azure_Stack_Hub'));
 }
 
 /**
@@ -1050,8 +1050,8 @@ export function az_Azure_Stack_Hub(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Stack_Edge(elt) {
-  return terminal(elt)._subType_('az_Azure_Stack_Edge')._set_('style', mapArray.get('az_Azure_Stack_Edge'));
+export function az_Azure_Stack_Edge(...elt) {
+  return resource(...elt)._subType_('az_Azure_Stack_Edge')._set_('style', mapArray.get('az_Azure_Stack_Edge'));
 }
 
 /**
@@ -1059,8 +1059,8 @@ export function az_Azure_Stack_Edge(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Security_Center(elt) {
-  return terminal(elt)._subType_('az_Security_Center')._set_('style', mapArray.get('az_Security_Center'));
+export function az_Security_Center(...elt) {
+  return resource(...elt)._subType_('az_Security_Center')._set_('style', mapArray.get('az_Security_Center'));
 }
 
 /**
@@ -1068,8 +1068,8 @@ export function az_Security_Center(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_IoT_Edge(elt) {
-  return terminal(elt)._subType_('az_Azure_IoT_Edge')._set_('style', mapArray.get('az_Azure_IoT_Edge'));
+export function az_Azure_IoT_Edge(...elt) {
+  return resource(...elt)._subType_('az_Azure_IoT_Edge')._set_('style', mapArray.get('az_Azure_IoT_Edge'));
 }
 
 /**
@@ -1077,8 +1077,8 @@ export function az_Azure_IoT_Edge(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Active_Directory_External_Identities(elt) {
-  return terminal(elt)._subType_('az_Azure_Active_Directory_External_Identities')._set_('style', mapArray.get('az_Azure_Active_Directory_External_Identities'));
+export function az_Azure_Active_Directory_External_Identities(...elt) {
+  return resource(...elt)._subType_('az_Azure_Active_Directory_External_Identities')._set_('style', mapArray.get('az_Azure_Active_Directory_External_Identities'));
 }
 
 /**
@@ -1086,8 +1086,8 @@ export function az_Azure_Active_Directory_External_Identities(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Active_Directory_Domain_Services(elt) {
-  return terminal(elt)._subType_('az_Azure_Active_Directory_Domain_Services')._set_('style', mapArray.get('az_Azure_Active_Directory_Domain_Services'));
+export function az_Azure_Active_Directory_Domain_Services(...elt) {
+  return resource(...elt)._subType_('az_Azure_Active_Directory_Domain_Services')._set_('style', mapArray.get('az_Azure_Active_Directory_Domain_Services'));
 }
 
 /**
@@ -1095,8 +1095,8 @@ export function az_Azure_Active_Directory_Domain_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Information_Protection(elt) {
-  return terminal(elt)._subType_('az_Azure_Information_Protection')._set_('style', mapArray.get('az_Azure_Information_Protection'));
+export function az_Azure_Information_Protection(...elt) {
+  return resource(...elt)._subType_('az_Azure_Information_Protection')._set_('style', mapArray.get('az_Azure_Information_Protection'));
 }
 
 /**
@@ -1104,8 +1104,8 @@ export function az_Azure_Information_Protection(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_API_Management(elt) {
-  return terminal(elt)._subType_('az_API_Management')._set_('style', mapArray.get('az_API_Management'));
+export function az_API_Management(...elt) {
+  return resource(...elt)._subType_('az_API_Management')._set_('style', mapArray.get('az_API_Management'));
 }
 
 /**
@@ -1113,8 +1113,8 @@ export function az_API_Management(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Event_Grid(elt) {
-  return terminal(elt)._subType_('az_Event_Grid')._set_('style', mapArray.get('az_Event_Grid'));
+export function az_Event_Grid(...elt) {
+  return resource(...elt)._subType_('az_Event_Grid')._set_('style', mapArray.get('az_Event_Grid'));
 }
 
 /**
@@ -1122,8 +1122,8 @@ export function az_Event_Grid(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Service_Bus(elt) {
-  return terminal(elt)._subType_('az_Service_Bus')._set_('style', mapArray.get('az_Service_Bus'));
+export function az_Service_Bus(...elt) {
+  return resource(...elt)._subType_('az_Service_Bus')._set_('style', mapArray.get('az_Service_Bus'));
 }
 
 /**
@@ -1131,8 +1131,8 @@ export function az_Service_Bus(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Digital_Twins__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Digital_Twins__Preview_')._set_('style', mapArray.get('az_Azure_Digital_Twins__Preview_'));
+export function az_Azure_Digital_Twins__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Digital_Twins__Preview_')._set_('style', mapArray.get('az_Azure_Digital_Twins__Preview_'));
 }
 
 /**
@@ -1140,8 +1140,8 @@ export function az_Azure_Digital_Twins__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_IoT_Central(elt) {
-  return terminal(elt)._subType_('az_Azure_IoT_Central')._set_('style', mapArray.get('az_Azure_IoT_Central'));
+export function az_Azure_IoT_Central(...elt) {
+  return resource(...elt)._subType_('az_Azure_IoT_Central')._set_('style', mapArray.get('az_Azure_IoT_Central'));
 }
 
 /**
@@ -1149,8 +1149,8 @@ export function az_Azure_IoT_Central(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_IoT_Hub(elt) {
-  return terminal(elt)._subType_('az_Azure_IoT_Hub')._set_('style', mapArray.get('az_Azure_IoT_Hub'));
+export function az_Azure_IoT_Hub(...elt) {
+  return resource(...elt)._subType_('az_Azure_IoT_Hub')._set_('style', mapArray.get('az_Azure_IoT_Hub'));
 }
 
 /**
@@ -1158,8 +1158,8 @@ export function az_Azure_IoT_Hub(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_IoT_solution_accelerators(elt) {
-  return terminal(elt)._subType_('az_Azure_IoT_solution_accelerators')._set_('style', mapArray.get('az_Azure_IoT_solution_accelerators'));
+export function az_Azure_IoT_solution_accelerators(...elt) {
+  return resource(...elt)._subType_('az_Azure_IoT_solution_accelerators')._set_('style', mapArray.get('az_Azure_IoT_solution_accelerators'));
 }
 
 /**
@@ -1167,8 +1167,8 @@ export function az_Azure_IoT_solution_accelerators(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Maps(elt) {
-  return terminal(elt)._subType_('az_Azure_Maps')._set_('style', mapArray.get('az_Azure_Maps'));
+export function az_Azure_Maps(...elt) {
+  return resource(...elt)._subType_('az_Azure_Maps')._set_('style', mapArray.get('az_Azure_Maps'));
 }
 
 /**
@@ -1176,8 +1176,8 @@ export function az_Azure_Maps(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Sphere(elt) {
-  return terminal(elt)._subType_('az_Azure_Sphere')._set_('style', mapArray.get('az_Azure_Sphere'));
+export function az_Azure_Sphere(...elt) {
+  return resource(...elt)._subType_('az_Azure_Sphere')._set_('style', mapArray.get('az_Azure_Sphere'));
 }
 
 /**
@@ -1185,8 +1185,8 @@ export function az_Azure_Sphere(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Time_Series_Insights(elt) {
-  return terminal(elt)._subType_('az_Azure_Time_Series_Insights')._set_('style', mapArray.get('az_Azure_Time_Series_Insights'));
+export function az_Azure_Time_Series_Insights(...elt) {
+  return resource(...elt)._subType_('az_Azure_Time_Series_Insights')._set_('style', mapArray.get('az_Azure_Time_Series_Insights'));
 }
 
 /**
@@ -1194,8 +1194,8 @@ export function az_Azure_Time_Series_Insights(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Notification_Hubs(elt) {
-  return terminal(elt)._subType_('az_Notification_Hubs')._set_('style', mapArray.get('az_Notification_Hubs'));
+export function az_Notification_Hubs(...elt) {
+  return resource(...elt)._subType_('az_Notification_Hubs')._set_('style', mapArray.get('az_Notification_Hubs'));
 }
 
 /**
@@ -1203,8 +1203,8 @@ export function az_Notification_Hubs(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Windows_10_IoT_Core_Services(elt) {
-  return terminal(elt)._subType_('az_Windows_10_IoT_Core_Services')._set_('style', mapArray.get('az_Windows_10_IoT_Core_Services'));
+export function az_Windows_10_IoT_Core_Services(...elt) {
+  return resource(...elt)._subType_('az_Windows_10_IoT_Core_Services')._set_('style', mapArray.get('az_Windows_10_IoT_Core_Services'));
 }
 
 /**
@@ -1212,8 +1212,8 @@ export function az_Windows_10_IoT_Core_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Automation(elt) {
-  return terminal(elt)._subType_('az_Automation')._set_('style', mapArray.get('az_Automation'));
+export function az_Automation(...elt) {
+  return resource(...elt)._subType_('az_Automation')._set_('style', mapArray.get('az_Automation'));
 }
 
 /**
@@ -1221,8 +1221,8 @@ export function az_Automation(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Advisor(elt) {
-  return terminal(elt)._subType_('az_Azure_Advisor')._set_('style', mapArray.get('az_Azure_Advisor'));
+export function az_Azure_Advisor(...elt) {
+  return resource(...elt)._subType_('az_Azure_Advisor')._set_('style', mapArray.get('az_Azure_Advisor'));
 }
 
 /**
@@ -1230,8 +1230,8 @@ export function az_Azure_Advisor(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Backup(elt) {
-  return terminal(elt)._subType_('az_Azure_Backup')._set_('style', mapArray.get('az_Azure_Backup'));
+export function az_Azure_Backup(...elt) {
+  return resource(...elt)._subType_('az_Azure_Backup')._set_('style', mapArray.get('az_Azure_Backup'));
 }
 
 /**
@@ -1239,8 +1239,8 @@ export function az_Azure_Backup(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Blueprints__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Blueprints__Preview_')._set_('style', mapArray.get('az_Azure_Blueprints__Preview_'));
+export function az_Azure_Blueprints__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Blueprints__Preview_')._set_('style', mapArray.get('az_Azure_Blueprints__Preview_'));
 }
 
 /**
@@ -1248,8 +1248,8 @@ export function az_Azure_Blueprints__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Lighthouse(elt) {
-  return terminal(elt)._subType_('az_Azure_Lighthouse')._set_('style', mapArray.get('az_Azure_Lighthouse'));
+export function az_Azure_Lighthouse(...elt) {
+  return resource(...elt)._subType_('az_Azure_Lighthouse')._set_('style', mapArray.get('az_Azure_Lighthouse'));
 }
 
 /**
@@ -1257,8 +1257,8 @@ export function az_Azure_Lighthouse(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Managed_Applications(elt) {
-  return terminal(elt)._subType_('az_Azure_Managed_Applications')._set_('style', mapArray.get('az_Azure_Managed_Applications'));
+export function az_Azure_Managed_Applications(...elt) {
+  return resource(...elt)._subType_('az_Azure_Managed_Applications')._set_('style', mapArray.get('az_Azure_Managed_Applications'));
 }
 
 /**
@@ -1266,8 +1266,8 @@ export function az_Azure_Managed_Applications(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Migrate(elt) {
-  return terminal(elt)._subType_('az_Azure_Migrate')._set_('style', mapArray.get('az_Azure_Migrate'));
+export function az_Azure_Migrate(...elt) {
+  return resource(...elt)._subType_('az_Azure_Migrate')._set_('style', mapArray.get('az_Azure_Migrate'));
 }
 
 /**
@@ -1275,8 +1275,8 @@ export function az_Azure_Migrate(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Policy(elt) {
-  return terminal(elt)._subType_('az_Azure_Policy')._set_('style', mapArray.get('az_Azure_Policy'));
+export function az_Azure_Policy(...elt) {
+  return resource(...elt)._subType_('az_Azure_Policy')._set_('style', mapArray.get('az_Azure_Policy'));
 }
 
 /**
@@ -1284,8 +1284,8 @@ export function az_Azure_Policy(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Resource_Manager(elt) {
-  return terminal(elt)._subType_('az_Azure_Resource_Manager')._set_('style', mapArray.get('az_Azure_Resource_Manager'));
+export function az_Azure_Resource_Manager(...elt) {
+  return resource(...elt)._subType_('az_Azure_Resource_Manager')._set_('style', mapArray.get('az_Azure_Resource_Manager'));
 }
 
 /**
@@ -1293,8 +1293,8 @@ export function az_Azure_Resource_Manager(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Resource_Mover__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Resource_Mover__Preview_')._set_('style', mapArray.get('az_Azure_Resource_Mover__Preview_'));
+export function az_Azure_Resource_Mover__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Resource_Mover__Preview_')._set_('style', mapArray.get('az_Azure_Resource_Mover__Preview_'));
 }
 
 /**
@@ -1302,8 +1302,8 @@ export function az_Azure_Resource_Mover__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_ARM_templates(elt) {
-  return terminal(elt)._subType_('az_ARM_templates')._set_('style', mapArray.get('az_ARM_templates'));
+export function az_ARM_templates(...elt) {
+  return resource(...elt)._subType_('az_ARM_templates')._set_('style', mapArray.get('az_ARM_templates'));
 }
 
 /**
@@ -1311,8 +1311,8 @@ export function az_ARM_templates(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Service_Health(elt) {
-  return terminal(elt)._subType_('az_Azure_Service_Health')._set_('style', mapArray.get('az_Azure_Service_Health'));
+export function az_Azure_Service_Health(...elt) {
+  return resource(...elt)._subType_('az_Azure_Service_Health')._set_('style', mapArray.get('az_Azure_Service_Health'));
 }
 
 /**
@@ -1320,8 +1320,8 @@ export function az_Azure_Service_Health(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Site_Recovery(elt) {
-  return terminal(elt)._subType_('az_Azure_Site_Recovery')._set_('style', mapArray.get('az_Azure_Site_Recovery'));
+export function az_Azure_Site_Recovery(...elt) {
+  return resource(...elt)._subType_('az_Azure_Site_Recovery')._set_('style', mapArray.get('az_Azure_Site_Recovery'));
 }
 
 /**
@@ -1329,8 +1329,8 @@ export function az_Azure_Site_Recovery(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Cloud_Shell(elt) {
-  return terminal(elt)._subType_('az_Azure_Cloud_Shell')._set_('style', mapArray.get('az_Azure_Cloud_Shell'));
+export function az_Azure_Cloud_Shell(...elt) {
+  return resource(...elt)._subType_('az_Azure_Cloud_Shell')._set_('style', mapArray.get('az_Azure_Cloud_Shell'));
 }
 
 /**
@@ -1338,8 +1338,8 @@ export function az_Azure_Cloud_Shell(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Cost_Management___Billing(elt) {
-  return terminal(elt)._subType_('az_Cost_Management___Billing')._set_('style', mapArray.get('az_Cost_Management___Billing'));
+export function az_Cost_Management___Billing(...elt) {
+  return resource(...elt)._subType_('az_Cost_Management___Billing')._set_('style', mapArray.get('az_Cost_Management___Billing'));
 }
 
 /**
@@ -1347,8 +1347,8 @@ export function az_Cost_Management___Billing(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Microsoft_Azure_portal(elt) {
-  return terminal(elt)._subType_('az_Microsoft_Azure_portal')._set_('style', mapArray.get('az_Microsoft_Azure_portal'));
+export function az_Microsoft_Azure_portal(...elt) {
+  return resource(...elt)._subType_('az_Microsoft_Azure_portal')._set_('style', mapArray.get('az_Microsoft_Azure_portal'));
 }
 
 /**
@@ -1356,8 +1356,8 @@ export function az_Microsoft_Azure_portal(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Network_Watcher(elt) {
-  return terminal(elt)._subType_('az_Network_Watcher')._set_('style', mapArray.get('az_Network_Watcher'));
+export function az_Network_Watcher(...elt) {
+  return resource(...elt)._subType_('az_Network_Watcher')._set_('style', mapArray.get('az_Network_Watcher'));
 }
 
 /**
@@ -1365,8 +1365,8 @@ export function az_Network_Watcher(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Traffic_Manager(elt) {
-  return terminal(elt)._subType_('az_Traffic_Manager')._set_('style', mapArray.get('az_Traffic_Manager'));
+export function az_Traffic_Manager(...elt) {
+  return resource(...elt)._subType_('az_Traffic_Manager')._set_('style', mapArray.get('az_Traffic_Manager'));
 }
 
 /**
@@ -1374,8 +1374,8 @@ export function az_Traffic_Manager(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Media_Player(elt) {
-  return terminal(elt)._subType_('az_Azure_Media_Player')._set_('style', mapArray.get('az_Azure_Media_Player'));
+export function az_Azure_Media_Player(...elt) {
+  return resource(...elt)._subType_('az_Azure_Media_Player')._set_('style', mapArray.get('az_Azure_Media_Player'));
 }
 
 /**
@@ -1383,8 +1383,8 @@ export function az_Azure_Media_Player(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Content_Delivery_Network(elt) {
-  return terminal(elt)._subType_('az_Content_Delivery_Network')._set_('style', mapArray.get('az_Content_Delivery_Network'));
+export function az_Content_Delivery_Network(...elt) {
+  return resource(...elt)._subType_('az_Content_Delivery_Network')._set_('style', mapArray.get('az_Content_Delivery_Network'));
 }
 
 /**
@@ -1392,8 +1392,8 @@ export function az_Content_Delivery_Network(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Content_Protection(elt) {
-  return terminal(elt)._subType_('az_Content_Protection')._set_('style', mapArray.get('az_Content_Protection'));
+export function az_Content_Protection(...elt) {
+  return resource(...elt)._subType_('az_Content_Protection')._set_('style', mapArray.get('az_Content_Protection'));
 }
 
 /**
@@ -1401,8 +1401,8 @@ export function az_Content_Protection(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Encoding(elt) {
-  return terminal(elt)._subType_('az_Encoding')._set_('style', mapArray.get('az_Encoding'));
+export function az_Encoding(...elt) {
+  return resource(...elt)._subType_('az_Encoding')._set_('style', mapArray.get('az_Encoding'));
 }
 
 /**
@@ -1410,8 +1410,8 @@ export function az_Encoding(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Live_and_On_Demand_Streaming(elt) {
-  return terminal(elt)._subType_('az_Live_and_On_Demand_Streaming')._set_('style', mapArray.get('az_Live_and_On_Demand_Streaming'));
+export function az_Live_and_On_Demand_Streaming(...elt) {
+  return resource(...elt)._subType_('az_Live_and_On_Demand_Streaming')._set_('style', mapArray.get('az_Live_and_On_Demand_Streaming'));
 }
 
 /**
@@ -1419,8 +1419,8 @@ export function az_Live_and_On_Demand_Streaming(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Live_Video_Analytics__Preview_(elt) {
-  return terminal(elt)._subType_('az_Live_Video_Analytics__Preview_')._set_('style', mapArray.get('az_Live_Video_Analytics__Preview_'));
+export function az_Live_Video_Analytics__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Live_Video_Analytics__Preview_')._set_('style', mapArray.get('az_Live_Video_Analytics__Preview_'));
 }
 
 /**
@@ -1428,8 +1428,8 @@ export function az_Live_Video_Analytics__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Media_Services(elt) {
-  return terminal(elt)._subType_('az_Media_Services')._set_('style', mapArray.get('az_Media_Services'));
+export function az_Media_Services(...elt) {
+  return resource(...elt)._subType_('az_Media_Services')._set_('style', mapArray.get('az_Media_Services'));
 }
 
 /**
@@ -1437,8 +1437,8 @@ export function az_Media_Services(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Data_Box(elt) {
-  return terminal(elt)._subType_('az_Data_Box')._set_('style', mapArray.get('az_Data_Box'));
+export function az_Data_Box(...elt) {
+  return resource(...elt)._subType_('az_Data_Box')._set_('style', mapArray.get('az_Data_Box'));
 }
 
 /**
@@ -1446,8 +1446,8 @@ export function az_Data_Box(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Spatial_Anchors(elt) {
-  return terminal(elt)._subType_('az_Spatial_Anchors')._set_('style', mapArray.get('az_Spatial_Anchors'));
+export function az_Spatial_Anchors(...elt) {
+  return resource(...elt)._subType_('az_Spatial_Anchors')._set_('style', mapArray.get('az_Spatial_Anchors'));
 }
 
 /**
@@ -1455,8 +1455,8 @@ export function az_Spatial_Anchors(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Remote_Rendering__Preview_(elt) {
-  return terminal(elt)._subType_('az_Remote_Rendering__Preview_')._set_('style', mapArray.get('az_Remote_Rendering__Preview_'));
+export function az_Remote_Rendering__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Remote_Rendering__Preview_')._set_('style', mapArray.get('az_Remote_Rendering__Preview_'));
 }
 
 /**
@@ -1464,8 +1464,8 @@ export function az_Remote_Rendering__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Visual_Studio_App_Center(elt) {
-  return terminal(elt)._subType_('az_Visual_Studio_App_Center')._set_('style', mapArray.get('az_Visual_Studio_App_Center'));
+export function az_Visual_Studio_App_Center(...elt) {
+  return resource(...elt)._subType_('az_Visual_Studio_App_Center')._set_('style', mapArray.get('az_Visual_Studio_App_Center'));
 }
 
 /**
@@ -1473,8 +1473,8 @@ export function az_Visual_Studio_App_Center(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Xamarin(elt) {
-  return terminal(elt)._subType_('az_Xamarin')._set_('style', mapArray.get('az_Xamarin'));
+export function az_Xamarin(...elt) {
+  return resource(...elt)._subType_('az_Xamarin')._set_('style', mapArray.get('az_Xamarin'));
 }
 
 /**
@@ -1482,8 +1482,8 @@ export function az_Xamarin(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Application_Gateway(elt) {
-  return terminal(elt)._subType_('az_Application_Gateway')._set_('style', mapArray.get('az_Application_Gateway'));
+export function az_Application_Gateway(...elt) {
+  return resource(...elt)._subType_('az_Application_Gateway')._set_('style', mapArray.get('az_Application_Gateway'));
 }
 
 /**
@@ -1491,8 +1491,8 @@ export function az_Application_Gateway(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Bastion(elt) {
-  return terminal(elt)._subType_('az_Azure_Bastion')._set_('style', mapArray.get('az_Azure_Bastion'));
+export function az_Azure_Bastion(...elt) {
+  return resource(...elt)._subType_('az_Azure_Bastion')._set_('style', mapArray.get('az_Azure_Bastion'));
 }
 
 /**
@@ -1500,8 +1500,8 @@ export function az_Azure_Bastion(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Defender(elt) {
-  return terminal(elt)._subType_('az_Azure_Defender')._set_('style', mapArray.get('az_Azure_Defender'));
+export function az_Azure_Defender(...elt) {
+  return resource(...elt)._subType_('az_Azure_Defender')._set_('style', mapArray.get('az_Azure_Defender'));
 }
 
 /**
@@ -1509,8 +1509,8 @@ export function az_Azure_Defender(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Defender_for_IoT__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Defender_for_IoT__Preview_')._set_('style', mapArray.get('az_Azure_Defender_for_IoT__Preview_'));
+export function az_Azure_Defender_for_IoT__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Defender_for_IoT__Preview_')._set_('style', mapArray.get('az_Azure_Defender_for_IoT__Preview_'));
 }
 
 /**
@@ -1518,8 +1518,8 @@ export function az_Azure_Defender_for_IoT__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_DDoS_Protection(elt) {
-  return terminal(elt)._subType_('az_Azure_DDoS_Protection')._set_('style', mapArray.get('az_Azure_DDoS_Protection'));
+export function az_Azure_DDoS_Protection(...elt) {
+  return resource(...elt)._subType_('az_Azure_DDoS_Protection')._set_('style', mapArray.get('az_Azure_DDoS_Protection'));
 }
 
 /**
@@ -1527,8 +1527,8 @@ export function az_Azure_DDoS_Protection(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_DNS(elt) {
-  return terminal(elt)._subType_('az_Azure_DNS')._set_('style', mapArray.get('az_Azure_DNS'));
+export function az_Azure_DNS(...elt) {
+  return resource(...elt)._subType_('az_Azure_DNS')._set_('style', mapArray.get('az_Azure_DNS'));
 }
 
 /**
@@ -1536,8 +1536,8 @@ export function az_Azure_DNS(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Firewall(elt) {
-  return terminal(elt)._subType_('az_Azure_Firewall')._set_('style', mapArray.get('az_Azure_Firewall'));
+export function az_Azure_Firewall(...elt) {
+  return resource(...elt)._subType_('az_Azure_Firewall')._set_('style', mapArray.get('az_Azure_Firewall'));
 }
 
 /**
@@ -1545,8 +1545,8 @@ export function az_Azure_Firewall(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Firewall_Manager(elt) {
-  return terminal(elt)._subType_('az_Azure_Firewall_Manager')._set_('style', mapArray.get('az_Azure_Firewall_Manager'));
+export function az_Azure_Firewall_Manager(...elt) {
+  return resource(...elt)._subType_('az_Azure_Firewall_Manager')._set_('style', mapArray.get('az_Azure_Firewall_Manager'));
 }
 
 /**
@@ -1554,8 +1554,8 @@ export function az_Azure_Firewall_Manager(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Front_Door(elt) {
-  return terminal(elt)._subType_('az_Azure_Front_Door')._set_('style', mapArray.get('az_Azure_Front_Door'));
+export function az_Azure_Front_Door(...elt) {
+  return resource(...elt)._subType_('az_Azure_Front_Door')._set_('style', mapArray.get('az_Azure_Front_Door'));
 }
 
 /**
@@ -1563,8 +1563,8 @@ export function az_Azure_Front_Door(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Internet_Analyzer__Preview_(elt) {
-  return terminal(elt)._subType_('az_Azure_Internet_Analyzer__Preview_')._set_('style', mapArray.get('az_Azure_Internet_Analyzer__Preview_'));
+export function az_Azure_Internet_Analyzer__Preview_(...elt) {
+  return resource(...elt)._subType_('az_Azure_Internet_Analyzer__Preview_')._set_('style', mapArray.get('az_Azure_Internet_Analyzer__Preview_'));
 }
 
 /**
@@ -1572,8 +1572,8 @@ export function az_Azure_Internet_Analyzer__Preview_(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Private_Link(elt) {
-  return terminal(elt)._subType_('az_Azure_Private_Link')._set_('style', mapArray.get('az_Azure_Private_Link'));
+export function az_Azure_Private_Link(...elt) {
+  return resource(...elt)._subType_('az_Azure_Private_Link')._set_('style', mapArray.get('az_Azure_Private_Link'));
 }
 
 /**
@@ -1581,8 +1581,8 @@ export function az_Azure_Private_Link(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Load_Balancer(elt) {
-  return terminal(elt)._subType_('az_Load_Balancer')._set_('style', mapArray.get('az_Load_Balancer'));
+export function az_Load_Balancer(...elt) {
+  return resource(...elt)._subType_('az_Load_Balancer')._set_('style', mapArray.get('az_Load_Balancer'));
 }
 
 /**
@@ -1590,8 +1590,8 @@ export function az_Load_Balancer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Virtual_Network(elt) {
-  return terminal(elt)._subType_('az_Virtual_Network')._set_('style', mapArray.get('az_Virtual_Network'));
+export function az_Virtual_Network(...elt) {
+  return resource(...elt)._subType_('az_Virtual_Network')._set_('style', mapArray.get('az_Virtual_Network'));
 }
 
 /**
@@ -1599,8 +1599,8 @@ export function az_Virtual_Network(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Virtual_WAN(elt) {
-  return terminal(elt)._subType_('az_Virtual_WAN')._set_('style', mapArray.get('az_Virtual_WAN'));
+export function az_Virtual_WAN(...elt) {
+  return resource(...elt)._subType_('az_Virtual_WAN')._set_('style', mapArray.get('az_Virtual_WAN'));
 }
 
 /**
@@ -1608,8 +1608,8 @@ export function az_Virtual_WAN(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_VPN_Gateway(elt) {
-  return terminal(elt)._subType_('az_VPN_Gateway')._set_('style', mapArray.get('az_VPN_Gateway'));
+export function az_VPN_Gateway(...elt) {
+  return resource(...elt)._subType_('az_VPN_Gateway')._set_('style', mapArray.get('az_VPN_Gateway'));
 }
 
 /**
@@ -1617,8 +1617,8 @@ export function az_VPN_Gateway(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Web_Application_Firewall(elt) {
-  return terminal(elt)._subType_('az_Web_Application_Firewall')._set_('style', mapArray.get('az_Web_Application_Firewall'));
+export function az_Web_Application_Firewall(...elt) {
+  return resource(...elt)._subType_('az_Web_Application_Firewall')._set_('style', mapArray.get('az_Web_Application_Firewall'));
 }
 
 /**
@@ -1626,8 +1626,8 @@ export function az_Web_Application_Firewall(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Dedicated_HSM(elt) {
-  return terminal(elt)._subType_('az_Azure_Dedicated_HSM')._set_('style', mapArray.get('az_Azure_Dedicated_HSM'));
+export function az_Azure_Dedicated_HSM(...elt) {
+  return resource(...elt)._subType_('az_Azure_Dedicated_HSM')._set_('style', mapArray.get('az_Azure_Dedicated_HSM'));
 }
 
 /**
@@ -1635,8 +1635,8 @@ export function az_Azure_Dedicated_HSM(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Key_Vault(elt) {
-  return terminal(elt)._subType_('az_Key_Vault')._set_('style', mapArray.get('az_Key_Vault'));
+export function az_Key_Vault(...elt) {
+  return resource(...elt)._subType_('az_Key_Vault')._set_('style', mapArray.get('az_Key_Vault'));
 }
 
 /**
@@ -1644,8 +1644,8 @@ export function az_Key_Vault(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Archive_Storage(elt) {
-  return terminal(elt)._subType_('az_Archive_Storage')._set_('style', mapArray.get('az_Archive_Storage'));
+export function az_Archive_Storage(...elt) {
+  return resource(...elt)._subType_('az_Archive_Storage')._set_('style', mapArray.get('az_Archive_Storage'));
 }
 
 /**
@@ -1653,8 +1653,8 @@ export function az_Archive_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Avere_vFXT_for_Azure(elt) {
-  return terminal(elt)._subType_('az_Avere_vFXT_for_Azure')._set_('style', mapArray.get('az_Avere_vFXT_for_Azure'));
+export function az_Avere_vFXT_for_Azure(...elt) {
+  return resource(...elt)._subType_('az_Avere_vFXT_for_Azure')._set_('style', mapArray.get('az_Avere_vFXT_for_Azure'));
 }
 
 /**
@@ -1662,8 +1662,8 @@ export function az_Avere_vFXT_for_Azure(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_FXT_Edge_Filer(elt) {
-  return terminal(elt)._subType_('az_Azure_FXT_Edge_Filer')._set_('style', mapArray.get('az_Azure_FXT_Edge_Filer'));
+export function az_Azure_FXT_Edge_Filer(...elt) {
+  return resource(...elt)._subType_('az_Azure_FXT_Edge_Filer')._set_('style', mapArray.get('az_Azure_FXT_Edge_Filer'));
 }
 
 /**
@@ -1671,8 +1671,8 @@ export function az_Azure_FXT_Edge_Filer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_HPC_Cache(elt) {
-  return terminal(elt)._subType_('az_Azure_HPC_Cache')._set_('style', mapArray.get('az_Azure_HPC_Cache'));
+export function az_Azure_HPC_Cache(...elt) {
+  return resource(...elt)._subType_('az_Azure_HPC_Cache')._set_('style', mapArray.get('az_Azure_HPC_Cache'));
 }
 
 /**
@@ -1680,8 +1680,8 @@ export function az_Azure_HPC_Cache(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_NetApp_Files(elt) {
-  return terminal(elt)._subType_('az_Azure_NetApp_Files')._set_('style', mapArray.get('az_Azure_NetApp_Files'));
+export function az_Azure_NetApp_Files(...elt) {
+  return resource(...elt)._subType_('az_Azure_NetApp_Files')._set_('style', mapArray.get('az_Azure_NetApp_Files'));
 }
 
 /**
@@ -1689,8 +1689,8 @@ export function az_Azure_NetApp_Files(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Blob_Storage(elt) {
-  return terminal(elt)._subType_('az_Blob_Storage')._set_('style', mapArray.get('az_Blob_Storage'));
+export function az_Blob_Storage(...elt) {
+  return resource(...elt)._subType_('az_Blob_Storage')._set_('style', mapArray.get('az_Blob_Storage'));
 }
 
 /**
@@ -1698,8 +1698,8 @@ export function az_Blob_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Disk_Storage(elt) {
-  return terminal(elt)._subType_('az_Disk_Storage')._set_('style', mapArray.get('az_Disk_Storage'));
+export function az_Disk_Storage(...elt) {
+  return resource(...elt)._subType_('az_Disk_Storage')._set_('style', mapArray.get('az_Disk_Storage'));
 }
 
 /**
@@ -1707,8 +1707,8 @@ export function az_Disk_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_Files(elt) {
-  return terminal(elt)._subType_('az_Azure_Files')._set_('style', mapArray.get('az_Azure_Files'));
+export function az_Azure_Files(...elt) {
+  return resource(...elt)._subType_('az_Azure_Files')._set_('style', mapArray.get('az_Azure_Files'));
 }
 
 /**
@@ -1716,8 +1716,8 @@ export function az_Azure_Files(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Queue_Storage(elt) {
-  return terminal(elt)._subType_('az_Queue_Storage')._set_('style', mapArray.get('az_Queue_Storage'));
+export function az_Queue_Storage(...elt) {
+  return resource(...elt)._subType_('az_Queue_Storage')._set_('style', mapArray.get('az_Queue_Storage'));
 }
 
 /**
@@ -1725,8 +1725,8 @@ export function az_Queue_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Storage(elt) {
-  return terminal(elt)._subType_('az_Storage')._set_('style', mapArray.get('az_Storage'));
+export function az_Storage(...elt) {
+  return resource(...elt)._subType_('az_Storage')._set_('style', mapArray.get('az_Storage'));
 }
 
 /**
@@ -1734,8 +1734,8 @@ export function az_Storage(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Storage_Explorer(elt) {
-  return terminal(elt)._subType_('az_Storage_Explorer')._set_('style', mapArray.get('az_Storage_Explorer'));
+export function az_Storage_Explorer(...elt) {
+  return resource(...elt)._subType_('az_Storage_Explorer')._set_('style', mapArray.get('az_Storage_Explorer'));
 }
 
 /**
@@ -1743,8 +1743,8 @@ export function az_Storage_Explorer(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_StorSimple(elt) {
-  return terminal(elt)._subType_('az_StorSimple')._set_('style', mapArray.get('az_StorSimple'));
+export function az_StorSimple(...elt) {
+  return resource(...elt)._subType_('az_StorSimple')._set_('style', mapArray.get('az_StorSimple'));
 }
 
 /**
@@ -1752,7 +1752,7 @@ export function az_StorSimple(elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function az_Azure_SignalR_Service(elt) {
-  return terminal(elt)._subType_('az_Azure_SignalR_Service')._set_('style', mapArray.get('az_Azure_SignalR_Service'));
+export function az_Azure_SignalR_Service(...elt) {
+  return resource(...elt)._subType_('az_Azure_SignalR_Service')._set_('style', mapArray.get('az_Azure_SignalR_Service'));
 }
 

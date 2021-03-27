@@ -50,8 +50,8 @@ export class ELKGraphWidget extends Widget {
     minimapContainer.setAttribute('class', 'minimap-container');
     content.appendChild(minimapContainer);
 
-    this.renderer = diagram.createElkRenderer(this.contentPane,minimapContainer, _width, _height);
-    
+    this.renderer = diagram.createElkRenderer(this.contentPane, minimapContainer, _width, _height);
+
     console.log(`ctor : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
   }
 
@@ -98,7 +98,7 @@ export class ELKGraphWidget extends Widget {
       this.selectElt.add(opt);
     });
     const current = values.get(values.keys().next().value);
-    if (current instanceof Error) {
+    if (current instanceof Error || typeof current === 'string') {
       // Display Error Pane
       this.contentPane.style.display = 'none';
       this.errorPane.style.display = 'block';
@@ -114,7 +114,7 @@ export class ELKGraphWidget extends Widget {
       this.selectElt.addEventListener('change', (event) => {
         const result = self._flows.get(event.target.value);
         self.renderFlow(result).then((result) => {
-          if(result !== null){
+          if (result !== null) {
             self.renderer.zoomGraph('fit');
           }
         });
