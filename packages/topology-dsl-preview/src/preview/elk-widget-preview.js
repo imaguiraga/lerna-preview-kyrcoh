@@ -1,4 +1,4 @@
-// text -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> elkX6Layout
+// text -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 

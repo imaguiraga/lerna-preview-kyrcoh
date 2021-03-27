@@ -20,7 +20,7 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
   const width = (_width_ || containerElt.scrollWidth || 800) + 240;
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
-  const graph = createX6Graph(containerElt, _minimap_, width, height);
+  const x6Graph = createX6Graph(containerElt, _minimap_, width, height);
   const toElkLayout = elkLayout();
   toElkLayout.nodeSize(10 * UNIT).portSize(UNIT);
 
@@ -39,9 +39,9 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
         const x6Layout = toX6Layout(elkLayout);
         //console.log(x6Layout);
         //console.log(JSON.stringify(x6Layout,null, ' '));
-        graph.fromJSON(x6Layout);
+        x6Graph.fromJSON(x6Layout);
         //graph.resetCells([...x6Layout.nodes, ...x6Layout.edges]);
-        return graph;
+        return x6Graph;
       }).catch((e) => {
         console.log(e);
       });
@@ -78,7 +78,7 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
       }
     };
 
-    graph.on('node:dblclick', ({ e, x, y, node, view }) => {
+    x6Graph.on('node:dblclick', ({ e, x, y, node, view }) => {
       console.log(node);
       const elkLayoutNode = lookup.get(node.id);
       toggleCollapseNode(elkLayoutNode);
@@ -92,12 +92,12 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
     render,
     zoomGraph(factor/*: number | 'fit' | 'real'*/) {
       if (typeof factor === 'number') {
-        graph.zoom(factor);
+        x6Graph.zoom(factor);
       } else if (factor === 'fit') {
-        graph.zoomToFit({ padding: 0 });
+        x6Graph.zoomToFit({ padding: 0 });
       } else if (factor) {
-        graph.scale(1);
-        graph.centerContent();
+        x6Graph.scale(1);
+        x6Graph.centerContent();
       }
     }
   };
@@ -144,14 +144,14 @@ const RESOURCE_HTML = {
   },
 };
 
-function toX6LayoutRec(elkLayoutNode, g = { nodes: [], edges: [] }) {
+function toX6LayoutRec(elkLayoutNode, x6Layout = { nodes: [], edges: [] }) {
   // Clone node 
-  const n = createX6Node(elkLayoutNode, g);
+  const n = createX6Node(elkLayoutNode, x6Layout);
 
   const children = [];
   (elkLayoutNode.children || []).forEach((c) => {
     children.push(c.id);
-    toX6LayoutRec(c, g);
+    toX6LayoutRec(c, x6Layout);
   });
 
   if (children.length > 0) {
@@ -160,12 +160,12 @@ function toX6LayoutRec(elkLayoutNode, g = { nodes: [], edges: [] }) {
 
   // Edges
   (elkLayoutNode.edges || []).forEach((e) => {
-    const t = createX6Edge(e, g);
+    const t = createX6Edge(e, x6Layout);
   });
-  return g;
+  return x6Layout;
 }
 
-function createX6Node(elkLayoutNode, g) {
+function createX6Node(elkLayoutNode, x6Layout) {
   let model = elkLayoutNode.model || {};
   const n = {
     id: elkLayoutNode.id,
@@ -271,17 +271,17 @@ function createX6Node(elkLayoutNode, g) {
       n.html = RESOURCE_HTML;
 
     } else if (elkLayoutNode.labels !== undefined) {
-      const l = createX6Label(elkLayoutNode, g);
+      const l = createX6Label(elkLayoutNode, x6Layout);
     }
   }
 
   n.attrs.body.strokeWidth = (children.length > 0) ? '0px' : '1px';
   n.attrs.body.opacity = (children.length > 0) ? 0.15 : 0.9;
-  g.nodes.push(n);
+  x6Layout.nodes.push(n);
   return n;
 }
 
-function createX6Label(elkLayoutNode, g) {
+function createX6Label(elkLayoutNode, x6Layout) {
   const label = elkLayoutNode.labels[0];
   // Label Node
   const model = elkLayoutNode.model || {};
@@ -311,11 +311,11 @@ function createX6Label(elkLayoutNode, g) {
   l.label = null;
   l.shape = 'html';
   l.html = RESOURCE_HTML;
-  g.nodes.push(l);
+  x6Layout.nodes.push(l);
   return l;
 }
 
-function createX6Edge(e, g) {
+function createX6Edge(e, x6Layout) {
   const t = {
     attrs: {
       line: {
@@ -381,13 +381,13 @@ function createX6Edge(e, g) {
       t.vertices = vertices;
     }
   }
-  g.edges.push(t);
+  x6Layout.edges.push(t);
   //g.edges.push(Edge.create(t));
   return t;
 }
 
 function createX6Graph(containerElt, minimapContainer, width, height) {
-  const graph = new Graph({
+  const x6Graph = new Graph({
     container: containerElt,
     width: width,
     height: height,
@@ -441,7 +441,7 @@ function createX6Graph(containerElt, minimapContainer, width, height) {
     },
   });
 
-  graph.on('cell:mouseenter', ({ e, cell, view }) => {
+  x6Graph.on('cell:mouseenter', ({ e, cell, view }) => {
     if (cell.isNode() && cell.getData().compound !== undefined) {
       cell.addTools([
         {
@@ -461,9 +461,9 @@ function createX6Graph(containerElt, minimapContainer, width, height) {
       ]);
     }
   });
-  graph.on('cell:mouseleave', ({ e, cell, view }) => {
+  x6Graph.on('cell:mouseleave', ({ e, cell, view }) => {
     cell.removeTools();
   });
   //*/
-  return graph;
+  return x6Graph;
 }
