@@ -89,11 +89,9 @@ function createMainWidget(palette, commands) {
 
   // const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'EDITOR';
-
-  window.addEventListener('message', (event) => {
-    if (event.origin !== window.location.origin) {
-      return;
-    }
+  const myWorker = new SharedWorker('assets/js/worker.js');
+  // myWorker.port.start();
+  const messageCallbackFn = function (event) {
     if (event.data.jsonrpc !== undefined) {
       console.log('event => ' + event.data.method);
       if (event.data.method === 'update.flows') {
@@ -101,8 +99,23 @@ function createMainWidget(palette, commands) {
         elkgraphWidget.flows = event.data.params;
       }
     }
+  };
+
+  myWorker.port.onmessage = function (event) {
+    console.log('=> Worker.onmessage' + event);
+    messageCallbackFn(event);
+  };
+  // myWorker.port.start();
+
+  window.addEventListener('message', (event) => {
+    if (event.origin !== window.location.origin) {
+      return;
+    }
+    console.log('=> Window.onmessage' + event);
+    // messageCallbackFn(event);
 
   }, false);
+  //*/
 
   const callbackFn = function (content) {
     try {
@@ -124,7 +137,8 @@ function createMainWidget(palette, commands) {
           // Convert to array
           const message = { jsonrpc: '2.0', method: 'update.flows', params: result };
           // Update flows
-          window.postMessage(message, window.location.origin);
+          // window.postMessage(message, window.location.origin);
+          myWorker.port.postMessage(message);
         }
       }).catch((err) => {
         console.log(err);
@@ -132,7 +146,9 @@ function createMainWidget(palette, commands) {
         variables.set('ERROR', err.message);
         const message = { jsonrpc: '2.0', method: 'update.flows', params: variables };
         // Update flows
-        window.postMessage(message, window.location.origin);
+        // window.postMessage(message, window.location.origin);
+        // Update using
+        myWorker.port.postMessage(message);
       });
 
     } catch (e) {
