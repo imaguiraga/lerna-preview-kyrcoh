@@ -47,8 +47,7 @@
     "split.js": "^1.5.11"
   },
   "scripts": {
-    "dsl": "yarn az-dsl && yarn cloud-dsl && node scripts/icons.js",
-    "az-dsl": "node scripts/az-icons.js",
+    "dsl": "yarn cloud-dsl && node scripts/icons.js",
     "cloud-dsl": "node scripts/cloud-icons.js",
     "start": "react-scripts --max-old-space-size=4096 start",
     "build": "react-scripts --max-old-space-size=4096 build",
