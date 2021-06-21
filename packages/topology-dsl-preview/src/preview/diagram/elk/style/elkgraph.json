@@ -4,7 +4,7 @@
       "id": "UID:choice.start",
       "label": "UID:choice.start",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.start"
       },
       "width": 80,
@@ -14,7 +14,7 @@
       "id": "UID.0:terminal",
       "label": "UID.0:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.terminal"
       },
       "width": 80,
@@ -24,7 +24,7 @@
       "id": "UID:choice.finish",
       "label": "UID:choice.finish",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.finish"
       },
       "width": 80,
@@ -34,7 +34,7 @@
       "id": "UID.1:choice.start",
       "label": "UID.1:choice.start",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.start"
       },
       "width": 80,
@@ -44,7 +44,7 @@
       "id": "UID.1.0:terminal",
       "label": "UID.1.0:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.terminal"
       },
       "width": 80,
@@ -54,7 +54,7 @@
       "id": "UID.1.1:terminal",
       "label": "UID.1.1:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.terminal"
       },
       "width": 80,
@@ -64,7 +64,7 @@
       "id": "UID.1:choice.finish",
       "label": "UID.1:choice.finish",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice.finish"
       },
       "width": 80,
@@ -74,7 +74,7 @@
       "id": "UID.2:sequence.start",
       "label": "UID.2:sequence.start",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.start"
       },
       "width": 80,
@@ -84,7 +84,7 @@
       "id": "UID.2.0:terminal",
       "label": "UID.2.0:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.terminal"
       },
       "width": 80,
@@ -94,7 +94,7 @@
       "id": "UID.2.1:terminal",
       "label": "UID.2.1:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.terminal"
       },
       "width": 80,
@@ -104,7 +104,7 @@
       "id": "UID.2:sequence.finish",
       "label": "UID.2:sequence.finish",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.finish"
       },
       "width": 80,
@@ -114,7 +114,7 @@
       "id": "UID.2.2:sequence.start",
       "label": "UID.2.2:sequence.start",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.start"
       },
       "width": 80,
@@ -124,7 +124,7 @@
       "id": "UID.2.2.0:terminal",
       "label": "UID.2.2.0:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.terminal"
       },
       "width": 80,
@@ -134,7 +134,7 @@
       "id": "UID.2.2.1:terminal",
       "label": "UID.2.2.1:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.terminal"
       },
       "width": 80,
@@ -144,7 +144,7 @@
       "id": "UID.2.2:sequence.finish",
       "label": "UID.2.2:sequence.finish",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.finish"
       },
       "width": 80,
@@ -154,7 +154,7 @@
       "id": "UID.3:sequence.start",
       "label": "UID.3:sequence.start",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.start"
       },
       "width": 80,
@@ -164,7 +164,7 @@
       "id": "UID.3.0:terminal",
       "label": "UID.3.0:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.terminal"
       },
       "width": 80,
@@ -174,7 +174,7 @@
       "id": "UID.3.1:terminal",
       "label": "UID.3.1:terminal",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.terminal"
       },
       "width": 80,
@@ -184,7 +184,7 @@
       "id": "UID.3:sequence.finish",
       "label": "UID.3:sequence.finish",
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence.finish"
       },
       "width": 80,
@@ -201,7 +201,7 @@
         "UID.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -214,7 +214,7 @@
         "UID:choice.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -227,7 +227,7 @@
         "UID.1:choice.start"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -240,7 +240,7 @@
         "UID:choice.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -253,7 +253,7 @@
         "UID.2:sequence.start"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -266,7 +266,7 @@
         "UID:choice.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -279,7 +279,7 @@
         "UID.3:sequence.start"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -292,7 +292,7 @@
         "UID:choice.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -305,7 +305,7 @@
         "UID.1.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -318,7 +318,7 @@
         "UID.1:choice.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -331,7 +331,7 @@
         "UID.1.1:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -344,7 +344,7 @@
         "UID.1:choice.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "choice"
       }
     },
@@ -357,7 +357,7 @@
         "UID.2.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -370,7 +370,7 @@
         "UID.2.1:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -383,7 +383,7 @@
         "UID.2.2:sequence.start"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -396,7 +396,7 @@
         "UID.2:sequence.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -409,7 +409,7 @@
         "UID.2.2.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -422,7 +422,7 @@
         "UID.2.2.1:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -435,7 +435,7 @@
         "UID.2.2:sequence.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -448,7 +448,7 @@
         "UID.3.0:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -461,7 +461,7 @@
         "UID.3.1:terminal"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     },
@@ -474,7 +474,7 @@
         "UID.3:sequence.finish"
       ],
       "model": {
-        "resourceType": "flow",
+        "tagName": "flow",
         "tagName": "sequence"
       }
     }

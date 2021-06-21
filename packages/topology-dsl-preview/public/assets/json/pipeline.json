@@ -3,7 +3,7 @@
   "label": "pipeline.container.25",
   "model": {
     "provider": "pipeline",
-    "resourceType": "pipeline",
+    "tagName": "pipeline",
     "tagName": "container",
     "compound": true
   },
@@ -31,7 +31,7 @@
       "label": "UID:container.start",
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": "start",
         "compound": false
       },
@@ -48,7 +48,7 @@
       "label": "UID.0:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "step",
+        "tagName": "step",
         "tagName": "terminal",
         "compound": false
       },
@@ -65,7 +65,7 @@
       "label": "UID:container.finish",
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": "finish",
         "compound": false
       },
@@ -82,7 +82,7 @@
       "label": "UID.1:container.start",
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": "start",
         "compound": false
       },
@@ -99,7 +99,7 @@
       "label": "UID.1.0:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -116,7 +116,7 @@
       "label": "UID.1.1:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -133,7 +133,7 @@
       "label": "UID.1.2:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -150,7 +150,7 @@
       "label": "UID.1.3:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -167,7 +167,7 @@
       "label": "UID.1.4:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -184,7 +184,7 @@
       "label": "UID.1:container.finish",
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": "finish",
         "compound": false
       },
@@ -201,7 +201,7 @@
       "label": "UID.2:container.start",
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": "start",
         "compound": false
       },
@@ -218,7 +218,7 @@
       "label": "UID.2.0:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "step",
+        "tagName": "step",
         "tagName": "terminal",
         "compound": false
       },
@@ -235,7 +235,7 @@
       "label": "UID.2.1:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "step",
+        "tagName": "step",
         "tagName": "terminal",
         "compound": false
       },
@@ -252,7 +252,7 @@
       "label": "UID.2:container.finish",
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": "finish",
         "compound": false
       },
@@ -269,7 +269,7 @@
       "label": "UID.2.2:container.start",
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": "start",
         "compound": false
       },
@@ -286,7 +286,7 @@
       "label": "UID.2.2.0:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -303,7 +303,7 @@
       "label": "UID.2.2.1:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -320,7 +320,7 @@
       "label": "UID.2.2:container.finish",
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": "finish",
         "compound": false
       },
@@ -337,7 +337,7 @@
       "label": "UID.3:container.start",
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": "start",
         "compound": false
       },
@@ -354,7 +354,7 @@
       "label": "UID.3.0:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -371,7 +371,7 @@
       "label": "UID.3.1:terminal",
       "model": {
         "provider": "pipeline",
-        "resourceType": "resource",
+        "tagName": "resource",
         "tagName": "terminal",
         "compound": false
       },
@@ -388,7 +388,7 @@
       "label": "UID.3:container.finish",
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": "finish",
         "compound": false
       },
@@ -412,7 +412,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": null
       }
     },
@@ -426,7 +426,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": null
       }
     },
@@ -440,7 +440,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": null
       }
     },
@@ -454,7 +454,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": null
       }
     },
@@ -468,7 +468,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "pipeline",
+        "tagName": "pipeline",
         "tagName": null
       }
     },
@@ -482,7 +482,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -496,7 +496,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -510,7 +510,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -524,7 +524,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -538,7 +538,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -552,7 +552,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -566,7 +566,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -580,7 +580,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -594,7 +594,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -608,7 +608,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -622,7 +622,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": null
       }
     },
@@ -636,7 +636,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": null
       }
     },
@@ -650,7 +650,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": null
       }
     },
@@ -664,7 +664,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": null
       }
     },
@@ -678,7 +678,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": null
       }
     },
@@ -692,7 +692,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "stage",
+        "tagName": "stage",
         "tagName": null
       }
     },
@@ -706,7 +706,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -720,7 +720,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -734,7 +734,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -748,7 +748,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -762,7 +762,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -776,7 +776,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -790,7 +790,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     },
@@ -804,7 +804,7 @@
       ],
       "model": {
         "provider": "pipeline",
-        "resourceType": "job",
+        "tagName": "job",
         "tagName": null
       }
     }

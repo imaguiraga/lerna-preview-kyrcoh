@@ -1,4 +1,4 @@
-// text -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
+// text -> dslObjectMap -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
@@ -23,9 +23,9 @@ import './style/widget-style.css';
 import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
-import * as flowDsl1 from '@imaguiraga/topology-dsl-core';
-import * as azure from '../assets/js/Azure_Products_Icons';
-import * as gcp from '../assets/js/GCP_Icons';
+import * as flowDsl from '@imaguiraga/topology-dsl-core';
+import * as azure from '../assets/js/AZURE';
+import * as gcp from '../assets/js/GCP';
 import { toElkGraph } from './diagram';
 const {
   parseDsl,
@@ -35,9 +35,9 @@ const {
   resolveImports,
   NODEIDGENFN,
   clone
-} = flowDsl1;
+} = flowDsl;
 
-const flowDsl = { ...flowDsl1 };
+const DSL_MODULE = { ...flowDsl };
 registerJSModule('azure-dsl', azure);
 registerJSModule('gcp-dsl', gcp);
 
@@ -63,7 +63,7 @@ function loadFnFactory() {
   return loadFn;
 }
 
-flowDsl.load = loadFnFactory();
+DSL_MODULE.load = loadFnFactory();
 
 function main() {
   const commands = new CommandRegistry();
@@ -89,11 +89,9 @@ function createMainWidget(palette, commands) {
 
   // const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'EDITOR';
-
-  window.addEventListener('message', (event) => {
-    if (event.origin !== window.location.origin) {
-      return;
-    }
+  const myWorker = new SharedWorker('assets/js/worker.js');
+  // myWorker.port.start();
+  const messageCallbackFn = function (event) {
     if (event.data.jsonrpc !== undefined) {
       console.log('event => ' + event.data.method);
       if (event.data.method === 'update.flows') {
@@ -101,17 +99,32 @@ function createMainWidget(palette, commands) {
         elkgraphWidget.flows = event.data.params;
       }
     }
+  };
+
+  myWorker.port.onmessage = function (event) {
+    console.log('=> Worker.onmessage' + event);
+    messageCallbackFn(event);
+  };
+  // myWorker.port.start();
+
+  window.addEventListener('message', (event) => {
+    if (event.origin !== window.location.origin) {
+      return;
+    }
+    console.log('=> Window.onmessage' + event);
+    // messageCallbackFn(event);
 
   }, false);
+  //*/
 
   const callbackFn = function (content) {
     try {
       // TODO NODEIDGENFN.next(true);         
-      parseDslModule(content, flowDsl).then((flows) => {
+      parseDslModule(content, DSL_MODULE).then((dslObjectMap) => {
         // Update graph flows
-        if (flows !== undefined && flows !== null) {
+        if (dslObjectMap !== undefined && dslObjectMap !== null) {
           const result = new Map();
-          flows.forEach((dslObject, key, map) => {
+          dslObjectMap.forEach((dslObject, key, map) => {
             if (dslObject !== null) {
               //console.log(JSON.stringify(dslObject,null,'  '));
               const elkgraph = toElkGraph(dslObject);
@@ -124,7 +137,8 @@ function createMainWidget(palette, commands) {
           // Convert to array
           const message = { jsonrpc: '2.0', method: 'update.flows', params: result };
           // Update flows
-          window.postMessage(message, window.location.origin);
+          // window.postMessage(message, window.location.origin);
+          myWorker.port.postMessage(message);
         }
       }).catch((err) => {
         console.log(err);
@@ -132,7 +146,9 @@ function createMainWidget(palette, commands) {
         variables.set('ERROR', err.message);
         const message = { jsonrpc: '2.0', method: 'update.flows', params: variables };
         // Update flows
-        window.postMessage(message, window.location.origin);
+        // window.postMessage(message, window.location.origin);
+        // Update using
+        myWorker.port.postMessage(message);
       });
 
     } catch (e) {

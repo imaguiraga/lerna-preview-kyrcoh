@@ -8,7 +8,7 @@ import { mapArray } from './{{ provider }}-map.js';
  * @return {object} dsl object.
  */
 export function {{ item.dsl }}(...elt) {
-  return resource(...elt)._subType_('{{ item.subType }}')._set_('style', mapArray.get('{{ item.dsl }}'));
+  return resource(...elt)._tagName_('{{ item.tagName }}')._set_('style', mapArray.get('{{ item.dsl }}'));
 }
 
 {% endfor %}

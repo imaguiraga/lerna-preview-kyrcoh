@@ -13,7 +13,7 @@ export class PipelineToG6Visitor {
     if( typeof tree === "undefined"){
       return result;
     }
-    switch(tree.resourceType){
+    switch(tree.tagName){
       case "data":
         result = TerminalPipelineToG6Visitor.visit(this,tree,filterFn);
       break;
@@ -48,7 +48,7 @@ export class PipelineToG6Visitor {
       label: n.id,
       model: { 
         provider: n.provider,
-        resourceType: n.resourceType,
+        tagName: n.tagName,
         tagName: n.tagName,
         compound: n.compound
       },
@@ -65,7 +65,7 @@ export class PipelineToG6Visitor {
     let r = {
       model: { 
         provider: n.provider,
-        resourceType: n.resourceType,
+        tagName: n.tagName,
         tagName: null
       }
     };
@@ -91,13 +91,13 @@ class SequenceEltFlowToG6Visitor{
       edges: [],
       ...visitor.getNodeModel(tree)
     };
-    if (tree.resourceType !== type) {
+    if (tree.tagName !== type) {
       return graph;
     }
     // start + finish nodes
     graph.nodes.push(visitor.getNodeModel(tree.start));
     // nodes
-    if (tree.resourceType === type && tree.compound) {
+    if (tree.tagName === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
@@ -199,7 +199,7 @@ class MutltiPathToG6Visitor{
       ...visitor.getNodeModel(tree)
     };
     //
-    if (tree.resourceType !== type) {
+    if (tree.tagName !== type) {
       return graph;
     }
     // start + finish nodes
@@ -207,7 +207,7 @@ class MutltiPathToG6Visitor{
 
 
     // nodes
-    if (tree.resourceType === type && tree.compound) {
+    if (tree.tagName === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {

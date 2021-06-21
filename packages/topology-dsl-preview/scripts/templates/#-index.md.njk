@@ -1,5 +1,5 @@
-| provider | category | product | dsl | isDecorator | resourceType | tagName | subType | iconURL | typeURI | docURL |
-| -------- | -------- | ------- | --- | ----------- | ------------ | ------- | ------- | -------- | ------- | ------ |
+| provider | category | product | dsl | kind | tagName | iconURL | typeURI | docURL |
+| -------- | -------- | ------- | --- | ---- | ------- | ------- | ------- | ------ |
 {% for item in items %}
-| {{ item.provider }} | {{ item.category }} | {{ item.product }} | {{ item.dsl }} | {{ item.isDecorator }} | {{ item.resourceType }} | {{ item.tagName }} | {{ item.subType }} | ![Image]({{ encodeURI(item.iconURL) }} "icon") | {{ item.typeURI }} | {{ item.docURL }} |
+| {{ item.provider }} | {{ item.category }} | {{ item.product }} | {{ item.dsl }} | {{ item.kind }} | {{ item.tagName }} | ![Image]({{ encodeURI(item.iconURL) }} "icon") | {{ item.typeURI }} | {{ item.docURL }} |
 {% endfor %}

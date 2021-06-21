@@ -1,10 +1,10 @@
 const sets = [
   {
-    provider: 'Azure_Products_Icons',
+    provider: 'AZURE',
     prefix: 'az',
     path: 'assets/icons/Azure_Public_Service_Icons',
     pattern: '\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg',
-    resourceType: 'cloud',
+    kind: 'resource',
     //excludes : ['/CXP','/Azure VMware Solution','/General']
   }
   /*,
@@ -13,12 +13,12 @@ const sets = [
     prefix: 'gcp',
     path: 'assets/icons/GCP Icons/Products and services',
     pattern: '(.*).svg',
-    resourceType : 'cloud'
+    kind : 'cloud'
   }//*/
 ];
 
 // Generate csv from iconSets
-//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconURL, typeURI, docURL
+//provider, category, product, dsl, isDecorator, kind, tagName, tagName, iconURL, typeURI, docURL
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const yaml = require('js-yaml');
@@ -31,10 +31,8 @@ function createAzResource(s, item) {
   let dsl = s.prefix + '_' + product;
   // Replace special characters
   dsl = dsl.replace(/\-|\s+|\(|\)|\+/g, '_');
-  let isDecorator = false;
-  let resourceType = s.resourceType;
-  let tagName = 'terminal';
-  let subType = dsl;
+  let kind = s.kind;
+  let tagName = dsl;
   // imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
   // imageSrc: https://static.docs.com/ui/media/product/azure/iot-hub.svg
   const IMAGE_PREFIX = 'https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/';
@@ -70,10 +68,8 @@ function createAzResource(s, item) {
     category,
     product,
     dsl,
-    isDecorator,
-    resourceType,
+    kind,
     tagName,
-    subType,
     iconURL,
     typeURI,
     docURL

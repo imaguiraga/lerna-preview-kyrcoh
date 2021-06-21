@@ -14,7 +14,7 @@ export function isIconFn(n) {
 }
 
 export function isDefaultResourceFn(n) {
-  return (n && n.model && n.model.resourceType === 'default');
+  return (n && n.model && n.model.tagName === 'resource');
 }
 
 // Reset ids
