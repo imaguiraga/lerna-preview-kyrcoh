@@ -3,7 +3,7 @@ const { writeFileSync } = fs;
 const { resolve, dirname, extname } = require('path');
 const mkdirp = require('mkdirp');
 const nunjucks = require('nunjucks');
-const chalk = require('chalk').default;
+const chalk = require('chalk');
 const yaml = require('js-yaml');
 
 const render = (

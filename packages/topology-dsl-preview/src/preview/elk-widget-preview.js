@@ -1,4 +1,4 @@
-// text -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
+// text -> dslObjectMap -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
@@ -23,9 +23,9 @@ import './style/widget-style.css';
 import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
-import * as flowDsl1 from '@imaguiraga/topology-dsl-core';
-import * as azure from '../assets/js/Azure_Products_Icons';
-import * as gcp from '../assets/js/GCP_Icons';
+import * as flowDsl from '@imaguiraga/topology-dsl-core';
+import * as azure from '../assets/js/AZURE';
+import * as gcp from '../assets/js/GCP';
 import { toElkGraph } from './diagram';
 const {
   parseDsl,
@@ -35,9 +35,9 @@ const {
   resolveImports,
   NODEIDGENFN,
   clone
-} = flowDsl1;
+} = flowDsl;
 
-const flowDsl = { ...flowDsl1 };
+const DSL_MODULE = { ...flowDsl };
 registerJSModule('azure-dsl', azure);
 registerJSModule('gcp-dsl', gcp);
 
@@ -63,7 +63,7 @@ function loadFnFactory() {
   return loadFn;
 }
 
-flowDsl.load = loadFnFactory();
+DSL_MODULE.load = loadFnFactory();
 
 function main() {
   const commands = new CommandRegistry();
@@ -120,11 +120,11 @@ function createMainWidget(palette, commands) {
   const callbackFn = function (content) {
     try {
       // TODO NODEIDGENFN.next(true);         
-      parseDslModule(content, flowDsl).then((flows) => {
+      parseDslModule(content, DSL_MODULE).then((dslObjectMap) => {
         // Update graph flows
-        if (flows !== undefined && flows !== null) {
+        if (dslObjectMap !== undefined && dslObjectMap !== null) {
           const result = new Map();
-          flows.forEach((dslObject, key, map) => {
+          dslObjectMap.forEach((dslObject, key, map) => {
             if (dslObject !== null) {
               //console.log(JSON.stringify(dslObject,null,'  '));
               const elkgraph = toElkGraph(dslObject);

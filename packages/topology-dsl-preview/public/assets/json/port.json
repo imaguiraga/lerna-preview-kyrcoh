@@ -11,7 +11,7 @@
       ],
       "model": {
         "provider": "flow",
-        "resourceType": "choice",
+        "tagName": "choice",
         "tagName": "container",
         "compound": true
       },
@@ -21,7 +21,7 @@
           "label": "UID_container_start",
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": "start",
             "compound": false
           },
@@ -36,7 +36,7 @@
           "label": "UID_container_finish",
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": "finish",
             "compound": false
           },
@@ -53,7 +53,7 @@
           "label": "UID_0",
           "model": {
             "provider": "flow",
-            "resourceType": "resource",
+            "tagName": "resource",
             "tagName": "terminal",
             "compound": false
           },
@@ -70,7 +70,7 @@
           "label": "UID_1_terminal",
           "model": {
             "provider": "flow",
-            "resourceType": "resource",
+            "tagName": "resource",
             "tagName": "terminal",
             "compound": false
           },
@@ -87,7 +87,7 @@
           "label": "UID_2_terminal",
           "model": {
             "provider": "flow",
-            "resourceType": "resource",
+            "tagName": "resource",
             "tagName": "terminal",
             "compound": false
           },
@@ -111,7 +111,7 @@
           ],
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": null
           }
         },
@@ -125,7 +125,7 @@
           ],
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": null
           }
         },
@@ -139,7 +139,7 @@
           ],
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": null
           }
         },
@@ -153,7 +153,7 @@
           ],
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": null
           }
         },
@@ -167,7 +167,7 @@
           ],
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": null
           }
         },
@@ -181,7 +181,7 @@
           ],
           "model": {
             "provider": "flow",
-            "resourceType": "choice",
+            "tagName": "choice",
             "tagName": null
           }
         }

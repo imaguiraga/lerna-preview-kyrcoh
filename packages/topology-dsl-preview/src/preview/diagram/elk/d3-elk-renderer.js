@@ -63,7 +63,7 @@ function drawNode(selection, d, i, refreshFn) {
   // extract class names from tagName
   if (d.model) {
     selection.classed(d.model.provider, d.model.provider !== undefined);
-    selection.classed(d.model.resourceType, d.model.resourceType !== undefined);
+    selection.classed(d.model.tagName, d.model.tagName !== undefined);
     selection.classed(d.model.tagName, d.model.tagName !== undefined);
     selection.classed(d.model.subType, d.model.subType !== undefined);
     if (d.model.compound === true || d.collapsed) {
@@ -267,7 +267,7 @@ export function renderd3Layout(svg, node, refreshFn) {
       // extract class names from tagName
       if (d.model) {
         selection.classed(d.model.provider, d.model.provider !== undefined);
-        selection.classed(d.model.resourceType, d.model.resourceType !== undefined);
+        selection.classed(d.model.tagName, d.model.tagName !== undefined);
         selection.classed(d.model.subType, d.model.subType !== undefined);
       }
     });
