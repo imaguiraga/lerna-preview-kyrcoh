@@ -280,8 +280,8 @@ const EDGE_CONFIG_MAP = new Map([
 export const FLOW_NODE_FN = function(node) {
   // Compute stroke and textColor
   let result = {};
-  if(node.model && node.model.resourceType) {
-    let key = node.model.resourceType + (node.model.tagName? "."+node.model.tagName: "");
+  if(node.model && node.model.tagName) {
+    let key = node.model.tagName + (node.model.tagName? "."+node.model.tagName: "");
     if(NODE_CONFIG_MAP.has(key)) {
       result = NODE_CONFIG_MAP.get(key);
     }
@@ -293,9 +293,9 @@ export const FLOW_NODE_FN = function(node) {
 export const FLOW_EDGE_FN = function(edge) {
   let result = {};
 
-  // if source and target have the same resourcetype use the source stroke color
-  if(edge.model && edge.model.resourceType && EDGE_CONFIG_MAP.has(edge.model.resourceType)) {
-    result = EDGE_CONFIG_MAP.get(edge.model.resourceType);
+  // if source and target have the same tagName use the source stroke color
+  if(edge.model && edge.model.tagName && EDGE_CONFIG_MAP.has(edge.model.tagName)) {
+    result = EDGE_CONFIG_MAP.get(edge.model.tagName);
   }
   return result || {};
 };

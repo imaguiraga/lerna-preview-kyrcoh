@@ -10,7 +10,7 @@ function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/,
 const LINE = 'line';
 Graph.registerRouter(LINE, lineRouter);
 
-const UNIT = 8;
+const UNIT = 12;
 const EMPTY_ARRAY = [];
 export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _iconWidth_) {
 
@@ -133,7 +133,7 @@ const RESOURCE_HTML = {
 
     textdiv.innerHTML =
       (style && style.product ? `<div><code>${style.product}</code></div>` : '') +
-      `<div><code style='font-weight:bold;font-size:1.25em'>${model !== undefined ? model.title : ''}</code></div>`
+      `<div><code class='resource-title'>${model !== undefined ? model.title : ''}</code></div>`
       ;
     wrap.appendChild(textdiv);
 
@@ -194,8 +194,8 @@ function createX6Node(elkLayoutNode, x6Layout) {
   const clazz = ['node'];
   if (elkLayoutNode.model !== undefined) {
     clazz.push(elkLayoutNode.model.provider);
-    clazz.push(elkLayoutNode.model.resourceType);
-    clazz.push(elkLayoutNode.model.subType);
+    clazz.push(elkLayoutNode.model.kind);
+    clazz.push(elkLayoutNode.model.tagName);
   }
   n.attrs.body.class = clazz.join(' ');
 
@@ -231,8 +231,8 @@ function createX6Node(elkLayoutNode, x6Layout) {
               magnet: false,
             },
             text: {
-              fontSize: UNIT,
-              fill: '#888'
+              fontSize: 0.8 * UNIT,
+              fill: '#444'
             }
           }
         }
@@ -253,8 +253,8 @@ function createX6Node(elkLayoutNode, x6Layout) {
         class: n.data.tagName,
       },
       text: {
-        fontSize: UNIT,
-        fill: '#888'
+        fontSize: 0.8 * UNIT,
+        fill: '#444'
       }
     };
     // Round corners

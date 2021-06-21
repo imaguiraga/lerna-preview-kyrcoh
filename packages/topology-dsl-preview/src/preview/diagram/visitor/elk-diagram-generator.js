@@ -73,12 +73,12 @@ export class DslToELKGenerator {
       return result;
     }
     if (tree.compound) {
-      switch (tree.resourceType) {
+      switch (tree.kind) {
         case 'fanOut_fanIn':
         case 'fanIn':
         case 'fanOut':
         case 'group':
-          result = MutltiPathEltDslToELKGenerator.visit(this, tree, filterFn, tree.resourceType);
+          result = MutltiPathEltDslToELKGenerator.visit(this, tree, filterFn, tree.kind);
           break;
         case 'optional':
           result = this._visitOptional(tree, filterFn);
@@ -89,11 +89,11 @@ export class DslToELKGenerator {
         case 'repeat':
           result = this._visitRepeat(tree, filterFn);
           break;
-        case 'terminal':
+        case 'resoource':
           result = this._visitTerminal(tree, filterFn);
           break;
         default:
-          console.error('==>WARNING: ' + tree.resourceType + ' type was not found');
+          console.error('==>WARNING: ' + tree.kind + ' type was not found');
           break;
       }
 
@@ -125,10 +125,9 @@ export class DslToELKGenerator {
       id: n.id,
       label: n.title,
       model: {
-        resourceType: n.resourceType,
+        kind: n.kind,
         title: n.title,
         direction: n.direction,
-        subType: n.subType,
         tagName: n.tagName,
         id: n.id,
         provider: n.provider,
@@ -159,8 +158,10 @@ export class DslToELKGenerator {
       id: n.id,
       label: n.id,
       model: {
+        kind: 'port',
         tagName: 'port',
         compound: false,
+        provider: 'custom',
         id: n.id,
         data: n.data
       },
@@ -187,9 +188,8 @@ export class DslToELKGenerator {
     let r = {
       model: {
         provider: n.provider,
-        resourceType: n.resourceType,
-        subType: n.subType,
-        tagName: 'edge'
+        tagName: 'edge',
+        kind: 'edge'
       },
       style: {
         startArrow: false,
@@ -265,7 +265,7 @@ class SequenceEltDslToELKGenerator {
       children: [],
       edges: []
     };
-    if (tree.resourceType !== SEQUENCE) {
+    if (tree.kind !== SEQUENCE) {
       return graph;
     }
     // start + finish nodes
@@ -348,7 +348,7 @@ class MutltiPathEltDslToELKGenerator {
       edges: []
     };
     //
-    if (tree.resourceType !== type) {
+    if (tree.kind !== type) {
       return graph;
     }
     // start + finish nodes
@@ -445,7 +445,7 @@ class OptionalEltDslToELKGenerator {
       children: [],
       edges: []
     };
-    if (tree.resourceType !== OPTIONAL) {
+    if (tree.kind !== OPTIONAL) {
       return graph;
     }
     // start node
@@ -553,7 +553,7 @@ class RepeatEltDslToELKGenerator {
       children: [],
       edges: []
     };
-    if (tree.resourceType !== REPEAT) {
+    if (tree.kind !== REPEAT) {
       return graph;
     }
     // start node

@@ -11,7 +11,7 @@ import {
   az_Blob_Storage,
   az_Azure_SQL_Database,
   az_Azure_Cache_for_Redis
-} from './assets/js/Azure_Products_Icons/index.js';
+} from './assets/js/AZURE/index.js';
 
 import { 
   gcp_Compute_Engine,

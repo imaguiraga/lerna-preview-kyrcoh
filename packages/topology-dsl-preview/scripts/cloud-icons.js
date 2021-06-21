@@ -1,26 +1,27 @@
 const sets = [
+  /*
   {
-    provider: 'Azure_Public_Service_Icons',
+    provider: 'AZURE',
     prefix: 'az',
     path: 'assets/icons/Azure_Public_Service_Icons',
     pattern: '\\d+\\-icon\\-service\\-(.+)(ies|s)?\\.svg',
-    resourceType: 'cloud',
+    kind: 'resource',
     //excludes : ['/CXP','/Azure VMware Solution','/General']
-  },
+  },//*/
   {
-    provider: 'GCP_Icons',
+    provider: 'GCP',
     prefix: 'gcp',
     path: 'assets/icons/GCP Icons/Products and services',
     pattern: '(.*).svg',
-    resourceType: 'cloud'
+    kind: 'resource'
   }
 ];
 
 // Generate csv from iconSets
-//provider, category, product, dsl, isDecorator, resourceType, tagName, subType, iconURL, typeURI, docURL
+//provider, category, product, dsl, isDecorator, kind, tagName, tagName, iconURL, typeURI, docURL
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const chalk = require('chalk').default;
+const chalk = require('chalk');
 const yaml = require('js-yaml');
 
 function cloudDsl(s) {
@@ -49,11 +50,8 @@ function cloudDsl(s) {
         let dsl = s.prefix + '_' + found[1];
         // Replace special characters
         dsl = dsl.replace(/\-|\s+|\(|\)|\+/g, '_');
-        let isDecorator = false;
-        let resourceType = s.resourceType;
-        let tagName = 'terminal';
-        let subType = dsl;
-
+        let kind = s.kind;
+        let tagName = dsl;
         let iconURL = path.posix.join(s.path, category, fileStats.name);
         let typeURI = '';
         let docURL = '';
@@ -65,10 +63,8 @@ function cloudDsl(s) {
           category,
           product,
           dsl,
-          isDecorator,
-          resourceType,
+          kind,
           tagName,
-          subType,
           iconURL,
           typeURI,
           docURL
