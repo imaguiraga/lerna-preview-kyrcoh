@@ -1,0 +1,4181 @@
+<tab dropdown=""
+     dropdown-full=""
+     clickable=""
+     generated-tab-menu=""
+     dropdown--open="">
+	<a href="https://cloud.google.com/products"
+	   class="gc-analytics-event"
+	   track-type="globalNav"
+	   track-metadata-position="nav"
+	   track-metadata-eventdetail="nav"
+	   track-name="products"
+	   data-category="Site-Wide Custom Events"
+	   data-label="Tab: Products">Products</a>
+	<a href="#"
+	   role="button"
+	   aria-haspopup="true"
+	   aria-expanded="true"
+	   aria-label="Dropdown menu for Products"
+	   track-type="globalNav"
+	   track-metadata-position="nav"
+	   track-metadata-eventdetail="nav"
+	   track-name="products"
+	   data-category="Site-Wide Custom Events"
+	   data-label="Tab: Products"
+	   class="devsite-tabs-dropdown-toggle devsite-icon devsite-icon-arrow-drop-down" />
+	<div class="devsite-tabs-dropdown"
+	     aria-label="submenu"
+	     style="left: -377.156px;">
+		<button class="devsite-tabs-close-button material-icons button-flat gc-analytics-event"
+		        data-category="Site-Wide Custom Events"
+		        data-label="Close dropdown menu"
+		        aria-label="Close dropdown menu">close</button>
+		<div class="dropdown-tabbed-menu">
+			<ul class="dropdown-tabbed-menu-list">
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-0"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Featured Products"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-0"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products"
+					   active="">Featured Products</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-1"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="AI and Machine Learning"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-1"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">AI and Machine Learning</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-2"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="API Management"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-2"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">API Management</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-3"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Compute"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-3"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Compute</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-4"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Containers"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-4"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Containers</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-5"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Data Analytics"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-5"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Data Analytics</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-6"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Databases"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-6"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Databases</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-7"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Developer Tools"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-7"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Developer Tools</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-8"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Healthcare and Life Sciences"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-8"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Healthcare and Life Sciences</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-9"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Hybrid and Multicloud"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-9"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Hybrid and Multicloud</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-10"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Internet of Things"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-10"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Internet of Things</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-11"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Management Tools"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-11"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Management Tools</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-12"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Media and Gaming"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-12"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Media and Gaming</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-13"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Migration"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-13"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Migration</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-14"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Networking"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-14"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Networking</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-15"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Operations"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-15"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Operations</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-16"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Security and Identity"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-16"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Security and Identity</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-17"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Serverless Computing"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-17"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Serverless Computing</a>
+				</li>
+				<li class="dropdown-tabbed-menu-list-item">
+					<a href="#"
+					   column-id="tab-2-column-18"
+					   tabindex="0"
+					   track-type="navMenu"
+					   track-metadata-eventdetail="Storage"
+					   track-name="Products"
+					   track-metadata-href="#tab-2-column-18"
+					   track-metadata-position="nav - secondary"
+					   track-metadata-module_headline="Products">Storage</a>
+				</li>
+			</ul>
+			<div class="dropdown-tabbed-menu-button">
+				<a href="https://cloud.google.com/products"
+				   track-type="navMenu"
+				   track-name="Products"
+				   track-metadata-eventdetail="See all products (100+)"
+				   track-metadata-href="https://cloud.google.com/products"
+				   track-metadata-position="nav - secondary"
+				   track-metadata-module_headline="Products">See all products (100+)</a>
+			</div>
+		</div>
+		<div class="devsite-tabs-dropdown-content">
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-0">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading">
+					<li class="devsite-nav-title"
+					    role="heading"
+					    tooltip="">Featured Products</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/compute"
+						   track-type="navMenu"
+						   track-name="Compute Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/compute"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Compute Engine</div>
+							<div class="devsite-nav-item-description">Virtual machines running in Google’s data center.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/storage"
+						   track-type="navMenu"
+						   track-name="Cloud Storage"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/storage"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudstorage"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Storage</div>
+							<div class="devsite-nav-item-description">Object storage that’s secure, durable, and scalable.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/sdk"
+						   track-type="navMenu"
+						   track-name="Cloud SDK"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/sdk"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudshell"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud SDK</div>
+							<div class="devsite-nav-item-description">Command-line tools and libraries for Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/sql"
+						   track-type="navMenu"
+						   track-name="Cloud SQL"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/sql"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsql"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud SQL</div>
+							<div class="devsite-nav-item-description">Relational database services for MySQL, PostgreSQL, and SQL server.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/kubernetes-engine"
+						   track-type="navMenu"
+						   track-name="Google Kubernetes Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/kubernetes-engine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Google Kubernetes Engine</div>
+							<div class="devsite-nav-item-description">Managed environment for running containerized apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/bigquery"
+						   track-type="navMenu"
+						   track-name="BigQuery"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/bigquery"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">BigQuery</div>
+							<div class="devsite-nav-item-description">Data warehouse for business agility and insights.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/cdn"
+						   track-type="navMenu"
+						   track-name="Cloud CDN"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/cdn"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcdn"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud CDN</div>
+							<div class="devsite-nav-item-description">Content delivery network for delivering web and video.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dataflow"
+						   track-type="navMenu"
+						   track-name="Dataflow"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dataflow"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataflow"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Dataflow</div>
+							<div class="devsite-nav-item-description">Streaming analytics for stream and batch  processing.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/operations"
+						   track-type="navMenu"
+						   track-name="Operations"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/operations"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#stackdriver"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Operations</div>
+							<div class="devsite-nav-item-description">Monitoring, logging, and application performance suite.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/run"
+						   track-type="navMenu"
+						   track-name="Cloud Run"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/run"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Run</div>
+							<div class="devsite-nav-item-description">Fully managed environment for running containerized apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/anthos"
+						   track-type="navMenu"
+						   track-name="Anthos"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/anthos"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#anthos"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Anthos</div>
+							<div class="devsite-nav-item-description">Platform for modernizing existing apps and building new ones.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border dropdown-tabbed-menu-button-target">
+					<li class="devsite-nav-description">Not seeing what you're looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products"
+						   track-type="navMenu"
+						   track-name="See all products (100+)"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products"
+						   tooltip=""
+						   track-metadata-module_headline="featured products"
+						   track-metadata-eventdetail="see all products">
+							<div class="devsite-nav-item-title">See all products (100+)</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-1"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/ai"
+						   track-type="navMenu"
+						   track-name="AI and Machine Learning"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/ai"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">AI and Machine Learning</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/vertex-ai"
+						   track-type="navMenu"
+						   track-name="Vertex AI"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/vertex-ai"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/vertex-ai.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Vertex AI</div>
+							<div class="devsite-nav-item-description">Unified ML Platform for training, hosting, and managing ML models.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/speech-to-text"
+						   track-type="navMenu"
+						   track-name="Speech-to-Text"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/speech-to-text"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudspeechapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Speech-to-Text</div>
+							<div class="devsite-nav-item-description">Speech recognition and transcription supporting 125 languages.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/vision"
+						   track-type="navMenu"
+						   track-name="Vision AI"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/vision"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudvisionapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Vision AI</div>
+							<div class="devsite-nav-item-description">Custom and pre-trained models to detect emotion, text, more.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/text-to-speech"
+						   track-type="navMenu"
+						   track-name="Text-to-Speech"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/text-to-speech"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtexttospeech"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Text-to-Speech</div>
+							<div class="devsite-nav-item-description">Speech synthesis in 220+ voices and 40+ languages.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/translate"
+						   track-type="navMenu"
+						   track-name="Cloud Translation"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/translate"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtranslationapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Translation</div>
+							<div class="devsite-nav-item-description">Language detection, translation, and glossary support.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/natural-language"
+						   track-type="navMenu"
+						   track-name="Cloud Natural Language"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/natural-language"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudnaturallanguageapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Natural Language</div>
+							<div class="devsite-nav-item-description">Sentiment analysis and classification of unstructured text.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/automl"
+						   track-type="navMenu"
+						   track-name="AutoML"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/automl"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#automl"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">AutoML</div>
+							<div class="devsite-nav-item-description">Custom machine learning model training and development.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/video-intelligence"
+						   track-type="navMenu"
+						   track-name="Video AI"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/video-intelligence"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudvideointelligenceapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Video AI</div>
+							<div class="devsite-nav-item-description">Video classification and recognition using machine learning.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/ai-infrastructure"
+						   track-type="navMenu"
+						   track-name="AI Infrastructure"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/ai-infrastructure"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#aiplatform"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">AI Infrastructure</div>
+							<div class="devsite-nav-item-description">Options for every business to train deep learning and machine learning models cost-effectively.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dialogflow"
+						   track-type="navMenu"
+						   track-name="Dialogflow"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dialogflow"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#dialogflow"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Dialogflow</div>
+							<div class="devsite-nav-item-description">Conversation applications and systems development suite for virtual agents.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/automl-tables"
+						   track-type="navMenu"
+						   track-name="AutoML Tables"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/automl-tables"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#automltables"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">AutoML Tables</div>
+							<div class="devsite-nav-item-description">Service for training ML models with structured data.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border">
+					<li class="devsite-nav-description">Not seeing what you're looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products#ai-and-machine-learning"
+						   track-type="navMenu"
+						   track-name="See all AI and machine learning products"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products#ai-and-machine-learning"
+						   tooltip="">
+							<div class="devsite-nav-item-title">See all AI and machine learning products</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-2"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading">
+					<li class="devsite-nav-title"
+					    role="heading"
+					    tooltip="">API Management</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/apigee/api-management"
+						   track-type="navMenu"
+						   track-name="Apigee API Management"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/apigee/api-management"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Apigee API Management</div>
+							<div class="devsite-nav-item-description">Manage the full life cycle of APIs anywhere with visibility and control.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/endpoints"
+						   track-type="navMenu"
+						   track-name="Cloud Endpoints"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/endpoints"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudendpoints"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Endpoints</div>
+							<div class="devsite-nav-item-description">Deployment and development management for APIs on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/healthcare"
+						   track-type="navMenu"
+						   track-name="Cloud Healthcare API"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/healthcare"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#healthcareapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Healthcare API</div>
+							<div class="devsite-nav-item-description">Solution to bridge existing care systems and apps on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/appsheet"
+						   track-type="navMenu"
+						   track-name="AppSheet"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/appsheet"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/appsheet-icon.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">AppSheet</div>
+							<div class="devsite-nav-item-description">No-code development platform to build and extend applications.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/apigee"
+						   track-type="navMenu"
+						   track-name="API Gateway"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/apigee"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/api-gateway.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">API Gateway</div>
+							<div class="devsite-nav-item-description">Develop, deploy, secure, and manage APIs with a fully managed gateway.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-3"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/compute"
+						   track-type="navMenu"
+						   track-name="Compute"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/compute"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Compute</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/compute"
+						   track-type="navMenu"
+						   track-name="Compute Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/compute"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Compute Engine</div>
+							<div class="devsite-nav-item-description">Virtual machines running in Google’s data center.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/appengine"
+						   track-type="navMenu"
+						   track-name="App Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/appengine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#appengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">App Engine</div>
+							<div class="devsite-nav-item-description">Serverless application platform for apps and back ends.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/gpu"
+						   track-type="navMenu"
+						   track-name="Cloud GPUs"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/gpu"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#gpu"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud GPUs</div>
+							<div class="devsite-nav-item-description">GPUs for ML, scientific computing, and 3D visualization.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/migrate/compute-engine"
+						   track-type="navMenu"
+						   track-name="Migrate for Compute Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/migrate/compute-engine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforcomputeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Migrate for Compute Engine</div>
+							<div class="devsite-nav-item-description">Server and virtual machine migration to Compute Engine.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/preemptible-vms"
+						   track-type="navMenu"
+						   track-name="Preemptible VMs"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/preemptible-vms"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Preemptible VMs</div>
+							<div class="devsite-nav-item-description">Compute instances for batch jobs and fault-tolerant workloads.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/shielded-vm"
+						   track-type="navMenu"
+						   track-name="Shielded VMs"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/shielded-vm"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Shielded VMs</div>
+							<div class="devsite-nav-item-description">Reinforced virtual machines on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/sole-tenant-nodes"
+						   track-type="navMenu"
+						   track-name="Sole-Tenant Nodes"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/sole-tenant-nodes"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Sole-Tenant Nodes</div>
+							<div class="devsite-nav-item-description">Dedicated hardware for compliance, licensing, and management.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/bare-metal"
+						   track-type="navMenu"
+						   track-name="Bare Metal"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/bare-metal"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/bare-metal.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Bare Metal</div>
+							<div class="devsite-nav-item-description">Infrastructure to run specialized workloads on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/recommender"
+						   track-type="navMenu"
+						   track-name="Recommender"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/recommender"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/recommender.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Recommender</div>
+							<div class="devsite-nav-item-description">Usage recommendations for Google Cloud products and services.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/vmware-engine"
+						   track-type="navMenu"
+						   track-name="VMware Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/vmware-engine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/vmware-engine.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">VMware Engine</div>
+							<div class="devsite-nav-item-description">Fully managed, native VMware Cloud Foundation software stack.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/run"
+						   track-type="navMenu"
+						   track-name="Cloud Run"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/run"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/cloud-run.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Run</div>
+							<div class="devsite-nav-item-description">Fully managed environment for running containerized apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border">
+					<li class="devsite-nav-description">Not seeing what you're looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products#compute"
+						   track-type="navMenu"
+						   track-name="See all compute products"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products#compute"
+						   tooltip="">
+							<div class="devsite-nav-item-title">See all compute products</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-4"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/containers"
+						   track-type="navMenu"
+						   track-name="Containers"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/containers"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Containers</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/kubernetes-engine"
+						   track-type="navMenu"
+						   track-name="Google Kubernetes Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/kubernetes-engine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Google Kubernetes Engine</div>
+							<div class="devsite-nav-item-description">Managed environment for running containerized apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/container-registry"
+						   track-type="navMenu"
+						   track-name="Container Registry"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/container-registry"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Container Registry</div>
+							<div class="devsite-nav-item-description">Registry for storing, managing, and securing Docker images.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/containers/security"
+						   track-type="navMenu"
+						   track-name="Container Security"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/containers/security"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Container Security</div>
+							<div class="devsite-nav-item-description">Container environment security for each stage of the life cycle.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/build"
+						   track-type="navMenu"
+						   track-name="Cloud Build"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/build"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Build</div>
+							<div class="devsite-nav-item-description">Solution for running build steps in a Docker container.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/ai-platform/deep-learning-containers"
+						   track-type="navMenu"
+						   track-name="Deep Learning Containers"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/ai-platform/deep-learning-containers"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#aiplatform"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Deep Learning Containers</div>
+							<div class="devsite-nav-item-description">Containers with data science frameworks, libraries, and tools.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/kubernetes-applications"
+						   track-type="navMenu"
+						   track-name="Kubernetes Applications"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/kubernetes-applications"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Kubernetes Applications</div>
+							<div class="devsite-nav-item-description">Containerized apps with prebuilt deployment and unified billing.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/artifact-registry"
+						   track-type="navMenu"
+						   track-name="Artifact Registry"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/artifact-registry"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Artifact Registry</div>
+							<div class="devsite-nav-item-description">Package manager for build artifacts and dependencies.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/knative"
+						   track-type="navMenu"
+						   track-name="Knative"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/knative"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/knative.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Knative</div>
+							<div class="devsite-nav-item-description">Components to create Kubernetes-native cloud-based software.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/run"
+						   track-type="navMenu"
+						   track-name="Cloud Run"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/run"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/cloud-run.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Run</div>
+							<div class="devsite-nav-item-description">Fully managed environment for running containerized apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/code"
+						   track-type="navMenu"
+						   track-name="Cloud Code"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/code"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/cloud-code.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Code</div>
+							<div class="devsite-nav-item-description">IDE support to write, run, and debug Kubernetes applications.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-5"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/big-data"
+						   track-type="navMenu"
+						   track-name="Data Analytics"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/big-data"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Data Analytics</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/bigquery"
+						   track-type="navMenu"
+						   track-name="BigQuery"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/bigquery"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">BigQuery</div>
+							<div class="devsite-nav-item-description">Data warehouse for business agility and insights.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/looker"
+						   track-type="navMenu"
+						   track-name="Looker"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/looker"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/cloud-looker.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Looker</div>
+							<div class="devsite-nav-item-description">Platform for BI, data applications, and embedded analytics.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dataflow"
+						   track-type="navMenu"
+						   track-name="Dataflow"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dataflow"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataflow"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Dataflow</div>
+							<div class="devsite-nav-item-description">Streaming analytics for stream and batch processing.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/pubsub"
+						   track-type="navMenu"
+						   track-name="Pub/Sub"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/pubsub"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudpubsub"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Pub/Sub</div>
+							<div class="devsite-nav-item-description">Messaging service for event ingestion and delivery.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dataproc"
+						   track-type="navMenu"
+						   track-name="Dataproc"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dataproc"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataproc"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Dataproc</div>
+							<div class="devsite-nav-item-description">Service for running Apache Spark and Apache Hadoop clusters.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/data-fusion"
+						   track-type="navMenu"
+						   track-name="Cloud Data Fusion"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/data-fusion"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddatafusion"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Data Fusion</div>
+							<div class="devsite-nav-item-description">Data integration for building and managing data pipelines.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/composer"
+						   track-type="navMenu"
+						   track-name="Cloud Composer"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/composer"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/cloud-composer.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Composer</div>
+							<div class="devsite-nav-item-description">Workflow orchestration service built on Apache Airflow.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dataprep"
+						   track-type="navMenu"
+						   track-name="Dataprep"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dataprep"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataprep"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Dataprep</div>
+							<div class="devsite-nav-item-description">Service to prepare data for analysis and machine learning.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dataplex"
+						   track-type="navMenu"
+						   track-name="Dataplex"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dataplex"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/dataplex.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Dataplex</div>
+							<div class="devsite-nav-item-description">Intelligent data fabric for unifying data management across silos.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/data-catalog"
+						   track-type="navMenu"
+						   track-name="Data Catalog"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/data-catalog"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/cloud-data-catalog.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Data Catalog</div>
+							<div class="devsite-nav-item-description">Metadata service for discovering, understanding, and managing data.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/analytics-hub"
+						   track-type="navMenu"
+						   track-name="Analytics Hub"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/analytics-hub"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/analytics-hub.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Analytics Hub</div>
+							<div class="devsite-nav-item-description">Service for securely and efficiently exchanging data analytics assets.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border">
+					<li class="devsite-nav-description">Not seeing what youre looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/tools"
+						   track-type="navMenu"
+						   track-name="See all developer tools"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/tools"
+						   tooltip="">
+							<div class="devsite-nav-item-title">See all developer tools</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-6"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/databases"
+						   track-type="navMenu"
+						   track-name="Databases"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/databases"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Databases</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/bigtable"
+						   track-type="navMenu"
+						   track-name="Cloud Bigtable"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/bigtable"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#bigtable"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Bigtable</div>
+							<div class="devsite-nav-item-description">Cloud-native wide-column database for large scale, low-latency workloads.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/firestore"
+						   track-type="navMenu"
+						   track-name="Firestore"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/firestore"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfirestore"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Firestore</div>
+							<div class="devsite-nav-item-description">Cloud-native document database for building rich mobile, web, and IoT apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/memorystore"
+						   track-type="navMenu"
+						   track-name="Memorystore"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/memorystore"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudmemorystore"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Memorystore</div>
+							<div class="devsite-nav-item-description">In-memory database for managed Redis and Memcached.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/spanner"
+						   track-type="navMenu"
+						   track-name="Cloud Spanner"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/spanner"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudspanner"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Spanner</div>
+							<div class="devsite-nav-item-description">Cloud-native relational database with unlimited scale and 99.999% availability.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/sql"
+						   track-type="navMenu"
+						   track-name="Cloud SQL"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/sql"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsql"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud SQL</div>
+							<div class="devsite-nav-item-description">Fully managed database for MySQL, PostgreSQL, and SQL Server.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/database-migration"
+						   track-type="navMenu"
+						   track-name="Database Migration Service"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/database-migration"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/database-migration-service.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Database Migration Service</div>
+							<div class="devsite-nav-item-description">Serverless, minimal downtime migrations to Cloud SQL.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/bare-metal"
+						   track-type="navMenu"
+						   track-name="Bare Metal"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/bare-metal"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/bare-metal.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Bare Metal</div>
+							<div class="devsite-nav-item-description">Infrastructure to run specialized workloads on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://firebase.google.com/products/realtime-database/"
+						   track-type="navMenu"
+						   track-name="Firebase Realtime Database"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://firebase.google.com/products/realtime-database/"
+						   tooltip=""
+						   target="_blank">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/firebase.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Firebase Realtime Database</div>
+							<div class="devsite-nav-item-description">NoSQL database for storing and syncing data in real time.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/datastream"
+						   track-type="navMenu"
+						   track-name="Datastream"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/datastream"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/datastream.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Datastream</div>
+							<div class="devsite-nav-item-description">Serverless change data capture and replication service.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-7"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/tools"
+						   track-type="navMenu"
+						   track-name="Developer Tools"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/tools"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Developer Tools</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/artifact-registry"
+						   track-type="navMenu"
+						   track-name="Artifact Registry"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/artifact-registry"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/artifact-registry.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Artifact Registry</div>
+							<div class="devsite-nav-item-description">Universal package manager for build artifacts and dependencies.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/build"
+						   track-type="navMenu"
+						   track-name="Cloud Build"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/build"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Build</div>
+							<div class="devsite-nav-item-description">Continuous integration and continuous delivery platform.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/code"
+						   track-type="navMenu"
+						   track-name="Cloud Code"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/code"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcode"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Code</div>
+							<div class="devsite-nav-item-description">IDE support to write, run, and debug Kubernetes applications.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/deployment-manager"
+						   track-type="navMenu"
+						   track-name="Cloud Deployment Manager"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/deployment-manager"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/deployment-manager.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Deployment Manager</div>
+							<div class="devsite-nav-item-description">Service for creating and managing Google Cloud resources.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/sdk"
+						   track-type="navMenu"
+						   track-name="Cloud SDK"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/sdk"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcode"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud SDK</div>
+							<div class="devsite-nav-item-description">Command line tools and libraries for Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/scheduler"
+						   track-type="navMenu"
+						   track-name="Cloud Scheduler"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/scheduler"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudscheduler"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Scheduler</div>
+							<div class="devsite-nav-item-description">Cron job scheduler for task automation and management.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/source-repositories"
+						   track-type="navMenu"
+						   track-name="Cloud Source Repositories"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/source-repositories"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#logging"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Source Repositories</div>
+							<div class="devsite-nav-item-description">Private Git repository to store, manage, and track code.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/tasks"
+						   track-type="navMenu"
+						   track-name="Cloud Tasks"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/tasks"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtasks"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Tasks</div>
+							<div class="devsite-nav-item-description">Task management service for asynchronous task execution.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/container-registry"
+						   track-type="navMenu"
+						   track-name="Container Registry"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/container-registry"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Container Registry</div>
+							<div class="devsite-nav-item-description">Private Docker storage for container images on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/tekton"
+						   track-type="navMenu"
+						   track-name="Tekton"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/tekton"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/tekton.png"
+								     srcset="https://cloud.google.com/images/navigation/products/tekton_36.png 36w, /images/navigation/products/tekton_48.png 48w, /images/navigation/products/tekton_72.png 72w, /images/navigation/products/tekton_96.png 96w, /images/navigation/products/tekton_480.png 480w, /images/navigation/products/tekton_720.png 720w, /images/navigation/products/tekton_856.png 856w, /images/navigation/products/tekton_960.png 960w, /images/navigation/products/tekton_1440.png 1440w, /images/navigation/products/tekton_1920.png 1920w, /images/navigation/products/tekton_2880.png 2880w"
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Tekton</div>
+							<div class="devsite-nav-item-description">Kubernetes-native resources for declaring CI/CD pipelines.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border">
+					<li class="devsite-nav-description">Not seeing what you're looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/tools"
+						   track-type="navMenu"
+						   track-name="See all developer tools"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/tools"
+						   tooltip="">
+							<div class="devsite-nav-item-title">See all developer tools</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-8"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading">
+					<li class="devsite-nav-title"
+					    role="heading"
+					    tooltip="">Healthcare and Life Sciences</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/apigee/solutions/healthcare-apix"
+						   track-type="navMenu"
+						   track-name="Apigee Healthcare APIx"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/apigee/solutions/healthcare-apix"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Apigee Healthcare APIx</div>
+							<div class="devsite-nav-item-description">FHIR API-based digital service production.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/healthcare"
+						   track-type="navMenu"
+						   track-name="Cloud Healthcare API"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/healthcare"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#healthcareapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Healthcare API</div>
+							<div class="devsite-nav-item-description">Solution for bridging existing care systems and apps on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/life-sciences"
+						   track-type="navMenu"
+						   track-name="Cloud Life Sciences"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/life-sciences"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#genomics"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Life Sciences</div>
+							<div class="devsite-nav-item-description">Tools for managing, processing, and transforming biomedical data.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/natural-language"
+						   track-type="navMenu"
+						   track-name="Healthcare Natural Language AI"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/natural-language"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/healthcare.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Healthcare Natural Language AI</div>
+							<div class="devsite-nav-item-description">Real-time insights from unstructured medical text.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-9"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/anthos"
+						   track-type="navMenu"
+						   track-name="Hybrid and Multicloud"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/anthos"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Hybrid and Multicloud</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/anthos"
+						   track-type="navMenu"
+						   track-name="Anthos"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/anthos"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#anthos"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Anthos</div>
+							<div class="devsite-nav-item-description">Platform for modernizing existing apps and building new ones.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/looker"
+						   track-type="navMenu"
+						   track-name="Looker"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/looker"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/looker.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Looker</div>
+							<div class="devsite-nav-item-description">Platform for BI, data applications, and embedded analytics.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/anthos/run"
+						   track-type="navMenu"
+						   track-name="Cloud Run for Anthos"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/anthos/run"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Run for Anthos</div>
+							<div class="devsite-nav-item-description">Integration that provides a serverless development platform on GKE.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/kubernetes-applications"
+						   track-type="navMenu"
+						   track-name="Google Cloud Marketplace for Anthos"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/kubernetes-applications"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#marketplace"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Google Cloud Marketplace for Anthos</div>
+							<div class="devsite-nav-item-description">Containerized apps with prebuilt deployment and unified billing.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/migrate/anthos"
+						   track-type="navMenu"
+						   track-name="Migrate for Anthos"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/migrate/anthos"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforanthos"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Migrate for Anthos</div>
+							<div class="devsite-nav-item-description">Tool to move workloads and existing applications to GKE.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/operations"
+						   track-type="navMenu"
+						   track-name="Operations"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/operations"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#stackdriver"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Operations</div>
+							<div class="devsite-nav-item-description">Monitoring, logging, and application performance suite.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/build"
+						   track-type="navMenu"
+						   track-name="Cloud Build"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/build"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Build</div>
+							<div class="devsite-nav-item-description">Service for executing builds on Google Cloud infrastructure.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/traffic-director"
+						   track-type="navMenu"
+						   track-name="Traffic Director"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/traffic-director"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#trafficdirector"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Traffic Director</div>
+							<div class="devsite-nav-item-description">Traffic control pane and management for open service mesh.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/apigee"
+						   track-type="navMenu"
+						   track-name="Apigee API Management"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/apigee"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Apigee API Management</div>
+							<div class="devsite-nav-item-description">API management, development, and security platform.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-10"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading">
+					<li class="devsite-nav-title"
+					    role="heading"
+					    tooltip="">Internet of Things</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/iot-core"
+						   track-type="navMenu"
+						   track-name="Cloud IoT Core"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/iot-core"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiotcore"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud IoT Core</div>
+							<div class="devsite-nav-item-description">IoT device management, integration, and  connection service.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/edge-tpu"
+						   track-type="navMenu"
+						   track-name="Edge TPU"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/edge-tpu"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiotedge"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Edge TPU</div>
+							<div class="devsite-nav-item-description">ASIC designed to run ML inference and AI at the edge.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-11"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/management"
+						   track-type="navMenu"
+						   track-name="Management Tools"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/management"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Management Tools</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/shell"
+						   track-type="navMenu"
+						   track-name="Cloud Shell"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/shell"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudshell"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Shell</div>
+							<div class="devsite-nav-item-description">Interactive shell environment with a built-in command line.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/cloud-console"
+						   track-type="navMenu"
+						   track-name="Cloud Console"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/cloud-console"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#generic"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Console</div>
+							<div class="devsite-nav-item-description">Web-based interface for managing and monitoring cloud apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/deployment-manager"
+						   track-type="navMenu"
+						   track-name="Cloud Deployment Manager"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/deployment-manager"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddeploymentmanager"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Deployment Manager</div>
+							<div class="devsite-nav-item-description">Service for creating and managing Google Cloud resources.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/console-app"
+						   track-type="navMenu"
+						   track-name="Cloud Mobile App"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/console-app"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#generic"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Mobile App</div>
+							<div class="devsite-nav-item-description">App to  manage Google Cloud services from your mobile device.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/apis"
+						   track-type="navMenu"
+						   track-name="Cloud APIs"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/apis"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudapis"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud APIs</div>
+							<div class="devsite-nav-item-description">Programmatic interfaces for  Google Cloud services.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/private-catalog"
+						   track-type="navMenu"
+						   track-name="Private Catalog"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/private-catalog"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#marketplace"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Private Catalog</div>
+							<div class="devsite-nav-item-description">Service catalog for admins managing internal enterprise solutions.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/cost-management"
+						   track-type="navMenu"
+						   track-name="Cost Management"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/cost-management"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/billing.png"
+								     srcset="https://cloud.google.com/images/navigation/products/billing_36.png 36w, /images/navigation/products/billing_48.png 48w, /images/navigation/products/billing_72.png 72w, /images/navigation/products/billing_96.png 96w, /images/navigation/products/billing_480.png 480w, /images/navigation/products/billing_720.png 720w, /images/navigation/products/billing_856.png 856w, /images/navigation/products/billing_960.png 960w, /images/navigation/products/billing_1440.png 1440w, /images/navigation/products/billing_1920.png 1920w, /images/navigation/products/billing_2880.png 2880w"
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cost Management</div>
+							<div class="devsite-nav-item-description">Tools for monitoring, controlling, and optimizing your costs.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/solutions/active-assist"
+						   track-type="navMenu"
+						   track-name="Intelligent Management"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/solutions/active-assist"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#generic"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Intelligent Management</div>
+							<div class="devsite-nav-item-description">Tools for easily managing performance, security, and cost.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-12"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading">
+					<li class="devsite-nav-title"
+					    role="heading"
+					    tooltip="">Media and Gaming</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/game-servers"
+						   track-type="navMenu"
+						   track-name="Game Servers"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/game-servers"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudgameservers"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Game Servers</div>
+							<div class="devsite-nav-item-description">Game server management service running on Google Kubernetes Engine.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/opencue"
+						   track-type="navMenu"
+						   track-name="OpenCue"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/opencue"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/opencue.png"
+								     srcset="https://cloud.google.com/images/navigation/products/opencue_36.png 36w, /images/navigation/products/opencue_48.png 48w, /images/navigation/products/opencue_72.png 72w, /images/navigation/products/opencue_96.png 96w, /images/navigation/products/opencue_480.png 480w, /images/navigation/products/opencue_720.png 720w, /images/navigation/products/opencue_856.png 856w, /images/navigation/products/opencue_960.png 960w, /images/navigation/products/opencue_1440.png 1440w, /images/navigation/products/opencue_1920.png 1920w, /images/navigation/products/opencue_2880.png 2880w"
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">OpenCue</div>
+							<div class="devsite-nav-item-description">Open source render manager for visual effects and animation.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-13"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/cloud-migration"
+						   track-type="navMenu"
+						   track-name="Migration"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/cloud-migration"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Migration</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/solutions/application-migration"
+						   track-type="navMenu"
+						   track-name="Application Migration"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/solutions/application-migration"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/application-migration.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Application Migration</div>
+							<div class="devsite-nav-item-description">App migration to the cloud for low-cost refresh cycles.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/bigquery/transfer"
+						   track-type="navMenu"
+						   track-name="BigQuery Data Transfer Service"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/bigquery/transfer"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">BigQuery Data Transfer Service</div>
+							<div class="devsite-nav-item-description">Data import service for scheduling and moving data into BigQuery.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/foundation-toolkit"
+						   track-type="navMenu"
+						   track-name="Cloud Foundation Toolkit"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/foundation-toolkit"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#generic"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Foundation Toolkit</div>
+							<div class="devsite-nav-item-description">Reference templates for Deployment Manager and Terraform.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/database-migration"
+						   track-type="navMenu"
+						   track-name="Database Migration Service"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/database-migration"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/database-migration.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Database Migration Service</div>
+							<div class="devsite-nav-item-description">Serverless, minimal downtime migrations to Cloud SQL.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/migrate/anthos"
+						   track-type="navMenu"
+						   track-name="Migrate for Anthos"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/migrate/anthos"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforanthos"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Migrate for Anthos</div>
+							<div class="devsite-nav-item-description">Components for migrating VMs into system containers on GKE.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/migrate/compute-engine"
+						   track-type="navMenu"
+						   track-name="Migrate for Compute Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/migrate/compute-engine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforcomputeengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Migrate for Compute Engine</div>
+							<div class="devsite-nav-item-description">Components for migrating VMs and physical servers to Compute Engine.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/solutions/cloud-migration-program"
+						   track-type="navMenu"
+						   track-name="Rapid Assessment &amp; Migration Program (RAMP)"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/solutions/cloud-migration-program"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/rapid-assessment.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Rapid Assessment &amp; Migration Program (RAMP)</div>
+							<div class="devsite-nav-item-description">End-to-end migration program to simplify your path to the cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/transfer-appliance"
+						   track-type="navMenu"
+						   track-name="Transfer Appliance"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/transfer-appliance"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#transferappliance"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Transfer Appliance</div>
+							<div class="devsite-nav-item-description">Storage server for moving large volumes of data to Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/storage-transfer-service"
+						   track-type="navMenu"
+						   track-name="Storage Transfer Service"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/storage-transfer-service"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#transfer"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Storage Transfer Service</div>
+							<div class="devsite-nav-item-description">Data transfers from online and on-premises sources to Cloud Storage.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/vmware-engine"
+						   track-type="navMenu"
+						   track-name="VMware Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/vmware-engine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/vmware-engine.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">VMware Engine</div>
+							<div class="devsite-nav-item-description">Migrate and run your VMware workloads natively on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-14"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/networking"
+						   track-type="navMenu"
+						   track-name="Networking"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/networking"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Networking</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/armor"
+						   track-type="navMenu"
+						   track-name="Cloud Armor"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/armor"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudarmor"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Armor</div>
+							<div class="devsite-nav-item-description">Security policies and defense against web and DDoS attacks.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/cdn"
+						   track-type="navMenu"
+						   track-name="Cloud CDN"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/cdn"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcdn"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud CDN</div>
+							<div class="devsite-nav-item-description">Content delivery network for serving web and video content.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dns"
+						   track-type="navMenu"
+						   track-name="Cloud DNS"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dns"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddns"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud DNS</div>
+							<div class="devsite-nav-item-description">Domain name system for reliable and low-latency name lookups.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/load-balancing"
+						   track-type="navMenu"
+						   track-name="Cloud Load Balancing"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/load-balancing"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudloadbalancing"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Load Balancing</div>
+							<div class="devsite-nav-item-description">Service for distributing traffic across applications and regions.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/nat"
+						   track-type="navMenu"
+						   track-name="Cloud NAT"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/nat"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudnat"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud NAT</div>
+							<div class="devsite-nav-item-description">NAT service for giving private instances internet access.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/hybrid-connectivity"
+						   track-type="navMenu"
+						   track-name="Hybrid Connectivity"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/hybrid-connectivity"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudinterconnect"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Hybrid Connectivity</div>
+							<div class="devsite-nav-item-description">Connectivity options for VPN, peering, and enterprise needs.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/network-connectivity-center"
+						   track-type="navMenu"
+						   track-name="Network Connectivity Center"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/network-connectivity-center"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/network-connectivity-center.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Network Connectivity Center</div>
+							<div class="devsite-nav-item-description">Connectivity management to help simplify and scale networks.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/network-intelligence-center"
+						   track-type="navMenu"
+						   track-name="Network Intelligence Center"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/network-intelligence-center"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/network-intelligence.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Network Intelligence Center</div>
+							<div class="devsite-nav-item-description">Network monitoring, verification, and optimization platform.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/network-tiers"
+						   track-type="navMenu"
+						   track-name="Network Service Tiers"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/network-tiers"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#networktiers"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Network Service Tiers</div>
+							<div class="devsite-nav-item-description">Cloud network options  based on performance, availability, and cost.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/network-telemetry"
+						   track-type="navMenu"
+						   track-name="Network Telemetry"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/network-telemetry"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#virtualprivatecloud"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Network Telemetry</div>
+							<div class="devsite-nav-item-description">VPC flow logs for network monitoring, forensics, and security.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/traffic-director"
+						   track-type="navMenu"
+						   track-name="Traffic Director"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/traffic-director"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#trafficdirector"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Traffic Director</div>
+							<div class="devsite-nav-item-description">Traffic control pane and management for open service mesh.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border">
+					<li class="devsite-nav-description">Not seeing what you're looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products#section-16"
+						   track-type="navMenu"
+						   track-name="See all networking products"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products#section-16"
+						   tooltip="">
+							<div class="devsite-nav-item-title">See all networking products</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-15"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/operations"
+						   track-type="navMenu"
+						   track-name="Operations"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/operations"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Operations</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/logging"
+						   track-type="navMenu"
+						   track-name="Cloud Logging"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/logging"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#logging"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Logging</div>
+							<div class="devsite-nav-item-description">Google Cloud audit, platform, and application logs management.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/monitoring"
+						   track-type="navMenu"
+						   track-name="Cloud Monitoring"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/monitoring"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#monitoring"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Monitoring</div>
+							<div class="devsite-nav-item-description">Infrastructure and application health with rich metrics.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/error-reporting"
+						   track-type="navMenu"
+						   track-name="Error Reporting"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/error-reporting"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#errorreporting2"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Error Reporting</div>
+							<div class="devsite-nav-item-description">Application error identification and analysis.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/kubernetes-engine-monitoring"
+						   track-type="navMenu"
+						   track-name="Kubernetes Engine Monitoring"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/kubernetes-engine-monitoring"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Kubernetes Engine Monitoring</div>
+							<div class="devsite-nav-item-description">GKE app development and troubleshooting.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/trace"
+						   track-type="navMenu"
+						   track-name="Cloud Trace"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/trace"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#trace"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Trace</div>
+							<div class="devsite-nav-item-description">Tracing system collecting latency data from applications.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/profiler"
+						   track-type="navMenu"
+						   track-name="Cloud Profiler"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/profiler"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#profiler"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Profiler</div>
+							<div class="devsite-nav-item-description">CPU and heap profiler for analyzing application performance.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/debugger"
+						   track-type="navMenu"
+						   track-name="Cloud Debugger"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/debugger"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#debugger"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Debugger</div>
+							<div class="devsite-nav-item-description">Real-time application state inspection and in-production debugging.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/solutions/active-assist"
+						   track-type="navMenu"
+						   track-name="Intelligent Operations"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/solutions/active-assist"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#generic"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Intelligent Operations</div>
+							<div class="devsite-nav-item-description">Tools for easily optimizing performance, security, and cost.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-16"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/security-and-identity"
+						   track-type="navMenu"
+						   track-name="Security and Identity"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/security-and-identity"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Security and Identity</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/iam"
+						   track-type="navMenu"
+						   track-name="Cloud IAM"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/iam"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiam"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud IAM</div>
+							<div class="devsite-nav-item-description">Permissions management system for Google Cloud resources.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/assured-workloads"
+						   track-type="navMenu"
+						   track-name="Assured Workloads"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/assured-workloads"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/assured-workloads.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Assured Workloads</div>
+							<div class="devsite-nav-item-description">Compliance and security controls for sensitive workloads.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/security-key-management"
+						   track-type="navMenu"
+						   track-name="Cloud Key Management"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/security-key-management"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#keymanagementservice"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Key Management</div>
+							<div class="devsite-nav-item-description">Manage encryption keys on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/confidential-computing"
+						   track-type="navMenu"
+						   track-name="Confidential Computing"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/confidential-computing"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/compute-engine.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Confidential Computing</div>
+							<div class="devsite-nav-item-description">Encrypt data in use with Confidential VMs.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/security-command-center"
+						   track-type="navMenu"
+						   track-name="Security Command Center"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/security-command-center"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsecuritycommandcenter"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Security Command Center</div>
+							<div class="devsite-nav-item-description">Platform for defending against threats to your Google Cloud assets.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/dlp"
+						   track-type="navMenu"
+						   track-name="Cloud Data Loss Prevention"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/dlp"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddatalosspreventionapi"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Data Loss Prevention</div>
+							<div class="devsite-nav-item-description">Sensitive data inspection, classification, and redaction platform.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/managed-microsoft-ad"
+						   track-type="navMenu"
+						   track-name="Managed Service for Microsoft Active Directory"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/managed-microsoft-ad"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#managedserviceformicrosoftactivedirectory"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Managed Service for Microsoft Active Directory</div>
+							<div class="devsite-nav-item-description">Hardened service running Microsoft® Active Directory (AD).</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/access-transparency"
+						   track-type="navMenu"
+						   track-name="Access Transparency"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/access-transparency"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#logging"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Access Transparency</div>
+							<div class="devsite-nav-item-description">Cloud provider visibility through near real-time logs.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/titan-security-key"
+						   track-type="navMenu"
+						   track-name="Titan Security Key"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/titan-security-key"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#securitykeyenforcement"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Titan Security Key</div>
+							<div class="devsite-nav-item-description">Two-factor authentication device for user account protection.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/secret-manager"
+						   track-type="navMenu"
+						   track-name="Secret Manager"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/secret-manager"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/secret-manager.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Secret Manager</div>
+							<div class="devsite-nav-item-description">Store API keys, passwords, certificates, and other sensitive data.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/beyondcorp-enterprise"
+						   track-type="navMenu"
+						   track-name="BeyondCorp Enterprise"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/beyondcorp-enterprise"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/beyond-corp.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">BeyondCorp Enterprise</div>
+							<div class="devsite-nav-item-description">Zero trust solution for secure application and resource access.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-top-border">
+					<li class="devsite-nav-description">Not seeing what you're looking for?</li>
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products#security-and-identity"
+						   track-type="navMenu"
+						   track-name="See all security and identity products"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products#security-and-identity"
+						   tooltip="">
+							<div class="devsite-nav-item-title">See all security and identity products</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-17"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/serverless"
+						   track-type="navMenu"
+						   track-name="Serverless Computing"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/serverless"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Serverless Computing</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/run"
+						   track-type="navMenu"
+						   track-name="Cloud Run"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/run"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Run</div>
+							<div class="devsite-nav-item-description">Fully managed environment for running containerized apps.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/functions"
+						   track-type="navMenu"
+						   track-name="Cloud Functions"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/functions"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfunctions"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Functions</div>
+							<div class="devsite-nav-item-description">Platform for creating functions that respond to cloud events.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/appengine"
+						   track-type="navMenu"
+						   track-name="App Engine"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/appengine"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#appengine"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">App Engine</div>
+							<div class="devsite-nav-item-description">Serverless application platform for apps and back ends.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/workflows"
+						   track-type="navMenu"
+						   track-name="Workflows"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/workflows"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#workflows"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Workflows</div>
+							<div class="devsite-nav-item-description">Workflow orchestration for serverless products and API services.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="devsite-tabs-dropdown-column"
+			     column-id="tab-2-column-18"
+			     hidden="">
+				<ul class="devsite-tabs-dropdown-section	cloud-dropdown-menu-heading devsite-nav-title-heading">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/storage"
+						   track-type="navMenu"
+						   track-name="Storage"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/storage"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/forward.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Storage</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/products/storage"
+						   track-type="navMenu"
+						   track-name="All Storage Products"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/products/storage"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/all-storage-products.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">All Storage Products</div>
+							<div class="devsite-nav-item-description">Cloud-based storage services for your business.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/storage"
+						   track-type="navMenu"
+						   track-name="Cloud Storage"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/storage"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudstorage"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Storage</div>
+							<div class="devsite-nav-item-description">Object storage that’s secure, durable, and scalable.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/filestore"
+						   track-type="navMenu"
+						   track-name="Filestore"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/filestore"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfilestore"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Filestore</div>
+							<div class="devsite-nav-item-description">File storage that is highly scalable and secure.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/persistent-disk"
+						   track-type="navMenu"
+						   track-name="Persistent Disk"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/persistent-disk"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://www.gstatic.com/cloud/images/navigation/icons.svg#persistantdisk"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Persistent Disk</div>
+							<div class="devsite-nav-item-description">Block storage for virtual machine instances running on Google Cloud.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://firebase.google.com/products/storage"
+						   track-type="navMenu"
+						   track-name="Cloud Storage for Firebase"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://firebase.google.com/products/storage"
+						   tooltip=""
+						   target="_blank">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/firebase.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Cloud Storage for Firebase</div>
+							<div class="devsite-nav-item-description">Object storage for storing and serving user-generated content.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/local-ssd"
+						   track-type="navMenu"
+						   track-name="Local SSD"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/local-ssd"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/_static/cloud/images/navigation/products/local-ssd.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Local SSD</div>
+							<div class="devsite-nav-item-description">Block storage that is locally attached for high-performance needs.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/storage/archival"
+						   track-type="navMenu"
+						   track-name="Archival Storage"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/storage/archival"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/archival-storage.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Archival Storage</div>
+							<div class="devsite-nav-item-description">Data archive that offers online access speed at ultra low cost.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://cloud.google.com/storage-transfer-service"
+						   track-type="navMenu"
+						   track-name="Storage Transfer Service"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://cloud.google.com/storage-transfer-service"
+						   tooltip="">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/cloud-data-transfer.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Storage Transfer Service</div>
+							<div class="devsite-nav-item-description">Data transfers from online and on-premises sources to Cloud Storage.</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="devsite-tabs-dropdown-section">
+					<li class="devsite-nav-item">
+						<a href="https://workspace.google.com/essentials/"
+						   track-type="navMenu"
+						   track-name="Google Workspace Essentials"
+						   track-metadata-position="nav"
+						   track-metadata-href="https://workspace.google.com/essentials/"
+						   tooltip=""
+						   target="_blank">
+							<div class="devsite-nav-item-icon-container"
+							     size="medium">
+								<img class="devsite-nav-item-icon"
+								     alt=""
+								     src="https://cloud.google.com/images/navigation/products/drive-enterprise.svg"
+								     srcset=""
+								     sizes="100vw"
+								     loading="lazy" />
+							</div>
+							<div class="devsite-nav-item-title">Google Workspace Essentials</div>
+							<div class="devsite-nav-item-description">Secure video meetings and modern collaboration for teams.</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</tab>
