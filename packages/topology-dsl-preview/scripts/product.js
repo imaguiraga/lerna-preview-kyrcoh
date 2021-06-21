@@ -36,7 +36,7 @@ fs.readFile('scripts/gcp-products.xml', 'utf-8',(err, data) => {
           category = trackName;
         } else {
           console.log("  Product Node: " + trackName);
-          var dsl = 'gcp_'+trackName.replace(/\-|\s+|\(|\)|\+/g, '_');
+          var dsl = 'gcp_'+trackName.trim().replace(/\-|\s+|\(|\)|\+|\\|&/g, '_').replace(/_+/g, '_');
           var resource = {
             provider: 'GCP',
             category: category,
@@ -58,7 +58,7 @@ fs.readFile('scripts/gcp-products.xml', 'utf-8',(err, data) => {
   }//*/
 
   const s = {
-    provider: 'GCP-2',
+    provider: 'GCP',
     prefix: 'gcp',
     path: 'assets/icons/GCP Icons/Products and services',
     pattern: '(.*).svg',

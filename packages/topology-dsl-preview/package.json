@@ -47,8 +47,9 @@
     "split.js": "^1.5.11"
   },
   "scripts": {
-    "dsl": "yarn cloud-dsl && node scripts/icons.js",
+    "dsl": "yarn gcp-dsl && node scripts/icons.js",
     "cloud-dsl": "node scripts/cloud-icons.js",
+    "gcp-dsl": "node scripts/product.js",
     "start": "react-scripts --max-old-space-size=4096 start",
     "build": "react-scripts --max-old-space-size=4096 build",
     "test": "react-scripts test --env=jsdom",

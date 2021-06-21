@@ -24,7 +24,6 @@ import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
-import * as azure from '../assets/js/AZURE';
 import * as gcp from '../assets/js/GCP';
 import { toElkGraph } from './diagram';
 const {
@@ -38,7 +37,6 @@ const {
 } = flowDsl;
 
 const DSL_MODULE = { ...flowDsl };
-registerJSModule('azure-dsl', azure);
 registerJSModule('gcp-dsl', gcp);
 
 function loadFnFactory() {

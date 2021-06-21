@@ -7,48 +7,45 @@ export const samples2 = [
     );`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
-  az_Linux_Virtual_Machines,
-  az_Blob_Storage,
-  az_Azure_SQL_Database,
-  az_Azure_Cache_for_Redis
-} from './assets/js/AZURE/index.js';
+  gcp_Cloud_SQL,
+  gcp_Memorystore
+} from './assets/js/GCP/index.js';
 
 import { 
   gcp_Compute_Engine,
   gcp_Cloud_Storage,
-  gcp_Cloud_PubSub 
+  gcp_Pub_Sub 
 } from 'gcp-dsl';
 
-const am = az_Linux_Virtual_Machines;
-const gm = gcp_Compute_Engine;
+const gce = gcp_Compute_Engine;
 
 const choice1 = choice(
-      az_Blob_Storage('c')._title_('AZ BLOB-A'),
-      az_Azure_SQL_Database('a')._title_('AZ SQL-A')
+  gcp_Cloud_Storage('c')._title_('AZ BLOB-A'),
+      gcp_Cloud_SQL('a')._title_('AZ SQL-A')
     )._down_();
 	
 export const sequence1 = sequence(
-    gm('c')._title_('GCP VM-C'),
-    az_Azure_Cache_for_Redis('b')._title_('AZ CACHE-B'),
+    gce('c')._title_('GCP VM-C'),
+    gcp_Memorystore('b')._title_('AZ CACHE-B'),
     choice1,
-    am('c')._title_('AZ VM-C')
+    gce('c')._title_('AZ VM-C')
   );	
   
 export const v1 = sequence(
   terminal('b'), 
   choice(
     'c',
-    gm('a')._title_('GCP VM-A'),
-    am('b')._title_('AZ VM-B')
+    gce('a')._title_('GCP VM-A'),
+    gce('b')._title_('AZ VM-B')
   ),
   sequence1,
   gcp_Cloud_Storage('S1'),
-  gcp_Cloud_PubSub('PS1')
+  gcp_Pub_Sub('PS1')
 );
 
-v1._title_('CLOUD DIAGRAM1')._id_('DIAGRAM1');
+v1._title_('CLOUD DIAGRgce1')._id_('DIAGRgce1');
 
-export const testflow = am('b');
+export const testflow = gce('b');
 testflow._title_('AZ VM-B');
 `,
 `import { choice, terminal, sequence } from 'topology-dsl';
