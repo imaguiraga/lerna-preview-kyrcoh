@@ -10,7 +10,7 @@ function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/,
 const LINE = 'line';
 Graph.registerRouter(LINE, lineRouter);
 
-const UNIT = 12;
+const UNIT = 8;
 const EMPTY_ARRAY = [];
 export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _iconWidth_) {
 
@@ -200,9 +200,10 @@ function createX6Node(elkLayoutNode, x6Layout) {
   n.attrs.body.class = clazz.join(' ');
 
   // Ports
-  const PORT_RADIUS = UNIT / 2;
+  let PORT_RADIUS = 0;
   const ports = (elkLayoutNode.ports || []);
   const items = ports.map((p) => {
+    PORT_RADIUS = p.width / 2;
     const r = {
       group: 'abs',
       id: p.id,

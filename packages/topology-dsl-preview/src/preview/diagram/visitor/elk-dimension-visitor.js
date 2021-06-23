@@ -5,8 +5,8 @@ import {
 const UNIT = 8;
 export class ELKDimensionVisitor {
   constructor(
-    nodeWidth = (10 * UNIT),
-    nodeHeight = (8 * UNIT),
+    nodeWidth = (6 * UNIT),
+    nodeHeight = (4 * UNIT),
     iconWidth = (2 * UNIT),
     portSize = UNIT,
     labelHeight = (2 * UNIT)
@@ -89,7 +89,7 @@ export class ELKDimensionVisitor {
         const style = (tree.model.data !== undefined) ? tree.model.data.style : null;
         if (tagName === 'port' || tagName === 'start' || tagName === 'finish') {
           tree.width = 2 * this._portSize;
-          tree.height = 2 * this._portSize;
+          tree.height = tree.width;
 
         } else if (tagName === 'mark') {
           tree.width = 4 * this._portSize;
@@ -116,8 +116,8 @@ export class ELKDimensionVisitor {
       // Set port dimensions
       if (Array.isArray(tree.ports)) {
         tree.ports.forEach((p) => {
-          p.width = this._portSize;
-          p.height = this._portSize;
+          p.width = 0;// this._portSize;
+          p.height = p.width;
         }, this);
 
       }
