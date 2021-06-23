@@ -27,7 +27,7 @@ export function elkLayout() {
     'algorithm': 'layered',
     'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
     'org.eclipse.elk.direction': 'RIGHT',
-    'port.borderOffset': UNIT / 2,
+    'port.borderOffset': UNIT / 4,
     'padding': 2 * UNIT,
     'edgeRouting': 'ORTHOGONAL',
     'layered.mergeEdges': true,
