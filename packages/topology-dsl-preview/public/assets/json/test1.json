@@ -8,7 +8,7 @@
        "elts": [
          "e"
        ],
-       "tagName": "resource",
+       "kind": "resource",
        "tagName": "terminal",
        "id": "resource.terminal.3",
        "provider": "flow",
@@ -25,7 +25,7 @@
        "elts": [
          "d"
        ],
-       "tagName": "resource",
+       "kind": "resource",
        "tagName": "terminal",
        "id": "resource.terminal.4",
        "provider": "flow",
@@ -42,7 +42,7 @@
        "elts": [
          "f"
        ],
-       "tagName": "resource",
+       "kind": "resource",
        "tagName": "terminal",
        "id": "resource.terminal.5",
        "provider": "flow",
@@ -54,7 +54,7 @@
        "link": null
      }
    ],
-   "tagName": "sequence",
+   "kind": "sequence",
    "tagName": "container",
    "id": "sequence.container.0",
    "provider": "flow",
@@ -65,7 +65,7 @@
      "elts": [
        "start"
      ],
-     "tagName": "sequence",
+     "kind": "sequence",
      "tagName": "start",
      "id": "sequence.start.1",
      "provider": "flow",
@@ -82,7 +82,7 @@
      "elts": [
        "finish"
      ],
-     "tagName": "sequence",
+     "kind": "sequence",
      "tagName": "finish",
      "id": "sequence.finish.2",
      "provider": "flow",

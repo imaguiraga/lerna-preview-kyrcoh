@@ -1,7 +1,8 @@
 {
   id: "root",
-  layoutOptions: { 'algorithm': 'layered',
-  "nodePlacement.strategy": "NETWORK_SIMPLEX",
+  layoutOptions: { 
+    'algorithm': 'layered',
+    "nodePlacement.strategy": "NETWORK_SIMPLEX",
     "org.eclipse.elk.edgeRouting": "ORTHOGONAL",
     "org.eclipse.elk.port.borderOffset": 10,
     "org.eclipse.elk.layered.mergeEdges": true,
@@ -9,7 +10,6 @@
     "spacing.edgeNodeBetweenLayers": 40,
     "spacing.edgeEdgeBetweenLayers": 40,
     "layering.strategy": "LONGEST_PATH",
-
     "elk.direction": "RIGHT" },
   children: [
     { id: "n1", width: 30, height: 30,labels:[{text:"A"}],

@@ -260,9 +260,9 @@ function createX6Node(elkLayoutNode, x6Layout) {
     };
     // Round corners
     if (tagName === 'mark') {
-      n.label = n.data.title;
-      n.attrs.body.rx = UNIT / 2;
-      n.attrs.body.ry = UNIT / 2;
+      n.label =  null;// n.data.title;
+      n.attrs.body.rx = 0;// UNIT / 2;
+      n.attrs.body.ry = 0;// UNIT / 2;
     }
 
   } else {

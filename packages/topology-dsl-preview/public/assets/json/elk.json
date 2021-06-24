@@ -21,7 +21,7 @@
       "label": "choice.28",
       "model": {
         "provider": "default",
-        "tagName": "fanOut_fanIn",
+        "kind": "fanOut_fanIn",
         "subType": "choice",
         "tagName": "flow",
         "compound": true
@@ -38,7 +38,7 @@
           "label": "terminal.29",
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "port",
             "compound": false
@@ -56,7 +56,7 @@
           "label": "terminal.30",
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "port",
             "compound": false
@@ -76,7 +76,7 @@
           "label": "terminal.1",
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "flow",
             "compound": false
@@ -103,7 +103,7 @@
           "label": "terminal.2",
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "resource",
             "compound": false
@@ -131,7 +131,7 @@
           "label": "terminal.3",
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "resource",
             "compound": false
@@ -159,7 +159,7 @@
           "label": "choice.4",
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "flow",
             "compound": true
@@ -176,7 +176,7 @@
               "label": "terminal.5",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "port",
                 "compound": false
@@ -194,7 +194,7 @@
               "label": "terminal.6",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "port",
                 "compound": false
@@ -214,7 +214,7 @@
               "label": "terminal.7",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -241,7 +241,7 @@
               "label": "terminal.8",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -275,7 +275,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "fanOut_fanIn",
+                "kind": "fanOut_fanIn",
                 "subType": "choice",
                 "tagName": "edge"
               },
@@ -294,7 +294,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "fanOut_fanIn",
+                "kind": "fanOut_fanIn",
                 "subType": "choice",
                 "tagName": "edge"
               },
@@ -313,7 +313,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "fanOut_fanIn",
+                "kind": "fanOut_fanIn",
                 "subType": "choice",
                 "tagName": "edge"
               },
@@ -332,7 +332,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "fanOut_fanIn",
+                "kind": "fanOut_fanIn",
                 "subType": "choice",
                 "tagName": "edge"
               },
@@ -353,7 +353,7 @@
           "label": "sequence.20",
           "model": {
             "provider": "default",
-            "tagName": "sequence",
+            "kind": "sequence",
             "subType": "sequence",
             "tagName": "flow",
             "compound": true
@@ -370,7 +370,7 @@
               "label": "terminal.21",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "port",
                 "compound": false
@@ -388,7 +388,7 @@
               "label": "terminal.22",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "port",
                 "compound": false
@@ -408,7 +408,7 @@
               "label": "terminal.9",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "flow",
                 "compound": false
@@ -435,7 +435,7 @@
               "label": "terminal.10",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "flow",
                 "compound": false
@@ -462,7 +462,7 @@
               "label": "sequence.11",
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "flow",
                 "compound": true
@@ -479,7 +479,7 @@
                   "label": "terminal.12",
                   "model": {
                     "provider": "default",
-                    "tagName": "terminal",
+                    "kind": "resource",
                     "subType": "terminal",
                     "tagName": "port",
                     "compound": false
@@ -497,7 +497,7 @@
                   "label": "terminal.13",
                   "model": {
                     "provider": "default",
-                    "tagName": "terminal",
+                    "kind": "resource",
                     "subType": "terminal",
                     "tagName": "port",
                     "compound": false
@@ -517,7 +517,7 @@
                   "label": "terminal.14",
                   "model": {
                     "provider": "default",
-                    "tagName": "terminal",
+                    "kind": "resource",
                     "subType": "terminal",
                     "tagName": "resource",
                     "compound": false
@@ -544,7 +544,7 @@
                   "label": "terminal.15",
                   "model": {
                     "provider": "default",
-                    "tagName": "terminal",
+                    "kind": "resource",
                     "subType": "terminal",
                     "tagName": "resource",
                     "compound": false
@@ -578,7 +578,7 @@
                   ],
                   "model": {
                     "provider": "default",
-                    "tagName": "sequence",
+                    "kind": "sequence",
                     "subType": "sequence",
                     "tagName": "edge"
                   },
@@ -597,7 +597,7 @@
                   ],
                   "model": {
                     "provider": "default",
-                    "tagName": "sequence",
+                    "kind": "sequence",
                     "subType": "sequence",
                     "tagName": "edge"
                   },
@@ -616,7 +616,7 @@
                   ],
                   "model": {
                     "provider": "default",
-                    "tagName": "sequence",
+                    "kind": "sequence",
                     "subType": "sequence",
                     "tagName": "edge"
                   },
@@ -637,7 +637,7 @@
               "label": "terminal.16",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -665,7 +665,7 @@
               "label": "terminal.17",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -693,7 +693,7 @@
               "label": "terminal.18",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -721,7 +721,7 @@
               "label": "terminal.19",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -756,7 +756,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -775,7 +775,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -794,7 +794,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -813,7 +813,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -832,7 +832,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -851,7 +851,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -870,7 +870,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -889,7 +889,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -910,7 +910,7 @@
           "label": "sequence.23",
           "model": {
             "provider": "default",
-            "tagName": "sequence",
+            "kind": "sequence",
             "subType": "sequence",
             "tagName": "flow",
             "compound": true
@@ -927,7 +927,7 @@
               "label": "terminal.24",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "port",
                 "compound": false
@@ -945,7 +945,7 @@
               "label": "terminal.25",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "port",
                 "compound": false
@@ -965,7 +965,7 @@
               "label": "terminal.26",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -992,7 +992,7 @@
               "label": "terminal.27",
               "model": {
                 "provider": "default",
-                "tagName": "terminal",
+                "kind": "resource",
                 "subType": "terminal",
                 "tagName": "resource",
                 "compound": false
@@ -1026,7 +1026,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -1045,7 +1045,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -1064,7 +1064,7 @@
               ],
               "model": {
                 "provider": "default",
-                "tagName": "sequence",
+                "kind": "sequence",
                 "subType": "sequence",
                 "tagName": "edge"
               },
@@ -1092,7 +1092,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1111,7 +1111,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1130,7 +1130,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1149,7 +1149,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1168,7 +1168,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1187,7 +1187,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1206,7 +1206,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1225,7 +1225,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "fanOut_fanIn",
+            "kind": "fanOut_fanIn",
             "subType": "choice",
             "tagName": "edge"
           },
@@ -1244,7 +1244,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "edge"
           },
@@ -1263,7 +1263,7 @@
           ],
           "model": {
             "provider": "default",
-            "tagName": "terminal",
+            "kind": "resource",
             "subType": "terminal",
             "tagName": "edge"
           },

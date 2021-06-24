@@ -125,7 +125,7 @@ function drawNode(selection, d, i, refreshFn) {
         return JSON.stringify(d.model, null, ' ');
       });
 
-    if (d.model.compound === false && tagName !== 'port' && tagName !== 'start' && tagName !== 'finish' && tagName !== 'mark') {
+    if (d.model.compound === false && tagName !== 'port' && tagName !== 'start' && tagName !== 'finish') { //  && tagName !== 'mark') {
       // IconPath
       let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
       const fo = selection.append('foreignObject')

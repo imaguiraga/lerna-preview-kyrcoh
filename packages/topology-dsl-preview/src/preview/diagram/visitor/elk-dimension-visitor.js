@@ -92,8 +92,8 @@ export class ELKDimensionVisitor {
           tree.height = tree.width;
 
         } else if (tagName === 'mark') {
-          tree.width = 4 * this._portSize;
-          tree.height = 2 * this._portSize;
+          tree.width = 0;// 4 * this._portSize;
+          tree.height = 0;// 2 * this._portSize;
 
         } else {
           tree.width = 2 * this._nodeWidth;
