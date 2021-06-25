@@ -32,7 +32,7 @@
     "version": "lerna version"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "lerna": "^3.20.2"
   }
 }
