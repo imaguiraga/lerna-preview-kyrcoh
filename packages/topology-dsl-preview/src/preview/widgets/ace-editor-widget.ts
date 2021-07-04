@@ -97,6 +97,7 @@ export class AceEditorWidget extends Widget {
       });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onAfterAttach(msg: Message): void {
 
   }
