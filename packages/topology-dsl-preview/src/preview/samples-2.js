@@ -1,9 +1,17 @@
 export const samples2 = [
   `import { choice, terminal, sequence } from 'topology-dsl';
+  import { choice, terminal, sequence } from 'topology-dsl';
   export const testflow = 
     sequence(
-      terminal('a'), 
-      terminal('b')
+      [
+        terminal('a'), 
+        terminal('b')
+      ],
+      [
+        terminal('c'), 
+        terminal('d')
+      ],
+      terminal('e')
     );`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
