@@ -78,7 +78,7 @@ export class DslToELKGenerator {
           result = TerminalFlowEltDslToELKGenerator.instance.visitTerminal(this, tree, filterFn);
           break;
         default:
-          console.error('==>WARNING: ' + tree.kind + ' type was not found');
+          console.error('==> WARNING: ' + tree.kind + ' type was not found');
           break;
       }
 
@@ -245,6 +245,9 @@ class GroupEltDslToELKGenerator {
 
     // concatenate graphs
     // nodes
+    const self = this;
+    this.buildNodes(tree.elts, tree, graph, visitor, parent, filterFn);
+/*
     tree.elts.forEach(elt => {
       let arr = [];
       if (Array.isArray(elt)) {
@@ -265,16 +268,48 @@ class GroupEltDslToELKGenerator {
             graph.children.push(ctree);
           }
         }
-      });
+      }, self);
 
-    });
-
+    }, self);
+    // */
     return graph;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   buildEdges(tree, graph, visitor, type) {
     //NOOP
+  }
+
+  buildNodes(elts, tree, graph, visitor, parent, filterFn) {
+    const self = this;
+    elts.forEach(elt => {
+      let arr = [];
+      if (Array.isArray(elt)) {
+        arr = elt;
+      } else {
+        arr.push(elt);
+      }
+
+      arr.forEach((a) => {
+        if(Array.isArray(a)) {
+          this.buildNodes(a, tree, graph, visitor, parent, filterFn);
+        } else {
+          let ctree = a.accept === undefined ? a : a.accept(visitor, n => tree.foundElt(n));
+          if (ctree !== null) {
+            ctree.parent = parent;
+            if (filterFn) {
+              if (!filterFn(ctree)) {
+                graph.children.push(ctree);
+              }
+            } else {
+              graph.children.push(ctree);
+            }
+          }
+        }
+
+      }, self);
+
+    }, self);
   }
 
 }
@@ -327,14 +362,7 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
     targets = [finish.id];
 
     this.buildLinks(sources, targets, graph, tree, visitor);
-    /*
-    graph.edges.push({
-      id: `${visitor.edgeCntIt.next().value}`,
-      sources: [tree.elts[tree.elts.length - 1].finish.id],
-      targets: [finish.id],
-      ...visitor.getEdgeModel(tree),
-    });
-// */
+
   }
 
   getStart(elts) {
@@ -370,7 +398,24 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
     return result;
   }
 
-  buildLinks(sources, targets, graph, tree, visitor) {
+  toArray(elts) {
+    let result = [];
+    if(Array.isArray(elts)) {
+      elts.forEach((elt) => {
+        result.push(...this.toArray(elt));
+      })
+    } else {
+      result.push(elts);
+    }
+    return result;
+
+  }
+
+  buildLinks(_sources_, _targets_, graph, tree, visitor) {
+    // Expand in case the element is an array
+    let sources = this.toArray(_sources_);
+    let targets = this.toArray(_targets_);
+    
     if (sources.length === 1 && targets.length === 1) {
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
@@ -403,7 +448,7 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
       // n -> n => n -> 1 -> n
       // add synthetic link clone
       const link = visitor.getSynthPortModel(tree.start, START);
-      link.id = link.id + '.link';
+      link.id = `${visitor.edgeCntIt.next().value}.link`;
       graph.children.push(link);
       let links = [link.id];
 
