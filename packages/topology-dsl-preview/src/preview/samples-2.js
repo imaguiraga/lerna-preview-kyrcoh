@@ -1,18 +1,30 @@
 export const samples2 = [
   `import { choice, terminal, sequence } from 'topology-dsl';
-  import { choice, terminal, sequence } from 'topology-dsl';
-  export const testflow = 
+
+export const testflow = 
+sequence(
+  [
+    terminal('a'), 
+    terminal('b'),
     sequence(
       [
         terminal('a'), 
         terminal('b')
       ],
+      'merge',
       [
         terminal('c'), 
         terminal('d')
       ],
       terminal('e')
-    );`,
+    )
+  ],
+  [
+    terminal('c'), 
+    terminal('d')
+  ],
+  terminal('e')
+);`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   gcp_Cloud_SQL,
