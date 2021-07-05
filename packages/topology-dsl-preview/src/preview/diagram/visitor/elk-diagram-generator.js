@@ -27,6 +27,10 @@ export class DslToELKGenerator {
   toElkGraph(tree, filterFn) {
     return {
       id: '$root',
+      layoutOptions: {
+        'algorithm': 'layered',
+        'elk.hierarchyHandling': 'SEPARATE_CHILDREN',
+      },
       children: [
         this.visit(tree, filterFn)
       ]
@@ -641,46 +645,17 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     }
 
-    // start <- loop <- finish
-    // reverse the arrow direction
-    if (tree.loop !== undefined) {
-      let edgeModel = visitor.getEdgeModel(tree);
-      edgeModel.style.startArrow = false;
-      edgeModel.style.endArrow = false;
-
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [start.id],
-        targets: [tree.loop.id],
-        ...edgeModel,
-      });
-
-      edgeModel = visitor.getEdgeModel(tree);
-      edgeModel.style.startArrow = true;
-      edgeModel.style.endArrow = false;
-
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.loop.id],
-        targets: [finish.id],
-        ...edgeModel,
-      });
-
-    } else {
-
-      // start -> finish
-      let sources = [start.id];
-      let targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }
-
     // edges
     if (tree.elts.length > 0) {
       // elts -> finish
       let sources = this.getFinish(tree.elts[tree.elts.length - 1]);
       let targets = [finish.id];
+
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
+      // elts -> elts
+      sources = this.getFinish(tree.elts[tree.elts.length - 1]);
+      targets = [tree.elts[0].id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 

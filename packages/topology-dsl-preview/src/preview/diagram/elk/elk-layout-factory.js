@@ -25,7 +25,7 @@ export function elkLayout() {
   const elk = new ELK();
   let options = {
     'algorithm': 'layered',
-    //'hierarchyHandling': 'INCLUDE_CHILDREN',
+    //'hierarchyHandling': 'SEPARATE_CHILDREN',
     'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
     'org.eclipse.elk.direction': 'RIGHT',
     'port.borderOffset': UNIT / 4,
@@ -39,6 +39,7 @@ export function elkLayout() {
     'spacing.edgeEdgeBetweenLayers': 4 * UNIT,
     //'layering.strategy': 'LONGEST_PATH', 'NETWORK_SIMPLEX'
     'layering.strategy': 'COFFMAN_GRAHAM ',
+    'org.eclipse.elk.spacing.nodeSelfLoop': 3 * UNIT,
     'spacing.labelNode': UNIT
   };
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html

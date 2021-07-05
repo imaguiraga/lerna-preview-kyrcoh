@@ -1,6 +1,10 @@
 export const samples2 = [
   `import { choice, terminal, sequence, group } from 'topology-dsl';
-
+export const v1 = 
+sequence(
+    terminal('a'), 
+    terminal('b')
+);
 export const testflow = 
 sequence(
   [
