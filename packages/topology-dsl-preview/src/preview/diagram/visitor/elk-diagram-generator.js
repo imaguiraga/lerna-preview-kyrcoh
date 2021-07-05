@@ -545,11 +545,6 @@ class OptionalEltDslToELKGenerator extends GroupEltDslToELKGenerator {
       return;
     }
 
-    // skip node
-    if (tree.skip !== undefined) {
-      graph.children.push(visitor.getNodeModel(tree.skip));
-    }
-
     const start = visitor.getSynthPortModel(tree.start, START);
     graph.children.push(start);
     const finish = visitor.getSynthPortModel(tree.finish, FINISH);
@@ -562,38 +557,15 @@ class OptionalEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
-    }
-
-    // start -> skip? -> finish
-    tree.skip = undefined;
-    if (tree.skip !== undefined) {
-
-      // start -> skip
-      let sources = [start.id];
-      let targets = [tree.skip.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-      // skip -> finish
-      sources = [tree.skip.id];
+      // start -> finish
+      sources = [start.id];
       targets = [finish.id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
-    } else {
-
-      // start -> finish
-      let sources = [start.id];
-      let targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }
-
-    if (tree.elts.length > 0) {
       // elts -> finish
-      let sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-      let targets = [finish.id];
+      sources = this.getFinish(tree.elts);
+      targets = [finish.id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
@@ -624,11 +596,6 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
       return;
     }
 
-    // loop node
-    if (tree.loop) {
-      graph.children.push(visitor.getNodeModel(tree.loop));
-    }
-
     const start = visitor.getSynthPortModel(tree.start, START);
     graph.children.push(start);
     const finish = visitor.getSynthPortModel(tree.finish, FINISH);
@@ -639,23 +606,19 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       // start -> elts
       let sources = [start.id];
-      let targets = this.getStart(tree.elts[0]);
+      let targets = this.getStart(tree.elts);
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
-    }
-
-    // edges
-    if (tree.elts.length > 0) {
       // elts -> finish
-      let sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-      let targets = [finish.id];
+      sources = this.getFinish(tree.elts);
+      targets = [finish.id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> elts
-      sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-      targets = targets = this.getStart(tree.elts[0]);//[tree.elts[0].id];
+      sources = this.getFinish(tree.elts);
+      targets = targets = this.getStart(tree.elts);//[tree.elts[0].id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 

@@ -1,0 +1,399 @@
+{
+  "id": "$root",
+  "layoutOptions": {
+   "algorithm": "layered",
+   "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+  },
+  "children": [
+   {
+    "id": "sequence.2",
+    "label": "sequence.2",
+    "model": {
+     "kind": "sequence",
+     "title": "sequence.2",
+     "direction": null,
+     "tagName": "sequence",
+     "id": "sequence.2",
+     "provider": "default",
+     "compound": true,
+     "data": {
+      "style": {
+       "className": "sequence",
+       "provider": "default",
+       "iconURL": "assets/icons/base/sequence-diagram-3-fill.svg"
+      }
+     }
+    },
+    "labels": [
+     {
+      "text": "sequence.2",
+      "properties": {
+       "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
+      },
+      "height": 32,
+      "x": 0,
+      "y": -40,
+      "width": 0,
+      "ax": 14,
+      "ay": 12
+     }
+    ],
+    "ports": [
+     {
+      "id": "sequence.2.start",
+      "label": "sequence.2.start",
+      "model": {
+       "kind": "port",
+       "tagName": "port",
+       "compound": false,
+       "provider": "custom",
+       "id": "sequence.2.start"
+      },
+      "labels": [],
+      "width": 0,
+      "height": 0,
+      "x": -2,
+      "y": 0,
+      "ax": 12,
+      "ay": 52
+     },
+     {
+      "id": "sequence.2.finish",
+      "label": "sequence.2.finish",
+      "model": {
+       "kind": "port",
+       "tagName": "port",
+       "compound": false,
+       "provider": "custom",
+       "id": "sequence.2.finish"
+      },
+      "labels": [],
+      "width": 0,
+      "height": 0,
+      "x": -2,
+      "y": 0,
+      "ax": 12,
+      "ay": 52
+     }
+    ],
+    "children": [
+     {
+      "id": "sequence.2.start.port",
+      "label": "sequence.2.start",
+      "model": {
+       "kind": "port",
+       "tagName": "start",
+       "compound": false,
+       "provider": "custom",
+       "id": "sequence.2.start.port"
+      },
+      "labels": [],
+      "width": 8,
+      "height": 8,
+      "$H": 284,
+      "x": 0,
+      "y": 0,
+      "ax": 14,
+      "ay": 52
+     },
+     {
+      "id": "sequence.2.finish.port",
+      "label": "sequence.2.finish",
+      "model": {
+       "kind": "port",
+       "tagName": "finish",
+       "compound": false,
+       "provider": "custom",
+       "id": "sequence.2.finish.port"
+      },
+      "labels": [],
+      "width": 8,
+      "height": 8,
+      "$H": 286,
+      "x": 0,
+      "y": 0,
+      "ax": 14,
+      "ay": 52
+     },
+     {
+      "id": "resource.0",
+      "label": "a",
+      "model": {
+       "kind": "resource",
+       "title": "a",
+       "direction": null,
+       "tagName": "resource",
+       "id": "resource.0",
+       "provider": "default",
+       "compound": false,
+       "data": {
+        "style": null
+       }
+      },
+      "labels": [],
+      "ports": [
+       {
+        "id": "resource.0.start",
+        "label": "resource.0.start",
+        "model": {
+         "kind": "port",
+         "tagName": "port",
+         "compound": false,
+         "provider": "custom",
+         "id": "resource.0.start"
+        },
+        "labels": [],
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0,
+        "ax": 14,
+        "ay": 52
+       },
+       {
+        "id": "resource.0.finish",
+        "label": "resource.0.finish",
+        "model": {
+         "kind": "port",
+         "tagName": "port",
+         "compound": false,
+         "provider": "custom",
+         "id": "resource.0.finish"
+        },
+        "labels": [],
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0,
+        "ax": 14,
+        "ay": 52
+       }
+      ],
+      "children": [],
+      "edges": [],
+      "parent": {
+       "id": "sequence.2",
+       "label": "sequence.2",
+       "model": {
+        "kind": "sequence",
+        "title": "sequence.2",
+        "direction": null,
+        "tagName": "sequence",
+        "id": "sequence.2",
+        "provider": "default",
+        "compound": true,
+        "data": {
+         "style": {
+          "className": "sequence",
+          "provider": "default",
+          "iconURL": "assets/icons/base/sequence-diagram-3-fill.svg"
+         }
+        }
+       },
+       "labels": [
+        {
+         "text": "sequence.2",
+         "properties": {
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
+         },
+         "height": 32,
+         "x": 0,
+         "y": -40,
+         "width": 0,
+         "ax": 14,
+         "ay": 12
+        }
+       ]
+      },
+      "width": 53,
+      "height": 42,
+      "$H": 288,
+      "x": 0,
+      "y": 0,
+      "ax": 14,
+      "ay": 52
+     },
+     {
+      "id": "resource.1",
+      "label": "b",
+      "model": {
+       "kind": "resource",
+       "title": "b",
+       "direction": null,
+       "tagName": "resource",
+       "id": "resource.1",
+       "provider": "default",
+       "compound": false,
+       "data": {
+        "style": null
+       }
+      },
+      "labels": [],
+      "ports": [
+       {
+        "id": "resource.1.start",
+        "label": "resource.1.start",
+        "model": {
+         "kind": "port",
+         "tagName": "port",
+         "compound": false,
+         "provider": "custom",
+         "id": "resource.1.start"
+        },
+        "labels": [],
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0,
+        "ax": 14,
+        "ay": 52
+       },
+       {
+        "id": "resource.1.finish",
+        "label": "resource.1.finish",
+        "model": {
+         "kind": "port",
+         "tagName": "port",
+         "compound": false,
+         "provider": "custom",
+         "id": "resource.1.finish"
+        },
+        "labels": [],
+        "width": 0,
+        "height": 0,
+        "x": 0,
+        "y": 0,
+        "ax": 14,
+        "ay": 52
+       }
+      ],
+      "children": [],
+      "edges": [],
+      "parent": {
+       "id": "sequence.2",
+       "label": "sequence.2",
+       "model": {
+        "kind": "sequence",
+        "title": "sequence.2",
+        "direction": null,
+        "tagName": "sequence",
+        "id": "sequence.2",
+        "provider": "default",
+        "compound": true,
+        "data": {
+         "style": {
+          "className": "sequence",
+          "provider": "default",
+          "iconURL": "assets/icons/base/sequence-diagram-3-fill.svg"
+         }
+        }
+       },
+       "labels": [
+        {
+         "text": "sequence.2",
+         "properties": {
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
+         },
+         "height": 32,
+         "x": 0,
+         "y": -40,
+         "width": 0,
+         "ax": 14,
+         "ay": 12
+        }
+       ]
+      },
+      "width": 53,
+      "height": 42,
+      "$H": 292,
+      "x": 0,
+      "y": 0,
+      "ax": 14,
+      "ay": 52
+     }
+    ],
+    "edges": [
+     {
+      "id": "edge.0",
+      "sources": [
+       "sequence.2.start.port"
+      ],
+      "targets": [
+       "resource.0.start"
+      ],
+      "model": {
+       "provider": "default",
+       "tagName": "edge",
+       "kind": "edge"
+      },
+      "style": {
+       "startArrow": false,
+       "endArrow": true
+      },
+      "source": "sequence.2.start.port",
+      "target": "resource.0.start"
+     },
+     {
+      "id": "edge.1",
+      "sources": [
+       "resource.0.finish"
+      ],
+      "targets": [
+       "resource.1.start"
+      ],
+      "model": {
+       "provider": "default",
+       "tagName": "edge",
+       "kind": "edge"
+      },
+      "style": {
+       "startArrow": false,
+       "endArrow": true
+      },
+      "source": "resource.0.finish",
+      "target": "resource.1.start"
+     },
+     {
+      "id": "edge.2",
+      "sources": [
+       "resource.1.finish"
+      ],
+      "targets": [
+       "sequence.2.finish.port"
+      ],
+      "model": {
+       "provider": "default",
+       "tagName": "edge",
+       "kind": "edge"
+      },
+      "style": {
+       "startArrow": false,
+       "endArrow": true
+      },
+      "source": "resource.1.finish",
+      "target": "sequence.2.finish.port"
+     }
+    ],
+    "properties": {
+     "nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]"
+    },
+    "$H": 277,
+    "x": 14,
+    "y": 52,
+    "width": 0,
+    "height": 0,
+    "ax": 14,
+    "ay": 52
+   }
+  ],
+  "properties": {
+   "nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]"
+  },
+  "$H": 13,
+  "x": 0,
+  "y": 0,
+  "width": 26,
+  "height": 64,
+  "ax": 0,
+  "ay": 0
+ }
