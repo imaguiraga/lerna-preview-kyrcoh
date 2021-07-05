@@ -112,7 +112,8 @@ export class DslToELKGenerator {
         {
           text: n.title || n.id,
           properties: {
-            'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]',
+            // 'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]',
+            'nodeLabels.placement': '[V_TOP, H_LEFT, INSIDE]',
           }
         }
       ]
@@ -618,7 +619,8 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       // elts -> elts
       sources = this.getFinish(tree.elts);
-      targets = targets = this.getStart(tree.elts);//[tree.elts[0].id];
+      targets = [tree.elts[0].id];
+      // targets = this.getStart(tree.elts);
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 

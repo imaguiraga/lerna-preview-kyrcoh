@@ -1,6 +1,5 @@
 
 import { Graph, Shape, Point, Node, Edge } from '@antv/x6';
-import { data } from './x6-data.js';
 import { elkLayout, buildNodeLookup } from './elk-layout-factory';
 
 function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/, view/*: EdgeView*/) {
@@ -8,6 +7,8 @@ function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/,
   return points;
 }
 const LINE = 'line';
+const DEBUG = false;
+
 Graph.registerRouter(LINE, lineRouter);
 
 const UNIT = 8;
@@ -16,7 +17,6 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
 
   let containerElt = (typeof _container_ === 'string') ? document.getElementById(_container_) : _container_;
 
-  const iconWidth = _iconWidth_ || 3 * UNIT;
   const width = (_width_ || containerElt.scrollWidth || 800) + 240;
   const height = (_height_ || containerElt.scrollHeight || 800) + 240;
 
@@ -35,12 +35,16 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
       return toElkLayout(_elkgraph_).then((elkLayout) => {
         // Clear and redraw
         // reset diagram
-        //console.log(JSON.stringify(elkLayout,null, ' '));
+        if (DEBUG) {
+          console.log(JSON.stringify(elkLayout, null, ' '));
+        }
         const x6Layout = toX6Layout(elkLayout);
-        //console.log(x6Layout);
-        //console.log(JSON.stringify(x6Layout,null, ' '));
+        if (DEBUG) {
+          console.log(x6Layout);
+          console.log(JSON.stringify(x6Layout, null, ' '));
+        }
+
         x6Graph.fromJSON(x6Layout);
-        //graph.resetCells([...x6Layout.nodes, ...x6Layout.edges]);
         return x6Graph;
       }).catch((e) => {
         console.log(e);
@@ -79,7 +83,9 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
     };
 
     x6Graph.on('node:dblclick', ({ e, x, y, node, view }) => {
-      console.log(node);
+      if (DEBUG) {
+        console.log(node);
+      }
       const elkLayoutNode = lookup.get(node.id);
       toggleCollapseNode(elkLayoutNode);
     });
@@ -116,7 +122,7 @@ const RESOURCE_HTML = {
     wrap.style.display = 'flex';
 
     let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
-    // If icon exist
+    // If icon exists
     if (iconPath !== undefined && iconPath !== null) {
       const img = document.createElement('img');
 
@@ -260,7 +266,7 @@ function createX6Node(elkLayoutNode, x6Layout) {
     };
     // Round corners
     if (tagName === 'mark') {
-      n.label =  null;// n.data.title;
+      n.label = null;// n.data.title;
       n.attrs.body.rx = 0;// UNIT / 2;
       n.attrs.body.ry = 0;// UNIT / 2;
     }
@@ -296,7 +302,7 @@ function createX6Label(elkLayoutNode, x6Layout) {
     },
     x: label.ax,
     y: label.ay,
-    width: elkLayoutNode.width,
+    width: elkLayoutNode.width - 1.5 * UNIT,
     height: label.height,
     attrs: {
       body: {
@@ -383,7 +389,7 @@ function createX6Edge(e, x6Layout) {
     }
   }
   x6Layout.edges.push(t);
-  //g.edges.push(Edge.create(t));
+
   return t;
 }
 
