@@ -25,6 +25,7 @@ export function elkLayout() {
   const elk = new ELK();
   let options = {
     'algorithm': 'layered',
+    //'hierarchyHandling': 'INCLUDE_CHILDREN',
     'nodePlacement.strategy': 'SIMPLE',//'NETWORK_SIMPLEX', //'BRANDES_KOEPF'
     'org.eclipse.elk.direction': 'RIGHT',
     'port.borderOffset': UNIT / 4,

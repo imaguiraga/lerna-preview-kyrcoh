@@ -1,5 +1,5 @@
 export const samples2 = [
-  `import { choice, terminal, sequence } from 'topology-dsl';
+  `import { choice, terminal, sequence, group } from 'topology-dsl';
 
 export const testflow = 
 sequence(
@@ -12,10 +12,10 @@ sequence(
         terminal('b')
       ],
       'merge',
-      [
+      group([
         terminal('c'), 
         terminal('d')
-      ],
+      ]),
       terminal('e')
     )
   ],

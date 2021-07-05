@@ -113,11 +113,12 @@ export class ELKGraphWidget extends Widget {
       let self = this;
       this.selectElt.addEventListener('change', (event) => {
         const result = self._flows.get(event.target.value);
-        self.renderFlow(result).then((result) => {
+        self.renderFlow(result);
+        /*.then((result) => {
           if (result !== null) {
             self.renderer.zoomGraph('fit');
           }
-        });
+        });//*/
       });
       this.renderFlow(current);
     }

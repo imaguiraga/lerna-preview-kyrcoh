@@ -373,6 +373,7 @@ class GroupEltDslToELKGenerator {
       // add synthetic link clone
       const link = visitor.getSynthPortModel(tree.start, START);
       link.id = `${visitor.edgeCntIt.next().value}.link`;
+      // link.model.tagName = 'mark';
       graph.children.push(link);
       let links = [link.id];
 
@@ -522,7 +523,7 @@ class FanOutFanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 /**
  * Class OptionalEltDslToELKGenerator.
  */
-class OptionalEltDslToELKGenerator {
+class OptionalEltDslToELKGenerator extends GroupEltDslToELKGenerator {
   static instance = new OptionalEltDslToELKGenerator();
   /**
    * Convert a dsl tree to ctree Graph graph.
@@ -532,26 +533,18 @@ class OptionalEltDslToELKGenerator {
    * @return {object} ctree Graph graph.
    */
   visitOptional(visitor, tree, filterFn) {
-    const parent = visitor.getNodeModel(tree);
-    const graph = {
-      ...parent,
-      ports: [],
-      children: [],
-      edges: []
-    };
-    if (tree.kind !== OPTIONAL) {
-      return graph;
+    return this.visitGroup(visitor, tree, filterFn, OPTIONAL);
+  }
+
+  buildEdges(tree, graph, visitor, type) {
+    if (type !== OPTIONAL) {
+      return;
     }
-    // start node
-    graph.ports.push(visitor.getPortModel(tree.start));
 
     // skip node
-    if (tree.skip) {
+    if (tree.skip !== undefined) {
       graph.children.push(visitor.getNodeModel(tree.skip));
     }
-
-    graph.ports.push(visitor.getPortModel(tree.finish));
-    // edges
 
     const start = visitor.getSynthPortModel(tree.start, START);
     graph.children.push(start);
@@ -559,86 +552,56 @@ class OptionalEltDslToELKGenerator {
     graph.children.push(finish);
 
     if (tree.elts.length > 0) {
+      // start -> elts
+      let sources = [start.id];
+      let targets = this.getStart(tree.elts[0]);
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [start.id],
-        targets: [tree.elts[0].start.id],
-        ...visitor.getEdgeModel(tree),
-
-      });
+      this.buildLinks(sources, targets, graph, tree, visitor);
 
     }
 
     // start -> skip? -> finish
+    tree.skip = undefined;
     if (tree.skip !== undefined) {
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [start.id],
-        targets: [tree.skip.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      // start -> skip
+      let sources = [start.id];
+      let targets = [tree.skip.id];
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.skip.id],
-        targets: [finish.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
+      // skip -> finish
+      sources = [tree.skip.id];
+      targets = [finish.id];
+
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
     } else {
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [start.id],
-        targets: [finish.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      // start -> finish
+      let sources = [start.id];
+      let targets = [finish.id];
+
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
     }
 
     if (tree.elts.length > 0) {
+      // elts -> finish
+      let sources = this.getFinish(tree.elts[tree.elts.length - 1]);
+      let targets = [finish.id];
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[tree.elts.length - 1].finish.id],
-        targets: [finish.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
     }
-    // concatenate graphs
-    // nodes
-    tree.elts.forEach(elt => {
-      let arr = [];
-      if (Array.isArray(elt)) {
-        arr = elt;
-      } else {
-        arr.push(elt);
-      }
 
-      arr.forEach((a) => {
-        let ctree = a.accept(visitor, n => tree.foundElt(n));
-        if (ctree !== null) {
-          ctree.parent = parent;
-          if (filterFn) {
-            if (!filterFn(ctree)) {
-              graph.children.push(ctree);
-            }
-          } else {
-            graph.children.push(ctree);
-          }
-        }
-      });
-
-    });
-
-    return graph;
   }
 }
 
 /**
  * Class RepeatEltDslToELKGenerator.
  */
-class RepeatEltDslToELKGenerator {
+class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
   static instance = new RepeatEltDslToELKGenerator();
 
   /**
@@ -649,40 +612,32 @@ class RepeatEltDslToELKGenerator {
    * @return {object} ctree Graph graph.
    */
   visitRepeat(visitor, tree, filterFn) {
-    const parent = visitor.getNodeModel(tree);
-    const graph = {
-      ...parent,
-      ports: [],
-      children: [],
-      edges: []
-    };
-    if (tree.kind !== REPEAT) {
-      return graph;
+    return this.visitGroup(visitor, tree, filterFn, REPEAT);
+  }
+
+  buildEdges(tree, graph, visitor, type) {
+    if (type !== REPEAT) {
+      return;
     }
-    // start node
-    graph.ports.push(visitor.getPortModel(tree.start));
 
     // loop node
     if (tree.loop) {
       graph.children.push(visitor.getNodeModel(tree.loop));
     }
 
-    // finish node
-    graph.ports.push(visitor.getPortModel(tree.finish));
-
     const start = visitor.getSynthPortModel(tree.start, START);
     graph.children.push(start);
     const finish = visitor.getSynthPortModel(tree.finish, FINISH);
     graph.children.push(finish);
+
     // edges
     if (tree.elts.length > 0) {
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [start.id],
-        targets: [tree.elts[0].start.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      // start -> elts
+      let sources = [start.id];
+      let targets = this.getStart(tree.elts[0]);
+
+      this.buildLinks(sources, targets, graph, tree, visitor);
 
     }
 
@@ -713,50 +668,23 @@ class RepeatEltDslToELKGenerator {
 
     } else {
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [finish.id],
-        targets: [start.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      // start -> finish
+      let sources = [start.id];
+      let targets = [finish.id];
+
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
     }
-    //*/
+
     // edges
     if (tree.elts.length > 0) {
+      // elts -> finish
+      let sources = this.getFinish(tree.elts[tree.elts.length - 1]);
+      let targets = [finish.id];
 
-      graph.edges.push({
-        id: `${visitor.edgeCntIt.next().value}`,
-        sources: [tree.elts[tree.elts.length - 1].finish.id],
-        targets: [finish.id],
-        ...visitor.getEdgeModel(tree),
-      });
+      this.buildLinks(sources, targets, graph, tree, visitor);
+
     }
 
-    // concatenate graphs
-    // nodes
-    tree.elts.forEach(elt => {
-      let arr = [];
-      if (Array.isArray(elt)) {
-        arr = elt;
-      } else {
-        arr.push(elt);
-      }
-
-      arr.forEach((a) => {
-        let ctree = a.accept(visitor, n => tree.foundElt(n));
-        if (ctree !== null) {
-          ctree.parent = parent;
-          if (filterFn) {
-            if (!filterFn(ctree)) {
-              graph.children.push(ctree);
-            }
-          } else {
-            graph.children.push(ctree);
-          }
-        }
-      });
-
-    });
-    return graph;
   }
 }
