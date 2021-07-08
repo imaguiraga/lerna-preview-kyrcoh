@@ -44,7 +44,10 @@
     "jshint": "^2.11.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "split.js": "^1.5.11"
+    "systemjs": "^6.7.1",
+    "systemjs-babel": "^0.3.1",
+    "split.js": "^1.5.11",
+    "typescript": "^4.1.2"
   },
   "scripts": {
     "dsl": "yarn gcp-dsl && node scripts/icons.js",
@@ -82,6 +85,7 @@
     "nunjucks": "^3.2.2",
     "prettier": "^2.2.1",
     "react-scripts": "^4.0.1",
+    "@types/systemjs": "^6.1.0",
     "typescript": "^4.1.3",
     "walk": "^2.3.14",
     "xmldom": "^0.6.0",
