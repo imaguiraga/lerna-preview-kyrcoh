@@ -1,3 +1,5 @@
+/* eslint-disable no-debugger */
+/* eslint-disable no-undef */
 const ts = require('typescript/lib/typescriptServices.js');
 require('systemjs/dist/system.js');
 require('systemjs/dist/extras/global.js');
@@ -7,6 +9,7 @@ require('systemjs/dist/extras/dynamic-import-maps.js');
 require('systemjs/dist/extras/named-exports.js');
 require('systemjs/dist/extras/named-register.js');
 require('systemjs-babel/dist/systemjs-babel.js');
+
 //*/
 //var esprima = require('esprima');
 //var escodegen = require('escodegen');
@@ -33,31 +36,54 @@ function debug(msg) {
 
 const System = window.System;
 /* Replaced by systemjs-babel because content-type is not available
-var systemJSPrototype = System.constructor.prototype;
+// */
+const systemJSPrototype = System.constructor.prototype;
 
 // Hookable transform function!
 systemJSPrototype.transform = function (_id, source) {
-  if (isScript(_id)) {
-    // If code is a System or AMD module
-    if (!source.startsWith('System.register') && !source.startsWith('define')) {
-      // If code is not a Sytem or AMD module transpile it
-      let result = ts.transpileModule(
-        source,
-        {
-          compilerOptions: {
-            module: ts.ModuleKind.AMD,
-            moduleResolution: ts.ModuleResolutionKind.Node,
-            esModuleInterop: true
-          }
-        }
-      );
-      debug('transpiled code:\n' + result.outputText);
-      return result.outputText;
-    }
-  }
+  debugger;
+  debug('transpiled code:\n' + source);
+  return source;
+}
 
+const fetchOrg = systemJSPrototype.fetch;
+systemJSPrototype.fetch = function (url, options) {
+  debugger;
+  return fetchOrg(utl, options);
+};
+
+function transpileCode(source) {
+  // https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
+  // https://jsfiddle.net/k78t436y/
+  // https://unpkg.com/typescript@latest/lib/typescriptServices.js
+  // https://github.com/systemjs/systemjs/blob/master/docs/system-register.md transpileModule
+  // Transpile code to Module
+  // If code is a System or AMD module
+  if (!source.startsWith('System.register') && !source.startsWith('define')) {
+    // If code is not a Sytem or AMD module transpile it
+    let result = ts.transpileModule(
+      source,
+      {
+        compilerOptions: {
+          module: ts.ModuleKind.System,
+          moduleResolution: ts.ModuleResolutionKind.NodeJs,
+          esModuleInterop: true
+        }
+      }
+    );
+    debug('transpiled code:\n' + result.outputText);
+    return result.outputText;
+  }
+  return source;
+}
+
+systemJSPrototype.transform = function (_id, source) {
+  if (isScript(_id)) {
+    return transpileCode(source);
+  }
   return source;
 };
+
 // */
 // Re-export a module with a new id
 export function registerJSModule(id, _module_) {
@@ -71,13 +97,14 @@ export function registerJSModule(id, _module_) {
       }
     };
   };
-// debugger;
+  // debugger;
   System.register(id, [], exportsFn);
-  System.set('app:'+id,_module_);
+  System.set('app:' + id, _module_);
 }
 
 // Dynamically register compiled modules
 registerJSModule('topology-dsl', model);
+registerJSModule('@imaguiraga/topology-dsl-core', model);
 registerJSModule('core-dsl', model);
 
 export function parseDsl(input, dslModule) {
@@ -143,7 +170,7 @@ return result;
 }
 
 function isScript(source) {
-  return (source.endsWith('.js') ||
+  return (source.indexOf('main.chunk.js') < 0) && (source.endsWith('.js') ||
     source.endsWith('.jsx') ||
     source.endsWith('.ts') ||
     source.endsWith('.tsx')
@@ -151,27 +178,12 @@ function isScript(source) {
 }
 
 function importSource(id, source) {
-  // https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API
-  // https://jsfiddle.net/k78t436y/
-  // https://unpkg.com/typescript@latest/lib/typescriptServices.js
-  // https://github.com/systemjs/systemjs/blob/master/docs/system-register.md transpileModule
-  // Transpile code to Module
   try {
-    let result = ts.transpileModule(
-      source,
-      {
-        compilerOptions: {
-          module: ts.ModuleKind.AMD,
-          moduleResolution: ts.ModuleResolutionKind.Node,
-          esModuleInterop: true
-        }
-      }
-    );
-
-    debug('importSource -> ' + result.outputText);
+    let result = transpileCode(source);
+    debug('importSource -> ' + result);
     // Dynamically register module
 
-    (0, eval)(result.outputText);
+    (0, eval)(result);
     // Invalidate import cache
     if (System.has(id)) {
       System.delete(id);

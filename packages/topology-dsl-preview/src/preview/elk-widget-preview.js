@@ -3,6 +3,13 @@
 import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
+  parseDsl,
+  parseDslModule,
+  registerJSModule,
+  resolveImports,
+} from './parser';
+
+import {
   CommandRegistry
 } from '@lumino/commands';
 
@@ -22,13 +29,6 @@ import { ELKGraphWidget } from './widgets/elkgraph-widget';
 import './style/widget-style.css';
 import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
-
-import {
-  parseDsl,
-  parseDslModule,
-  registerJSModule,
-  resolveImports,
-} from './parser';
 
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
 import * as gcp from '../assets/js/GCP';

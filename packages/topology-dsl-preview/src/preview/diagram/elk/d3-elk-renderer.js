@@ -32,8 +32,8 @@ const linksFn = function (n) {
 
 function drawNode(selection, d, i, refreshFn) {
   // Toggle expansion on/off
-  const collapseNode = function (d) {
-    d3.event.stopPropagation();
+  const collapseNode = function (event, d) {
+    event.stopPropagation();
 
     // is expanded
     if (d.model.compound) {
@@ -404,8 +404,8 @@ function createMarkers(defs, iconWidth) {
 }
 
 export function initD3(containerElt, width, height, iconWidth) {
-  const zoomFn = d3.zoom().on('zoom', function () {
-    d3.select(this).select('g').attr('transform', d3.event.transform);
+  const zoomFn = d3.zoom().on('zoom', function (event, d) {
+    d3.select(this).select('g').attr('transform', event.transform);
   });
 
   let svg = d3.select(containerElt)
