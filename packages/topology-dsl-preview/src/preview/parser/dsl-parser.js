@@ -4,11 +4,13 @@ const ts = require('typescript/lib/typescriptServices.js');
 require('systemjs/dist/system.js');
 require('systemjs/dist/extras/global.js');
 require('systemjs/dist/extras/amd.js');
-require('systemjs/dist/extras/transform.js');
+
+require('systemjs/dist/extras/transform.js');// !important
+// require('systemjs-babel/dist/systemjs-babel.js');
+
 require('systemjs/dist/extras/dynamic-import-maps.js');
 require('systemjs/dist/extras/named-exports.js');
 require('systemjs/dist/extras/named-register.js');
-require('systemjs-babel/dist/systemjs-babel.js');
 
 //*/
 //var esprima = require('esprima');
@@ -33,23 +35,16 @@ function debug(msg) {
   }
 }
 
-
 const System = window.System;
-/* Replaced by systemjs-babel because content-type is not available
-// */
+
 const systemJSPrototype = System.constructor.prototype;
 
-// Hookable transform function!
-systemJSPrototype.transform = function (_id, source) {
-  debugger;
-  debug('transpiled code:\n' + source);
-  return source;
-}
-
+// Replaced by systemjs-babel because content-type is not available
+// Hookable fetch function! require('systemjs-babel/dist/systemjs-babel.js');
 const fetchOrg = systemJSPrototype.fetch;
 systemJSPrototype.fetch = function (url, options) {
-  debugger;
-  return fetchOrg(utl, options);
+  //debugger;
+  return fetchOrg(url, options);
 };
 
 function transpileCode(source) {
@@ -77,6 +72,7 @@ function transpileCode(source) {
   return source;
 }
 
+// Hookable transform function! provided by require('systemjs/dist/extras/transform.js');
 systemJSPrototype.transform = function (_id, source) {
   if (isScript(_id)) {
     return transpileCode(source);
@@ -84,7 +80,6 @@ systemJSPrototype.transform = function (_id, source) {
   return source;
 };
 
-// */
 // Re-export a module with a new id
 export function registerJSModule(id, _module_) {
   const exportsFn = function (exports_1) {
@@ -106,6 +101,134 @@ export function registerJSModule(id, _module_) {
 registerJSModule('topology-dsl', model);
 registerJSModule('@imaguiraga/topology-dsl-core', model);
 registerJSModule('core-dsl', model);
+
+const EXT_REGEX = /^[^#?]+\.(tsx?|jsx?)$/;
+function isScript(source) {
+  return (source.indexOf('main.chunk.js') < 0) && (EXT_REGEX.test(source));
+}
+
+function importSource(id, source) {
+  try {
+    let result = transpileCode(source);
+    debug('importSource -> ' + result);
+    // Dynamically register module
+
+    (0, eval)(result);
+    // Invalidate import cache
+    if (System.has(id)) {
+      System.delete(id);
+    }
+    // Re-register the module
+    // System js Module format
+    System.registerRegistry[id] = System.getRegister();
+    debug(System.getRegister());
+
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err);
+  }
+  return System.import(id);
+}
+
+function importURL(id, url) {
+  debug('importURL -> ' + url);
+  if (System.has(url)) {
+    System.delete(url);
+  }
+  return System.import(url);
+}
+
+// MODULE RESOLVER
+const IMPORT_ID = location.href + 'IMPORT.js';
+export function parseDslModule(source, dslModule, moduleId = IMPORT_ID, loadFromCache = false) {
+  let importPromise = null;
+  if (loadFromCache && System.has(moduleId)) {
+    importPromise = Promise.resolve(System.registerRegistry[moduleId]);
+  } else {
+    // Import URL
+    if (isScript(source)) {
+      importPromise = importURL(moduleId, source);
+
+    } else {
+      // Import text content
+      importPromise = importSource(moduleId, source);
+    }
+  }
+
+  // Convert exports to map
+  if (importPromise != null) {
+    return importPromise.then((modules) => {
+      let variables = new Map();
+      // Convert resolved export keys to a map
+      for (let key in modules) {
+        // Exclude module specific properties
+        if (key !== 'default' && !key.startsWith('_')) {
+          // Extract only subclasses of ResourceElt
+          if (modules[key] instanceof model.ResourceElt) {
+            variables.set(key, modules[key]);
+          }
+        }
+      }
+      return variables;
+    });
+
+  } else {
+    return Promise.resolve(new Map());
+  }
+
+}
+
+// ############
+
+export function resolveImports(input) {
+  const result = new Promise((resolveFn, rejectFn) => {
+
+    const toload = new Map(); // Map of external imports to load with fetch
+    // AST callback function to extract imports
+    let callbackFn = function (elt) {
+      // Extract Identifiers
+      if (elt.type === 'CallExpression' && elt.callee.name === 'load') {
+        // Extract parameters from function name 'load' 
+        // Add files to load async
+        let key = elt.arguments[0].value;
+        toload.set(key, null);
+      }
+    };
+
+    try {
+      let tree = esprima.parseScript(input, {}, callbackFn);
+    } catch (e) {
+      console.error(e.name + ': ' + e.message);
+      rejectFn(e);
+    }
+
+    // Load files async
+    let loadpromises = [];
+    toload.forEach((value, key, map) => {
+      loadpromises.push(
+        fetch(key)
+          .then(response => response.json())
+          .then(function (data) {
+            console.log('loaded -> ' + key);
+            map.set(key, jsonToDslObject(data));
+          })
+      );
+    });
+    // Wait on all promises to load
+    Promise.allSettled(loadpromises).then((iterable) => {
+      console.log('loaded imports -> ' + iterable);
+      // Delegate to main promise (map of resolved imports)
+      resolveFn(toload);
+    })
+      .catch((error) => {
+        console.error('Error:', error);
+        rejectFn(error);
+      });
+
+  });
+
+  return result;
+}
 
 export function parseDsl(input, dslModule) {
 
@@ -166,134 +289,5 @@ return result;
   }
 
   return Promise.resolve(factoryFn(dslModule));
-
-}
-
-function isScript(source) {
-  return (source.indexOf('main.chunk.js') < 0) && (source.endsWith('.js') ||
-    source.endsWith('.jsx') ||
-    source.endsWith('.ts') ||
-    source.endsWith('.tsx')
-  );
-}
-
-function importSource(id, source) {
-  try {
-    let result = transpileCode(source);
-    debug('importSource -> ' + result);
-    // Dynamically register module
-
-    (0, eval)(result);
-    // Invalidate import cache
-    if (System.has(id)) {
-      System.delete(id);
-    }
-    // Re-register the module
-    // System js Module format
-    System.registerRegistry[id] = System.getRegister();
-    debug(System.getRegister());
-
-  } catch (err) {
-    console.log(err);
-    return Promise.reject(err);
-  }
-  return System.import(id);
-}
-
-function importURL(id, url) {
-  debug('importURL -> ' + url);
-  if (System.has(url)) {
-    System.delete(url);
-  }
-  return System.import(url);
-}
-
-export function resolveImports(input) {
-  const result = new Promise((resolveFn, rejectFn) => {
-
-    const toload = new Map(); // Map of external imports to load with fetch
-    // AST callback function to extract imports
-    let callbackFn = function (elt) {
-      // Extract Identifiers
-      if (elt.type === 'CallExpression' && elt.callee.name === 'load') {
-        // Extract parameters from function name 'load' 
-        // Add files to load async
-        let key = elt.arguments[0].value;
-        toload.set(key, null);
-      }
-    };
-
-    try {
-      let tree = esprima.parseScript(input, {}, callbackFn);
-    } catch (e) {
-      console.error(e.name + ': ' + e.message);
-      rejectFn(e);
-    }
-
-    // Load files async
-    let loadpromises = [];
-    toload.forEach((value, key, map) => {
-      loadpromises.push(
-        fetch(key)
-          .then(response => response.json())
-          .then(function (data) {
-            console.log('loaded -> ' + key);
-            map.set(key, jsonToDslObject(data));
-          })
-      );
-    });
-    // Wait on all promises to load
-    Promise.allSettled(loadpromises).then((iterable) => {
-      console.log('loaded imports -> ' + iterable);
-      // Delegate to main promise (map of resolved imports)
-      resolveFn(toload);
-    })
-      .catch((error) => {
-        console.error('Error:', error);
-        rejectFn(error);
-      });
-
-  });
-
-  return result;
-}
-
-// MODULE RESOLVER
-const IMPORT_ID = location.href + 'IMPORT.js';
-export function parseDslModule(source, dslModule, moduleId = IMPORT_ID, loadFromCache = false) {
-  let importPromise = null;
-  if (loadFromCache && System.has(moduleId)) {
-    importPromise = Promise.resolve(System.registerRegistry[moduleId]);
-  } else {
-    // Import URL
-    if (isScript(source)) {
-      importPromise = importURL(moduleId, source);
-
-    } else {
-      // Import text content
-      importPromise = importSource(moduleId, source);
-    }
-  }
-
-  // Convert exports to map
-  if (importPromise != null) {
-    return importPromise.then((modules) => {
-      let variables = new Map();
-      // Convert resolved export keys to a map
-      for (let key in modules) {
-        // Exclude module specific properties
-        if (key !== 'default' && !key.startsWith('_')) {
-          // Extract only subclasses of ResourceElt
-          if (modules[key] instanceof model.ResourceElt) {
-            variables.set(key, modules[key]);
-          }
-        }
-      }
-      return variables;
-    });
-
-  } else {
-    return Promise.resolve(new Map());
-  }
 
 }
