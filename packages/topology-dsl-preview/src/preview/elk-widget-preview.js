@@ -4,10 +4,8 @@ import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
   parseJSSourceModule,
-  //parseDslModule,
-  registerJSModule,
-
-} from './parser';
+  registerJSModule
+} from './module-util';
 
 import {
   CommandRegistry
@@ -42,6 +40,18 @@ const {
 //const DSL_MODULE = { ...flowDsl };
 registerJSModule('gcp-dsl', gcp);
 
+// Dynamically register compiled modules
+registerJSModule('topology-dsl', flowDsl);
+registerJSModule('@imaguiraga/topology-dsl-core', flowDsl);
+registerJSModule('core-dsl', flowDsl);
+
+/*
+System.set('app://topology-dsl', flowDsl);
+System.set('app://@imaguiraga/topology-dsl-core', flowDsl);
+System.set('app://core-dsl', flowDsl);
+// */
+
+/*
 function loadFnFactory() {
   let loadedImports = new Map();
   const loadFn = (key) => {
@@ -65,7 +75,7 @@ function loadFnFactory() {
 }
 
 //DSL_MODULE.load = loadFnFactory();
-
+// */
 function main() {
   const commands = new CommandRegistry();
   createMenu(commands);
@@ -76,6 +86,26 @@ function main() {
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
   //*/
+}
+
+
+function extractVariables(modules) {
+  // Convert exports to map
+
+  let variables = new Map();
+  if (modules !== null) {
+    // Convert resolved export keys to a map
+    for (let key in modules) {
+      // Exclude module specific properties
+      if (key !== 'default' && !key.startsWith('_')) {
+        // Extract only subclasses of ResourceElt
+        if (modules[key] instanceof flowDsl.ResourceElt) {
+          variables.set(key, modules[key]);
+        }
+      }
+    }
+  }
+  return variables;
 }
 
 function createMainWidget(palette, commands) {
@@ -122,7 +152,8 @@ function createMainWidget(palette, commands) {
     const IMPORT_ID = location.href + 'IMPORT.js';
     try {
       // TODO NODEIDGENFN.next(true);         
-      parseJSSourceModule(IMPORT_ID, content).then((dslObjectMap) => {
+      parseJSSourceModule(IMPORT_ID, content).then((modules) => {
+        let dslObjectMap = extractVariables(modules);
         // Update graph flows
         if (dslObjectMap !== undefined && dslObjectMap !== null) {
           const result = new Map();

@@ -13,8 +13,6 @@ require('systemjs/dist/extras/transform.js');// !important
 // !require('systemjs/dist/extras/named-exports.js');
 require('systemjs/dist/extras/named-register.js');
 
-import * as model from '@imaguiraga/topology-dsl-core';
-
 let DEBUG = true;
 
 export function debugOn(v = true) {
@@ -99,16 +97,6 @@ export function registerJSModule(id, _module_) {
   // System.registerRegistry[id] = _define_;
 }
 
-// Dynamically register compiled modules
-registerJSModule('topology-dsl', model);
-registerJSModule('@imaguiraga/topology-dsl-core', model);
-registerJSModule('core-dsl', model);
-
-System.set('app://topology-dsl', model);
-System.set('app://@imaguiraga/topology-dsl-core', model);
-System.set('app://core-dsl', model);
-// */
-
 const EXT_REGEX = /^[^#?]+\.(tsx?|jsx?)$/;
 function isScript(source) {
   return (source.indexOf('main.chunk.js') < 0) && (EXT_REGEX.test(source));
@@ -153,7 +141,7 @@ export function parseJSModule(moduleId, parent, loadFromCache = false) {
     // Import URL
     importPromise = importURL(moduleId, parent);
   }
-  return extractVariables(importPromise);
+  return importPromise;
 }
 
 export function parseJSSourceModule(moduleId, source, loadFromCache = false) {
@@ -164,32 +152,9 @@ export function parseJSSourceModule(moduleId, source, loadFromCache = false) {
     // Import text content
     importPromise = importSource(moduleId, source);
   }
-  return extractVariables(importPromise);
+  return importPromise;
 }
 
-function extractVariables(importPromise) {
-  // Convert exports to map
-  if (importPromise !== null) {
-    return importPromise.then((modules) => {
-      let variables = new Map();
-      // Convert resolved export keys to a map
-      for (let key in modules) {
-        // Exclude module specific properties
-        if (key !== 'default' && !key.startsWith('_')) {
-          // Extract only subclasses of ResourceElt
-          if (modules[key] instanceof model.ResourceElt) {
-            variables.set(key, modules[key]);
-          }
-        }
-      }
-      return variables;
-    });
-
-  } else {
-    return Promise.resolve(new Map());
-  }
-
-}
 // */
 
 // ############
