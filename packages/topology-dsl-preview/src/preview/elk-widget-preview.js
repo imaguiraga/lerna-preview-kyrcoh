@@ -3,10 +3,10 @@
 import 'es6-promise/auto';  // polyfill Promise on IE
 
 import {
-  parseDsl,
-  parseDslModule,
+  parseJSSourceModule,
+  //parseDslModule,
   registerJSModule,
-  resolveImports,
+
 } from './parser';
 
 import {
@@ -39,7 +39,7 @@ const {
   clone
 } = flowDsl;
 
-const DSL_MODULE = { ...flowDsl };
+//const DSL_MODULE = { ...flowDsl };
 registerJSModule('gcp-dsl', gcp);
 
 function loadFnFactory() {
@@ -64,7 +64,7 @@ function loadFnFactory() {
   return loadFn;
 }
 
-DSL_MODULE.load = loadFnFactory();
+//DSL_MODULE.load = loadFnFactory();
 
 function main() {
   const commands = new CommandRegistry();
@@ -119,9 +119,10 @@ function createMainWidget(palette, commands) {
   //*/
 
   const callbackFn = function (content) {
+    const IMPORT_ID = location.href + 'IMPORT.js';
     try {
       // TODO NODEIDGENFN.next(true);         
-      parseDslModule(content, DSL_MODULE).then((dslObjectMap) => {
+      parseJSSourceModule(IMPORT_ID, content).then((dslObjectMap) => {
         // Update graph flows
         if (dslObjectMap !== undefined && dslObjectMap !== null) {
           const result = new Map();
@@ -134,7 +135,7 @@ function createMainWidget(palette, commands) {
 
           });
 
-          console.log('parseDslModule');
+          console.log('parseJSSourceModule');
           // Convert to array
           const message = { jsonrpc: '2.0', method: 'update.flows', params: result };
           // Update flows
