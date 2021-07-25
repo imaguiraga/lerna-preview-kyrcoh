@@ -103,7 +103,7 @@ body {
 .app {
   font-family: sans-serif;
   display: flex;
-  padding: 8px;
+  /*padding: 8px;*/
 }
 
 .app-content-pane {

@@ -8,8 +8,13 @@ import {
 import * as diagram from '../diagram';
 
 export class ELKGraphWidget extends Widget {
+  private _flows: Map<any, any>;
+  private selectElt: HTMLSelectElement;
+  private contentPane: HTMLDivElement;
+  private errorPane: HTMLDivElement;
+  private renderer: any;
 
-  constructor(_width, _height) {
+  constructor(_width: any, _height: any) {
     super();
     this._flows = new Map();
     this.addClass('CodeMirrorWidget');
@@ -63,13 +68,13 @@ export class ELKGraphWidget extends Widget {
     return content;
   }
 
-  onAfterAttach(msg) {
+  onAfterAttach(msg: any) {
     /*
     console.log(`onAfterAttach : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
     //*/
   }
 
-  onResize(msg) {
+  onResize(msg: any) {
     /*
     console.log(`onResize : W${this.contentPane.clientWidth} - H${this.contentPane.clientHeight} # W${msg.width} - H${msg.height}`);
     //*/
@@ -107,15 +112,15 @@ export class ELKGraphWidget extends Widget {
       this.errorPane.style.display = 'none';
 
       let self = this;
-      this.selectElt.addEventListener('change', (event) => {
-        const result = self._flows.get(event.target.value);
+      this.selectElt.addEventListener('change', (event: Event) => {
+        const result = self._flows.get((event.target as any).value);
         self.renderFlow(result);
       });
       this.renderFlow(current);
     }
   }
 
-  renderFlow(input) {
+  renderFlow(input: any) {
     if (input === undefined || input === null) {
       return Promise.resolve(null);
     }

@@ -400,7 +400,7 @@ function createX6Edge(e, x6Layout) {
 function createX6Graph(containerElt, minimapContainer, width, height) {
   const x6Graph = new Graph({
     container: containerElt,
-    grid: 2,
+    grid: 1,
     //width: width,
     //height: height,
     //resizing: false,
