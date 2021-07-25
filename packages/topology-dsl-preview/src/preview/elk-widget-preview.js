@@ -144,9 +144,7 @@ function createMainWidget(palette, commands) {
     }
     console.log('=> Window.onmessage' + event);
     // messageCallbackFn(event);
-
   }, false);
-  //*/
 
   const callbackFn = function (content) {
     const IMPORT_ID = location.href + 'IMPORT.js';

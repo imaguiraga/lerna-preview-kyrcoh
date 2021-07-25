@@ -1,0 +1,623 @@
+{
+  "children": [
+    {
+      "id": "UID:pipeline.start",
+      "labels": [{"text":"UID:start",
+      "properties": {
+        //"portConstraints": "FIXED_ORDER",
+        //"nodeLabels.padding" :80,
+        "nodeLabels.placement": "[H_CENTER, V_CENTER, INSIDE]"
+      }}],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline.start"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.0:step",
+      "label": "a",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID:pipeline.finish",
+      "label": "UID:pipeline.finish",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline.finish"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1:job.start",
+      "label": "UID.1:job.start",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.start"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1.0:terminal",
+      "label": "e",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1.1:terminal",
+      "label": "d",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1.2:terminal",
+      "label": "tr",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1.3:terminal",
+      "label": "s",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1.4:terminal",
+      "label": "w",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.1:job.finish",
+      "label": "UID.1:job.finish",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.finish"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2:stage.start",
+      "label": "UID.2:stage.start",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage.start"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2.0:step",
+      "label": "b",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2.1:step",
+      "label": "c",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2:stage.finish",
+      "label": "UID.2:stage.finish",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage.finish"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2.2:job.start",
+      "label": "UID.2.2:job.start",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.start"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2.2.0:terminal",
+      "label": "c",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2.2.1:terminal",
+      "label": "d",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.2.2:job.finish",
+      "label": "UID.2.2:job.finish",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.finish"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.3:job.start",
+      "label": "UID.3:job.start",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.start"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.3.0:terminal",
+      "label": "c",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.3.1:terminal",
+      "label": "d",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.terminal"
+      },
+      "width": 80,
+      "height": 40
+    },
+    {
+      "id": "UID.3:job.finish",
+      "label": "UID.3:job.finish",
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job.finish"
+      },
+      "width": 80,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "id": "1",
+      "sources": [
+        "UID:pipeline.start"
+      ],
+      "targets": [
+        "UID.0:step"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline"
+      }
+    },
+    {
+      "id": "2",
+      "sources": [
+        "UID.0:step"
+      ],
+      "targets": [
+        "UID.1:job.start"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline"
+      }
+    },
+    {
+      "id": "3",
+      "sources": [
+        "UID.1:job.finish"
+      ],
+      "targets": [
+        "UID.2:stage.start"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline"
+      }
+    },
+    {
+      "id": "4",
+      "sources": [
+        "UID.2:stage.finish"
+      ],
+      "targets": [
+        "UID.3:job.start"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline"
+      }
+    },
+    {
+      "id": "5",
+      "sources": [
+        "UID.3:job.finish"
+      ],
+      "targets": [
+        "UID:pipeline.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "pipeline"
+      }
+    },
+    {
+      "id": "6",
+      "sources": [
+        "UID.1:job.start"
+      ],
+      "targets": [
+        "UID.1.0:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "7",
+      "sources": [
+        "UID.1.0:terminal"
+      ],
+      "targets": [
+        "UID.1:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "8",
+      "sources": [
+        "UID.1:job.start"
+      ],
+      "targets": [
+        "UID.1.1:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "9",
+      "sources": [
+        "UID.1.1:terminal"
+      ],
+      "targets": [
+        "UID.1:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "10",
+      "sources": [
+        "UID.1:job.start"
+      ],
+      "targets": [
+        "UID.1.2:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "11",
+      "sources": [
+        "UID.1.2:terminal"
+      ],
+      "targets": [
+        "UID.1:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "12",
+      "sources": [
+        "UID.1:job.start"
+      ],
+      "targets": [
+        "UID.1.3:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "13",
+      "sources": [
+        "UID.1.3:terminal"
+      ],
+      "targets": [
+        "UID.1:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "14",
+      "sources": [
+        "UID.1:job.start"
+      ],
+      "targets": [
+        "UID.1.4:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "15",
+      "sources": [
+        "UID.1.4:terminal"
+      ],
+      "targets": [
+        "UID.1:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "16",
+      "sources": [
+        "UID.2:stage.start"
+      ],
+      "targets": [
+        "UID.2.0:step"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage"
+      }
+    },
+    {
+      "id": "17",
+      "sources": [
+        "UID.2.0:step"
+      ],
+      "targets": [
+        "UID.2:stage.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage"
+      }
+    },
+    {
+      "id": "18",
+      "sources": [
+        "UID.2:stage.start"
+      ],
+      "targets": [
+        "UID.2.1:step"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage"
+      }
+    },
+    {
+      "id": "19",
+      "sources": [
+        "UID.2.1:step"
+      ],
+      "targets": [
+        "UID.2:stage.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage"
+      }
+    },
+    {
+      "id": "20",
+      "sources": [
+        "UID.2:stage.start"
+      ],
+      "targets": [
+        "UID.2.2:job.start"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage"
+      }
+    },
+    {
+      "id": "21",
+      "sources": [
+        "UID.2.2:job.finish"
+      ],
+      "targets": [
+        "UID.2:stage.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "stage"
+      }
+    },
+    {
+      "id": "22",
+      "sources": [
+        "UID.2.2:job.start"
+      ],
+      "targets": [
+        "UID.2.2.0:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "23",
+      "sources": [
+        "UID.2.2.0:terminal"
+      ],
+      "targets": [
+        "UID.2.2:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "24",
+      "sources": [
+        "UID.2.2:job.start"
+      ],
+      "targets": [
+        "UID.2.2.1:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "25",
+      "sources": [
+        "UID.2.2.1:terminal"
+      ],
+      "targets": [
+        "UID.2.2:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "26",
+      "sources": [
+        "UID.3:job.start"
+      ],
+      "targets": [
+        "UID.3.0:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "27",
+      "sources": [
+        "UID.3.0:terminal"
+      ],
+      "targets": [
+        "UID.3:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "28",
+      "sources": [
+        "UID.3:job.start"
+      ],
+      "targets": [
+        "UID.3.1:terminal"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    },
+    {
+      "id": "29",
+      "sources": [
+        "UID.3.1:terminal"
+      ],
+      "targets": [
+        "UID.3:job.finish"
+      ],
+      "model": {
+        "tagName": "pipeline",
+        "tagName": "job"
+      }
+    }
+  ],
+  "id": "root",
+  "layoutOptions": {
+    "elk.algorithm": "layered",
+    
+    //"nodePlacement.strategy": "LINEAR_SEGMENTS",
+    //"org.eclipse.elk.port.borderOffset": 10,
+    "org.eclipse.elk.layered.mergeEdges": true,
+    //"spacing": 42,
+    "spacing.nodeNodeBetweenLayers": 40,
+    "spacing.edgeNodeBetweenLayers": 40,
+    "spacing.edgeEdgeBetweenLayers": 40,
+    "layering.strategy": "LONGEST_PATH",
+    "elk.alignment":"TOP",
+    "elk.direction" : "DOWN"
+  }
+}

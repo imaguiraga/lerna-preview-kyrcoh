@@ -1,0 +1,133 @@
+provider,category,product,dsl,kind,tagName,iconURL,typeURI,docURL
+GCP,,Compute Engine,gcp_Compute_Engine,resource,gcp_Compute_Engine,https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine,,https://cloud.google.com/compute
+GCP,,Cloud Storage,gcp_Cloud_Storage,resource,gcp_Cloud_Storage,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudstorage,,https://cloud.google.com/storage
+GCP,,Cloud SDK,gcp_Cloud_SDK,resource,gcp_Cloud_SDK,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudshell,,https://cloud.google.com/sdk
+GCP,,Cloud SQL,gcp_Cloud_SQL,resource,gcp_Cloud_SQL,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsql,,https://cloud.google.com/sql
+GCP,,Google Kubernetes Engine,gcp_Google_Kubernetes_Engine,resource,gcp_Google_Kubernetes_Engine,https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine,,https://cloud.google.com/kubernetes-engine
+GCP,,BigQuery,gcp_BigQuery,resource,gcp_BigQuery,https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery,,https://cloud.google.com/bigquery
+GCP,,Cloud CDN,gcp_Cloud_CDN,resource,gcp_Cloud_CDN,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcdn,,https://cloud.google.com/cdn
+GCP,,Dataflow,gcp_Dataflow,resource,gcp_Dataflow,https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataflow,,https://cloud.google.com/dataflow
+GCP,,Operations,gcp_Operations,resource,gcp_Operations,https://www.gstatic.com/cloud/images/navigation/icons.svg#stackdriver,,https://cloud.google.com/products/operations
+GCP,,Cloud Run,gcp_Cloud_Run,resource,gcp_Cloud_Run,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun,,https://cloud.google.com/run
+GCP,,Anthos,gcp_Anthos,resource,gcp_Anthos,https://www.gstatic.com/cloud/images/navigation/icons.svg#anthos,,https://cloud.google.com/anthos
+GCP,,See all products (100+),gcp_See_all_products__100__,resource,gcp_See_all_products__100__,,,https://cloud.google.com/products
+GCP,AI and Machine Learning,Vertex AI,gcp_Vertex_AI,resource,gcp_Vertex_AI,https://www.gstatic.com/cloud/images/navigation/vertex-ai.svg,,https://cloud.google.com/vertex-ai
+GCP,AI and Machine Learning,Speech-to-Text,gcp_Speech_to_Text,resource,gcp_Speech_to_Text,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudspeechapi,,https://cloud.google.com/speech-to-text
+GCP,AI and Machine Learning,Vision AI,gcp_Vision_AI,resource,gcp_Vision_AI,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudvisionapi,,https://cloud.google.com/vision
+GCP,AI and Machine Learning,Text-to-Speech,gcp_Text_to_Speech,resource,gcp_Text_to_Speech,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtexttospeech,,https://cloud.google.com/text-to-speech
+GCP,AI and Machine Learning,Cloud Translation,gcp_Cloud_Translation,resource,gcp_Cloud_Translation,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtranslationapi,,https://cloud.google.com/translate
+GCP,AI and Machine Learning,Cloud Natural Language,gcp_Cloud_Natural_Language,resource,gcp_Cloud_Natural_Language,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudnaturallanguageapi,,https://cloud.google.com/natural-language
+GCP,AI and Machine Learning,AutoML,gcp_AutoML,resource,gcp_AutoML,https://www.gstatic.com/cloud/images/navigation/icons.svg#automl,,https://cloud.google.com/automl
+GCP,AI and Machine Learning,Video AI,gcp_Video_AI,resource,gcp_Video_AI,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudvideointelligenceapi,,https://cloud.google.com/video-intelligence
+GCP,AI and Machine Learning,AI Infrastructure,gcp_AI_Infrastructure,resource,gcp_AI_Infrastructure,https://www.gstatic.com/cloud/images/navigation/icons.svg#aiplatform,,https://cloud.google.com/ai-infrastructure
+GCP,AI and Machine Learning,Dialogflow,gcp_Dialogflow,resource,gcp_Dialogflow,https://www.gstatic.com/cloud/images/navigation/icons.svg#dialogflow,,https://cloud.google.com/dialogflow
+GCP,AI and Machine Learning,AutoML Tables,gcp_AutoML_Tables,resource,gcp_AutoML_Tables,https://www.gstatic.com/cloud/images/navigation/icons.svg#automltables,,https://cloud.google.com/automl-tables
+GCP,AI and Machine Learning,See all AI and machine learning products,gcp_See_all_AI_and_machine_learning_products,resource,gcp_See_all_AI_and_machine_learning_products,,,https://cloud.google.com/products#ai-and-machine-learning
+GCP,AI and Machine Learning,Apigee API Management,gcp_Apigee_API_Management,resource,gcp_Apigee_API_Management,https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform,,https://cloud.google.com/apigee/api-management
+GCP,AI and Machine Learning,Cloud Endpoints,gcp_Cloud_Endpoints,resource,gcp_Cloud_Endpoints,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudendpoints,,https://cloud.google.com/endpoints
+GCP,AI and Machine Learning,Cloud Healthcare API,gcp_Cloud_Healthcare_API,resource,gcp_Cloud_Healthcare_API,https://www.gstatic.com/cloud/images/navigation/icons.svg#healthcareapi,,https://cloud.google.com/healthcare
+GCP,AI and Machine Learning,AppSheet,gcp_AppSheet,resource,gcp_AppSheet,https://cloud.google.com/images/navigation/products/appsheet-icon.svg,,https://cloud.google.com/appsheet
+GCP,AI and Machine Learning,API Gateway,gcp_API_Gateway,resource,gcp_API_Gateway,https://www.gstatic.com/cloud/images/navigation/api-gateway.svg,,https://cloud.google.com/apigee
+GCP,Compute,App Engine,gcp_App_Engine,resource,gcp_App_Engine,https://www.gstatic.com/cloud/images/navigation/icons.svg#appengine,,https://cloud.google.com/appengine
+GCP,Compute,Cloud GPUs,gcp_Cloud_GPUs,resource,gcp_Cloud_GPUs,https://www.gstatic.com/cloud/images/navigation/icons.svg#gpu,,https://cloud.google.com/gpu
+GCP,Compute,Migrate for Compute Engine,gcp_Migrate_for_Compute_Engine,resource,gcp_Migrate_for_Compute_Engine,https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforcomputeengine,,https://cloud.google.com/migrate/compute-engine
+GCP,Compute,Preemptible VMs,gcp_Preemptible_VMs,resource,gcp_Preemptible_VMs,https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine,,https://cloud.google.com/preemptible-vms
+GCP,Compute,Shielded VMs,gcp_Shielded_VMs,resource,gcp_Shielded_VMs,https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine,,https://cloud.google.com/shielded-vm
+GCP,Compute,Sole-Tenant Nodes,gcp_Sole_Tenant_Nodes,resource,gcp_Sole_Tenant_Nodes,https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine,,https://cloud.google.com/sole-tenant-nodes
+GCP,Compute,Bare Metal,gcp_Bare_Metal,resource,gcp_Bare_Metal,https://cloud.google.com/_static/cloud/images/navigation/products/bare-metal.svg,,https://cloud.google.com/bare-metal
+GCP,Compute,Recommender,gcp_Recommender,resource,gcp_Recommender,https://cloud.google.com/_static/cloud/images/navigation/products/recommender.svg,,https://cloud.google.com/recommender
+GCP,Compute,VMware Engine,gcp_VMware_Engine,resource,gcp_VMware_Engine,https://cloud.google.com/_static/cloud/images/navigation/products/vmware-engine.svg,,https://cloud.google.com/vmware-engine
+GCP,Compute,See all compute products,gcp_See_all_compute_products,resource,gcp_See_all_compute_products,,,https://cloud.google.com/products#compute
+GCP,Containers,Container Registry,gcp_Container_Registry,resource,gcp_Container_Registry,https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry,,https://cloud.google.com/container-registry
+GCP,Containers,Container Security,gcp_Container_Security,resource,gcp_Container_Security,https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine,,https://cloud.google.com/containers/security
+GCP,Containers,Cloud Build,gcp_Cloud_Build,resource,gcp_Cloud_Build,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild,,https://cloud.google.com/build
+GCP,Containers,Deep Learning Containers,gcp_Deep_Learning_Containers,resource,gcp_Deep_Learning_Containers,https://www.gstatic.com/cloud/images/navigation/icons.svg#aiplatform,,https://cloud.google.com/ai-platform/deep-learning-containers
+GCP,Containers,Kubernetes Applications,gcp_Kubernetes_Applications,resource,gcp_Kubernetes_Applications,https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine,,https://cloud.google.com/kubernetes-applications
+GCP,Containers,Artifact Registry,gcp_Artifact_Registry,resource,gcp_Artifact_Registry,https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry,,https://cloud.google.com/artifact-registry
+GCP,Containers,Knative,gcp_Knative,resource,gcp_Knative,https://cloud.google.com/images/navigation/products/knative.svg,,https://cloud.google.com/knative
+GCP,Containers,Cloud Code,gcp_Cloud_Code,resource,gcp_Cloud_Code,https://cloud.google.com/_static/cloud/images/navigation/products/cloud-code.svg,,https://cloud.google.com/code
+GCP,Data Analytics,Looker,gcp_Looker,resource,gcp_Looker,https://cloud.google.com/images/navigation/products/cloud-looker.svg,,https://cloud.google.com/looker
+GCP,Data Analytics,Pub/Sub,gcp_Pub_Sub,resource,gcp_Pub_Sub,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudpubsub,,https://cloud.google.com/pubsub
+GCP,Data Analytics,Dataproc,gcp_Dataproc,resource,gcp_Dataproc,https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataproc,,https://cloud.google.com/dataproc
+GCP,Data Analytics,Cloud Data Fusion,gcp_Cloud_Data_Fusion,resource,gcp_Cloud_Data_Fusion,https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddatafusion,,https://cloud.google.com/data-fusion
+GCP,Data Analytics,Cloud Composer,gcp_Cloud_Composer,resource,gcp_Cloud_Composer,https://cloud.google.com/_static/cloud/images/navigation/products/cloud-composer.svg,,https://cloud.google.com/composer
+GCP,Data Analytics,Dataprep,gcp_Dataprep,resource,gcp_Dataprep,https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataprep,,https://cloud.google.com/dataprep
+GCP,Data Analytics,Dataplex,gcp_Dataplex,resource,gcp_Dataplex,https://www.gstatic.com/cloud/images/navigation/dataplex.svg,,https://cloud.google.com/dataplex
+GCP,Data Analytics,Data Catalog,gcp_Data_Catalog,resource,gcp_Data_Catalog,https://cloud.google.com/_static/cloud/images/navigation/products/cloud-data-catalog.svg,,https://cloud.google.com/data-catalog
+GCP,Data Analytics,Analytics Hub,gcp_Analytics_Hub,resource,gcp_Analytics_Hub,https://www.gstatic.com/cloud/images/navigation/analytics-hub.svg,,https://cloud.google.com/analytics-hub
+GCP,Data Analytics,See all developer tools,gcp_See_all_developer_tools,resource,gcp_See_all_developer_tools,,,https://cloud.google.com/products/tools
+GCP,Databases,Cloud Bigtable,gcp_Cloud_Bigtable,resource,gcp_Cloud_Bigtable,https://www.gstatic.com/cloud/images/navigation/icons.svg#bigtable,,https://cloud.google.com/bigtable
+GCP,Databases,Firestore,gcp_Firestore,resource,gcp_Firestore,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfirestore,,https://cloud.google.com/firestore
+GCP,Databases,Memorystore,gcp_Memorystore,resource,gcp_Memorystore,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudmemorystore,,https://cloud.google.com/memorystore
+GCP,Databases,Cloud Spanner,gcp_Cloud_Spanner,resource,gcp_Cloud_Spanner,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudspanner,,https://cloud.google.com/spanner
+GCP,Databases,Database Migration Service,gcp_Database_Migration_Service,resource,gcp_Database_Migration_Service,https://www.gstatic.com/cloud/images/navigation/database-migration-service.svg,,https://cloud.google.com/database-migration
+GCP,Databases,Firebase Realtime Database,gcp_Firebase_Realtime_Database,resource,gcp_Firebase_Realtime_Database,https://cloud.google.com/_static/cloud/images/navigation/products/firebase.svg,,https://firebase.google.com/products/realtime-database/
+GCP,Databases,Datastream,gcp_Datastream,resource,gcp_Datastream,https://www.gstatic.com/cloud/images/navigation/datastream.svg,,https://cloud.google.com/datastream
+GCP,Developer Tools,Cloud Deployment Manager,gcp_Cloud_Deployment_Manager,resource,gcp_Cloud_Deployment_Manager,https://www.gstatic.com/cloud/images/navigation/deployment-manager.svg,,https://cloud.google.com/deployment-manager
+GCP,Developer Tools,Cloud Scheduler,gcp_Cloud_Scheduler,resource,gcp_Cloud_Scheduler,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudscheduler,,https://cloud.google.com/scheduler
+GCP,Developer Tools,Cloud Source Repositories,gcp_Cloud_Source_Repositories,resource,gcp_Cloud_Source_Repositories,https://www.gstatic.com/cloud/images/navigation/icons.svg#logging,,https://cloud.google.com/source-repositories
+GCP,Developer Tools,Cloud Tasks,gcp_Cloud_Tasks,resource,gcp_Cloud_Tasks,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtasks,,https://cloud.google.com/tasks
+GCP,Developer Tools,Tekton,gcp_Tekton,resource,gcp_Tekton,https://cloud.google.com/images/navigation/products/tekton.png,,https://cloud.google.com/tekton
+GCP,Developer Tools,Apigee Healthcare APIx,gcp_Apigee_Healthcare_APIx,resource,gcp_Apigee_Healthcare_APIx,https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform,,https://cloud.google.com/apigee/solutions/healthcare-apix
+GCP,Developer Tools,Cloud Life Sciences,gcp_Cloud_Life_Sciences,resource,gcp_Cloud_Life_Sciences,https://www.gstatic.com/cloud/images/navigation/icons.svg#genomics,,https://cloud.google.com/life-sciences
+GCP,Developer Tools,Healthcare Natural Language AI,gcp_Healthcare_Natural_Language_AI,resource,gcp_Healthcare_Natural_Language_AI,https://cloud.google.com/images/navigation/products/healthcare.svg,,https://cloud.google.com/natural-language
+GCP,Hybrid and Multicloud,Cloud Run for Anthos,gcp_Cloud_Run_for_Anthos,resource,gcp_Cloud_Run_for_Anthos,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun,,https://cloud.google.com/anthos/run
+GCP,Hybrid and Multicloud,Google Cloud Marketplace for Anthos,gcp_Google_Cloud_Marketplace_for_Anthos,resource,gcp_Google_Cloud_Marketplace_for_Anthos,https://www.gstatic.com/cloud/images/navigation/icons.svg#marketplace,,https://cloud.google.com/kubernetes-applications
+GCP,Hybrid and Multicloud,Migrate for Anthos,gcp_Migrate_for_Anthos,resource,gcp_Migrate_for_Anthos,https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforanthos,,https://cloud.google.com/migrate/anthos
+GCP,Hybrid and Multicloud,Traffic Director,gcp_Traffic_Director,resource,gcp_Traffic_Director,https://www.gstatic.com/cloud/images/navigation/icons.svg#trafficdirector,,https://cloud.google.com/traffic-director
+GCP,Hybrid and Multicloud,Cloud IoT Core,gcp_Cloud_IoT_Core,resource,gcp_Cloud_IoT_Core,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiotcore,,https://cloud.google.com/iot-core
+GCP,Hybrid and Multicloud,Edge TPU,gcp_Edge_TPU,resource,gcp_Edge_TPU,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiotedge,,https://cloud.google.com/edge-tpu
+GCP,Management Tools,Cloud Shell,gcp_Cloud_Shell,resource,gcp_Cloud_Shell,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudshell,,https://cloud.google.com/shell
+GCP,Management Tools,Cloud Console,gcp_Cloud_Console,resource,gcp_Cloud_Console,https://www.gstatic.com/cloud/images/navigation/icons.svg#generic,,https://cloud.google.com/cloud-console
+GCP,Management Tools,Cloud Mobile App,gcp_Cloud_Mobile_App,resource,gcp_Cloud_Mobile_App,https://www.gstatic.com/cloud/images/navigation/icons.svg#generic,,https://cloud.google.com/console-app
+GCP,Management Tools,Cloud APIs,gcp_Cloud_APIs,resource,gcp_Cloud_APIs,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudapis,,https://cloud.google.com/apis
+GCP,Management Tools,Private Catalog,gcp_Private_Catalog,resource,gcp_Private_Catalog,https://www.gstatic.com/cloud/images/navigation/icons.svg#marketplace,,https://cloud.google.com/private-catalog
+GCP,Management Tools,Cost Management,gcp_Cost_Management,resource,gcp_Cost_Management,https://cloud.google.com/images/navigation/products/billing.png,,https://cloud.google.com/cost-management
+GCP,Management Tools,Intelligent Management,gcp_Intelligent_Management,resource,gcp_Intelligent_Management,https://www.gstatic.com/cloud/images/navigation/icons.svg#generic,,https://cloud.google.com/solutions/active-assist
+GCP,Management Tools,Game Servers,gcp_Game_Servers,resource,gcp_Game_Servers,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudgameservers,,https://cloud.google.com/game-servers
+GCP,Management Tools,OpenCue,gcp_OpenCue,resource,gcp_OpenCue,https://cloud.google.com/images/navigation/products/opencue.png,,https://cloud.google.com/opencue
+GCP,Migration,Application Migration,gcp_Application_Migration,resource,gcp_Application_Migration,https://www.gstatic.com/cloud/images/navigation/application-migration.svg,,https://cloud.google.com/solutions/application-migration
+GCP,Migration,BigQuery Data Transfer Service,gcp_BigQuery_Data_Transfer_Service,resource,gcp_BigQuery_Data_Transfer_Service,https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery,,https://cloud.google.com/bigquery/transfer
+GCP,Migration,Cloud Foundation Toolkit,gcp_Cloud_Foundation_Toolkit,resource,gcp_Cloud_Foundation_Toolkit,https://www.gstatic.com/cloud/images/navigation/icons.svg#generic,,https://cloud.google.com/foundation-toolkit
+GCP,Migration,Rapid Assessment & Migration Program (RAMP),gcp_Rapid_Assessment_Migration_Program_RAMP,resource,gcp_Rapid_Assessment_Migration_Program_RAMP,https://www.gstatic.com/cloud/images/navigation/rapid-assessment.svg,,https://cloud.google.com/solutions/cloud-migration-program
+GCP,Migration,Transfer Appliance,gcp_Transfer_Appliance,resource,gcp_Transfer_Appliance,https://www.gstatic.com/cloud/images/navigation/icons.svg#transferappliance,,https://cloud.google.com/transfer-appliance
+GCP,Migration,Storage Transfer Service,gcp_Storage_Transfer_Service,resource,gcp_Storage_Transfer_Service,https://www.gstatic.com/cloud/images/navigation/icons.svg#transfer,,https://cloud.google.com/storage-transfer-service
+GCP,Networking,Cloud Armor,gcp_Cloud_Armor,resource,gcp_Cloud_Armor,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudarmor,,https://cloud.google.com/armor
+GCP,Networking,Cloud DNS,gcp_Cloud_DNS,resource,gcp_Cloud_DNS,https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddns,,https://cloud.google.com/dns
+GCP,Networking,Cloud Load Balancing,gcp_Cloud_Load_Balancing,resource,gcp_Cloud_Load_Balancing,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudloadbalancing,,https://cloud.google.com/load-balancing
+GCP,Networking,Cloud NAT,gcp_Cloud_NAT,resource,gcp_Cloud_NAT,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudnat,,https://cloud.google.com/nat
+GCP,Networking,Hybrid Connectivity,gcp_Hybrid_Connectivity,resource,gcp_Hybrid_Connectivity,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudinterconnect,,https://cloud.google.com/hybrid-connectivity
+GCP,Networking,Network Connectivity Center,gcp_Network_Connectivity_Center,resource,gcp_Network_Connectivity_Center,https://www.gstatic.com/cloud/images/navigation/network-connectivity-center.svg,,https://cloud.google.com/network-connectivity-center
+GCP,Networking,Network Intelligence Center,gcp_Network_Intelligence_Center,resource,gcp_Network_Intelligence_Center,https://cloud.google.com/_static/cloud/images/navigation/products/network-intelligence.svg,,https://cloud.google.com/network-intelligence-center
+GCP,Networking,Network Service Tiers,gcp_Network_Service_Tiers,resource,gcp_Network_Service_Tiers,https://www.gstatic.com/cloud/images/navigation/icons.svg#networktiers,,https://cloud.google.com/network-tiers
+GCP,Networking,Network Telemetry,gcp_Network_Telemetry,resource,gcp_Network_Telemetry,https://www.gstatic.com/cloud/images/navigation/icons.svg#virtualprivatecloud,,https://cloud.google.com/network-telemetry
+GCP,Networking,See all networking products,gcp_See_all_networking_products,resource,gcp_See_all_networking_products,,,https://cloud.google.com/products#section-16
+GCP,Operations,Cloud Logging,gcp_Cloud_Logging,resource,gcp_Cloud_Logging,https://www.gstatic.com/cloud/images/navigation/icons.svg#logging,,https://cloud.google.com/logging
+GCP,Operations,Cloud Monitoring,gcp_Cloud_Monitoring,resource,gcp_Cloud_Monitoring,https://www.gstatic.com/cloud/images/navigation/icons.svg#monitoring,,https://cloud.google.com/monitoring
+GCP,Operations,Error Reporting,gcp_Error_Reporting,resource,gcp_Error_Reporting,https://www.gstatic.com/cloud/images/navigation/icons.svg#errorreporting2,,https://cloud.google.com/error-reporting
+GCP,Operations,Kubernetes Engine Monitoring,gcp_Kubernetes_Engine_Monitoring,resource,gcp_Kubernetes_Engine_Monitoring,https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine,,https://cloud.google.com/kubernetes-engine-monitoring
+GCP,Operations,Cloud Trace,gcp_Cloud_Trace,resource,gcp_Cloud_Trace,https://www.gstatic.com/cloud/images/navigation/icons.svg#trace,,https://cloud.google.com/trace
+GCP,Operations,Cloud Profiler,gcp_Cloud_Profiler,resource,gcp_Cloud_Profiler,https://www.gstatic.com/cloud/images/navigation/icons.svg#profiler,,https://cloud.google.com/profiler
+GCP,Operations,Cloud Debugger,gcp_Cloud_Debugger,resource,gcp_Cloud_Debugger,https://www.gstatic.com/cloud/images/navigation/icons.svg#debugger,,https://cloud.google.com/debugger
+GCP,Operations,Intelligent Operations,gcp_Intelligent_Operations,resource,gcp_Intelligent_Operations,https://www.gstatic.com/cloud/images/navigation/icons.svg#generic,,https://cloud.google.com/solutions/active-assist
+GCP,Security and Identity,Cloud IAM,gcp_Cloud_IAM,resource,gcp_Cloud_IAM,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiam,,https://cloud.google.com/iam
+GCP,Security and Identity,Assured Workloads,gcp_Assured_Workloads,resource,gcp_Assured_Workloads,https://cloud.google.com/images/navigation/products/assured-workloads.svg,,https://cloud.google.com/assured-workloads
+GCP,Security and Identity,Cloud Key Management,gcp_Cloud_Key_Management,resource,gcp_Cloud_Key_Management,https://www.gstatic.com/cloud/images/navigation/icons.svg#keymanagementservice,,https://cloud.google.com/security-key-management
+GCP,Security and Identity,Confidential Computing,gcp_Confidential_Computing,resource,gcp_Confidential_Computing,https://cloud.google.com/_static/cloud/images/navigation/products/compute-engine.svg,,https://cloud.google.com/confidential-computing
+GCP,Security and Identity,Security Command Center,gcp_Security_Command_Center,resource,gcp_Security_Command_Center,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsecuritycommandcenter,,https://cloud.google.com/security-command-center
+GCP,Security and Identity,Cloud Data Loss Prevention,gcp_Cloud_Data_Loss_Prevention,resource,gcp_Cloud_Data_Loss_Prevention,https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddatalosspreventionapi,,https://cloud.google.com/dlp
+GCP,Security and Identity,Managed Service for Microsoft Active Directory,gcp_Managed_Service_for_Microsoft_Active_Directory,resource,gcp_Managed_Service_for_Microsoft_Active_Directory,https://www.gstatic.com/cloud/images/navigation/icons.svg#managedserviceformicrosoftactivedirectory,,https://cloud.google.com/managed-microsoft-ad
+GCP,Security and Identity,Access Transparency,gcp_Access_Transparency,resource,gcp_Access_Transparency,https://www.gstatic.com/cloud/images/navigation/icons.svg#logging,,https://cloud.google.com/access-transparency
+GCP,Security and Identity,Titan Security Key,gcp_Titan_Security_Key,resource,gcp_Titan_Security_Key,https://www.gstatic.com/cloud/images/navigation/icons.svg#securitykeyenforcement,,https://cloud.google.com/titan-security-key
+GCP,Security and Identity,Secret Manager,gcp_Secret_Manager,resource,gcp_Secret_Manager,https://cloud.google.com/images/navigation/products/secret-manager.svg,,https://cloud.google.com/secret-manager
+GCP,Security and Identity,BeyondCorp Enterprise,gcp_BeyondCorp_Enterprise,resource,gcp_BeyondCorp_Enterprise,https://cloud.google.com/images/navigation/products/beyond-corp.svg,,https://cloud.google.com/beyondcorp-enterprise
+GCP,Security and Identity,See all security and identity products,gcp_See_all_security_and_identity_products,resource,gcp_See_all_security_and_identity_products,,,https://cloud.google.com/products#security-and-identity
+GCP,Serverless Computing,Cloud Functions,gcp_Cloud_Functions,resource,gcp_Cloud_Functions,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfunctions,,https://cloud.google.com/functions
+GCP,Serverless Computing,Workflows,gcp_Workflows,resource,gcp_Workflows,https://www.gstatic.com/cloud/images/navigation/icons.svg#workflows,,https://cloud.google.com/workflows
+GCP,Storage,All Storage Products,gcp_All_Storage_Products,resource,gcp_All_Storage_Products,https://www.gstatic.com/cloud/images/navigation/all-storage-products.svg,,https://cloud.google.com/products/storage
+GCP,Storage,Filestore,gcp_Filestore,resource,gcp_Filestore,https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfilestore,,https://cloud.google.com/filestore
+GCP,Storage,Persistent Disk,gcp_Persistent_Disk,resource,gcp_Persistent_Disk,https://www.gstatic.com/cloud/images/navigation/icons.svg#persistantdisk,,https://cloud.google.com/persistent-disk
+GCP,Storage,Cloud Storage for Firebase,gcp_Cloud_Storage_for_Firebase,resource,gcp_Cloud_Storage_for_Firebase,https://cloud.google.com/_static/cloud/images/navigation/products/firebase.svg,,https://firebase.google.com/products/storage
+GCP,Storage,Local SSD,gcp_Local_SSD,resource,gcp_Local_SSD,https://cloud.google.com/_static/cloud/images/navigation/products/local-ssd.svg,,https://cloud.google.com/local-ssd
+GCP,Storage,Archival Storage,gcp_Archival_Storage,resource,gcp_Archival_Storage,https://cloud.google.com/images/navigation/products/archival-storage.svg,,https://cloud.google.com/storage/archival
+GCP,Storage,Google Workspace Essentials,gcp_Google_Workspace_Essentials,resource,gcp_Google_Workspace_Essentials,https://cloud.google.com/images/navigation/products/drive-enterprise.svg,,https://workspace.google.com/essentials/

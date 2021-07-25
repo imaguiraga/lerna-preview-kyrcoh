@@ -1,0 +1,191 @@
+{
+  "id": "G1",
+  "children": [
+    {
+      "id": "choice.container.0",
+      "label": "choice.container.0",
+      "labels": [
+        {
+          "text": "container"
+        }
+      ],
+      "model": {
+        "provider": "flow",
+        "tagName": "choice",
+        "tagName": "container",
+        "compound": true
+      },
+      "ports": [
+        {
+          "id": "UID_container_start",
+          "label": "UID_container_start",
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": "start",
+            "compound": false
+          },
+          "properties": {
+            "port.side": "WEST"
+          },
+          "width": 8,
+          "height": 8
+        },
+        {
+          "id": "UID_container_finish",
+          "label": "UID_container_finish",
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": "finish",
+            "compound": false
+          },
+          "properties": {
+            "port.side": "EAST"
+          },
+          "width": 8,
+          "height": 8
+        }
+      ],
+      "children": [
+        {
+          "id": "UID_0_terminal",
+          "label": "UID_0",
+          "model": {
+            "provider": "flow",
+            "tagName": "resource",
+            "tagName": "terminal",
+            "compound": false
+          },
+          "labels": [
+            {
+              "text": "UID_0"
+            }
+          ],
+          "width": 61.0,
+          "height": 41.0
+        },
+        {
+          "id": "UID_1_terminal",
+          "label": "UID_1_terminal",
+          "model": {
+            "provider": "flow",
+            "tagName": "resource",
+            "tagName": "terminal",
+            "compound": false
+          },
+          "labels": [
+            {
+              "text": "UID_1"
+            }
+          ],
+          "width": 61.0,
+          "height": 41.0
+        },
+        {
+          "id": "UID_2_terminal",
+          "label": "UID_2_terminal",
+          "model": {
+            "provider": "flow",
+            "tagName": "resource",
+            "tagName": "terminal",
+            "compound": false
+          },
+          "labels": [
+            {
+              "text": "UID_2"
+            }
+          ],
+          "width": 61.0,
+          "height": 41.0
+        }
+      ],
+      "edges": [
+        {
+          "id": "0",
+          "sources": [
+            "UID_container_start"
+          ],
+          "targets": [
+            "UID_0_terminal"
+          ],
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": null
+          }
+        },
+        {
+          "id": "1",
+          "sources": [
+            "UID_0_terminal"
+          ],
+          "targets": [
+            "UID_container_finish"
+          ],
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": null
+          }
+        },
+        {
+          "id": "2",
+          "sources": [
+            "UID_container_start"
+          ],
+          "targets": [
+            "UID_1_terminal"
+          ],
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": null
+          }
+        },
+        {
+          "id": "3",
+          "sources": [
+            "UID_1_terminal"
+          ],
+          "targets": [
+            "UID_container_finish"
+          ],
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": null
+          }
+        },
+        {
+          "id": "4",
+          "sources": [
+            "UID_container_start"
+          ],
+          "targets": [
+            "UID_2_terminal"
+          ],
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": null
+          }
+        },
+        {
+          "id": "5",
+          "sources": [
+            "UID_2_terminal"
+          ],
+          "targets": [
+            "UID_container_finish"
+          ],
+          "model": {
+            "provider": "flow",
+            "tagName": "choice",
+            "tagName": null
+          }
+        }
+      ]
+    }
+  ]
+}
