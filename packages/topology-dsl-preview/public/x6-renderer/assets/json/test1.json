@@ -1,0 +1,98 @@
+{
+   "idGenIt": {},
+   "title": "sequence.container.0",
+   "elts": [
+     {
+       "idGenIt": {},
+       "title": "e",
+       "elts": [
+         "e"
+       ],
+       "kind": "resource",
+       "tagName": "terminal",
+       "id": "resource.terminal.3",
+       "provider": "flow",
+       "compound": false,
+       "_start": null,
+       "_finish": null,
+       "ctx": null,
+       "data": {},
+       "link": null
+     },
+     {
+       "idGenIt": {},
+       "title": "d",
+       "elts": [
+         "d"
+       ],
+       "kind": "resource",
+       "tagName": "terminal",
+       "id": "resource.terminal.4",
+       "provider": "flow",
+       "compound": false,
+       "_start": null,
+       "_finish": null,
+       "ctx": null,
+       "data": {},
+       "link": null
+     },
+     {
+       "idGenIt": {},
+       "title": "f",
+       "elts": [
+         "f"
+       ],
+       "kind": "resource",
+       "tagName": "terminal",
+       "id": "resource.terminal.5",
+       "provider": "flow",
+       "compound": false,
+       "_start": null,
+       "_finish": null,
+       "ctx": null,
+       "data": {},
+       "link": null
+     }
+   ],
+   "kind": "sequence",
+   "tagName": "container",
+   "id": "sequence.container.0",
+   "provider": "flow",
+   "compound": true,
+   "_start": {
+     "idGenIt": {},
+     "title": "start",
+     "elts": [
+       "start"
+     ],
+     "kind": "sequence",
+     "tagName": "start",
+     "id": "sequence.start.1",
+     "provider": "flow",
+     "compound": false,
+     "_start": null,
+     "_finish": null,
+     "ctx": null,
+     "data": {},
+     "link": null
+   },
+   "_finish": {
+     "idGenIt": {},
+     "title": "finish",
+     "elts": [
+       "finish"
+     ],
+     "kind": "sequence",
+     "tagName": "finish",
+     "id": "sequence.finish.2",
+     "provider": "flow",
+     "compound": false,
+     "_start": null,
+     "_finish": null,
+     "ctx": null,
+     "data": {},
+     "link": null
+   },
+   "data": {},
+   "link": null
+ }

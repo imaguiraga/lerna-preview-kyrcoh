@@ -20,9 +20,9 @@ import {
 } from './widgets/menu-util';
 
 import { CodeMirrorWidget } from './widgets/codemirror-widget';
-import { AceEditorWidget } from './widgets/ace-editor-widget';
+//import { AceEditorWidget } from './widgets/ace-editor-widget';
 
-import { ELKGraphWidget } from './widgets/elkgraph-widget';
+//import { ELKGraphWidget } from './widgets/elkgraph-widget';
 import { IframeELKGraphWidget } from './widgets/iframe-elkgraph-widget';
 
 import './style/widget-style.css';
@@ -33,7 +33,6 @@ import * as flowDsl from '@imaguiraga/topology-dsl-core';
 import * as gcp from '../assets/js/GCP';
 import { toElkGraph } from './diagram';
 const {
-  debugOn,
   NODEIDGENFN,
   clone
 } = flowDsl;
