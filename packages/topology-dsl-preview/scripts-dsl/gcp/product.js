@@ -6,7 +6,7 @@ const yaml = require('js-yaml');
 const xpath = require('xpath');
 const dom = require('xmldom').DOMParser;
 
-fs.readFile('scripts-dsl/gcp-products.xml', 'utf-8',(err, data) => {
+fs.readFile('scripts-dsl/gcp/gcp-products.xml', 'utf-8',(err, data) => {
   if (err) throw err;
   //console.log(data);
 

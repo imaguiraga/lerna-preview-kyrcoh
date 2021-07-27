@@ -44,7 +44,7 @@
     "dsl": "yarn gcp-dsl && node scripts-dsl/icons.js",
     "az-dsl": "node scripts-dsl/azure/az-icons.js",
     "cloud-dsl": "node scripts-dsl/cloud-icons.js",
-    "gcp-dsl": "node scripts-dsl/product.js",
+    "gcp-dsl": "node scripts-dsl/gcp/product.js",
     "start": "react-scripts --max-old-space-size=4096 start",
     "build": "rimraf build/ && react-scripts --max-old-space-size=4096 build",
     "test": "react-scripts test --env=jsdom",
