@@ -22,7 +22,6 @@ import {
 import { CodeMirrorWidget } from './widgets/codemirror-widget';
 //import { AceEditorWidget } from './widgets/ace-editor-widget';
 
-//import { ELKGraphWidget } from './widgets/elkgraph-widget';
 import { IframeELKGraphWidget } from './widgets/iframe-elkgraph-widget';
 
 import './style/widget-style.css';
@@ -51,31 +50,6 @@ System.set('app://@imaguiraga/topology-dsl-core', flowDsl);
 System.set('app://core-dsl', flowDsl);
 // */
 
-/*
-function loadFnFactory() {
-  let loadedImports = new Map();
-  const loadFn = (key) => {
-    if (loadedImports.has(key)) {
-      let obj = loadedImports.get(key);
-      //Clone to avoid ids collision     
-      let copy = clone(obj, NODEIDGENFN.next().value);
-      return copy;
-    } else {
-      return null;
-    }
-  };
-
-  loadFn.loadedImports = function (newValue) {
-    if (!arguments.length) return loadedImports;
-    loadedImports = newValue;
-    return this;
-  };
-
-  return loadFn;
-}
-
-//DSL_MODULE.load = loadFnFactory();
-// */
 function main() {
   const commands = new CommandRegistry();
   createMenu(commands);
@@ -109,7 +83,6 @@ function extractVariables(modules) {
 }
 
 function createMainWidget(palette, commands) {
-  // const elkgraphWidget = new ELKGraphWidget(640, 640);
   const elkgraphWidget = new IframeELKGraphWidget('x6-renderer/index.html');
 
   const editorWidget = new CodeMirrorWidget({
@@ -131,20 +104,7 @@ function createMainWidget(palette, commands) {
       }
     }
   };
-  /* @TODO
-    const myWorker = new SharedWorker('assets/js/worker.js');
-    myWorker.port.onmessage = function (event) {
-      console.log('=> Worker.onmessage' + event);
-      messageCallbackFn(event);
-    };
-  
-    window.addEventListener('message', (event) => {
-      if (event.origin !== window.location.origin) {
-        return;
-      }
-      console.log('=> Window.onmessage' + event);
-    }, false);
-  // */
+
   const callbackFn = function (content) {
     const IMPORT_ID = location.href + 'IMPORT.js';
     try {
@@ -167,7 +127,6 @@ function createMainWidget(palette, commands) {
           // Convert to array
           const message = { jsonrpc: '2.0', method: 'update.flows', params: result };
           // Update flows
-          // myWorker.port.postMessage(message);
           messageCallbackFn({ data: message });
         }
       }).catch((err) => {
@@ -176,7 +135,6 @@ function createMainWidget(palette, commands) {
         variables.set('ERROR', err.message);
         const message = { jsonrpc: '2.0', method: 'update.flows', params: variables };
         // Update flows
-        // myWorker.port.postMessage(message);
         messageCallbackFn({ data: message });
       });
 

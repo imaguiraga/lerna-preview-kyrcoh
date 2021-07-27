@@ -1,6 +1,6 @@
 import {
   idGenFn
-} from './util.js';
+} from '../util.js';
 
 import {
   jsonToDslObject

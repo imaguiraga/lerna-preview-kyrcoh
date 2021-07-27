@@ -1,5 +1,7 @@
-/* elk-diagram */
-export * from './elk/elk-layout-factory.js';
-export * from './elk/elk-renderer-factory.js';
 /* visitors */
-export * from './visitor/index.js';
+export * from './visitor/uid-flow-visitor.js';
+
+/* elk-diagram */
+export * from './visitor/elk/elk-diagram-generator.js';
+export * from './visitor/elk/elk-dimension-visitor.js';
+export * from './visitor/elk/elk-layout-factory.js';

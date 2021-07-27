@@ -2,9 +2,12 @@
 import ELK from 'elkjs/lib/elk.bundled.js';
 
 import {
-  DslToELKGenerator,
   ELKDimensionVisitor
-} from '../visitor/index.js';
+} from './elk-dimension-visitor.js';
+
+import {
+  DslToELKGenerator
+} from './elk-diagram-generator.js';
 
 const elkGenerator = new DslToELKGenerator();
 const UNIT = 8;
