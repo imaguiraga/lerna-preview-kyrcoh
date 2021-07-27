@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const fs = require('fs');
 const mkdirp = require('mkdirp');
 const chalk = require('chalk');
@@ -5,7 +6,7 @@ const yaml = require('js-yaml');
 const xpath = require('xpath');
 const dom = require('xmldom').DOMParser;
 
-fs.readFile('scripts/gcp-products.xml', 'utf-8',(err, data) => {
+fs.readFile('scripts-dsl/gcp-products.xml', 'utf-8',(err, data) => {
   if (err) throw err;
   //console.log(data);
 
@@ -65,7 +66,7 @@ fs.readFile('scripts/gcp-products.xml', 'utf-8',(err, data) => {
     kind: 'resource'
   };
 
-  mkdirp.sync('./scripts/yml/');
-  fs.writeFileSync('./scripts/yml/' + s.provider + '.yml', yaml.safeDump({ source: s, items: resources }));
+  mkdirp.sync('./scripts-dsl/yml/');
+  fs.writeFileSync('./scripts-dsl/yml/' + s.provider + '.yml', yaml.dump({ source: s, items: resources }));
 
 });

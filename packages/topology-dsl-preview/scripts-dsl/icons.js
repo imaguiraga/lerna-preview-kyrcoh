@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const fs = require('fs');
 const { writeFileSync } = fs;
 const { resolve, dirname, extname } = require('path');
@@ -46,10 +47,10 @@ const render = (
 
 
 // Process all yaml files
-fs.readdir('scripts/yml', function (err, files) {
+fs.readdir('scripts-dsl/yml', function (err, files) {
   files.forEach((f) => {
     try {
-      yaml.safeLoadAll(fs.readFileSync('scripts/yml/' + f, 'utf8'), function (doc) {
+      yaml.loadAll(fs.readFileSync('scripts-dsl/yml/' + f, 'utf8'), function (doc) {
         // Remove duplicate items
         const dups = new Set();
         doc.items = doc.items.filter((i) => {
@@ -62,7 +63,7 @@ fs.readdir('scripts/yml', function (err, files) {
         });
 
         // Generate resources file
-        render({ items: doc.items, ...doc.source, encodeURI, JSON }, 'scripts/templates', 'scripts/out/' + doc.source.provider);
+        render({ items: doc.items, ...doc.source, encodeURI, JSON }, 'scripts-dsl/templates', 'scripts-dsl/out/' + doc.source.provider);
       });
     } catch (e) {
       console.log(e);

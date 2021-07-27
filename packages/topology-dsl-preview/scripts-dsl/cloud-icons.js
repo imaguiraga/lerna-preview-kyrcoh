@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const sets = [
   /*
   {
@@ -94,8 +95,8 @@ function cloudDsl(s) {
 sets.forEach((s) => {
   cloudDsl(s).then((resources) => {
     // Generate resources file
-    mkdirp.sync('./scripts/yml/');
-    fs.writeFileSync('./scripts/yml/' + s.provider + '.yml', yaml.safeDump({ source: s, items: resources }));
+    mkdirp.sync('./scripts-dsl/yml/');
+    fs.writeFileSync('./scripts-dsl/yml/' + s.provider + '.yml', yaml.dump({ source: s, items: resources }));
   });
 });
 
