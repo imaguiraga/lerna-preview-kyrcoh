@@ -4,12 +4,12 @@ import 'es6-promise/auto';  // polyfill Promise on IE
 import {
   Widget
 } from '@lumino/widgets';
+import { Message } from '@lumino/messaging';
 
 export class IframeELKGraphWidget extends Widget {
-  // private selectElt: HTMLSelectElement;
-  private contentPane: HTMLDivElement;
-  private errorPane: HTMLDivElement;
-  private iframeElt: HTMLIFrameElement;
+
+  private errorDivElt: HTMLDivElement;
+  private contentIframeElt: HTMLIFrameElement;
 
   constructor(src: string) {
     super();
@@ -21,52 +21,38 @@ export class IframeELKGraphWidget extends Widget {
     this.addClass('app');
     //this.node.setAttribute('style', 'display:flex; flex-direction: column');
 
-    this.errorPane = document.createElement('div');
-    this.errorPane.setAttribute('style', 'display: none; flex: 1 1 auto; padding: 10px; font-size: 2em');
-    this.node.appendChild(this.errorPane);
+    this.errorDivElt = document.createElement('div');
+    this.errorDivElt.setAttribute('style', 'display: none; flex: 1 1 auto; padding: 10px; font-size: 2em');
+    this.node.appendChild(this.errorDivElt);
 
-    this.iframeElt = document.createElement('iframe');
-    this.iframeElt.setAttribute('style', 'display: block; flex: 1 1 auto');
-    this.iframeElt.style.border = 'none';
-    (this.iframeElt as HTMLIFrameElement).src = src;
-    this.node.appendChild(this.iframeElt);
+    this.contentIframeElt = document.createElement('iframe');
+    this.contentIframeElt.setAttribute('style', 'display: block; flex: 1 1 auto; border: none;');
 
-    this.contentPane = this.iframeElt;
-    console.log(`ctor : W${this.node.scrollWidth} - H${this.node.scrollHeight}`);
+    (this.contentIframeElt as HTMLIFrameElement).src = src;
+    this.node.appendChild(this.contentIframeElt);
+
   }
 
-  onAfterAttach(msg: any) {
-    /*
-    console.log(`onAfterAttach : W${this.contentPane.scrollWidth} - H${this.contentPane.scrollHeight}`);
-    //*/
-  }
-
-  onResize(msg: any) {
-    /*
-    console.log(`onResize : W${this.contentPane.clientWidth} - H${this.contentPane.clientHeight} # W${msg.width} - H${msg.height}`);
-    //*/
-  }
-
-  set flows(values: any) {
-    if (values === undefined || values === null) {
+  updateView(event: any) {
+    if (event === undefined || event === null) {
       return;
     }
-
-    if (typeof values === 'string') {
+    console.log('event => ' + event.method);
+    if (event.method === 'view.error') {
       // Display Error Pane
-      this.contentPane.style.display = 'none';
-      this.errorPane.style.display = 'block';
-      this.errorPane.innerHTML = '<code>' + values + '</code>';
+      this.contentIframeElt.style.display = 'none';
+      this.errorDivElt.style.display = 'block';
+      this.errorDivElt.innerHTML = '<code>' + event.params + '</code>';
 
-    } else {
+    } else if (event.method === 'view.update') {
       // Display flow
       // Update flow when the selection changes 
-      this.errorPane.style.display = 'none';
-      this.contentPane.style.display = 'block';
+      this.errorDivElt.style.display = 'none';
+      this.contentIframeElt.style.display = 'block';
 
       try {
-        const message = { jsonrpc: '2.0', method: 'selection.update', params: values };
-        this.iframeElt.contentWindow?.postMessage(message, '*');
+        const message = { jsonrpc: '2.0', method: 'selection.update', params: event.params };
+        this.contentIframeElt.contentWindow?.postMessage(message, '*');
       } catch (e) {
         console.error(e);
       }

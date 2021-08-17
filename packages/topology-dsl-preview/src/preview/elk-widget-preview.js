@@ -95,21 +95,18 @@ function createMainWidget(palette, commands) {
   // const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'EDITOR';
 
-  const messageCallbackFn = function (event) {
-    if (event.data.jsonrpc !== undefined) {
-      console.log('event => ' + event.data.method);
-      if (event.data.method === 'flows.update') {
-        // Convert entries array to map
-        elkgraphWidget.flows = event.data.params;
-      }
+  const messageCallbackFn = function (message) {
+    if (message.jsonrpc !== undefined) {
+      elkgraphWidget.updateView(message);
     }
   };
 
-  const callbackFn = function (content) {
+  const valueChangedCallbackFn = function (content) {
     const IMPORT_ID = location.href + 'IMPORT.js';
     try {
       // TODO NODEIDGENFN.next(true);         
       parseJSSourceModule(IMPORT_ID, content).then((modules) => {
+        console.log('parseJSSourceModule');
         let dslObjectMap = extractVariables(modules);
         // Update graph flows
         if (dslObjectMap !== undefined && dslObjectMap !== null) {
@@ -123,19 +120,16 @@ function createMainWidget(palette, commands) {
 
           });
 
-          console.log('parseJSSourceModule');
           // Convert to array
-          const message = { jsonrpc: '2.0', method: 'flows.update', params: result };
+          const message = { jsonrpc: '2.0', method: 'view.update', params: result };
           // Update flows
-          messageCallbackFn({ data: message });
+          messageCallbackFn(message);
         }
       }).catch((err) => {
         console.log(err);
-        //let variables = new Map();
-        //variables.set('ERROR', err.message);
-        const message = { jsonrpc: '2.0', method: 'flows.update', params: err.message };
+        const message = { jsonrpc: '2.0', method: 'view.error', params: err.message };
         // Update flows
-        messageCallbackFn({ data: message });
+        messageCallbackFn(message);
       });
 
     } catch (e) {
@@ -146,7 +140,7 @@ function createMainWidget(palette, commands) {
   editorWidget.valueChanged.connect(
     (sender, value) => {
       console.log('valueChanged');
-      callbackFn(value);
+      valueChangedCallbackFn(value);
     }
   );
 
@@ -156,7 +150,7 @@ function createMainWidget(palette, commands) {
     // TODO NODEIDGENFN.next(true);
   });
 
-  let dock = new DockPanel();
+  const dock = new DockPanel();
 
   dock.addWidget(editorWidget);
   dock.addWidget(elkgraphWidget, { mode: 'split-right', ref: editorWidget });
@@ -195,12 +189,12 @@ function createMainWidget(palette, commands) {
 
   BoxPanel.setStretch(dock, 1);
 
-  let main = new BoxPanel({ direction: 'left-to-right', spacing: 0 });
-  main.id = 'main';
+  const mainPanel = new BoxPanel({ direction: 'left-to-right', spacing: 0 });
+  mainPanel.id = 'main';
 
-  main.addWidget(dock);
-  window.onresize = () => { main.update(); };
-  return main;
+  mainPanel.addWidget(dock);
+  window.onresize = () => { mainPanel.update(); };
+  return mainPanel;
 }
 
 window.onload = main;
