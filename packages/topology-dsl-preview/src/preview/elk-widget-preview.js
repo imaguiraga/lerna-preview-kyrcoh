@@ -98,7 +98,7 @@ function createMainWidget(palette, commands) {
   const messageCallbackFn = function (event) {
     if (event.data.jsonrpc !== undefined) {
       console.log('event => ' + event.data.method);
-      if (event.data.method === 'update.flows') {
+      if (event.data.method === 'flows.update') {
         // Convert entries array to map
         elkgraphWidget.flows = event.data.params;
       }
@@ -125,15 +125,15 @@ function createMainWidget(palette, commands) {
 
           console.log('parseJSSourceModule');
           // Convert to array
-          const message = { jsonrpc: '2.0', method: 'update.flows', params: result };
+          const message = { jsonrpc: '2.0', method: 'flows.update', params: result };
           // Update flows
           messageCallbackFn({ data: message });
         }
       }).catch((err) => {
         console.log(err);
-        let variables = new Map();
-        variables.set('ERROR', err.message);
-        const message = { jsonrpc: '2.0', method: 'update.flows', params: variables };
+        //let variables = new Map();
+        //variables.set('ERROR', err.message);
+        const message = { jsonrpc: '2.0', method: 'flows.update', params: err.message };
         // Update flows
         messageCallbackFn({ data: message });
       });
