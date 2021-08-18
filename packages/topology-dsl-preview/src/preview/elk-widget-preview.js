@@ -137,19 +137,17 @@ function createMainWidget(palette, commands) {
     }
   };
 
-  editorWidget.valueChanged.connect(
-    (sender, value) => {
-      console.log('valueChanged');
-      valueChangedCallbackFn(value);
-    }
-  );
-
-  // set default samples
-  editorWidget.samples = samples2;
-  editorWidget.selectElt.addEventListener('change', (event) => {
-    // TODO NODEIDGENFN.next(true);
+  editorWidget.valueChanged.connect((sender, value) => {
+    console.log('valueChanged');
+    valueChangedCallbackFn(value);
   });
 
+  elkgraphWidget.onload.connect((sender, value) => {
+    // Set default samples
+    console.log('onload');
+    editorWidget.samples = samples2;
+  });
+  
   const dock = new DockPanel();
 
   dock.addWidget(editorWidget);

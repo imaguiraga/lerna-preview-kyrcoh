@@ -1,15 +1,14 @@
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
 
-import {
-  Widget
-} from '@lumino/widgets';
-import { Message } from '@lumino/messaging';
+import { Widget } from '@lumino/widgets';
 
+import { Signal } from '@lumino/signaling';
 export class IframeELKGraphWidget extends Widget {
 
   private errorDivElt: HTMLDivElement;
   private contentIframeElt: HTMLIFrameElement;
+  readonly onload: Signal<this, string> = new Signal<this, string>(this);
 
   constructor(src: string) {
     super();
@@ -27,7 +26,11 @@ export class IframeELKGraphWidget extends Widget {
 
     this.contentIframeElt = document.createElement('iframe');
     this.contentIframeElt.setAttribute('style', 'display: block; flex: 1 1 auto; border: none;');
-
+    const self = this;
+    this.contentIframeElt.addEventListener('load', function (e) {
+        self.onload.emit('load');
+      }
+    );
     (this.contentIframeElt as HTMLIFrameElement).src = src;
     this.node.appendChild(this.contentIframeElt);
 

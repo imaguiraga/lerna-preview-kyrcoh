@@ -15,7 +15,7 @@ minimapContainer?.setAttribute('class', 'minimap-container');
 const renderer = diagram.createElkX6Renderer(contentPane, minimapContainer);
 
 function resizeWindow() {
-  
+
   renderer.graph.resize(
     window.document.documentElement.clientWidth,
     window.document.documentElement.clientHeight - selectElt.offsetHeight
@@ -40,25 +40,25 @@ function updateSelection(values: any) {
     opt.text = key;
     selectElt?.add(opt);
   });
+
   if (listener != null) {
     selectElt?.removeEventListener('change', listener);
     listener = null;
   }
 
-  const current = values.get(values.keys().next().value);
-  if (!(current instanceof Error) && !(typeof current === 'string')) {
-    // Display flow
-    // Update flow when the selection changes 
-    if (listener == null) {
-      listener = (event: Event) => {
-        const result = values.get((event.target as any).value);
-        renderer.render(result);
-      };
-      selectElt?.addEventListener('change', listener);
-    }
-    selectElt.options[0].selected = true;
-    //renderer.render(current);
+  // Display flow
+  // Update flow when the selection changes 
+  if (listener == null) {
+    listener = (event: Event) => {
+      const result = values.get((event.target as any).value);
+      renderer.render(result);
+    };
+    selectElt?.addEventListener('change', listener);
   }
+  selectElt.options[0].selected = true;
+  selectElt.value = selectElt.options[0].value;
+  selectElt.dispatchEvent(new Event('change'));
+
 }
 
 const messageCallbackFn = function (event: any) {

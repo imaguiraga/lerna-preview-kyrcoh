@@ -63,6 +63,14 @@ export class CodeMirrorWidget extends Widget {
       self._valueChanged.emit(content);
 
     });
+
+    // Update sample when the selection changes 
+    this.selectElt.addEventListener('change', (event: Event) => {
+      const result: string = self.getSamples().get((event.target as HTMLSelectElement).value) || '';
+      // Update Editor with current selection 
+      self.editor.getDoc().setValue(result);
+      self._valueChanged.emit(result);
+    });
   }
 
   get editor(): CodeMirror.Editor {
@@ -97,6 +105,10 @@ export class CodeMirrorWidget extends Widget {
       this._editor.setSize(msg.width, msg.height);
     }
   }
+
+  getSamples() {
+    return this._samples;
+  }
   // samples
   set samples(values: Array<string>) {
     // Convert to Map
@@ -124,15 +136,9 @@ export class CodeMirrorWidget extends Widget {
 
       this.selectElt.add(opt);
     });
-    // Update sample when the selection changes 
-    this.selectElt.addEventListener('change', (event: Event) => {
-      const result: string = this._samples.get((event.target as HTMLSelectElement).value) || '';
-      // Update Editor with current selection 
-      this._editor.getDoc().setValue(result);
-      this._valueChanged.emit(result);
-    });
+
     // Set default
-    this._editor.getDoc().setValue(this._samples.get('0') || '');
+    this._editor.getDoc().setValue(this.getSamples().get('0') || '');
   }
 
   get valueChanged(): ISignal<this, string> {
