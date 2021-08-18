@@ -84,7 +84,7 @@ function extractVariables(modules) {
 
 function createMainWidget(palette, commands) {
   const elkgraphWidget = new IframeELKGraphWidget('x6-renderer/index.html');
-
+  //const elkgraphWidget = new IframeELKGraphWidget('http://localhost:9000');
   const editorWidget = new CodeMirrorWidget({
     mode: 'text/typescript',
     lineNumbers: true,

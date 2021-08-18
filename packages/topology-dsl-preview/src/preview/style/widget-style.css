@@ -91,12 +91,10 @@ body {
 
 .flow-select {
   width: 100%;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   padding: 4px;
-  /*height: 24px;*/
   border: none;
   margin: auto;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: 1em;
 }
 
 .separator {

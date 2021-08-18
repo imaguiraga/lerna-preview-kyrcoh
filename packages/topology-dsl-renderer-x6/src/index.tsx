@@ -76,7 +76,7 @@ const messageCallbackFn = function (event: any) {
 
 window.addEventListener('message', (event) => {
   if (event.origin !== window.location.origin) {
-    return;
+    //return;
   }
   console.log('=> Window.onmessage' + event);
   messageCallbackFn(event);

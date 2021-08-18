@@ -42,10 +42,6 @@ export class AceEditorWidget extends Widget {
     opt.text = 'Option 1';
     this.selectElt.add(opt);
 
-    const separator = document.createElement('div');
-    separator.setAttribute('class', 'separator');
-    this.node.appendChild(separator);
-
     const content = document.createElement('div');
     content.setAttribute('class', 'AceEditorWidget');
     this.node.appendChild(content);

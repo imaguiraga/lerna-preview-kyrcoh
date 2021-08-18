@@ -20,7 +20,6 @@ body {
 #select {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   flex: 0 0 auto;
-  font-size: 1em;
   padding: 4px;
   border-top: none;
   border-left: none;
