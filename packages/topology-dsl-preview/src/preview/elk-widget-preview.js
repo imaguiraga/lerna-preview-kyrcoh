@@ -94,6 +94,7 @@ function createMainWidget(palette, commands) {
 
   // const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'EDITOR';
+  editorWidget.samples = samples2;
 
   const messageCallbackFn = function (message) {
     if (message.jsonrpc !== undefined) {
@@ -145,9 +146,9 @@ function createMainWidget(palette, commands) {
   elkgraphWidget.onload.connect((sender, value) => {
     // Set default samples
     console.log('onload');
-    editorWidget.samples = samples2;
+    editorWidget.updateEditorContent(null);
   });
-  
+
   const dock = new DockPanel();
 
   dock.addWidget(editorWidget);

@@ -34,7 +34,7 @@ export class CodeMirrorWidget extends Widget {
     this.addClass('CodeMirrorWidget');
 
     const div = document.createElement('div');
-    div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
+    div.setAttribute('style', 'background-color: #dfdfdf;');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
@@ -138,7 +138,16 @@ export class CodeMirrorWidget extends Widget {
     });
 
     // Set default
-    this._editor.getDoc().setValue(this.getSamples().get('0') || '');
+    // this._editor.getDoc().setValue(this.getSamples().get('0') || '');
+  }
+
+  updateEditorContent(text: string|undefined) {
+    // Set default
+    if (text === undefined || text === null) {
+      this._editor.getDoc().setValue((this.getSamples().get('0') as string));
+    } else {
+      this._editor.getDoc().setValue(text);
+    }
   }
 
   get valueChanged(): ISignal<this, string> {
@@ -153,5 +162,5 @@ export class CodeMirrorWidget extends Widget {
 }
 
 function isScript(source: any) {
-  return (source.endsWith('.js') || source.endsWith('.jsx') || source.endsWith('.ts') || source.endsWith('.tsx'));
+  return (/\.(tsx?|jsx?)$/.test(source));
 }
