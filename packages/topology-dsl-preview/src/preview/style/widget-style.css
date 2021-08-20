@@ -52,7 +52,7 @@ body {
 }
 
 .CodeMirror-matchingbracket {
-  /*color: #0b0;*/
+  color: rgb(2, 107, 2);
   background-color: rgb(241, 241, 241);
   /*font-weight: bold;*/
   border: 1px solid;
