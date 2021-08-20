@@ -51,6 +51,12 @@ body {
   font-size: '13px';
 }
 
+.CodeMirror-matchingbracket {
+  /*color: #0b0;*/
+  background-color: rgb(241, 241, 241);
+  /*font-weight: bold;*/
+  border: 1px solid;
+}
 
 .CodeMirrorWidget>.CodeMirror {
   border: none;

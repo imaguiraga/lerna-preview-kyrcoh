@@ -38,12 +38,69 @@ import 'codemirror/addon/fold/xml-fold.js';
 import 'codemirror/addon/fold/indent-fold.js';
 import 'codemirror/addon/fold/comment-fold.js';
 import 'codemirror/mode/javascript/javascript.js';
+// Brackets
+import 'codemirror/addon/edit/matchbrackets.js';
+import 'codemirror/addon/comment/comment.js';
 
 import '../style/widget-style.css';
 
 //import 'tslint';
 //globalThis.JSHINT = JSHINT;
+// Override default brace add-on
+CodeMirror.registerHelper('fold', 'brace', function (cm: any, start: any) {
+  var line = start.line, lineText = cm.getLine(line);
+  var tokenType;
 
+  function findOpening(openCh: any) {
+    for (var at = start.ch, pass = 0; ;) {
+      var found = at <= 0 ? -1 : lineText.lastIndexOf(openCh, at - 1);
+      if (found == -1) {
+        if (pass == 1) break;
+        pass = 1;
+        at = lineText.length;
+        continue;
+      }
+      if (pass == 1 && found < start.ch) break;
+      tokenType = cm.getTokenTypeAt(CodeMirror.Pos(line, found + 1));
+      if (!/^(comment|string)/.test(tokenType)) return found + 1;
+      at = found - 1;
+    }
+  }
+
+  var startBrace = findOpening('{'), startBracket = findOpening('['), startParenthesis = findOpening('(');
+  var startToken, endToken, startCh;
+  if (startBrace != null && (startBracket == null || startBracket > startBrace)) {
+    startCh = startBrace; startToken = '{'; endToken = '}';
+  } else if (startBracket != null) {
+    startCh = startBracket; startToken = '['; endToken = ']';
+  } else if (startParenthesis != null) {
+    startCh = startParenthesis; startToken = '('; endToken = ')';
+  } else {
+    return;
+  }
+
+  var count = 1, lastLine = cm.lastLine(), end, endCh;
+  outer: for (var i = line; i <= lastLine; ++i) {
+    var text = cm.getLine(i), pos = i == line ? startCh : 0;
+    for (; ;) {
+      var nextOpen = text.indexOf(startToken, pos), nextClose = text.indexOf(endToken, pos);
+      if (nextOpen < 0) nextOpen = text.length;
+      if (nextClose < 0) nextClose = text.length;
+      pos = Math.min(nextOpen, nextClose);
+      if (pos == text.length) break;
+      if (cm.getTokenTypeAt(CodeMirror.Pos(i, pos + 1)) == tokenType) {
+        if (pos == nextOpen) ++count;
+        else if (!--count) { end = i; endCh = pos; break outer; }
+      }
+      ++pos;
+    }
+  }
+  if (end == null || line == end) return;
+  return {
+    from: CodeMirror.Pos(line, startCh),
+    to: CodeMirror.Pos(end, endCh)
+  };
+});
 /**
  * A widget which hosts a CodeMirror editor.
  */
@@ -76,18 +133,18 @@ export class CodeMirrorWidget extends Widget {
       lineNumbers: true,
       lineWrapping: true,
       foldGutter: true,
-      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
       tabSize: 2,
       matchBrackets: true,
       extraKeys: {
-        "Ctrl-C": function copyText() {
+        'Ctrl-C': function copyText() {
           navigator.clipboard.writeText(self.editor.getSelection()).then(function () {
             /* clipboard successfully set */
           }, function () {
             /* clipboard write failed */
           });
         },
-        "Ctrl-X": function cutText() {
+        'Ctrl-X': function cutText() {
           // Copy
           navigator.clipboard.writeText(self.editor.getSelection()).then(function () {
             /* clipboard successfully set */
@@ -97,7 +154,7 @@ export class CodeMirrorWidget extends Widget {
           // Delete
           self.editor.replaceSelection('');
         },
-        "Ctrl-V": function pasteText() {
+        'Ctrl-V': function pasteText() {
           navigator.clipboard.readText().then(
             clipText => {
               const doc = self.editor.getDoc();

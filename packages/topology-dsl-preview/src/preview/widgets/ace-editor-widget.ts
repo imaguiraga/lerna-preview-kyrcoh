@@ -47,14 +47,14 @@ export class AceEditorWidget extends Widget {
     this.node.appendChild(content);
     const self = this;
     const defaultConfig = {
-      mode: 'ace/mode/javascript',
+      mode: 'ace/mode/typescript',
       // selectionStyle: 'text',
       autoScrollEditorIntoView: true,
       copyWithEmptySelection: true,
       enableAutoIndent: true,
-      hScrollBarAlwaysVisible: true,
-      vScrollBarAlwaysVisible: true,
-      theme: 'ace/theme/textmate',
+      hScrollBarAlwaysVisible: false,
+      vScrollBarAlwaysVisible: false,
+      theme: 'ace/theme/sqlserver',
       showPrintMargin: true,
       fontFamily: 'monospace',
       fontSize: '13px'
@@ -65,7 +65,6 @@ export class AceEditorWidget extends Widget {
     editor.session.setTabSize(2);
     editor.renderer.setScrollMargin(0, 10, 10, 10);
     this._editor = editor;
-
 
     self.editor.session.on('change', function (delta: ace.Ace.Delta) {
       // Emit changes delta.start, delta.end, delta.lines, delta.action
