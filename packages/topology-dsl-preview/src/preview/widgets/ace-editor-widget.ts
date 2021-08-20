@@ -24,12 +24,12 @@ ace.config.set('basePath', 'https://ajaxorg.github.io/ace-builds/src-noconflict'
  */
 export class AceEditorWidget extends Widget {
 
-  constructor(config?: ace.Ace.EditorOptions) {
+  constructor(config?: any) {
     super();
     this.addClass('CodeMirrorWidget');
 
     const div = document.createElement('div');
-    div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
+    div.setAttribute('style', 'background-color: #dfdfdf;');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
@@ -45,8 +45,8 @@ export class AceEditorWidget extends Widget {
     const content = document.createElement('div');
     content.setAttribute('class', 'AceEditorWidget');
     this.node.appendChild(content);
-
-    const editor = ace.edit(content, config || {
+    const self = this;
+    const defaultConfig = {
       mode: 'ace/mode/javascript',
       // selectionStyle: 'text',
       autoScrollEditorIntoView: true,
@@ -55,20 +55,31 @@ export class AceEditorWidget extends Widget {
       hScrollBarAlwaysVisible: true,
       vScrollBarAlwaysVisible: true,
       theme: 'ace/theme/textmate',
-      showPrintMargin: true
-    });
+      showPrintMargin: true,
+      fontFamily: 'monospace',
+      fontSize: '13px'
+    };
+
+    const editor = ace.edit(content, config || defaultConfig);
 
     editor.session.setTabSize(2);
     editor.renderer.setScrollMargin(0, 10, 10, 10);
     this._editor = editor;
 
-    const self = this;
+
     self.editor.session.on('change', function (delta: ace.Ace.Delta) {
-      // delta.start, delta.end, delta.lines, delta.action
-      // Emit changes
+      // Emit changes delta.start, delta.end, delta.lines, delta.action
       const content = self.editor.getValue();
       self._valueChanged.emit(content);
 
+    });
+
+    // Update sample when the selection changes 
+    this.selectElt.addEventListener('change', (event: Event) => {
+      const result: string = self.getSamples().get((event.target as HTMLSelectElement).value) || '';
+      // Update Editor with current selection 
+      self.content = result;
+      self._valueChanged.emit(result);
     });
   }
 
@@ -107,6 +118,9 @@ export class AceEditorWidget extends Widget {
     }
   }
 
+  getSamples() {
+    return this._samples;
+  }
   // samples
   set samples(values: Array<string>) {
     // Convert to Map
@@ -134,15 +148,16 @@ export class AceEditorWidget extends Widget {
 
       this.selectElt.add(opt);
     });
-    // Update sample when the selection changes 
-    this.selectElt.addEventListener('change', (event: Event) => {
-      const result: string = this._samples.get((event.target as HTMLSelectElement).value) || '';
-      // Update Editor with current selection 
-      this._editor.setValue(result, -1);
-      this._valueChanged.emit(result);
-    });
+
+  }
+
+  updateEditorContent(text: string | undefined) {
     // Set default
-    this._editor.setValue(this._samples.get('0') || '', -1);
+    if (text === undefined || text === null) {
+      this.content = (this.getSamples().get('0') as string);
+    } else {
+      this.content = text;
+    }
   }
 
   get valueChanged(): ISignal<this, string> {
@@ -157,5 +172,5 @@ export class AceEditorWidget extends Widget {
 }
 
 function isScript(source: any) {
-  return (source.endsWith('.js') || source.endsWith('.jsx') || source.endsWith('.ts') || source.endsWith('.tsx'));
+  return (/\.(tsx?|jsx?)$/.test(source));
 }

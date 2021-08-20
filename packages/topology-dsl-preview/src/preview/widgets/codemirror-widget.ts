@@ -19,6 +19,26 @@ import 'codemirror/addon/display/panel.js';
 import 'codemirror/addon/lint/lint.js';
 import 'codemirror/addon/lint/javascript-lint.js';
 import 'codemirror/addon/lint/lint.css';
+// Search
+import 'codemirror/addon/dialog/dialog.css';
+import 'codemirror/addon/search/matchesonscrollbar.css';
+
+import 'codemirror/addon/dialog/dialog.js';
+import 'codemirror/addon/search/searchcursor.js';
+import 'codemirror/addon/search/search.js';
+import 'codemirror/addon/scroll/annotatescrollbar.js';
+import 'codemirror/addon/search/matchesonscrollbar.js';
+import 'codemirror/addon/search/jump-to-line.js';
+// Folding
+import 'codemirror/addon/fold/foldgutter.css';
+import 'codemirror/addon/fold/foldcode.js';
+import 'codemirror/addon/fold/foldgutter.js';
+import 'codemirror/addon/fold/brace-fold.js';
+import 'codemirror/addon/fold/xml-fold.js';
+import 'codemirror/addon/fold/indent-fold.js';
+import 'codemirror/addon/fold/comment-fold.js';
+import 'codemirror/mode/javascript/javascript.js';
+
 import '../style/widget-style.css';
 
 //import 'tslint';
@@ -29,7 +49,7 @@ import '../style/widget-style.css';
  */
 export class CodeMirrorWidget extends Widget {
 
-  constructor() {
+  constructor(config?: any) {
     super();
     this.addClass('CodeMirrorWidget');
 
@@ -51,10 +71,14 @@ export class CodeMirrorWidget extends Widget {
     content.setAttribute('class', 'CodeMirrorWidget');
     this.node.appendChild(content);
     const self = this;
-    const config: CodeMirror.EditorConfiguration = {
+    const defaultConfig = {
       mode: 'text/typescript',
       lineNumbers: true,
+      lineWrapping: true,
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
       tabSize: 2,
+      matchBrackets: true,
       extraKeys: {
         "Ctrl-C": function copyText() {
           navigator.clipboard.writeText(self.editor.getSelection()).then(function () {
@@ -90,7 +114,7 @@ export class CodeMirrorWidget extends Widget {
         },
       }
     };
-    this._editor = CodeMirror(content, config);
+    this._editor = CodeMirror(content, config || defaultConfig);
 
     self.editor.on('changes', (instance) => {
       // Emit changes
@@ -103,7 +127,7 @@ export class CodeMirrorWidget extends Widget {
     this.selectElt.addEventListener('change', (event: Event) => {
       const result: string = self.getSamples().get((event.target as HTMLSelectElement).value) || '';
       // Update Editor with current selection 
-      self.editor.getDoc().setValue(result);
+      self.content = result;
       self._valueChanged.emit(result);
     });
   }
@@ -172,16 +196,14 @@ export class CodeMirrorWidget extends Widget {
       this.selectElt.add(opt);
     });
 
-    // Set default
-    // this._editor.getDoc().setValue(this.getSamples().get('0') || '');
   }
 
   updateEditorContent(text: string | undefined) {
     // Set default
     if (text === undefined || text === null) {
-      this._editor.getDoc().setValue((this.getSamples().get('0') as string));
+      this.content = (this.getSamples().get('0') as string);
     } else {
-      this._editor.getDoc().setValue(text);
+      this.content = text;
     }
   }
 
