@@ -29,7 +29,7 @@ import '../style/widget-style.css';
  */
 export class CodeMirrorWidget extends Widget {
 
-  constructor(config?: CodeMirror.EditorConfiguration) {
+  constructor() {
     super();
     this.addClass('CodeMirrorWidget');
 
@@ -50,9 +50,48 @@ export class CodeMirrorWidget extends Widget {
     const content = document.createElement('div');
     content.setAttribute('class', 'CodeMirrorWidget');
     this.node.appendChild(content);
-
-    this._editor = CodeMirror(content, config);
     const self = this;
+    const config: CodeMirror.EditorConfiguration = {
+      mode: 'text/typescript',
+      lineNumbers: true,
+      tabSize: 2,
+      extraKeys: {
+        "Ctrl-C": function copyText() {
+          navigator.clipboard.writeText(self.editor.getSelection()).then(function () {
+            /* clipboard successfully set */
+          }, function () {
+            /* clipboard write failed */
+          });
+        },
+        "Ctrl-X": function cutText() {
+          // Copy
+          navigator.clipboard.writeText(self.editor.getSelection()).then(function () {
+            /* clipboard successfully set */
+          }, function () {
+            /* clipboard write failed */
+          });
+          // Delete
+          self.editor.replaceSelection('');
+        },
+        "Ctrl-V": function pasteText() {
+          navigator.clipboard.readText().then(
+            clipText => {
+              const doc = self.editor.getDoc();
+              const cursor = doc.getCursor();
+
+              const pos = {
+                line: cursor.line,
+                ch: cursor.ch
+              };
+
+              doc.replaceRange(clipText, pos);
+            }
+          );
+        },
+      }
+    };
+    this._editor = CodeMirror(content, config);
+
     self.editor.on('changes', (instance) => {
       // Emit changes
       const content = instance.getDoc().getValue();
@@ -137,7 +176,7 @@ export class CodeMirrorWidget extends Widget {
     // this._editor.getDoc().setValue(this.getSamples().get('0') || '');
   }
 
-  updateEditorContent(text: string|undefined) {
+  updateEditorContent(text: string | undefined) {
     // Set default
     if (text === undefined || text === null) {
       this._editor.getDoc().setValue((this.getSamples().get('0') as string));
