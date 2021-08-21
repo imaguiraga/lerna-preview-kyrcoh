@@ -16,8 +16,10 @@ import '../style//widget-style.css';
 
 ace.config.set('basePath', 'https://ajaxorg.github.io/ace-builds/src-noconflict');
 
-//import 'tslint';
-//globalThis.JSHINT = JSHINT;
+// Linting
+import { JSHINT } from 'jshint';
+// eslint-disable-next-line
+(globalThis as any).JSHINT = JSHINT;
 
 /**
  * A widget which hosts a Ace editor.
@@ -69,16 +71,23 @@ export class AceEditorWidget extends Widget {
     self.editor.session.on('change', function (delta: ace.Ace.Delta) {
       // Emit changes delta.start, delta.end, delta.lines, delta.action
       const content = self.editor.getValue();
-      self._valueChanged.emit(content);
+      self._valueChanged.emit({
+        key: self.selectElt.selectedOptions[0].text,
+        content: content
+      });
 
     });
 
     // Update sample when the selection changes 
     this.selectElt.addEventListener('change', (event: Event) => {
-      const result: string = self.getSamples().get((event.target as HTMLSelectElement).value) || '';
+      const elt = (event.target as HTMLSelectElement);
+      const result: string = self.getSamples().get(elt.value) || '';
       // Update Editor with current selection 
       self.content = result;
-      self._valueChanged.emit(result);
+      self._valueChanged.emit({
+        key: elt.selectedOptions[0].text,
+        content: result
+      });
     });
   }
 
@@ -159,11 +168,11 @@ export class AceEditorWidget extends Widget {
     }
   }
 
-  get valueChanged(): ISignal<this, string> {
+  get valueChanged(): ISignal<this, any> {
     return this._valueChanged;
   }
 
-  private _valueChanged = new Signal<this, string>(this);
+  private _valueChanged = new Signal<this, any>(this);
   private _editor: ace.Ace.Editor;
   private selectElt: HTMLSelectElement;
   private _samples: Map<string, string> = new Map();

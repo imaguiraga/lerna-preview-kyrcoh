@@ -190,16 +190,23 @@ export class CodeMirrorWidget extends Widget {
     self.editor.on('changes', (instance) => {
       // Emit changes
       const content = instance.getDoc().getValue();
-      self._valueChanged.emit(content);
+      self._valueChanged.emit({
+        key: self.selectElt.selectedOptions[0].text,
+        content: content
+      });
 
     });
 
     // Update sample when the selection changes 
     this.selectElt.addEventListener('change', (event: Event) => {
-      const result: string = self.getSamples().get((event.target as HTMLSelectElement).value) || '';
+      const elt = (event.target as HTMLSelectElement);
+      const result: string = self.getSamples().get(elt.value) || '';
       // Update Editor with current selection 
       self.content = result;
-      self._valueChanged.emit(result);
+      self._valueChanged.emit({
+        key: elt.selectedOptions[0].text,
+        content: result
+      });
     });
   }
 
@@ -278,11 +285,11 @@ export class CodeMirrorWidget extends Widget {
     }
   }
 
-  get valueChanged(): ISignal<this, string> {
+  get valueChanged(): ISignal<this, any> {
     return this._valueChanged;
   }
 
-  private _valueChanged = new Signal<this, string>(this);
+  private _valueChanged = new Signal<this, any>(this);
   private _editor: CodeMirror.Editor;
   private selectElt: HTMLSelectElement;
   private _samples: Map<string, string> = new Map();

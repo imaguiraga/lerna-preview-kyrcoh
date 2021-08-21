@@ -97,11 +97,11 @@ function createMainWidget(palette, commands) {
     }
   };
 
-  const valueChangedCallbackFn = function (content) {
+  const valueChangedCallbackFn = function (value) {
     const IMPORT_ID = location.href + 'IMPORT.js';
     try {
       // TODO NODEIDGENFN.next(true);         
-      parseJSSourceModule(IMPORT_ID, content).then((modules) => {
+      parseJSSourceModule(IMPORT_ID, value.content).then((modules) => {
         console.log('parseJSSourceModule');
         let dslObjectMap = extractVariables(modules);
         // Update graph flows
@@ -111,7 +111,7 @@ function createMainWidget(palette, commands) {
             if (dslObject !== null) {
               //console.log(JSON.stringify(dslObject,null,'  '));
               const elkgraph = toElkGraph(dslObject);
-              result.set(key, elkgraph);
+              result.set(value.key + ' - ' + key, elkgraph);
             }
 
           });
