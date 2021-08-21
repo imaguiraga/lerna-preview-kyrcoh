@@ -18,6 +18,7 @@ import 'codemirror/addon/scroll/simplescrollbars.js';
 import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/mode/css/css.js';
 import 'codemirror/addon/display/panel.js';
+// Linting
 import 'codemirror/addon/lint/lint.js';
 import 'codemirror/addon/lint/javascript-lint.js';
 import 'codemirror/addon/lint/lint.css';
@@ -46,6 +47,7 @@ import 'codemirror/addon/comment/comment.js';
 
 import '../style/widget-style.css';
 
+// Linting
 import { JSHINT } from 'jshint';
 // eslint-disable-next-line
 (globalThis as any).JSHINT = JSHINT;
