@@ -28,7 +28,6 @@
     "ace-builds": "^1.4.12",
     "ahooks": "^2.10.8",
     "codemirror": "^5.62.0",
-    "elkjs": "^0.7.1",
     "es6-promise": "^4.2.8",
     "escodegen": "^2.0.0",
     "esprima": "^4.0.1",
@@ -50,6 +49,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "update": "yarn upgrade @imaguiraga/topology-dsl-core",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "serve": "http-server ./build"
   },
   "devDependencies": {
@@ -61,6 +61,7 @@
     "@types/codemirror": "^5.60.2",
     "@types/dompurify": "^2.2.3",
     "@types/js-yaml": "^4.0.2",
+    "@types/jshint": "^2.12.1",
     "@types/mkdirp": "^1.0.2",
     "@types/node-fetch": "^2.5.11",
     "@types/nunjucks": "^3.1.5",
@@ -81,6 +82,7 @@
     "prettier": "^2.3.2",
     "react-scripts": "^4.0.3",
     "rimraf": "^3.0.2",
+    "source-map-explorer": "^2.5.2",
     "walk": "^2.3.14",
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2",

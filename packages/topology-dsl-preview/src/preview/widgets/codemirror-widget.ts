@@ -13,6 +13,8 @@ import { ISignal, Signal } from '@lumino/signaling';
 
 import CodeMirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
+import 'codemirror/addon/scroll/simplescrollbars.css';
+import 'codemirror/addon/scroll/simplescrollbars.js';
 import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/mode/css/css.js';
 import 'codemirror/addon/display/panel.js';
@@ -44,8 +46,9 @@ import 'codemirror/addon/comment/comment.js';
 
 import '../style/widget-style.css';
 
-//import 'tslint';
-//globalThis.JSHINT = JSHINT;
+import { JSHINT } from 'jshint';
+// eslint-disable-next-line
+(globalThis as any).JSHINT = JSHINT;
 // Override default brace add-on
 CodeMirror.registerHelper('fold', 'brace', function (cm: any, start: any) {
   var line = start.line, lineText = cm.getLine(line);
@@ -133,7 +136,16 @@ export class CodeMirrorWidget extends Widget {
       lineNumbers: true,
       lineWrapping: true,
       foldGutter: true,
-      gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
+      lint: {
+        'esversion': '8',
+        'laxcomma': true
+      },
+      gutters: [
+        'CodeMirror-linenumbers',
+        'CodeMirror-foldgutter',
+        'CodeMirror-lint-markers'
+      ],
+      scrollbarStyle: 'simple',
       tabSize: 2,
       matchBrackets: true,
       extraKeys: {
