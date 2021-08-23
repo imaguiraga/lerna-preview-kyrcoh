@@ -28,8 +28,8 @@ export class IframeELKGraphWidget extends Widget {
     this.contentIframeElt.setAttribute('style', 'display: block; flex: 1 1 auto; border: none;');
     const self = this;
     this.contentIframeElt.addEventListener('load', function (e) {
-        self.onload.emit('load');
-      }
+      self.onload.emit('load');
+    }
     );
     (this.contentIframeElt as HTMLIFrameElement).src = src;
     this.node.appendChild(this.contentIframeElt);
