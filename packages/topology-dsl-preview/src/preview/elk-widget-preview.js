@@ -83,8 +83,8 @@ function extractVariables(modules) {
 }
 
 function createMainWidget(palette, commands) {
-  const elkgraphWidget = new IframeELKGraphWidget('x6-renderer/index.html');
-  //const elkgraphWidget = new IframeELKGraphWidget('http://localhost:9000');
+  //const elkgraphWidget = new IframeELKGraphWidget('x6-renderer/index.html');
+  const elkgraphWidget = new IframeELKGraphWidget('http://localhost:9000');
 
   const editorWidget = new CodeMirrorWidget();
   //const editorWidget = new AceEditorWidget();
@@ -111,13 +111,13 @@ function createMainWidget(palette, commands) {
             if (dslObject !== null) {
               //console.log(JSON.stringify(dslObject,null,'  '));
               const elkgraph = toElkGraph(dslObject);
-              result.set(value.key + ' - ' + key, elkgraph);
+              result.set(key, elkgraph);
             }
 
           });
 
           // Convert to array
-          const message = { jsonrpc: '2.0', method: 'view.update', params: result };
+          const message = { jsonrpc: '2.0', method: 'view.update', params: {key:value.key, values:result} };
           // Update flows
           messageCallbackFn(message);
         }

@@ -27,17 +27,24 @@ function resizeWindow() {
 }
 
 let listener: any = null;
-function updateSelection(values: any) {
+let curParams: any = null;
+function updateSelection(params: any) {
+  let curSelection = null;
+  if (curParams !== null && curParams.key === params.key) {
+    // Find current selection
+    curSelection = selectElt?.value;
+  }
+  curParams = params;
   // Populate select component from list of samples
   // Recreate flow options
   while (selectElt?.firstChild) {
     selectElt.firstChild.remove();
   }
 
-  values.forEach((value: any, key: any) => {
+  params.values.forEach((value: any, key: any) => {
     let opt = document.createElement('option');
     opt.value = key;
-    opt.text = key;
+    opt.text = params.key + ' - ' + key;
     selectElt?.add(opt);
   });
 
@@ -50,13 +57,13 @@ function updateSelection(values: any) {
   // Update flow when the selection changes 
   if (listener == null) {
     listener = (event: Event) => {
-      const result = values.get((event.target as any).value);
+      const result = params.values.get((event.target as any).value);
       renderer.render(result);
     };
     selectElt?.addEventListener('change', listener);
   }
-  selectElt.options[0].selected = true;
-  selectElt.value = selectElt.options[0].value;
+  //selectElt.options[0].selected = true;
+  selectElt.value = curSelection !== null ? curSelection : selectElt.options[0].value;
   selectElt.dispatchEvent(new Event('change'));
 
 }
