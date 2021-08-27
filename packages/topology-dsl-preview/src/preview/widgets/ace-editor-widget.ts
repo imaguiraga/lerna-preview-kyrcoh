@@ -12,7 +12,7 @@ import {
 import { ISignal, Signal } from '@lumino/signaling';
 
 import * as ace from 'ace-builds';
-import '../style//widget-style.css';
+import '../style//widget-style.scss';
 
 ace.config.set('basePath', 'https://ajaxorg.github.io/ace-builds/src-noconflict');
 

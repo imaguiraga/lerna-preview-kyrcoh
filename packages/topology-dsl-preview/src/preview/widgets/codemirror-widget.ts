@@ -45,7 +45,7 @@ import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/addon/edit/matchbrackets.js';
 import 'codemirror/addon/comment/comment.js';
 
-import '../style/widget-style.css';
+import '../style/widget-style.scss';
 
 // Linting
 import { JSHINT } from 'jshint';
@@ -110,13 +110,18 @@ CodeMirror.registerHelper('fold', 'brace', function (cm: any, start: any) {
  * A widget which hosts a CodeMirror editor.
  */
 export class CodeMirrorWidget extends Widget {
+  private fileInput: HTMLInputElement;
+  private _valueChanged = new Signal<this, any>(this);
+  private _editor: CodeMirror.Editor;
+  private selectElt: HTMLSelectElement;
+  private _samples: Map<string, string> = new Map();
 
   constructor(config?: any) {
     super();
     this.addClass('CodeMirrorWidget');
 
     const div = document.createElement('div');
-    div.setAttribute('style', 'background-color: #dfdfdf;');
+    div.setAttribute('style', 'background-color: #dfdfdf;display: flex; gap:4px;');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
@@ -128,6 +133,31 @@ export class CodeMirrorWidget extends Widget {
     opt.value = 'Option 1';
     opt.text = 'Option 1';
     this.selectElt.add(opt);
+
+    // SAVE
+    let btn: HTMLButtonElement = document.createElement('button');
+    btn.type = 'button';
+    btn.innerHTML = '<span>SAVE</span>';
+    btn.setAttribute('style', 'flex: 0 0!important;border-radius: 0');
+    btn.setAttribute('class', 'btn btn-primary');
+    div.appendChild(btn);
+    // FILE NAME
+    this.fileInput = document.createElement('input');
+    this.fileInput.type = 'text';
+    this.fileInput.placeholder = 'Enter filename';
+    this.fileInput.setAttribute('style', 'flex: 1 1!important;border: none;border-radius: 0');
+    div.appendChild(this.fileInput);
+
+    // DOWNLOAD
+    btn = document.createElement('button');
+    btn.type = 'button';
+    //btn.innerHTML = '<span>DOWNLOAD</span>';
+    btn.setAttribute('style', 'flex: 0 0!important;border-radius: 0');
+    btn.setAttribute('class', 'btn btn-primary bi bi-download');
+    btn.addEventListener('click', (evt) => {
+      this.download();
+    });
+    div.appendChild(btn);
 
     const content = document.createElement('div');
     content.setAttribute('class', 'CodeMirrorWidget');
@@ -207,7 +237,41 @@ export class CodeMirrorWidget extends Widget {
         key: elt.selectedOptions[0].text,
         content: result
       });
+      self.fileInput.value = elt.selectedOptions[0].text.split('-')[0].trim();
     });
+  }
+
+  getSamples() {
+    return this._samples;
+  }
+  // samples
+  set samples(values: Array<string>) {
+    // Convert to Map
+    this._samples = new Map();
+    // Populate select component from list of samples
+    // Recreate sample options
+    while (this.selectElt.firstChild) {
+      this.selectElt.firstChild.remove();
+    }
+
+    values.forEach((value, index) => {
+      const opt: HTMLOptionElement = document.createElement('option');
+      opt.value = index.toString();
+      opt.text = `Sample #${index + 1}`;
+      if (isScript(value)) {
+        opt.text = `Sample #${index + 1} - ${value}`;
+        fetch(value).then((res) => {
+          return res.text();
+        }).then((text) => {
+          this._samples.set(opt.value, text);
+        });
+      } else {
+        this._samples.set(opt.value, value);
+      }
+
+      this.selectElt.add(opt);
+    });
+    this.fileInput.value = this.selectElt.selectedOptions[0].text.split('-')[0].trim();
   }
 
   get editor(): CodeMirror.Editor {
@@ -243,38 +307,6 @@ export class CodeMirrorWidget extends Widget {
     }
   }
 
-  getSamples() {
-    return this._samples;
-  }
-  // samples
-  set samples(values: Array<string>) {
-    // Convert to Map
-    this._samples = new Map();
-    // Populate select component from list of samples
-    // Recreate sample options
-    while (this.selectElt.firstChild) {
-      this.selectElt.firstChild.remove();
-    }
-
-    values.forEach((value, index) => {
-      const opt: HTMLOptionElement = document.createElement('option');
-      opt.value = index.toString();
-      opt.text = `Sample #${index + 1}`;
-      if (isScript(value)) {
-        opt.text = `Sample #${index + 1} - ${value}`;
-        fetch(value).then((res) => {
-          return res.text();
-        }).then((text) => {
-          this._samples.set(opt.value, text);
-        });
-      } else {
-        this._samples.set(opt.value, value);
-      }
-
-      this.selectElt.add(opt);
-    });
-
-  }
 
   updateEditorContent(text: string | undefined) {
     // Set default
@@ -289,10 +321,24 @@ export class CodeMirrorWidget extends Widget {
     return this._valueChanged;
   }
 
-  private _valueChanged = new Signal<this, any>(this);
-  private _editor: CodeMirror.Editor;
-  private selectElt: HTMLSelectElement;
-  private _samples: Map<string, string> = new Map();
+  download() {
+    // Convert the text to BLOB.
+    const textToBLOB = new Blob([this.content], { type: 'text/plain' });
+    const sFileName = this.fileInput.value + '.djs' || 'download.djs';	   // The file to save the data.
+
+    let newLink = document.createElement('a');
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null) {
+      newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    }
+    else {
+      newLink.href = window.URL.createObjectURL(textToBLOB);
+    }
+
+    newLink.click();
+
+  }
 
 }
 

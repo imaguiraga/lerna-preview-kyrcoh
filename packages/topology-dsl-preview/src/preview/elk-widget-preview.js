@@ -24,7 +24,7 @@ import { CodeMirrorWidget } from './widgets/codemirror-widget';
 
 import { IframeELKGraphWidget } from './widgets/iframe-elkgraph-widget';
 
-import './style/widget-style.css';
+import './style/widget-style.scss';
 import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
