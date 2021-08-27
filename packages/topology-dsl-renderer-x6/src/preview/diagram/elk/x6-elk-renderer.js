@@ -26,7 +26,7 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
   toElkLayout.nodeSize(10 * UNIT).portSize(UNIT);
 
   function render(elkgraph) {
-    if (elkgraph === null) {
+    if (elkgraph === null || elkgraph === undefined) {
       return Promise.resolve(null);
     }
 

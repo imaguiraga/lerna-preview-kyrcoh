@@ -140,6 +140,9 @@ export class CodeMirrorWidget extends Widget {
     btn.innerHTML = '<span>SAVE</span>';
     btn.setAttribute('style', 'flex: 0 0!important;border-radius: 0');
     btn.setAttribute('class', 'btn btn-primary');
+    btn.addEventListener('click', (evt) => {
+      this.save();
+    });
     div.appendChild(btn);
     // FILE NAME
     this.fileInput = document.createElement('input');
@@ -286,28 +289,6 @@ export class CodeMirrorWidget extends Widget {
     this._editor.getDoc().setValue(text);
   }
 
-  loadTarget(target: string): void {
-    const doc = this._editor.getDoc();
-    fetch(target)
-      .then(response => response.json())
-      .then(function (data) {
-        doc.setValue(data);
-      });
-  }
-
-  onAfterAttach(msg: Message): void {
-    this._editor.refresh();
-  }
-
-  onResize(msg: Widget.ResizeMessage): void {
-    if (msg.width < 0 || msg.height < 0) {
-      this._editor.refresh();
-    } else {
-      this._editor.setSize(msg.width, msg.height);
-    }
-  }
-
-
   updateEditorContent(text: string | undefined) {
     // Set default
     if (text === undefined || text === null) {
@@ -335,9 +316,47 @@ export class CodeMirrorWidget extends Widget {
     else {
       newLink.href = window.URL.createObjectURL(textToBLOB);
     }
-
     newLink.click();
 
+  }
+
+  save() {
+    // Save editor conetnt to map Convert the text to BLOB.
+    let key = this.selectElt.selectedOptions[0].value;
+    const text = this.selectElt.selectedOptions[0].text.split('-')[0].trim();
+    if (text !== this.fileInput.value) {
+      key = this.fileInput.value;
+    }
+    // New key -> add new option
+    if (!this.getSamples().has(key)) {
+      const opt: HTMLOptionElement = document.createElement('option');
+      opt.value = key;
+      opt.text = key;
+      this.selectElt.add(opt);
+    }
+    this.getSamples().set(key, this.content);
+
+  }
+
+  loadTarget(target: string): void {
+    const doc = this._editor.getDoc();
+    fetch(target)
+      .then(response => response.json())
+      .then(function (data) {
+        doc.setValue(data);
+      });
+  }
+
+  onAfterAttach(msg: Message): void {
+    this._editor.refresh();
+  }
+
+  onResize(msg: Widget.ResizeMessage): void {
+    if (msg.width < 0 || msg.height < 0) {
+      this._editor.refresh();
+    } else {
+      this._editor.setSize(msg.width, msg.height);
+    }
   }
 
 }

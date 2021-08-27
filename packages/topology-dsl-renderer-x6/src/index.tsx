@@ -34,6 +34,12 @@ function updateSelection(params: any) {
     // Find current selection
     curSelection = selectElt?.value;
   }
+
+  //CurrentSelection has been removed
+  if (curSelection !== null && !params.values.has(curSelection)) {
+    curSelection = null;
+  }
+
   curParams = params;
   // Populate select component from list of samples
   // Recreate flow options
