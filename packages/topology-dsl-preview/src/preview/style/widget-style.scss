@@ -4,7 +4,7 @@
 | Distributed under the terms of the BSD 3-Clause License.
 |
 | The full license is in the file LICENSE, distributed with this software.
-|----------------------------------------------------------------------------*/ 
+|----------------------------------------------------------------------------*/
 @import '~@lumino/default-theme/style/index.css';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
@@ -49,8 +49,8 @@ body {
   width: 100%;
   height: 100%;
   margin: auto;
-  font-family: 'monospace'!important;
-  font-size: 13px!important;
+  font-family: 'monospace' !important;
+  font-size: 13px !important;
 }
 
 /* CodeMirror Theme */
@@ -59,7 +59,8 @@ body {
   background-color: rgb(241, 241, 241);
   border: 1px solid;
   padding-left: 1px;
-  padding-right: 1px;;
+  padding-right: 1px;
+  ;
 }
 
 .CodeMirrorWidget>.CodeMirror {
@@ -106,7 +107,7 @@ body {
   width: 100%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   padding: 4px;
-  border: none;
+  border: 1px solid transparent;
   margin: auto;
   flex: 1 1 auto;
 }
@@ -133,26 +134,36 @@ body {
 button {
   border-width: thin;
   padding: 2px 12px;
-  border-style: solid;/*outset*/;
-  box-shadow: none!important;
+  border-style: solid;
+  /*outset*/
+  ;
+  box-shadow: none !important;
 
   &:active {
-    border-style: groove/*inset*/;
+    border-style: groove
+      /*inset*/
+    ;
   }
+
   &:hover {
     background-color: rgb(180, 180, 180);
   }
 }
+
 input {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   outline-style: none;
-  border-radius: 0!important;
-  padding: 1px 4px;
+  border-radius: 0 !important;
+  padding: 2px 4px;
 }
 
-input:focus-visible {
-  border-radius: 0!important;
-}
-input:focus {
-  border-radius: 0!important;
+select,
+input {
+  border-width: thin;
+  outline-width: thin;
+  border-radius: 0 !important;
+
+  &:focus, &:hover {
+    outline-style: solid;
+  }
 }

@@ -167,7 +167,7 @@ const phase2 = sequence(
 		'Create Operating \\nWindows'
 	)._title_('Step 3'),
 	sequence(
-		'Compute \\nCorrelations'
+		'Compute \\nCorrelations',
 		fanOut(
 			'Store \\nCorrelations',
 			'Publish \\nCorrelations',

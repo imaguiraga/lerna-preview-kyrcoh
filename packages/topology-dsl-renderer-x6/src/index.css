@@ -18,12 +18,12 @@ body {
 }
 
 #select {
+  width: 100%;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  flex: 0 0 auto;
   padding: 4px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: 1px solid transparent;
+  margin: auto;
+  flex: 1 1 auto;
 }
 
 #target {
@@ -34,4 +34,14 @@ body {
 
 #root {
   flex: 1 1 auto;
+}
+
+select {
+  border-width: thin;
+  outline-width: thin;
+  border-radius: 0 !important;
+}
+
+select:focus,select:hover {
+  outline-style: solid;
 }
