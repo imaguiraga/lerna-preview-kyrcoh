@@ -167,3 +167,10 @@ input {
     outline-style: solid;
   }
 }
+
+.container {
+  display: flex;
+  gap: 2px;
+  background-color: #dfdfdf;
+  padding: 1px;
+}

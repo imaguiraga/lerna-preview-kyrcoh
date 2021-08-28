@@ -121,7 +121,7 @@ export class CodeMirrorWidget extends Widget {
     this.addClass('CodeMirrorWidget');
 
     const div = document.createElement('div');
-    div.setAttribute('style', 'background-color: #dfdfdf;display: flex;gap: 4px;padding: 1px;');
+    div.setAttribute('class', 'container');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');

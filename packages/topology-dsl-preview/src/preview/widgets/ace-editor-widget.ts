@@ -31,7 +31,7 @@ export class AceEditorWidget extends Widget {
     this.addClass('CodeMirrorWidget');
 
     const div = document.createElement('div');
-    div.setAttribute('style', 'background-color: #dfdfdf;');
+    div.setAttribute('class', 'container');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');

@@ -45,3 +45,10 @@ select {
 select:focus,select:hover {
   outline-style: solid;
 }
+
+.container {
+  display: flex;
+  gap: 2px;
+  background-color: #dfdfdf;
+  padding: 2px 1px;
+}
