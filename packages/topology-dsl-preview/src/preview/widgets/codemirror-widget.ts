@@ -137,8 +137,8 @@ export class CodeMirrorWidget extends Widget {
     // SAVE
     let btn: HTMLButtonElement = document.createElement('button');
     btn.type = 'button';
-    btn.innerHTML = '<span>SAVE</span>';
-    btn.setAttribute('style', 'flex: 0 0!important;border-radius: 0');
+    btn.innerHTML = '<i class="bi bi-save"></i><span>SAVE</span>';
+    btn.setAttribute('style', 'flex: 0 0!important;');
     btn.setAttribute('class', 'btn btn-primary');
     btn.addEventListener('click', (evt) => {
       this.save();
@@ -154,9 +154,9 @@ export class CodeMirrorWidget extends Widget {
     // DOWNLOAD
     btn = document.createElement('button');
     btn.type = 'button';
-    //btn.innerHTML = '<span>DOWNLOAD</span>';
-    btn.setAttribute('style', 'flex: 0 0!important;border-radius: 0');
-    btn.setAttribute('class', 'btn btn-primary bi bi-download');
+    btn.innerHTML = '<i class="bi bi-download"></i><span>DOWNLOAD</span>';
+    btn.setAttribute('style', 'flex: 0 0!important;');
+    btn.setAttribute('class', 'btn btn-primary');
     btn.addEventListener('click', (evt) => {
       this.download();
     });

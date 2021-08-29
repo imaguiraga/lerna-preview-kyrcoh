@@ -136,6 +136,13 @@ button {
   padding: 2px 12px;
   border-style: solid;/*outset*/
   box-shadow: none !important;
+  border-radius: 0; 
+  display: inline-flex;
+  /* justify-content: center; */
+  /* vertical-align: middle; */
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
 
   &:active {
     border-style: groove;/*inset*/
