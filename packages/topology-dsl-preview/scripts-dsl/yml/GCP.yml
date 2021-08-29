@@ -1,0 +1,1513 @@
+source:
+  provider: GCP
+  prefix: gcp
+  path: assets/icons/GCP Icons/Products and services
+  pattern: (.*).svg
+  kind: resource
+items:
+  - provider: GCP
+    category: null
+    product: Compute Engine
+    dsl: gcp_Compute_Engine
+    kind: resource
+    tagName: gcp_Compute_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine
+    typeURI: null
+    docURL: https://cloud.google.com/compute
+  - provider: GCP
+    category: null
+    product: Cloud Storage
+    dsl: gcp_Cloud_Storage
+    kind: resource
+    tagName: gcp_Cloud_Storage
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudstorage
+    typeURI: null
+    docURL: https://cloud.google.com/storage
+  - provider: GCP
+    category: null
+    product: Cloud SDK
+    dsl: gcp_Cloud_SDK
+    kind: resource
+    tagName: gcp_Cloud_SDK
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudshell
+    typeURI: null
+    docURL: https://cloud.google.com/sdk
+  - provider: GCP
+    category: null
+    product: Cloud SQL
+    dsl: gcp_Cloud_SQL
+    kind: resource
+    tagName: gcp_Cloud_SQL
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsql
+    typeURI: null
+    docURL: https://cloud.google.com/sql
+  - provider: GCP
+    category: null
+    product: Google Kubernetes Engine
+    dsl: gcp_Google_Kubernetes_Engine
+    kind: resource
+    tagName: gcp_Google_Kubernetes_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine
+    typeURI: null
+    docURL: https://cloud.google.com/kubernetes-engine
+  - provider: GCP
+    category: null
+    product: BigQuery
+    dsl: gcp_BigQuery
+    kind: resource
+    tagName: gcp_BigQuery
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery
+    typeURI: null
+    docURL: https://cloud.google.com/bigquery
+  - provider: GCP
+    category: null
+    product: Cloud CDN
+    dsl: gcp_Cloud_CDN
+    kind: resource
+    tagName: gcp_Cloud_CDN
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcdn
+    typeURI: null
+    docURL: https://cloud.google.com/cdn
+  - provider: GCP
+    category: null
+    product: Dataflow
+    dsl: gcp_Dataflow
+    kind: resource
+    tagName: gcp_Dataflow
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataflow
+    typeURI: null
+    docURL: https://cloud.google.com/dataflow
+  - provider: GCP
+    category: null
+    product: Operations
+    dsl: gcp_Operations
+    kind: resource
+    tagName: gcp_Operations
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#stackdriver
+    typeURI: null
+    docURL: https://cloud.google.com/products/operations
+  - provider: GCP
+    category: null
+    product: Cloud Run
+    dsl: gcp_Cloud_Run
+    kind: resource
+    tagName: gcp_Cloud_Run
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun
+    typeURI: null
+    docURL: https://cloud.google.com/run
+  - provider: GCP
+    category: null
+    product: Anthos
+    dsl: gcp_Anthos
+    kind: resource
+    tagName: gcp_Anthos
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#anthos
+    typeURI: null
+    docURL: https://cloud.google.com/anthos
+  - provider: GCP
+    category: null
+    product: See all products (100+)
+    dsl: gcp_See_all_products_100_
+    kind: resource
+    tagName: gcp_See_all_products_100_
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Vertex AI
+    dsl: gcp_Vertex_AI
+    kind: resource
+    tagName: gcp_Vertex_AI
+    iconURL: https://www.gstatic.com/cloud/images/navigation/vertex-ai.svg
+    typeURI: null
+    docURL: https://cloud.google.com/vertex-ai
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Speech-to-Text
+    dsl: gcp_Speech_to_Text
+    kind: resource
+    tagName: gcp_Speech_to_Text
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudspeechapi
+    typeURI: null
+    docURL: https://cloud.google.com/speech-to-text
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Vision AI
+    dsl: gcp_Vision_AI
+    kind: resource
+    tagName: gcp_Vision_AI
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudvisionapi
+    typeURI: null
+    docURL: https://cloud.google.com/vision
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Text-to-Speech
+    dsl: gcp_Text_to_Speech
+    kind: resource
+    tagName: gcp_Text_to_Speech
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtexttospeech
+    typeURI: null
+    docURL: https://cloud.google.com/text-to-speech
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Cloud Translation
+    dsl: gcp_Cloud_Translation
+    kind: resource
+    tagName: gcp_Cloud_Translation
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtranslationapi
+    typeURI: null
+    docURL: https://cloud.google.com/translate
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Cloud Natural Language
+    dsl: gcp_Cloud_Natural_Language
+    kind: resource
+    tagName: gcp_Cloud_Natural_Language
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudnaturallanguageapi
+    typeURI: null
+    docURL: https://cloud.google.com/natural-language
+  - provider: GCP
+    category: AI and Machine Learning
+    product: AutoML
+    dsl: gcp_AutoML
+    kind: resource
+    tagName: gcp_AutoML
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#automl
+    typeURI: null
+    docURL: https://cloud.google.com/automl
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Video AI
+    dsl: gcp_Video_AI
+    kind: resource
+    tagName: gcp_Video_AI
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudvideointelligenceapi
+    typeURI: null
+    docURL: https://cloud.google.com/video-intelligence
+  - provider: GCP
+    category: AI and Machine Learning
+    product: AI Infrastructure
+    dsl: gcp_AI_Infrastructure
+    kind: resource
+    tagName: gcp_AI_Infrastructure
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#aiplatform
+    typeURI: null
+    docURL: https://cloud.google.com/ai-infrastructure
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Dialogflow
+    dsl: gcp_Dialogflow
+    kind: resource
+    tagName: gcp_Dialogflow
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#dialogflow
+    typeURI: null
+    docURL: https://cloud.google.com/dialogflow
+  - provider: GCP
+    category: AI and Machine Learning
+    product: AutoML Tables
+    dsl: gcp_AutoML_Tables
+    kind: resource
+    tagName: gcp_AutoML_Tables
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#automltables
+    typeURI: null
+    docURL: https://cloud.google.com/automl-tables
+  - provider: GCP
+    category: AI and Machine Learning
+    product: See all AI and machine learning products
+    dsl: gcp_See_all_AI_and_machine_learning_products
+    kind: resource
+    tagName: gcp_See_all_AI_and_machine_learning_products
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products#ai-and-machine-learning
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Apigee API Management
+    dsl: gcp_Apigee_API_Management
+    kind: resource
+    tagName: gcp_Apigee_API_Management
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform
+    typeURI: null
+    docURL: https://cloud.google.com/apigee/api-management
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Cloud Endpoints
+    dsl: gcp_Cloud_Endpoints
+    kind: resource
+    tagName: gcp_Cloud_Endpoints
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudendpoints
+    typeURI: null
+    docURL: https://cloud.google.com/endpoints
+  - provider: GCP
+    category: AI and Machine Learning
+    product: Cloud Healthcare API
+    dsl: gcp_Cloud_Healthcare_API
+    kind: resource
+    tagName: gcp_Cloud_Healthcare_API
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#healthcareapi
+    typeURI: null
+    docURL: https://cloud.google.com/healthcare
+  - provider: GCP
+    category: AI and Machine Learning
+    product: AppSheet
+    dsl: gcp_AppSheet
+    kind: resource
+    tagName: gcp_AppSheet
+    iconURL: https://cloud.google.com/images/navigation/products/appsheet-icon.svg
+    typeURI: null
+    docURL: https://cloud.google.com/appsheet
+  - provider: GCP
+    category: AI and Machine Learning
+    product: API Gateway
+    dsl: gcp_API_Gateway
+    kind: resource
+    tagName: gcp_API_Gateway
+    iconURL: https://www.gstatic.com/cloud/images/navigation/api-gateway.svg
+    typeURI: null
+    docURL: https://cloud.google.com/apigee
+  - provider: GCP
+    category: Compute
+    product: Compute Engine
+    dsl: gcp_Compute_Engine
+    kind: resource
+    tagName: gcp_Compute_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine
+    typeURI: null
+    docURL: https://cloud.google.com/compute
+  - provider: GCP
+    category: Compute
+    product: App Engine
+    dsl: gcp_App_Engine
+    kind: resource
+    tagName: gcp_App_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#appengine
+    typeURI: null
+    docURL: https://cloud.google.com/appengine
+  - provider: GCP
+    category: Compute
+    product: Cloud GPUs
+    dsl: gcp_Cloud_GPUs
+    kind: resource
+    tagName: gcp_Cloud_GPUs
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#gpu
+    typeURI: null
+    docURL: https://cloud.google.com/gpu
+  - provider: GCP
+    category: Compute
+    product: Migrate for Compute Engine
+    dsl: gcp_Migrate_for_Compute_Engine
+    kind: resource
+    tagName: gcp_Migrate_for_Compute_Engine
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforcomputeengine
+    typeURI: null
+    docURL: https://cloud.google.com/migrate/compute-engine
+  - provider: GCP
+    category: Compute
+    product: Preemptible VMs
+    dsl: gcp_Preemptible_VMs
+    kind: resource
+    tagName: gcp_Preemptible_VMs
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine
+    typeURI: null
+    docURL: https://cloud.google.com/preemptible-vms
+  - provider: GCP
+    category: Compute
+    product: Shielded VMs
+    dsl: gcp_Shielded_VMs
+    kind: resource
+    tagName: gcp_Shielded_VMs
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine
+    typeURI: null
+    docURL: https://cloud.google.com/shielded-vm
+  - provider: GCP
+    category: Compute
+    product: Sole-Tenant Nodes
+    dsl: gcp_Sole_Tenant_Nodes
+    kind: resource
+    tagName: gcp_Sole_Tenant_Nodes
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#computeengine
+    typeURI: null
+    docURL: https://cloud.google.com/sole-tenant-nodes
+  - provider: GCP
+    category: Compute
+    product: Bare Metal
+    dsl: gcp_Bare_Metal
+    kind: resource
+    tagName: gcp_Bare_Metal
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/bare-metal.svg
+    typeURI: null
+    docURL: https://cloud.google.com/bare-metal
+  - provider: GCP
+    category: Compute
+    product: Recommender
+    dsl: gcp_Recommender
+    kind: resource
+    tagName: gcp_Recommender
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/recommender.svg
+    typeURI: null
+    docURL: https://cloud.google.com/recommender
+  - provider: GCP
+    category: Compute
+    product: VMware Engine
+    dsl: gcp_VMware_Engine
+    kind: resource
+    tagName: gcp_VMware_Engine
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/vmware-engine.svg
+    typeURI: null
+    docURL: https://cloud.google.com/vmware-engine
+  - provider: GCP
+    category: Compute
+    product: Cloud Run
+    dsl: gcp_Cloud_Run
+    kind: resource
+    tagName: gcp_Cloud_Run
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/cloud-run.svg
+    typeURI: null
+    docURL: https://cloud.google.com/run
+  - provider: GCP
+    category: Compute
+    product: See all compute products
+    dsl: gcp_See_all_compute_products
+    kind: resource
+    tagName: gcp_See_all_compute_products
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products#compute
+  - provider: GCP
+    category: Containers
+    product: Google Kubernetes Engine
+    dsl: gcp_Google_Kubernetes_Engine
+    kind: resource
+    tagName: gcp_Google_Kubernetes_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine
+    typeURI: null
+    docURL: https://cloud.google.com/kubernetes-engine
+  - provider: GCP
+    category: Containers
+    product: Container Registry
+    dsl: gcp_Container_Registry
+    kind: resource
+    tagName: gcp_Container_Registry
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry
+    typeURI: null
+    docURL: https://cloud.google.com/container-registry
+  - provider: GCP
+    category: Containers
+    product: Container Security
+    dsl: gcp_Container_Security
+    kind: resource
+    tagName: gcp_Container_Security
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine
+    typeURI: null
+    docURL: https://cloud.google.com/containers/security
+  - provider: GCP
+    category: Containers
+    product: Cloud Build
+    dsl: gcp_Cloud_Build
+    kind: resource
+    tagName: gcp_Cloud_Build
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild
+    typeURI: null
+    docURL: https://cloud.google.com/build
+  - provider: GCP
+    category: Containers
+    product: Deep Learning Containers
+    dsl: gcp_Deep_Learning_Containers
+    kind: resource
+    tagName: gcp_Deep_Learning_Containers
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#aiplatform
+    typeURI: null
+    docURL: https://cloud.google.com/ai-platform/deep-learning-containers
+  - provider: GCP
+    category: Containers
+    product: Kubernetes Applications
+    dsl: gcp_Kubernetes_Applications
+    kind: resource
+    tagName: gcp_Kubernetes_Applications
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine
+    typeURI: null
+    docURL: https://cloud.google.com/kubernetes-applications
+  - provider: GCP
+    category: Containers
+    product: Artifact Registry
+    dsl: gcp_Artifact_Registry
+    kind: resource
+    tagName: gcp_Artifact_Registry
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry
+    typeURI: null
+    docURL: https://cloud.google.com/artifact-registry
+  - provider: GCP
+    category: Containers
+    product: Knative
+    dsl: gcp_Knative
+    kind: resource
+    tagName: gcp_Knative
+    iconURL: https://cloud.google.com/images/navigation/products/knative.svg
+    typeURI: null
+    docURL: https://cloud.google.com/knative
+  - provider: GCP
+    category: Containers
+    product: Cloud Run
+    dsl: gcp_Cloud_Run
+    kind: resource
+    tagName: gcp_Cloud_Run
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/cloud-run.svg
+    typeURI: null
+    docURL: https://cloud.google.com/run
+  - provider: GCP
+    category: Containers
+    product: Cloud Code
+    dsl: gcp_Cloud_Code
+    kind: resource
+    tagName: gcp_Cloud_Code
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/cloud-code.svg
+    typeURI: null
+    docURL: https://cloud.google.com/code
+  - provider: GCP
+    category: Data Analytics
+    product: BigQuery
+    dsl: gcp_BigQuery
+    kind: resource
+    tagName: gcp_BigQuery
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery
+    typeURI: null
+    docURL: https://cloud.google.com/bigquery
+  - provider: GCP
+    category: Data Analytics
+    product: Looker
+    dsl: gcp_Looker
+    kind: resource
+    tagName: gcp_Looker
+    iconURL: https://cloud.google.com/images/navigation/products/cloud-looker.svg
+    typeURI: null
+    docURL: https://cloud.google.com/looker
+  - provider: GCP
+    category: Data Analytics
+    product: Dataflow
+    dsl: gcp_Dataflow
+    kind: resource
+    tagName: gcp_Dataflow
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataflow
+    typeURI: null
+    docURL: https://cloud.google.com/dataflow
+  - provider: GCP
+    category: Data Analytics
+    product: Pub/Sub
+    dsl: gcp_Pub/Sub
+    kind: resource
+    tagName: gcp_Pub/Sub
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudpubsub
+    typeURI: null
+    docURL: https://cloud.google.com/pubsub
+  - provider: GCP
+    category: Data Analytics
+    product: Dataproc
+    dsl: gcp_Dataproc
+    kind: resource
+    tagName: gcp_Dataproc
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataproc
+    typeURI: null
+    docURL: https://cloud.google.com/dataproc
+  - provider: GCP
+    category: Data Analytics
+    product: Cloud Data Fusion
+    dsl: gcp_Cloud_Data_Fusion
+    kind: resource
+    tagName: gcp_Cloud_Data_Fusion
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddatafusion
+    typeURI: null
+    docURL: https://cloud.google.com/data-fusion
+  - provider: GCP
+    category: Data Analytics
+    product: Cloud Composer
+    dsl: gcp_Cloud_Composer
+    kind: resource
+    tagName: gcp_Cloud_Composer
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/cloud-composer.svg
+    typeURI: null
+    docURL: https://cloud.google.com/composer
+  - provider: GCP
+    category: Data Analytics
+    product: Dataprep
+    dsl: gcp_Dataprep
+    kind: resource
+    tagName: gcp_Dataprep
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddataprep
+    typeURI: null
+    docURL: https://cloud.google.com/dataprep
+  - provider: GCP
+    category: Data Analytics
+    product: Dataplex
+    dsl: gcp_Dataplex
+    kind: resource
+    tagName: gcp_Dataplex
+    iconURL: https://www.gstatic.com/cloud/images/navigation/dataplex.svg
+    typeURI: null
+    docURL: https://cloud.google.com/dataplex
+  - provider: GCP
+    category: Data Analytics
+    product: Data Catalog
+    dsl: gcp_Data_Catalog
+    kind: resource
+    tagName: gcp_Data_Catalog
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/cloud-data-catalog.svg
+    typeURI: null
+    docURL: https://cloud.google.com/data-catalog
+  - provider: GCP
+    category: Data Analytics
+    product: Analytics Hub
+    dsl: gcp_Analytics_Hub
+    kind: resource
+    tagName: gcp_Analytics_Hub
+    iconURL: https://www.gstatic.com/cloud/images/navigation/analytics-hub.svg
+    typeURI: null
+    docURL: https://cloud.google.com/analytics-hub
+  - provider: GCP
+    category: Data Analytics
+    product: See all developer tools
+    dsl: gcp_See_all_developer_tools
+    kind: resource
+    tagName: gcp_See_all_developer_tools
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products/tools
+  - provider: GCP
+    category: Databases
+    product: Cloud Bigtable
+    dsl: gcp_Cloud_Bigtable
+    kind: resource
+    tagName: gcp_Cloud_Bigtable
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#bigtable
+    typeURI: null
+    docURL: https://cloud.google.com/bigtable
+  - provider: GCP
+    category: Databases
+    product: Firestore
+    dsl: gcp_Firestore
+    kind: resource
+    tagName: gcp_Firestore
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfirestore
+    typeURI: null
+    docURL: https://cloud.google.com/firestore
+  - provider: GCP
+    category: Databases
+    product: Memorystore
+    dsl: gcp_Memorystore
+    kind: resource
+    tagName: gcp_Memorystore
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudmemorystore
+    typeURI: null
+    docURL: https://cloud.google.com/memorystore
+  - provider: GCP
+    category: Databases
+    product: Cloud Spanner
+    dsl: gcp_Cloud_Spanner
+    kind: resource
+    tagName: gcp_Cloud_Spanner
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudspanner
+    typeURI: null
+    docURL: https://cloud.google.com/spanner
+  - provider: GCP
+    category: Databases
+    product: Cloud SQL
+    dsl: gcp_Cloud_SQL
+    kind: resource
+    tagName: gcp_Cloud_SQL
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsql
+    typeURI: null
+    docURL: https://cloud.google.com/sql
+  - provider: GCP
+    category: Databases
+    product: Database Migration Service
+    dsl: gcp_Database_Migration_Service
+    kind: resource
+    tagName: gcp_Database_Migration_Service
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/database-migration-service.svg
+    typeURI: null
+    docURL: https://cloud.google.com/database-migration
+  - provider: GCP
+    category: Databases
+    product: Bare Metal
+    dsl: gcp_Bare_Metal
+    kind: resource
+    tagName: gcp_Bare_Metal
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/bare-metal.svg
+    typeURI: null
+    docURL: https://cloud.google.com/bare-metal
+  - provider: GCP
+    category: Databases
+    product: Firebase Realtime Database
+    dsl: gcp_Firebase_Realtime_Database
+    kind: resource
+    tagName: gcp_Firebase_Realtime_Database
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/firebase.svg
+    typeURI: null
+    docURL: https://firebase.google.com/products/realtime-database/
+  - provider: GCP
+    category: Databases
+    product: Datastream
+    dsl: gcp_Datastream
+    kind: resource
+    tagName: gcp_Datastream
+    iconURL: https://www.gstatic.com/cloud/images/navigation/datastream.svg
+    typeURI: null
+    docURL: https://cloud.google.com/datastream
+  - provider: GCP
+    category: Developer Tools
+    product: Artifact Registry
+    dsl: gcp_Artifact_Registry
+    kind: resource
+    tagName: gcp_Artifact_Registry
+    iconURL: https://www.gstatic.com/cloud/images/navigation/artifact-registry.svg
+    typeURI: null
+    docURL: https://cloud.google.com/artifact-registry
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Build
+    dsl: gcp_Cloud_Build
+    kind: resource
+    tagName: gcp_Cloud_Build
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild
+    typeURI: null
+    docURL: https://cloud.google.com/build
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Code
+    dsl: gcp_Cloud_Code
+    kind: resource
+    tagName: gcp_Cloud_Code
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcode
+    typeURI: null
+    docURL: https://cloud.google.com/code
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Deployment Manager
+    dsl: gcp_Cloud_Deployment_Manager
+    kind: resource
+    tagName: gcp_Cloud_Deployment_Manager
+    iconURL: https://www.gstatic.com/cloud/images/navigation/deployment-manager.svg
+    typeURI: null
+    docURL: https://cloud.google.com/deployment-manager
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud SDK
+    dsl: gcp_Cloud_SDK
+    kind: resource
+    tagName: gcp_Cloud_SDK
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcode
+    typeURI: null
+    docURL: https://cloud.google.com/sdk
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Scheduler
+    dsl: gcp_Cloud_Scheduler
+    kind: resource
+    tagName: gcp_Cloud_Scheduler
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudscheduler
+    typeURI: null
+    docURL: https://cloud.google.com/scheduler
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Source Repositories
+    dsl: gcp_Cloud_Source_Repositories
+    kind: resource
+    tagName: gcp_Cloud_Source_Repositories
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#logging
+    typeURI: null
+    docURL: https://cloud.google.com/source-repositories
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Tasks
+    dsl: gcp_Cloud_Tasks
+    kind: resource
+    tagName: gcp_Cloud_Tasks
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudtasks
+    typeURI: null
+    docURL: https://cloud.google.com/tasks
+  - provider: GCP
+    category: Developer Tools
+    product: Container Registry
+    dsl: gcp_Container_Registry
+    kind: resource
+    tagName: gcp_Container_Registry
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#containerregistry
+    typeURI: null
+    docURL: https://cloud.google.com/container-registry
+  - provider: GCP
+    category: Developer Tools
+    product: Tekton
+    dsl: gcp_Tekton
+    kind: resource
+    tagName: gcp_Tekton
+    iconURL: https://cloud.google.com/images/navigation/products/tekton.png
+    typeURI: null
+    docURL: https://cloud.google.com/tekton
+  - provider: GCP
+    category: Developer Tools
+    product: See all developer tools
+    dsl: gcp_See_all_developer_tools
+    kind: resource
+    tagName: gcp_See_all_developer_tools
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products/tools
+  - provider: GCP
+    category: Developer Tools
+    product: Apigee Healthcare APIx
+    dsl: gcp_Apigee_Healthcare_APIx
+    kind: resource
+    tagName: gcp_Apigee_Healthcare_APIx
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform
+    typeURI: null
+    docURL: https://cloud.google.com/apigee/solutions/healthcare-apix
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Healthcare API
+    dsl: gcp_Cloud_Healthcare_API
+    kind: resource
+    tagName: gcp_Cloud_Healthcare_API
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#healthcareapi
+    typeURI: null
+    docURL: https://cloud.google.com/healthcare
+  - provider: GCP
+    category: Developer Tools
+    product: Cloud Life Sciences
+    dsl: gcp_Cloud_Life_Sciences
+    kind: resource
+    tagName: gcp_Cloud_Life_Sciences
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#genomics
+    typeURI: null
+    docURL: https://cloud.google.com/life-sciences
+  - provider: GCP
+    category: Developer Tools
+    product: Healthcare Natural Language AI
+    dsl: gcp_Healthcare_Natural_Language_AI
+    kind: resource
+    tagName: gcp_Healthcare_Natural_Language_AI
+    iconURL: https://cloud.google.com/images/navigation/products/healthcare.svg
+    typeURI: null
+    docURL: https://cloud.google.com/natural-language
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Anthos
+    dsl: gcp_Anthos
+    kind: resource
+    tagName: gcp_Anthos
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#anthos
+    typeURI: null
+    docURL: https://cloud.google.com/anthos
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Looker
+    dsl: gcp_Looker
+    kind: resource
+    tagName: gcp_Looker
+    iconURL: https://www.gstatic.com/cloud/images/navigation/looker.svg
+    typeURI: null
+    docURL: https://cloud.google.com/looker
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Cloud Run for Anthos
+    dsl: gcp_Cloud_Run_for_Anthos
+    kind: resource
+    tagName: gcp_Cloud_Run_for_Anthos
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun
+    typeURI: null
+    docURL: https://cloud.google.com/anthos/run
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Google Cloud Marketplace for Anthos
+    dsl: gcp_Google_Cloud_Marketplace_for_Anthos
+    kind: resource
+    tagName: gcp_Google_Cloud_Marketplace_for_Anthos
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#marketplace
+    typeURI: null
+    docURL: https://cloud.google.com/kubernetes-applications
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Migrate for Anthos
+    dsl: gcp_Migrate_for_Anthos
+    kind: resource
+    tagName: gcp_Migrate_for_Anthos
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforanthos
+    typeURI: null
+    docURL: https://cloud.google.com/migrate/anthos
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Operations
+    dsl: gcp_Operations
+    kind: resource
+    tagName: gcp_Operations
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#stackdriver
+    typeURI: null
+    docURL: https://cloud.google.com/products/operations
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Cloud Build
+    dsl: gcp_Cloud_Build
+    kind: resource
+    tagName: gcp_Cloud_Build
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudbuild
+    typeURI: null
+    docURL: https://cloud.google.com/build
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Traffic Director
+    dsl: gcp_Traffic_Director
+    kind: resource
+    tagName: gcp_Traffic_Director
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#trafficdirector
+    typeURI: null
+    docURL: https://cloud.google.com/traffic-director
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Apigee API Management
+    dsl: gcp_Apigee_API_Management
+    kind: resource
+    tagName: gcp_Apigee_API_Management
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#apigeeapiplatform
+    typeURI: null
+    docURL: https://cloud.google.com/apigee
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Cloud IoT Core
+    dsl: gcp_Cloud_IoT_Core
+    kind: resource
+    tagName: gcp_Cloud_IoT_Core
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiotcore
+    typeURI: null
+    docURL: https://cloud.google.com/iot-core
+  - provider: GCP
+    category: Hybrid and Multicloud
+    product: Edge TPU
+    dsl: gcp_Edge_TPU
+    kind: resource
+    tagName: gcp_Edge_TPU
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiotedge
+    typeURI: null
+    docURL: https://cloud.google.com/edge-tpu
+  - provider: GCP
+    category: Management Tools
+    product: Cloud Shell
+    dsl: gcp_Cloud_Shell
+    kind: resource
+    tagName: gcp_Cloud_Shell
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudshell
+    typeURI: null
+    docURL: https://cloud.google.com/shell
+  - provider: GCP
+    category: Management Tools
+    product: Cloud Console
+    dsl: gcp_Cloud_Console
+    kind: resource
+    tagName: gcp_Cloud_Console
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#generic
+    typeURI: null
+    docURL: https://cloud.google.com/cloud-console
+  - provider: GCP
+    category: Management Tools
+    product: Cloud Deployment Manager
+    dsl: gcp_Cloud_Deployment_Manager
+    kind: resource
+    tagName: gcp_Cloud_Deployment_Manager
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddeploymentmanager
+    typeURI: null
+    docURL: https://cloud.google.com/deployment-manager
+  - provider: GCP
+    category: Management Tools
+    product: Cloud Mobile App
+    dsl: gcp_Cloud_Mobile_App
+    kind: resource
+    tagName: gcp_Cloud_Mobile_App
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#generic
+    typeURI: null
+    docURL: https://cloud.google.com/console-app
+  - provider: GCP
+    category: Management Tools
+    product: Cloud APIs
+    dsl: gcp_Cloud_APIs
+    kind: resource
+    tagName: gcp_Cloud_APIs
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudapis
+    typeURI: null
+    docURL: https://cloud.google.com/apis
+  - provider: GCP
+    category: Management Tools
+    product: Private Catalog
+    dsl: gcp_Private_Catalog
+    kind: resource
+    tagName: gcp_Private_Catalog
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#marketplace
+    typeURI: null
+    docURL: https://cloud.google.com/private-catalog
+  - provider: GCP
+    category: Management Tools
+    product: Cost Management
+    dsl: gcp_Cost_Management
+    kind: resource
+    tagName: gcp_Cost_Management
+    iconURL: https://cloud.google.com/images/navigation/products/billing.png
+    typeURI: null
+    docURL: https://cloud.google.com/cost-management
+  - provider: GCP
+    category: Management Tools
+    product: Intelligent Management
+    dsl: gcp_Intelligent_Management
+    kind: resource
+    tagName: gcp_Intelligent_Management
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#generic
+    typeURI: null
+    docURL: https://cloud.google.com/solutions/active-assist
+  - provider: GCP
+    category: Management Tools
+    product: Game Servers
+    dsl: gcp_Game_Servers
+    kind: resource
+    tagName: gcp_Game_Servers
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudgameservers
+    typeURI: null
+    docURL: https://cloud.google.com/game-servers
+  - provider: GCP
+    category: Management Tools
+    product: OpenCue
+    dsl: gcp_OpenCue
+    kind: resource
+    tagName: gcp_OpenCue
+    iconURL: https://cloud.google.com/images/navigation/products/opencue.png
+    typeURI: null
+    docURL: https://cloud.google.com/opencue
+  - provider: GCP
+    category: Migration
+    product: Application Migration
+    dsl: gcp_Application_Migration
+    kind: resource
+    tagName: gcp_Application_Migration
+    iconURL: https://www.gstatic.com/cloud/images/navigation/application-migration.svg
+    typeURI: null
+    docURL: https://cloud.google.com/solutions/application-migration
+  - provider: GCP
+    category: Migration
+    product: BigQuery Data Transfer Service
+    dsl: gcp_BigQuery_Data_Transfer_Service
+    kind: resource
+    tagName: gcp_BigQuery_Data_Transfer_Service
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#bigquery
+    typeURI: null
+    docURL: https://cloud.google.com/bigquery/transfer
+  - provider: GCP
+    category: Migration
+    product: Cloud Foundation Toolkit
+    dsl: gcp_Cloud_Foundation_Toolkit
+    kind: resource
+    tagName: gcp_Cloud_Foundation_Toolkit
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#generic
+    typeURI: null
+    docURL: https://cloud.google.com/foundation-toolkit
+  - provider: GCP
+    category: Migration
+    product: Database Migration Service
+    dsl: gcp_Database_Migration_Service
+    kind: resource
+    tagName: gcp_Database_Migration_Service
+    iconURL: https://www.gstatic.com/cloud/images/navigation/database-migration.svg
+    typeURI: null
+    docURL: https://cloud.google.com/database-migration
+  - provider: GCP
+    category: Migration
+    product: Migrate for Anthos
+    dsl: gcp_Migrate_for_Anthos
+    kind: resource
+    tagName: gcp_Migrate_for_Anthos
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforanthos
+    typeURI: null
+    docURL: https://cloud.google.com/migrate/anthos
+  - provider: GCP
+    category: Migration
+    product: Migrate for Compute Engine
+    dsl: gcp_Migrate_for_Compute_Engine
+    kind: resource
+    tagName: gcp_Migrate_for_Compute_Engine
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#migrateforcomputeengine
+    typeURI: null
+    docURL: https://cloud.google.com/migrate/compute-engine
+  - provider: GCP
+    category: Migration
+    product: Rapid Assessment & Migration Program (RAMP)
+    dsl: gcp_Rapid_Assessment_Migration_Program_RAMP_
+    kind: resource
+    tagName: gcp_Rapid_Assessment_Migration_Program_RAMP_
+    iconURL: https://www.gstatic.com/cloud/images/navigation/rapid-assessment.svg
+    typeURI: null
+    docURL: https://cloud.google.com/solutions/cloud-migration-program
+  - provider: GCP
+    category: Migration
+    product: Transfer Appliance
+    dsl: gcp_Transfer_Appliance
+    kind: resource
+    tagName: gcp_Transfer_Appliance
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#transferappliance
+    typeURI: null
+    docURL: https://cloud.google.com/transfer-appliance
+  - provider: GCP
+    category: Migration
+    product: Storage Transfer Service
+    dsl: gcp_Storage_Transfer_Service
+    kind: resource
+    tagName: gcp_Storage_Transfer_Service
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#transfer
+    typeURI: null
+    docURL: https://cloud.google.com/storage-transfer-service
+  - provider: GCP
+    category: Migration
+    product: VMware Engine
+    dsl: gcp_VMware_Engine
+    kind: resource
+    tagName: gcp_VMware_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/vmware-engine.svg
+    typeURI: null
+    docURL: https://cloud.google.com/vmware-engine
+  - provider: GCP
+    category: Networking
+    product: Cloud Armor
+    dsl: gcp_Cloud_Armor
+    kind: resource
+    tagName: gcp_Cloud_Armor
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudarmor
+    typeURI: null
+    docURL: https://cloud.google.com/armor
+  - provider: GCP
+    category: Networking
+    product: Cloud CDN
+    dsl: gcp_Cloud_CDN
+    kind: resource
+    tagName: gcp_Cloud_CDN
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudcdn
+    typeURI: null
+    docURL: https://cloud.google.com/cdn
+  - provider: GCP
+    category: Networking
+    product: Cloud DNS
+    dsl: gcp_Cloud_DNS
+    kind: resource
+    tagName: gcp_Cloud_DNS
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddns
+    typeURI: null
+    docURL: https://cloud.google.com/dns
+  - provider: GCP
+    category: Networking
+    product: Cloud Load Balancing
+    dsl: gcp_Cloud_Load_Balancing
+    kind: resource
+    tagName: gcp_Cloud_Load_Balancing
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudloadbalancing
+    typeURI: null
+    docURL: https://cloud.google.com/load-balancing
+  - provider: GCP
+    category: Networking
+    product: Cloud NAT
+    dsl: gcp_Cloud_NAT
+    kind: resource
+    tagName: gcp_Cloud_NAT
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudnat
+    typeURI: null
+    docURL: https://cloud.google.com/nat
+  - provider: GCP
+    category: Networking
+    product: Hybrid Connectivity
+    dsl: gcp_Hybrid_Connectivity
+    kind: resource
+    tagName: gcp_Hybrid_Connectivity
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudinterconnect
+    typeURI: null
+    docURL: https://cloud.google.com/hybrid-connectivity
+  - provider: GCP
+    category: Networking
+    product: Network Connectivity Center
+    dsl: gcp_Network_Connectivity_Center
+    kind: resource
+    tagName: gcp_Network_Connectivity_Center
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/network-connectivity-center.svg
+    typeURI: null
+    docURL: https://cloud.google.com/network-connectivity-center
+  - provider: GCP
+    category: Networking
+    product: Network Intelligence Center
+    dsl: gcp_Network_Intelligence_Center
+    kind: resource
+    tagName: gcp_Network_Intelligence_Center
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/network-intelligence.svg
+    typeURI: null
+    docURL: https://cloud.google.com/network-intelligence-center
+  - provider: GCP
+    category: Networking
+    product: Network Service Tiers
+    dsl: gcp_Network_Service_Tiers
+    kind: resource
+    tagName: gcp_Network_Service_Tiers
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#networktiers
+    typeURI: null
+    docURL: https://cloud.google.com/network-tiers
+  - provider: GCP
+    category: Networking
+    product: Network Telemetry
+    dsl: gcp_Network_Telemetry
+    kind: resource
+    tagName: gcp_Network_Telemetry
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#virtualprivatecloud
+    typeURI: null
+    docURL: https://cloud.google.com/network-telemetry
+  - provider: GCP
+    category: Networking
+    product: Traffic Director
+    dsl: gcp_Traffic_Director
+    kind: resource
+    tagName: gcp_Traffic_Director
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#trafficdirector
+    typeURI: null
+    docURL: https://cloud.google.com/traffic-director
+  - provider: GCP
+    category: Networking
+    product: See all networking products
+    dsl: gcp_See_all_networking_products
+    kind: resource
+    tagName: gcp_See_all_networking_products
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products#section-16
+  - provider: GCP
+    category: Operations
+    product: Cloud Logging
+    dsl: gcp_Cloud_Logging
+    kind: resource
+    tagName: gcp_Cloud_Logging
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#logging
+    typeURI: null
+    docURL: https://cloud.google.com/logging
+  - provider: GCP
+    category: Operations
+    product: Cloud Monitoring
+    dsl: gcp_Cloud_Monitoring
+    kind: resource
+    tagName: gcp_Cloud_Monitoring
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#monitoring
+    typeURI: null
+    docURL: https://cloud.google.com/monitoring
+  - provider: GCP
+    category: Operations
+    product: Error Reporting
+    dsl: gcp_Error_Reporting
+    kind: resource
+    tagName: gcp_Error_Reporting
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#errorreporting2
+    typeURI: null
+    docURL: https://cloud.google.com/error-reporting
+  - provider: GCP
+    category: Operations
+    product: Kubernetes Engine Monitoring
+    dsl: gcp_Kubernetes_Engine_Monitoring
+    kind: resource
+    tagName: gcp_Kubernetes_Engine_Monitoring
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#kubernetesengine
+    typeURI: null
+    docURL: https://cloud.google.com/kubernetes-engine-monitoring
+  - provider: GCP
+    category: Operations
+    product: Cloud Trace
+    dsl: gcp_Cloud_Trace
+    kind: resource
+    tagName: gcp_Cloud_Trace
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#trace
+    typeURI: null
+    docURL: https://cloud.google.com/trace
+  - provider: GCP
+    category: Operations
+    product: Cloud Profiler
+    dsl: gcp_Cloud_Profiler
+    kind: resource
+    tagName: gcp_Cloud_Profiler
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#profiler
+    typeURI: null
+    docURL: https://cloud.google.com/profiler
+  - provider: GCP
+    category: Operations
+    product: Cloud Debugger
+    dsl: gcp_Cloud_Debugger
+    kind: resource
+    tagName: gcp_Cloud_Debugger
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#debugger
+    typeURI: null
+    docURL: https://cloud.google.com/debugger
+  - provider: GCP
+    category: Operations
+    product: Intelligent Operations
+    dsl: gcp_Intelligent_Operations
+    kind: resource
+    tagName: gcp_Intelligent_Operations
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#generic
+    typeURI: null
+    docURL: https://cloud.google.com/solutions/active-assist
+  - provider: GCP
+    category: Security and Identity
+    product: Cloud IAM
+    dsl: gcp_Cloud_IAM
+    kind: resource
+    tagName: gcp_Cloud_IAM
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudiam
+    typeURI: null
+    docURL: https://cloud.google.com/iam
+  - provider: GCP
+    category: Security and Identity
+    product: Assured Workloads
+    dsl: gcp_Assured_Workloads
+    kind: resource
+    tagName: gcp_Assured_Workloads
+    iconURL: https://cloud.google.com/images/navigation/products/assured-workloads.svg
+    typeURI: null
+    docURL: https://cloud.google.com/assured-workloads
+  - provider: GCP
+    category: Security and Identity
+    product: Cloud Key Management
+    dsl: gcp_Cloud_Key_Management
+    kind: resource
+    tagName: gcp_Cloud_Key_Management
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#keymanagementservice
+    typeURI: null
+    docURL: https://cloud.google.com/security-key-management
+  - provider: GCP
+    category: Security and Identity
+    product: Confidential Computing
+    dsl: gcp_Confidential_Computing
+    kind: resource
+    tagName: gcp_Confidential_Computing
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/compute-engine.svg
+    typeURI: null
+    docURL: https://cloud.google.com/confidential-computing
+  - provider: GCP
+    category: Security and Identity
+    product: Security Command Center
+    dsl: gcp_Security_Command_Center
+    kind: resource
+    tagName: gcp_Security_Command_Center
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudsecuritycommandcenter
+    typeURI: null
+    docURL: https://cloud.google.com/security-command-center
+  - provider: GCP
+    category: Security and Identity
+    product: Cloud Data Loss Prevention
+    dsl: gcp_Cloud_Data_Loss_Prevention
+    kind: resource
+    tagName: gcp_Cloud_Data_Loss_Prevention
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#clouddatalosspreventionapi
+    typeURI: null
+    docURL: https://cloud.google.com/dlp
+  - provider: GCP
+    category: Security and Identity
+    product: Managed Service for Microsoft Active Directory
+    dsl: gcp_Managed_Service_for_Microsoft_Active_Directory
+    kind: resource
+    tagName: gcp_Managed_Service_for_Microsoft_Active_Directory
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#managedserviceformicrosoftactivedirectory
+    typeURI: null
+    docURL: https://cloud.google.com/managed-microsoft-ad
+  - provider: GCP
+    category: Security and Identity
+    product: Access Transparency
+    dsl: gcp_Access_Transparency
+    kind: resource
+    tagName: gcp_Access_Transparency
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#logging
+    typeURI: null
+    docURL: https://cloud.google.com/access-transparency
+  - provider: GCP
+    category: Security and Identity
+    product: Titan Security Key
+    dsl: gcp_Titan_Security_Key
+    kind: resource
+    tagName: gcp_Titan_Security_Key
+    iconURL: >-
+      https://www.gstatic.com/cloud/images/navigation/icons.svg#securitykeyenforcement
+    typeURI: null
+    docURL: https://cloud.google.com/titan-security-key
+  - provider: GCP
+    category: Security and Identity
+    product: Secret Manager
+    dsl: gcp_Secret_Manager
+    kind: resource
+    tagName: gcp_Secret_Manager
+    iconURL: https://cloud.google.com/images/navigation/products/secret-manager.svg
+    typeURI: null
+    docURL: https://cloud.google.com/secret-manager
+  - provider: GCP
+    category: Security and Identity
+    product: BeyondCorp Enterprise
+    dsl: gcp_BeyondCorp_Enterprise
+    kind: resource
+    tagName: gcp_BeyondCorp_Enterprise
+    iconURL: https://cloud.google.com/images/navigation/products/beyond-corp.svg
+    typeURI: null
+    docURL: https://cloud.google.com/beyondcorp-enterprise
+  - provider: GCP
+    category: Security and Identity
+    product: See all security and identity products
+    dsl: gcp_See_all_security_and_identity_products
+    kind: resource
+    tagName: gcp_See_all_security_and_identity_products
+    iconURL: ''
+    typeURI: null
+    docURL: https://cloud.google.com/products#security-and-identity
+  - provider: GCP
+    category: Serverless Computing
+    product: Cloud Run
+    dsl: gcp_Cloud_Run
+    kind: resource
+    tagName: gcp_Cloud_Run
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudrun
+    typeURI: null
+    docURL: https://cloud.google.com/run
+  - provider: GCP
+    category: Serverless Computing
+    product: Cloud Functions
+    dsl: gcp_Cloud_Functions
+    kind: resource
+    tagName: gcp_Cloud_Functions
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfunctions
+    typeURI: null
+    docURL: https://cloud.google.com/functions
+  - provider: GCP
+    category: Serverless Computing
+    product: App Engine
+    dsl: gcp_App_Engine
+    kind: resource
+    tagName: gcp_App_Engine
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#appengine
+    typeURI: null
+    docURL: https://cloud.google.com/appengine
+  - provider: GCP
+    category: Serverless Computing
+    product: Workflows
+    dsl: gcp_Workflows
+    kind: resource
+    tagName: gcp_Workflows
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#workflows
+    typeURI: null
+    docURL: https://cloud.google.com/workflows
+  - provider: GCP
+    category: Storage
+    product: All Storage Products
+    dsl: gcp_All_Storage_Products
+    kind: resource
+    tagName: gcp_All_Storage_Products
+    iconURL: https://www.gstatic.com/cloud/images/navigation/all-storage-products.svg
+    typeURI: null
+    docURL: https://cloud.google.com/products/storage
+  - provider: GCP
+    category: Storage
+    product: Cloud Storage
+    dsl: gcp_Cloud_Storage
+    kind: resource
+    tagName: gcp_Cloud_Storage
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudstorage
+    typeURI: null
+    docURL: https://cloud.google.com/storage
+  - provider: GCP
+    category: Storage
+    product: Filestore
+    dsl: gcp_Filestore
+    kind: resource
+    tagName: gcp_Filestore
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#cloudfilestore
+    typeURI: null
+    docURL: https://cloud.google.com/filestore
+  - provider: GCP
+    category: Storage
+    product: Persistent Disk
+    dsl: gcp_Persistent_Disk
+    kind: resource
+    tagName: gcp_Persistent_Disk
+    iconURL: https://www.gstatic.com/cloud/images/navigation/icons.svg#persistantdisk
+    typeURI: null
+    docURL: https://cloud.google.com/persistent-disk
+  - provider: GCP
+    category: Storage
+    product: Cloud Storage for Firebase
+    dsl: gcp_Cloud_Storage_for_Firebase
+    kind: resource
+    tagName: gcp_Cloud_Storage_for_Firebase
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/firebase.svg
+    typeURI: null
+    docURL: https://firebase.google.com/products/storage
+  - provider: GCP
+    category: Storage
+    product: Local SSD
+    dsl: gcp_Local_SSD
+    kind: resource
+    tagName: gcp_Local_SSD
+    iconURL: >-
+      https://cloud.google.com/_static/cloud/images/navigation/products/local-ssd.svg
+    typeURI: null
+    docURL: https://cloud.google.com/local-ssd
+  - provider: GCP
+    category: Storage
+    product: Archival Storage
+    dsl: gcp_Archival_Storage
+    kind: resource
+    tagName: gcp_Archival_Storage
+    iconURL: https://cloud.google.com/images/navigation/products/archival-storage.svg
+    typeURI: null
+    docURL: https://cloud.google.com/storage/archival
+  - provider: GCP
+    category: Storage
+    product: Storage Transfer Service
+    dsl: gcp_Storage_Transfer_Service
+    kind: resource
+    tagName: gcp_Storage_Transfer_Service
+    iconURL: >-
+      https://cloud.google.com/images/navigation/products/cloud-data-transfer.svg
+    typeURI: null
+    docURL: https://cloud.google.com/storage-transfer-service
+  - provider: GCP
+    category: Storage
+    product: Google Workspace Essentials
+    dsl: gcp_Google_Workspace_Essentials
+    kind: resource
+    tagName: gcp_Google_Workspace_Essentials
+    iconURL: https://cloud.google.com/images/navigation/products/drive-enterprise.svg
+    typeURI: null
+    docURL: https://workspace.google.com/essentials/

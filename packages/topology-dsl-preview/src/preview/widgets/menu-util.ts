@@ -123,7 +123,10 @@ export function createBarWidget(commands: any) {
     label: 'Task Manager',
     mnemonic: 5,
     isEnabled: () => false,
-    execute: () => { }
+    
+    execute: () => {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+     }
   });
 
   commands.addCommand('example:close', {

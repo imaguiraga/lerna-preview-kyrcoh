@@ -10,7 +10,7 @@
     "lib": [
       "ESNext",
       //"ES2015.Promise",
-     // "ES2015.Iterable",
+      //"ES2015.Iterable",
       "DOM",
       "DOM.Iterable",
     ],
