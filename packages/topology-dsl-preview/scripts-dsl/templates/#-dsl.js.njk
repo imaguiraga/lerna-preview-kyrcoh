@@ -1,0 +1,14 @@
+import { resource } from '@imaguiraga/topology-dsl-core';
+import { mapArray } from './{{ provider }}-map.js';
+
+{% for item in items %}
+/**
+ * Create a '{{ item.dsl }}' dsl tree.
+ * @param {object} elt - The element.
+ * @return {object} dsl object.
+ */
+export function {{ item.dsl }}(...elt) {
+  return resource(...elt)._tagName_('{{ item.tagName }}')._set_('style', mapArray.get('{{ item.dsl }}'));
+}
+
+{% endfor %}

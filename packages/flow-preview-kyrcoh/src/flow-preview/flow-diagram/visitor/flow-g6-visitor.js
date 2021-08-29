@@ -14,7 +14,7 @@ export class FlowToG6Visitor {
       return result;
     }
     if(tree.compound) {
-      switch(tree.resourceType){
+      switch(tree.tagName){
         case "choice":
           result = this._visitChoice(tree,filterFn);
         break;
@@ -50,7 +50,7 @@ export class FlowToG6Visitor {
       label: n.id,
       model: { 
         provider: n.provider,
-        resourceType: n.resourceType,
+        tagName: n.tagName,
         tagName: n.tagName,
         compound: n.compound
       },
@@ -67,7 +67,7 @@ export class FlowToG6Visitor {
     let r = {
       model: { 
         provider: n.provider,
-        resourceType: n.resourceType,
+        tagName: n.tagName,
         tagName: null
       }
     };
@@ -148,13 +148,13 @@ class SequenceEltFlowToG6Visitor{
       edges: [],
       ...visitor.getNodeModel(tree)
     };
-    if (tree.resourceType !== SEQUENCE) {
+    if (tree.tagName !== SEQUENCE) {
       return graph;
     }
     // start + finish nodes
     graph.nodes.push(visitor.getNodeModel(tree.start));
     // nodes
-    if (tree.resourceType === SEQUENCE && tree.compound) {
+    if (tree.tagName === SEQUENCE && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
@@ -224,13 +224,13 @@ class MutltiPathEltFlowToG6Visitor{
       ...visitor.getNodeModel(tree)
     };
     //
-    if (tree.resourceType !== type) {
+    if (tree.tagName !== type) {
       return graph;
     }
     // start + finish nodes
     graph.nodes.push(visitor.getNodeModel(tree.start));
     // nodes
-    if (tree.resourceType === type && tree.compound) {
+    if (tree.tagName === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
@@ -294,7 +294,7 @@ class OptionalEltFlowToG6Visitor{
       edges: [],
       ...visitor.getNodeModel(tree)
     };
-    if (tree.resourceType !== OPTIONAL) {
+    if (tree.tagName !== OPTIONAL) {
       return graph;
     }
     // start node
@@ -306,7 +306,7 @@ class OptionalEltFlowToG6Visitor{
     }
 
     // nodes
-    if (tree.resourceType === OPTIONAL && tree.compound) {
+    if (tree.tagName === OPTIONAL && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
@@ -389,7 +389,7 @@ class RepeatEltFlowToG6Visitor {
       edges: [],
       ...visitor.getNodeModel(tree)
     };
-    if (tree.resourceType !== REPEAT) {
+    if (tree.tagName !== REPEAT) {
       return graph;
     }
     // start node
@@ -400,7 +400,7 @@ class RepeatEltFlowToG6Visitor {
       graph.nodes.push(visitor.getNodeModel(tree.loop));
     }
     // nodes
-    if (tree.resourceType === REPEAT && tree.compound) {
+    if (tree.tagName === REPEAT && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {

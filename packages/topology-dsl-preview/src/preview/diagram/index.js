@@ -1,6 +1,6 @@
-/* flow-diagram */
-export * from './g6/g6-flow-diagram-factory.js';
-/* flow-diagram */
-export * from './elk/elk-diagram-factory.js';
 /* visitors */
-export * from './visitor/index.js';
+export * from './visitor/uid-flow-visitor.js';
+
+/* elk-diagram */
+export * from './visitor/elk/elk-diagram-generator.js';
+export * from './visitor/elk/elk-layout-factory.js';

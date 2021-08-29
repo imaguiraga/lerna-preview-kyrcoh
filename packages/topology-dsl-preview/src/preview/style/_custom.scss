@@ -1,0 +1,11 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/utilities';
+
+$btn-padding-y: 'revert';
+$btn-padding-x: 'revert'; 
+$btn-font-size: 'inherit';
+$btn-border-radius: 0;
+
+@import '~bootstrap/scss/buttons';

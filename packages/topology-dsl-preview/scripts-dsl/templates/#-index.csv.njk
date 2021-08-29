@@ -1,0 +1,4 @@
+provider,category,product,dsl,kind,tagName,iconURL,typeURI,docURL
+{% for item in items %}
+{{ item.provider }},{{ item.category }},{{ item.product }},{{ item.dsl }},{{ item.kind }},{{ item.tagName }},{{ item.iconURL }},{{ item.typeURI }},{{ item.docURL }}
+{% endfor %}

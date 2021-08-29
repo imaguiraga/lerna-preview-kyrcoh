@@ -1,14 +1,11 @@
-// Copyright (c) Jupyter Development Team.
-// Distributed under the terms of the Modified BSD License.
-/*-----------------------------------------------------------------------------
-| Copyright (c) 2014-2017, PhosphorJS Contributors
-|
-| Distributed under the terms of the BSD 3-Clause License.
-|
-| The full license is in the file LICENSE, distributed with this software.
-|----------------------------------------------------------------------------*/
+// text -> dslObjectMap -> dslObject -> [elkGraph] => [elkGraph] -> elkLayout -> elkLayoutRelative -> elkLayoutAbsolute -> x6Layout -> x6Graph
 /* tslint:disable */
 import 'es6-promise/auto';  // polyfill Promise on IE
+
+import {
+  parseJSSourceModule,
+  registerJSModule
+} from './module-util';
 
 import {
   CommandRegistry
@@ -23,54 +20,35 @@ import {
 } from './widgets/menu-util';
 
 import { CodeMirrorWidget } from './widgets/codemirror-widget';
-import { AceEditorWidget } from './widgets/ace-editor-widget';
+//import { AceEditorWidget } from './widgets/ace-editor-widget';
 
-import { ELKGraphWidget } from './widgets/elkgraph-widget';
+import { IframeELKGraphWidget } from './widgets/iframe-elkgraph-widget';
 
-import './style/index.css';
-import { samples } from './samples1.js';
-import { samples2 } from './samples2.js';
+import './style/widget-style.scss';
+import { samples } from './samples-1.js';
+import { samples2 } from './samples-2.js';
 
-import * as flowDsl1 from '@imaguiraga/topology-dsl-core';
-import * as azure from '../assets/js/Azure_Products_Icons';
-import * as gcp from '../assets/js/GCP_Icons';
-
+import * as flowDsl from '@imaguiraga/topology-dsl-core';
+import * as gcp from '../assets/js/GCP';
+import { toElkGraph } from './diagram';
 const {
-  parseDsl,
-  parseDslModule,
-  registerJSModule,
-  resolveImports,
   NODEIDGENFN,
   clone
-} = flowDsl1;
+} = flowDsl;
 
-const flowDsl = { ...flowDsl1 };
-registerJSModule('azure-dsl', azure);
+//const DSL_MODULE = { ...flowDsl };
 registerJSModule('gcp-dsl', gcp);
 
-function loadFnFactory() {
-  let loadedImports = new Map();
-  const loadFn = (key) => {
-    if (loadedImports.has(key)) {
-      let obj = loadedImports.get(key);
-      //Clone to avoid ids collision     
-      let copy = clone(obj, NODEIDGENFN.next().value);
-      return copy;
-    } else {
-      return null;
-    }
-  };
+// Dynamically register compiled modules
+registerJSModule('topology-dsl', flowDsl);
+registerJSModule('@imaguiraga/topology-dsl-core', flowDsl);
+registerJSModule('core-dsl', flowDsl);
 
-  loadFn.loadedImports = function (newValue) {
-    if (!arguments.length) return loadedImports;
-    loadedImports = newValue;
-    return this;
-  };
-
-  return loadFn;
-}
-
-flowDsl.load = loadFnFactory();
+/*
+System.set('app://topology-dsl', flowDsl);
+System.set('app://@imaguiraga/topology-dsl-core', flowDsl);
+System.set('app://core-dsl', flowDsl);
+// */
 
 function main() {
   const commands = new CommandRegistry();
@@ -81,36 +59,73 @@ function main() {
 
   Widget.attach(bar, document.body);
   Widget.attach(main, document.body);
+  //*/
+}
 
+
+function extractVariables(modules) {
+  // Convert exports to map
+
+  let variables = new Map();
+  if (modules !== null) {
+    // Convert resolved export keys to a map
+    for (let key in modules) {
+      // Exclude module specific properties
+      if (key !== 'default' && !key.startsWith('_')) {
+        // Extract only subclasses of ResourceElt
+        if (modules[key] instanceof flowDsl.ResourceElt) {
+          variables.set(key, modules[key]);
+        }
+      }
+    }
+  }
+  return variables;
 }
 
 function createMainWidget(palette, commands) {
-  const elkgraphWidget = new ELKGraphWidget(640, 640);
+  const elkgraphWidget = new IframeELKGraphWidget('x6-renderer/index.html');
+  //const elkgraphWidget = new IframeELKGraphWidget('http://localhost:9000');
 
-  const editorWidget = new CodeMirrorWidget({
-    mode: 'text/typescript',
-    lineNumbers: true,
-    tabSize: 2,
-  });
-  //*/
-
-  //  const editorWidget = new AceEditorWidget();
+  const editorWidget = new CodeMirrorWidget();
+  //const editorWidget = new AceEditorWidget();
   editorWidget.title.label = 'EDITOR';
+  editorWidget.samples = samples2;
 
-  const callbackFn = function (content) {
+  const messageCallbackFn = function (message) {
+    if (message.jsonrpc !== undefined) {
+      elkgraphWidget.updateView(message);
+    }
+  };
+
+  const valueChangedCallbackFn = function (value) {
+    const IMPORT_ID = location.href + 'IMPORT.js';
     try {
-      //TODO NODEIDGENFN.next(true);         
-      parseDslModule(content, flowDsl).then((flows) => {
+      // TODO NODEIDGENFN.next(true);         
+      parseJSSourceModule(IMPORT_ID, value.content).then((modules) => {
+        console.log('parseJSSourceModule');
+        let dslObjectMap = extractVariables(modules);
         // Update graph flows
-        if (flows) {
-          elkgraphWidget.flows = flows;
-          console.log('parseDslModule');
+        if (dslObjectMap !== undefined && dslObjectMap !== null) {
+          const result = new Map();
+          dslObjectMap.forEach((dslObject, key, map) => {
+            if (dslObject !== null) {
+              //console.log(JSON.stringify(dslObject,null,'  '));
+              const elkgraph = toElkGraph(dslObject);
+              result.set(key, elkgraph);
+            }
+
+          });
+
+          // Convert to array
+          const message = { jsonrpc: '2.0', method: 'view.update', params: { key: value.key, values: result } };
+          // Update flows
+          messageCallbackFn(message);
         }
       }).catch((err) => {
         console.log(err);
-        let variables = new Map();
-        variables.set('ERROR', err);
-        elkgraphWidget.flows = variables;
+        const message = { jsonrpc: '2.0', method: 'view.error', params: err.message };
+        // Update flows
+        messageCallbackFn(message);
       });
 
     } catch (e) {
@@ -118,20 +133,18 @@ function createMainWidget(palette, commands) {
     }
   };
 
-  editorWidget.valueChanged.connect(
-    (sender, value) => {
-      console.log('valueChanged');
-      callbackFn(value);
-    }
-  );
-
-  // set default samples
-  editorWidget.samples = samples2;
-  editorWidget.selectElt.addEventListener('change', (event) => {
-    // TODO NODEIDGENFN.next(true);
+  editorWidget.valueChanged.connect((sender, value) => {
+    console.log('valueChanged');
+    valueChangedCallbackFn(value);
   });
 
-  let dock = new DockPanel();
+  elkgraphWidget.onload.connect((sender, value) => {
+    // Set default samples
+    console.log('onload');
+    editorWidget.updateEditorContent(null);
+  });
+
+  const dock = new DockPanel();
 
   dock.addWidget(editorWidget);
   dock.addWidget(elkgraphWidget, { mode: 'split-right', ref: editorWidget });
@@ -170,12 +183,12 @@ function createMainWidget(palette, commands) {
 
   BoxPanel.setStretch(dock, 1);
 
-  let main = new BoxPanel({ direction: 'left-to-right', spacing: 0 });
-  main.id = 'main';
+  const mainPanel = new BoxPanel({ direction: 'left-to-right', spacing: 0 });
+  mainPanel.id = 'main';
 
-  main.addWidget(dock);
-  window.onresize = () => { main.update(); };
-  return main;
+  mainPanel.addWidget(dock);
+  window.onresize = () => { mainPanel.update(); };
+  return mainPanel;
 }
 
 window.onload = main;

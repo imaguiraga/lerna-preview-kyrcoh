@@ -16,7 +16,7 @@ export class PipelineToELKVisitor {
     if( typeof tree === "undefined"){
       return result;
     }
-    switch(tree.resourceType){
+    switch(tree.tagName){
       case "data":
         result = TerminalPipelineToELKVisitor.visit(this,tree,filterFn);
       break;
@@ -51,7 +51,7 @@ export class PipelineToELKVisitor {
       label: n.id,
       model: { 
         provider: n.provider,
-        resourceType: n.resourceType,
+        tagName: n.tagName,
         tagName: n.tagName,
         compound: n.compound
       },
@@ -68,7 +68,7 @@ export class PipelineToELKVisitor {
     let r = {
       model: { 
         provider: n.provider,
-        resourceType: n.resourceType,
+        tagName: n.tagName,
         tagName: null
       }
     };
@@ -94,13 +94,13 @@ class SequenceEltFlowToELKVisitor{
       edges: [],
       ...visitor.getNodeModel(tree)
     };
-    if (tree.resourceType !== type) {
+    if (tree.tagName !== type) {
       return graph;
     }
     // start + finish nodes
     graph.children.push(visitor.getNodeModel(tree.start));
     // nodes
-    if (tree.resourceType === type && tree.compound) {
+    if (tree.tagName === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {
@@ -208,7 +208,7 @@ class MutltiPathToELKVisitor{
       ...visitor.getNodeModel(tree)
     };
     //
-    if (tree.resourceType !== type) {
+    if (tree.tagName !== type) {
       return graph;
     }
     // start + finish nodes
@@ -216,7 +216,7 @@ class MutltiPathToELKVisitor{
 
 
     // nodes
-    if (tree.resourceType === type && tree.compound) {
+    if (tree.tagName === type && tree.compound) {
       tree.elts.forEach(node => {
         // keep only terminal nodes
         if (!node.isTerminal()) {

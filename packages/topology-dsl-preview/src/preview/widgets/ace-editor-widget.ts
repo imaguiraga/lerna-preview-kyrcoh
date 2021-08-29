@@ -12,24 +12,26 @@ import {
 import { ISignal, Signal } from '@lumino/signaling';
 
 import * as ace from 'ace-builds';
-import '../style/index.css';
+import '../style//widget-style.scss';
 
 ace.config.set('basePath', 'https://ajaxorg.github.io/ace-builds/src-noconflict');
 
-//import 'tslint';
-//globalThis.JSHINT = JSHINT;
+// Linting
+import { JSHINT } from 'jshint';
+// eslint-disable-next-line
+(globalThis as any).JSHINT = JSHINT;
 
 /**
  * A widget which hosts a Ace editor.
  */
 export class AceEditorWidget extends Widget {
 
-  constructor(config?: ace.Ace.EditorOptions) {
+  constructor(config?: any) {
     super();
     this.addClass('CodeMirrorWidget');
 
-    let div = document.createElement('div');
-    div.setAttribute('style', 'padding:4px;background-color: #dfdfdf;');
+    const div = document.createElement('div');
+    div.setAttribute('class', 'container');
     this.node.appendChild(div);
 
     this.selectElt = document.createElement('select');
@@ -37,42 +39,55 @@ export class AceEditorWidget extends Widget {
 
     div.appendChild(this.selectElt);
 
-    let opt = document.createElement('option');
+    const opt = document.createElement('option');
     opt.value = 'Option 1';
     opt.text = 'Option 1';
     this.selectElt.add(opt);
 
-    let separator = document.createElement('div');
-    separator.setAttribute('class', 'separator');
-    this.node.appendChild(separator);
-
-    let content = document.createElement('div');
+    const content = document.createElement('div');
     content.setAttribute('class', 'AceEditorWidget');
     this.node.appendChild(content);
-
-    const editor = ace.edit(content, config || {
-      mode: 'ace/mode/javascript',
+    const self = this;
+    const defaultConfig = {
+      mode: 'ace/mode/typescript',
       // selectionStyle: 'text',
       autoScrollEditorIntoView: true,
       copyWithEmptySelection: true,
       enableAutoIndent: true,
-      hScrollBarAlwaysVisible: true,
-      vScrollBarAlwaysVisible: true,
-      theme: 'ace/theme/textmate',
-      showPrintMargin: true
-    });
+      hScrollBarAlwaysVisible: false,
+      vScrollBarAlwaysVisible: false,
+      theme: 'ace/theme/sqlserver',
+      showPrintMargin: true,
+      fontFamily: 'monospace',
+      fontSize: '13px'
+    };
+
+    const editor = ace.edit(content, config || defaultConfig);
 
     editor.session.setTabSize(2);
     editor.renderer.setScrollMargin(0, 10, 10, 10);
     this._editor = editor;
 
-    let self = this;
     self.editor.session.on('change', function (delta: ace.Ace.Delta) {
-      // delta.start, delta.end, delta.lines, delta.action
-      // Emit changes
-      let content = self.editor.getValue();
-      self._valueChanged.emit(content);
+      // Emit changes delta.start, delta.end, delta.lines, delta.action
+      const content = self.editor.getValue();
+      self._valueChanged.emit({
+        key: self.selectElt.selectedOptions[0].text,
+        content: content
+      });
 
+    });
+
+    // Update sample when the selection changes 
+    this.selectElt.addEventListener('change', (event: Event) => {
+      const elt = (event.target as HTMLSelectElement);
+      const result: string = self.getSamples().get(elt.value) || '';
+      // Update Editor with current selection 
+      self.content = result;
+      self._valueChanged.emit({
+        key: elt.selectedOptions[0].text,
+        content: result
+      });
     });
   }
 
@@ -89,7 +104,7 @@ export class AceEditorWidget extends Widget {
   }
 
   loadTarget(target: string): void {
-    var doc = this._editor;
+    const doc = this._editor;
     fetch(target)
       .then(response => response.json())
       .then(function (data) {
@@ -97,11 +112,12 @@ export class AceEditorWidget extends Widget {
       });
   }
 
-  protected onAfterAttach(msg: Message): void {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onAfterAttach(msg: Message): void {
 
   }
 
-  protected onResize(msg: Widget.ResizeMessage): void {
+  onResize(msg: Widget.ResizeMessage): void {
     this._editor.container.setAttribute('width', msg.width.toString());
     if (msg.width > 0 && msg.height > 0) {
       this._editor.container.style.width = msg.width + 'px';
@@ -110,6 +126,9 @@ export class AceEditorWidget extends Widget {
     }
   }
 
+  getSamples() {
+    return this._samples;
+  }
   // samples
   set samples(values: Array<string>) {
     // Convert to Map
@@ -121,7 +140,7 @@ export class AceEditorWidget extends Widget {
     }
 
     values.forEach((value, index) => {
-      let opt: HTMLOptionElement = document.createElement('option');
+      const opt: HTMLOptionElement = document.createElement('option');
       opt.value = index.toString();
       opt.text = `Sample #${index + 1}`;
       if (isScript(value)) {
@@ -137,22 +156,23 @@ export class AceEditorWidget extends Widget {
 
       this.selectElt.add(opt);
     });
-    // Update sample when the selection changes 
-    this.selectElt.addEventListener('change', (event: Event) => {
-      const result: string = this._samples.get((event.target as HTMLSelectElement).value) || '';
-      // Update Editor with current selection 
-      this._editor.setValue(result, -1);
-      this._valueChanged.emit(result);
-    });
-    // Set default
-    this._editor.setValue(this._samples.get('0') || '', -1);
+
   }
 
-  get valueChanged(): ISignal<this, string> {
+  updateEditorContent(text: string | undefined) {
+    // Set default
+    if (text === undefined || text === null) {
+      this.content = (this.getSamples().get('0') as string);
+    } else {
+      this.content = text;
+    }
+  }
+
+  get valueChanged(): ISignal<this, any> {
     return this._valueChanged;
   }
 
-  private _valueChanged = new Signal<this, string>(this);
+  private _valueChanged = new Signal<this, any>(this);
   private _editor: ace.Ace.Editor;
   private selectElt: HTMLSelectElement;
   private _samples: Map<string, string> = new Map();
@@ -160,5 +180,5 @@ export class AceEditorWidget extends Widget {
 }
 
 function isScript(source: any) {
-  return (source.endsWith('.js') || source.endsWith('.jsx') || source.endsWith('.ts') || source.endsWith('.tsx'));
+  return (/\.(tsx?|jsx?)$/.test(source));
 }

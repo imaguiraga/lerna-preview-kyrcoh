@@ -3,7 +3,7 @@ import {
 } from '@lumino/widgets';
 
 export function createMenu(commands: any): Menu {
-  let sub1 = new Menu({ commands });
+  const sub1 = new Menu({ commands });
   sub1.title.label = 'More...';
   sub1.title.mnemonic = 0;
   sub1.addItem({ command: 'example:one' });
@@ -11,7 +11,7 @@ export function createMenu(commands: any): Menu {
   sub1.addItem({ command: 'example:three' });
   sub1.addItem({ command: 'example:four' });
 
-  let sub2 = new Menu({ commands });
+  const sub2 = new Menu({ commands });
   sub2.title.label = 'More...';
   sub2.title.mnemonic = 0;
   sub2.addItem({ command: 'example:one' });
@@ -20,7 +20,7 @@ export function createMenu(commands: any): Menu {
   sub2.addItem({ command: 'example:four' });
   sub2.addItem({ type: 'submenu', submenu: sub1 });
 
-  let root = new Menu({ commands });
+  const root = new Menu({ commands });
   root.addItem({ command: 'example:copy' });
   root.addItem({ command: 'example:cut' });
   root.addItem({ command: 'example:paste' });
@@ -39,7 +39,7 @@ export function createMenu(commands: any): Menu {
 }
 
 export function createPalette(commands: any) {
-  let palette = new CommandPalette({ commands });
+  const palette = new CommandPalette({ commands });
   palette.addItem({ command: 'example:cut', category: 'Edit' });
   palette.addItem({ command: 'example:copy', category: 'Edit' });
   palette.addItem({ command: 'example:paste', category: 'Edit' });
@@ -123,7 +123,10 @@ export function createBarWidget(commands: any) {
     label: 'Task Manager',
     mnemonic: 5,
     isEnabled: () => false,
-    execute: () => { }
+    
+    execute: () => {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+     }
   });
 
   commands.addCommand('example:close', {
@@ -235,25 +238,25 @@ export function createBarWidget(commands: any) {
     command: 'example:open-task-manager'
   });
 
-  let menu1 = createMenu(commands);
+  const menu1 = createMenu(commands);
   menu1.title.label = 'File';
   menu1.title.mnemonic = 0;
 
-  let menu2 = createMenu(commands);
+  const menu2 = createMenu(commands);
   menu2.title.label = 'Edit';
   menu2.title.mnemonic = 0;
 
-  let menu3 = createMenu(commands);
+  const menu3 = createMenu(commands);
   menu3.title.label = 'View';
   menu3.title.mnemonic = 0;
 
-  let bar = new MenuBar();
+  const bar = new MenuBar();
   bar.addMenu(menu1);
   bar.addMenu(menu2);
   bar.addMenu(menu3);
   bar.id = 'menuBar';
 
-  let contextMenu = new ContextMenu({ commands });
+  const contextMenu = new ContextMenu({ commands });
 
   document.addEventListener('contextmenu', (event: MouseEvent) => {
     if (contextMenu.open(event)) {
