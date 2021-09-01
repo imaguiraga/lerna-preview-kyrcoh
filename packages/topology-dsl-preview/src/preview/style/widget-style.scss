@@ -97,6 +97,7 @@ body {
     flex: 0 1 125px;*/
   min-height: 22px;
   max-height: 22px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   /*
     min-width: 35px;
     margin-left: -1px;
@@ -134,23 +135,25 @@ body {
 button {
   border-width: thin;
   padding: 2px 12px;
-  border-style: solid;/*outset*/
+  border-style: groove;/*outset*/
   box-shadow: none !important;
   border-radius: 0; 
   display: inline-flex;
-  /* justify-content: center; */
-  /* vertical-align: middle; */
   gap: 4px;
   align-items: center;
   justify-items: center;
 
   &:active {
-    border-style: groove;/*inset*/
-    background-color: rgb(180, 180, 180);
+    border-style: solid;/*inset*/
+    background-color: rgb(77, 77, 77);
   }
 
   &:hover {
     background-color: rgb(210, 210, 210);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px rgba(0, 119, 255, 0.692) !important;
   }
 }
 
@@ -163,13 +166,18 @@ input {
 
 select,
 input {
-  border-width: thin;
-  outline-width: thin;
+  outline-style: none !important;
   border-radius: 0 !important;
-
-  &:focus, &:hover {
-    outline-style: solid;
+  border: thin solid rgb(172, 171, 171) !important;
+  &:hover {
+    border-color: black !important;
   }
+  
+  &:focus{
+    border-color: black !important;
+    box-shadow: 0 0 0 1px rgba(0, 119, 255, 0.877) !important;
+  }
+
 }
 
 .container {
