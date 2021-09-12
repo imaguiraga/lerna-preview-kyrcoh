@@ -5,7 +5,10 @@ layered.mergeEdges: true
 spacing.nodeNodeBetweenLayers: 40
 spacing.edgeNodeBetweenLayers: 40
 spacing.edgeEdgeBetweenLayers: 40
+
+spacing.edgeNode:20
 edgeRouting:ORTHOGONAL
+//elk.direction: DOWN
 
 node n1{
     portConstraints: FIXED_SIDE
@@ -14,27 +17,21 @@ node n1{
     //portAlignment.north: BEGIN
     //portAlignment.south: END
 
-    port p1 { side: WEST index: 0 }
+    port p1 { side: WEST index: 0 borderOffset: 0}
     port p2 { side: EAST index: 1 }
+    port p3 { side: NORTH index: 1 }
     label "1" 
 }
 node n2 {
     portConstraints: FIXED_SIDE
-    //portAlignment.west: BEGIN
-    //portAlignment.east: END
-    //portAlignment.north: BEGIN
-    //portAlignment.south: END
 
     port p1 { side: WEST index: 0 }
     port p2 { side: EAST index: 1 }
+    port p3 { side: NORTH index: 1 }
     label "2" 
 }
 node n3{
     portConstraints: FIXED_SIDE
-    //portAlignment.west: BEGIN
-    //portAlignment.east: END
-    //portAlignment.north: BEGIN
-    //portAlignment.south: END
 
     port p1 { side: WEST index: 0 }
     port p2 { side: EAST index: 1 }
@@ -42,10 +39,6 @@ node n3{
 }
 node n4{
     portConstraints: FIXED_SIDE
-    //portAlignment.west: BEGIN
-    //portAlignment.east: END
-    //portAlignment.north: BEGIN
-    //portAlignment.south: END
 
     port p1 { side: WEST index: 0 }
     port p2 { side: EAST index: 1 }
@@ -53,10 +46,6 @@ node n4{
 }
 node n5{
     portConstraints: FIXED_SIDE
-    //portAlignment.west: BEGIN
-    //portAlignment.east: END
-    //portAlignment.north: BEGIN
-    //portAlignment.south: END
 
     port p1 { side: WEST index: 0 }
     port p2 { side: EAST index: 1 }
@@ -65,7 +54,7 @@ node n5{
 edge n1.p2 -> n2.p1 {priority.direction: 1}
 edge n1.p2 -> n3.p1 {priority.direction: 1}
 edge n3.p2 -> n4.p1 {priority.direction: 1}
-edge n4.p2 -> n1.p1 {priority.direction: 0}
+edge n4.p2 -> n1.p3 {priority.direction: 0}
 edge n2.p2 -> n4.p1 {priority.direction: 1}
 edge n4.p2 -> n5.p1 {priority.direction: 1}
-edge n5.p2 -> n2.p1 {priority.direction: 0}
+edge n5.p2 -> n2.p3 {priority.direction: 0}
