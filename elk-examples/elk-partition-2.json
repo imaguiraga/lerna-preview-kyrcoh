@@ -1,0 +1,128 @@
+{
+  id: 'root',
+  layoutOptions: { 
+    'algorithm': 'layered',
+    'elk.direction': 'RIGHT',
+    'partitioning.activate': true,
+    'layered.mergeEdges': true,
+    'spacing.nodeNodeBetweenLayers': 40,
+    'spacing.edgeNodeBetweenLayers': 40,
+    'spacing.edgeEdgeBetweenLayers': 40,
+  },
+  children: [
+    { id: 'n1', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 1,
+      },
+      'labels': [
+        {
+          'text': 'n1',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ]
+    },
+    { id: 'n2', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 1,
+      },
+      'labels': [
+        {
+          'text': 'n2',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+    { id: 'n3', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 5,
+      },
+      'labels': [
+        {
+          'text': 'n3',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+    { id: 'n4', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 3,
+      },
+      'labels': [
+        {
+          'text': 'n4',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+    { id: 'n5', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 4,
+      },
+      'labels': [
+        {
+          'text': 'n5',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+    { id: 'n6', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 6,
+      },
+      'labels': [
+        {
+          'text': 'n6',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+    { id: 'n7', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 3,
+      },
+      'labels': [
+        {
+          'text': 'n7',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+    { id: 'n8', width: 30, height: 30,
+      properties: {
+        'partitioning.partition': 3,
+      },
+      'labels': [
+        {
+          'text': 'n8',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] 
+    },
+  ],
+  edges: [
+    { id: 'e1', sources: [ 'n1' ], targets: [ 'n2' ] },
+    { id: 'e2', sources: [ 'n1' ], targets: [ 'n3' ] },
+    { id: 'e3', sources: [ 'n2' ], targets: [ 'n4' ] },
+    { id: 'e4', sources: [ 'n4' ], targets: [ 'n5' ] },
+    { id: 'e5', sources: [ 'n5' ], targets: [ 'n6' ] },
+    { id: 'e6', sources: [ 'n3' ], targets: [ 'n6' ] },
+    { id: 'e7', sources: [ 'n1' ], targets: [ 'n7' ] },
+    { id: 'e8', sources: [ 'n8' ], targets: [ 'n6' ] }
+  ]
+}

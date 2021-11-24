@@ -1,0 +1,111 @@
+{
+  id: "root",
+  layoutOptions: { 'algorithm': 'layered',"org.eclipse.elk.port.borderOffset": 10,
+    "org.eclipse.elk.layered.mergeEdges": true,
+    "spacing.nodeNodeBetweenLayers": 40,
+    "spacing.edgeNodeBetweenLayers": 40,
+    "spacing.edgeEdgeBetweenLayers": 40,
+    "spacing": 40,
+    'org.eclipse.elk.spacing.nodeSelfLoop': 20,
+    "elk.spacing.individualOverride" : true
+   },
+  children: [
+    { id: "n1", width: 30, height: 30 ,
+      'labels': [
+        {
+          'text': 'n1',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] , 
+      ports:[
+        {
+          id:'p1',
+          properties: {
+          'port.side':'WEST',
+          
+          }
+        },
+        {
+          id:'p2',
+          properties: {
+          'port.side':'EAST'
+          }
+        }
+      ],
+      "properties": {
+        "portConstraints": "FIXED_ORDER",
+        //"nodeLabels.placement": "[H_LEFT, V_TOP, OUTSIDE]"
+      },
+    },
+    { id: "n2", width: 30, height: 30,
+      'labels': [
+        {
+          'text': 'n2',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ]  },
+    { 
+      id: "n3", width: 30, height: 30,
+      'labels': [
+        {
+          'text': 'n3',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] , 
+      ports:[
+        {
+          id:'p3',
+          properties: {
+          'port.side':'WEST',
+          
+          }
+        },
+        {
+          id:'p4',
+          properties: {
+          'port.side':'EAST'
+          }
+        },
+        {
+          id:'p5',
+          properties: {
+          //'port.side':'NORTH',
+          }
+        }
+      ],
+      "properties": {
+        "portConstraints": "FIXED_ORDER",
+        //'org.eclipse.elk.spacing.portPort':20
+      }
+    },
+    { id: "n4", width: 30, height: 30,
+      'labels': [
+        {
+          'text': 'n4',
+          'properties': {
+            'nodeLabels.placement': '[H_LEFT, V_TOP, INSIDE]'
+          }
+        }
+      ] }
+  ],
+  edges: [
+    { id: "e1", sources: [ "p2" ], targets: [ "n2" ] },
+    { id: "e2", sources: [ "n2" ], targets: [ "p3" ] },
+    { id: "e3", sources: [ "p4" ], targets: [ "p1" ] },
+    { id: "e4", sources: [ "p4" ], targets: [ "n4" ] },
+    { id: "e5", sources: [ "p4" ], targets: [ "p3" ],
+
+      properties: {
+        "org.eclipse.elk.spacing.individual": {
+          "spacing.edgeNode":20
+        } 
+      }
+    }
+  ]
+}
