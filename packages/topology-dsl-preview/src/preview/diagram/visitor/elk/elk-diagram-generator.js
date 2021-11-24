@@ -3,7 +3,7 @@ import {
 } from '../util.js';
 
 import {
-  jsonToDslObject
+  jsonToDslObject, group
 } from '@imaguiraga/topology-dsl-core';
 
 const SEQUENCE = 'sequence';
@@ -32,7 +32,7 @@ export class DslToELKGenerator {
         'elk.hierarchyHandling': 'SEPARATE_CHILDREN',
       },
       children: [
-        this.visit(tree, filterFn)
+        this.visit(group(tree), filterFn)
       ]
     };
   }
@@ -262,8 +262,12 @@ class GroupEltDslToELKGenerator {
   }
 
   buildNodes(elts, tree, graph, visitor, parent, filterFn) {
+    if (elts === null || (Array.isArray(elts) && elts.length === 0)) {
+      return;
+    }
     const self = this;
-    elts.forEach(elt => {
+    let _elts = Array.isArray(elts) ? elts : [elts];
+    _elts.forEach(elt => {
       let arr = [];
       if (Array.isArray(elt)) {
         arr = elt;
@@ -271,10 +275,19 @@ class GroupEltDslToELKGenerator {
         arr.push(elt);
       }
 
+      // From
+      if (elt.eltsFrom !== undefined && elt.eltsFrom.length > 0) {
+        this.buildNodes(elt.eltsFrom, tree, graph, visitor, parent, filterFn);
+        let sources = this.getFinish(elt.eltsFrom);
+        let targets = this.getStart(elt);
+
+        this.buildLinks(sources, targets, graph, tree, visitor);
+      }
+
       arr.forEach((a) => {
         if (Array.isArray(a)) {
           this.buildNodes(a, tree, graph, visitor, parent, filterFn);
-        } else {
+        } else if (typeof a === 'object') {
           let ctree = a.accept === undefined ? a : a.accept(visitor, n => tree.foundElt(n));
           if (ctree !== null) {
             ctree.parent = parent;
@@ -290,6 +303,14 @@ class GroupEltDslToELKGenerator {
 
       }, self);
 
+      // To
+      if (elt.eltsTo !== undefined && elt.eltsTo.length > 0) {
+        this.buildNodes(elt.eltsTo, tree, graph, visitor, parent, filterFn);
+        let sources = this.getFinish(elt);
+        let targets = this.getStart(elt.eltsTo);
+
+        this.buildLinks(sources, targets, graph, tree, visitor);
+      }
     }, self);
   }
 
@@ -331,7 +352,7 @@ class GroupEltDslToELKGenerator {
     if (Array.isArray(elts)) {
       elts.forEach((elt) => {
         result.push(...this.toArray(elt));
-      })
+      }, this);
 
     } else {
       result.push(elts);
@@ -346,6 +367,7 @@ class GroupEltDslToELKGenerator {
     let targets = this.toArray(_targets_);
 
     if (sources.length === 1 && targets.length === 1) {
+      // 1 -> 1
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: sources,
@@ -354,6 +376,7 @@ class GroupEltDslToELKGenerator {
       });
 
     } else if (sources.length === 1 && targets.length > 1) {
+      // 1 -> n
       targets.forEach((t) => {
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
@@ -361,9 +384,10 @@ class GroupEltDslToELKGenerator {
           targets: [t],
           ...visitor.getEdgeModel(tree),
         });
-      });
+      }, this);
 
     } else if (sources.length > 1 && targets.length === 1) {
+      // n -> 1
       sources.forEach((s) => {
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
@@ -371,9 +395,9 @@ class GroupEltDslToELKGenerator {
           targets: targets,
           ...visitor.getEdgeModel(tree),
         });
-      });
-    } else if (sources.length > 1 && targets.length > 1) {
+      }, this);
 
+    } else if (sources.length > 1 && targets.length > 1) {
       // n -> n => n -> 1 -> n
       // add synthetic link clone
       const link = visitor.getSynthPortModel(tree.start, START);
@@ -382,7 +406,9 @@ class GroupEltDslToELKGenerator {
       graph.children.push(link);
       let links = [link.id];
 
+      // n -> 1
       this.buildLinks(sources, links, graph, tree, visitor);
+      // 1 -> n
       this.buildLinks(links, targets, graph, tree, visitor);
 
     }
@@ -464,7 +490,7 @@ class FanOutEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
-    });
+    }, this);
   }
 }
 
@@ -488,7 +514,7 @@ class FanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
-    });
+    }, this);
   }
 }
 
@@ -521,7 +547,7 @@ class FanOutFanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
-    });
+    }, this);
   }
 }
 

@@ -1,0 +1,92 @@
+algorithm: layered
+elk.direction: DOWN
+partitioning.activate: true
+layered.mergeEdges: true
+spacing.nodeNodeBetweenLayers: 40
+spacing.edgeNodeBetweenLayers: 40
+spacing.edgeEdgeBetweenLayers: 40
+edgeRouting:ORTHOGONAL
+
+node n1 {
+	partitioning.partition: 0
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N1" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+node n2 {
+	partitioning.partition: 1
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N2" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+node n3 {
+	partitioning.partition: 3
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N3" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+node n4 {
+	partitioning.partition: 3
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N4" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+node n5 {
+	partitioning.partition: 4
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N5" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+node n6 {
+	partitioning.partition: 5
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N6" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+node n7 {
+	partitioning.partition: 4
+    nodeSize.constraints: "[NODE_LABELS]"
+	label "N7" {
+		layout [
+			size: 24, 16
+		]
+		nodeLabels.placement: "[H_CENTER, V_CENTER, INSIDE]"
+	}
+}
+edge n1 -> n2
+edge n1 -> n7
+edge n1 -> n3 
+edge n2 -> n4
+edge n4 -> n5
+edge n5 -> n6
+edge n3 -> n4
+edge n3 -> n6
+ 
+//https://rtsys.informatik.uni-kiel.de/elklive/elkgraph.html
+//https://gitter.im/eclipse/elk?at=5fe2fa9e22f12e449b093313
+//https://www.eclipse.org/elk/reference/algorithms/org-eclipse-elk-layered.html
+//https://rtsys.informatik.uni-kiel.de/elklive/examples.html

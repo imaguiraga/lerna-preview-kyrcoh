@@ -73,16 +73,30 @@ export const testflow = gce('b');
 testflow._title_('AZ VM-B');
 `,
 `import { choice, terminal, sequence } from 'topology-dsl';
+
 export const testflow = choice(
-  terminal('a')._in_('a','b')._out_('a','b'),
+  terminal('a')._in_('1','2')._out_('3','4'),
   choice('e', 'd'),
   sequence(
-    terminal('b'), 
-    terminal('c')._in_('a','b'),
-    sequence('c','d')._in_('a','b')._out_('e','f')
+    terminal('b'),
+    terminal('c')._in_('5','6'),
+    sequence('c','d')._in_('7','8b')._out_('e','f')
   ),
   sequence('c','d')
-);`,
+);
+
+let v1 = terminal('a');
+export const testflow2 = choice(
+  v1.from('1','2'),
+
+).to('a1','b1');
+
+let v2 = choice('e1', 'd1');
+v1.from('4').to(v2);
+//@TODO chain choice
+v1.from('5').to('6').choice('e2', 'd2').choice('e3', 'd3');
+
+`,
 `import {
   choice,
   terminal,
@@ -93,12 +107,12 @@ export const testflow = choice(
 } from 'topology-dsl';
 
 export const testflow = choice(
-  terminal('a')._in_('a','b')._out_('a','b'),
+  terminal('a')._in_('1','2')._out_('3','4'),
   choice('e', 'd'),
   sequence(
     terminal('b'),
-    terminal('c')._in_('a','b'),
-    sequence('c','d')._in_('a','b')._out_('e','f')
+    terminal('c')._in_('5','6'),
+    sequence('c','d')._in_('7','8b')._out_('e','f')
   ),
   sequence('c','d')
 );
