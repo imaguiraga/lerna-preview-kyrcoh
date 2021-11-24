@@ -3,7 +3,7 @@ import {
 } from '../util.js';
 
 import {
-  jsonToDslObject
+  jsonToDslObject, group
 } from '@imaguiraga/topology-dsl-core';
 
 const SEQUENCE = 'sequence';
@@ -32,7 +32,7 @@ export class DslToELKGenerator {
         'elk.hierarchyHandling': 'SEPARATE_CHILDREN',
       },
       children: [
-        this.visit(tree, filterFn)
+        this.visit(group(tree), filterFn)
       ]
     };
   }
@@ -266,7 +266,8 @@ class GroupEltDslToELKGenerator {
       return;
     }
     const self = this;
-    elts.forEach(elt => {
+    let _elts = Array.isArray(elts) ? elts : [elts];
+    _elts.forEach(elt => {
       let arr = [];
       if (Array.isArray(elt)) {
         arr = elt;
