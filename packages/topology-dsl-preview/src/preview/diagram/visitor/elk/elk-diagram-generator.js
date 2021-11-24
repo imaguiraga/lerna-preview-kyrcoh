@@ -262,7 +262,7 @@ class GroupEltDslToELKGenerator {
   }
 
   buildNodes(elts, tree, graph, visitor, parent, filterFn) {
-    if (elts === null || (Array.isArray(elts) && elts.length === 0)) {
+    if (elts === undefined || elts === null || (Array.isArray(elts) && elts.length === 0)) {
       return;
     }
     const self = this;
