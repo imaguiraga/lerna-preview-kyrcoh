@@ -1,5 +1,9 @@
 export const samples2 = [
   `import { choice, terminal, sequence, group } from 'topology-dsl';
+
+  export const v3 = choice('e1', 'd1');
+  v3.to('6').sequence('e2', 'd2').choice('e3', 'd3');
+
 export const v1 = 
 sequence(
     terminal('a'), 
@@ -93,7 +97,6 @@ export const testflow2 = choice(
 
 let v2 = choice('e1', 'd1');
 v1.from('4').to(v2);
-//@TODO chain choice
 v1.from('5').to('6').choice('e2', 'd2').choice('e3', 'd3');
 
 `,
