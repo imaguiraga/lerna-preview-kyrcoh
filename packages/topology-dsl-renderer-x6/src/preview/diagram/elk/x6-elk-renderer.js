@@ -1,7 +1,19 @@
 import './style/x6-elk-style.css';
-
+import React from 'react';
 import { Graph, Shape, Point, Node, Edge } from '@antv/x6';
 import { elkLayout, buildNodeLookup } from './elk-layout-factory';
+import { ResourceNode } from './node/reource-node';
+
+Graph.registerNode(
+  'resource-node',
+  {
+    inherit: 'react-shape',
+    width: 180,
+    height: 36,
+    component: <ResourceNode />,
+  },
+  true,
+)
 
 function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/, view/*: EdgeView*/) {
   const points = vertices.map((p) => Point.create(p));
@@ -116,43 +128,6 @@ export function createElkX6Renderer(_container_, _minimap_, _width_, _height_, _
 export function toX6Layout(elkLayoutNode) {
   return toX6LayoutRec(elkLayoutNode);
 }
-
-const RESOURCE_HTML = {
-  render(node) { //: Cell
-    const model = node.getData(); //as any
-    const style = model.data.style;// IconPath
-
-    const wrap = document.createElement('div');
-    wrap.style.display = 'flex';
-
-    let iconPath = (style !== undefined && style !== null) ? encodeURI(style.iconURL) : null;
-    // If icon exists
-    if (iconPath !== undefined && iconPath !== null) {
-      const img = document.createElement('img');
-
-      img.src = iconPath;
-      img.width = (model.compound === undefined || model.compound === true ? model.height : model.height / 2) - UNIT;
-      img.height = img.width;
-      wrap.appendChild(img);
-    }
-
-    const textdiv = document.createElement('div');
-    textdiv.style.padding = UNIT / 2;
-    textdiv.style.display = 'inline-block';
-    textdiv.style.margin = 'auto';
-
-    textdiv.innerHTML =
-      (style && style.product ? `<div><code>${style.product}</code></div>` : '') +
-      `<div><code class='resource-title'>${model !== undefined ? model.title : ''}</code></div>`
-      ;
-    wrap.appendChild(textdiv);
-
-    return wrap;
-  },
-  shouldComponentUpdate(node) { //: Cell
-    return node.hasChanged('data');
-  },
-};
 
 function toX6LayoutRec(elkLayoutNode, x6Layout = { nodes: [], edges: [] }) {
   // Clone node 
@@ -278,8 +253,7 @@ function createX6Node(elkLayoutNode, x6Layout) {
   } else {
     if (children.length === 0) {
       n.label = null;
-      n.shape = 'html';
-      n.html = RESOURCE_HTML;
+      n.shape = 'resource-node';
 
     } else if (elkLayoutNode.labels !== undefined) {
       const l = createX6Label(elkLayoutNode, x6Layout);
@@ -320,8 +294,8 @@ function createX6Label(elkLayoutNode, x6Layout) {
   };
   l.data.compound = undefined;
   l.label = null;
-  l.shape = 'html';
-  l.html = RESOURCE_HTML;
+  l.shape = 'resource-node';
+
   x6Layout.nodes.push(l);
   return l;
 }

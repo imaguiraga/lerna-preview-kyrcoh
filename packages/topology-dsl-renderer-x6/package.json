@@ -6,6 +6,7 @@
   "homepage": "./",
   "dependencies": {
     "@antv/x6": "^1.28.1",
+    "@antv/x6-react-shape": "^1.5.2",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
