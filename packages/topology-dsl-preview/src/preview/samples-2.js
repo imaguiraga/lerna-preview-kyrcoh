@@ -1,8 +1,11 @@
 export const samples2 = [
-  `import { choice, terminal, sequence, group } from 'topology-dsl';
+  `import { choice, terminal, sequence, group, fanIn, fanOut } from 'topology-dsl';
 
-  export const v3 = choice('choice',['e1', 'd1']);
-  v3.to('6').sequence('e2', 'd2').choice('choice',['e3', 'd3']);
+export const va = fanIn(['e1', 'd1'],'fanIn');
+export const vb = fanOut('fanOut',['e1', 'd1']);
+
+export const v3 = choice('choice',['e1', 'd1']);
+v3.to('6').sequence('e2', 'd2').choice('choice',['e3', 'd3']);
 
 export const v1 = 
 sequence(

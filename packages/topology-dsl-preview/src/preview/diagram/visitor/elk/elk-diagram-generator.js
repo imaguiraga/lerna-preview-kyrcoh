@@ -353,6 +353,11 @@ class GroupEltDslToELKGenerator {
   }
 
   buildLinks(_sources_, _targets_, graph, tree, visitor) {
+    // Skip if sources and targets are undefined 
+    if (_sources_ === undefined || _sources_ === null
+      || _targets_ === undefined || _targets_ === null) {
+      return;
+    }
     // Expand in case the element is an array
     let sources = this.toArray(_sources_);
     let targets = this.toArray(_targets_);
@@ -427,15 +432,19 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
       return;
     }
 
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
+    const start = !tree.nostart ? visitor.getSynthPortModel(tree.start, START) : null;
+    if (start !== null) {
+      graph.children.push(start);
+    }
+    const finish = !tree.noend ? visitor.getSynthPortModel(tree.finish, FINISH) : null;
+    if (finish !== null) {
+      graph.children.push(finish);
+    }
 
     // edges
 
     // start -> elts
-    let sources = [start.id];
+    let sources = start !== null ? [start.id] : null;
     let targets = this.getStart(tree.elts[0]);
 
     this.buildLinks(sources, targets, graph, tree, visitor);
@@ -451,7 +460,7 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     // elts -> finish
     sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-    targets = [finish.id];
+    targets = finish !== null ? [finish.id] : null;
 
     this.buildLinks(sources, targets, graph, tree, visitor);
 
