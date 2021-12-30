@@ -28,7 +28,7 @@ export const sample = {
      {
       "text": "sequence.17",
       "properties": {
-       "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+       "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
       }
      }
     ],
@@ -162,7 +162,7 @@ export const sample = {
         {
          "text": "sequence.17",
          "properties": {
-          "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
          }
         }
        ]
@@ -235,7 +235,7 @@ export const sample = {
         {
          "text": "sequence.17",
          "properties": {
-          "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
          }
         }
        ]
@@ -264,7 +264,7 @@ export const sample = {
        {
         "text": "sequence.11",
         "properties": {
-         "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+         "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
         }
        }
       ],
@@ -386,7 +386,7 @@ export const sample = {
           {
            "text": "sequence.11",
            "properties": {
-            "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+            "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
            }
           }
          ]
@@ -459,7 +459,7 @@ export const sample = {
           {
            "text": "sequence.11",
            "properties": {
-            "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+            "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
            }
           }
          ]
@@ -530,7 +530,7 @@ export const sample = {
           {
            "text": "sequence.11",
            "properties": {
-            "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+            "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
            }
           }
          ]
@@ -559,7 +559,7 @@ export const sample = {
          {
           "text": "group.9",
           "properties": {
-           "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+           "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
           }
          }
         ],
@@ -657,7 +657,7 @@ export const sample = {
             {
              "text": "group.9",
              "properties": {
-              "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+              "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
              }
             }
            ]
@@ -730,7 +730,7 @@ export const sample = {
             {
              "text": "group.9",
              "properties": {
-              "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+              "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
              }
             }
            ]
@@ -761,7 +761,7 @@ export const sample = {
           {
            "text": "sequence.11",
            "properties": {
-            "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+            "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
            }
           }
          ]
@@ -834,7 +834,7 @@ export const sample = {
           {
            "text": "sequence.11",
            "properties": {
-            "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+            "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
            }
           }
          ]
@@ -992,7 +992,7 @@ export const sample = {
         {
          "text": "sequence.17",
          "properties": {
-          "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
          }
         }
        ]
@@ -1065,7 +1065,7 @@ export const sample = {
         {
          "text": "sequence.17",
          "properties": {
-          "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
          }
         }
        ]
@@ -1138,7 +1138,7 @@ export const sample = {
         {
          "text": "sequence.17",
          "properties": {
-          "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
          }
         }
        ]
@@ -1211,7 +1211,7 @@ export const sample = {
         {
          "text": "sequence.17",
          "properties": {
-          "nodeLabels.placement": "[V_TOP, H_LEFT, INSIDE]"
+          "nodeLabels.placement": "[V_TOP, H_LEFT, OUTSIDE]"
          }
         }
        ]

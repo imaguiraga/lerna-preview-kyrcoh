@@ -3,7 +3,7 @@ import {
 } from './util.js';
 
 import {
-  jsonToDslObject
+  jsonToDslObject, group
 } from '@imaguiraga/topology-dsl-core';
 
 const SEQUENCE = 'sequence';
@@ -14,9 +14,6 @@ const FINISH = 'finish';
 const PORT = 'port';
 const EDGE = 'edge';
 
-const FANOUT_FANIN = 'fanOut_fanIn';
-const FANIN = 'fanIn';
-const FANOUT = 'fanOut';
 const GROUP = 'group';
 const RESOURCE = 'resource';
 export class DslToELKGenerator {
@@ -32,7 +29,7 @@ export class DslToELKGenerator {
         'elk.hierarchyHandling': 'SEPARATE_CHILDREN',
       },
       children: [
-        this.visit(tree, filterFn)
+        this.visit(group(tree), filterFn)
       ]
     };
   }
@@ -57,15 +54,6 @@ export class DslToELKGenerator {
     }
     if (tree.compound) {
       switch (tree.kind) {
-        case FANOUT_FANIN:
-          result = FanOutFanInEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
-        case FANIN:
-          result = FanInEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
-        case FANOUT:
-          result = FanOutEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
         case GROUP:
           result = GroupEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
           break;
@@ -112,8 +100,8 @@ export class DslToELKGenerator {
         {
           text: n.title || n.id,
           properties: {
-            // 'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]',
-            'nodeLabels.placement': '[V_TOP, H_LEFT, INSIDE]',
+            'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]'
+            // 'nodeLabels.placement': '[V_TOP, H_LEFT, INSIDE]',
           }
         }
       ]
@@ -262,8 +250,12 @@ class GroupEltDslToELKGenerator {
   }
 
   buildNodes(elts, tree, graph, visitor, parent, filterFn) {
+    if (elts === undefined || elts === null || (Array.isArray(elts) && elts.length === 0)) {
+      return;
+    }
     const self = this;
-    elts.forEach(elt => {
+    let _elts = Array.isArray(elts) ? elts : [elts];
+    _elts.forEach(elt => {
       let arr = [];
       if (Array.isArray(elt)) {
         arr = elt;
@@ -271,10 +263,19 @@ class GroupEltDslToELKGenerator {
         arr.push(elt);
       }
 
+      // From
+      if (elt.eltsFrom !== undefined && elt.eltsFrom.length > 0) {
+        this.buildNodes(elt.eltsFrom, tree, graph, visitor, parent, filterFn);
+        let sources = this.getFinish(elt.eltsFrom);
+        let targets = this.getStart(elt);
+
+        this.buildLinks(sources, targets, graph, tree, visitor);
+      }
+
       arr.forEach((a) => {
         if (Array.isArray(a)) {
           this.buildNodes(a, tree, graph, visitor, parent, filterFn);
-        } else {
+        } else if (typeof a === 'object') {
           let ctree = a.accept === undefined ? a : a.accept(visitor, n => tree.foundElt(n));
           if (ctree !== null) {
             ctree.parent = parent;
@@ -290,6 +291,14 @@ class GroupEltDslToELKGenerator {
 
       }, self);
 
+      // To
+      if (elt.eltsTo !== undefined && elt.eltsTo.length > 0) {
+        this.buildNodes(elt.eltsTo, tree, graph, visitor, parent, filterFn);
+        let sources = this.getFinish(elt);
+        let targets = this.getStart(elt.eltsTo);
+
+        this.buildLinks(sources, targets, graph, tree, visitor);
+      }
     }, self);
   }
 
@@ -331,7 +340,7 @@ class GroupEltDslToELKGenerator {
     if (Array.isArray(elts)) {
       elts.forEach((elt) => {
         result.push(...this.toArray(elt));
-      })
+      }, this);
 
     } else {
       result.push(elts);
@@ -341,11 +350,17 @@ class GroupEltDslToELKGenerator {
   }
 
   buildLinks(_sources_, _targets_, graph, tree, visitor) {
+    // Skip if sources and targets are undefined 
+    if (_sources_ === undefined || _sources_ === null
+      || _targets_ === undefined || _targets_ === null) {
+      return;
+    }
     // Expand in case the element is an array
     let sources = this.toArray(_sources_);
     let targets = this.toArray(_targets_);
 
     if (sources.length === 1 && targets.length === 1) {
+      // 1 -> 1
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
         sources: sources,
@@ -354,6 +369,7 @@ class GroupEltDslToELKGenerator {
       });
 
     } else if (sources.length === 1 && targets.length > 1) {
+      // 1 -> n
       targets.forEach((t) => {
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
@@ -361,9 +377,10 @@ class GroupEltDslToELKGenerator {
           targets: [t],
           ...visitor.getEdgeModel(tree),
         });
-      });
+      }, this);
 
     } else if (sources.length > 1 && targets.length === 1) {
+      // n -> 1
       sources.forEach((s) => {
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
@@ -371,9 +388,9 @@ class GroupEltDslToELKGenerator {
           targets: targets,
           ...visitor.getEdgeModel(tree),
         });
-      });
-    } else if (sources.length > 1 && targets.length > 1) {
+      }, this);
 
+    } else if (sources.length > 1 && targets.length > 1) {
       // n -> n => n -> 1 -> n
       // add synthetic link clone
       const link = visitor.getSynthPortModel(tree.start, START);
@@ -382,7 +399,9 @@ class GroupEltDslToELKGenerator {
       graph.children.push(link);
       let links = [link.id];
 
+      // n -> 1
       this.buildLinks(sources, links, graph, tree, visitor);
+      // 1 -> n
       this.buildLinks(links, targets, graph, tree, visitor);
 
     }
@@ -410,15 +429,19 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
       return;
     }
 
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
+    const start = !tree.nostart ? visitor.getSynthPortModel(tree.start, START) : null;
+    if (start !== null) {
+      graph.children.push(start);
+    }
+    const finish = !tree.noend ? visitor.getSynthPortModel(tree.finish, FINISH) : null;
+    if (finish !== null) {
+      graph.children.push(finish);
+    }
 
     // edges
 
     // start -> elts
-    let sources = [start.id];
+    let sources = start !== null ? [start.id] : null;
     let targets = this.getStart(tree.elts[0]);
 
     this.buildLinks(sources, targets, graph, tree, visitor);
@@ -434,95 +457,12 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     // elts -> finish
     sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-    targets = [finish.id];
+    targets = finish !== null ? [finish.id] : null;
 
     this.buildLinks(sources, targets, graph, tree, visitor);
 
   }
 
-}
-
-
-/**
- * Class FanOutEltDslToELKGenerator.
- */
-class FanOutEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanOutEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANOUT) {
-      return;
-    }
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-
-    //edges
-    (tree.elts || []).forEach((elt) => {
-      // start -> elts
-      let sources = [start.id];
-      let targets = this.getStart(elt);
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    });
-  }
-}
-
-/**
- * Class FanInEltDslToELKGenerator.
- */
-class FanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanInEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANIN) {
-      return;
-    }
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
-    // edges
-    (tree.elts || []).forEach((elt) => {
-      // elts -> finish
-      let sources = this.getFinish(elt);
-      let targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    });
-  }
-}
-
-/**
- * Class FanOutFanInEltDslToELKGenerator.
- */
-class FanOutFanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanOutFanInEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANOUT_FANIN) {
-      return;
-    }
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
-    // edges
-    (tree.elts || []).forEach((elt) => {
-
-      // start -> elts
-      let sources = [start.id];
-      let targets = this.getStart(elt);
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-      // elts -> finish
-      sources = this.getFinish(elt);
-      targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    });
-  }
 }
 
 /**

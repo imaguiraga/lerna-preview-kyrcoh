@@ -306,7 +306,7 @@ function createX6Label(elkLayoutNode, x6Layout) {
     },
     x: label.ax,
     y: label.ay,
-    width: elkLayoutNode.width - 1.5 * UNIT,
+    width: elkLayoutNode.width,// - 1.5 * UNIT,
     height: label.height,
     attrs: {
       body: {

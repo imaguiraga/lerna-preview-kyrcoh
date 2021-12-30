@@ -14,9 +14,6 @@ const FINISH = 'finish';
 const PORT = 'port';
 const EDGE = 'edge';
 
-const FANOUT_FANIN = 'fanOut_fanIn';
-const FANIN = 'fanIn';
-const FANOUT = 'fanOut';
 const GROUP = 'group';
 const RESOURCE = 'resource';
 export class DslToELKGenerator {
@@ -103,8 +100,8 @@ export class DslToELKGenerator {
         {
           text: n.title || n.id,
           properties: {
-            // 'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]',
-            'nodeLabels.placement': '[V_TOP, H_LEFT, INSIDE]',
+            'nodeLabels.placement': '[V_TOP, H_LEFT, OUTSIDE]'
+            //'nodeLabels.placement': '[V_TOP, H_LEFT, INSIDE]',
           }
         }
       ]
