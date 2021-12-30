@@ -57,15 +57,6 @@ export class DslToELKGenerator {
     }
     if (tree.compound) {
       switch (tree.kind) {
-        case FANOUT_FANIN:
-          result = FanOutFanInEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
-        case FANIN:
-          result = FanInEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
-        case FANOUT:
-          result = FanOutEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
         case GROUP:
           result = GroupEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
           break;
@@ -466,89 +457,6 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
   }
 
-}
-
-
-/**
- * Class FanOutEltDslToELKGenerator.
- */
-class FanOutEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanOutEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANOUT) {
-      return;
-    }
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-
-    //edges
-    (tree.elts || []).forEach((elt) => {
-      // start -> elts
-      let sources = [start.id];
-      let targets = this.getStart(elt);
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }, this);
-  }
-}
-
-/**
- * Class FanInEltDslToELKGenerator.
- */
-class FanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanInEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANIN) {
-      return;
-    }
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
-    // edges
-    (tree.elts || []).forEach((elt) => {
-      // elts -> finish
-      let sources = this.getFinish(elt);
-      let targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }, this);
-  }
-}
-
-/**
- * Class FanOutFanInEltDslToELKGenerator.
- */
-class FanOutFanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanOutFanInEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANOUT_FANIN) {
-      return;
-    }
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
-    // edges
-    (tree.elts || []).forEach((elt) => {
-
-      // start -> elts
-      let sources = [start.id];
-      let targets = this.getStart(elt);
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-      // elts -> finish
-      sources = this.getFinish(elt);
-      targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }, this);
-  }
 }
 
 /**
