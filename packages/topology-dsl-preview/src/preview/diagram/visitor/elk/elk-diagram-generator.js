@@ -57,15 +57,6 @@ export class DslToELKGenerator {
     }
     if (tree.compound) {
       switch (tree.kind) {
-        case FANOUT_FANIN:
-          result = FanOutFanInEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
-        case FANIN:
-          result = FanInEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
-        case FANOUT:
-          result = FanOutEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
-          break;
         case GROUP:
           result = GroupEltDslToELKGenerator.instance.visitGroup(this, tree, filterFn, tree.kind);
           break;
@@ -362,6 +353,11 @@ class GroupEltDslToELKGenerator {
   }
 
   buildLinks(_sources_, _targets_, graph, tree, visitor) {
+    // Skip if sources and targets are undefined 
+    if (_sources_ === undefined || _sources_ === null
+      || _targets_ === undefined || _targets_ === null) {
+      return;
+    }
     // Expand in case the element is an array
     let sources = this.toArray(_sources_);
     let targets = this.toArray(_targets_);
@@ -436,15 +432,19 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
       return;
     }
 
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
+    const start = !tree.nostart ? visitor.getSynthPortModel(tree.start, START) : null;
+    if (start !== null) {
+      graph.children.push(start);
+    }
+    const finish = !tree.noend ? visitor.getSynthPortModel(tree.finish, FINISH) : null;
+    if (finish !== null) {
+      graph.children.push(finish);
+    }
 
     // edges
 
     // start -> elts
-    let sources = [start.id];
+    let sources = start !== null ? [start.id] : null;
     let targets = this.getStart(tree.elts[0]);
 
     this.buildLinks(sources, targets, graph, tree, visitor);
@@ -460,95 +460,12 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     // elts -> finish
     sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-    targets = [finish.id];
+    targets = finish !== null ? [finish.id] : null;
 
     this.buildLinks(sources, targets, graph, tree, visitor);
 
   }
 
-}
-
-
-/**
- * Class FanOutEltDslToELKGenerator.
- */
-class FanOutEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanOutEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANOUT) {
-      return;
-    }
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-
-    //edges
-    (tree.elts || []).forEach((elt) => {
-      // start -> elts
-      let sources = [start.id];
-      let targets = this.getStart(elt);
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }, this);
-  }
-}
-
-/**
- * Class FanInEltDslToELKGenerator.
- */
-class FanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanInEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANIN) {
-      return;
-    }
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
-    // edges
-    (tree.elts || []).forEach((elt) => {
-      // elts -> finish
-      let sources = this.getFinish(elt);
-      let targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }, this);
-  }
-}
-
-/**
- * Class FanOutFanInEltDslToELKGenerator.
- */
-class FanOutFanInEltDslToELKGenerator extends GroupEltDslToELKGenerator {
-  static instance = new FanOutFanInEltDslToELKGenerator();
-
-  buildEdges(tree, graph, visitor, type) {
-    if (type !== FANOUT_FANIN) {
-      return;
-    }
-    const start = visitor.getSynthPortModel(tree.start, START);
-    graph.children.push(start);
-    const finish = visitor.getSynthPortModel(tree.finish, FINISH);
-    graph.children.push(finish);
-    // edges
-    (tree.elts || []).forEach((elt) => {
-
-      // start -> elts
-      let sources = [start.id];
-      let targets = this.getStart(elt);
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-      // elts -> finish
-      sources = this.getFinish(elt);
-      targets = [finish.id];
-
-      this.buildLinks(sources, targets, graph, tree, visitor);
-
-    }, this);
-  }
 }
 
 /**

@@ -1,38 +1,45 @@
 export const samples2 = [
-  `import { choice, terminal, sequence, group } from 'topology-dsl';
+  `import { 
+  choice, terminal, sequence, group, 
+  fanIn, fanOut, fanIn_fanOut 
+} from 'topology-dsl';
 
-  export const v3 = choice('e1', 'd1');
-  v3.to('6').sequence('e2', 'd2').choice('e3', 'd3');
+export const va = fanIn(['e1', 'd1'], 'fanIn');
+export const vb = fanOut('fanOut', ['e1', 'd1']);
+export const vc = fanIn_fanOut('fanIn', ['e1', 'd1'], 'fanOut');
 
-export const v1 = 
-sequence(
-    terminal('a'), 
+export const v3 = choice('choice', ['e1', 'd1']);
+v3.to('6').sequence('e2', 'd2').choice('choice', ['e3', 'd3']);
+
+export const v1 =
+  sequence(
+    terminal('a'),
     terminal('b')
-);
-export const testflow = 
-sequence(
-  [
-    terminal('a'), 
-    terminal('b'),
-    sequence(
-      [
-        terminal('a'), 
-        terminal('b')
-      ],
-      'merge',
-      group([
-        terminal('c'), 
-        terminal('d')
-      ]),
-      terminal('e')
-    )
-  ],
-  [
-    terminal('c'), 
-    terminal('d')
-  ],
-  terminal('e')
-);`,
+  );
+export const testflow =
+  sequence(
+    [
+      terminal('a'),
+      terminal('b'),
+      sequence(
+        [
+          terminal('a'),
+          terminal('b')
+        ],
+        'merge',
+        group([
+          terminal('c'),
+          terminal('d')
+        ]),
+        terminal('e')
+      )
+    ],
+    [
+      terminal('c'),
+      terminal('d')
+    ],
+    terminal('e')
+  );`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   gcp_Cloud_SQL,
@@ -47,10 +54,10 @@ import {
 
 const gce = gcp_Compute_Engine;
 
-const choice1 = choice(
+const choice1 = choice('choice',[
   gcp_Cloud_Storage('c')._title_('AZ BLOB-A'),
       gcp_Cloud_SQL('a')._title_('AZ SQL-A')
-    )._down_();
+])._down_();
 	
 export const sequence1 = sequence(
     gce('c')._title_('GCP VM-C'),
@@ -61,11 +68,11 @@ export const sequence1 = sequence(
   
 export const v1 = sequence(
   terminal('b'), 
-  choice(
+  choice('choice',[
     'c',
     gce('a')._title_('GCP VM-A'),
     gce('b')._title_('AZ VM-B')
-  ),
+  ]),
   sequence1,
   gcp_Cloud_Storage('S1'),
   gcp_Pub_Sub('PS1')
@@ -78,26 +85,26 @@ testflow._title_('AZ VM-B');
 `,
 `import { choice, terminal, sequence } from 'topology-dsl';
 
-export const testflow = choice(
+export const testflow = choice('choice',[
   terminal('a')._in_('1','2')._out_('3','4'),
-  choice('e', 'd'),
+  choice('choice',['e', 'd']),
   sequence(
     terminal('b'),
     terminal('c')._in_('5','6'),
     sequence('c','d')._in_('7','8b')._out_('e','f')
   ),
   sequence('c','d')
-);
+  ]);
 
 let v1 = terminal('a');
-export const testflow2 = choice(
-  v1.from('1','2'),
+export const testflow2 = choice('choice',[
+  v1.from('1','2')]
 
 ).to('a1','b1');
 
-let v2 = choice('e1', 'd1');
+let v2 = choice('choice',['e1', 'd1']);
 v1.from('4').to(v2);
-v1.from('5').to('6').choice('e2', 'd2').choice('e3', 'd3');
+v1.from('5').to('6').choice('choice',['e2', 'd2']).choice('choice',['e3', 'd3']);
 
 `,
 `import {
@@ -109,20 +116,20 @@ v1.from('5').to('6').choice('e2', 'd2').choice('e3', 'd3');
   zeroOrMore
 } from 'topology-dsl';
 
-export const testflow = choice(
+export const testflow = choice('choice',[
   terminal('a')._in_('1','2')._out_('3','4'),
-  choice('e', 'd'),
+  choice('choice',['e', 'd']),
   sequence(
     terminal('b'),
     terminal('c')._in_('5','6'),
     sequence('c','d')._in_('7','8b')._out_('e','f')
   ),
   sequence('c','d')
-);
+  ]);
 
 let selectClause = () => sequence('a', 'b', repeat(optional('c')), zeroOrMore('d'));
 let fromClause = function a() {
-    return  choice('1', '2', selectClause, '4');
+    return  choice('choice',['1', '2', selectClause, '4']);
 };
 
 export const v1 = selectClause();
@@ -139,7 +146,7 @@ export const v2 = fromClause();
 
 let selectClause = () => sequence('a', 'b', repeat(optional('c')), zeroOrMore('d'));
 let fromClause = function a() {
-    return  choice('1', '2', selectClause, '4');
+    return  choice('choice',['1', '2', selectClause, '4']);
 };
 
 export const v1 = selectClause();
