@@ -1,41 +1,45 @@
 export const samples2 = [
-  `import { choice, terminal, sequence, group, fanIn, fanOut } from 'topology-dsl';
+  `import { 
+  choice, terminal, sequence, group, 
+  fanIn, fanOut, fanIn_fanOut 
+} from 'topology-dsl';
 
-export const va = fanIn(['e1', 'd1'],'fanIn');
-export const vb = fanOut('fanOut',['e1', 'd1']);
+export const va = fanIn(['e1', 'd1'], 'fanIn');
+export const vb = fanOut('fanOut', ['e1', 'd1']);
+export const vc = fanIn_fanOut('fanIn', ['e1', 'd1'], 'fanOut');
 
-export const v3 = choice('choice',['e1', 'd1']);
-v3.to('6').sequence('e2', 'd2').choice('choice',['e3', 'd3']);
+export const v3 = choice('choice', ['e1', 'd1']);
+v3.to('6').sequence('e2', 'd2').choice('choice', ['e3', 'd3']);
 
-export const v1 = 
-sequence(
-    terminal('a'), 
+export const v1 =
+  sequence(
+    terminal('a'),
     terminal('b')
-);
-export const testflow = 
-sequence(
-  [
-    terminal('a'), 
-    terminal('b'),
-    sequence(
-      [
-        terminal('a'), 
-        terminal('b')
-      ],
-      'merge',
-      group([
-        terminal('c'), 
-        terminal('d')
-      ]),
-      terminal('e')
-    )
-  ],
-  [
-    terminal('c'), 
-    terminal('d')
-  ],
-  terminal('e')
-);`,
+  );
+export const testflow =
+  sequence(
+    [
+      terminal('a'),
+      terminal('b'),
+      sequence(
+        [
+          terminal('a'),
+          terminal('b')
+        ],
+        'merge',
+        group([
+          terminal('c'),
+          terminal('d')
+        ]),
+        terminal('e')
+      )
+    ],
+    [
+      terminal('c'),
+      terminal('d')
+    ],
+    terminal('e')
+  );`,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   gcp_Cloud_SQL,
