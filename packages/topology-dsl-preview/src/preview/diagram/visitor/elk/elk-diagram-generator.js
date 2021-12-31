@@ -150,7 +150,7 @@ export class DslToELKGenerator {
     let r = {
       model: {
         provider: n.provider,
-        tagName: EDGE,
+        tagName: n.tagName,//EDGE,
         kind: EDGE
       },
       style: {
@@ -309,11 +309,13 @@ class GroupEltDslToELKGenerator {
         if (Array.isArray(elt)) {
           return this.getStart(elt);
         } else {
-          return elt.start.id;
+          // return elt.start.id;
+          return { id: elt.start.id, tagName: elt.tagName };
         }
       }, this);
     } else {
-      result = [elts.start.id];
+      //result = [elts.start.id];
+      result = [{ id: elts.start.id, tagName: elts.tagName }];
     }
     return result;
   }
@@ -325,12 +327,15 @@ class GroupEltDslToELKGenerator {
         if (Array.isArray(elt)) {
           return this.getFinish(elt);
         } else {
-          return elt.finish.id;
+          // return elt.finish.id;
+          return { id: elt.finish.id, tagName: elt.tagName };
+
         }
       }, this);
 
     } else {
-      result = [elts.finish.id];
+      //result = [elts.finish.id];
+      result = [{ id: elts.finish.id, tagName: elts.tagName }];
     }
     return result;
   }
@@ -363,9 +368,9 @@ class GroupEltDslToELKGenerator {
       // 1 -> 1
       graph.edges.push({
         id: `${visitor.edgeCntIt.next().value}`,
-        sources: sources,
-        targets: targets,
-        ...visitor.getEdgeModel(tree),
+        sources: sources.map((e) => e.id),
+        targets: targets.map((e) => e.id),
+        ...visitor.getEdgeModel(sources[0])//tree),
       });
 
     } else if (sources.length === 1 && targets.length > 1) {
@@ -373,9 +378,9 @@ class GroupEltDslToELKGenerator {
       targets.forEach((t) => {
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
-          sources: sources,
-          targets: [t],
-          ...visitor.getEdgeModel(tree),
+          sources: sources.map((e) => e.id),
+          targets: [t].map((e) => e.id),
+          ...visitor.getEdgeModel(sources[0])//tree),
         });
       }, this);
 
@@ -384,9 +389,9 @@ class GroupEltDslToELKGenerator {
       sources.forEach((s) => {
         graph.edges.push({
           id: `${visitor.edgeCntIt.next().value}`,
-          sources: [s],
-          targets: targets,
-          ...visitor.getEdgeModel(tree),
+          sources: [s].map((e) => e.id),
+          targets: targets.map((e) => e.id),
+          ...visitor.getEdgeModel(s)//tree),
         });
       }, this);
 
@@ -397,7 +402,7 @@ class GroupEltDslToELKGenerator {
       link.id = `${visitor.edgeCntIt.next().value}.link`;
       // link.model.tagName = 'mark';
       graph.children.push(link);
-      let links = [link.id];
+      let links = [{ id: link.id }];
 
       // n -> 1
       this.buildLinks(sources, links, graph, tree, visitor);
@@ -441,7 +446,7 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
     // edges
 
     // start -> elts
-    let sources = start !== null ? [start.id] : null;
+    let sources = start !== null ? [{ id: start.id }] : null;
     let targets = this.getStart(tree.elts[0]);
 
     this.buildLinks(sources, targets, graph, tree, visitor);
@@ -457,7 +462,7 @@ class SequenceEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     // elts -> finish
     sources = this.getFinish(tree.elts[tree.elts.length - 1]);
-    targets = finish !== null ? [finish.id] : null;
+    targets = finish !== null ? [{ id: finish.id }] : null;
 
     this.buildLinks(sources, targets, graph, tree, visitor);
 
@@ -493,20 +498,20 @@ class OptionalEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     if (tree.elts.length > 0) {
       // start -> elts
-      let sources = [start.id];
+      let sources = [{ id: start.id }];//[start.id];
       let targets = this.getStart(tree.elts[0]);
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // start -> finish
-      sources = [start.id];
-      targets = [finish.id];
+      sources = [{ id: start.id }];//[start.id];
+      targets = [{ id: finish.id }];//[finish.id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> finish
       sources = this.getFinish(tree.elts);
-      targets = [finish.id];
+      targets = [{ id: finish.id }];//[finish.id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
@@ -546,21 +551,20 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
     if (tree.elts.length > 0) {
 
       // start -> elts
-      let sources = [start.id];
+      let sources = [{ id: start.id }];//[start.id];
       let targets = this.getStart(tree.elts);
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> finish
       sources = this.getFinish(tree.elts);
-      targets = [finish.id];
+      targets = [{ id: finish.id }];//[finish.id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> elts
       sources = this.getFinish(tree.elts);
-      targets = [tree.elts[0].id];
-      // targets = this.getStart(tree.elts);
+      targets = this.getFinish(tree.elts[0]);//[tree.elts[0].id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 

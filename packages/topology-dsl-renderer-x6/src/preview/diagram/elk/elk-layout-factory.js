@@ -43,6 +43,7 @@ export function elkLayout() {
     'org.eclipse.elk.spacing.nodeSelfLoop': 3 * UNIT,
     'spacing.labelNode': UNIT
   };
+  const DEBUG = false;
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-layering-strategy.html
   //https://www.eclipse.org/elk/reference/options/org-eclipse-elk-layered-nodeplacement-strategy.html
   function layoutFn(inelkgraph) {
@@ -54,7 +55,9 @@ export function elkLayout() {
     if (elkgraph === null) {
       return Promise.resolve(null);
     }
-    // console.log(JSON.stringify(elkgraph, null, '  '));
+    if (DEBUG) {
+      console.log(JSON.stringify(elkgraph, null, '  '));
+    }
 
     elk.knownLayoutOptions().then((d) => {
       //console.log(d);

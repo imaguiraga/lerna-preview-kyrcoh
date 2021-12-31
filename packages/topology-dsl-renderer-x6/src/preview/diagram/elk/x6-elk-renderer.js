@@ -1,6 +1,6 @@
 import './style/x6-elk-style.css';
 import React from 'react';
-import { Graph, Shape, Point, Node, Edge } from '@antv/x6';
+import { Graph, Point } from '@antv/x6';
 import { elkLayout, buildNodeLookup } from './elk-layout-factory';
 import { ResourceNode } from './node/reource-node';
 
@@ -20,7 +20,7 @@ function lineRouter(vertices/*: Point.PointLike[]*/, args/*: RandomRouterArgs*/,
   return points;
 }
 const LINE = 'line';
-const DEBUG = false;
+const DEBUG = true;
 
 Graph.registerRouter(LINE, lineRouter);
 
@@ -304,7 +304,7 @@ function createX6Edge(e, x6Layout) {
   const t = {
     attrs: {
       line: {
-        class: 'edge',
+        class: `edge ${e.model.tagName}`,
         sourceMarker: {
           name: e.style.startArrow ? 'classic' : null,
           size: UNIT
