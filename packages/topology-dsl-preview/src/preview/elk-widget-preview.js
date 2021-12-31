@@ -31,12 +31,7 @@ import { samples2 } from './samples-2.js';
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
 import * as gcp from '../assets/js/GCP';
 import { toElkGraph } from './diagram';
-const {
-  NODEIDGENFN,
-  clone
-} = flowDsl;
 
-//const DSL_MODULE = { ...flowDsl };
 registerJSModule('gcp-dsl', gcp);
 
 // Dynamically register compiled modules
@@ -83,8 +78,12 @@ function extractVariables(modules) {
 }
 
 function createMainWidget(palette, commands) {
-  const elkgraphWidget = new IframeELKGraphWidget('x6-renderer/index.html');
-  //const elkgraphWidget = new IframeELKGraphWidget('http://localhost:9000');
+
+  const src = 'x6-renderer/index.html';
+  //const src = 'http://localhost:5000';
+  const elkgraphWidget = new IframeELKGraphWidget(null);
+
+  elkgraphWidget.src = src;
 
   const editorWidget = new CodeMirrorWidget();
   //const editorWidget = new AceEditorWidget();
