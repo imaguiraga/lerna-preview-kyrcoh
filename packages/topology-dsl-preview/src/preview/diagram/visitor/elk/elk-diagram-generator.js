@@ -564,7 +564,7 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
       // elts -> elts
       sources = this.getFinish(tree.elts);
-      targets = this.getFinish(tree.elts[0]);//[tree.elts[0].id];
+      targets = [{ id: tree.elts[0].id }];//[tree.elts[0].id];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
