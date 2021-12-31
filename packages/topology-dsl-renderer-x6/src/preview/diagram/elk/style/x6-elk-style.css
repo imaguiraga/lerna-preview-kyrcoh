@@ -1,23 +1,5 @@
 @import "./elk-component-style.css";
 
-/*
-g.leaf > rect {
-  stroke: #000;
-  stroke-width: 1px;
-  opacity: 1;
-}
-
-g.compound.container > rect.node {
-  opacity: 0.08!important;
-  stroke-width: 1px!important;
-}
-
-g.leaf.container > rect.node {
-  opacity: 0.6;
-  stroke: #000!important;
-  stroke-width: 2px!important;
-}
-*/
 rect.node {
   font-family: inherit;
   stroke: black;
@@ -48,7 +30,7 @@ foreignObject.label {
   stroke: #777;
   stroke-width: 2px !important;
   stroke-opacity: 1;
-  fill: none;
+  fill: none !important;
 }
 /*
 .port {

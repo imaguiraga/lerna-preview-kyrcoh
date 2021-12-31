@@ -31,8 +31,11 @@ export class IframeELKGraphWidget extends Widget {
       self.onload.emit('load');
     }
     );
-    (this.contentIframeElt as HTMLIFrameElement).src = src;
+
     this.node.appendChild(this.contentIframeElt);
+    if (src !== null) {
+      (this.contentIframeElt as HTMLIFrameElement).src = src;
+    }
 
   }
 
@@ -63,4 +66,11 @@ export class IframeELKGraphWidget extends Widget {
 
   }
 
+  get src() {
+    return (this.contentIframeElt as HTMLIFrameElement).src;
+  }
+
+  set src(value) {
+    (this.contentIframeElt as HTMLIFrameElement).src = value;
+  }
 }

@@ -6,7 +6,7 @@ export const samples2 = [
 
 export const va = fanIn(['e1', 'd1'], 'fanIn');
 export const vb = fanOut('fanOut', ['e1', 'd1']);
-export const vc = fanIn_fanOut('fanIn', ['e1', 'd1'], 'fanOut');
+export const vc = fanIn_fanOut(['e1', 'd1'], 'fanIn', ['e2', 'd2']);
 
 export const v3 = choice('choice', ['e1', 'd1']);
 v3.to('6').sequence('e2', 'd2').choice('choice', ['e3', 'd3']);

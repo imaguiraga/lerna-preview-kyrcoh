@@ -4,27 +4,27 @@
 
 .choice, .fan-in, .fan-out {
   fill: #A82255;
-  stroke: #A82255;
+  stroke: #A82255 !important;
 }
 
 .sequence {
   fill: #5300e8;
-  stroke: #5300e8;
+  stroke: #5300e8 !important;
 }
 
 .group {
   fill: #5300ff;
-  stroke: #5300ff;
+  stroke: #5300ff !important;
 }
 
 .optional {
   fill: #1D7324;
-  stroke: #1D7324;
+  stroke: #1D7324 !important;
 }
 
 .repeat {
   fill: #ba00e5;
-  stroke: #ba00e5;
+  stroke: #ba00e5 !important;
 }
 
 .finish,
@@ -32,20 +32,4 @@
 .loop,
 .skip {
   font-family: 'FontAwesome';
-}
-
-.link {
-  fill: transparent;
-  stroke-width: 2px;
-}
-
-/* pipeline */
-.stage {
-  fill: #9E2B0E;
-  stroke: #9E2B0E;
-}
-
-.job {
-  fill: #1D7324;
-  stroke: #1D7324;
 }
