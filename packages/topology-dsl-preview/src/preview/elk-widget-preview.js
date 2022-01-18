@@ -81,8 +81,8 @@ function extractVariables(modules) {
 
 function createMainWidget(palette, commands) {
 
-  //const src = 'x6-renderer/index.html';
-  const src = 'http://localhost:5000';
+  const src = 'x6-renderer/index.html';
+  //const src = 'http://localhost:5000';
   const elkgraphWidget = new IframeELKGraphWidget(null);
 
   elkgraphWidget.src = src;
