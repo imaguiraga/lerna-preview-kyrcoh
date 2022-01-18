@@ -30,6 +30,9 @@ function cloudDsl(s) {
 
   let promise = new Promise((resolutionFunc, rejectionFunc) => {
     let walker = walk.walk('public/' + s.path, options);
+    let dest = './public/assets/icons/AWS Icons';
+    mkdirp.sync(dest);
+    
 
     walker.on('file', function (root, fileStats, next) {
       let found = fileStats.name.match(rex);
@@ -37,7 +40,7 @@ function cloudDsl(s) {
 
         let provider = s.provider;
  
-        let category = path.posix.basename(path.posix.dirname(root));
+        let category = path.posix.basename(path.posix.dirname(root.replace(/\\/ig, '/')));
         let product = found['product'];
         let dsl = s.prefix + '_' + found[1].replace(/Arch/ig, '');
         // Replace special characters
@@ -46,7 +49,10 @@ function cloudDsl(s) {
         let tagName = dsl;
 
         let iconURL = path.posix.join(root.replace(/\\/ig, '/'), fileStats.name);
-        iconURL = path.posix.relative('public/', iconURL);
+        // Copy only required icons
+        let tmp = path.posix.join(dest,fileStats.name);
+        fs.copyFileSync(iconURL, tmp);
+        iconURL = path.posix.relative('public/', tmp);
         let typeURI = '';
         let docURL = '';
 

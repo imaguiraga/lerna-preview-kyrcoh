@@ -50,6 +50,7 @@ const render = (
 fs.readdir('scripts-dsl/yml', function (err, files) {
   files.forEach((f) => {
     try {
+      console.log(f);
       yaml.loadAll(fs.readFileSync('scripts-dsl/yml/' + f, 'utf8'), function (doc) {
         // Remove duplicate items
         const dups = new Set();

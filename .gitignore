@@ -7,3 +7,5 @@ settings.json
 .idea
 /packages/*/.eslintcache
 /packages/bootstrap-5.1.0
+/packages/topology-dsl-preview/public/assets/icons/AWS-Asset-Package
+/packages/topology-dsl-preview/scripts-dsl/out
