@@ -43,10 +43,11 @@
     "typescript": "^4.5.2"
   },
   "scripts": {
-    "dsl": "yarn gcp-dsl && node scripts-dsl/icons.js",
-    "az-dsl": "node scripts-dsl/azure/az-icons.js",
-    "cloud-dsl": "node scripts-dsl/cloud-icons.js",
-    "gcp-dsl": "node scripts-dsl/gcp/product.js",
+    "generate-dsl": "node scripts-dsl/generate-dsl.js",
+    "az-yml": "node scripts-dsl/azure/az-icons-yml.js",
+    "cloud-yml": "node scripts-dsl/cloud-icons-yml.js",
+    "aws-yml": "node scripts-dsl/aws/aws-icons-yml.js",
+    "gcp-yml": "node scripts-dsl/gcp/gcp-icons-yml.js",
     "start": "react-scripts --max-old-space-size=4096 start",
     "build": "rimraf build/ && react-scripts --max-old-space-size=4096 build",
     "test": "react-scripts test --env=jsdom",
