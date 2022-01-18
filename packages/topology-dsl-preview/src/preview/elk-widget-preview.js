@@ -29,10 +29,12 @@ import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
-import * as gcp from '../assets/js/GCP';
+import * as gcpmodule from '../assets/js/GCP';
+import * as awsmodule from '../assets/js/AWS';
 import { toElkGraph } from './diagram';
 
-registerJSModule('gcp-dsl', gcp);
+registerJSModule('gcp-dsl', gcpmodule);
+registerJSModule('aws-dsl', awsmodule);
 
 // Dynamically register compiled modules
 registerJSModule('topology-dsl', flowDsl);
