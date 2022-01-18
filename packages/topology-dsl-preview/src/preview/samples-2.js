@@ -40,6 +40,30 @@ export const testflow =
     ],
     terminal('e')
   );`,
+  `import { choice, terminal, sequence } from 'topology-dsl';
+  import { 
+    aws_AWS_Lake_Formation,
+    aws_AWS_Data_Pipeline
+  } from './assets/js/AWS/index.js';
+  
+  import { 
+    aws_Amazon_Simple_Storage_Service
+  } from 'aws-dsl';
+  
+  const s3 = aws_Amazon_Simple_Storage_Service;
+  
+  const choice1 = choice('choice',[
+    s3('c')._title_('AZ BLOB-A'),
+        s3('a')._title_('AZ SQL-A')
+  ])._down_();
+    
+  export const sequence1 = sequence(
+      s3('c')._title_('GCP VM-C'),
+      aws_AWS_Data_Pipeline('b')._title_('AZ CACHE-B'),
+      choice1,
+      aws_AWS_Lake_Formation('c')._title_('AZ VM-C')
+    );	
+  `,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   gcp_Cloud_SQL,

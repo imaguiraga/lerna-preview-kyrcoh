@@ -29,10 +29,12 @@ import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
 import * as flowDsl from '@imaguiraga/topology-dsl-core';
-import * as gcp from '../assets/js/GCP';
+import * as gcpmodule from '../assets/js/GCP';
+import * as awsmodule from '../assets/js/AWS';
 import { toElkGraph } from './diagram';
 
-registerJSModule('gcp-dsl', gcp);
+registerJSModule('gcp-dsl', gcpmodule);
+registerJSModule('aws-dsl', awsmodule);
 
 // Dynamically register compiled modules
 registerJSModule('topology-dsl', flowDsl);
@@ -79,8 +81,8 @@ function extractVariables(modules) {
 
 function createMainWidget(palette, commands) {
 
-  const src = 'x6-renderer/index.html';
-  //const src = 'http://localhost:5000';
+  //const src = 'x6-renderer/index.html';
+  const src = 'http://localhost:5000';
   const elkgraphWidget = new IframeELKGraphWidget(null);
 
   elkgraphWidget.src = src;
