@@ -13,7 +13,7 @@ const sets = [
     provider: 'GCP',
     prefix: 'gcp',
     path: 'assets/icons/GCP Icons/Products and services',
-    pattern: '(.*).svg',
+    pattern: '(?<product>.*).svg',
     kind: 'resource'
   }
 ];
@@ -47,10 +47,10 @@ function cloudDsl(s) {
         let provider = s.provider;
 
         let category = path.basename(root);
-        let product = found[1];
+        let product = found['product'];
         let dsl = s.prefix + '_' + found[1];
         // Replace special characters
-        dsl = dsl.replace(/\-|\s+|\(|\)|\+/g, '_');
+        dsl = dsl.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
         let kind = s.kind;
         let tagName = dsl;
         let iconURL = path.posix.join(s.path, category, fileStats.name);

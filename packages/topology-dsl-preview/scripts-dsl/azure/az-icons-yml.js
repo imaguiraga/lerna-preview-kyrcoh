@@ -1,3 +1,8 @@
+/* eslint-disable no-undef */
+const fs = require('fs');
+const mkdirp = require('mkdirp');
+const yaml = require('js-yaml');
+
 const sets = [
   {
     provider: 'AZURE',
@@ -7,21 +12,11 @@ const sets = [
     kind: 'resource',
     //excludes : ['/CXP','/Azure VMware Solution','/General']
   }
-  /*,
-  {
-    provider: 'Google Cloud Platform',
-    prefix: 'gcp',
-    path: 'assets/icons/GCP Icons/Products and services',
-    pattern: '(.*).svg',
-    kind : 'cloud'
-  }//*/
+
 ];
 
 // Generate csv from iconSets
 //provider, category, product, dsl, isDecorator, kind, tagName, tagName, iconURL, typeURI, docURL
-const fs = require('fs');
-const mkdirp = require('mkdirp');
-const yaml = require('js-yaml');
 
 function createAzResource(s, item) {
   let provider = s.provider;
@@ -30,7 +25,7 @@ function createAzResource(s, item) {
   let product = item.title;
   let dsl = s.prefix + '_' + product;
   // Replace special characters
-  dsl = dsl.replace(/\-|\s+|\(|\)|\+/g, '_');
+  dsl = dsl.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
   let kind = s.kind;
   let tagName = dsl;
   // imageSrc: ./media/index/iot-solution-accelerators.svg => https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/ + ./media/index/iot-solution-accelerators.svg
