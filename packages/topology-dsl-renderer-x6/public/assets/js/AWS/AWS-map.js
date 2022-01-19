@@ -2,6 +2,7 @@ let _mapArray_ = [
   ['aws_Amazon_Sumerian', {
  "provider": "AWS",
  "category": "Arch_VR-AR",
+ "product": "Amazon Sumerian",
  "dsl": "aws_Amazon_Sumerian",
  "kind": "resource",
  "tagName": "aws_Amazon_Sumerian",
@@ -12,6 +13,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Block_Store', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon Elastic Block Store",
  "dsl": "aws_Amazon_Elastic_Block_Store",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Block_Store",
@@ -22,6 +24,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_File_System', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon Elastic File System",
  "dsl": "aws_Amazon_Elastic_File_System",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_File_System",
@@ -32,6 +35,7 @@ let _mapArray_ = [
   ['aws_Amazon_FSx_for_Lustre', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon FSx for Lustre",
  "dsl": "aws_Amazon_FSx_for_Lustre",
  "kind": "resource",
  "tagName": "aws_Amazon_FSx_for_Lustre",
@@ -42,6 +46,7 @@ let _mapArray_ = [
   ['aws_Amazon_FSx_for_Windows_File_Server', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon FSx for Windows File Server",
  "dsl": "aws_Amazon_FSx_for_Windows_File_Server",
  "kind": "resource",
  "tagName": "aws_Amazon_FSx_for_Windows_File_Server",
@@ -52,6 +57,7 @@ let _mapArray_ = [
   ['aws_Amazon_FSx', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon FSx",
  "dsl": "aws_Amazon_FSx",
  "kind": "resource",
  "tagName": "aws_Amazon_FSx",
@@ -62,6 +68,7 @@ let _mapArray_ = [
   ['aws_Amazon_S3_on_Outposts_Storage', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon S3 on Outposts Storage",
  "dsl": "aws_Amazon_S3_on_Outposts_Storage",
  "kind": "resource",
  "tagName": "aws_Amazon_S3_on_Outposts_Storage",
@@ -72,6 +79,7 @@ let _mapArray_ = [
   ['aws_Amazon_Simple_Storage_Service_Glacier', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon Simple Storage Service Glacier",
  "dsl": "aws_Amazon_Simple_Storage_Service_Glacier",
  "kind": "resource",
  "tagName": "aws_Amazon_Simple_Storage_Service_Glacier",
@@ -82,6 +90,7 @@ let _mapArray_ = [
   ['aws_Amazon_Simple_Storage_Service', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "Amazon Simple Storage Service",
  "dsl": "aws_Amazon_Simple_Storage_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Simple_Storage_Service",
@@ -92,6 +101,7 @@ let _mapArray_ = [
   ['aws_AWS_Backup', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "AWS Backup",
  "dsl": "aws_AWS_Backup",
  "kind": "resource",
  "tagName": "aws_AWS_Backup",
@@ -102,6 +112,7 @@ let _mapArray_ = [
   ['aws_AWS_Snowball_Edge', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "AWS Snowball Edge",
  "dsl": "aws_AWS_Snowball_Edge",
  "kind": "resource",
  "tagName": "aws_AWS_Snowball_Edge",
@@ -112,6 +123,7 @@ let _mapArray_ = [
   ['aws_AWS_Snowball', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "AWS Snowball",
  "dsl": "aws_AWS_Snowball",
  "kind": "resource",
  "tagName": "aws_AWS_Snowball",
@@ -122,6 +134,7 @@ let _mapArray_ = [
   ['aws_AWS_Snowcone', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "AWS Snowcone",
  "dsl": "aws_AWS_Snowcone",
  "kind": "resource",
  "tagName": "aws_AWS_Snowcone",
@@ -132,6 +145,7 @@ let _mapArray_ = [
   ['aws_AWS_Snowmobile', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "AWS Snowmobile",
  "dsl": "aws_AWS_Snowmobile",
  "kind": "resource",
  "tagName": "aws_AWS_Snowmobile",
@@ -142,6 +156,7 @@ let _mapArray_ = [
   ['aws_AWS_Storage_Gateway', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "AWS Storage Gateway",
  "dsl": "aws_AWS_Storage_Gateway",
  "kind": "resource",
  "tagName": "aws_AWS_Storage_Gateway",
@@ -152,6 +167,7 @@ let _mapArray_ = [
   ['aws_CloudEndure_Disaster_Recovery', {
  "provider": "AWS",
  "category": "Arch_Storage",
+ "product": "CloudEndure Disaster Recovery",
  "dsl": "aws_CloudEndure_Disaster_Recovery",
  "kind": "resource",
  "tagName": "aws_CloudEndure_Disaster_Recovery",
@@ -162,6 +178,7 @@ let _mapArray_ = [
   ['aws_Amazon_Cloud_Directory', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "Amazon Cloud Directory",
  "dsl": "aws_Amazon_Cloud_Directory",
  "kind": "resource",
  "tagName": "aws_Amazon_Cloud_Directory",
@@ -172,6 +189,7 @@ let _mapArray_ = [
   ['aws_Amazon_Cognito', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "Amazon Cognito",
  "dsl": "aws_Amazon_Cognito",
  "kind": "resource",
  "tagName": "aws_Amazon_Cognito",
@@ -182,6 +200,7 @@ let _mapArray_ = [
   ['aws_Amazon_Detective', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "Amazon Detective",
  "dsl": "aws_Amazon_Detective",
  "kind": "resource",
  "tagName": "aws_Amazon_Detective",
@@ -192,6 +211,7 @@ let _mapArray_ = [
   ['aws_Amazon_GuardDuty', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "Amazon GuardDuty",
  "dsl": "aws_Amazon_GuardDuty",
  "kind": "resource",
  "tagName": "aws_Amazon_GuardDuty",
@@ -202,6 +222,7 @@ let _mapArray_ = [
   ['aws_Amazon_Inspector', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "Amazon Inspector",
  "dsl": "aws_Amazon_Inspector",
  "kind": "resource",
  "tagName": "aws_Amazon_Inspector",
@@ -212,6 +233,7 @@ let _mapArray_ = [
   ['aws_Amazon_Macie', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "Amazon Macie",
  "dsl": "aws_Amazon_Macie",
  "kind": "resource",
  "tagName": "aws_Amazon_Macie",
@@ -222,6 +244,7 @@ let _mapArray_ = [
   ['aws_AWS_Artifact', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Artifact",
  "dsl": "aws_AWS_Artifact",
  "kind": "resource",
  "tagName": "aws_AWS_Artifact",
@@ -232,6 +255,7 @@ let _mapArray_ = [
   ['aws_AWS_Audit_Manager', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Audit Manager",
  "dsl": "aws_AWS_Audit_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Audit_Manager",
@@ -242,6 +266,7 @@ let _mapArray_ = [
   ['aws_AWS_Certificate_Manager', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Certificate Manager",
  "dsl": "aws_AWS_Certificate_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Certificate_Manager",
@@ -252,6 +277,7 @@ let _mapArray_ = [
   ['aws_AWS_CloudHSM', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS CloudHSM",
  "dsl": "aws_AWS_CloudHSM",
  "kind": "resource",
  "tagName": "aws_AWS_CloudHSM",
@@ -262,6 +288,7 @@ let _mapArray_ = [
   ['aws_AWS_Directory_Service', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Directory Service",
  "dsl": "aws_AWS_Directory_Service",
  "kind": "resource",
  "tagName": "aws_AWS_Directory_Service",
@@ -272,6 +299,7 @@ let _mapArray_ = [
   ['aws_AWS_Firewall_Manager', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Firewall Manager",
  "dsl": "aws_AWS_Firewall_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Firewall_Manager",
@@ -282,6 +310,7 @@ let _mapArray_ = [
   ['aws_AWS_Identity_and_Access_Management', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Identity and Access Management",
  "dsl": "aws_AWS_Identity_and_Access_Management",
  "kind": "resource",
  "tagName": "aws_AWS_Identity_and_Access_Management",
@@ -292,6 +321,7 @@ let _mapArray_ = [
   ['aws_AWS_Key_Management_Service', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Key Management Service",
  "dsl": "aws_AWS_Key_Management_Service",
  "kind": "resource",
  "tagName": "aws_AWS_Key_Management_Service",
@@ -302,6 +332,7 @@ let _mapArray_ = [
   ['aws_AWS_Network_Firewall', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Network Firewall",
  "dsl": "aws_AWS_Network_Firewall",
  "kind": "resource",
  "tagName": "aws_AWS_Network_Firewall",
@@ -312,6 +343,7 @@ let _mapArray_ = [
   ['aws_AWS_Resource_Access_Manager', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Resource Access Manager",
  "dsl": "aws_AWS_Resource_Access_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Resource_Access_Manager",
@@ -322,6 +354,7 @@ let _mapArray_ = [
   ['aws_AWS_Secrets_Manager', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Secrets Manager",
  "dsl": "aws_AWS_Secrets_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Secrets_Manager",
@@ -332,6 +365,7 @@ let _mapArray_ = [
   ['aws_AWS_Security_Hub', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Security Hub",
  "dsl": "aws_AWS_Security_Hub",
  "kind": "resource",
  "tagName": "aws_AWS_Security_Hub",
@@ -342,6 +376,7 @@ let _mapArray_ = [
   ['aws_AWS_Shield', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Shield",
  "dsl": "aws_AWS_Shield",
  "kind": "resource",
  "tagName": "aws_AWS_Shield",
@@ -352,6 +387,7 @@ let _mapArray_ = [
   ['aws_AWS_Signer', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Signer",
  "dsl": "aws_AWS_Signer",
  "kind": "resource",
  "tagName": "aws_AWS_Signer",
@@ -362,6 +398,7 @@ let _mapArray_ = [
   ['aws_AWS_Single_Sign_On', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS Single Sign On",
  "dsl": "aws_AWS_Single_Sign_On",
  "kind": "resource",
  "tagName": "aws_AWS_Single_Sign_On",
@@ -372,6 +409,7 @@ let _mapArray_ = [
   ['aws_AWS_WAF', {
  "provider": "AWS",
  "category": "Arch_Security-Identity-Compliance",
+ "product": "AWS WAF",
  "dsl": "aws_AWS_WAF",
  "kind": "resource",
  "tagName": "aws_AWS_WAF",
@@ -382,6 +420,7 @@ let _mapArray_ = [
   ['aws_AWS_Ground_Station', {
  "provider": "AWS",
  "category": "Arch_Satellite",
+ "product": "AWS Ground Station",
  "dsl": "aws_AWS_Ground_Station",
  "kind": "resource",
  "tagName": "aws_AWS_Ground_Station",
@@ -392,6 +431,7 @@ let _mapArray_ = [
   ['aws_AWS_RoboMaker', {
  "provider": "AWS",
  "category": "Arch_Robotics",
+ "product": "AWS RoboMaker",
  "dsl": "aws_AWS_RoboMaker",
  "kind": "resource",
  "tagName": "aws_AWS_RoboMaker",
@@ -402,6 +442,7 @@ let _mapArray_ = [
   ['aws_Amazon_Braket', {
  "provider": "AWS",
  "category": "Arch_Quantum_Technologies",
+ "product": "Amazon Braket",
  "dsl": "aws_Amazon_Braket",
  "kind": "resource",
  "tagName": "aws_Amazon_Braket",
@@ -412,6 +453,7 @@ let _mapArray_ = [
   ['aws_Amazon_CloudFront', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "Amazon CloudFront",
  "dsl": "aws_Amazon_CloudFront",
  "kind": "resource",
  "tagName": "aws_Amazon_CloudFront",
@@ -422,6 +464,7 @@ let _mapArray_ = [
   ['aws_Amazon_Route_53', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "Amazon Route 53",
  "dsl": "aws_Amazon_Route_53",
  "kind": "resource",
  "tagName": "aws_Amazon_Route_53",
@@ -432,6 +475,7 @@ let _mapArray_ = [
   ['aws_Amazon_Virtual_Private_Cloud', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "Amazon Virtual Private Cloud",
  "dsl": "aws_Amazon_Virtual_Private_Cloud",
  "kind": "resource",
  "tagName": "aws_Amazon_Virtual_Private_Cloud",
@@ -442,6 +486,7 @@ let _mapArray_ = [
   ['aws_AWS_App_Mesh', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS App Mesh",
  "dsl": "aws_AWS_App_Mesh",
  "kind": "resource",
  "tagName": "aws_AWS_App_Mesh",
@@ -452,6 +497,7 @@ let _mapArray_ = [
   ['aws_AWS_Client_VPN', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS Client VPN",
  "dsl": "aws_AWS_Client_VPN",
  "kind": "resource",
  "tagName": "aws_AWS_Client_VPN",
@@ -462,6 +508,7 @@ let _mapArray_ = [
   ['aws_AWS_Cloud_Map', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS Cloud Map",
  "dsl": "aws_AWS_Cloud_Map",
  "kind": "resource",
  "tagName": "aws_AWS_Cloud_Map",
@@ -472,6 +519,7 @@ let _mapArray_ = [
   ['aws_AWS_Direct_Connect', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS Direct Connect",
  "dsl": "aws_AWS_Direct_Connect",
  "kind": "resource",
  "tagName": "aws_AWS_Direct_Connect",
@@ -482,6 +530,7 @@ let _mapArray_ = [
   ['aws_AWS_Global_Accelerator', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS Global Accelerator",
  "dsl": "aws_AWS_Global_Accelerator",
  "kind": "resource",
  "tagName": "aws_AWS_Global_Accelerator",
@@ -492,6 +541,7 @@ let _mapArray_ = [
   ['aws_AWS_PrivateLink', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS PrivateLink",
  "dsl": "aws_AWS_PrivateLink",
  "kind": "resource",
  "tagName": "aws_AWS_PrivateLink",
@@ -502,6 +552,7 @@ let _mapArray_ = [
   ['aws_AWS_Site_to_Site_VPN', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS Site to Site VPN",
  "dsl": "aws_AWS_Site_to_Site_VPN",
  "kind": "resource",
  "tagName": "aws_AWS_Site_to_Site_VPN",
@@ -512,6 +563,7 @@ let _mapArray_ = [
   ['aws_AWS_Transit_Gateway', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "AWS Transit Gateway",
  "dsl": "aws_AWS_Transit_Gateway",
  "kind": "resource",
  "tagName": "aws_AWS_Transit_Gateway",
@@ -522,6 +574,7 @@ let _mapArray_ = [
   ['aws_Elastic_Load_Balancing', {
  "provider": "AWS",
  "category": "Arch_Networking-Content-Delivery",
+ "product": "Elastic Load Balancing",
  "dsl": "aws_Elastic_Load_Balancing",
  "kind": "resource",
  "tagName": "aws_Elastic_Load_Balancing",
@@ -532,6 +585,7 @@ let _mapArray_ = [
   ['aws_AWS_Application_Discovery_Service', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS Application Discovery Service",
  "dsl": "aws_AWS_Application_Discovery_Service",
  "kind": "resource",
  "tagName": "aws_AWS_Application_Discovery_Service",
@@ -542,6 +596,7 @@ let _mapArray_ = [
   ['aws_AWS_Application_Migration_Service', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS Application Migration Service",
  "dsl": "aws_AWS_Application_Migration_Service",
  "kind": "resource",
  "tagName": "aws_AWS_Application_Migration_Service",
@@ -552,6 +607,7 @@ let _mapArray_ = [
   ['aws_AWS_DataSync', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS DataSync",
  "dsl": "aws_AWS_DataSync",
  "kind": "resource",
  "tagName": "aws_AWS_DataSync",
@@ -562,6 +618,7 @@ let _mapArray_ = [
   ['aws_AWS_Migration_Evaluator', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS Migration Evaluator",
  "dsl": "aws_AWS_Migration_Evaluator",
  "kind": "resource",
  "tagName": "aws_AWS_Migration_Evaluator",
@@ -572,6 +629,7 @@ let _mapArray_ = [
   ['aws_AWS_Migration_Hub', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS Migration Hub",
  "dsl": "aws_AWS_Migration_Hub",
  "kind": "resource",
  "tagName": "aws_AWS_Migration_Hub",
@@ -582,6 +640,7 @@ let _mapArray_ = [
   ['aws_AWS_Server_Migration_Service', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS Server Migration Service",
  "dsl": "aws_AWS_Server_Migration_Service",
  "kind": "resource",
  "tagName": "aws_AWS_Server_Migration_Service",
@@ -592,6 +651,7 @@ let _mapArray_ = [
   ['aws_AWS_Transfer_Family', {
  "provider": "AWS",
  "category": "Arch_Migration-Transfer",
+ "product": "AWS Transfer Family",
  "dsl": "aws_AWS_Transfer_Family",
  "kind": "resource",
  "tagName": "aws_AWS_Transfer_Family",
@@ -602,6 +662,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Transcoder', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "Amazon Elastic Transcoder",
  "dsl": "aws_Amazon_Elastic_Transcoder",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Transcoder",
@@ -612,6 +673,7 @@ let _mapArray_ = [
   ['aws_Amazon_Interactive_Video_Service', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "Amazon Interactive Video Service",
  "dsl": "aws_Amazon_Interactive_Video_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Interactive_Video_Service",
@@ -622,6 +684,7 @@ let _mapArray_ = [
   ['aws_Amazon_Kinesis_Video_Streams', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "Amazon Kinesis Video Streams",
  "dsl": "aws_Amazon_Kinesis_Video_Streams",
  "kind": "resource",
  "tagName": "aws_Amazon_Kinesis_Video_Streams",
@@ -632,6 +695,7 @@ let _mapArray_ = [
   ['aws_Amazon_Nimble_Studio', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "Amazon Nimble Studio",
  "dsl": "aws_Amazon_Nimble_Studio",
  "kind": "resource",
  "tagName": "aws_Amazon_Nimble_Studio",
@@ -642,6 +706,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_Appliances_Software', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental Appliances & Software",
  "dsl": "aws_AWS_Elemental_Appliances_Software",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_Appliances_Software",
@@ -652,6 +717,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_Conductor', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental Conductor",
  "dsl": "aws_AWS_Elemental_Conductor",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_Conductor",
@@ -662,6 +728,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_Delta', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental Delta",
  "dsl": "aws_AWS_Elemental_Delta",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_Delta",
@@ -672,6 +739,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_Link', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental Link",
  "dsl": "aws_AWS_Elemental_Link",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_Link",
@@ -682,6 +750,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_Live', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental Live",
  "dsl": "aws_AWS_Elemental_Live",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_Live",
@@ -692,6 +761,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_MediaConnect', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental MediaConnect",
  "dsl": "aws_AWS_Elemental_MediaConnect",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_MediaConnect",
@@ -702,6 +772,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_MediaConvert', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental MediaConvert",
  "dsl": "aws_AWS_Elemental_MediaConvert",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_MediaConvert",
@@ -712,6 +783,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_MediaLive', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental MediaLive",
  "dsl": "aws_AWS_Elemental_MediaLive",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_MediaLive",
@@ -722,6 +794,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_MediaPackage', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental MediaPackage",
  "dsl": "aws_AWS_Elemental_MediaPackage",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_MediaPackage",
@@ -732,6 +805,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_MediaStore', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental MediaStore",
  "dsl": "aws_AWS_Elemental_MediaStore",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_MediaStore",
@@ -742,6 +816,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_MediaTailor', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental MediaTailor",
  "dsl": "aws_AWS_Elemental_MediaTailor",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_MediaTailor",
@@ -752,6 +827,7 @@ let _mapArray_ = [
   ['aws_AWS_Elemental_Server', {
  "provider": "AWS",
  "category": "Arch_Media-Services",
+ "product": "AWS Elemental Server",
  "dsl": "aws_AWS_Elemental_Server",
  "kind": "resource",
  "tagName": "aws_AWS_Elemental_Server",
@@ -762,6 +838,7 @@ let _mapArray_ = [
   ['aws_Amazon_CloudWatch', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "Amazon CloudWatch",
  "dsl": "aws_Amazon_CloudWatch",
  "kind": "resource",
  "tagName": "aws_Amazon_CloudWatch",
@@ -772,6 +849,7 @@ let _mapArray_ = [
   ['aws_Amazon_Managed_Service_for_Grafana', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "Amazon Managed Service for Grafana",
  "dsl": "aws_Amazon_Managed_Service_for_Grafana",
  "kind": "resource",
  "tagName": "aws_Amazon_Managed_Service_for_Grafana",
@@ -782,6 +860,7 @@ let _mapArray_ = [
   ['aws_Amazon_Managed_Service_for_Prometheus', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "Amazon Managed Service for Prometheus",
  "dsl": "aws_Amazon_Managed_Service_for_Prometheus",
  "kind": "resource",
  "tagName": "aws_Amazon_Managed_Service_for_Prometheus",
@@ -792,6 +871,7 @@ let _mapArray_ = [
   ['aws_AWS_AppConfig', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS AppConfig",
  "dsl": "aws_AWS_AppConfig",
  "kind": "resource",
  "tagName": "aws_AWS_AppConfig",
@@ -802,6 +882,7 @@ let _mapArray_ = [
   ['aws_AWS_Application_Auto_Scaling', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Application Auto Scaling",
  "dsl": "aws_AWS_Application_Auto_Scaling",
  "kind": "resource",
  "tagName": "aws_AWS_Application_Auto_Scaling",
@@ -812,6 +893,7 @@ let _mapArray_ = [
   ['aws_AWS_Auto_Scaling', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Auto Scaling",
  "dsl": "aws_AWS_Auto_Scaling",
  "kind": "resource",
  "tagName": "aws_AWS_Auto_Scaling",
@@ -822,6 +904,7 @@ let _mapArray_ = [
   ['aws_AWS_Backint_Agent', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Backint Agent",
  "dsl": "aws_AWS_Backint_Agent",
  "kind": "resource",
  "tagName": "aws_AWS_Backint_Agent",
@@ -832,6 +915,7 @@ let _mapArray_ = [
   ['aws_AWS_Chatbot', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Chatbot",
  "dsl": "aws_AWS_Chatbot",
  "kind": "resource",
  "tagName": "aws_AWS_Chatbot",
@@ -842,6 +926,7 @@ let _mapArray_ = [
   ['aws_AWS_CloudFormation', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS CloudFormation",
  "dsl": "aws_AWS_CloudFormation",
  "kind": "resource",
  "tagName": "aws_AWS_CloudFormation",
@@ -852,6 +937,7 @@ let _mapArray_ = [
   ['aws_AWS_CloudTrail', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS CloudTrail",
  "dsl": "aws_AWS_CloudTrail",
  "kind": "resource",
  "tagName": "aws_AWS_CloudTrail",
@@ -862,6 +948,7 @@ let _mapArray_ = [
   ['aws_AWS_Config', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Config",
  "dsl": "aws_AWS_Config",
  "kind": "resource",
  "tagName": "aws_AWS_Config",
@@ -872,6 +959,7 @@ let _mapArray_ = [
   ['aws_AWS_Control_Tower', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Control Tower",
  "dsl": "aws_AWS_Control_Tower",
  "kind": "resource",
  "tagName": "aws_AWS_Control_Tower",
@@ -882,6 +970,7 @@ let _mapArray_ = [
   ['aws_AWS_Distro_for_OpenTelemetry', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Distro for OpenTelemetry",
  "dsl": "aws_AWS_Distro_for_OpenTelemetry",
  "kind": "resource",
  "tagName": "aws_AWS_Distro_for_OpenTelemetry",
@@ -892,6 +981,7 @@ let _mapArray_ = [
   ['aws_AWS_Fault_Injection_Simulator', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Fault Injection Simulator",
  "dsl": "aws_AWS_Fault_Injection_Simulator",
  "kind": "resource",
  "tagName": "aws_AWS_Fault_Injection_Simulator",
@@ -902,6 +992,7 @@ let _mapArray_ = [
   ['aws_AWS_Launch_Wizard', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Launch Wizard",
  "dsl": "aws_AWS_Launch_Wizard",
  "kind": "resource",
  "tagName": "aws_AWS_Launch_Wizard",
@@ -912,6 +1003,7 @@ let _mapArray_ = [
   ['aws_AWS_License_Manager', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS License Manager",
  "dsl": "aws_AWS_License_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_License_Manager",
@@ -922,6 +1014,7 @@ let _mapArray_ = [
   ['aws_AWS_Management_Console', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Management Console",
  "dsl": "aws_AWS_Management_Console",
  "kind": "resource",
  "tagName": "aws_AWS_Management_Console",
@@ -932,6 +1025,7 @@ let _mapArray_ = [
   ['aws_AWS_OpsWorks', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS OpsWorks",
  "dsl": "aws_AWS_OpsWorks",
  "kind": "resource",
  "tagName": "aws_AWS_OpsWorks",
@@ -942,6 +1036,7 @@ let _mapArray_ = [
   ['aws_AWS_Organizations', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Organizations",
  "dsl": "aws_AWS_Organizations",
  "kind": "resource",
  "tagName": "aws_AWS_Organizations",
@@ -952,6 +1047,7 @@ let _mapArray_ = [
   ['aws_AWS_Personal_Health_Dashboard', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Personal Health Dashboard",
  "dsl": "aws_AWS_Personal_Health_Dashboard",
  "kind": "resource",
  "tagName": "aws_AWS_Personal_Health_Dashboard",
@@ -962,6 +1058,7 @@ let _mapArray_ = [
   ['aws_AWS_Proton', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Proton",
  "dsl": "aws_AWS_Proton",
  "kind": "resource",
  "tagName": "aws_AWS_Proton",
@@ -972,6 +1069,7 @@ let _mapArray_ = [
   ['aws_AWS_Service_Catalog', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Service Catalog",
  "dsl": "aws_AWS_Service_Catalog",
  "kind": "resource",
  "tagName": "aws_AWS_Service_Catalog",
@@ -982,6 +1080,7 @@ let _mapArray_ = [
   ['aws_AWS_Systems_Manager_Incident_Manager', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Systems Manager Incident Manager",
  "dsl": "aws_AWS_Systems_Manager_Incident_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Systems_Manager_Incident_Manager",
@@ -992,6 +1091,7 @@ let _mapArray_ = [
   ['aws_AWS_Systems_Manager', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Systems Manager",
  "dsl": "aws_AWS_Systems_Manager",
  "kind": "resource",
  "tagName": "aws_AWS_Systems_Manager",
@@ -1002,6 +1102,7 @@ let _mapArray_ = [
   ['aws_AWS_Trusted_Advisor', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Trusted Advisor",
  "dsl": "aws_AWS_Trusted_Advisor",
  "kind": "resource",
  "tagName": "aws_AWS_Trusted_Advisor",
@@ -1012,6 +1113,7 @@ let _mapArray_ = [
   ['aws_AWS_Well_itected_Tool', {
  "provider": "AWS",
  "category": "Arch_Management-Governance",
+ "product": "AWS Well Architected Tool",
  "dsl": "aws_AWS_Well_itected_Tool",
  "kind": "resource",
  "tagName": "aws_AWS_Well_itected_Tool",
@@ -1022,6 +1124,7 @@ let _mapArray_ = [
   ['aws_Amazon_Augmented_AI_A2I', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Augmented AI A2I",
  "dsl": "aws_Amazon_Augmented_AI_A2I",
  "kind": "resource",
  "tagName": "aws_Amazon_Augmented_AI_A2I",
@@ -1032,6 +1135,7 @@ let _mapArray_ = [
   ['aws_Amazon_CodeGuru', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon CodeGuru",
  "dsl": "aws_Amazon_CodeGuru",
  "kind": "resource",
  "tagName": "aws_Amazon_CodeGuru",
@@ -1042,6 +1146,7 @@ let _mapArray_ = [
   ['aws_Amazon_Comprehend', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Comprehend",
  "dsl": "aws_Amazon_Comprehend",
  "kind": "resource",
  "tagName": "aws_Amazon_Comprehend",
@@ -1052,6 +1157,7 @@ let _mapArray_ = [
   ['aws_Amazon_DevOps_Guru', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon DevOps Guru",
  "dsl": "aws_Amazon_DevOps_Guru",
  "kind": "resource",
  "tagName": "aws_Amazon_DevOps_Guru",
@@ -1062,6 +1168,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Inference', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Elastic Inference",
  "dsl": "aws_Amazon_Elastic_Inference",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Inference",
@@ -1072,6 +1179,7 @@ let _mapArray_ = [
   ['aws_Amazon_Forecast', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Forecast",
  "dsl": "aws_Amazon_Forecast",
  "kind": "resource",
  "tagName": "aws_Amazon_Forecast",
@@ -1082,6 +1190,7 @@ let _mapArray_ = [
   ['aws_Amazon_Fraud_Detector', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Fraud Detector",
  "dsl": "aws_Amazon_Fraud_Detector",
  "kind": "resource",
  "tagName": "aws_Amazon_Fraud_Detector",
@@ -1092,6 +1201,7 @@ let _mapArray_ = [
   ['aws_Amazon_HealthLake', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon HealthLake",
  "dsl": "aws_Amazon_HealthLake",
  "kind": "resource",
  "tagName": "aws_Amazon_HealthLake",
@@ -1102,6 +1212,7 @@ let _mapArray_ = [
   ['aws_Amazon_Kendra', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Kendra",
  "dsl": "aws_Amazon_Kendra",
  "kind": "resource",
  "tagName": "aws_Amazon_Kendra",
@@ -1112,6 +1223,7 @@ let _mapArray_ = [
   ['aws_Amazon_Lex', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Lex",
  "dsl": "aws_Amazon_Lex",
  "kind": "resource",
  "tagName": "aws_Amazon_Lex",
@@ -1122,6 +1234,7 @@ let _mapArray_ = [
   ['aws_Amazon_Lookout_for_Equipment', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Lookout for Equipment",
  "dsl": "aws_Amazon_Lookout_for_Equipment",
  "kind": "resource",
  "tagName": "aws_Amazon_Lookout_for_Equipment",
@@ -1132,6 +1245,7 @@ let _mapArray_ = [
   ['aws_Amazon_Lookout_for_Metrics', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Lookout for Metrics",
  "dsl": "aws_Amazon_Lookout_for_Metrics",
  "kind": "resource",
  "tagName": "aws_Amazon_Lookout_for_Metrics",
@@ -1142,6 +1256,7 @@ let _mapArray_ = [
   ['aws_Amazon_Lookout_for_Vision', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Lookout for Vision",
  "dsl": "aws_Amazon_Lookout_for_Vision",
  "kind": "resource",
  "tagName": "aws_Amazon_Lookout_for_Vision",
@@ -1152,6 +1267,7 @@ let _mapArray_ = [
   ['aws_Amazon_Monitron', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Monitron",
  "dsl": "aws_Amazon_Monitron",
  "kind": "resource",
  "tagName": "aws_Amazon_Monitron",
@@ -1162,6 +1278,7 @@ let _mapArray_ = [
   ['aws_Amazon_Personalize', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Personalize",
  "dsl": "aws_Amazon_Personalize",
  "kind": "resource",
  "tagName": "aws_Amazon_Personalize",
@@ -1172,6 +1289,7 @@ let _mapArray_ = [
   ['aws_Amazon_Polly', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Polly",
  "dsl": "aws_Amazon_Polly",
  "kind": "resource",
  "tagName": "aws_Amazon_Polly",
@@ -1182,6 +1300,7 @@ let _mapArray_ = [
   ['aws_Amazon_Rekognition', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Rekognition",
  "dsl": "aws_Amazon_Rekognition",
  "kind": "resource",
  "tagName": "aws_Amazon_Rekognition",
@@ -1192,6 +1311,7 @@ let _mapArray_ = [
   ['aws_Amazon_SageMaker_Ground_Truth', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon SageMaker Ground Truth",
  "dsl": "aws_Amazon_SageMaker_Ground_Truth",
  "kind": "resource",
  "tagName": "aws_Amazon_SageMaker_Ground_Truth",
@@ -1202,6 +1322,7 @@ let _mapArray_ = [
   ['aws_Amazon_SageMaker', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon SageMaker",
  "dsl": "aws_Amazon_SageMaker",
  "kind": "resource",
  "tagName": "aws_Amazon_SageMaker",
@@ -1212,6 +1333,7 @@ let _mapArray_ = [
   ['aws_Amazon_Textract', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Textract",
  "dsl": "aws_Amazon_Textract",
  "kind": "resource",
  "tagName": "aws_Amazon_Textract",
@@ -1222,6 +1344,7 @@ let _mapArray_ = [
   ['aws_Amazon_Transcribe', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Transcribe",
  "dsl": "aws_Amazon_Transcribe",
  "kind": "resource",
  "tagName": "aws_Amazon_Transcribe",
@@ -1232,6 +1355,7 @@ let _mapArray_ = [
   ['aws_Amazon_Translate', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Amazon Translate",
  "dsl": "aws_Amazon_Translate",
  "kind": "resource",
  "tagName": "aws_Amazon_Translate",
@@ -1242,6 +1366,7 @@ let _mapArray_ = [
   ['aws_Apache_MXNet_on_AWS', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "Apache MXNet on AWS",
  "dsl": "aws_Apache_MXNet_on_AWS",
  "kind": "resource",
  "tagName": "aws_Apache_MXNet_on_AWS",
@@ -1252,6 +1377,7 @@ let _mapArray_ = [
   ['aws_AWS_Deep_Learning_AMIs', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS Deep Learning AMIs",
  "dsl": "aws_AWS_Deep_Learning_AMIs",
  "kind": "resource",
  "tagName": "aws_AWS_Deep_Learning_AMIs",
@@ -1262,6 +1388,7 @@ let _mapArray_ = [
   ['aws_AWS_Deep_Learning_Containers', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS Deep Learning Containers",
  "dsl": "aws_AWS_Deep_Learning_Containers",
  "kind": "resource",
  "tagName": "aws_AWS_Deep_Learning_Containers",
@@ -1272,6 +1399,7 @@ let _mapArray_ = [
   ['aws_AWS_DeepComposer', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS DeepComposer",
  "dsl": "aws_AWS_DeepComposer",
  "kind": "resource",
  "tagName": "aws_AWS_DeepComposer",
@@ -1282,6 +1410,7 @@ let _mapArray_ = [
   ['aws_AWS_DeepLens', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS DeepLens",
  "dsl": "aws_AWS_DeepLens",
  "kind": "resource",
  "tagName": "aws_AWS_DeepLens",
@@ -1292,6 +1421,7 @@ let _mapArray_ = [
   ['aws_AWS_DeepRacer', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS DeepRacer",
  "dsl": "aws_AWS_DeepRacer",
  "kind": "resource",
  "tagName": "aws_AWS_DeepRacer",
@@ -1302,6 +1432,7 @@ let _mapArray_ = [
   ['aws_AWS_Neuron', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS Neuron",
  "dsl": "aws_AWS_Neuron",
  "kind": "resource",
  "tagName": "aws_AWS_Neuron",
@@ -1312,6 +1443,7 @@ let _mapArray_ = [
   ['aws_AWS_Panorama', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "AWS Panorama",
  "dsl": "aws_AWS_Panorama",
  "kind": "resource",
  "tagName": "aws_AWS_Panorama",
@@ -1322,6 +1454,7 @@ let _mapArray_ = [
   ['aws_TensorFlow_on_AWS', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "TensorFlow on AWS",
  "dsl": "aws_TensorFlow_on_AWS",
  "kind": "resource",
  "tagName": "aws_TensorFlow_on_AWS",
@@ -1332,6 +1465,7 @@ let _mapArray_ = [
   ['aws_TorchServe', {
  "provider": "AWS",
  "category": "Arch_Machine-Learning",
+ "product": "TorchServe",
  "dsl": "aws_TorchServe",
  "kind": "resource",
  "tagName": "aws_TorchServe",
@@ -1342,6 +1476,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_1_Click', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT 1 Click",
  "dsl": "aws_AWS_IoT_1_Click",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_1_Click",
@@ -1352,6 +1487,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Analytics', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Analytics",
  "dsl": "aws_AWS_IoT_Analytics",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Analytics",
@@ -1362,6 +1498,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Button', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Button",
  "dsl": "aws_AWS_IoT_Button",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Button",
@@ -1372,6 +1509,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Core', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Core",
  "dsl": "aws_AWS_IoT_Core",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Core",
@@ -1382,6 +1520,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Device_Defender', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Device Defender",
  "dsl": "aws_AWS_IoT_Device_Defender",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Device_Defender",
@@ -1392,6 +1531,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Device_Management', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Device Management",
  "dsl": "aws_AWS_IoT_Device_Management",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Device_Management",
@@ -1402,6 +1542,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Events', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Events",
  "dsl": "aws_AWS_IoT_Events",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Events",
@@ -1412,6 +1553,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Greengrass', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Greengrass",
  "dsl": "aws_AWS_IoT_Greengrass",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Greengrass",
@@ -1422,6 +1564,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_SiteWise', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT SiteWise",
  "dsl": "aws_AWS_IoT_SiteWise",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_SiteWise",
@@ -1432,6 +1575,7 @@ let _mapArray_ = [
   ['aws_AWS_IoT_Things_Graph', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "AWS IoT Things Graph",
  "dsl": "aws_AWS_IoT_Things_Graph",
  "kind": "resource",
  "tagName": "aws_AWS_IoT_Things_Graph",
@@ -1442,6 +1586,7 @@ let _mapArray_ = [
   ['aws_FreeRTOS', {
  "provider": "AWS",
  "category": "Arch_Internet-of-Things",
+ "product": "FreeRTOS",
  "dsl": "aws_FreeRTOS",
  "kind": "resource",
  "tagName": "aws_FreeRTOS",
@@ -1452,6 +1597,7 @@ let _mapArray_ = [
   ['aws_AWS_Marketplace_Dark', {
  "provider": "AWS",
  "category": "Arch_General-Icons",
+ "product": "AWS Marketplace Dark",
  "dsl": "aws_AWS_Marketplace_Dark",
  "kind": "resource",
  "tagName": "aws_AWS_Marketplace_Dark",
@@ -1462,6 +1608,7 @@ let _mapArray_ = [
   ['aws_AWS_Marketplace_Light', {
  "provider": "AWS",
  "category": "Arch_General-Icons",
+ "product": "AWS Marketplace Light",
  "dsl": "aws_AWS_Marketplace_Light",
  "kind": "resource",
  "tagName": "aws_AWS_Marketplace_Light",
@@ -1472,6 +1619,7 @@ let _mapArray_ = [
   ['aws_Amazon_GameLift', {
  "provider": "AWS",
  "category": "Arch_Game-Tech",
+ "product": "Amazon GameLift",
  "dsl": "aws_Amazon_GameLift",
  "kind": "resource",
  "tagName": "aws_Amazon_GameLift",
@@ -1482,6 +1630,7 @@ let _mapArray_ = [
   ['aws_Amazon_Location_Service', {
  "provider": "AWS",
  "category": "Arch_Front-End-Web-Mobile",
+ "product": "Amazon Location Service",
  "dsl": "aws_Amazon_Location_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Location_Service",
@@ -1492,6 +1641,7 @@ let _mapArray_ = [
   ['aws_AWS_Amplify', {
  "provider": "AWS",
  "category": "Arch_Front-End-Web-Mobile",
+ "product": "AWS Amplify",
  "dsl": "aws_AWS_Amplify",
  "kind": "resource",
  "tagName": "aws_AWS_Amplify",
@@ -1502,6 +1652,7 @@ let _mapArray_ = [
   ['aws_AWS_Device_Farm', {
  "provider": "AWS",
  "category": "Arch_Front-End-Web-Mobile",
+ "product": "AWS Device Farm",
  "dsl": "aws_AWS_Device_Farm",
  "kind": "resource",
  "tagName": "aws_AWS_Device_Farm",
@@ -1512,6 +1663,7 @@ let _mapArray_ = [
   ['aws_Amazon_AppStream', {
  "provider": "AWS",
  "category": "Arch_End-User-Computing",
+ "product": "Amazon AppStream",
  "dsl": "aws_Amazon_AppStream",
  "kind": "resource",
  "tagName": "aws_Amazon_AppStream",
@@ -1522,6 +1674,7 @@ let _mapArray_ = [
   ['aws_Amazon_WorkLink', {
  "provider": "AWS",
  "category": "Arch_End-User-Computing",
+ "product": "Amazon WorkLink",
  "dsl": "aws_Amazon_WorkLink",
  "kind": "resource",
  "tagName": "aws_Amazon_WorkLink",
@@ -1532,6 +1685,7 @@ let _mapArray_ = [
   ['aws_Amazon_WorkSpaces', {
  "provider": "AWS",
  "category": "Arch_End-User-Computing",
+ "product": "Amazon WorkSpaces",
  "dsl": "aws_Amazon_WorkSpaces",
  "kind": "resource",
  "tagName": "aws_Amazon_WorkSpaces",
@@ -1542,6 +1696,7 @@ let _mapArray_ = [
   ['aws_Amazon_Corretto', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "Amazon Corretto",
  "dsl": "aws_Amazon_Corretto",
  "kind": "resource",
  "tagName": "aws_Amazon_Corretto",
@@ -1552,6 +1707,7 @@ let _mapArray_ = [
   ['aws_AWS_Cloud_Development_Kit', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS Cloud Development Kit",
  "dsl": "aws_AWS_Cloud_Development_Kit",
  "kind": "resource",
  "tagName": "aws_AWS_Cloud_Development_Kit",
@@ -1562,6 +1718,7 @@ let _mapArray_ = [
   ['aws_AWS_Cloud9', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS Cloud9",
  "dsl": "aws_AWS_Cloud9",
  "kind": "resource",
  "tagName": "aws_AWS_Cloud9",
@@ -1572,6 +1729,7 @@ let _mapArray_ = [
   ['aws_AWS_CloudShell', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CloudShell",
  "dsl": "aws_AWS_CloudShell",
  "kind": "resource",
  "tagName": "aws_AWS_CloudShell",
@@ -1582,6 +1740,7 @@ let _mapArray_ = [
   ['aws_AWS_CodeArtifact', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CodeArtifact",
  "dsl": "aws_AWS_CodeArtifact",
  "kind": "resource",
  "tagName": "aws_AWS_CodeArtifact",
@@ -1592,6 +1751,7 @@ let _mapArray_ = [
   ['aws_AWS_CodeBuild', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CodeBuild",
  "dsl": "aws_AWS_CodeBuild",
  "kind": "resource",
  "tagName": "aws_AWS_CodeBuild",
@@ -1602,6 +1762,7 @@ let _mapArray_ = [
   ['aws_AWS_CodeCommit', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CodeCommit",
  "dsl": "aws_AWS_CodeCommit",
  "kind": "resource",
  "tagName": "aws_AWS_CodeCommit",
@@ -1612,6 +1773,7 @@ let _mapArray_ = [
   ['aws_AWS_CodeDeploy', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CodeDeploy",
  "dsl": "aws_AWS_CodeDeploy",
  "kind": "resource",
  "tagName": "aws_AWS_CodeDeploy",
@@ -1622,6 +1784,7 @@ let _mapArray_ = [
   ['aws_AWS_CodePipeline', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CodePipeline",
  "dsl": "aws_AWS_CodePipeline",
  "kind": "resource",
  "tagName": "aws_AWS_CodePipeline",
@@ -1632,6 +1795,7 @@ let _mapArray_ = [
   ['aws_AWS_CodeStar', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS CodeStar",
  "dsl": "aws_AWS_CodeStar",
  "kind": "resource",
  "tagName": "aws_AWS_CodeStar",
@@ -1642,6 +1806,7 @@ let _mapArray_ = [
   ['aws_AWS_Command_Line_Interface', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS Command Line Interface",
  "dsl": "aws_AWS_Command_Line_Interface",
  "kind": "resource",
  "tagName": "aws_AWS_Command_Line_Interface",
@@ -1652,6 +1817,7 @@ let _mapArray_ = [
   ['aws_AWS_Tools_and_SDKs', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS Tools and SDKs",
  "dsl": "aws_AWS_Tools_and_SDKs",
  "kind": "resource",
  "tagName": "aws_AWS_Tools_and_SDKs",
@@ -1662,6 +1828,7 @@ let _mapArray_ = [
   ['aws_AWS_X_Ray', {
  "provider": "AWS",
  "category": "Arch_Developer-Tools",
+ "product": "AWS X Ray",
  "dsl": "aws_AWS_X_Ray",
  "kind": "resource",
  "tagName": "aws_AWS_X_Ray",
@@ -1672,6 +1839,7 @@ let _mapArray_ = [
   ['aws_Amazon_Aurora', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon Aurora",
  "dsl": "aws_Amazon_Aurora",
  "kind": "resource",
  "tagName": "aws_Amazon_Aurora",
@@ -1682,6 +1850,7 @@ let _mapArray_ = [
   ['aws_Amazon_DocumentDB', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon DocumentDB",
  "dsl": "aws_Amazon_DocumentDB",
  "kind": "resource",
  "tagName": "aws_Amazon_DocumentDB",
@@ -1692,6 +1861,7 @@ let _mapArray_ = [
   ['aws_Amazon_DynamoDB', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon DynamoDB",
  "dsl": "aws_Amazon_DynamoDB",
  "kind": "resource",
  "tagName": "aws_Amazon_DynamoDB",
@@ -1702,6 +1872,7 @@ let _mapArray_ = [
   ['aws_Amazon_ElastiCache', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon ElastiCache",
  "dsl": "aws_Amazon_ElastiCache",
  "kind": "resource",
  "tagName": "aws_Amazon_ElastiCache",
@@ -1712,6 +1883,7 @@ let _mapArray_ = [
   ['aws_Amazon_Keyspaces', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon Keyspaces",
  "dsl": "aws_Amazon_Keyspaces",
  "kind": "resource",
  "tagName": "aws_Amazon_Keyspaces",
@@ -1722,6 +1894,7 @@ let _mapArray_ = [
   ['aws_Amazon_Neptune', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon Neptune",
  "dsl": "aws_Amazon_Neptune",
  "kind": "resource",
  "tagName": "aws_Amazon_Neptune",
@@ -1732,6 +1905,7 @@ let _mapArray_ = [
   ['aws_Amazon_Quantum_Ledger_Database', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon Quantum Ledger Database",
  "dsl": "aws_Amazon_Quantum_Ledger_Database",
  "kind": "resource",
  "tagName": "aws_Amazon_Quantum_Ledger_Database",
@@ -1742,6 +1916,7 @@ let _mapArray_ = [
   ['aws_Amazon_RDS_on_VMware', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon RDS on VMware",
  "dsl": "aws_Amazon_RDS_on_VMware",
  "kind": "resource",
  "tagName": "aws_Amazon_RDS_on_VMware",
@@ -1752,6 +1927,7 @@ let _mapArray_ = [
   ['aws_Amazon_RDS', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon RDS",
  "dsl": "aws_Amazon_RDS",
  "kind": "resource",
  "tagName": "aws_Amazon_RDS",
@@ -1762,6 +1938,7 @@ let _mapArray_ = [
   ['aws_Amazon_Timestream', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "Amazon Timestream",
  "dsl": "aws_Amazon_Timestream",
  "kind": "resource",
  "tagName": "aws_Amazon_Timestream",
@@ -1772,6 +1949,7 @@ let _mapArray_ = [
   ['aws_AWS_Database_Migration_Service', {
  "provider": "AWS",
  "category": "Arch_Database",
+ "product": "AWS Database Migration Service",
  "dsl": "aws_AWS_Database_Migration_Service",
  "kind": "resource",
  "tagName": "aws_AWS_Database_Migration_Service",
@@ -1782,6 +1960,7 @@ let _mapArray_ = [
   ['aws_AWS_Activate', {
  "provider": "AWS",
  "category": "Arch_Customer-Enablement",
+ "product": "AWS Activate",
  "dsl": "aws_AWS_Activate",
  "kind": "resource",
  "tagName": "aws_AWS_Activate",
@@ -1792,6 +1971,7 @@ let _mapArray_ = [
   ['aws_AWS_IQ', {
  "provider": "AWS",
  "category": "Arch_Customer-Enablement",
+ "product": "AWS IQ",
  "dsl": "aws_AWS_IQ",
  "kind": "resource",
  "tagName": "aws_AWS_IQ",
@@ -1802,6 +1982,7 @@ let _mapArray_ = [
   ['aws_AWS_Managed_Services', {
  "provider": "AWS",
  "category": "Arch_Customer-Enablement",
+ "product": "AWS Managed Services",
  "dsl": "aws_AWS_Managed_Services",
  "kind": "resource",
  "tagName": "aws_AWS_Managed_Services",
@@ -1812,6 +1993,7 @@ let _mapArray_ = [
   ['aws_AWS_Professional_Services', {
  "provider": "AWS",
  "category": "Arch_Customer-Enablement",
+ "product": "AWS Professional Services",
  "dsl": "aws_AWS_Professional_Services",
  "kind": "resource",
  "tagName": "aws_AWS_Professional_Services",
@@ -1822,6 +2004,7 @@ let _mapArray_ = [
   ['aws_AWS_Support', {
  "provider": "AWS",
  "category": "Arch_Customer-Enablement",
+ "product": "AWS Support",
  "dsl": "aws_AWS_Support",
  "kind": "resource",
  "tagName": "aws_AWS_Support",
@@ -1832,6 +2015,7 @@ let _mapArray_ = [
   ['aws_AWS_Training_Certification', {
  "provider": "AWS",
  "category": "Arch_Customer-Enablement",
+ "product": "AWS Training Certification",
  "dsl": "aws_AWS_Training_Certification",
  "kind": "resource",
  "tagName": "aws_AWS_Training_Certification",
@@ -1842,6 +2026,7 @@ let _mapArray_ = [
   ['aws_Amazon_EKS_Anywhere', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Amazon EKS Anywhere",
  "dsl": "aws_Amazon_EKS_Anywhere",
  "kind": "resource",
  "tagName": "aws_Amazon_EKS_Anywhere",
@@ -1852,6 +2037,7 @@ let _mapArray_ = [
   ['aws_Amazon_EKS_Cloud', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Amazon EKS Cloud",
  "dsl": "aws_Amazon_EKS_Cloud",
  "kind": "resource",
  "tagName": "aws_Amazon_EKS_Cloud",
@@ -1862,6 +2048,7 @@ let _mapArray_ = [
   ['aws_Amazon_EKS_Distro', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Amazon EKS Distro",
  "dsl": "aws_Amazon_EKS_Distro",
  "kind": "resource",
  "tagName": "aws_Amazon_EKS_Distro",
@@ -1872,6 +2059,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Container_Registry', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Amazon Elastic Container Registry",
  "dsl": "aws_Amazon_Elastic_Container_Registry",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Container_Registry",
@@ -1882,6 +2070,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Container_Service', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Amazon Elastic Container Service",
  "dsl": "aws_Amazon_Elastic_Container_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Container_Service",
@@ -1892,6 +2081,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Kubernetes_Service', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Amazon Elastic Kubernetes Service",
  "dsl": "aws_Amazon_Elastic_Kubernetes_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Kubernetes_Service",
@@ -1902,6 +2092,7 @@ let _mapArray_ = [
   ['aws_AWS_Fargate', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "AWS Fargate",
  "dsl": "aws_AWS_Fargate",
  "kind": "resource",
  "tagName": "aws_AWS_Fargate",
@@ -1912,6 +2103,7 @@ let _mapArray_ = [
   ['aws_Red_Hat_OpenShift', {
  "provider": "AWS",
  "category": "Arch_Containers",
+ "product": "Red Hat OpenShift",
  "dsl": "aws_Red_Hat_OpenShift",
  "kind": "resource",
  "tagName": "aws_Red_Hat_OpenShift",
@@ -1922,6 +2114,7 @@ let _mapArray_ = [
   ['aws_Amazon_EC2_Auto_Scaling', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon EC2 Auto Scaling",
  "dsl": "aws_Amazon_EC2_Auto_Scaling",
  "kind": "resource",
  "tagName": "aws_Amazon_EC2_Auto_Scaling",
@@ -1932,6 +2125,7 @@ let _mapArray_ = [
   ['aws_Amazon_EC2_Image_Builder', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon EC2 Image Builder",
  "dsl": "aws_Amazon_EC2_Image_Builder",
  "kind": "resource",
  "tagName": "aws_Amazon_EC2_Image_Builder",
@@ -1942,6 +2136,7 @@ let _mapArray_ = [
   ['aws_Amazon_EC2_M5n', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon EC2 M5n",
  "dsl": "aws_Amazon_EC2_M5n",
  "kind": "resource",
  "tagName": "aws_Amazon_EC2_M5n",
@@ -1952,6 +2147,7 @@ let _mapArray_ = [
   ['aws_Amazon_EC2_R5n', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon EC2 R5n",
  "dsl": "aws_Amazon_EC2_R5n",
  "kind": "resource",
  "tagName": "aws_Amazon_EC2_R5n",
@@ -1962,6 +2158,7 @@ let _mapArray_ = [
   ['aws_Amazon_EC2', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon EC2",
  "dsl": "aws_Amazon_EC2",
  "kind": "resource",
  "tagName": "aws_Amazon_EC2",
@@ -1972,6 +2169,7 @@ let _mapArray_ = [
   ['aws_Amazon_Elastic_Container_Kubernetes', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon Elastic Container Kubernetes",
  "dsl": "aws_Amazon_Elastic_Container_Kubernetes",
  "kind": "resource",
  "tagName": "aws_Amazon_Elastic_Container_Kubernetes",
@@ -1982,6 +2180,7 @@ let _mapArray_ = [
   ['aws_Amazon_Lightsail', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Amazon Lightsail",
  "dsl": "aws_Amazon_Lightsail",
  "kind": "resource",
  "tagName": "aws_Amazon_Lightsail",
@@ -1992,6 +2191,7 @@ let _mapArray_ = [
   ['aws_AWS_App_Runner', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS App Runner",
  "dsl": "aws_AWS_App_Runner",
  "kind": "resource",
  "tagName": "aws_AWS_App_Runner",
@@ -2002,6 +2202,7 @@ let _mapArray_ = [
   ['aws_AWS_Batch', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Batch",
  "dsl": "aws_AWS_Batch",
  "kind": "resource",
  "tagName": "aws_AWS_Batch",
@@ -2012,6 +2213,7 @@ let _mapArray_ = [
   ['aws_AWS_Compute_Optimizer', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Compute Optimizer",
  "dsl": "aws_AWS_Compute_Optimizer",
  "kind": "resource",
  "tagName": "aws_AWS_Compute_Optimizer",
@@ -2022,6 +2224,7 @@ let _mapArray_ = [
   ['aws_AWS_Elastic_Beanstalk', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Elastic Beanstalk",
  "dsl": "aws_AWS_Elastic_Beanstalk",
  "kind": "resource",
  "tagName": "aws_AWS_Elastic_Beanstalk",
@@ -2032,6 +2235,7 @@ let _mapArray_ = [
   ['aws_AWS_Lambda', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Lambda",
  "dsl": "aws_AWS_Lambda",
  "kind": "resource",
  "tagName": "aws_AWS_Lambda",
@@ -2042,6 +2246,7 @@ let _mapArray_ = [
   ['aws_AWS_Local_Zones', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Local Zones",
  "dsl": "aws_AWS_Local_Zones",
  "kind": "resource",
  "tagName": "aws_AWS_Local_Zones",
@@ -2052,6 +2257,7 @@ let _mapArray_ = [
   ['aws_AWS_Nitro_Enclaves', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Nitro Enclaves",
  "dsl": "aws_AWS_Nitro_Enclaves",
  "kind": "resource",
  "tagName": "aws_AWS_Nitro_Enclaves",
@@ -2062,6 +2268,7 @@ let _mapArray_ = [
   ['aws_AWS_Outposts_1U_and_2U_Servers', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Outposts 1U and 2U Servers",
  "dsl": "aws_AWS_Outposts_1U_and_2U_Servers",
  "kind": "resource",
  "tagName": "aws_AWS_Outposts_1U_and_2U_Servers",
@@ -2072,6 +2279,7 @@ let _mapArray_ = [
   ['aws_AWS_Outposts', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Outposts",
  "dsl": "aws_AWS_Outposts",
  "kind": "resource",
  "tagName": "aws_AWS_Outposts",
@@ -2082,6 +2290,7 @@ let _mapArray_ = [
   ['aws_AWS_ParallelCluster', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ParallelCluster",
  "dsl": "aws_AWS_ParallelCluster",
  "kind": "resource",
  "tagName": "aws_AWS_ParallelCluster",
@@ -2092,6 +2301,7 @@ let _mapArray_ = [
   ['aws_AWS_Serverless_Application_Repository', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Serverless Application Repository",
  "dsl": "aws_AWS_Serverless_Application_Repository",
  "kind": "resource",
  "tagName": "aws_AWS_Serverless_Application_Repository",
@@ -2102,6 +2312,7 @@ let _mapArray_ = [
   ['aws_AWS_ThinkBox_Deadline', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ThinkBox Deadline",
  "dsl": "aws_AWS_ThinkBox_Deadline",
  "kind": "resource",
  "tagName": "aws_AWS_ThinkBox_Deadline",
@@ -2112,6 +2323,7 @@ let _mapArray_ = [
   ['aws_AWS_ThinkBox_Frost', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ThinkBox Frost",
  "dsl": "aws_AWS_ThinkBox_Frost",
  "kind": "resource",
  "tagName": "aws_AWS_ThinkBox_Frost",
@@ -2122,6 +2334,7 @@ let _mapArray_ = [
   ['aws_AWS_ThinkBox_Krakatoa', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ThinkBox Krakatoa",
  "dsl": "aws_AWS_ThinkBox_Krakatoa",
  "kind": "resource",
  "tagName": "aws_AWS_ThinkBox_Krakatoa",
@@ -2132,6 +2345,7 @@ let _mapArray_ = [
   ['aws_AWS_ThinkBox_Sequoia', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ThinkBox Sequoia",
  "dsl": "aws_AWS_ThinkBox_Sequoia",
  "kind": "resource",
  "tagName": "aws_AWS_ThinkBox_Sequoia",
@@ -2142,6 +2356,7 @@ let _mapArray_ = [
   ['aws_AWS_ThinkBox_Stoke', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ThinkBox Stoke",
  "dsl": "aws_AWS_ThinkBox_Stoke",
  "kind": "resource",
  "tagName": "aws_AWS_ThinkBox_Stoke",
@@ -2152,6 +2367,7 @@ let _mapArray_ = [
   ['aws_AWS_ThinkBox_XMesh', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS ThinkBox XMesh",
  "dsl": "aws_AWS_ThinkBox_XMesh",
  "kind": "resource",
  "tagName": "aws_AWS_ThinkBox_XMesh",
@@ -2162,6 +2378,7 @@ let _mapArray_ = [
   ['aws_AWS_Wavelength', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "AWS Wavelength",
  "dsl": "aws_AWS_Wavelength",
  "kind": "resource",
  "tagName": "aws_AWS_Wavelength",
@@ -2172,6 +2389,7 @@ let _mapArray_ = [
   ['aws_Bottlerocket', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Bottlerocket",
  "dsl": "aws_Bottlerocket",
  "kind": "resource",
  "tagName": "aws_Bottlerocket",
@@ -2182,6 +2400,7 @@ let _mapArray_ = [
   ['aws_Elastic_Fabric_Adapter', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "Elastic Fabric Adapter",
  "dsl": "aws_Elastic_Fabric_Adapter",
  "kind": "resource",
  "tagName": "aws_Elastic_Fabric_Adapter",
@@ -2192,6 +2411,7 @@ let _mapArray_ = [
   ['aws_NICE_DCV', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "NICE DCV",
  "dsl": "aws_NICE_DCV",
  "kind": "resource",
  "tagName": "aws_NICE_DCV",
@@ -2202,6 +2422,7 @@ let _mapArray_ = [
   ['aws_VMware_Cloud_on_AWS', {
  "provider": "AWS",
  "category": "Arch_Compute",
+ "product": "VMware Cloud on AWS",
  "dsl": "aws_VMware_Cloud_on_AWS",
  "kind": "resource",
  "tagName": "aws_VMware_Cloud_on_AWS",
@@ -2212,6 +2433,7 @@ let _mapArray_ = [
   ['aws_Alexa_For_Business', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Alexa For Business",
  "dsl": "aws_Alexa_For_Business",
  "kind": "resource",
  "tagName": "aws_Alexa_For_Business",
@@ -2222,6 +2444,7 @@ let _mapArray_ = [
   ['aws_Amazon_Chime_SDK', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Chime SDK",
  "dsl": "aws_Amazon_Chime_SDK",
  "kind": "resource",
  "tagName": "aws_Amazon_Chime_SDK",
@@ -2232,6 +2455,7 @@ let _mapArray_ = [
   ['aws_Amazon_Chime_Voice_Connector', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Chime Voice Connector",
  "dsl": "aws_Amazon_Chime_Voice_Connector",
  "kind": "resource",
  "tagName": "aws_Amazon_Chime_Voice_Connector",
@@ -2242,6 +2466,7 @@ let _mapArray_ = [
   ['aws_Amazon_Chime', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Chime",
  "dsl": "aws_Amazon_Chime",
  "kind": "resource",
  "tagName": "aws_Amazon_Chime",
@@ -2252,6 +2477,7 @@ let _mapArray_ = [
   ['aws_Amazon_Connect', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Connect",
  "dsl": "aws_Amazon_Connect",
  "kind": "resource",
  "tagName": "aws_Amazon_Connect",
@@ -2262,6 +2488,7 @@ let _mapArray_ = [
   ['aws_Amazon_Honeycode', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Honeycode",
  "dsl": "aws_Amazon_Honeycode",
  "kind": "resource",
  "tagName": "aws_Amazon_Honeycode",
@@ -2272,6 +2499,7 @@ let _mapArray_ = [
   ['aws_Amazon_Pinpoint_APIs', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Pinpoint APIs",
  "dsl": "aws_Amazon_Pinpoint_APIs",
  "kind": "resource",
  "tagName": "aws_Amazon_Pinpoint_APIs",
@@ -2282,6 +2510,7 @@ let _mapArray_ = [
   ['aws_Amazon_Pinpoint', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Pinpoint",
  "dsl": "aws_Amazon_Pinpoint",
  "kind": "resource",
  "tagName": "aws_Amazon_Pinpoint",
@@ -2292,6 +2521,7 @@ let _mapArray_ = [
   ['aws_Amazon_Simple_Email_Service', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon Simple Email Service",
  "dsl": "aws_Amazon_Simple_Email_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Simple_Email_Service",
@@ -2302,6 +2532,7 @@ let _mapArray_ = [
   ['aws_Amazon_WorkDocs_SDK', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon WorkDocs SDK",
  "dsl": "aws_Amazon_WorkDocs_SDK",
  "kind": "resource",
  "tagName": "aws_Amazon_WorkDocs_SDK",
@@ -2312,6 +2543,7 @@ let _mapArray_ = [
   ['aws_Amazon_WorkDocs', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon WorkDocs",
  "dsl": "aws_Amazon_WorkDocs",
  "kind": "resource",
  "tagName": "aws_Amazon_WorkDocs",
@@ -2322,6 +2554,7 @@ let _mapArray_ = [
   ['aws_Amazon_WorkMail', {
  "provider": "AWS",
  "category": "Arch_Business-Applications",
+ "product": "Amazon WorkMail",
  "dsl": "aws_Amazon_WorkMail",
  "kind": "resource",
  "tagName": "aws_Amazon_WorkMail",
@@ -2332,6 +2565,7 @@ let _mapArray_ = [
   ['aws_Amazon_Managed_Blockchain', {
  "provider": "AWS",
  "category": "Arch_Blockchain",
+ "product": "Amazon Managed Blockchain",
  "dsl": "aws_Amazon_Managed_Blockchain",
  "kind": "resource",
  "tagName": "aws_Amazon_Managed_Blockchain",
@@ -2342,6 +2576,7 @@ let _mapArray_ = [
   ['aws_AWS_Application_Cost_Profiler', {
  "provider": "AWS",
  "category": "Arch_AWS-Cost-Management",
+ "product": "AWS Application Cost Profiler",
  "dsl": "aws_AWS_Application_Cost_Profiler",
  "kind": "resource",
  "tagName": "aws_AWS_Application_Cost_Profiler",
@@ -2352,6 +2587,7 @@ let _mapArray_ = [
   ['aws_AWS_Budgets', {
  "provider": "AWS",
  "category": "Arch_AWS-Cost-Management",
+ "product": "AWS Budgets",
  "dsl": "aws_AWS_Budgets",
  "kind": "resource",
  "tagName": "aws_AWS_Budgets",
@@ -2362,6 +2598,7 @@ let _mapArray_ = [
   ['aws_AWS_Cost_and_Usage_Report', {
  "provider": "AWS",
  "category": "Arch_AWS-Cost-Management",
+ "product": "AWS Cost and Usage Report",
  "dsl": "aws_AWS_Cost_and_Usage_Report",
  "kind": "resource",
  "tagName": "aws_AWS_Cost_and_Usage_Report",
@@ -2372,6 +2609,7 @@ let _mapArray_ = [
   ['aws_AWS_Cost_Explorer', {
  "provider": "AWS",
  "category": "Arch_AWS-Cost-Management",
+ "product": "AWS Cost Explorer",
  "dsl": "aws_AWS_Cost_Explorer",
  "kind": "resource",
  "tagName": "aws_AWS_Cost_Explorer",
@@ -2382,6 +2620,7 @@ let _mapArray_ = [
   ['aws_Reserved_Instance_Reporting', {
  "provider": "AWS",
  "category": "Arch_AWS-Cost-Management",
+ "product": "Reserved Instance Reporting",
  "dsl": "aws_Reserved_Instance_Reporting",
  "kind": "resource",
  "tagName": "aws_Reserved_Instance_Reporting",
@@ -2392,6 +2631,7 @@ let _mapArray_ = [
   ['aws_Savings_Plans', {
  "provider": "AWS",
  "category": "Arch_AWS-Cost-Management",
+ "product": "Savings Plans",
  "dsl": "aws_Savings_Plans",
  "kind": "resource",
  "tagName": "aws_Savings_Plans",
@@ -2402,6 +2642,7 @@ let _mapArray_ = [
   ['aws_Amazon_API_Gateway', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": " Amazon API Gateway",
  "dsl": "aws_Amazon_API_Gateway",
  "kind": "resource",
  "tagName": "aws_Amazon_API_Gateway",
@@ -2412,6 +2653,7 @@ let _mapArray_ = [
   ['aws_Amazon_AppFlow', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "Amazon AppFlow",
  "dsl": "aws_Amazon_AppFlow",
  "kind": "resource",
  "tagName": "aws_Amazon_AppFlow",
@@ -2422,6 +2664,7 @@ let _mapArray_ = [
   ['aws_Amazon_EventBridge', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "Amazon EventBridge",
  "dsl": "aws_Amazon_EventBridge",
  "kind": "resource",
  "tagName": "aws_Amazon_EventBridge",
@@ -2432,6 +2675,7 @@ let _mapArray_ = [
   ['aws_Amazon_Managed_Workflows_for_Apache_Airflow', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "Amazon Managed Workflows for Apache Airflow",
  "dsl": "aws_Amazon_Managed_Workflows_for_Apache_Airflow",
  "kind": "resource",
  "tagName": "aws_Amazon_Managed_Workflows_for_Apache_Airflow",
@@ -2442,6 +2686,7 @@ let _mapArray_ = [
   ['aws_Amazon_MQ', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "Amazon MQ",
  "dsl": "aws_Amazon_MQ",
  "kind": "resource",
  "tagName": "aws_Amazon_MQ",
@@ -2452,6 +2697,7 @@ let _mapArray_ = [
   ['aws_Amazon_Simple_Notification_Service', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "Amazon Simple Notification Service",
  "dsl": "aws_Amazon_Simple_Notification_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Simple_Notification_Service",
@@ -2462,6 +2708,7 @@ let _mapArray_ = [
   ['aws_Amazon_Simple_Queue_Service', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "Amazon Simple Queue Service",
  "dsl": "aws_Amazon_Simple_Queue_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_Simple_Queue_Service",
@@ -2472,6 +2719,7 @@ let _mapArray_ = [
   ['aws_AWS_AppSync', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "AWS AppSync",
  "dsl": "aws_AWS_AppSync",
  "kind": "resource",
  "tagName": "aws_AWS_AppSync",
@@ -2482,6 +2730,7 @@ let _mapArray_ = [
   ['aws_AWS_Console_Mobile_Application', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "AWS Console Mobile Application ",
  "dsl": "aws_AWS_Console_Mobile_Application",
  "kind": "resource",
  "tagName": "aws_AWS_Console_Mobile_Application",
@@ -2492,6 +2741,7 @@ let _mapArray_ = [
   ['aws_AWS_Express_Workflows', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "AWS Express Workflows",
  "dsl": "aws_AWS_Express_Workflows",
  "kind": "resource",
  "tagName": "aws_AWS_Express_Workflows",
@@ -2502,6 +2752,7 @@ let _mapArray_ = [
   ['aws_AWS_Step_Functions', {
  "provider": "AWS",
  "category": "Arch_App-Integration",
+ "product": "AWS Step Functions",
  "dsl": "aws_AWS_Step_Functions",
  "kind": "resource",
  "tagName": "aws_AWS_Step_Functions",
@@ -2512,6 +2763,7 @@ let _mapArray_ = [
   ['aws_Amazon_Athena', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Athena",
  "dsl": "aws_Amazon_Athena",
  "kind": "resource",
  "tagName": "aws_Amazon_Athena",
@@ -2522,6 +2774,7 @@ let _mapArray_ = [
   ['aws_Amazon_CloudSe', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon CloudSearch",
  "dsl": "aws_Amazon_CloudSe",
  "kind": "resource",
  "tagName": "aws_Amazon_CloudSe",
@@ -2532,6 +2785,7 @@ let _mapArray_ = [
   ['aws_Amazon_EMR', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon EMR",
  "dsl": "aws_Amazon_EMR",
  "kind": "resource",
  "tagName": "aws_Amazon_EMR",
@@ -2542,6 +2796,7 @@ let _mapArray_ = [
   ['aws_Amazon_FinSpace', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon FinSpace",
  "dsl": "aws_Amazon_FinSpace",
  "kind": "resource",
  "tagName": "aws_Amazon_FinSpace",
@@ -2552,6 +2807,7 @@ let _mapArray_ = [
   ['aws_Amazon_Kinesis_Data_Analytics', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Kinesis Data Analytics",
  "dsl": "aws_Amazon_Kinesis_Data_Analytics",
  "kind": "resource",
  "tagName": "aws_Amazon_Kinesis_Data_Analytics",
@@ -2562,6 +2818,7 @@ let _mapArray_ = [
   ['aws_Amazon_Kinesis_Data_Streams', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Kinesis Data Streams",
  "dsl": "aws_Amazon_Kinesis_Data_Streams",
  "kind": "resource",
  "tagName": "aws_Amazon_Kinesis_Data_Streams",
@@ -2572,6 +2829,7 @@ let _mapArray_ = [
   ['aws_Amazon_Kinesis_Firehose', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Kinesis Firehose",
  "dsl": "aws_Amazon_Kinesis_Firehose",
  "kind": "resource",
  "tagName": "aws_Amazon_Kinesis_Firehose",
@@ -2582,6 +2840,7 @@ let _mapArray_ = [
   ['aws_Amazon_Kinesis', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Kinesis",
  "dsl": "aws_Amazon_Kinesis",
  "kind": "resource",
  "tagName": "aws_Amazon_Kinesis",
@@ -2592,6 +2851,7 @@ let _mapArray_ = [
   ['aws_Amazon_Managed_Streaming_for_Apache_Kafka', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Managed Streaming for Apache Kafka",
  "dsl": "aws_Amazon_Managed_Streaming_for_Apache_Kafka",
  "kind": "resource",
  "tagName": "aws_Amazon_Managed_Streaming_for_Apache_Kafka",
@@ -2602,6 +2862,7 @@ let _mapArray_ = [
   ['aws_Amazon_OpenSe_Service', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon OpenSearch Service",
  "dsl": "aws_Amazon_OpenSe_Service",
  "kind": "resource",
  "tagName": "aws_Amazon_OpenSe_Service",
@@ -2612,6 +2873,7 @@ let _mapArray_ = [
   ['aws_Amazon_QuickSight', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon QuickSight",
  "dsl": "aws_Amazon_QuickSight",
  "kind": "resource",
  "tagName": "aws_Amazon_QuickSight",
@@ -2622,6 +2884,7 @@ let _mapArray_ = [
   ['aws_Amazon_Redshift', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "Amazon Redshift",
  "dsl": "aws_Amazon_Redshift",
  "kind": "resource",
  "tagName": "aws_Amazon_Redshift",
@@ -2632,6 +2895,7 @@ let _mapArray_ = [
   ['aws_AWS_Data_Exchange', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "AWS Data Exchange",
  "dsl": "aws_AWS_Data_Exchange",
  "kind": "resource",
  "tagName": "aws_AWS_Data_Exchange",
@@ -2642,6 +2906,7 @@ let _mapArray_ = [
   ['aws_AWS_Data_Pipeline', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "AWS Data Pipeline",
  "dsl": "aws_AWS_Data_Pipeline",
  "kind": "resource",
  "tagName": "aws_AWS_Data_Pipeline",
@@ -2652,6 +2917,7 @@ let _mapArray_ = [
   ['aws_AWS_Glue_DataBrew', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "AWS Glue DataBrew",
  "dsl": "aws_AWS_Glue_DataBrew",
  "kind": "resource",
  "tagName": "aws_AWS_Glue_DataBrew",
@@ -2662,6 +2928,7 @@ let _mapArray_ = [
   ['aws_AWS_Glue_Elastic_Views', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "AWS Glue Elastic Views",
  "dsl": "aws_AWS_Glue_Elastic_Views",
  "kind": "resource",
  "tagName": "aws_AWS_Glue_Elastic_Views",
@@ -2672,6 +2939,7 @@ let _mapArray_ = [
   ['aws_AWS_Glue', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "AWS Glue",
  "dsl": "aws_AWS_Glue",
  "kind": "resource",
  "tagName": "aws_AWS_Glue",
@@ -2682,6 +2950,7 @@ let _mapArray_ = [
   ['aws_AWS_Lake_Formation', {
  "provider": "AWS",
  "category": "Arch_Analytics",
+ "product": "AWS Lake Formation",
  "dsl": "aws_AWS_Lake_Formation",
  "kind": "resource",
  "tagName": "aws_AWS_Lake_Formation",
