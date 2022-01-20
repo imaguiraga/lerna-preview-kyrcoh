@@ -38,7 +38,7 @@ function cloudDsl(s) {
     }
 
     let walker = walk.walk(s.path, options);
-    let dest = './public/assets/icons/AWS Icons';
+    let dest = '../topology-dsl-renderer-x6/public/assets/icons/AWS Icons';
     mkdirp.sync(dest);
 
     walker.on('file', function (root, fileStats, next) {
@@ -53,7 +53,7 @@ function cloudDsl(s) {
         // 'Alexa For Business' => 'aws_Alexa For Business'
         let dsl = s.prefix + '_' + product.replace(/Arch/ig, '');
         // Replace special characters
-        // 'asw_Alexa For Business' => 'aws_Alexa_For_Business'
+        // 'aws_Alexa For Business' => 'aws_Alexa_For_Business'
         dsl = dsl.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
         let kind = s.kind;
         let tagName = dsl;
@@ -62,7 +62,8 @@ function cloudDsl(s) {
         // Copy only required icons
         let tmp = path.posix.join(dest, fileStats.name);
         fs.copyFileSync(iconURL, tmp);
-        iconURL = '/' + path.posix.relative('public/', tmp);
+        //iconURL = '/' + path.posix.relative('public/', tmp);
+        iconURL = path.posix.relative('public/', tmp);
         let typeURI = '';
         let docURL = '';
 
