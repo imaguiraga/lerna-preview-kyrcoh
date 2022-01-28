@@ -52,7 +52,7 @@ items:
     docURL: https://bosh.io/docs/
   - provider: CNCF
     category: Uber
-    product: Cadence_Workflow
+    product: Cadence Workflow
     dsl: cncf_Cadence_Workflow
     kind: resource
     tagName: cncf_Cadence_Workflow
@@ -61,7 +61,7 @@ items:
     docURL: https://cadenceworkflow.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: CDK_for_Kubernetes_CDK8s_
+    product: CDK for Kubernetes (CDK8s)
     dsl: cncf_CDK_for_Kubernetes_CDK8s_
     kind: resource
     tagName: cncf_CDK_for_Kubernetes_CDK8s_
@@ -79,7 +79,7 @@ items:
     docURL: https://cfengine.com/
   - provider: CNCF
     category: Chef Software
-    product: Chef_Infra
+    product: Chef Infra
     dsl: cncf_Chef_Infra
     kind: resource
     tagName: cncf_Chef_Infra
@@ -88,7 +88,7 @@ items:
     docURL: https://www.chef.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Cloud_Custodian
+    product: Cloud Custodian
     dsl: cncf_Cloud_Custodian
     kind: resource
     tagName: cncf_Cloud_Custodian
@@ -115,7 +115,7 @@ items:
     docURL: https://github.com/couler-proj/couler
   - provider: CNCF
     category: RackN
-    product: Digital_Rebar
+    product: Digital Rebar
     dsl: cncf_Digital_Rebar
     kind: resource
     tagName: cncf_Digital_Rebar
@@ -367,7 +367,7 @@ items:
     docURL: https://anchore.com/platform
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: cert_manager
+    product: cert-manager
     dsl: cncf_cert_manager
     kind: resource
     tagName: cncf_cert_manager
@@ -385,7 +385,7 @@ items:
     docURL: https://www.checkov.io/
   - provider: CNCF
     category: Chef Software
-    product: Chef_InSpec
+    product: Chef InSpec
     dsl: cncf_Chef_InSpec
     kind: resource
     tagName: cncf_Chef_InSpec
@@ -466,7 +466,7 @@ items:
     docURL: https://grafeas.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: in_toto
+    product: in-toto
     dsl: cncf_in_toto
     kind: resource
     tagName: cncf_in_toto
@@ -475,7 +475,7 @@ items:
     docURL: https://in-toto.io
   - provider: CNCF
     category: Aqua Security
-    product: kube_bench
+    product: kube-bench
     dsl: cncf_kube_bench
     kind: resource
     tagName: cncf_kube_bench
@@ -484,7 +484,7 @@ items:
     docURL: https://github.com/aquasecurity/kube-bench
   - provider: CNCF
     category: Aqua Security
-    product: kube_hunter
+    product: kube-hunter
     dsl: cncf_kube_hunter
     kind: resource
     tagName: cncf_kube_hunter
@@ -511,7 +511,7 @@ items:
     docURL: https://github.com/notaryproject/notary
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Open_Policy_Agent_OPA_
+    product: Open Policy Agent (OPA)
     dsl: cncf_Open_Policy_Agent_OPA_
     kind: resource
     tagName: cncf_Open_Policy_Agent_OPA_
@@ -556,7 +556,7 @@ items:
     docURL: https://fairwinds.com/polaris
   - provider: CNCF
     category: Fairwinds
-    product: RBAC_Lookup
+    product: RBAC Lookup
     dsl: cncf_RBAC_Lookup
     kind: resource
     tagName: cncf_RBAC_Lookup
@@ -565,7 +565,7 @@ items:
     docURL: https://www.fairwinds.com/open-source-software
   - provider: CNCF
     category: Fairwinds
-    product: RBAC_Manager
+    product: RBAC Manager
     dsl: cncf_RBAC_Manager
     kind: resource
     tagName: cncf_RBAC_Manager
@@ -601,7 +601,7 @@ items:
     docURL: https://www.accurics.com/products/terrascan/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: The_Update_Framework_TUF_
+    product: The Update Framework (TUF)
     dsl: cncf_The_Update_Framework_TUF_
     kind: resource
     tagName: cncf_The_Update_Framework_TUF_
@@ -637,7 +637,7 @@ items:
     docURL: https://www.athenz.io
   - provider: CNCF
     category: CyberArk Software
-    product: CyberArk_Conjur
+    product: CyberArk Conjur
     dsl: cncf_CyberArk_Conjur
     kind: resource
     tagName: cncf_CyberArk_Conjur
@@ -655,7 +655,7 @@ items:
     docURL: https://www.keycloak.org
   - provider: CNCF
     category: OAuth2 Proxy
-    product: OAuth2_Proxy
+    product: OAuth2 Proxy
     dsl: cncf_OAuth2_Proxy
     kind: resource
     tagName: cncf_OAuth2_Proxy
@@ -664,7 +664,7 @@ items:
     docURL: https://oauth2-proxy.github.io/oauth2-proxy/
   - provider: CNCF
     category: Ory
-    product: ORY_Hydra
+    product: ORY Hydra
     dsl: cncf_ORY_Hydra
     kind: resource
     tagName: cncf_ORY_Hydra
@@ -700,7 +700,7 @@ items:
     docURL: https://spiffe.io/spire/
   - provider: CNCF
     category: Square
-    product: Square_Keywhiz
+    product: Square Keywhiz
     dsl: cncf_Square_Keywhiz
     kind: resource
     tagName: cncf_Square_Keywhiz
@@ -763,7 +763,7 @@ items:
     docURL: https://chubao.io/cgi-sys/suspendedpage.cgi
   - provider: CNCF
     category: Google
-    product: Container_Storage_Interface_CSI_
+    product: Container Storage Interface (CSI)
     dsl: cncf_Container_Storage_Interface_CSI_
     kind: resource
     tagName: cncf_Container_Storage_Interface_CSI_
@@ -862,7 +862,7 @@ items:
     docURL: https://oras.land/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Piraeus_Datastore
+    product: Piraeus Datastore
     dsl: cncf_Piraeus_Datastore
     kind: resource
     tagName: cncf_Piraeus_Datastore
@@ -880,7 +880,7 @@ items:
     docURL: https://rook.io/
   - provider: CNCF
     category: Soda Foundation
-    product: Soda_Foundation
+    product: Soda Foundation
     dsl: cncf_Soda_Foundation
     kind: resource
     tagName: cncf_Soda_Foundation
@@ -898,7 +898,7 @@ items:
     docURL: https://docs.openstack.org/swift/latest/
   - provider: CNCF
     category: Joyent
-    product: Triton_Object_Storage
+    product: Triton Object Storage
     dsl: cncf_Triton_Object_Storage
     kind: resource
     tagName: cncf_Triton_Object_Storage
@@ -943,7 +943,7 @@ items:
     docURL: https://containerd.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: CRI_O
+    product: CRI-O
     dsl: cncf_CRI_O
     kind: resource
     tagName: cncf_CRI_O
@@ -970,7 +970,7 @@ items:
     docURL: https://gvisor.dev/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Inclavare_Containers
+    product: Inclavare Containers
     dsl: cncf_Inclavare_Containers
     kind: resource
     tagName: cncf_Inclavare_Containers
@@ -979,7 +979,7 @@ items:
     docURL: https://inclavare-containers.io/
   - provider: CNCF
     category: Open Infrastructure Foundation
-    product: Kata_Containers
+    product: Kata Containers
     dsl: cncf_Kata_Containers
     kind: resource
     tagName: cncf_Kata_Containers
@@ -1042,7 +1042,7 @@ items:
     docURL: https://github.com/nestybox/sysbox
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: WasmEdge_Runtime
+    product: WasmEdge Runtime
     dsl: cncf_WasmEdge_Runtime
     kind: resource
     tagName: cncf_WasmEdge_Runtime
@@ -1069,7 +1069,7 @@ items:
     docURL: https://cilium.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: CNI_Genie
+    product: CNI-Genie
     dsl: cncf_CNI_Genie
     kind: resource
     tagName: cncf_CNI_Genie
@@ -1078,7 +1078,7 @@ items:
     docURL: https://github.com/cni-genie/CNI-Genie
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Container_Network_Interface_CNI_
+    product: Container Network Interface (CNI)
     dsl: cncf_Container_Network_Interface_CNI_
     kind: resource
     tagName: cncf_Container_Network_Interface_CNI_
@@ -1132,7 +1132,7 @@ items:
     docURL: https://kilo.squat.ai
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Kube_OVN
+    product: Kube-OVN
     dsl: cncf_Kube_OVN
     kind: resource
     tagName: cncf_Kube_OVN
@@ -1141,7 +1141,7 @@ items:
     docURL: https://github.com/kubeovn/kube-ovn
   - provider: CNCF
     category: Cloud Native Labs
-    product: Kube_router
+    product: Kube-router
     dsl: cncf_Kube_router
     kind: resource
     tagName: cncf_Kube_router
@@ -1169,7 +1169,7 @@ items:
       https://networkbuilders.intel.com/intel-technologies/container-experience-kits
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Network_Service_Mesh
+    product: Network Service Mesh
     dsl: cncf_Network_Service_Mesh
     kind: resource
     tagName: cncf_Network_Service_Mesh
@@ -1178,7 +1178,7 @@ items:
     docURL: https://networkservicemesh.io/
   - provider: CNCF
     category: Open vSwitch
-    product: Open_vSwitch
+    product: Open vSwitch
     dsl: cncf_Open_vSwitch
     kind: resource
     tagName: cncf_Open_vSwitch
@@ -1187,7 +1187,7 @@ items:
     docURL: https://www.openvswitch.org/
   - provider: CNCF
     category: Tigera
-    product: Project_Calico
+    product: Project Calico
     dsl: cncf_Project_Calico
     kind: resource
     tagName: cncf_Project_Calico
@@ -1205,7 +1205,7 @@ items:
     docURL: https://submariner.io
   - provider: CNCF
     category: LF Networking
-    product: Tungsten_Fabric
+    product: Tungsten Fabric
     dsl: cncf_Tungsten_Fabric
     kind: resource
     tagName: cncf_Tungsten_Fabric
@@ -1214,7 +1214,7 @@ items:
     docURL: https://tungsten.io
   - provider: CNCF
     category: Weaveworks
-    product: Weave_Net
+    product: Weave Net
     dsl: cncf_Weave_Net
     kind: resource
     tagName: cncf_Weave_Net
@@ -1223,7 +1223,7 @@ items:
     docURL: https://www.weave.works/oss/net/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Mesos
+    product: Apache Mesos
     dsl: cncf_Apache_Mesos
     kind: resource
     tagName: cncf_Apache_Mesos
@@ -1232,7 +1232,7 @@ items:
     docURL: https://mesos.apache.org/
   - provider: CNCF
     category: Microsoft
-    product: Azure_Service_Fabric
+    product: Azure Service Fabric
     dsl: cncf_Azure_Service_Fabric
     kind: resource
     tagName: cncf_Azure_Service_Fabric
@@ -1250,7 +1250,7 @@ items:
     docURL: https://crossplane.io/
   - provider: CNCF
     category: Docker
-    product: Docker_Swarm
+    product: Docker Swarm
     dsl: cncf_Docker_Swarm
     kind: resource
     tagName: cncf_Docker_Swarm
@@ -1295,7 +1295,7 @@ items:
     docURL: https://www.nomadproject.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Open_Cluster_Management
+    product: Open Cluster Management
     dsl: cncf_Open_Cluster_Management
     kind: resource
     tagName: cncf_Open_Cluster_Management
@@ -1331,7 +1331,7 @@ items:
     docURL: https://wasmcloud.com
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Zookeeper
+    product: Apache Zookeeper
     dsl: cncf_Apache_Zookeeper
     kind: resource
     tagName: cncf_Apache_Zookeeper
@@ -1376,7 +1376,7 @@ items:
     docURL: https://nacos.io/en-us/
   - provider: CNCF
     category: Netflix
-    product: Netflix_Eureka
+    product: Netflix Eureka
     dsl: cncf_Netflix_Eureka
     kind: resource
     tagName: cncf_Netflix_Eureka
@@ -1385,7 +1385,7 @@ items:
     docURL: https://github.com/Netflix/eureka
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Thrift
+    product: Apache Thrift
     dsl: cncf_Apache_Thrift
     kind: resource
     tagName: cncf_Apache_Thrift
@@ -1421,7 +1421,7 @@ items:
     docURL: https://dubbo.apache.org/en/
   - provider: CNCF
     category: TAL Education Group
-    product: go_zero
+    product: go-zero
     dsl: cncf_go_zero
     kind: resource
     tagName: cncf_go_zero
@@ -1538,7 +1538,7 @@ items:
     docURL: https://mosn.io
   - provider: CNCF
     category: Netflix
-    product: Netflix_Zuul
+    product: Netflix Zuul
     dsl: cncf_Netflix_Zuul
     kind: resource
     tagName: cncf_Netflix_Zuul
@@ -1565,7 +1565,7 @@ items:
     docURL: https://openresty.com/en/
   - provider: CNCF
     category: QingCloud
-    product: Porter_LB
+    product: Porter LB
     dsl: cncf_Porter_LB
     kind: resource
     tagName: cncf_Porter_LB
@@ -1628,7 +1628,7 @@ items:
     docURL: https://apisix.apache.org/
   - provider: CNCF
     category: Microsoft
-    product: Azure_API_Management
+    product: Azure API Management
     dsl: cncf_Azure_API_Management
     kind: resource
     tagName: cncf_Azure_API_Management
@@ -1646,7 +1646,7 @@ items:
     docURL: ' Inc.'
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Emissary_Ingress
+    product: Emissary-Ingress
     dsl: cncf_Emissary_Ingress
     kind: resource
     tagName: cncf_Emissary_Ingress
@@ -1655,7 +1655,7 @@ items:
     docURL: https://www.getambassador.io/
   - provider: CNCF
     category: Saaras
-    product: EnRoute_OneStep_Ingress
+    product: EnRoute OneStep Ingress
     dsl: cncf_EnRoute_OneStep_Ingress
     kind: resource
     tagName: cncf_EnRoute_OneStep_Ingress
@@ -1700,7 +1700,7 @@ items:
     docURL: https://www.krakend.io/
   - provider: CNCF
     category: Kubeshop
-    product: Kusk_Gateway
+    product: Kusk Gateway
     dsl: cncf_Kusk_Gateway
     kind: resource
     tagName: cncf_Kusk_Gateway
@@ -1718,7 +1718,7 @@ items:
     docURL: https://www.mulesoft.com/
   - provider: CNCF
     category: Accenture
-    product: Reactive_Interaction_Gateway
+    product: Reactive Interaction Gateway
     dsl: cncf_Reactive_Interaction_Gateway
     kind: resource
     tagName: cncf_Reactive_Interaction_Gateway
@@ -1745,7 +1745,7 @@ items:
     docURL: https://tyk.io/
   - provider: CNCF
     category: WSO2
-    product: WSO2_API_Microgateway
+    product: WSO2 API Microgateway
     dsl: cncf_WSO2_API_Microgateway
     kind: resource
     tagName: cncf_WSO2_API_Microgateway
@@ -1772,7 +1772,7 @@ items:
     docURL: ' Inc.'
   - provider: CNCF
     category: Solo.io
-    product: Gloo_Mesh
+    product: Gloo Mesh
     dsl: cncf_Gloo_Mesh
     kind: resource
     tagName: cncf_Gloo_Mesh
@@ -1817,7 +1817,7 @@ items:
     docURL: https://meshery.io
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Open_Service_Mesh
+    product: Open Service Mesh
     dsl: cncf_Open_Service_Mesh
     kind: resource
     tagName: cncf_Open_Service_Mesh
@@ -1826,7 +1826,7 @@ items:
     docURL: https://openservicemesh.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Service_Mesh_Interface_SMI_
+    product: Service Mesh Interface (SMI)
     dsl: cncf_Service_Mesh_Interface_SMI_
     kind: resource
     tagName: cncf_Service_Mesh_Interface_SMI_
@@ -1835,7 +1835,7 @@ items:
     docURL: https://smi-spec.io
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Service_Mesh_Performance
+    product: Service Mesh Performance
     dsl: cncf_Service_Mesh_Performance
     kind: resource
     tagName: cncf_Service_Mesh_Performance
@@ -1844,7 +1844,7 @@ items:
     docURL: https://smp-spec.io/
   - provider: CNCF
     category: Traefik Labs
-    product: Traefik_Mesh
+    product: Traefik Mesh
     dsl: cncf_Traefik_Mesh
     kind: resource
     tagName: cncf_Traefik_Mesh
@@ -1853,7 +1853,7 @@ items:
     docURL: https://traefik.io/traefik-mesh
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_CarbonData
+    product: Apache CarbonData
     dsl: cncf_Apache_CarbonData
     kind: resource
     tagName: cncf_Apache_CarbonData
@@ -1862,7 +1862,7 @@ items:
     docURL: https://carbondata.apache.org/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Hadoop
+    product: Apache Hadoop
     dsl: cncf_Apache_Hadoop
     kind: resource
     tagName: cncf_Apache_Hadoop
@@ -1871,7 +1871,7 @@ items:
     docURL: https://hadoop.apache.org/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Ignite
+    product: Apache Ignite
     dsl: cncf_Apache_Ignite
     kind: resource
     tagName: cncf_Apache_Ignite
@@ -1925,7 +1925,7 @@ items:
     docURL: https://crate.io/
   - provider: CNCF
     category: Crunchy Data
-    product: Crunchy_Postgres_Operator
+    product: Crunchy Postgres Operator
     dsl: cncf_Crunchy_Postgres_Operator
     kind: resource
     tagName: cncf_Crunchy_Postgres_Operator
@@ -2024,7 +2024,7 @@ items:
     docURL: https://orientdb.com/why-orientdb/
   - provider: CNCF
     category: Percona
-    product: Percona_Server_for_MySQL
+    product: Percona Server for MySQL
     dsl: cncf_Percona_Server_for_MySQL
     kind: resource
     tagName: cncf_Percona_Server_for_MySQL
@@ -2177,7 +2177,7 @@ items:
     docURL: https://www.semi.technology/developers/weaviate/current/
   - provider: CNCF
     category: Yugabyte
-    product: YugaByte_DB
+    product: YugaByte DB
     dsl: cncf_YugaByte_DB
     kind: resource
     tagName: cncf_YugaByte_DB
@@ -2186,7 +2186,7 @@ items:
     docURL: https://www.yugabyte.com/yugabytedb/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Heron
+    product: Apache Heron
     dsl: cncf_Apache_Heron
     kind: resource
     tagName: cncf_Apache_Heron
@@ -2195,7 +2195,7 @@ items:
     docURL: https://apache.github.io/incubator-heron/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_NiFi
+    product: Apache NiFi
     dsl: cncf_Apache_NiFi
     kind: resource
     tagName: cncf_Apache_NiFi
@@ -2204,7 +2204,7 @@ items:
     docURL: https://nifi.apache.org/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_RocketMQ
+    product: Apache RocketMQ
     dsl: cncf_Apache_RocketMQ
     kind: resource
     tagName: cncf_Apache_RocketMQ
@@ -2213,7 +2213,7 @@ items:
     docURL: https://rocketmq.apache.org/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Spark
+    product: Apache Spark
     dsl: cncf_Apache_Spark
     kind: resource
     tagName: cncf_Apache_Spark
@@ -2222,7 +2222,7 @@ items:
     docURL: https://spark.apache.org/
   - provider: CNCF
     category: The Apache Software Foundation
-    product: Apache_Storm
+    product: Apache Storm
     dsl: cncf_Apache_Storm
     kind: resource
     tagName: cncf_Apache_Storm
@@ -2258,7 +2258,7 @@ items:
     docURL: https://deepstream.io/
   - provider: CNCF
     category: EMQ Technologies
-    product: EMQ_Technologies
+    product: EMQ Technologies
     dsl: cncf_EMQ_Technologies
     kind: resource
     tagName: cncf_EMQ_Technologies
@@ -2384,7 +2384,7 @@ items:
     docURL: https://www.tremor.rs/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Artifact_Hub
+    product: Artifact Hub
     dsl: cncf_Artifact_Hub
     kind: resource
     tagName: cncf_Artifact_Hub
@@ -2420,7 +2420,7 @@ items:
     docURL: https://carvel.dev
   - provider: CNCF
     category: Chef Software
-    product: Chef_Habitat
+    product: Chef Habitat
     dsl: cncf_Chef_Habitat
     kind: resource
     tagName: cncf_Chef_Habitat
@@ -2429,7 +2429,7 @@ items:
     docURL: https://community.chef.io/tools/chef-habitat
   - provider: CNCF
     category: CloudARK
-    product: CloudARK_KubePlus
+    product: CloudARK KubePlus
     dsl: cncf_CloudARK_KubePlus
     kind: resource
     tagName: cncf_CloudARK_KubePlus
@@ -2447,7 +2447,7 @@ items:
     docURL: https://loft.sh
   - provider: CNCF
     category: Docker
-    product: Docker_Compose
+    product: Docker Compose
     dsl: cncf_Docker_Compose
     kind: resource
     tagName: cncf_Docker_Compose
@@ -2456,7 +2456,7 @@ items:
     docURL: https://docs.docker.com/compose/
   - provider: CNCF
     category: Eclipse Che
-    product: Eclipse_Che
+    product: Eclipse Che
     dsl: cncf_Eclipse_Che
     kind: resource
     tagName: cncf_Eclipse_Che
@@ -2465,7 +2465,7 @@ items:
     docURL: https://www.eclipse.org/che/
   - provider: CNCF
     category: Gradle Inc.
-    product: Gradle_Build_Tool
+    product: Gradle Build Tool
     dsl: cncf_Gradle_Build_Tool
     kind: resource
     tagName: cncf_Gradle_Build_Tool
@@ -2600,7 +2600,7 @@ items:
     docURL: https://okteto.com/
   - provider: CNCF
     category: Microsoft
-    product: Open_Application_Model
+    product: Open Application Model
     dsl: cncf_Open_Application_Model
     kind: resource
     tagName: cncf_Open_Application_Model
@@ -2609,7 +2609,7 @@ items:
     docURL: https://oam.dev/
   - provider: CNCF
     category: Cloud Foundry Foundation
-    product: Open_Service_Broker_API
+    product: Open Service Broker API
     dsl: cncf_Open_Service_Broker_API
     kind: resource
     tagName: cncf_Open_Service_Broker_API
@@ -2627,7 +2627,7 @@ items:
     docURL: https://www.openapis.org/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Operator_Framework
+    product: Operator Framework
     dsl: cncf_Operator_Framework
     kind: resource
     tagName: cncf_Operator_Framework
@@ -2663,7 +2663,7 @@ items:
     docURL: https://porter.sh/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Serverless_Workflow
+    product: Serverless Workflow
     dsl: cncf_Serverless_Workflow
     kind: resource
     tagName: cncf_Serverless_Workflow
@@ -2951,7 +2951,7 @@ items:
     docURL: https://www.spinnaker.io/
   - provider: CNCF
     category: Continuous Delivery Foundation (CDF)
-    product: Tekton_Pipelines
+    product: Tekton Pipelines
     dsl: cncf_Tekton_Pipelines
     kind: resource
     tagName: cncf_Tekton_Pipelines
@@ -2969,7 +2969,7 @@ items:
     docURL: https://testkube.kubeshop.io
   - provider: CNCF
     category: Travis CI
-    product: Travis_CI
+    product: Travis CI
     dsl: cncf_Travis_CI
     kind: resource
     tagName: cncf_Travis_CI
@@ -2987,7 +2987,7 @@ items:
     docURL: https://werf.io/
   - provider: CNCF
     category: Woodpecker CI
-    product: Woodpecker_CI
+    product: Woodpecker CI
     dsl: cncf_Woodpecker_CI
     kind: resource
     tagName: cncf_Woodpecker_CI
@@ -3005,7 +3005,7 @@ items:
     docURL: https://github.com/ilkilab/agorakube
   - provider: CNCF
     category: Open Infrastructure Foundation
-    product: Airship_Certified_Kubernetes_
+    product: Airship (Certified Kubernetes)
     dsl: cncf_Airship_Certified_Kubernetes_
     kind: resource
     tagName: cncf_Airship_Certified_Kubernetes_
@@ -3014,7 +3014,7 @@ items:
     docURL: https://www.airshipit.org/
   - provider: CNCF
     category: Microsoft
-    product: Azure_AKS_Engine
+    product: Azure (AKS) Engine
     dsl: cncf_Azure_AKS_Engine
     kind: resource
     tagName: cncf_Azure_AKS_Engine
@@ -3023,7 +3023,7 @@ items:
     docURL: https://github.com/Azure/aks-engine
   - provider: CNCF
     category: Canonical
-    product: Canonical_Charmed_Distribution_of_Kubernetes
+    product: Canonical Charmed Distribution of Kubernetes
     dsl: cncf_Canonical_Charmed_Distribution_of_Kubernetes
     kind: resource
     tagName: cncf_Canonical_Charmed_Distribution_of_Kubernetes
@@ -3033,7 +3033,7 @@ items:
     docURL: https://ubuntu.com/kubernetes
   - provider: CNCF
     category: Desktop Kubernetes
-    product: Desktop_Kubernetes
+    product: Desktop Kubernetes
     dsl: cncf_Desktop_Kubernetes
     kind: resource
     tagName: cncf_Desktop_Kubernetes
@@ -3042,7 +3042,7 @@ items:
     docURL: https://github.com/aceeric/desktop-kubernetes
   - provider: CNCF
     category: Elastisys
-    product: Elastisys_Compliant_Kubernetes
+    product: Elastisys Compliant Kubernetes
     dsl: cncf_Elastisys_Compliant_Kubernetes
     kind: resource
     tagName: cncf_Elastisys_Compliant_Kubernetes
@@ -3051,7 +3051,7 @@ items:
     docURL: https://elastisys.io/compliantkubernetes
   - provider: CNCF
     category: Flant
-    product: Flant_Deckhouse
+    product: Flant Deckhouse
     dsl: cncf_Flant_Deckhouse
     kind: resource
     tagName: cncf_Flant_Deckhouse
@@ -3069,7 +3069,7 @@ items:
     docURL: https://github.com/flexkube/libflexkube
   - provider: CNCF
     category: SIGHUP
-    product: Fury_Distribution
+    product: Fury Distribution
     dsl: cncf_Fury_Distribution
     kind: resource
     tagName: cncf_Fury_Distribution
@@ -3078,7 +3078,7 @@ items:
     docURL: https://sighup.io
   - provider: CNCF
     category: Intel
-    product: Intel_Smart_Edge_Open
+    product: Intel Smart Edge Open
     dsl: cncf_Intel_Smart_Edge_Open
     kind: resource
     tagName: cncf_Intel_Smart_Edge_Open
@@ -3115,7 +3115,7 @@ items:
     docURL: https://www.kubecube.io/
   - provider: CNCF
     category: Kubermatic
-    product: Kubermatic_Kubernetes_Platform
+    product: Kubermatic Kubernetes Platform
     dsl: cncf_Kubermatic_Kubernetes_Platform
     kind: resource
     tagName: cncf_Kubermatic_Kubernetes_Platform
@@ -3169,7 +3169,7 @@ items:
     docURL: https://microk8s.io
   - provider: CNCF
     category: SUSE
-    product: Rancher_Kubernetes
+    product: Rancher Kubernetes
     dsl: cncf_Rancher_Kubernetes
     kind: resource
     tagName: cncf_Rancher_Kubernetes
@@ -3178,7 +3178,7 @@ items:
     docURL: https://rancher.com
   - provider: CNCF
     category: Red Hat
-    product: Red_Hat_OpenShift
+    product: Red Hat OpenShift
     dsl: cncf_Red_Hat_OpenShift
     kind: resource
     tagName: cncf_Red_Hat_OpenShift
@@ -3187,7 +3187,7 @@ items:
     docURL: https://www.redhat.com/en/technologies/cloud-computing/openshift
   - provider: CNCF
     category: Rancher Labs
-    product: RKE_Government
+    product: RKE Government
     dsl: cncf_RKE_Government
     kind: resource
     tagName: cncf_RKE_Government
@@ -3214,7 +3214,7 @@ items:
     docURL: https://vcluster.com/
   - provider: CNCF
     category: VMware
-    product: VMware_Tanzu_Community_Edition
+    product: VMware Tanzu Community Edition
     dsl: cncf_VMware_Tanzu_Community_Edition
     kind: resource
     tagName: cncf_VMware_Tanzu_Community_Edition
@@ -3223,7 +3223,7 @@ items:
     docURL: https://tanzucommunityedition.io
   - provider: CNCF
     category: Catalyst Cloud
-    product: Catalyst_Kubernetes_Service
+    product: Catalyst Kubernetes Service
     dsl: cncf_Catalyst_Kubernetes_Service
     kind: resource
     tagName: cncf_Catalyst_Kubernetes_Service
@@ -3232,7 +3232,7 @@ items:
     docURL: https://catalystcloud.nz/services/paas/kubernetes/
   - provider: CNCF
     category: QingCloud
-    product: KubeSphere®️_QKE_
+    product: KubeSphere®️ (QKE)
     dsl: cncf_KubeSphere®️_QKE_
     kind: resource
     tagName: cncf_KubeSphere®️_QKE_
@@ -3241,7 +3241,7 @@ items:
     docURL: https://www.qingcloud.com/products/kubesphereqke/
   - provider: CNCF
     category: VEXXHOST
-    product: VEXXHOST_Kubernetes_Container_Service
+    product: VEXXHOST Kubernetes Container Service
     dsl: cncf_VEXXHOST_Kubernetes_Container_Service
     kind: resource
     tagName: cncf_VEXXHOST_Kubernetes_Container_Service
@@ -3250,7 +3250,7 @@ items:
     docURL: https://vexxhost.com/public-cloud/container-services-certified-kubernetes
   - provider: CNCF
     category: Amazon Web Services
-    product: Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_
+    product: Amazon Elastic Kubernetes Service Anywhere (Amazon EKS Anywhere)
     dsl: cncf_Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_
     kind: resource
     tagName: cncf_Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_
@@ -3269,7 +3269,7 @@ items:
     docURL: https://github.com/slzcc/crane
   - provider: CNCF
     category: Cybozu
-    product: Cybozu_Kubernetes_Engine
+    product: Cybozu Kubernetes Engine
     dsl: cncf_Cybozu_Kubernetes_Engine
     kind: resource
     tagName: cncf_Cybozu_Kubernetes_Engine
@@ -3332,7 +3332,7 @@ items:
     docURL: https://www.kubeoperator.io/
   - provider: CNCF
     category: Kubermatic
-    product: Kubermatic_KubeOne
+    product: Kubermatic KubeOne
     dsl: cncf_Kubermatic_KubeOne
     kind: resource
     tagName: cncf_Kubermatic_KubeOne
@@ -3341,7 +3341,7 @@ items:
     docURL: https://www.kubermatic.com
   - provider: CNCF
     category: Kubernetes - The Easier Way
-    product: Kubernetes_The_Easier_Way
+    product: Kubernetes - The Easier Way
     dsl: cncf_Kubernetes_The_Easier_Way
     kind: resource
     tagName: cncf_Kubernetes_The_Easier_Way
@@ -3377,7 +3377,7 @@ items:
     docURL: https://minikube.sigs.k8s.io
   - provider: CNCF
     category: Puppet
-    product: puppetlabs_kubernetes
+    product: puppetlabs-kubernetes
     dsl: cncf_puppetlabs_kubernetes
     kind: resource
     tagName: cncf_puppetlabs_kubernetes
@@ -3386,7 +3386,7 @@ items:
     docURL: https://forge.puppet.com/modules/puppetlabs/kubernetes
   - provider: CNCF
     category: SUSE
-    product: Rancher_Kubernetes_Engine_RKE_
+    product: Rancher Kubernetes Engine (RKE)
     dsl: cncf_Rancher_Kubernetes_Engine_RKE_
     kind: resource
     tagName: cncf_Rancher_Kubernetes_Engine_RKE_
@@ -3413,7 +3413,7 @@ items:
     docURL: https://www.sideroLabs.com
   - provider: CNCF
     category: Wise2c Technology
-    product: Wise2C_Technology_Breeze
+    product: Wise2C Technology Breeze
     dsl: cncf_Wise2C_Technology_Breeze
     kind: resource
     tagName: cncf_Wise2C_Technology_Breeze
@@ -3431,7 +3431,7 @@ items:
     docURL: https://akka.io/
   - provider: CNCF
     category: Cloud Foundry Foundation
-    product: Cloud_Foundry_Application_Runtime
+    product: Cloud Foundry Application Runtime
     dsl: cncf_Cloud_Foundry_Application_Runtime
     kind: resource
     tagName: cncf_Cloud_Foundry_Application_Runtime
@@ -3449,7 +3449,7 @@ items:
     docURL: https://www.jhipster.tech/
   - provider: CNCF
     category: No Code
-    product: No_Code
+    product: No Code
     dsl: cncf_No_Code
     kind: resource
     tagName: cncf_No_Code
@@ -3486,7 +3486,7 @@ items:
     docURL: https://rio.io/
   - provider: CNCF
     category: Sogou
-    product: Sogou_C_Workflow
+    product: Sogou C++ Workflow
     dsl: cncf_Sogou_C_Workflow
     kind: resource
     tagName: cncf_Sogou_C_Workflow
@@ -3774,7 +3774,7 @@ items:
     docURL: https://victoriametrics.com/
   - provider: CNCF
     category: Weaveworks
-    product: Weave_Scope
+    product: Weave Scope
     dsl: cncf_Weave_Scope
     kind: resource
     tagName: cncf_Weave_Scope
@@ -3801,7 +3801,7 @@ items:
     docURL: https://www.fluentd.org/
   - provider: CNCF
     category: Grafana Labs
-    product: Grafana_Loki
+    product: Grafana Loki
     dsl: cncf_Grafana_Loki
     kind: resource
     tagName: cncf_Grafana_Loki
@@ -3828,7 +3828,7 @@ items:
     docURL: ' Inc.'
   - provider: CNCF
     category: Elastic
-    product: Elastic_APM
+    product: Elastic APM
     dsl: cncf_Elastic_APM
     kind: resource
     tagName: cncf_Elastic_APM
@@ -3837,7 +3837,7 @@ items:
     docURL: https://www.elastic.co/observability/application-performance-monitoring
   - provider: CNCF
     category: Grafana Labs
-    product: Grafana_Tempo
+    product: Grafana Tempo
     dsl: cncf_Grafana_Tempo
     kind: resource
     tagName: cncf_Grafana_Tempo
@@ -3900,7 +3900,7 @@ items:
     docURL: https://www.sofastack.tech/en/
   - provider: CNCF
     category: VMware
-    product: Spring_Cloud_Sleuth
+    product: Spring Cloud Sleuth
     dsl: cncf_Spring_Cloud_Sleuth
     kind: resource
     tagName: cncf_Spring_Cloud_Sleuth
@@ -3918,7 +3918,7 @@ items:
     docURL: https://zipkin.io/
   - provider: CNCF
     category: Cloud Native Computing Foundation (CNCF)
-    product: Chaos_Mesh
+    product: Chaos Mesh
     dsl: cncf_Chaos_Mesh
     kind: resource
     tagName: cncf_Chaos_Mesh
@@ -3927,7 +3927,7 @@ items:
     docURL: https://github.com/chaos-mesh/chaos-mesh
   - provider: CNCF
     category: ChaosIQ
-    product: Chaos_Toolkit
+    product: Chaos Toolkit
     dsl: cncf_Chaos_Toolkit
     kind: resource
     tagName: cncf_Chaos_Toolkit

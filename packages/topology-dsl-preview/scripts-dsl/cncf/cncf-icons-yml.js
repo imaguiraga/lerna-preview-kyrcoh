@@ -42,8 +42,8 @@ file.on('line', (line) => {
   //const match = line.match(REGEX);
   if (match !== null) {
     let category = match[1];//.groups.Organization;
-    let product = match[0].trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_')//.groups.Name.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_')
-    let dsl = SET.prefix + '_' + product;
+    let product = match[0]//.groups.Name.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_')
+    let dsl = SET.prefix + '_' + product.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
     let resource = {
       provider: SET.provider,
       category: category,
