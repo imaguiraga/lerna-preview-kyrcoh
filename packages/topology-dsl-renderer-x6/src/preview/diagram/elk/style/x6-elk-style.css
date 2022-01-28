@@ -88,5 +88,25 @@ foreignObject.label {
 
 .resource-title {
   font-weight: bold;
-  font-size: 1.15em;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 0.6em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  padding: 2px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

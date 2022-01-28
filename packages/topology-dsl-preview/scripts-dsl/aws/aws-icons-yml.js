@@ -1,13 +1,11 @@
 /* eslint-disable no-undef */
-const sets = [
-  {
-    provider: 'AWS',
-    prefix: 'aws',
-    path: 'scripts-dsl/aws/AWS-Asset-Package/Asset-Package_09172021/Architecture-Service-Icons_09172021',
-    pattern: 'Arch_(?<product>.*)_32.svg',
-    kind: 'resource'
-  }
-];
+const SET = {
+  provider: 'AWS',
+  prefix: 'aws',
+  path: 'scripts-dsl/aws/AWS-Asset-Package/Asset-Package_09172021/Architecture-Service-Icons_09172021',
+  pattern: 'Arch_(?<product>.*)_32.svg',
+  kind: 'resource'
+};
 
 // Generate csv from iconSets
 //provider, category, product, dsl, isDecorator, kind, tagName, tagName, iconURL, typeURI, docURL
@@ -16,7 +14,7 @@ const mkdirp = require('mkdirp');
 const chalk = require('chalk');
 const yaml = require('js-yaml');
 
-function cloudDsl(s) {
+function awsDsl(s) {
   'use strict';
   var walk = require('walk');
   var path = require('path');
@@ -33,7 +31,7 @@ function cloudDsl(s) {
       if (!fs.existsSync(s.path)) {
         console.error(`Path not found ${s.path}`);
       }
-    } catch(err) {
+    } catch (err) {
       console.error(err)
     }
 
@@ -43,7 +41,7 @@ function cloudDsl(s) {
 
     walker.on('file', function (root, fileStats, next) {
       let match = fileStats.name.match(rex);
-      if (match != null) {
+      if (match !== null) {
 
         let provider = s.provider;
         // Arch_(Alexa-For-Business)_32.svg
@@ -102,14 +100,9 @@ function cloudDsl(s) {
   return promise;
 }
 
-sets.forEach((s) => {
-  cloudDsl(s).then((resources) => {
-    // Generate resources file
-    mkdirp.sync('./scripts-dsl/yml/');
-    fs.writeFileSync('./scripts-dsl/yml/' + s.provider + '.yml', yaml.dump({ source: s, items: resources }));
-  });
+awsDsl(SET).then((resources) => {
+  // Generate resources file
+  mkdirp.sync('./scripts-dsl/yml/');
+  fs.writeFileSync('./scripts-dsl/yml/' + SET.provider + '.yml', yaml.dump({ source: SET, items: resources }));
 });
 
-module.exports = {
-  cloudDsl
-};

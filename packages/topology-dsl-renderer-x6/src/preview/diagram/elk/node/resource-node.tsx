@@ -25,13 +25,30 @@ export class ResourceNode extends React.Component<{ node?: Node }> {
     let height = width;
 
     return (
-      <div style={{display: 'flex'}}>
-        {iconPath !== undefined && iconPath !== null && <img src={iconPath} width={width} height={height} />}
-        <div style={{display: 'inline-block',margin: 'auto'}}>
-        {style && style.product && <div><code>{style.product}</code></div>}
-          <div>
-            <code className="resource-title">{model !== undefined ? model.title : ''}</code>
-          </div>
+      <div style={{ display: 'flex', flexFlow: 'column' }}>
+        {iconPath !== undefined && iconPath !== null &&
+          (
+            <div className="logo">
+              <img src={iconPath} width={width} height={height} />
+            </div>
+          )
+        }
+        <div style={{ margin: 'auto' }}>
+          {model !== undefined && model.title && model !== '' &&
+            (
+              <div>
+                <code className="resource-title">{model.title}</code>
+              </div>
+            )
+          }
+
+          {style && style.product &&
+            (
+              <div className="product-title">
+                <code>{style.product}</code>
+              </div>
+            )
+          }
         </div>
       </div>
     )

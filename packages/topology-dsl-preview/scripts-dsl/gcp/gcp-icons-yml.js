@@ -6,7 +6,15 @@ const yaml = require('js-yaml');
 const xpath = require('xpath');
 const dom = require('xmldom').DOMParser;
 
-fs.readFile('scripts-dsl/gcp/gcp-products.xml', 'utf-8',(err, data) => {
+const SET = {
+  provider: 'GCP',
+  prefix: 'gcp',
+  path: 'scripts-dsl/gcp/gcp-products.xml',
+  pattern: null,
+  kind: 'resource'
+};
+
+fs.readFile(SET.path, 'utf-8',(err, data) => {
   if (err) throw err;
   //console.log(data);
 
@@ -37,13 +45,13 @@ fs.readFile('scripts-dsl/gcp/gcp-products.xml', 'utf-8',(err, data) => {
           category = trackName;
         } else {
           console.log("  Product Node: " + trackName);
-          var dsl = 'gcp_'+trackName.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
+          var dsl = SET.prefix+'_'+trackName.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
           var resource = {
-            provider: 'GCP',
+            provider: SET.provider,
             category: category,
             product: trackName,
             dsl: dsl,
-            kind: 'resource',
+            kind: SET.kind,
             tagName: dsl,
             iconURL: xpath.select('string(./div/img/@src)',item),
             typeURI: null,
@@ -58,15 +66,7 @@ fs.readFile('scripts-dsl/gcp/gcp-products.xml', 'utf-8',(err, data) => {
       node = result.iterateNext();
   }//*/
 
-  const s = {
-    provider: 'GCP',
-    prefix: 'gcp',
-    path: 'assets/icons/GCP Icons/Products and services',
-    pattern: '(?<product>.*).svg',
-    kind: 'resource'
-  };
-
   mkdirp.sync('./scripts-dsl/yml/');
-  fs.writeFileSync('./scripts-dsl/yml/' + s.provider + '.yml', yaml.dump({ source: s, items: resources }));
+  fs.writeFileSync('./scripts-dsl/yml/' + SET.provider + '.yml', yaml.dump({ source: SET, items: resources }));
 
 });

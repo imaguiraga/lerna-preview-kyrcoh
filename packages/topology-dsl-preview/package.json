@@ -45,7 +45,9 @@
   "scripts": {
     "generate-dsl": "node scripts-dsl/generate-dsl.js",
     "copy-aws": "cp -rf ./scripts-dsl/out/AWS ./public/assets/js && cp -rf ./scripts-dsl/out/AWS ./src/assets/js && cp -rf ./scripts-dsl/out/AWS ../topology-dsl-renderer-x6/public/assets/js && cp -rf ./scripts-dsl/out/AWS ../topology-dsl-renderer-x6/src/assets/js" ,
+    "copy-cncf": "cp -rf ./scripts-dsl/out/CNCF ./public/assets/js && cp -rf ./scripts-dsl/out/CNCF ./src/assets/js && cp -rf ./scripts-dsl/out/CNCF ../topology-dsl-renderer-x6/public/assets/js && cp -rf ./scripts-dsl/out/CNCF ../topology-dsl-renderer-x6/src/assets/js" ,
     "az-yml": "node scripts-dsl/azure/az-icons-yml.js",
+    "cncf-yml": "node scripts-dsl/cncf/cncf-icons-yml.js",
     "cloud-yml": "node scripts-dsl/cloud-icons-yml.js",
     "aws-yml": "node scripts-dsl/aws/aws-icons-yml.js",
     "gcp-yml": "node scripts-dsl/gcp/gcp-icons-yml.js",
