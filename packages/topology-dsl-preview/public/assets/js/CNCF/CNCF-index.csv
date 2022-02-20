@@ -1,0 +1,441 @@
+provider,category,product,dsl,kind,tagName,iconURL,typeURI,docURL
+CNCF,Open Infrastructure Foundation,Airship,cncf_Airship,resource,cncf_Airship,https://landscape.cncf.io/logos/airship.svg,,https://www.airshipit.org/
+CNCF,Cloud Native Computing Foundation (CNCF),Akri,cncf_Akri,resource,cncf_Akri,https://landscape.cncf.io/logos/akri.svg,,https://docs.akri.sh
+CNCF,Red Hat,Ansible,cncf_Ansible,resource,cncf_Ansible,https://landscape.cncf.io/logos/ansible.svg,,https://www.ansible.com/
+CNCF,Trip.com,Apollo,cncf_Apollo,resource,cncf_Apollo,https://landscape.cncf.io/logos/apollo.svg,,https://github.com/apolloconfig/apollo
+CNCF,Cloud Foundry Foundation,BOSH,cncf_BOSH,resource,cncf_BOSH,https://landscape.cncf.io/logos/bosh.svg,,https://bosh.io/docs/
+CNCF,Uber,Cadence Workflow,cncf_Cadence_Workflow,resource,cncf_Cadence_Workflow,https://landscape.cncf.io/logos/cadence-workflow.svg,,https://cadenceworkflow.io/
+CNCF,Cloud Native Computing Foundation (CNCF),CDK for Kubernetes (CDK8s),cncf_CDK_for_Kubernetes_CDK8s_,resource,cncf_CDK_for_Kubernetes_CDK8s_,https://landscape.cncf.io/logos/cdk-for-kubernetes-cdk8s.svg,,https://cdk8s.io/
+CNCF,CFEngine,CFEngine,cncf_CFEngine,resource,cncf_CFEngine,https://landscape.cncf.io/logos/cf-engine.svg,,https://cfengine.com/
+CNCF,Chef Software,Chef Infra,cncf_Chef_Infra,resource,cncf_Chef_Infra,https://landscape.cncf.io/logos/chef-infra.svg,,https://www.chef.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Cloud Custodian,cncf_Cloud_Custodian,resource,cncf_Cloud_Custodian,https://landscape.cncf.io/logos/cloud-custodian.svg,,https://cloudcustodian.io/
+CNCF,Cloudify,Cloudify,cncf_Cloudify,resource,cncf_Cloudify,https://landscape.cncf.io/logos/cloudify.svg,,https://cloudify.co
+CNCF,Ant Group,Couler,cncf_Couler,resource,cncf_Couler,https://landscape.cncf.io/logos/couler.svg,,https://github.com/couler-proj/couler
+CNCF,RackN,Digital Rebar,cncf_Digital_Rebar,resource,cncf_Digital_Rebar,https://landscape.cncf.io/logos/digital-rebar.svg,,https://rebar.digital/
+CNCF,Foreman,Foreman,cncf_Foreman,resource,cncf_Foreman,https://landscape.cncf.io/logos/foreman.svg,,https://theforeman.org/
+CNCF,Canonical,Juju,cncf_Juju,resource,cncf_Juju,https://landscape.cncf.io/logos/juju.svg,,https://jaas.ai/
+CNCF,Loft Labs,kiosk,cncf_kiosk,resource,cncf_kiosk,https://landscape.cncf.io/logos/kiosk.svg,,https://github.com/loft-sh/kiosk
+CNCF,Cloud Native Computing Foundation (CNCF),KubeDL,cncf_KubeDL,resource,cncf_KubeDL,https://landscape.cncf.io/logos/kube-dl.svg,,https://kubedl.io
+CNCF,Cloud Native Computing Foundation (CNCF),KubeEdge,cncf_KubeEdge,resource,cncf_KubeEdge,https://landscape.cncf.io/logos/kube-edge.svg,,https://kubeedge.io/en/
+CNCF,Kubefirst,Kubefirst,cncf_Kubefirst,resource,cncf_Kubefirst,https://landscape.cncf.io/logos/kubefirst.svg,,https://docs.kubefirst.com
+CNCF,Docker,LinuxKit,cncf_LinuxKit,resource,cncf_LinuxKit,https://landscape.cncf.io/logos/linux-kit.svg,,https://github.com/linuxkit/linuxkit
+CNCF,Canonical,MAAS,cncf_MAAS,resource,cncf_MAAS,https://landscape.cncf.io/logos/maas.svg,,https://maas.io/
+CNCF,ManageIQ,ManageIQ,cncf_ManageIQ,resource,cncf_ManageIQ,https://landscape.cncf.io/logos/manage-iq.svg,,https://www.manageiq.org/
+CNCF,Mist.io,Mist.io,cncf_Mist.io,resource,cncf_Mist.io,https://landscape.cncf.io/logos/mist-io.svg,,https://mist.io/
+CNCF,Open Infrastructure Foundation,OpenStack,cncf_OpenStack,resource,cncf_OpenStack,https://landscape.cncf.io/logos/open-stack.svg,,https://www.openstack.org/
+CNCF,Cloud Native Computing Foundation (CNCF),OpenYurt,cncf_OpenYurt,resource,cncf_OpenYurt,https://landscape.cncf.io/logos/open-yurt.svg,,https://openyurt.io/
+CNCF,Pulumi,Pulumi,cncf_Pulumi,resource,cncf_Pulumi,https://landscape.cncf.io/logos/pulumi.svg,,https://www.pulumi.com/
+CNCF,Puppet,Puppet,cncf_Puppet,resource,cncf_Puppet,https://landscape.cncf.io/logos/puppet.svg,,https://puppet.com/
+CNCF,Rundeck,Rundeck,cncf_Rundeck,resource,cncf_Rundeck,https://landscape.cncf.io/logos/rundeck.svg,,https://www.rundeck.com/open-source
+CNCF,SaltStack,SaltStack,cncf_SaltStack,resource,cncf_SaltStack,https://landscape.cncf.io/logos/salt-stack.svg,,https://www.vmware.com/support/acquisitions/saltstack.html
+CNCF,StackStorm,StackStorm,cncf_StackStorm,resource,cncf_StackStorm,https://landscape.cncf.io/logos/stack-storm.svg,,https://stackstorm.com/
+CNCF,Cloud Native Computing Foundation (CNCF),SuperEdge,cncf_SuperEdge,resource,cncf_SuperEdge,https://landscape.cncf.io/logos/super-edge.svg,,https://superedge.io/
+CNCF,HashiCorp,Terraform,cncf_Terraform,resource,cncf_Terraform,https://landscape.cncf.io/logos/terraform.svg,,https://www.terraform.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Tinkerbell,cncf_Tinkerbell,resource,cncf_Tinkerbell,https://landscape.cncf.io/logos/tinkerbell.svg,,https://tinkerbell.org/
+CNCF,Cloud Native Computing Foundation (CNCF),Distribution,cncf_Distribution,resource,cncf_Distribution,https://landscape.cncf.io/logos/distribution.svg,,https://github.com/distribution/distribution
+CNCF,Cloud Native Computing Foundation (CNCF),Dragonfly,cncf_Dragonfly,resource,cncf_Dragonfly,https://landscape.cncf.io/logos/dragonfly.svg,,https://d7y.io/en-us/
+CNCF,Cloud Native Computing Foundation (CNCF),Harbor,cncf_Harbor,resource,cncf_Harbor,https://landscape.cncf.io/logos/harbor.svg,,https://goharbor.io/
+CNCF,Uber,Kraken,cncf_Kraken,resource,cncf_Kraken,https://landscape.cncf.io/logos/kraken.svg,,https://eng.uber.com/introducing-kraken/
+CNCF,SUSE,Portus,cncf_Portus,resource,cncf_Portus,https://landscape.cncf.io/logos/portus.svg,,http://port.us.org/
+CNCF,Red Hat,Quay,cncf_Quay,resource,cncf_Quay,https://landscape.cncf.io/logos/quay.svg,,https://quay.io/
+CNCF,Anchore,Anchore,cncf_Anchore,resource,cncf_Anchore,https://landscape.cncf.io/logos/anchore.svg,,https://anchore.com/platform
+CNCF,Cloud Native Computing Foundation (CNCF),cert-manager,cncf_cert_manager,resource,cncf_cert_manager,https://landscape.cncf.io/logos/cert-manager.svg,,https://www.jetstack.io/open-source/
+CNCF,Bridgecrew,Checkov,cncf_Checkov,resource,cncf_Checkov,https://landscape.cncf.io/logos/checkov.svg,,https://www.checkov.io/
+CNCF,Chef Software,Chef InSpec,cncf_Chef_InSpec,resource,cncf_Chef_InSpec,https://landscape.cncf.io/logos/chef-in-spec.svg,,https://community.chef.io/tools/chef-inspec
+CNCF,Red Hat,Clair,cncf_Clair,resource,cncf_Clair,https://landscape.cncf.io/logos/clair.svg,,https://www.redhat.com/en/topics/containers/what-is-clair
+CNCF,CloudMatos,CloudMatos,cncf_CloudMatos,resource,cncf_CloudMatos,https://landscape.cncf.io/logos/cloud-matos.svg,,https://www.cloudmatos.com
+CNCF,Cloud Native Computing Foundation (CNCF),Curiefense,cncf_Curiefense,resource,cncf_Curiefense,https://landscape.cncf.io/logos/curiefense.svg,,https://www.curiefense.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Dex,cncf_Dex,resource,cncf_Dex,https://landscape.cncf.io/logos/dex.svg,,https://github.com/dexidp/dex
+CNCF,Cloud Native Computing Foundation (CNCF),Falco,cncf_Falco,resource,cncf_Falco,https://landscape.cncf.io/logos/falco.svg,,https://falco.org/
+CNCF,FOSSA,FOSSA,cncf_FOSSA,resource,cncf_FOSSA,https://landscape.cncf.io/logos/fossa.svg,,https://fossa.com/
+CNCF,Fairwinds,Goldilocks,cncf_Goldilocks,resource,cncf_Goldilocks,https://landscape.cncf.io/logos/goldilocks.svg,,https://www.fairwinds.com/open-source-software
+CNCF,Google,Grafeas,cncf_Grafeas,resource,cncf_Grafeas,https://landscape.cncf.io/logos/grafeas.svg,,https://grafeas.io/
+CNCF,Cloud Native Computing Foundation (CNCF),in-toto,cncf_in_toto,resource,cncf_in_toto,https://landscape.cncf.io/logos/in-toto.svg,,https://in-toto.io
+CNCF,Aqua Security,kube-bench,cncf_kube_bench,resource,cncf_kube_bench,https://landscape.cncf.io/logos/kube-bench.svg,,https://github.com/aquasecurity/kube-bench
+CNCF,Aqua Security,kube-hunter,cncf_kube_hunter,resource,cncf_kube_hunter,https://landscape.cncf.io/logos/kube-hunter.svg,,https://github.com/aquasecurity/kube-hunter
+CNCF,Cloud Native Computing Foundation (CNCF),Kyverno,cncf_Kyverno,resource,cncf_Kyverno,https://landscape.cncf.io/logos/kyverno.svg,,https://kyverno.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Notary,cncf_Notary,resource,cncf_Notary,https://landscape.cncf.io/logos/notary.svg,,https://github.com/notaryproject/notary
+CNCF,Cloud Native Computing Foundation (CNCF),Open Policy Agent (OPA),cncf_Open_Policy_Agent_OPA_,resource,cncf_Open_Policy_Agent_OPA_,https://landscape.cncf.io/logos/open-policy-agent-opa.svg,,https://www.openpolicyagent.org/
+CNCF,Red Hat,OpenSCAP,cncf_OpenSCAP,resource,cncf_OpenSCAP,https://landscape.cncf.io/logos/open-scap.svg,,https://www.open-scap.org/
+CNCF,Cloud Native Computing Foundation (CNCF),Parsec,cncf_Parsec,resource,cncf_Parsec,https://landscape.cncf.io/logos/parsec.svg,,https://github.com/parallaxsecond/parsec
+CNCF,Fairwinds,Pluto,cncf_Pluto,resource,cncf_Pluto,https://landscape.cncf.io/logos/pluto.svg,,https://www.fairwinds.com/open-source-software
+CNCF,Fairwinds,Polaris,cncf_Polaris,resource,cncf_Polaris,https://landscape.cncf.io/logos/polaris.svg,,https://fairwinds.com/polaris
+CNCF,Fairwinds,RBAC Lookup,cncf_RBAC_Lookup,resource,cncf_RBAC_Lookup,https://landscape.cncf.io/logos/rbac-lookup.svg,,https://www.fairwinds.com/open-source-software
+CNCF,Fairwinds,RBAC Manager,cncf_RBAC_Manager,resource,cncf_RBAC_Manager,https://landscape.cncf.io/logos/rbac-manager.svg,,https://www.fairwinds.com/open-source-software
+CNCF,Rudder (Normation),Rudder,cncf_Rudder,resource,cncf_Rudder,https://landscape.cncf.io/logos/rudder.svg,,https://www.rudder.io/
+CNCF,VMware,Sonobuoy,cncf_Sonobuoy,resource,cncf_Sonobuoy,https://landscape.cncf.io/logos/sonobuoy.svg,,https://sonobuoy.io
+CNCF,Accurics,Terrascan,cncf_Terrascan,resource,cncf_Terrascan,https://landscape.cncf.io/logos/terrascan.svg,,https://www.accurics.com/products/terrascan/
+CNCF,Cloud Native Computing Foundation (CNCF),The Update Framework (TUF),cncf_The_Update_Framework_TUF_,resource,cncf_The_Update_Framework_TUF_,https://landscape.cncf.io/logos/the-update-framework-tuf.svg,,https://theupdateframework.github.io/
+CNCF,Deepfence Inc,ThreatMapper,cncf_ThreatMapper,resource,cncf_ThreatMapper,https://landscape.cncf.io/logos/threat-mapper.svg,,https://deepfence.io/threatmapper/
+CNCF,Aqua Security,Trivy,cncf_Trivy,resource,cncf_Trivy,https://landscape.cncf.io/logos/trivy.svg,,https://github.com/aquasecurity/trivy
+CNCF,Cloud Native Computing Foundation (CNCF),Athenz,cncf_Athenz,resource,cncf_Athenz,https://landscape.cncf.io/logos/athenz.svg,,https://www.athenz.io
+CNCF,CyberArk Software,CyberArk Conjur,cncf_CyberArk_Conjur,resource,cncf_CyberArk_Conjur,https://landscape.cncf.io/logos/cyber-ark-conjur.svg,,https://www.conjur.org
+CNCF,Red Hat,Keycloak,cncf_Keycloak,resource,cncf_Keycloak,https://landscape.cncf.io/logos/keycloak.svg,,https://www.keycloak.org
+CNCF,OAuth2 Proxy,OAuth2 Proxy,cncf_OAuth2_Proxy,resource,cncf_OAuth2_Proxy,https://landscape.cncf.io/logos/o-auth2-proxy.svg,,https://oauth2-proxy.github.io/oauth2-proxy/
+CNCF,Ory,ORY Hydra,cncf_ORY_Hydra,resource,cncf_ORY_Hydra,https://landscape.cncf.io/logos/ory-hydra.svg,,https://www.ory.sh/
+CNCF,Pomerium,Pomerium,cncf_Pomerium,resource,cncf_Pomerium,https://landscape.cncf.io/logos/pomerium.svg,,https://www.pomerium.com
+CNCF,Cloud Native Computing Foundation (CNCF),SPIFFE,cncf_SPIFFE,resource,cncf_SPIFFE,https://landscape.cncf.io/logos/spiffe.svg,,https://spiffe.io/
+CNCF,Cloud Native Computing Foundation (CNCF),SPIRE,cncf_SPIRE,resource,cncf_SPIRE,https://landscape.cncf.io/logos/spire.svg,,https://spiffe.io/spire/
+CNCF,Square,Square Keywhiz,cncf_Square_Keywhiz,resource,cncf_Square_Keywhiz,https://landscape.cncf.io/logos/square-keywhiz.svg,,https://square.github.io/keywhiz/
+CNCF,BuzzFeed,sso,cncf_sso,resource,cncf_sso,https://landscape.cncf.io/logos/sso.svg,,https://github.com/buzzfeed/sso
+CNCF,Teleport,Teleport,cncf_Teleport,resource,cncf_Teleport,https://landscape.cncf.io/logos/teleport.svg,,https://goteleport.com
+CNCF,HashiCorp,Vault,cncf_Vault,resource,cncf_Vault,https://landscape.cncf.io/logos/vault.svg,,https://www.vaultproject.io/
+CNCF,Alluxio,Alluxio,cncf_Alluxio,resource,cncf_Alluxio,https://landscape.cncf.io/logos/alluxio.svg,,https://www.alluxio.io/
+CNCF,Ceph Foundation,Ceph,cncf_Ceph,resource,cncf_Ceph,https://landscape.cncf.io/logos/ceph.svg,,https://ceph.io/
+CNCF,Cloud Native Computing Foundation (CNCF),ChubaoFS,cncf_ChubaoFS,resource,cncf_ChubaoFS,https://landscape.cncf.io/logos/chubao-fs.svg,,https://chubao.io/cgi-sys/suspendedpage.cgi
+CNCF,Google,Container Storage Interface (CSI),cncf_Container_Storage_Interface_CSI_,resource,cncf_Container_Storage_Interface_CSI_,https://landscape.cncf.io/logos/container-storage-interface-csi.svg,,https://github.com/container-storage-interface
+CNCF,NetEase,Curve,cncf_Curve,resource,cncf_Curve,https://landscape.cncf.io/logos/curve.svg,,http://www.opencurve.io/
+CNCF,Red Hat,Gluster,cncf_Gluster,resource,cncf_Gluster,https://landscape.cncf.io/logos/gluster.svg,,https://www.gluster.org/
+CNCF,Cloud Native Computing Foundation (CNCF),K8up,cncf_K8up,resource,cncf_K8up,https://landscape.cncf.io/logos/k8up.svg,,https://www.k8up.io/
+CNCF,LINBIT,LINSTOR,cncf_LINSTOR,resource,cncf_LINSTOR,https://landscape.cncf.io/logos/linstor.svg,,https://www.linbit.com/linstor/
+CNCF,Cloud Native Computing Foundation (CNCF),Longhorn,cncf_Longhorn,resource,cncf_Longhorn,https://landscape.cncf.io/logos/longhorn.svg,,https://github.com/longhorn/longhorn
+CNCF,MinIO,MinIO,cncf_MinIO,resource,cncf_MinIO,https://landscape.cncf.io/logos/min-io.svg,,https://min.io/
+CNCF,Tuxera,MooseFS,cncf_MooseFS,resource,cncf_MooseFS,https://landscape.cncf.io/logos/moose-fs.svg,,https://moosefs.com/
+CNCF,Cloud Native Computing Foundation (CNCF),OpenEBS,cncf_OpenEBS,resource,cncf_OpenEBS,https://landscape.cncf.io/logos/open-ebs.svg,,https://www.openebs.io/
+CNCF,OpenIO,OpenIO,cncf_OpenIO,resource,cncf_OpenIO,https://landscape.cncf.io/logos/open-io.svg,,https://www.openio.io/
+CNCF,Cloud Native Computing Foundation (CNCF),ORAS,cncf_ORAS,resource,cncf_ORAS,https://landscape.cncf.io/logos/oras.svg,,https://oras.land/
+CNCF,Cloud Native Computing Foundation (CNCF),Piraeus Datastore,cncf_Piraeus_Datastore,resource,cncf_Piraeus_Datastore,https://landscape.cncf.io/logos/piraeus-datastore.svg,,https://piraeus.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Rook,cncf_Rook,resource,cncf_Rook,https://landscape.cncf.io/logos/rook.svg,,https://rook.io/
+CNCF,Soda Foundation,Soda Foundation,cncf_Soda_Foundation,resource,cncf_Soda_Foundation,https://landscape.cncf.io/logos/soda-foundation.svg,,https://sodafoundation.io/wp-content/uploads/2021/03/cn.png
+CNCF,Open Infrastructure Foundation,Swift,cncf_Swift,resource,cncf_Swift,https://landscape.cncf.io/logos/swift.svg,,https://docs.openstack.org/swift/latest/
+CNCF,Joyent,Triton Object Storage,cncf_Triton_Object_Storage,resource,cncf_Triton_Object_Storage,https://landscape.cncf.io/logos/triton-object-storage.svg,,https://www.joyent.com/triton/object-storage
+CNCF,VMware,Velero,cncf_Velero,resource,cncf_Velero,https://landscape.cncf.io/logos/velero.svg,,https://velero.io
+CNCF,Cloud Native Computing Foundation (CNCF),Vineyard,cncf_Vineyard,resource,cncf_Vineyard,https://landscape.cncf.io/logos/vineyard.svg,,https://v6d.io
+CNCF,Scality,Zenko,cncf_Zenko,resource,cncf_Zenko,https://landscape.cncf.io/logos/zenko.svg,,https://www.zenko.io
+CNCF,Cloud Native Computing Foundation (CNCF),containerd,cncf_containerd,resource,cncf_containerd,https://landscape.cncf.io/logos/containerd.svg,,https://containerd.io/
+CNCF,Cloud Native Computing Foundation (CNCF),CRI-O,cncf_CRI_O,resource,cncf_CRI_O,https://landscape.cncf.io/logos/cri-o.svg,,https://cri-o.io/
+CNCF,Amazon Web Services,Firecracker,cncf_Firecracker,resource,cncf_Firecracker,https://landscape.cncf.io/logos/firecracker.svg,,https://firecracker-microvm.github.io/
+CNCF,Google,gVisor,cncf_gVisor,resource,cncf_gVisor,https://landscape.cncf.io/logos/g-visor.svg,,https://gvisor.dev/
+CNCF,Cloud Native Computing Foundation (CNCF),Inclavare Containers,cncf_Inclavare_Containers,resource,cncf_Inclavare_Containers,https://landscape.cncf.io/logos/inclavare-containers.svg,,https://inclavare-containers.io/
+CNCF,Open Infrastructure Foundation,Kata Containers,cncf_Kata_Containers,resource,cncf_Kata_Containers,https://landscape.cncf.io/logos/kata-containers.svg,,https://katacontainers.io/
+CNCF,Canonical,lxd,cncf_lxd,resource,cncf_lxd,https://landscape.cncf.io/logos/lxd.svg,,https://linuxcontainers.org/lxd/
+CNCF,Cloud Native Computing Foundation (CNCF),rkt,cncf_rkt,resource,cncf_rkt,https://landscape.cncf.io/logos/rkt.svg,,https://github.com/rkt/rkt
+CNCF,Open Container Initiative (OCI),runc,cncf_runc,resource,cncf_runc,https://landscape.cncf.io/logos/runc.svg,,https://www.opencontainers.org/
+CNCF,Sylabs,Singularity,cncf_Singularity,resource,cncf_Singularity,https://landscape.cncf.io/logos/singularity.svg,,https://sylabs.io/
+CNCF,Joyent,SmartOS,cncf_SmartOS,resource,cncf_SmartOS,https://landscape.cncf.io/logos/smart-os.svg,,https://www.joyent.com/smartos
+CNCF,Nestybox,Sysbox,cncf_Sysbox,resource,cncf_Sysbox,https://landscape.cncf.io/logos/sysbox.svg,,https://github.com/nestybox/sysbox
+CNCF,Cloud Native Computing Foundation (CNCF),WasmEdge Runtime,cncf_WasmEdge_Runtime,resource,cncf_WasmEdge_Runtime,https://landscape.cncf.io/logos/wasm-edge-runtime.svg,,https://wasmedge.org/
+CNCF,Cloud Native Computing Foundation (CNCF),Antrea,cncf_Antrea,resource,cncf_Antrea,https://landscape.cncf.io/logos/antrea.svg,,https://antrea.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Cilium,cncf_Cilium,resource,cncf_Cilium,https://landscape.cncf.io/logos/cilium.svg,,https://cilium.io/
+CNCF,Cloud Native Computing Foundation (CNCF),CNI-Genie,cncf_CNI_Genie,resource,cncf_CNI_Genie,https://landscape.cncf.io/logos/cni-genie.svg,,https://github.com/cni-genie/CNI-Genie
+CNCF,Cloud Native Computing Foundation (CNCF),Container Network Interface (CNI),cncf_Container_Network_Interface_CNI_,resource,cncf_Container_Network_Interface_CNI_,https://landscape.cncf.io/logos/container-network-interface-cni.svg,,https://github.com/containernetworking
+CNCF,Nokia,DANM,cncf_DANM,resource,cncf_DANM,https://landscape.cncf.io/logos/danm.svg,,https://github.com/nokia/danm
+CNCF,Bocloud,FabEdge,cncf_FabEdge,resource,cncf_FabEdge,https://landscape.cncf.io/logos/fab-edge.svg,,http://www.fabedge.io/
+CNCF,LF Networking,FD.io,cncf_FD.io,resource,cncf_FD.io,https://landscape.cncf.io/logos/fd-io.svg,,https://fd.io/
+CNCF,Red Hat,Flannel,cncf_Flannel,resource,cncf_Flannel,https://landscape.cncf.io/logos/flannel.svg,,https://github.com/flannel-io/flannel
+CNCF,Kilo,Kilo,cncf_Kilo,resource,cncf_Kilo,https://landscape.cncf.io/logos/kilo.svg,,https://kilo.squat.ai
+CNCF,Cloud Native Computing Foundation (CNCF),Kube-OVN,cncf_Kube_OVN,resource,cncf_Kube_OVN,https://landscape.cncf.io/logos/kube-ovn.svg,,https://github.com/kubeovn/kube-ovn
+CNCF,Cloud Native Labs,Kube-router,cncf_Kube_router,resource,cncf_Kube_router,https://landscape.cncf.io/logos/kube-router.svg,,https://www.kube-router.io
+CNCF,Cisco,Ligato,cncf_Ligato,resource,cncf_Ligato,https://landscape.cncf.io/logos/ligato.svg,,https://ligato.io/
+CNCF,Intel,Multus,cncf_Multus,resource,cncf_Multus,https://landscape.cncf.io/logos/multus.svg,,https://networkbuilders.intel.com/intel-technologies/container-experience-kits
+CNCF,Cloud Native Computing Foundation (CNCF),Network Service Mesh,cncf_Network_Service_Mesh,resource,cncf_Network_Service_Mesh,https://landscape.cncf.io/logos/network-service-mesh.svg,,https://networkservicemesh.io/
+CNCF,Open vSwitch,Open vSwitch,cncf_Open_vSwitch,resource,cncf_Open_vSwitch,https://landscape.cncf.io/logos/open-v-switch.svg,,https://www.openvswitch.org/
+CNCF,Tigera,Project Calico,cncf_Project_Calico,resource,cncf_Project_Calico,https://landscape.cncf.io/logos/project-calico.svg,,https://www.tigera.io/project-calico
+CNCF,Cloud Native Computing Foundation (CNCF),Submariner,cncf_Submariner,resource,cncf_Submariner,https://landscape.cncf.io/logos/submariner.svg,,https://submariner.io
+CNCF,LF Networking,Tungsten Fabric,cncf_Tungsten_Fabric,resource,cncf_Tungsten_Fabric,https://landscape.cncf.io/logos/tungsten-fabric.svg,,https://tungsten.io
+CNCF,Weaveworks,Weave Net,cncf_Weave_Net,resource,cncf_Weave_Net,https://landscape.cncf.io/logos/weave-net.svg,,https://www.weave.works/oss/net/
+CNCF,The Apache Software Foundation,Apache Mesos,cncf_Apache_Mesos,resource,cncf_Apache_Mesos,https://landscape.cncf.io/logos/apache-mesos.svg,,https://mesos.apache.org/
+CNCF,Microsoft,Azure Service Fabric,cncf_Azure_Service_Fabric,resource,cncf_Azure_Service_Fabric,https://landscape.cncf.io/logos/azure-service-fabric.svg,,https://docs.microsoft.com/en-us/azure/service-fabric/
+CNCF,Cloud Native Computing Foundation (CNCF),Crossplane,cncf_Crossplane,resource,cncf_Crossplane,https://landscape.cncf.io/logos/crossplane.svg,,https://crossplane.io/
+CNCF,Docker,Docker Swarm,cncf_Docker_Swarm,resource,cncf_Docker_Swarm,https://landscape.cncf.io/logos/docker-swarm.svg,,https://docs.docker.com/engine/swarm/
+CNCF,Cloud Native Computing Foundation (CNCF),Fluid,cncf_Fluid,resource,cncf_Fluid,https://landscape.cncf.io/logos/fluid.svg,,http://pasa-bigdata.nju.edu.cn/fluid/index.html
+CNCF,Cloud Native Computing Foundation (CNCF),Karmada,cncf_Karmada,resource,cncf_Karmada,https://landscape.cncf.io/logos/karmada.svg,,https://karmada.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Kubernetes,cncf_Kubernetes,resource,cncf_Kubernetes,https://landscape.cncf.io/logos/kubernetes.svg,,https://kubernetes.io/
+CNCF,HashiCorp,Nomad,cncf_Nomad,resource,cncf_Nomad,https://landscape.cncf.io/logos/nomad.svg,,https://www.nomadproject.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Open Cluster Management,cncf_Open_Cluster_Management,resource,cncf_Open_Cluster_Management,https://landscape.cncf.io/logos/open-cluster-management.svg,,https://open-cluster-management.io/
+CNCF,OpenNebula,OpenNebula,cncf_OpenNebula,resource,cncf_OpenNebula,https://landscape.cncf.io/logos/open-nebula.svg,,https://opennebula.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Volcano,cncf_Volcano,resource,cncf_Volcano,https://landscape.cncf.io/logos/volcano.svg,,https://volcano.sh/
+CNCF,wasmcloud,wasmCloud,cncf_wasmCloud,resource,cncf_wasmCloud,https://landscape.cncf.io/logos/wasm-cloud.svg,,https://wasmcloud.com
+CNCF,The Apache Software Foundation,Apache Zookeeper,cncf_Apache_Zookeeper,resource,cncf_Apache_Zookeeper,https://landscape.cncf.io/logos/apache-zookeeper.svg,,https://zookeeper.apache.org/
+CNCF,Cloud Native Computing Foundation (CNCF),CoreDNS,cncf_CoreDNS,resource,cncf_CoreDNS,https://landscape.cncf.io/logos/core-dns.svg,,https://coredns.io/
+CNCF,Cloud Native Computing Foundation (CNCF),etcd,cncf_etcd,resource,cncf_etcd,https://landscape.cncf.io/logos/etcd.svg,,https://github.com/etcd-io
+CNCF,Cloud Native Computing Foundation (CNCF),k8gb,cncf_k8gb,resource,cncf_k8gb,https://landscape.cncf.io/logos/k8gb.svg,,https://www.k8gb.io
+CNCF,Alibaba Cloud,Nacos,cncf_Nacos,resource,cncf_Nacos,https://landscape.cncf.io/logos/nacos.svg,,https://nacos.io/en-us/
+CNCF,Netflix,Netflix Eureka,cncf_Netflix_Eureka,resource,cncf_Netflix_Eureka,https://landscape.cncf.io/logos/netflix-eureka.svg,,https://github.com/Netflix/eureka
+CNCF,The Apache Software Foundation,Apache Thrift,cncf_Apache_Thrift,resource,cncf_Apache_Thrift,https://landscape.cncf.io/logos/apache-thrift.svg,,https://thrift.apache.org/
+CNCF,The Apache Software Foundation,Avro,cncf_Avro,resource,cncf_Avro,https://landscape.cncf.io/logos/avro.svg,,https://avro.apache.org/
+CNCF,ByteDance,CloudWeGo,cncf_CloudWeGo,resource,cncf_CloudWeGo,https://landscape.cncf.io/logos/cloud-we-go.svg,,https://www.cloudwego.io/
+CNCF,The Apache Software Foundation,Dubbo,cncf_Dubbo,resource,cncf_Dubbo,https://landscape.cncf.io/logos/dubbo.svg,,https://dubbo.apache.org/en/
+CNCF,TAL Education Group,go-zero,cncf_go_zero,resource,cncf_go_zero,https://landscape.cncf.io/logos/go-zero.svg,,https://go-zero.dev/
+CNCF,Cloud Native Computing Foundation (CNCF),gRPC,cncf_gRPC,resource,cncf_gRPC,https://landscape.cncf.io/logos/g-rpc.svg,,https://grpc.io/
+CNCF,Bilibili,kratos,cncf_kratos,resource,cncf_kratos,https://landscape.cncf.io/logos/kratos.svg,,https://go-kratos.dev/
+CNCF,Ant Group,SOFARPC,cncf_SOFARPC,resource,cncf_SOFARPC,https://landscape.cncf.io/logos/sofarpc.svg,,https://www.sofastack.tech/en/
+CNCF,Linux Foundation,TARS,cncf_TARS,resource,cncf_TARS,https://landscape.cncf.io/logos/tars.svg,,https://github.com/tarsCloud
+CNCF,Cloud Native Computing Foundation (CNCF),BFE,cncf_BFE,resource,cncf_BFE,https://landscape.cncf.io/logos/bfe.svg,,https://github.com/bfenetworks/bfe
+CNCF,Cloud Native Computing Foundation (CNCF),Contour,cncf_Contour,resource,cncf_Contour,https://landscape.cncf.io/logos/contour.svg,,https://projectcontour.io
+CNCF,Cloud Native Computing Foundation (CNCF),Envoy,cncf_Envoy,resource,cncf_Envoy,https://landscape.cncf.io/logos/envoy.svg,,https://www.envoyproxy.io
+CNCF,VMware,Gimbal,cncf_Gimbal,resource,cncf_Gimbal,https://landscape.cncf.io/logos/gimbal.svg,,https://github.com/projectcontour/gimbal
+CNCF,HAProxy Technologies,HAProxy,cncf_HAProxy,resource,cncf_HAProxy,https://landscape.cncf.io/logos/ha-proxy.svg,,https://www.haproxy.com/
+CNCF,OpenFaaS,Inlets,cncf_Inlets,resource,cncf_Inlets,https://landscape.cncf.io/logos/inlets.svg,,https://docs.inlets.dev
+CNCF,MetalLB,MetalLB,cncf_MetalLB,resource,cncf_MetalLB,https://landscape.cncf.io/logos/metal-lb.svg,,https://metallb.universe.tf
+CNCF,Ant Group,MOSN,cncf_MOSN,resource,cncf_MOSN,https://landscape.cncf.io/logos/mosn.svg,,https://mosn.io
+CNCF,Netflix,Netflix Zuul,cncf_Netflix_Zuul,resource,cncf_Netflix_Zuul,https://landscape.cncf.io/logos/netflix-zuul.svg,,https://github.com/Netflix/zuul
+CNCF,NGINX,NGINX,cncf_NGINX,resource,cncf_NGINX,https://landscape.cncf.io/logos/nginx.svg,,https://www.nginx.com/
+CNCF,OpenResty,OpenResty,cncf_OpenResty,resource,cncf_OpenResty,https://landscape.cncf.io/logos/open-resty.svg,,https://openresty.com/en/
+CNCF,QingCloud,Porter LB,cncf_Porter_LB,resource,cncf_Porter_LB,https://landscape.cncf.io/logos/porter-lb.svg,,https://porterlb.io
+CNCF,Zalando,Skipper,cncf_Skipper,resource,cncf_Skipper,https://landscape.cncf.io/logos/skipper.svg,,https://opensource.zalando.com/skipper/
+CNCF,Alibaba Cloud,Tengine,cncf_Tengine,resource,cncf_Tengine,https://landscape.cncf.io/logos/tengine.svg,,https://tengine.taobao.org/
+CNCF,Traefik Labs,Traefik,cncf_Traefik,resource,cncf_Traefik,https://landscape.cncf.io/logos/traefik.svg,,https://traefik.io/traefik
+CNCF,Red Hat,3Scale,cncf_3Scale,resource,cncf_3Scale,https://landscape.cncf.io/logos/3-scale.svg,,https://www.3scale.net/
+CNCF,APIOAK,APIOAK,cncf_APIOAK,resource,cncf_APIOAK,https://landscape.cncf.io/logos/apioak.svg,,https://apioak.com/
+CNCF,The Apache Software Foundation,APISIX,cncf_APISIX,resource,cncf_APISIX,https://landscape.cncf.io/logos/apisix.svg,,https://apisix.apache.org/
+CNCF,Microsoft,Azure API Management,cncf_Azure_API_Management,resource,cncf_Azure_API_Management,https://landscape.cncf.io/logos/azure-api-management.svg,,https://azure.microsoft.com/en-us/services/api-management
+CNCF,MegaEase,Easegress,cncf_Easegress,resource,cncf_Easegress,https://megaease.com/easegress,, Inc.
+CNCF,Cloud Native Computing Foundation (CNCF),Emissary-Ingress,cncf_Emissary_Ingress,resource,cncf_Emissary_Ingress,https://landscape.cncf.io/logos/emissary-ingress.svg,,https://www.getambassador.io/
+CNCF,Saaras,EnRoute OneStep Ingress,cncf_EnRoute_OneStep_Ingress,resource,cncf_EnRoute_OneStep_Ingress,https://landscape.cncf.io/logos/en-route-one-step-ingress.svg,,https://www.getenroute.io
+CNCF,Solo.io,Gloo,cncf_Gloo,resource,cncf_Gloo,https://landscape.cncf.io/logos/gloo.svg,,https://www.solo.io
+CNCF,Gravitee.io,Gravitee.io,cncf_Gravitee.io,resource,cncf_Gravitee.io,https://landscape.cncf.io/logos/gravitee-io.svg,,https://gravitee.io
+CNCF,Kong,Kong,cncf_Kong,resource,cncf_Kong,https://landscape.cncf.io/logos/kong.svg,,https://konghq.com/
+CNCF,Brutale,KrakenD,cncf_KrakenD,resource,cncf_KrakenD,https://landscape.cncf.io/logos/kraken-d.svg,,https://www.krakend.io/
+CNCF,Kubeshop,Kusk Gateway,cncf_Kusk_Gateway,resource,cncf_Kusk_Gateway,https://landscape.cncf.io/logos/kusk-gateway.svg,,https://kusk.kubeshop.io/
+CNCF,Salesforce,MuleSoft,cncf_MuleSoft,resource,cncf_MuleSoft,https://landscape.cncf.io/logos/mule-soft.svg,,https://www.mulesoft.com/
+CNCF,Accenture,Reactive Interaction Gateway,cncf_Reactive_Interaction_Gateway,resource,cncf_Reactive_Interaction_Gateway,https://landscape.cncf.io/logos/reactive-interaction-gateway.svg,,https://accenture.github.io/reactive-interaction-gateway/
+CNCF,Alibaba Cloud,Sentinel,cncf_Sentinel,resource,cncf_Sentinel,https://landscape.cncf.io/logos/sentinel.svg,,https://github.com/alibaba/Sentinel
+CNCF,Tyk,Tyk,cncf_Tyk,resource,cncf_Tyk,https://landscape.cncf.io/logos/tyk.svg,,https://tyk.io/
+CNCF,WSO2,WSO2 API Microgateway,cncf_WSO2_API_Microgateway,resource,cncf_WSO2_API_Microgateway,https://landscape.cncf.io/logos/wso2-api-microgateway.svg,,https://wso2.com/api-manager/api-microgateway
+CNCF,HashiCorp,Consul,cncf_Consul,resource,cncf_Consul,https://landscape.cncf.io/logos/consul.svg,,https://www.consul.io/
+CNCF,MegaEase,EaseMesh,cncf_EaseMesh,resource,cncf_EaseMesh,https://megaease.com/easemesh,, Inc.
+CNCF,Solo.io,Gloo Mesh,cncf_Gloo_Mesh,resource,cncf_Gloo_Mesh,https://landscape.cncf.io/logos/gloo-mesh.svg,,https://docs.solo.io/gloo-mesh-enterprise/latest
+CNCF,Google,Istio,cncf_Istio,resource,cncf_Istio,https://landscape.cncf.io/logos/istio.svg,,https://istio.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Kuma,cncf_Kuma,resource,cncf_Kuma,https://landscape.cncf.io/logos/kuma.svg,,https://kuma.io
+CNCF,Cloud Native Computing Foundation (CNCF),Linkerd,cncf_Linkerd,resource,cncf_Linkerd,https://landscape.cncf.io/logos/linkerd.svg,,https://linkerd.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Meshery,cncf_Meshery,resource,cncf_Meshery,https://landscape.cncf.io/logos/meshery.svg,,https://meshery.io
+CNCF,Cloud Native Computing Foundation (CNCF),Open Service Mesh,cncf_Open_Service_Mesh,resource,cncf_Open_Service_Mesh,https://landscape.cncf.io/logos/open-service-mesh.svg,,https://openservicemesh.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Service Mesh Interface (SMI),cncf_Service_Mesh_Interface_SMI_,resource,cncf_Service_Mesh_Interface_SMI_,https://landscape.cncf.io/logos/service-mesh-interface-smi.svg,,https://smi-spec.io
+CNCF,Cloud Native Computing Foundation (CNCF),Service Mesh Performance,cncf_Service_Mesh_Performance,resource,cncf_Service_Mesh_Performance,https://landscape.cncf.io/logos/service-mesh-performance.svg,,https://smp-spec.io/
+CNCF,Traefik Labs,Traefik Mesh,cncf_Traefik_Mesh,resource,cncf_Traefik_Mesh,https://landscape.cncf.io/logos/traefik-mesh.svg,,https://traefik.io/traefik-mesh
+CNCF,The Apache Software Foundation,Apache CarbonData,cncf_Apache_CarbonData,resource,cncf_Apache_CarbonData,https://landscape.cncf.io/logos/apache-carbon-data.svg,,https://carbondata.apache.org/
+CNCF,The Apache Software Foundation,Apache Hadoop,cncf_Apache_Hadoop,resource,cncf_Apache_Hadoop,https://landscape.cncf.io/logos/apache-hadoop.svg,,https://hadoop.apache.org/
+CNCF,The Apache Software Foundation,Apache Ignite,cncf_Apache_Ignite,resource,cncf_Apache_Ignite,https://landscape.cncf.io/logos/apache-ignite.svg,,https://ignite.apache.org
+CNCF,ArangoDB,ArangoDB,cncf_ArangoDB,resource,cncf_ArangoDB,https://landscape.cncf.io/logos/arango-db.svg,,https://www.arangodb.com/
+CNCF,BigchainDB,BigchainDB,cncf_BigchainDB,resource,cncf_BigchainDB,https://landscape.cncf.io/logos/bigchain-db.svg,,https://www.bigchaindb.com/
+CNCF,The Apache Software Foundation,Cassandra,cncf_Cassandra,resource,cncf_Cassandra,https://landscape.cncf.io/logos/cassandra.svg,,https://cassandra.apache.org/_/index.html
+CNCF,Couchbase,Couchbase,cncf_Couchbase,resource,cncf_Couchbase,https://landscape.cncf.io/logos/couchbase.svg,,https://www.couchbase.com/
+CNCF,Crate.io,Crate.io,cncf_Crate.io,resource,cncf_Crate.io,https://landscape.cncf.io/logos/crate-io.svg,,https://crate.io/
+CNCF,Crunchy Data,Crunchy Postgres Operator,cncf_Crunchy_Postgres_Operator,resource,cncf_Crunchy_Postgres_Operator,https://landscape.cncf.io/logos/crunchy-postgres-operator.svg,,https://www.crunchydata.com
+CNCF,JUXT,Crux,cncf_Crux,resource,cncf_Crux,https://landscape.cncf.io/logos/crux.svg,,https://xtdb.com/index.html
+CNCF,The Apache Software Foundation,Druid,cncf_Druid,resource,cncf_Druid,https://landscape.cncf.io/logos/druid.svg,,https://druid.apache.org/
+CNCF,Apple,FoundationDB,cncf_FoundationDB,resource,cncf_FoundationDB,https://landscape.cncf.io/logos/foundation-db.svg,,https://www.foundationdb.org/
+CNCF,Alibaba Group,GraphScope,cncf_GraphScope,resource,cncf_GraphScope,https://landscape.cncf.io/logos/graph-scope.svg,,https://graphscope.io/
+CNCF,Red Hat,Infinispan,cncf_Infinispan,resource,cncf_Infinispan,https://landscape.cncf.io/logos/infinispan.svg,,https://infinispan.org/
+CNCF,MariaDB,MariaDB,cncf_MariaDB,resource,cncf_MariaDB,https://landscape.cncf.io/logos/maria-db.svg,,https://mariadb.com/
+CNCF,Oracle,MySQL,cncf_MySQL,resource,cncf_MySQL,https://landscape.cncf.io/logos/my-sql.svg,,https://www.oracle.com/mysql/
+CNCF,Neo4j,Neo4j,cncf_Neo4j,resource,cncf_Neo4j,https://landscape.cncf.io/logos/neo4j.svg,,https://neo4j.com
+CNCF,Salesforce,NomsDB,cncf_NomsDB,resource,cncf_NomsDB,https://landscape.cncf.io/logos/noms-db.svg,,https://github.com/attic-labs/noms
+CNCF,SAP,OrientDB,cncf_OrientDB,resource,cncf_OrientDB,https://landscape.cncf.io/logos/orient-db.svg,,https://orientdb.com/why-orientdb/
+CNCF,Percona,Percona Server for MySQL,cncf_Percona_Server_for_MySQL,resource,cncf_Percona_Server_for_MySQL,https://landscape.cncf.io/logos/percona-server-for-my-sql.svg,,https://www.percona.com/software/mysql-database/percona-server
+CNCF,Pilosa,Pilosa,cncf_Pilosa,resource,cncf_Pilosa,https://landscape.cncf.io/logos/pilosa.svg,,https://www.pilosa.com/
+CNCF,PostgreSQL,PostgreSQL,cncf_PostgreSQL,resource,cncf_PostgreSQL,https://landscape.cncf.io/logos/postgre-sql.svg,,https://www.postgresql.org/
+CNCF,Presto Foundation,Presto,cncf_Presto,resource,cncf_Presto,https://landscape.cncf.io/logos/presto.svg,,https://prestodb.io/
+CNCF,Redis,Redis,cncf_Redis,resource,cncf_Redis,https://landscape.cncf.io/logos/redis.svg,,https://redis.io/
+CNCF,Linux Foundation,RethinkDB,cncf_RethinkDB,resource,cncf_RethinkDB,https://landscape.cncf.io/logos/rethink-db.svg,,https://rethinkdb.com/
+CNCF,Cloud Native Computing Foundation (CNCF),SchemaHero,cncf_SchemaHero,resource,cncf_SchemaHero,https://landscape.cncf.io/logos/schema-hero.svg,,https://schemahero.io
+CNCF,ScyllaDB,Scylla,cncf_Scylla,resource,cncf_Scylla,https://landscape.cncf.io/logos/scylla.svg,,https://www.scylladb.com/
+CNCF,Ant Group,Seata,cncf_Seata,resource,cncf_Seata,https://landscape.cncf.io/logos/seata.svg,,https://seata.io/en-us
+CNCF,The Apache Software Foundation,ShardingSphere,cncf_ShardingSphere,resource,cncf_ShardingSphere,https://landscape.cncf.io/logos/sharding-sphere.svg,,https://shardingsphere.apache.org/
+CNCF,Sorint.Lab,Stolon,cncf_Stolon,resource,cncf_Stolon,https://landscape.cncf.io/logos/stolon.svg,,https://sorintoss.io/projects/
+CNCF,Taos Data,TDengine,cncf_TDengine,resource,cncf_TDengine,https://landscape.cncf.io/logos/t-dengine.svg,,https://www.taosdata.com/en/
+CNCF,PingCAP,TiDB,cncf_TiDB,resource,cncf_TiDB,https://landscape.cncf.io/logos/ti-db.svg,,https://en.pingcap.com
+CNCF,Cloud Native Computing Foundation (CNCF),TiKV,cncf_TiKV,resource,cncf_TiKV,https://landscape.cncf.io/logos/ti-kv.svg,,https://tikv.org
+CNCF,Cloud Native Computing Foundation (CNCF),Vitess,cncf_Vitess,resource,cncf_Vitess,https://landscape.cncf.io/logos/vitess.svg,,https://vitess.io/
+CNCF,VoltDB,VoltDB,cncf_VoltDB,resource,cncf_VoltDB,https://landscape.cncf.io/logos/volt-db.svg,,https://voltdb.com
+CNCF,SeMI Technologies,Weaviate,cncf_Weaviate,resource,cncf_Weaviate,https://landscape.cncf.io/logos/weaviate.svg,,https://www.semi.technology/developers/weaviate/current/
+CNCF,Yugabyte,YugaByte DB,cncf_YugaByte_DB,resource,cncf_YugaByte_DB,https://landscape.cncf.io/logos/yuga-byte-db.svg,,https://www.yugabyte.com/yugabytedb/
+CNCF,The Apache Software Foundation,Apache Heron,cncf_Apache_Heron,resource,cncf_Apache_Heron,https://landscape.cncf.io/logos/apache-heron.svg,,https://apache.github.io/incubator-heron/
+CNCF,The Apache Software Foundation,Apache NiFi,cncf_Apache_NiFi,resource,cncf_Apache_NiFi,https://landscape.cncf.io/logos/apache-ni-fi.svg,,https://nifi.apache.org/
+CNCF,The Apache Software Foundation,Apache RocketMQ,cncf_Apache_RocketMQ,resource,cncf_Apache_RocketMQ,https://landscape.cncf.io/logos/apache-rocket-mq.svg,,https://rocketmq.apache.org/
+CNCF,The Apache Software Foundation,Apache Spark,cncf_Apache_Spark,resource,cncf_Apache_Spark,https://landscape.cncf.io/logos/apache-spark.svg,,https://spark.apache.org/
+CNCF,The Apache Software Foundation,Apache Storm,cncf_Apache_Storm,resource,cncf_Apache_Storm,https://landscape.cncf.io/logos/apache-storm.svg,,https://storm.apache.org/
+CNCF,The Apache Software Foundation,Beam,cncf_Beam,resource,cncf_Beam,https://landscape.cncf.io/logos/beam.svg,,https://beam.apache.org/
+CNCF,Cloud Native Computing Foundation (CNCF),CloudEvents,cncf_CloudEvents,resource,cncf_CloudEvents,https://landscape.cncf.io/logos/cloud-events.svg,,https://cloudevents.io/
+CNCF,deepstreamHub,deepstream,cncf_deepstream,resource,cncf_deepstream,https://landscape.cncf.io/logos/deepstream.svg,,https://deepstream.io/
+CNCF,EMQ Technologies,EMQ Technologies,cncf_EMQ_Technologies,resource,cncf_EMQ_Technologies,https://landscape.cncf.io/logos/emq-technologies.svg,,https://www.emqx.io/
+CNCF,The Apache Software Foundation,Flink,cncf_Flink,resource,cncf_Flink,https://landscape.cncf.io/logos/flink.svg,,https://flink.apache.org/
+CNCF,The Apache Software Foundation,Kafka,cncf_Kafka,resource,cncf_Kafka,https://landscape.cncf.io/logos/kafka.svg,,https://kafka.apache.org/
+CNCF,KubeMQ,KubeMQ,cncf_KubeMQ,resource,cncf_KubeMQ,https://landscape.cncf.io/logos/kube-mq.svg,,https://kubemq.io/
+CNCF,Cloud Native Computing Foundation (CNCF),NATS,cncf_NATS,resource,cncf_NATS,https://landscape.cncf.io/logos/nats.svg,,https://nats.io/
+CNCF,Linux Foundation,OpenMessaging,cncf_OpenMessaging,resource,cncf_OpenMessaging,https://landscape.cncf.io/logos/open-messaging.svg,,https://openmessaging.cloud
+CNCF,Cloud Native Computing Foundation (CNCF),Pravega,cncf_Pravega,resource,cncf_Pravega,https://landscape.cncf.io/logos/pravega.svg,,https://cncf.pravega.io
+CNCF,The Apache Software Foundation,Pulsar,cncf_Pulsar,resource,cncf_Pulsar,https://landscape.cncf.io/logos/pulsar.svg,,https://pulsar.apache.org/
+CNCF,Rabbit Technologies,RabbitMQ,cncf_RabbitMQ,resource,cncf_RabbitMQ,https://landscape.cncf.io/logos/rabbit-mq.svg,,https://www.rabbitmq.com/
+CNCF,The Apache Software Foundation,SeaTunnal,cncf_SeaTunnal,resource,cncf_SeaTunnal,https://landscape.cncf.io/logos/sea-tunnal.svg,,https://seatunnel.apache.org/
+CNCF,WSO2,Siddhi,cncf_Siddhi,resource,cncf_Siddhi,https://landscape.cncf.io/logos/siddhi.svg,,https://siddhi.io/
+CNCF,StreamSets,StreamSets,cncf_StreamSets,resource,cncf_StreamSets,https://landscape.cncf.io/logos/stream-sets.svg,,https://streamsets.com/
+CNCF,Cloud Native Computing Foundation (CNCF),Strimzi,cncf_Strimzi,resource,cncf_Strimzi,https://landscape.cncf.io/logos/strimzi.svg,,https://strimzi.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Tremor,cncf_Tremor,resource,cncf_Tremor,https://landscape.cncf.io/logos/tremor.svg,,https://www.tremor.rs/
+CNCF,Cloud Native Computing Foundation (CNCF),Artifact Hub,cncf_Artifact_Hub,resource,cncf_Artifact_Hub,https://landscape.cncf.io/logos/artifact-hub.svg,,https://artifacthub.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Backstage,cncf_Backstage,resource,cncf_Backstage,https://landscape.cncf.io/logos/backstage.svg,,https://backstage.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Buildpacks,cncf_Buildpacks,resource,cncf_Buildpacks,https://landscape.cncf.io/logos/buildpacks.svg,,https://buildpacks.io/
+CNCF,VMware,Carvel,cncf_Carvel,resource,cncf_Carvel,https://landscape.cncf.io/logos/carvel.svg,,https://carvel.dev
+CNCF,Chef Software,Chef Habitat,cncf_Chef_Habitat,resource,cncf_Chef_Habitat,https://landscape.cncf.io/logos/chef-habitat.svg,,https://community.chef.io/tools/chef-habitat
+CNCF,CloudARK,CloudARK KubePlus,cncf_CloudARK_KubePlus,resource,cncf_CloudARK_KubePlus,https://landscape.cncf.io/logos/cloud-ark-kube-plus.svg,,https://cloudark.io/helm-chart-as-a-service
+CNCF,Loft Labs,DevSpace,cncf_DevSpace,resource,cncf_DevSpace,https://landscape.cncf.io/logos/dev-space.svg,,https://loft.sh
+CNCF,Docker,Docker Compose,cncf_Docker_Compose,resource,cncf_Docker_Compose,https://landscape.cncf.io/logos/docker-compose.svg,,https://docs.docker.com/compose/
+CNCF,Eclipse Che,Eclipse Che,cncf_Eclipse_Che,resource,cncf_Eclipse_Che,https://landscape.cncf.io/logos/eclipse-che.svg,,https://www.eclipse.org/che/
+CNCF,Gradle Inc.,Gradle Build Tool,cncf_Gradle_Build_Tool,resource,cncf_Gradle_Build_Tool,https://landscape.cncf.io/logos/gradle-build-tool.svg,,https://gradle.org
+CNCF,Cloud Native Computing Foundation (CNCF),Helm,cncf_Helm,resource,cncf_Helm,https://landscape.cncf.io/logos/helm.svg,,https://helm.sh/
+CNCF,Google,kaniko,cncf_kaniko,resource,cncf_kaniko,https://landscape.cncf.io/logos/kaniko.svg,,https://github.com/GoogleContainerTools/kaniko
+CNCF,Replicated,KOTS,cncf_KOTS,resource,cncf_KOTS,https://landscape.cncf.io/logos/kots.svg,,https://kots.io
+CNCF,Cloud Native Computing Foundation (CNCF),Krator,cncf_Krator,resource,cncf_Krator,https://landscape.cncf.io/logos/krator.svg,,https://docs.rs/crate/krator/latest
+CNCF,Kubermatic,KubeCarrier,cncf_KubeCarrier,resource,cncf_KubeCarrier,https://landscape.cncf.io/logos/kube-carrier.svg,,https://github.com/kubermatic/kubecarrier
+CNCF,Cloud Native Computing Foundation (CNCF),KubeVela,cncf_KubeVela,resource,cncf_KubeVela,https://landscape.cncf.io/logos/kube-vela.svg,,https://kubevela.io
+CNCF,Cloud Native Computing Foundation (CNCF),KubeVirt,cncf_KubeVirt,resource,cncf_KubeVirt,https://landscape.cncf.io/logos/kube-virt.svg,,https://kubevirt.io/
+CNCF,Cloud Native Computing Foundation (CNCF),KUDO,cncf_KUDO,resource,cncf_KUDO,https://landscape.cncf.io/logos/kudo.svg,,https://kudo.dev/
+CNCF,IBM,Kui,cncf_Kui,resource,cncf_Kui,https://landscape.cncf.io/logos/kui.svg,,https://kui.tools/
+CNCF,amazee.io,Lagoon,cncf_Lagoon,resource,cncf_Lagoon,https://landscape.cncf.io/logos/lagoon.svg,,https://github.com/uselagoon/lagoon
+CNCF,Kubeshop,Monokle,cncf_Monokle,resource,cncf_Monokle,https://landscape.cncf.io/logos/monokle.svg,,https://monokle.kubeshop.io
+CNCF,CODING,Nocalhost,cncf_Nocalhost,resource,cncf_Nocalhost,https://landscape.cncf.io/logos/nocalhost.svg,,https://nocalhost.dev
+CNCF,VMware,Octant,cncf_Octant,resource,cncf_Octant,https://landscape.cncf.io/logos/octant.svg,,https://github.com/vmware-tanzu/octant
+CNCF,Okteto,Okteto,cncf_Okteto,resource,cncf_Okteto,https://landscape.cncf.io/logos/okteto.svg,,https://okteto.com/
+CNCF,Microsoft,Open Application Model,cncf_Open_Application_Model,resource,cncf_Open_Application_Model,https://landscape.cncf.io/logos/open-application-model.svg,,https://oam.dev/
+CNCF,Cloud Foundry Foundation,Open Service Broker API,cncf_Open_Service_Broker_API,resource,cncf_Open_Service_Broker_API,https://landscape.cncf.io/logos/open-service-broker-api.svg,,https://www.openservicebrokerapi.org/
+CNCF,Open API Initiative,OpenAPI,cncf_OpenAPI,resource,cncf_OpenAPI,https://landscape.cncf.io/logos/open-api.svg,,https://www.openapis.org/
+CNCF,Cloud Native Computing Foundation (CNCF),Operator Framework,cncf_Operator_Framework,resource,cncf_Operator_Framework,https://landscape.cncf.io/logos/operator-framework.svg,,https://cloud.redhat.com/learn/topics/operators
+CNCF,HashiCorp,Packer,cncf_Packer,resource,cncf_Packer,https://landscape.cncf.io/logos/packer.svg,,https://www.packer.io/
+CNCF,Red Hat,Podman,cncf_Podman,resource,cncf_Podman,https://landscape.cncf.io/logos/podman.svg,,https://podman.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Porter,cncf_Porter,resource,cncf_Porter,https://landscape.cncf.io/logos/porter.svg,,https://porter.sh/
+CNCF,Cloud Native Computing Foundation (CNCF),Serverless Workflow,cncf_Serverless_Workflow,resource,cncf_Serverless_Workflow,https://landscape.cncf.io/logos/serverless-workflow.svg,,https://serverlessworkflow.github.io
+CNCF,The Apache Software Foundation,ServiceComb,cncf_ServiceComb,resource,cncf_ServiceComb,https://landscape.cncf.io/logos/service-comb.svg,,https://servicecomb.apache.org
+CNCF,Continuous Delivery Foundation (CDF),Shipwright,cncf_Shipwright,resource,cncf_Shipwright,https://landscape.cncf.io/logos/shipwright.svg,,https://shipwright.io
+CNCF,Google,Skaffold,cncf_Skaffold,resource,cncf_Skaffold,https://landscape.cncf.io/logos/skaffold.svg,,https://github.com/GoogleContainerTools/skaffold
+CNCF,Solo.io,Squash,cncf_Squash,resource,cncf_Squash,https://landscape.cncf.io/logos/squash.svg,,https://squash.solo.io/
+CNCF,Grafana Labs,Tanka,cncf_Tanka,resource,cncf_Tanka,https://landscape.cncf.io/logos/tanka.svg,,https://tanka.dev/
+CNCF,Cloud Native Computing Foundation (CNCF),Telepresence,cncf_Telepresence,resource,cncf_Telepresence,https://landscape.cncf.io/logos/telepresence.svg,,https://www.telepresence.io/
+CNCF,Windmill Engineering,Tilt,cncf_Tilt,resource,cncf_Tilt,https://landscape.cncf.io/logos/tilt.svg,,https://tilt.dev/
+CNCF,Sorint.Lab,Agola,cncf_Agola,resource,cncf_Agola,https://landscape.cncf.io/logos/agola.svg,,https://agola.io
+CNCF,Akuity,Akuity,cncf_Akuity,resource,cncf_Akuity,https://landscape.cncf.io/logos/akuity.svg,,https://akuity.io
+CNCF,Cloud Native Computing Foundation (CNCF),Argo,cncf_Argo,resource,cncf_Argo,https://landscape.cncf.io/logos/argo.svg,,https://argoproj.github.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Brigade,cncf_Brigade,resource,cncf_Brigade,https://landscape.cncf.io/logos/brigade.svg,,https://brigade.sh/
+CNCF,Buildkite,Buildkite,cncf_Buildkite,resource,cncf_Buildkite,https://landscape.cncf.io/logos/buildkite.svg,,https://buildkite.com/
+CNCF,VMware,Concourse,cncf_Concourse,resource,cncf_Concourse,https://landscape.cncf.io/logos/concourse.svg,,https://concourse-ci.org/
+CNCF,The Apache Software Foundation,DolphinScheduler,cncf_DolphinScheduler,resource,cncf_DolphinScheduler,https://landscape.cncf.io/logos/dolphin-scheduler.svg,,https://dolphinscheduler.apache.org/
+CNCF,Drone.io,Drone,cncf_Drone,resource,cncf_Drone,https://landscape.cncf.io/logos/drone.svg,,http://try.drone.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Flagger,cncf_Flagger,resource,cncf_Flagger,https://landscape.cncf.io/logos/flagger.svg,,https://docs.flagger.app
+CNCF,Cloud Native Computing Foundation (CNCF),Flux,cncf_Flux,resource,cncf_Flux,https://landscape.cncf.io/logos/flux.svg,,https://fluxcd.io/
+CNCF,GitLab,GitLab,cncf_GitLab,resource,cncf_GitLab,https://landscape.cncf.io/logos/git-lab.svg,,https://about.gitlab.com/
+CNCF,Thoughtworks,GoCD,cncf_GoCD,resource,cncf_GoCD,https://landscape.cncf.io/logos/go-cd.svg,,https://www.gocd.org/
+CNCF,HyScale,HyScale,cncf_HyScale,resource,cncf_HyScale,https://landscape.cncf.io/logos/hy-scale.svg,,https://www.hyscale.io
+CNCF,Continuous Delivery Foundation (CDF),Jenkins,cncf_Jenkins,resource,cncf_Jenkins,https://landscape.cncf.io/logos/jenkins.svg,,https://jenkins.io/
+CNCF,Continuous Delivery Foundation (CDF),JenkinsX,cncf_JenkinsX,resource,cncf_JenkinsX,https://landscape.cncf.io/logos/jenkins-x.svg,,https://jenkins-x.io/
+CNCF,Grafana Labs,k6,cncf_k6,resource,cncf_k6,https://landscape.cncf.io/logos/k6.svg,,https://k6.io
+CNCF,Cloud Native Computing Foundation (CNCF),Keptn,cncf_Keptn,resource,cncf_Keptn,https://landscape.cncf.io/logos/keptn.svg,,https://www.keptn.sh
+CNCF,Cloud Native Computing Foundation (CNCF),OpenGitOps,cncf_OpenGitOps,resource,cncf_OpenGitOps,https://landscape.cncf.io/logos/open-git-ops.svg,,https://opengitops.dev/
+CNCF,Cloud Native Computing Foundation (CNCF),OpenKruise,cncf_OpenKruise,resource,cncf_OpenKruise,https://landscape.cncf.io/logos/open-kruise.svg,,https://openkruise.io/en-us/
+CNCF,Continuous Delivery Foundation (CDF),Ortelius,cncf_Ortelius,resource,cncf_Ortelius,https://landscape.cncf.io/logos/ortelius.svg,,https://ortelius.io/
+CNCF,CyberAgent,PipeCD,cncf_PipeCD,resource,cncf_PipeCD,https://landscape.cncf.io/logos/pipe-cd.svg,,https://pipecd.dev/
+CNCF,IBM,Razee,cncf_Razee,resource,cncf_Razee,https://landscape.cncf.io/logos/razee.svg,,https://razee.io/
+CNCF,Continuous Delivery Foundation (CDF),Screwdriver,cncf_Screwdriver,resource,cncf_Screwdriver,https://landscape.cncf.io/logos/screwdriver.svg,,https://screwdriver.cd
+CNCF,Continuous Delivery Foundation (CDF),Spinnaker,cncf_Spinnaker,resource,cncf_Spinnaker,https://landscape.cncf.io/logos/spinnaker.svg,,https://www.spinnaker.io/
+CNCF,Continuous Delivery Foundation (CDF),Tekton Pipelines,cncf_Tekton_Pipelines,resource,cncf_Tekton_Pipelines,https://landscape.cncf.io/logos/tekton-pipelines.svg,,https://tekton.dev/
+CNCF,Kubeshop,TestKube,cncf_TestKube,resource,cncf_TestKube,https://landscape.cncf.io/logos/test-kube.svg,,https://testkube.kubeshop.io
+CNCF,Travis CI,Travis CI,cncf_Travis_CI,resource,cncf_Travis_CI,https://landscape.cncf.io/logos/travis-ci.svg,,https://travis-ci.com/
+CNCF,Flant,werf,cncf_werf,resource,cncf_werf,https://landscape.cncf.io/logos/werf.svg,,https://werf.io/
+CNCF,Woodpecker CI,Woodpecker CI,cncf_Woodpecker_CI,resource,cncf_Woodpecker_CI,https://landscape.cncf.io/logos/woodpecker-ci.svg,,https://woodpecker-ci.org
+CNCF,ILKI,AgoraKube,cncf_AgoraKube,resource,cncf_AgoraKube,https://landscape.cncf.io/logos/agora-kube.svg,,https://github.com/ilkilab/agorakube
+CNCF,Open Infrastructure Foundation,Airship (Certified Kubernetes),cncf_Airship_Certified_Kubernetes_,resource,cncf_Airship_Certified_Kubernetes_,https://landscape.cncf.io/logos/airship-certified-kubernetes.svg,,https://www.airshipit.org/
+CNCF,Microsoft,Azure (AKS) Engine,cncf_Azure_AKS_Engine,resource,cncf_Azure_AKS_Engine,https://landscape.cncf.io/logos/azure-aks-engine.svg,,https://github.com/Azure/aks-engine
+CNCF,Canonical,Canonical Charmed Distribution of Kubernetes,cncf_Canonical_Charmed_Distribution_of_Kubernetes,resource,cncf_Canonical_Charmed_Distribution_of_Kubernetes,https://landscape.cncf.io/logos/canonical-charmed-distribution-of-kubernetes.svg,,https://ubuntu.com/kubernetes
+CNCF,Desktop Kubernetes,Desktop Kubernetes,cncf_Desktop_Kubernetes,resource,cncf_Desktop_Kubernetes,https://landscape.cncf.io/logos/desktop-kubernetes.svg,,https://github.com/aceeric/desktop-kubernetes
+CNCF,Elastisys,Elastisys Compliant Kubernetes,cncf_Elastisys_Compliant_Kubernetes,resource,cncf_Elastisys_Compliant_Kubernetes,https://landscape.cncf.io/logos/elastisys-compliant-kubernetes.svg,,https://elastisys.io/compliantkubernetes
+CNCF,Flant,Flant Deckhouse,cncf_Flant_Deckhouse,resource,cncf_Flant_Deckhouse,https://landscape.cncf.io/logos/flant-deckhouse.svg,,https://deckhouse.io/en
+CNCF,Flexkube,Flexkube,cncf_Flexkube,resource,cncf_Flexkube,https://landscape.cncf.io/logos/flexkube.svg,,https://github.com/flexkube/libflexkube
+CNCF,SIGHUP,Fury Distribution,cncf_Fury_Distribution,resource,cncf_Fury_Distribution,https://landscape.cncf.io/logos/fury-distribution.svg,,https://sighup.io
+CNCF,Intel,Intel Smart Edge Open,cncf_Intel_Smart_Edge_Open,resource,cncf_Intel_Smart_Edge_Open,https://landscape.cncf.io/logos/intel-smart-edge-open.svg,,https://www.intel.com/content/www/us/en/developer/tools/smart-edge-open/overview.html
+CNCF,Mirantis,k0s,cncf_k0s,resource,cncf_k0s,https://landscape.cncf.io/logos/k0s.svg,,https://k0sproject.io
+CNCF,Cloud Native Computing Foundation (CNCF),k3s,cncf_k3s,resource,cncf_k3s,https://landscape.cncf.io/logos/k3s.svg,,https://k3s.io
+CNCF,NetEase,KubeCube,cncf_KubeCube,resource,cncf_KubeCube,https://landscape.cncf.io/logos/kube-cube.svg,,https://www.kubecube.io/
+CNCF,Kubermatic,Kubermatic Kubernetes Platform,cncf_Kubermatic_Kubernetes_Platform,resource,cncf_Kubermatic_Kubernetes_Platform,https://landscape.cncf.io/logos/kubermatic-kubernetes-platform.svg,,https://www.kubermatic.com
+CNCF,QingCloud,Kubesphere,cncf_Kubesphere,resource,cncf_Kubesphere,https://landscape.cncf.io/logos/kubesphere.svg,,https://kubesphere.io
+CNCF,SUSE,Kubic,cncf_Kubic,resource,cncf_Kubic,https://landscape.cncf.io/logos/kubic.svg,,https://kubic.opensuse.org
+CNCF,Replicated,kURL,cncf_kURL,resource,cncf_kURL,https://landscape.cncf.io/logos/k-url.svg,,https://kurl.sh
+CNCF,Scality,MetalK8s,cncf_MetalK8s,resource,cncf_MetalK8s,https://landscape.cncf.io/logos/metal-k8s.svg,,https://www.zenko.io/metalk8s/
+CNCF,Canonical,MicroK8s,cncf_MicroK8s,resource,cncf_MicroK8s,https://landscape.cncf.io/logos/micro-k8s.svg,,https://microk8s.io
+CNCF,SUSE,Rancher Kubernetes,cncf_Rancher_Kubernetes,resource,cncf_Rancher_Kubernetes,https://landscape.cncf.io/logos/rancher-kubernetes.svg,,https://rancher.com
+CNCF,Red Hat,Red Hat OpenShift,cncf_Red_Hat_OpenShift,resource,cncf_Red_Hat_OpenShift,https://landscape.cncf.io/logos/red-hat-open-shift.svg,,https://www.redhat.com/en/technologies/cloud-computing/openshift
+CNCF,Rancher Labs,RKE Government,cncf_RKE_Government,resource,cncf_RKE_Government,https://landscape.cncf.io/logos/rke-government.svg,,https://docs.rke2.io/
+CNCF,Poseidon,Typhoon,cncf_Typhoon,resource,cncf_Typhoon,https://landscape.cncf.io/logos/typhoon.svg,,https://typhoon.psdn.io/
+CNCF,Loft Labs,vcluster,cncf_vcluster,resource,cncf_vcluster,https://landscape.cncf.io/logos/vcluster.svg,,https://vcluster.com/
+CNCF,VMware,VMware Tanzu Community Edition,cncf_VMware_Tanzu_Community_Edition,resource,cncf_VMware_Tanzu_Community_Edition,https://landscape.cncf.io/logos/v-mware-tanzu-community-edition.svg,,https://tanzucommunityedition.io
+CNCF,Catalyst Cloud,Catalyst Kubernetes Service,cncf_Catalyst_Kubernetes_Service,resource,cncf_Catalyst_Kubernetes_Service,https://landscape.cncf.io/logos/catalyst-kubernetes-service.svg,,https://catalystcloud.nz/services/paas/kubernetes/
+CNCF,QingCloud,KubeSphere®️ (QKE),cncf_KubeSphere®️_QKE_,resource,cncf_KubeSphere®️_QKE_,https://landscape.cncf.io/logos/kube-sphere-qke.svg,,https://www.qingcloud.com/products/kubesphereqke/
+CNCF,VEXXHOST,VEXXHOST Kubernetes Container Service,cncf_VEXXHOST_Kubernetes_Container_Service,resource,cncf_VEXXHOST_Kubernetes_Container_Service,https://landscape.cncf.io/logos/vexxhost-kubernetes-container-service.svg,,https://vexxhost.com/public-cloud/container-services-certified-kubernetes
+CNCF,Amazon Web Services,Amazon Elastic Kubernetes Service Anywhere (Amazon EKS Anywhere),cncf_Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_,resource,cncf_Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_,https://landscape.cncf.io/logos/amazon-elastic-kubernetes-service-anywhere-amazon-eks-anywhere.svg,,https://aws.amazon.com/eks/eks-anywhere
+CNCF,Crane,Crane,cncf_Crane,resource,cncf_Crane,https://landscape.cncf.io/logos/crane.svg,,https://github.com/slzcc/crane
+CNCF,Cybozu,Cybozu Kubernetes Engine,cncf_Cybozu_Kubernetes_Engine,resource,cncf_Cybozu_Kubernetes_Engine,https://landscape.cncf.io/logos/cybozu-kubernetes-engine.svg,,https://github.com/cybozu-go/cke
+CNCF,SAP,Gardener,cncf_Gardener,resource,cncf_Gardener,https://landscape.cncf.io/logos/gardener.svg,,https://gardener.cloud
+CNCF,Cloud Native Computing Foundation (CNCF),kind,cncf_kind,resource,cncf_kind,https://landscape.cncf.io/logos/kind.svg,,https://github.com/kubernetes-sigs/kind
+CNCF,Cloud Native Computing Foundation (CNCF),kops,cncf_kops,resource,cncf_kops,https://landscape.cncf.io/logos/kops.svg,,https://github.com/kubernetes/kops
+CNCF,Cloud Native Computing Foundation (CNCF),Kubeasz,cncf_Kubeasz,resource,cncf_Kubeasz,https://landscape.cncf.io/logos/kubeasz.svg,,https://github.com/easzlab/kubeasz
+CNCF,QingCloud,Kubekey,cncf_Kubekey,resource,cncf_Kubekey,https://landscape.cncf.io/logos/kubekey.svg,,https://kubesphere.io/docs/installing-on-linux/introduction/kubekey
+CNCF,FIT2CLOUD,KubeOperator,cncf_KubeOperator,resource,cncf_KubeOperator,https://landscape.cncf.io/logos/kube-operator.svg,,https://www.kubeoperator.io/
+CNCF,Kubermatic,Kubermatic KubeOne,cncf_Kubermatic_KubeOne,resource,cncf_Kubermatic_KubeOne,https://landscape.cncf.io/logos/kubermatic-kube-one.svg,,https://www.kubermatic.com
+CNCF,Kubernetes - The Easier Way,Kubernetes - The Easier Way,cncf_Kubernetes_The_Easier_Way,resource,cncf_Kubernetes_The_Easier_Way,https://landscape.cncf.io/logos/kubernetes-the-easier-way.svg,,https://github.com/darxkies/k8s-tew
+CNCF,Cloud Native Computing Foundation (CNCF),Kubespray,cncf_Kubespray,resource,cncf_Kubespray,https://landscape.cncf.io/logos/kubespray.svg,,https://kubespray.io/
+CNCF,Open Infrastructure Foundation,Magnum,cncf_Magnum,resource,cncf_Magnum,https://landscape.cncf.io/logos/magnum.svg,,https://opendev.org/openstack/magnum/
+CNCF,Cloud Native Computing Foundation (CNCF),minikube,cncf_minikube,resource,cncf_minikube,https://landscape.cncf.io/logos/minikube.svg,,https://minikube.sigs.k8s.io
+CNCF,Puppet,puppetlabs-kubernetes,cncf_puppetlabs_kubernetes,resource,cncf_puppetlabs_kubernetes,https://landscape.cncf.io/logos/puppetlabs-kubernetes.svg,,https://forge.puppet.com/modules/puppetlabs/kubernetes
+CNCF,SUSE,Rancher Kubernetes Engine (RKE),cncf_Rancher_Kubernetes_Engine_RKE_,resource,cncf_Rancher_Kubernetes_Engine_RKE_,https://landscape.cncf.io/logos/rancher-kubernetes-engine-rke.svg,,https://github.com/rancher/rke
+CNCF,Particule,Symplegma,cncf_Symplegma,resource,cncf_Symplegma,https://landscape.cncf.io/logos/symplegma.svg,,https://particuleio.github.io/symplegma/
+CNCF,Sidero Labs,Talos,cncf_Talos,resource,cncf_Talos,https://landscape.cncf.io/logos/talos.svg,,https://www.sideroLabs.com
+CNCF,Wise2c Technology,Wise2C Technology Breeze,cncf_Wise2C_Technology_Breeze,resource,cncf_Wise2C_Technology_Breeze,https://landscape.cncf.io/logos/wise2-c-technology-breeze.svg,,http://www.wise2c.com
+CNCF,Lightbend,Akka,cncf_Akka,resource,cncf_Akka,https://landscape.cncf.io/logos/akka.svg,,https://akka.io/
+CNCF,Cloud Foundry Foundation,Cloud Foundry Application Runtime,cncf_Cloud_Foundry_Application_Runtime,resource,cncf_Cloud_Foundry_Application_Runtime,https://landscape.cncf.io/logos/cloud-foundry-application-runtime.svg,,https://www.cloudfoundry.org/projects
+CNCF,JHipster,JHipster,cncf_JHipster,resource,cncf_JHipster,https://landscape.cncf.io/logos/j-hipster.svg,,https://www.jhipster.tech/
+CNCF,No Code,No Code,cncf_No_Code,resource,cncf_No_Code,https://landscape.cncf.io/logos/no-code.svg,,https://github.com/kelseyhightower/nocode
+CNCF,Yelp,PaaSTA,cncf_PaaSTA,resource,cncf_PaaSTA,https://landscape.cncf.io/logos/paa-sta.svg,,https://engineeringblog.yelp.com/2015/11/introducing-paasta-an-open-platform-as-a-service.html
+CNCF,Portainer,Portainer,cncf_Portainer,resource,cncf_Portainer,https://landscape.cncf.io/logos/portainer.svg,,https://www.portainer.io/
+CNCF,Rancher Labs,Rio,cncf_Rio,resource,cncf_Rio,https://landscape.cncf.io/logos/rio.svg,,https://rio.io/
+CNCF,Sogou,Sogou C++ Workflow,cncf_Sogou_C_Workflow,resource,cncf_Sogou_C_Workflow,https://landscape.cncf.io/logos/sogou-c-workflow.svg,,https://github.com/sogou/workflow
+CNCF,Tsuru,Tsuru,cncf_Tsuru,resource,cncf_Tsuru,https://landscape.cncf.io/logos/tsuru.svg,,https://tsuru.io/
+CNCF,Elastic,Beats,cncf_Beats,resource,cncf_Beats,https://landscape.cncf.io/logos/beats.svg,,https://www.elastic.co/beats
+CNCF,Centreon,Centreon,cncf_Centreon,resource,cncf_Centreon,https://landscape.cncf.io/logos/centreon.svg,,https://www.centreon.com/en/
+CNCF,tribe29,Checkmk,cncf_Checkmk,resource,cncf_Checkmk,https://landscape.cncf.io/logos/checkmk.svg,,https://checkmk.com/
+CNCF,Cloud Native Computing Foundation (CNCF),Cortex,cncf_Cortex,resource,cncf_Cortex,https://landscape.cncf.io/logos/cortex.svg,,https://github.com/cortexproject
+CNCF,Xiaomi,Falcon,cncf_Falcon,resource,cncf_Falcon,https://landscape.cncf.io/logos/falcon.svg,,https://open-falcon.com
+CNCF,Cloud Native Computing Foundation (CNCF),Fonio,cncf_Fonio,resource,cncf_Fonio,https://landscape.cncf.io/logos/fonio.svg,,https://github.com/foniod/project
+CNCF,Grafana Labs,Grafana,cncf_Grafana,resource,cncf_Grafana,https://landscape.cncf.io/logos/grafana.svg,,https://grafana.com/
+CNCF,Graphite,Graphite,cncf_Graphite,resource,cncf_Graphite,https://landscape.cncf.io/logos/graphite.svg,,https://graphiteapp.org/
+CNCF,Icinga,Icinga,cncf_Icinga,resource,cncf_Icinga,https://landscape.cncf.io/logos/icinga.svg,,https://icinga.com/
+CNCF,InfluxData,InfluxData,cncf_InfluxData,resource,cncf_InfluxData,https://landscape.cncf.io/logos/influx-data.svg,,https://www.influxdata.com/
+CNCF,Red Hat,Kiali,cncf_Kiali,resource,cncf_Kiali,https://landscape.cncf.io/logos/kiali.svg,,https://www.kiali.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Kuberhealthy,cncf_Kuberhealthy,resource,cncf_Kuberhealthy,https://landscape.cncf.io/logos/kuberhealthy.svg,,https://github.com/kuberhealthy/kuberhealthy
+CNCF,Uber,M3,cncf_M3,resource,cncf_M3,https://landscape.cncf.io/logos/m3.svg,,https://www.m3db.io/
+CNCF,Nagios,Nagios,cncf_Nagios,resource,cncf_Nagios,https://landscape.cncf.io/logos/nagios.svg,,https://www.nagios.com/
+CNCF,Netdata,Netdata,cncf_Netdata,resource,cncf_Netdata,https://landscape.cncf.io/logos/netdata.svg,,https://www.netdata.cloud
+CNCF,Netis Technologies,Netis,cncf_Netis,resource,cncf_Netis,https://landscape.cncf.io/logos/netis.svg,,https://wordpress.com/browsehappy
+CNCF,NexCloud,NexClipper,cncf_NexClipper,resource,cncf_NexClipper,https://landscape.cncf.io/logos/nex-clipper.svg,,https://www.nexclipper.io/
+CNCF,Didi Labs,Nightingale,cncf_Nightingale,resource,cncf_Nightingale,https://landscape.cncf.io/logos/nightingale.svg,,http://n9e.didiyun.com
+CNCF,Cloud Native Computing Foundation (CNCF),OpenMetrics,cncf_OpenMetrics,resource,cncf_OpenMetrics,https://landscape.cncf.io/logos/open-metrics.svg,,https://openmetrics.io/
+CNCF,OpenTSDB,OpenTSDB,cncf_OpenTSDB,resource,cncf_OpenTSDB,https://landscape.cncf.io/logos/open-tsdb.svg,,http://opentsdb.net/
+CNCF,Opstrace,Opstrace,cncf_Opstrace,resource,cncf_Opstrace,https://landscape.cncf.io/logos/opstrace.svg,,https://www.opstrace.com/
+CNCF,Cloud Native Computing Foundation (CNCF),Pixie,cncf_Pixie,resource,cncf_Pixie,https://landscape.cncf.io/logos/pixie.svg,,https://px.dev/
+CNCF,Cloud Native Computing Foundation (CNCF),Prometheus,cncf_Prometheus,resource,cncf_Prometheus,https://landscape.cncf.io/logos/prometheus.svg,,https://prometheus.io/
+CNCF,Sensu,Sensu,cncf_Sensu,resource,cncf_Sensu,https://landscape.cncf.io/logos/sensu.svg,,https://sensu.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Skooner,cncf_Skooner,resource,cncf_Skooner,https://landscape.cncf.io/logos/skooner.svg,,https://github.com/skooner-k8s/skooner
+CNCF,Sysdig,sysdig,cncf_sysdig,resource,cncf_sysdig,https://landscape.cncf.io/logos/sysdig.svg,,https://sysdig.com/opensource/
+CNCF,Cloud Native Computing Foundation (CNCF),Thanos,cncf_Thanos,resource,cncf_Thanos,https://landscape.cncf.io/logos/thanos.svg,,https://thanos.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Trickster,cncf_Trickster,resource,cncf_Trickster,https://landscape.cncf.io/logos/trickster.svg,,https://github.com/trickstercache/trickster
+CNCF,Timber,Vector,cncf_Vector,resource,cncf_Vector,https://landscape.cncf.io/logos/vector.svg,,https://vector.dev/
+CNCF,VictoriaMetrics,VictoriaMetrics,cncf_VictoriaMetrics,resource,cncf_VictoriaMetrics,https://landscape.cncf.io/logos/victoria-metrics.svg,,https://victoriametrics.com/
+CNCF,Weaveworks,Weave Scope,cncf_Weave_Scope,resource,cncf_Weave_Scope,https://landscape.cncf.io/logos/weave-scope.svg,,https://www.weave.works/oss/scope/
+CNCF,Zabbix,Zabbix,cncf_Zabbix,resource,cncf_Zabbix,https://landscape.cncf.io/logos/zabbix.svg,,https://www.zabbix.com/
+CNCF,Cloud Native Computing Foundation (CNCF),Fluentd,cncf_Fluentd,resource,cncf_Fluentd,https://landscape.cncf.io/logos/fluentd.svg,,https://www.fluentd.org/
+CNCF,Grafana Labs,Grafana Loki,cncf_Grafana_Loki,resource,cncf_Grafana_Loki,https://landscape.cncf.io/logos/grafana-loki.svg,,https://grafana.com/oss/loki
+CNCF,Elastic,Logstash,cncf_Logstash,resource,cncf_Logstash,https://landscape.cncf.io/logos/logstash.svg,,https://www.elastic.co/logstash
+CNCF,MegaEase,EaseAgent,cncf_EaseAgent,resource,cncf_EaseAgent,https://github.com/megaease/easeagent,, Inc.
+CNCF,Elastic,Elastic APM,cncf_Elastic_APM,resource,cncf_Elastic_APM,https://landscape.cncf.io/logos/elastic-apm.svg,,https://www.elastic.co/observability/application-performance-monitoring
+CNCF,Grafana Labs,Grafana Tempo,cncf_Grafana_Tempo,resource,cncf_Grafana_Tempo,https://landscape.cncf.io/logos/grafana-tempo.svg,,https://grafana.com/oss/tempo/
+CNCF,Cloud Native Computing Foundation (CNCF),Jaeger,cncf_Jaeger,resource,cncf_Jaeger,https://landscape.cncf.io/logos/jaeger.svg,,https://www.jaegertracing.io/
+CNCF,Cloud Native Computing Foundation (CNCF),OpenTelemetry,cncf_OpenTelemetry,resource,cncf_OpenTelemetry,https://landscape.cncf.io/logos/open-telemetry.svg,,https://opentelemetry.io/
+CNCF,Cloud Native Computing Foundation (CNCF),OpenTracing,cncf_OpenTracing,resource,cncf_OpenTracing,https://landscape.cncf.io/logos/open-tracing.svg,,https://opentracing.io/
+CNCF,Pinpoint,Pinpoint,cncf_Pinpoint,resource,cncf_Pinpoint,https://landscape.cncf.io/logos/pinpoint.svg,,https://naver.github.io/pinpoint/
+CNCF,The Apache Software Foundation,SkyWalking,cncf_SkyWalking,resource,cncf_SkyWalking,https://landscape.cncf.io/logos/sky-walking.svg,,https://skywalking.apache.org/
+CNCF,Ant Group,SOFATracer,cncf_SOFATracer,resource,cncf_SOFATracer,https://landscape.cncf.io/logos/sofa-tracer.svg,,https://www.sofastack.tech/en/
+CNCF,VMware,Spring Cloud Sleuth,cncf_Spring_Cloud_Sleuth,resource,cncf_Spring_Cloud_Sleuth,https://landscape.cncf.io/logos/spring-cloud-sleuth.svg,,https://spring.io/projects/spring-cloud-sleuth
+CNCF,Zipkin,Zipkin,cncf_Zipkin,resource,cncf_Zipkin,https://landscape.cncf.io/logos/zipkin.svg,,https://zipkin.io/
+CNCF,Cloud Native Computing Foundation (CNCF),Chaos Mesh,cncf_Chaos_Mesh,resource,cncf_Chaos_Mesh,https://landscape.cncf.io/logos/chaos-mesh.svg,,https://github.com/chaos-mesh/chaos-mesh
+CNCF,ChaosIQ,Chaos Toolkit,cncf_Chaos_Toolkit,resource,cncf_Chaos_Toolkit,https://landscape.cncf.io/logos/chaos-toolkit.svg,,https://chaostoolkit.org/
+CNCF,Cloud Native Computing Foundation (CNCF),Chaosblade,cncf_Chaosblade,resource,cncf_Chaosblade,https://landscape.cncf.io/logos/chaosblade.svg,,https://github.com/chaosblade-io/chaosblade
+CNCF,chaoskube,chaoskube,cncf_chaoskube,resource,cncf_chaoskube,https://landscape.cncf.io/logos/chaoskube.svg,,https://github.com/linki/chaoskube
+CNCF,Cloud Native Computing Foundation (CNCF),Litmus,cncf_Litmus,resource,cncf_Litmus,https://landscape.cncf.io/logos/litmus.svg,,https://litmuschaos.io/
+CNCF,Bloomberg,PowerfulSeal,cncf_PowerfulSeal,resource,cncf_PowerfulSeal,https://landscape.cncf.io/logos/powerful-seal.svg,,https://github.com/powerfulseal/powerfulseal

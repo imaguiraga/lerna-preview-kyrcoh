@@ -2,7 +2,7 @@ import './style/x6-elk-style.css';
 import React from 'react';
 import { Graph, Point } from '@antv/x6';
 import { elkLayout, buildNodeLookup } from './elk-layout-factory';
-import { ResourceNode } from './node/reource-node';
+import { ResourceNode } from './node/resource-node';
 
 Graph.registerNode(
   'resource-node',

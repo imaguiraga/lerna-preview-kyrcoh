@@ -28,23 +28,25 @@ import './style/widget-style.scss';
 import { samples } from './samples-1.js';
 import { samples2 } from './samples-2.js';
 
-import * as flowDsl from '@imaguiraga/topology-dsl-core';
+import * as dslmodule from '@imaguiraga/topology-dsl-core';
 import * as gcpmodule from '../assets/js/GCP';
 import * as awsmodule from '../assets/js/AWS';
+import * as cncfmodule from '../assets/js/CNCF';
 import { toElkGraph } from './diagram';
 
 registerJSModule('gcp-dsl', gcpmodule);
 registerJSModule('aws-dsl', awsmodule);
+registerJSModule('cncf-dsl', cncfmodule);
 
 // Dynamically register compiled modules
-registerJSModule('topology-dsl', flowDsl);
-registerJSModule('@imaguiraga/topology-dsl-core', flowDsl);
-registerJSModule('core-dsl', flowDsl);
+registerJSModule('topology-dsl', dslmodule);
+registerJSModule('@imaguiraga/topology-dsl-core', dslmodule);
+registerJSModule('core-dsl', dslmodule);
 
 /*
-System.set('app://topology-dsl', flowDsl);
-System.set('app://@imaguiraga/topology-dsl-core', flowDsl);
-System.set('app://core-dsl', flowDsl);
+System.set('app://topology-dsl', dslmodule);
+System.set('app://@imaguiraga/topology-dsl-core', dslmodule);
+System.set('app://core-dsl', dslmodule);
 // */
 
 function main() {
@@ -69,8 +71,8 @@ function extractVariables(modules) {
     for (let key in modules) {
       // Exclude module specific properties
       if (key !== 'default' && !key.startsWith('_')) {
-        // Extract only subclasses of ResourceElt
-        if (modules[key] instanceof flowDsl.ResourceElt) {
+        // Extract only subclasses of BaseElt
+        if (modules[key] instanceof dslmodule.BaseElt) {
           variables.set(key, modules[key]);
         }
       }
