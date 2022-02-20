@@ -200,12 +200,12 @@ export function cncf_ManageIQ(...elt) {
 }
 
 /**
- * Create a 'cncf_Mist.io' dsl tree.
+ * Create a 'cncf_Mist_io' dsl tree.
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function cncf_Mist.io(...elt) {
-  return resource(...elt)._tagName_('cncf_Mist.io')._set_('style', mapArray.get('cncf_Mist.io'));
+export function cncf_Mist_io(...elt) {
+  return resource(...elt)._tagName_('cncf_Mist_io')._set_('style', mapArray.get('cncf_Mist_io'));
 }
 
 /**
@@ -1100,12 +1100,12 @@ export function cncf_FabEdge(...elt) {
 }
 
 /**
- * Create a 'cncf_FD.io' dsl tree.
+ * Create a 'cncf_FD_io' dsl tree.
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function cncf_FD.io(...elt) {
-  return resource(...elt)._tagName_('cncf_FD.io')._set_('style', mapArray.get('cncf_FD.io'));
+export function cncf_FD_io(...elt) {
+  return resource(...elt)._tagName_('cncf_FD_io')._set_('style', mapArray.get('cncf_FD_io'));
 }
 
 /**
@@ -1667,12 +1667,12 @@ export function cncf_Gloo(...elt) {
 }
 
 /**
- * Create a 'cncf_Gravitee.io' dsl tree.
+ * Create a 'cncf_Gravitee_io' dsl tree.
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function cncf_Gravitee.io(...elt) {
-  return resource(...elt)._tagName_('cncf_Gravitee.io')._set_('style', mapArray.get('cncf_Gravitee.io'));
+export function cncf_Gravitee_io(...elt) {
+  return resource(...elt)._tagName_('cncf_Gravitee_io')._set_('style', mapArray.get('cncf_Gravitee_io'));
 }
 
 /**
@@ -1910,12 +1910,12 @@ export function cncf_Couchbase(...elt) {
 }
 
 /**
- * Create a 'cncf_Crate.io' dsl tree.
+ * Create a 'cncf_Crate_io' dsl tree.
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function cncf_Crate.io(...elt) {
-  return resource(...elt)._tagName_('cncf_Crate.io')._set_('style', mapArray.get('cncf_Crate.io'));
+export function cncf_Crate_io(...elt) {
+  return resource(...elt)._tagName_('cncf_Crate_io')._set_('style', mapArray.get('cncf_Crate_io'));
 }
 
 /**
@@ -3228,8 +3228,8 @@ export function cncf_Catalyst_Kubernetes_Service(...elt) {
  * @param {object} elt - The element.
  * @return {object} dsl object.
  */
-export function cncf_KubeSphere®️_QKE_(...elt) {
-  return resource(...elt)._tagName_('cncf_KubeSphere®️_QKE_')._set_('style', mapArray.get('cncf_KubeSphere®️_QKE_'));
+export function cncf_KubeSphere_QKE_(...elt) {
+  return resource(...elt)._tagName_('cncf_KubeSphere_QKE_')._set_('style', mapArray.get('cncf_KubeSphere_QKE_'));
 }
 
 /**

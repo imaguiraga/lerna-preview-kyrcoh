@@ -241,13 +241,13 @@ let _mapArray_ = [
  "typeURI": null,
  "docURL": "https://www.manageiq.org/"
 }],
-  ['cncf_Mist.io', {
+  ['cncf_Mist_io', {
  "provider": "CNCF",
- "category": "Mist.io",
- "product": "Mist.io",
- "dsl": "cncf_Mist.io",
+ "category": "Mist_io",
+ "product": "Mist_io",
+ "dsl": "cncf_Mist_io",
  "kind": "resource",
- "tagName": "cncf_Mist.io",
+ "tagName": "cncf_Mist_io",
  "iconURL": "https://landscape.cncf.io/logos/mist-io.svg",
  "typeURI": null,
  "docURL": "https://mist.io/"
@@ -1341,13 +1341,13 @@ let _mapArray_ = [
  "typeURI": null,
  "docURL": "http://www.fabedge.io/"
 }],
-  ['cncf_FD.io', {
+  ['cncf_FD_io', {
  "provider": "CNCF",
  "category": "LF Networking",
- "product": "FD.io",
- "dsl": "cncf_FD.io",
+ "product": "FD_io",
+ "dsl": "cncf_FD_io",
  "kind": "resource",
- "tagName": "cncf_FD.io",
+ "tagName": "cncf_FD_io",
  "iconURL": "https://landscape.cncf.io/logos/fd-io.svg",
  "typeURI": null,
  "docURL": "https://fd.io/"
@@ -2025,7 +2025,7 @@ let _mapArray_ = [
 }],
   ['cncf_Gloo', {
  "provider": "CNCF",
- "category": "Solo.io",
+ "category": "Solo_io",
  "product": "Gloo",
  "dsl": "cncf_Gloo",
  "kind": "resource",
@@ -2034,13 +2034,13 @@ let _mapArray_ = [
  "typeURI": null,
  "docURL": "https://www.solo.io"
 }],
-  ['cncf_Gravitee.io', {
+  ['cncf_Gravitee_io', {
  "provider": "CNCF",
- "category": "Gravitee.io",
- "product": "Gravitee.io",
- "dsl": "cncf_Gravitee.io",
+ "category": "Gravitee_io",
+ "product": "Gravitee_io",
+ "dsl": "cncf_Gravitee_io",
  "kind": "resource",
- "tagName": "cncf_Gravitee.io",
+ "tagName": "cncf_Gravitee_io",
  "iconURL": "https://landscape.cncf.io/logos/gravitee-io.svg",
  "typeURI": null,
  "docURL": "https://gravitee.io"
@@ -2157,7 +2157,7 @@ let _mapArray_ = [
 }],
   ['cncf_Gloo_Mesh', {
  "provider": "CNCF",
- "category": "Solo.io",
+ "category": "Solo_io",
  "product": "Gloo Mesh",
  "dsl": "cncf_Gloo_Mesh",
  "kind": "resource",
@@ -2331,13 +2331,13 @@ let _mapArray_ = [
  "typeURI": null,
  "docURL": "https://www.couchbase.com/"
 }],
-  ['cncf_Crate.io', {
+  ['cncf_Crate_io', {
  "provider": "CNCF",
- "category": "Crate.io",
- "product": "Crate.io",
- "dsl": "cncf_Crate.io",
+ "category": "Crate_io",
+ "product": "Crate_io",
+ "dsl": "cncf_Crate_io",
  "kind": "resource",
- "tagName": "cncf_Crate.io",
+ "tagName": "cncf_Crate_io",
  "iconURL": "https://landscape.cncf.io/logos/crate-io.svg",
  "typeURI": null,
  "docURL": "https://crate.io/"
@@ -3114,7 +3114,7 @@ let _mapArray_ = [
 }],
   ['cncf_Lagoon', {
  "provider": "CNCF",
- "category": "amazee.io",
+ "category": "amazee_io",
  "product": "Lagoon",
  "dsl": "cncf_Lagoon",
  "kind": "resource",
@@ -3290,7 +3290,7 @@ let _mapArray_ = [
 }],
   ['cncf_Squash', {
  "provider": "CNCF",
- "category": "Solo.io",
+ "category": "Solo_io",
  "product": "Squash",
  "dsl": "cncf_Squash",
  "kind": "resource",
@@ -3411,7 +3411,7 @@ let _mapArray_ = [
 }],
   ['cncf_Drone', {
  "provider": "CNCF",
- "category": "Drone.io",
+ "category": "Drone_io",
  "product": "Drone",
  "dsl": "cncf_Drone",
  "kind": "resource",
