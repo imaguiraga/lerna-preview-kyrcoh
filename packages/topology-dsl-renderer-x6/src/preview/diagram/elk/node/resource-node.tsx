@@ -5,13 +5,13 @@ import '@antv/x6-react-shape'
 const UNIT = 8;
 export class ResourceNode extends React.Component<{ node?: Node }> {
   shouldComponentUpdate() {
-    const { node } = this.props
+    const { node } = this.props;
     if (node) {
       if (node.hasChanged('data')) {
-        return true
+        return true;
       }
     }
-    return false
+    return false;
   }
 
   render() {

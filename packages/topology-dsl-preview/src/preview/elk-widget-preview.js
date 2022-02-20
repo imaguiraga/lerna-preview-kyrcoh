@@ -69,8 +69,8 @@ function extractVariables(modules) {
     for (let key in modules) {
       // Exclude module specific properties
       if (key !== 'default' && !key.startsWith('_')) {
-        // Extract only subclasses of ResourceElt
-        if (modules[key] instanceof flowDsl.ResourceElt) {
+        // Extract only subclasses of BaseElt
+        if (modules[key] instanceof flowDsl.BaseElt) {
           variables.set(key, modules[key]);
         }
       }
@@ -81,8 +81,8 @@ function extractVariables(modules) {
 
 function createMainWidget(palette, commands) {
 
-  //const src = 'x6-renderer/index.html';
-  const src = 'http://localhost:5000';
+  const src = 'x6-renderer/index.html';
+  //const src = 'http://localhost:5000';
   const elkgraphWidget = new IframeELKGraphWidget(null);
 
   elkgraphWidget.src = src;
