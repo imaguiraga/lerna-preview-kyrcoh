@@ -41,14 +41,14 @@ function cloudDsl(s) {
     let walker = walk.walk('public/' + s.path, options);
 
     walker.on('file', function (root, fileStats, next) {
-      let found = fileStats.name.match(rex);
-      if (found != null) {
+      let match = fileStats.name.match(rex);
+      if (match != null) {
 
         let provider = s.provider;
 
         let category = path.basename(root);
-        let product = found['product'];
-        let dsl = s.prefix + '_' + found[1];
+        let product = match.groups.product;
+        let dsl = s.prefix + '_' + product;
         // Replace special characters
         dsl = dsl.trim().replace(/(-|\s|\(|\)|\+|\\|&)+/g, '_').replace(/_+/g, '_');
         let kind = s.kind;

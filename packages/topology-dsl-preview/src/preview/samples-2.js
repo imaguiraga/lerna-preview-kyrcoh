@@ -64,6 +64,29 @@ export const testflow =
       aws_AWS_Lake_Formation('c')._title_('AZ VM-C')
     );	
   `,
+  `import { choice, terminal, sequence } from 'topology-dsl';
+  import { 
+    aws_AWS_Lake_Formation,
+    aws_Amazon_Simple_Storage_Service
+  } from 'aws-dsl';
+
+  import { 
+    cncf_Emissary_Ingress
+  } from './assets/js/CNCF/index.js';
+  
+  import { 
+    cncf_Apollo
+  } from 'cncf-dsl';
+  
+  const s3 = aws_Amazon_Simple_Storage_Service;
+
+  export const sequence1 = sequence(
+    cncf_Emissary_Ingress('Ingress'),
+      s3('c')._title_('GCP VM-C'),
+      cncf_Apollo('b')._title_('AZ CACHE-B'),
+      aws_AWS_Lake_Formation('c')._title_('AZ VM-C')
+    );	
+  `,
 `import { choice, terminal, sequence } from 'topology-dsl';
 import { 
   gcp_Cloud_SQL,

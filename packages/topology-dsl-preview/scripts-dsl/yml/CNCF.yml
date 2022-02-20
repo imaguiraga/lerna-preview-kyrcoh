@@ -1,0 +1,3981 @@
+source:
+  provider: CNCF
+  prefix: cncf
+  path: scripts-dsl/cncf/interactive_landscape.csv
+  pattern: (?<Name>.*),(?<Organization>.*),(?<Homepage>.*),(?<Logo>.*),(.*)
+  kind: resource
+items:
+  - provider: CNCF
+    category: Open Infrastructure Foundation
+    product: Airship
+    dsl: cncf_Airship
+    kind: resource
+    tagName: cncf_Airship
+    iconURL: https://landscape.cncf.io/logos/airship.svg
+    typeURI: null
+    docURL: https://www.airshipit.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Akri
+    dsl: cncf_Akri
+    kind: resource
+    tagName: cncf_Akri
+    iconURL: https://landscape.cncf.io/logos/akri.svg
+    typeURI: null
+    docURL: https://docs.akri.sh
+  - provider: CNCF
+    category: Red Hat
+    product: Ansible
+    dsl: cncf_Ansible
+    kind: resource
+    tagName: cncf_Ansible
+    iconURL: https://landscape.cncf.io/logos/ansible.svg
+    typeURI: null
+    docURL: https://www.ansible.com/
+  - provider: CNCF
+    category: Trip.com
+    product: Apollo
+    dsl: cncf_Apollo
+    kind: resource
+    tagName: cncf_Apollo
+    iconURL: https://landscape.cncf.io/logos/apollo.svg
+    typeURI: null
+    docURL: https://github.com/apolloconfig/apollo
+  - provider: CNCF
+    category: Cloud Foundry Foundation
+    product: BOSH
+    dsl: cncf_BOSH
+    kind: resource
+    tagName: cncf_BOSH
+    iconURL: https://landscape.cncf.io/logos/bosh.svg
+    typeURI: null
+    docURL: https://bosh.io/docs/
+  - provider: CNCF
+    category: Uber
+    product: Cadence Workflow
+    dsl: cncf_Cadence_Workflow
+    kind: resource
+    tagName: cncf_Cadence_Workflow
+    iconURL: https://landscape.cncf.io/logos/cadence-workflow.svg
+    typeURI: null
+    docURL: https://cadenceworkflow.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: CDK for Kubernetes (CDK8s)
+    dsl: cncf_CDK_for_Kubernetes_CDK8s_
+    kind: resource
+    tagName: cncf_CDK_for_Kubernetes_CDK8s_
+    iconURL: https://landscape.cncf.io/logos/cdk-for-kubernetes-cdk8s.svg
+    typeURI: null
+    docURL: https://cdk8s.io/
+  - provider: CNCF
+    category: CFEngine
+    product: CFEngine
+    dsl: cncf_CFEngine
+    kind: resource
+    tagName: cncf_CFEngine
+    iconURL: https://landscape.cncf.io/logos/cf-engine.svg
+    typeURI: null
+    docURL: https://cfengine.com/
+  - provider: CNCF
+    category: Chef Software
+    product: Chef Infra
+    dsl: cncf_Chef_Infra
+    kind: resource
+    tagName: cncf_Chef_Infra
+    iconURL: https://landscape.cncf.io/logos/chef-infra.svg
+    typeURI: null
+    docURL: https://www.chef.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Cloud Custodian
+    dsl: cncf_Cloud_Custodian
+    kind: resource
+    tagName: cncf_Cloud_Custodian
+    iconURL: https://landscape.cncf.io/logos/cloud-custodian.svg
+    typeURI: null
+    docURL: https://cloudcustodian.io/
+  - provider: CNCF
+    category: Cloudify
+    product: Cloudify
+    dsl: cncf_Cloudify
+    kind: resource
+    tagName: cncf_Cloudify
+    iconURL: https://landscape.cncf.io/logos/cloudify.svg
+    typeURI: null
+    docURL: https://cloudify.co
+  - provider: CNCF
+    category: Ant Group
+    product: Couler
+    dsl: cncf_Couler
+    kind: resource
+    tagName: cncf_Couler
+    iconURL: https://landscape.cncf.io/logos/couler.svg
+    typeURI: null
+    docURL: https://github.com/couler-proj/couler
+  - provider: CNCF
+    category: RackN
+    product: Digital Rebar
+    dsl: cncf_Digital_Rebar
+    kind: resource
+    tagName: cncf_Digital_Rebar
+    iconURL: https://landscape.cncf.io/logos/digital-rebar.svg
+    typeURI: null
+    docURL: https://rebar.digital/
+  - provider: CNCF
+    category: Foreman
+    product: Foreman
+    dsl: cncf_Foreman
+    kind: resource
+    tagName: cncf_Foreman
+    iconURL: https://landscape.cncf.io/logos/foreman.svg
+    typeURI: null
+    docURL: https://theforeman.org/
+  - provider: CNCF
+    category: Canonical
+    product: Juju
+    dsl: cncf_Juju
+    kind: resource
+    tagName: cncf_Juju
+    iconURL: https://landscape.cncf.io/logos/juju.svg
+    typeURI: null
+    docURL: https://jaas.ai/
+  - provider: CNCF
+    category: Loft Labs
+    product: kiosk
+    dsl: cncf_kiosk
+    kind: resource
+    tagName: cncf_kiosk
+    iconURL: https://landscape.cncf.io/logos/kiosk.svg
+    typeURI: null
+    docURL: https://github.com/loft-sh/kiosk
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: KubeDL
+    dsl: cncf_KubeDL
+    kind: resource
+    tagName: cncf_KubeDL
+    iconURL: https://landscape.cncf.io/logos/kube-dl.svg
+    typeURI: null
+    docURL: https://kubedl.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: KubeEdge
+    dsl: cncf_KubeEdge
+    kind: resource
+    tagName: cncf_KubeEdge
+    iconURL: https://landscape.cncf.io/logos/kube-edge.svg
+    typeURI: null
+    docURL: https://kubeedge.io/en/
+  - provider: CNCF
+    category: Kubefirst
+    product: Kubefirst
+    dsl: cncf_Kubefirst
+    kind: resource
+    tagName: cncf_Kubefirst
+    iconURL: https://landscape.cncf.io/logos/kubefirst.svg
+    typeURI: null
+    docURL: https://docs.kubefirst.com
+  - provider: CNCF
+    category: Docker
+    product: LinuxKit
+    dsl: cncf_LinuxKit
+    kind: resource
+    tagName: cncf_LinuxKit
+    iconURL: https://landscape.cncf.io/logos/linux-kit.svg
+    typeURI: null
+    docURL: https://github.com/linuxkit/linuxkit
+  - provider: CNCF
+    category: Canonical
+    product: MAAS
+    dsl: cncf_MAAS
+    kind: resource
+    tagName: cncf_MAAS
+    iconURL: https://landscape.cncf.io/logos/maas.svg
+    typeURI: null
+    docURL: https://maas.io/
+  - provider: CNCF
+    category: ManageIQ
+    product: ManageIQ
+    dsl: cncf_ManageIQ
+    kind: resource
+    tagName: cncf_ManageIQ
+    iconURL: https://landscape.cncf.io/logos/manage-iq.svg
+    typeURI: null
+    docURL: https://www.manageiq.org/
+  - provider: CNCF
+    category: Mist.io
+    product: Mist.io
+    dsl: cncf_Mist.io
+    kind: resource
+    tagName: cncf_Mist.io
+    iconURL: https://landscape.cncf.io/logos/mist-io.svg
+    typeURI: null
+    docURL: https://mist.io/
+  - provider: CNCF
+    category: Open Infrastructure Foundation
+    product: OpenStack
+    dsl: cncf_OpenStack
+    kind: resource
+    tagName: cncf_OpenStack
+    iconURL: https://landscape.cncf.io/logos/open-stack.svg
+    typeURI: null
+    docURL: https://www.openstack.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenYurt
+    dsl: cncf_OpenYurt
+    kind: resource
+    tagName: cncf_OpenYurt
+    iconURL: https://landscape.cncf.io/logos/open-yurt.svg
+    typeURI: null
+    docURL: https://openyurt.io/
+  - provider: CNCF
+    category: Pulumi
+    product: Pulumi
+    dsl: cncf_Pulumi
+    kind: resource
+    tagName: cncf_Pulumi
+    iconURL: https://landscape.cncf.io/logos/pulumi.svg
+    typeURI: null
+    docURL: https://www.pulumi.com/
+  - provider: CNCF
+    category: Puppet
+    product: Puppet
+    dsl: cncf_Puppet
+    kind: resource
+    tagName: cncf_Puppet
+    iconURL: https://landscape.cncf.io/logos/puppet.svg
+    typeURI: null
+    docURL: https://puppet.com/
+  - provider: CNCF
+    category: Rundeck
+    product: Rundeck
+    dsl: cncf_Rundeck
+    kind: resource
+    tagName: cncf_Rundeck
+    iconURL: https://landscape.cncf.io/logos/rundeck.svg
+    typeURI: null
+    docURL: https://www.rundeck.com/open-source
+  - provider: CNCF
+    category: SaltStack
+    product: SaltStack
+    dsl: cncf_SaltStack
+    kind: resource
+    tagName: cncf_SaltStack
+    iconURL: https://landscape.cncf.io/logos/salt-stack.svg
+    typeURI: null
+    docURL: https://www.vmware.com/support/acquisitions/saltstack.html
+  - provider: CNCF
+    category: StackStorm
+    product: StackStorm
+    dsl: cncf_StackStorm
+    kind: resource
+    tagName: cncf_StackStorm
+    iconURL: https://landscape.cncf.io/logos/stack-storm.svg
+    typeURI: null
+    docURL: https://stackstorm.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: SuperEdge
+    dsl: cncf_SuperEdge
+    kind: resource
+    tagName: cncf_SuperEdge
+    iconURL: https://landscape.cncf.io/logos/super-edge.svg
+    typeURI: null
+    docURL: https://superedge.io/
+  - provider: CNCF
+    category: HashiCorp
+    product: Terraform
+    dsl: cncf_Terraform
+    kind: resource
+    tagName: cncf_Terraform
+    iconURL: https://landscape.cncf.io/logos/terraform.svg
+    typeURI: null
+    docURL: https://www.terraform.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Tinkerbell
+    dsl: cncf_Tinkerbell
+    kind: resource
+    tagName: cncf_Tinkerbell
+    iconURL: https://landscape.cncf.io/logos/tinkerbell.svg
+    typeURI: null
+    docURL: https://tinkerbell.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Distribution
+    dsl: cncf_Distribution
+    kind: resource
+    tagName: cncf_Distribution
+    iconURL: https://landscape.cncf.io/logos/distribution.svg
+    typeURI: null
+    docURL: https://github.com/distribution/distribution
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Dragonfly
+    dsl: cncf_Dragonfly
+    kind: resource
+    tagName: cncf_Dragonfly
+    iconURL: https://landscape.cncf.io/logos/dragonfly.svg
+    typeURI: null
+    docURL: https://d7y.io/en-us/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Harbor
+    dsl: cncf_Harbor
+    kind: resource
+    tagName: cncf_Harbor
+    iconURL: https://landscape.cncf.io/logos/harbor.svg
+    typeURI: null
+    docURL: https://goharbor.io/
+  - provider: CNCF
+    category: Uber
+    product: Kraken
+    dsl: cncf_Kraken
+    kind: resource
+    tagName: cncf_Kraken
+    iconURL: https://landscape.cncf.io/logos/kraken.svg
+    typeURI: null
+    docURL: https://eng.uber.com/introducing-kraken/
+  - provider: CNCF
+    category: SUSE
+    product: Portus
+    dsl: cncf_Portus
+    kind: resource
+    tagName: cncf_Portus
+    iconURL: https://landscape.cncf.io/logos/portus.svg
+    typeURI: null
+    docURL: http://port.us.org/
+  - provider: CNCF
+    category: Red Hat
+    product: Quay
+    dsl: cncf_Quay
+    kind: resource
+    tagName: cncf_Quay
+    iconURL: https://landscape.cncf.io/logos/quay.svg
+    typeURI: null
+    docURL: https://quay.io/
+  - provider: CNCF
+    category: Anchore
+    product: Anchore
+    dsl: cncf_Anchore
+    kind: resource
+    tagName: cncf_Anchore
+    iconURL: https://landscape.cncf.io/logos/anchore.svg
+    typeURI: null
+    docURL: https://anchore.com/platform
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: cert-manager
+    dsl: cncf_cert_manager
+    kind: resource
+    tagName: cncf_cert_manager
+    iconURL: https://landscape.cncf.io/logos/cert-manager.svg
+    typeURI: null
+    docURL: https://www.jetstack.io/open-source/
+  - provider: CNCF
+    category: Bridgecrew
+    product: Checkov
+    dsl: cncf_Checkov
+    kind: resource
+    tagName: cncf_Checkov
+    iconURL: https://landscape.cncf.io/logos/checkov.svg
+    typeURI: null
+    docURL: https://www.checkov.io/
+  - provider: CNCF
+    category: Chef Software
+    product: Chef InSpec
+    dsl: cncf_Chef_InSpec
+    kind: resource
+    tagName: cncf_Chef_InSpec
+    iconURL: https://landscape.cncf.io/logos/chef-in-spec.svg
+    typeURI: null
+    docURL: https://community.chef.io/tools/chef-inspec
+  - provider: CNCF
+    category: Red Hat
+    product: Clair
+    dsl: cncf_Clair
+    kind: resource
+    tagName: cncf_Clair
+    iconURL: https://landscape.cncf.io/logos/clair.svg
+    typeURI: null
+    docURL: https://www.redhat.com/en/topics/containers/what-is-clair
+  - provider: CNCF
+    category: CloudMatos
+    product: CloudMatos
+    dsl: cncf_CloudMatos
+    kind: resource
+    tagName: cncf_CloudMatos
+    iconURL: https://landscape.cncf.io/logos/cloud-matos.svg
+    typeURI: null
+    docURL: https://www.cloudmatos.com
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Curiefense
+    dsl: cncf_Curiefense
+    kind: resource
+    tagName: cncf_Curiefense
+    iconURL: https://landscape.cncf.io/logos/curiefense.svg
+    typeURI: null
+    docURL: https://www.curiefense.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Dex
+    dsl: cncf_Dex
+    kind: resource
+    tagName: cncf_Dex
+    iconURL: https://landscape.cncf.io/logos/dex.svg
+    typeURI: null
+    docURL: https://github.com/dexidp/dex
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Falco
+    dsl: cncf_Falco
+    kind: resource
+    tagName: cncf_Falco
+    iconURL: https://landscape.cncf.io/logos/falco.svg
+    typeURI: null
+    docURL: https://falco.org/
+  - provider: CNCF
+    category: FOSSA
+    product: FOSSA
+    dsl: cncf_FOSSA
+    kind: resource
+    tagName: cncf_FOSSA
+    iconURL: https://landscape.cncf.io/logos/fossa.svg
+    typeURI: null
+    docURL: https://fossa.com/
+  - provider: CNCF
+    category: Fairwinds
+    product: Goldilocks
+    dsl: cncf_Goldilocks
+    kind: resource
+    tagName: cncf_Goldilocks
+    iconURL: https://landscape.cncf.io/logos/goldilocks.svg
+    typeURI: null
+    docURL: https://www.fairwinds.com/open-source-software
+  - provider: CNCF
+    category: Google
+    product: Grafeas
+    dsl: cncf_Grafeas
+    kind: resource
+    tagName: cncf_Grafeas
+    iconURL: https://landscape.cncf.io/logos/grafeas.svg
+    typeURI: null
+    docURL: https://grafeas.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: in-toto
+    dsl: cncf_in_toto
+    kind: resource
+    tagName: cncf_in_toto
+    iconURL: https://landscape.cncf.io/logos/in-toto.svg
+    typeURI: null
+    docURL: https://in-toto.io
+  - provider: CNCF
+    category: Aqua Security
+    product: kube-bench
+    dsl: cncf_kube_bench
+    kind: resource
+    tagName: cncf_kube_bench
+    iconURL: https://landscape.cncf.io/logos/kube-bench.svg
+    typeURI: null
+    docURL: https://github.com/aquasecurity/kube-bench
+  - provider: CNCF
+    category: Aqua Security
+    product: kube-hunter
+    dsl: cncf_kube_hunter
+    kind: resource
+    tagName: cncf_kube_hunter
+    iconURL: https://landscape.cncf.io/logos/kube-hunter.svg
+    typeURI: null
+    docURL: https://github.com/aquasecurity/kube-hunter
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kyverno
+    dsl: cncf_Kyverno
+    kind: resource
+    tagName: cncf_Kyverno
+    iconURL: https://landscape.cncf.io/logos/kyverno.svg
+    typeURI: null
+    docURL: https://kyverno.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Notary
+    dsl: cncf_Notary
+    kind: resource
+    tagName: cncf_Notary
+    iconURL: https://landscape.cncf.io/logos/notary.svg
+    typeURI: null
+    docURL: https://github.com/notaryproject/notary
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Open Policy Agent (OPA)
+    dsl: cncf_Open_Policy_Agent_OPA_
+    kind: resource
+    tagName: cncf_Open_Policy_Agent_OPA_
+    iconURL: https://landscape.cncf.io/logos/open-policy-agent-opa.svg
+    typeURI: null
+    docURL: https://www.openpolicyagent.org/
+  - provider: CNCF
+    category: Red Hat
+    product: OpenSCAP
+    dsl: cncf_OpenSCAP
+    kind: resource
+    tagName: cncf_OpenSCAP
+    iconURL: https://landscape.cncf.io/logos/open-scap.svg
+    typeURI: null
+    docURL: https://www.open-scap.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Parsec
+    dsl: cncf_Parsec
+    kind: resource
+    tagName: cncf_Parsec
+    iconURL: https://landscape.cncf.io/logos/parsec.svg
+    typeURI: null
+    docURL: https://github.com/parallaxsecond/parsec
+  - provider: CNCF
+    category: Fairwinds
+    product: Pluto
+    dsl: cncf_Pluto
+    kind: resource
+    tagName: cncf_Pluto
+    iconURL: https://landscape.cncf.io/logos/pluto.svg
+    typeURI: null
+    docURL: https://www.fairwinds.com/open-source-software
+  - provider: CNCF
+    category: Fairwinds
+    product: Polaris
+    dsl: cncf_Polaris
+    kind: resource
+    tagName: cncf_Polaris
+    iconURL: https://landscape.cncf.io/logos/polaris.svg
+    typeURI: null
+    docURL: https://fairwinds.com/polaris
+  - provider: CNCF
+    category: Fairwinds
+    product: RBAC Lookup
+    dsl: cncf_RBAC_Lookup
+    kind: resource
+    tagName: cncf_RBAC_Lookup
+    iconURL: https://landscape.cncf.io/logos/rbac-lookup.svg
+    typeURI: null
+    docURL: https://www.fairwinds.com/open-source-software
+  - provider: CNCF
+    category: Fairwinds
+    product: RBAC Manager
+    dsl: cncf_RBAC_Manager
+    kind: resource
+    tagName: cncf_RBAC_Manager
+    iconURL: https://landscape.cncf.io/logos/rbac-manager.svg
+    typeURI: null
+    docURL: https://www.fairwinds.com/open-source-software
+  - provider: CNCF
+    category: Rudder (Normation)
+    product: Rudder
+    dsl: cncf_Rudder
+    kind: resource
+    tagName: cncf_Rudder
+    iconURL: https://landscape.cncf.io/logos/rudder.svg
+    typeURI: null
+    docURL: https://www.rudder.io/
+  - provider: CNCF
+    category: VMware
+    product: Sonobuoy
+    dsl: cncf_Sonobuoy
+    kind: resource
+    tagName: cncf_Sonobuoy
+    iconURL: https://landscape.cncf.io/logos/sonobuoy.svg
+    typeURI: null
+    docURL: https://sonobuoy.io
+  - provider: CNCF
+    category: Accurics
+    product: Terrascan
+    dsl: cncf_Terrascan
+    kind: resource
+    tagName: cncf_Terrascan
+    iconURL: https://landscape.cncf.io/logos/terrascan.svg
+    typeURI: null
+    docURL: https://www.accurics.com/products/terrascan/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: The Update Framework (TUF)
+    dsl: cncf_The_Update_Framework_TUF_
+    kind: resource
+    tagName: cncf_The_Update_Framework_TUF_
+    iconURL: https://landscape.cncf.io/logos/the-update-framework-tuf.svg
+    typeURI: null
+    docURL: https://theupdateframework.github.io/
+  - provider: CNCF
+    category: Deepfence Inc
+    product: ThreatMapper
+    dsl: cncf_ThreatMapper
+    kind: resource
+    tagName: cncf_ThreatMapper
+    iconURL: https://landscape.cncf.io/logos/threat-mapper.svg
+    typeURI: null
+    docURL: https://deepfence.io/threatmapper/
+  - provider: CNCF
+    category: Aqua Security
+    product: Trivy
+    dsl: cncf_Trivy
+    kind: resource
+    tagName: cncf_Trivy
+    iconURL: https://landscape.cncf.io/logos/trivy.svg
+    typeURI: null
+    docURL: https://github.com/aquasecurity/trivy
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Athenz
+    dsl: cncf_Athenz
+    kind: resource
+    tagName: cncf_Athenz
+    iconURL: https://landscape.cncf.io/logos/athenz.svg
+    typeURI: null
+    docURL: https://www.athenz.io
+  - provider: CNCF
+    category: CyberArk Software
+    product: CyberArk Conjur
+    dsl: cncf_CyberArk_Conjur
+    kind: resource
+    tagName: cncf_CyberArk_Conjur
+    iconURL: https://landscape.cncf.io/logos/cyber-ark-conjur.svg
+    typeURI: null
+    docURL: https://www.conjur.org
+  - provider: CNCF
+    category: Red Hat
+    product: Keycloak
+    dsl: cncf_Keycloak
+    kind: resource
+    tagName: cncf_Keycloak
+    iconURL: https://landscape.cncf.io/logos/keycloak.svg
+    typeURI: null
+    docURL: https://www.keycloak.org
+  - provider: CNCF
+    category: OAuth2 Proxy
+    product: OAuth2 Proxy
+    dsl: cncf_OAuth2_Proxy
+    kind: resource
+    tagName: cncf_OAuth2_Proxy
+    iconURL: https://landscape.cncf.io/logos/o-auth2-proxy.svg
+    typeURI: null
+    docURL: https://oauth2-proxy.github.io/oauth2-proxy/
+  - provider: CNCF
+    category: Ory
+    product: ORY Hydra
+    dsl: cncf_ORY_Hydra
+    kind: resource
+    tagName: cncf_ORY_Hydra
+    iconURL: https://landscape.cncf.io/logos/ory-hydra.svg
+    typeURI: null
+    docURL: https://www.ory.sh/
+  - provider: CNCF
+    category: Pomerium
+    product: Pomerium
+    dsl: cncf_Pomerium
+    kind: resource
+    tagName: cncf_Pomerium
+    iconURL: https://landscape.cncf.io/logos/pomerium.svg
+    typeURI: null
+    docURL: https://www.pomerium.com
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: SPIFFE
+    dsl: cncf_SPIFFE
+    kind: resource
+    tagName: cncf_SPIFFE
+    iconURL: https://landscape.cncf.io/logos/spiffe.svg
+    typeURI: null
+    docURL: https://spiffe.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: SPIRE
+    dsl: cncf_SPIRE
+    kind: resource
+    tagName: cncf_SPIRE
+    iconURL: https://landscape.cncf.io/logos/spire.svg
+    typeURI: null
+    docURL: https://spiffe.io/spire/
+  - provider: CNCF
+    category: Square
+    product: Square Keywhiz
+    dsl: cncf_Square_Keywhiz
+    kind: resource
+    tagName: cncf_Square_Keywhiz
+    iconURL: https://landscape.cncf.io/logos/square-keywhiz.svg
+    typeURI: null
+    docURL: https://square.github.io/keywhiz/
+  - provider: CNCF
+    category: BuzzFeed
+    product: sso
+    dsl: cncf_sso
+    kind: resource
+    tagName: cncf_sso
+    iconURL: https://landscape.cncf.io/logos/sso.svg
+    typeURI: null
+    docURL: https://github.com/buzzfeed/sso
+  - provider: CNCF
+    category: Teleport
+    product: Teleport
+    dsl: cncf_Teleport
+    kind: resource
+    tagName: cncf_Teleport
+    iconURL: https://landscape.cncf.io/logos/teleport.svg
+    typeURI: null
+    docURL: https://goteleport.com
+  - provider: CNCF
+    category: HashiCorp
+    product: Vault
+    dsl: cncf_Vault
+    kind: resource
+    tagName: cncf_Vault
+    iconURL: https://landscape.cncf.io/logos/vault.svg
+    typeURI: null
+    docURL: https://www.vaultproject.io/
+  - provider: CNCF
+    category: Alluxio
+    product: Alluxio
+    dsl: cncf_Alluxio
+    kind: resource
+    tagName: cncf_Alluxio
+    iconURL: https://landscape.cncf.io/logos/alluxio.svg
+    typeURI: null
+    docURL: https://www.alluxio.io/
+  - provider: CNCF
+    category: Ceph Foundation
+    product: Ceph
+    dsl: cncf_Ceph
+    kind: resource
+    tagName: cncf_Ceph
+    iconURL: https://landscape.cncf.io/logos/ceph.svg
+    typeURI: null
+    docURL: https://ceph.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: ChubaoFS
+    dsl: cncf_ChubaoFS
+    kind: resource
+    tagName: cncf_ChubaoFS
+    iconURL: https://landscape.cncf.io/logos/chubao-fs.svg
+    typeURI: null
+    docURL: https://chubao.io/cgi-sys/suspendedpage.cgi
+  - provider: CNCF
+    category: Google
+    product: Container Storage Interface (CSI)
+    dsl: cncf_Container_Storage_Interface_CSI_
+    kind: resource
+    tagName: cncf_Container_Storage_Interface_CSI_
+    iconURL: https://landscape.cncf.io/logos/container-storage-interface-csi.svg
+    typeURI: null
+    docURL: https://github.com/container-storage-interface
+  - provider: CNCF
+    category: NetEase
+    product: Curve
+    dsl: cncf_Curve
+    kind: resource
+    tagName: cncf_Curve
+    iconURL: https://landscape.cncf.io/logos/curve.svg
+    typeURI: null
+    docURL: http://www.opencurve.io/
+  - provider: CNCF
+    category: Red Hat
+    product: Gluster
+    dsl: cncf_Gluster
+    kind: resource
+    tagName: cncf_Gluster
+    iconURL: https://landscape.cncf.io/logos/gluster.svg
+    typeURI: null
+    docURL: https://www.gluster.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: K8up
+    dsl: cncf_K8up
+    kind: resource
+    tagName: cncf_K8up
+    iconURL: https://landscape.cncf.io/logos/k8up.svg
+    typeURI: null
+    docURL: https://www.k8up.io/
+  - provider: CNCF
+    category: LINBIT
+    product: LINSTOR
+    dsl: cncf_LINSTOR
+    kind: resource
+    tagName: cncf_LINSTOR
+    iconURL: https://landscape.cncf.io/logos/linstor.svg
+    typeURI: null
+    docURL: https://www.linbit.com/linstor/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Longhorn
+    dsl: cncf_Longhorn
+    kind: resource
+    tagName: cncf_Longhorn
+    iconURL: https://landscape.cncf.io/logos/longhorn.svg
+    typeURI: null
+    docURL: https://github.com/longhorn/longhorn
+  - provider: CNCF
+    category: MinIO
+    product: MinIO
+    dsl: cncf_MinIO
+    kind: resource
+    tagName: cncf_MinIO
+    iconURL: https://landscape.cncf.io/logos/min-io.svg
+    typeURI: null
+    docURL: https://min.io/
+  - provider: CNCF
+    category: Tuxera
+    product: MooseFS
+    dsl: cncf_MooseFS
+    kind: resource
+    tagName: cncf_MooseFS
+    iconURL: https://landscape.cncf.io/logos/moose-fs.svg
+    typeURI: null
+    docURL: https://moosefs.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenEBS
+    dsl: cncf_OpenEBS
+    kind: resource
+    tagName: cncf_OpenEBS
+    iconURL: https://landscape.cncf.io/logos/open-ebs.svg
+    typeURI: null
+    docURL: https://www.openebs.io/
+  - provider: CNCF
+    category: OpenIO
+    product: OpenIO
+    dsl: cncf_OpenIO
+    kind: resource
+    tagName: cncf_OpenIO
+    iconURL: https://landscape.cncf.io/logos/open-io.svg
+    typeURI: null
+    docURL: https://www.openio.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: ORAS
+    dsl: cncf_ORAS
+    kind: resource
+    tagName: cncf_ORAS
+    iconURL: https://landscape.cncf.io/logos/oras.svg
+    typeURI: null
+    docURL: https://oras.land/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Piraeus Datastore
+    dsl: cncf_Piraeus_Datastore
+    kind: resource
+    tagName: cncf_Piraeus_Datastore
+    iconURL: https://landscape.cncf.io/logos/piraeus-datastore.svg
+    typeURI: null
+    docURL: https://piraeus.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Rook
+    dsl: cncf_Rook
+    kind: resource
+    tagName: cncf_Rook
+    iconURL: https://landscape.cncf.io/logos/rook.svg
+    typeURI: null
+    docURL: https://rook.io/
+  - provider: CNCF
+    category: Soda Foundation
+    product: Soda Foundation
+    dsl: cncf_Soda_Foundation
+    kind: resource
+    tagName: cncf_Soda_Foundation
+    iconURL: https://landscape.cncf.io/logos/soda-foundation.svg
+    typeURI: null
+    docURL: https://sodafoundation.io/wp-content/uploads/2021/03/cn.png
+  - provider: CNCF
+    category: Open Infrastructure Foundation
+    product: Swift
+    dsl: cncf_Swift
+    kind: resource
+    tagName: cncf_Swift
+    iconURL: https://landscape.cncf.io/logos/swift.svg
+    typeURI: null
+    docURL: https://docs.openstack.org/swift/latest/
+  - provider: CNCF
+    category: Joyent
+    product: Triton Object Storage
+    dsl: cncf_Triton_Object_Storage
+    kind: resource
+    tagName: cncf_Triton_Object_Storage
+    iconURL: https://landscape.cncf.io/logos/triton-object-storage.svg
+    typeURI: null
+    docURL: https://www.joyent.com/triton/object-storage
+  - provider: CNCF
+    category: VMware
+    product: Velero
+    dsl: cncf_Velero
+    kind: resource
+    tagName: cncf_Velero
+    iconURL: https://landscape.cncf.io/logos/velero.svg
+    typeURI: null
+    docURL: https://velero.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Vineyard
+    dsl: cncf_Vineyard
+    kind: resource
+    tagName: cncf_Vineyard
+    iconURL: https://landscape.cncf.io/logos/vineyard.svg
+    typeURI: null
+    docURL: https://v6d.io
+  - provider: CNCF
+    category: Scality
+    product: Zenko
+    dsl: cncf_Zenko
+    kind: resource
+    tagName: cncf_Zenko
+    iconURL: https://landscape.cncf.io/logos/zenko.svg
+    typeURI: null
+    docURL: https://www.zenko.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: containerd
+    dsl: cncf_containerd
+    kind: resource
+    tagName: cncf_containerd
+    iconURL: https://landscape.cncf.io/logos/containerd.svg
+    typeURI: null
+    docURL: https://containerd.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: CRI-O
+    dsl: cncf_CRI_O
+    kind: resource
+    tagName: cncf_CRI_O
+    iconURL: https://landscape.cncf.io/logos/cri-o.svg
+    typeURI: null
+    docURL: https://cri-o.io/
+  - provider: CNCF
+    category: Amazon Web Services
+    product: Firecracker
+    dsl: cncf_Firecracker
+    kind: resource
+    tagName: cncf_Firecracker
+    iconURL: https://landscape.cncf.io/logos/firecracker.svg
+    typeURI: null
+    docURL: https://firecracker-microvm.github.io/
+  - provider: CNCF
+    category: Google
+    product: gVisor
+    dsl: cncf_gVisor
+    kind: resource
+    tagName: cncf_gVisor
+    iconURL: https://landscape.cncf.io/logos/g-visor.svg
+    typeURI: null
+    docURL: https://gvisor.dev/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Inclavare Containers
+    dsl: cncf_Inclavare_Containers
+    kind: resource
+    tagName: cncf_Inclavare_Containers
+    iconURL: https://landscape.cncf.io/logos/inclavare-containers.svg
+    typeURI: null
+    docURL: https://inclavare-containers.io/
+  - provider: CNCF
+    category: Open Infrastructure Foundation
+    product: Kata Containers
+    dsl: cncf_Kata_Containers
+    kind: resource
+    tagName: cncf_Kata_Containers
+    iconURL: https://landscape.cncf.io/logos/kata-containers.svg
+    typeURI: null
+    docURL: https://katacontainers.io/
+  - provider: CNCF
+    category: Canonical
+    product: lxd
+    dsl: cncf_lxd
+    kind: resource
+    tagName: cncf_lxd
+    iconURL: https://landscape.cncf.io/logos/lxd.svg
+    typeURI: null
+    docURL: https://linuxcontainers.org/lxd/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: rkt
+    dsl: cncf_rkt
+    kind: resource
+    tagName: cncf_rkt
+    iconURL: https://landscape.cncf.io/logos/rkt.svg
+    typeURI: null
+    docURL: https://github.com/rkt/rkt
+  - provider: CNCF
+    category: Open Container Initiative (OCI)
+    product: runc
+    dsl: cncf_runc
+    kind: resource
+    tagName: cncf_runc
+    iconURL: https://landscape.cncf.io/logos/runc.svg
+    typeURI: null
+    docURL: https://www.opencontainers.org/
+  - provider: CNCF
+    category: Sylabs
+    product: Singularity
+    dsl: cncf_Singularity
+    kind: resource
+    tagName: cncf_Singularity
+    iconURL: https://landscape.cncf.io/logos/singularity.svg
+    typeURI: null
+    docURL: https://sylabs.io/
+  - provider: CNCF
+    category: Joyent
+    product: SmartOS
+    dsl: cncf_SmartOS
+    kind: resource
+    tagName: cncf_SmartOS
+    iconURL: https://landscape.cncf.io/logos/smart-os.svg
+    typeURI: null
+    docURL: https://www.joyent.com/smartos
+  - provider: CNCF
+    category: Nestybox
+    product: Sysbox
+    dsl: cncf_Sysbox
+    kind: resource
+    tagName: cncf_Sysbox
+    iconURL: https://landscape.cncf.io/logos/sysbox.svg
+    typeURI: null
+    docURL: https://github.com/nestybox/sysbox
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: WasmEdge Runtime
+    dsl: cncf_WasmEdge_Runtime
+    kind: resource
+    tagName: cncf_WasmEdge_Runtime
+    iconURL: https://landscape.cncf.io/logos/wasm-edge-runtime.svg
+    typeURI: null
+    docURL: https://wasmedge.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Antrea
+    dsl: cncf_Antrea
+    kind: resource
+    tagName: cncf_Antrea
+    iconURL: https://landscape.cncf.io/logos/antrea.svg
+    typeURI: null
+    docURL: https://antrea.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Cilium
+    dsl: cncf_Cilium
+    kind: resource
+    tagName: cncf_Cilium
+    iconURL: https://landscape.cncf.io/logos/cilium.svg
+    typeURI: null
+    docURL: https://cilium.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: CNI-Genie
+    dsl: cncf_CNI_Genie
+    kind: resource
+    tagName: cncf_CNI_Genie
+    iconURL: https://landscape.cncf.io/logos/cni-genie.svg
+    typeURI: null
+    docURL: https://github.com/cni-genie/CNI-Genie
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Container Network Interface (CNI)
+    dsl: cncf_Container_Network_Interface_CNI_
+    kind: resource
+    tagName: cncf_Container_Network_Interface_CNI_
+    iconURL: https://landscape.cncf.io/logos/container-network-interface-cni.svg
+    typeURI: null
+    docURL: https://github.com/containernetworking
+  - provider: CNCF
+    category: Nokia
+    product: DANM
+    dsl: cncf_DANM
+    kind: resource
+    tagName: cncf_DANM
+    iconURL: https://landscape.cncf.io/logos/danm.svg
+    typeURI: null
+    docURL: https://github.com/nokia/danm
+  - provider: CNCF
+    category: Bocloud
+    product: FabEdge
+    dsl: cncf_FabEdge
+    kind: resource
+    tagName: cncf_FabEdge
+    iconURL: https://landscape.cncf.io/logos/fab-edge.svg
+    typeURI: null
+    docURL: http://www.fabedge.io/
+  - provider: CNCF
+    category: LF Networking
+    product: FD.io
+    dsl: cncf_FD.io
+    kind: resource
+    tagName: cncf_FD.io
+    iconURL: https://landscape.cncf.io/logos/fd-io.svg
+    typeURI: null
+    docURL: https://fd.io/
+  - provider: CNCF
+    category: Red Hat
+    product: Flannel
+    dsl: cncf_Flannel
+    kind: resource
+    tagName: cncf_Flannel
+    iconURL: https://landscape.cncf.io/logos/flannel.svg
+    typeURI: null
+    docURL: https://github.com/flannel-io/flannel
+  - provider: CNCF
+    category: Kilo
+    product: Kilo
+    dsl: cncf_Kilo
+    kind: resource
+    tagName: cncf_Kilo
+    iconURL: https://landscape.cncf.io/logos/kilo.svg
+    typeURI: null
+    docURL: https://kilo.squat.ai
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kube-OVN
+    dsl: cncf_Kube_OVN
+    kind: resource
+    tagName: cncf_Kube_OVN
+    iconURL: https://landscape.cncf.io/logos/kube-ovn.svg
+    typeURI: null
+    docURL: https://github.com/kubeovn/kube-ovn
+  - provider: CNCF
+    category: Cloud Native Labs
+    product: Kube-router
+    dsl: cncf_Kube_router
+    kind: resource
+    tagName: cncf_Kube_router
+    iconURL: https://landscape.cncf.io/logos/kube-router.svg
+    typeURI: null
+    docURL: https://www.kube-router.io
+  - provider: CNCF
+    category: Cisco
+    product: Ligato
+    dsl: cncf_Ligato
+    kind: resource
+    tagName: cncf_Ligato
+    iconURL: https://landscape.cncf.io/logos/ligato.svg
+    typeURI: null
+    docURL: https://ligato.io/
+  - provider: CNCF
+    category: Intel
+    product: Multus
+    dsl: cncf_Multus
+    kind: resource
+    tagName: cncf_Multus
+    iconURL: https://landscape.cncf.io/logos/multus.svg
+    typeURI: null
+    docURL: >-
+      https://networkbuilders.intel.com/intel-technologies/container-experience-kits
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Network Service Mesh
+    dsl: cncf_Network_Service_Mesh
+    kind: resource
+    tagName: cncf_Network_Service_Mesh
+    iconURL: https://landscape.cncf.io/logos/network-service-mesh.svg
+    typeURI: null
+    docURL: https://networkservicemesh.io/
+  - provider: CNCF
+    category: Open vSwitch
+    product: Open vSwitch
+    dsl: cncf_Open_vSwitch
+    kind: resource
+    tagName: cncf_Open_vSwitch
+    iconURL: https://landscape.cncf.io/logos/open-v-switch.svg
+    typeURI: null
+    docURL: https://www.openvswitch.org/
+  - provider: CNCF
+    category: Tigera
+    product: Project Calico
+    dsl: cncf_Project_Calico
+    kind: resource
+    tagName: cncf_Project_Calico
+    iconURL: https://landscape.cncf.io/logos/project-calico.svg
+    typeURI: null
+    docURL: https://www.tigera.io/project-calico
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Submariner
+    dsl: cncf_Submariner
+    kind: resource
+    tagName: cncf_Submariner
+    iconURL: https://landscape.cncf.io/logos/submariner.svg
+    typeURI: null
+    docURL: https://submariner.io
+  - provider: CNCF
+    category: LF Networking
+    product: Tungsten Fabric
+    dsl: cncf_Tungsten_Fabric
+    kind: resource
+    tagName: cncf_Tungsten_Fabric
+    iconURL: https://landscape.cncf.io/logos/tungsten-fabric.svg
+    typeURI: null
+    docURL: https://tungsten.io
+  - provider: CNCF
+    category: Weaveworks
+    product: Weave Net
+    dsl: cncf_Weave_Net
+    kind: resource
+    tagName: cncf_Weave_Net
+    iconURL: https://landscape.cncf.io/logos/weave-net.svg
+    typeURI: null
+    docURL: https://www.weave.works/oss/net/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Mesos
+    dsl: cncf_Apache_Mesos
+    kind: resource
+    tagName: cncf_Apache_Mesos
+    iconURL: https://landscape.cncf.io/logos/apache-mesos.svg
+    typeURI: null
+    docURL: https://mesos.apache.org/
+  - provider: CNCF
+    category: Microsoft
+    product: Azure Service Fabric
+    dsl: cncf_Azure_Service_Fabric
+    kind: resource
+    tagName: cncf_Azure_Service_Fabric
+    iconURL: https://landscape.cncf.io/logos/azure-service-fabric.svg
+    typeURI: null
+    docURL: https://docs.microsoft.com/en-us/azure/service-fabric/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Crossplane
+    dsl: cncf_Crossplane
+    kind: resource
+    tagName: cncf_Crossplane
+    iconURL: https://landscape.cncf.io/logos/crossplane.svg
+    typeURI: null
+    docURL: https://crossplane.io/
+  - provider: CNCF
+    category: Docker
+    product: Docker Swarm
+    dsl: cncf_Docker_Swarm
+    kind: resource
+    tagName: cncf_Docker_Swarm
+    iconURL: https://landscape.cncf.io/logos/docker-swarm.svg
+    typeURI: null
+    docURL: https://docs.docker.com/engine/swarm/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Fluid
+    dsl: cncf_Fluid
+    kind: resource
+    tagName: cncf_Fluid
+    iconURL: https://landscape.cncf.io/logos/fluid.svg
+    typeURI: null
+    docURL: http://pasa-bigdata.nju.edu.cn/fluid/index.html
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Karmada
+    dsl: cncf_Karmada
+    kind: resource
+    tagName: cncf_Karmada
+    iconURL: https://landscape.cncf.io/logos/karmada.svg
+    typeURI: null
+    docURL: https://karmada.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kubernetes
+    dsl: cncf_Kubernetes
+    kind: resource
+    tagName: cncf_Kubernetes
+    iconURL: https://landscape.cncf.io/logos/kubernetes.svg
+    typeURI: null
+    docURL: https://kubernetes.io/
+  - provider: CNCF
+    category: HashiCorp
+    product: Nomad
+    dsl: cncf_Nomad
+    kind: resource
+    tagName: cncf_Nomad
+    iconURL: https://landscape.cncf.io/logos/nomad.svg
+    typeURI: null
+    docURL: https://www.nomadproject.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Open Cluster Management
+    dsl: cncf_Open_Cluster_Management
+    kind: resource
+    tagName: cncf_Open_Cluster_Management
+    iconURL: https://landscape.cncf.io/logos/open-cluster-management.svg
+    typeURI: null
+    docURL: https://open-cluster-management.io/
+  - provider: CNCF
+    category: OpenNebula
+    product: OpenNebula
+    dsl: cncf_OpenNebula
+    kind: resource
+    tagName: cncf_OpenNebula
+    iconURL: https://landscape.cncf.io/logos/open-nebula.svg
+    typeURI: null
+    docURL: https://opennebula.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Volcano
+    dsl: cncf_Volcano
+    kind: resource
+    tagName: cncf_Volcano
+    iconURL: https://landscape.cncf.io/logos/volcano.svg
+    typeURI: null
+    docURL: https://volcano.sh/
+  - provider: CNCF
+    category: wasmcloud
+    product: wasmCloud
+    dsl: cncf_wasmCloud
+    kind: resource
+    tagName: cncf_wasmCloud
+    iconURL: https://landscape.cncf.io/logos/wasm-cloud.svg
+    typeURI: null
+    docURL: https://wasmcloud.com
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Zookeeper
+    dsl: cncf_Apache_Zookeeper
+    kind: resource
+    tagName: cncf_Apache_Zookeeper
+    iconURL: https://landscape.cncf.io/logos/apache-zookeeper.svg
+    typeURI: null
+    docURL: https://zookeeper.apache.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: CoreDNS
+    dsl: cncf_CoreDNS
+    kind: resource
+    tagName: cncf_CoreDNS
+    iconURL: https://landscape.cncf.io/logos/core-dns.svg
+    typeURI: null
+    docURL: https://coredns.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: etcd
+    dsl: cncf_etcd
+    kind: resource
+    tagName: cncf_etcd
+    iconURL: https://landscape.cncf.io/logos/etcd.svg
+    typeURI: null
+    docURL: https://github.com/etcd-io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: k8gb
+    dsl: cncf_k8gb
+    kind: resource
+    tagName: cncf_k8gb
+    iconURL: https://landscape.cncf.io/logos/k8gb.svg
+    typeURI: null
+    docURL: https://www.k8gb.io
+  - provider: CNCF
+    category: Alibaba Cloud
+    product: Nacos
+    dsl: cncf_Nacos
+    kind: resource
+    tagName: cncf_Nacos
+    iconURL: https://landscape.cncf.io/logos/nacos.svg
+    typeURI: null
+    docURL: https://nacos.io/en-us/
+  - provider: CNCF
+    category: Netflix
+    product: Netflix Eureka
+    dsl: cncf_Netflix_Eureka
+    kind: resource
+    tagName: cncf_Netflix_Eureka
+    iconURL: https://landscape.cncf.io/logos/netflix-eureka.svg
+    typeURI: null
+    docURL: https://github.com/Netflix/eureka
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Thrift
+    dsl: cncf_Apache_Thrift
+    kind: resource
+    tagName: cncf_Apache_Thrift
+    iconURL: https://landscape.cncf.io/logos/apache-thrift.svg
+    typeURI: null
+    docURL: https://thrift.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Avro
+    dsl: cncf_Avro
+    kind: resource
+    tagName: cncf_Avro
+    iconURL: https://landscape.cncf.io/logos/avro.svg
+    typeURI: null
+    docURL: https://avro.apache.org/
+  - provider: CNCF
+    category: ByteDance
+    product: CloudWeGo
+    dsl: cncf_CloudWeGo
+    kind: resource
+    tagName: cncf_CloudWeGo
+    iconURL: https://landscape.cncf.io/logos/cloud-we-go.svg
+    typeURI: null
+    docURL: https://www.cloudwego.io/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Dubbo
+    dsl: cncf_Dubbo
+    kind: resource
+    tagName: cncf_Dubbo
+    iconURL: https://landscape.cncf.io/logos/dubbo.svg
+    typeURI: null
+    docURL: https://dubbo.apache.org/en/
+  - provider: CNCF
+    category: TAL Education Group
+    product: go-zero
+    dsl: cncf_go_zero
+    kind: resource
+    tagName: cncf_go_zero
+    iconURL: https://landscape.cncf.io/logos/go-zero.svg
+    typeURI: null
+    docURL: https://go-zero.dev/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: gRPC
+    dsl: cncf_gRPC
+    kind: resource
+    tagName: cncf_gRPC
+    iconURL: https://landscape.cncf.io/logos/g-rpc.svg
+    typeURI: null
+    docURL: https://grpc.io/
+  - provider: CNCF
+    category: Bilibili
+    product: kratos
+    dsl: cncf_kratos
+    kind: resource
+    tagName: cncf_kratos
+    iconURL: https://landscape.cncf.io/logos/kratos.svg
+    typeURI: null
+    docURL: https://go-kratos.dev/
+  - provider: CNCF
+    category: Ant Group
+    product: SOFARPC
+    dsl: cncf_SOFARPC
+    kind: resource
+    tagName: cncf_SOFARPC
+    iconURL: https://landscape.cncf.io/logos/sofarpc.svg
+    typeURI: null
+    docURL: https://www.sofastack.tech/en/
+  - provider: CNCF
+    category: Linux Foundation
+    product: TARS
+    dsl: cncf_TARS
+    kind: resource
+    tagName: cncf_TARS
+    iconURL: https://landscape.cncf.io/logos/tars.svg
+    typeURI: null
+    docURL: https://github.com/tarsCloud
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: BFE
+    dsl: cncf_BFE
+    kind: resource
+    tagName: cncf_BFE
+    iconURL: https://landscape.cncf.io/logos/bfe.svg
+    typeURI: null
+    docURL: https://github.com/bfenetworks/bfe
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Contour
+    dsl: cncf_Contour
+    kind: resource
+    tagName: cncf_Contour
+    iconURL: https://landscape.cncf.io/logos/contour.svg
+    typeURI: null
+    docURL: https://projectcontour.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Envoy
+    dsl: cncf_Envoy
+    kind: resource
+    tagName: cncf_Envoy
+    iconURL: https://landscape.cncf.io/logos/envoy.svg
+    typeURI: null
+    docURL: https://www.envoyproxy.io
+  - provider: CNCF
+    category: VMware
+    product: Gimbal
+    dsl: cncf_Gimbal
+    kind: resource
+    tagName: cncf_Gimbal
+    iconURL: https://landscape.cncf.io/logos/gimbal.svg
+    typeURI: null
+    docURL: https://github.com/projectcontour/gimbal
+  - provider: CNCF
+    category: HAProxy Technologies
+    product: HAProxy
+    dsl: cncf_HAProxy
+    kind: resource
+    tagName: cncf_HAProxy
+    iconURL: https://landscape.cncf.io/logos/ha-proxy.svg
+    typeURI: null
+    docURL: https://www.haproxy.com/
+  - provider: CNCF
+    category: OpenFaaS
+    product: Inlets
+    dsl: cncf_Inlets
+    kind: resource
+    tagName: cncf_Inlets
+    iconURL: https://landscape.cncf.io/logos/inlets.svg
+    typeURI: null
+    docURL: https://docs.inlets.dev
+  - provider: CNCF
+    category: MetalLB
+    product: MetalLB
+    dsl: cncf_MetalLB
+    kind: resource
+    tagName: cncf_MetalLB
+    iconURL: https://landscape.cncf.io/logos/metal-lb.svg
+    typeURI: null
+    docURL: https://metallb.universe.tf
+  - provider: CNCF
+    category: Ant Group
+    product: MOSN
+    dsl: cncf_MOSN
+    kind: resource
+    tagName: cncf_MOSN
+    iconURL: https://landscape.cncf.io/logos/mosn.svg
+    typeURI: null
+    docURL: https://mosn.io
+  - provider: CNCF
+    category: Netflix
+    product: Netflix Zuul
+    dsl: cncf_Netflix_Zuul
+    kind: resource
+    tagName: cncf_Netflix_Zuul
+    iconURL: https://landscape.cncf.io/logos/netflix-zuul.svg
+    typeURI: null
+    docURL: https://github.com/Netflix/zuul
+  - provider: CNCF
+    category: NGINX
+    product: NGINX
+    dsl: cncf_NGINX
+    kind: resource
+    tagName: cncf_NGINX
+    iconURL: https://landscape.cncf.io/logos/nginx.svg
+    typeURI: null
+    docURL: https://www.nginx.com/
+  - provider: CNCF
+    category: OpenResty
+    product: OpenResty
+    dsl: cncf_OpenResty
+    kind: resource
+    tagName: cncf_OpenResty
+    iconURL: https://landscape.cncf.io/logos/open-resty.svg
+    typeURI: null
+    docURL: https://openresty.com/en/
+  - provider: CNCF
+    category: QingCloud
+    product: Porter LB
+    dsl: cncf_Porter_LB
+    kind: resource
+    tagName: cncf_Porter_LB
+    iconURL: https://landscape.cncf.io/logos/porter-lb.svg
+    typeURI: null
+    docURL: https://porterlb.io
+  - provider: CNCF
+    category: Zalando
+    product: Skipper
+    dsl: cncf_Skipper
+    kind: resource
+    tagName: cncf_Skipper
+    iconURL: https://landscape.cncf.io/logos/skipper.svg
+    typeURI: null
+    docURL: https://opensource.zalando.com/skipper/
+  - provider: CNCF
+    category: Alibaba Cloud
+    product: Tengine
+    dsl: cncf_Tengine
+    kind: resource
+    tagName: cncf_Tengine
+    iconURL: https://landscape.cncf.io/logos/tengine.svg
+    typeURI: null
+    docURL: https://tengine.taobao.org/
+  - provider: CNCF
+    category: Traefik Labs
+    product: Traefik
+    dsl: cncf_Traefik
+    kind: resource
+    tagName: cncf_Traefik
+    iconURL: https://landscape.cncf.io/logos/traefik.svg
+    typeURI: null
+    docURL: https://traefik.io/traefik
+  - provider: CNCF
+    category: Red Hat
+    product: 3Scale
+    dsl: cncf_3Scale
+    kind: resource
+    tagName: cncf_3Scale
+    iconURL: https://landscape.cncf.io/logos/3-scale.svg
+    typeURI: null
+    docURL: https://www.3scale.net/
+  - provider: CNCF
+    category: APIOAK
+    product: APIOAK
+    dsl: cncf_APIOAK
+    kind: resource
+    tagName: cncf_APIOAK
+    iconURL: https://landscape.cncf.io/logos/apioak.svg
+    typeURI: null
+    docURL: https://apioak.com/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: APISIX
+    dsl: cncf_APISIX
+    kind: resource
+    tagName: cncf_APISIX
+    iconURL: https://landscape.cncf.io/logos/apisix.svg
+    typeURI: null
+    docURL: https://apisix.apache.org/
+  - provider: CNCF
+    category: Microsoft
+    product: Azure API Management
+    dsl: cncf_Azure_API_Management
+    kind: resource
+    tagName: cncf_Azure_API_Management
+    iconURL: https://landscape.cncf.io/logos/azure-api-management.svg
+    typeURI: null
+    docURL: https://azure.microsoft.com/en-us/services/api-management
+  - provider: CNCF
+    category: MegaEase
+    product: Easegress
+    dsl: cncf_Easegress
+    kind: resource
+    tagName: cncf_Easegress
+    iconURL: https://megaease.com/easegress
+    typeURI: null
+    docURL: ' Inc.'
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Emissary-Ingress
+    dsl: cncf_Emissary_Ingress
+    kind: resource
+    tagName: cncf_Emissary_Ingress
+    iconURL: https://landscape.cncf.io/logos/emissary-ingress.svg
+    typeURI: null
+    docURL: https://www.getambassador.io/
+  - provider: CNCF
+    category: Saaras
+    product: EnRoute OneStep Ingress
+    dsl: cncf_EnRoute_OneStep_Ingress
+    kind: resource
+    tagName: cncf_EnRoute_OneStep_Ingress
+    iconURL: https://landscape.cncf.io/logos/en-route-one-step-ingress.svg
+    typeURI: null
+    docURL: https://www.getenroute.io
+  - provider: CNCF
+    category: Solo.io
+    product: Gloo
+    dsl: cncf_Gloo
+    kind: resource
+    tagName: cncf_Gloo
+    iconURL: https://landscape.cncf.io/logos/gloo.svg
+    typeURI: null
+    docURL: https://www.solo.io
+  - provider: CNCF
+    category: Gravitee.io
+    product: Gravitee.io
+    dsl: cncf_Gravitee.io
+    kind: resource
+    tagName: cncf_Gravitee.io
+    iconURL: https://landscape.cncf.io/logos/gravitee-io.svg
+    typeURI: null
+    docURL: https://gravitee.io
+  - provider: CNCF
+    category: Kong
+    product: Kong
+    dsl: cncf_Kong
+    kind: resource
+    tagName: cncf_Kong
+    iconURL: https://landscape.cncf.io/logos/kong.svg
+    typeURI: null
+    docURL: https://konghq.com/
+  - provider: CNCF
+    category: Brutale
+    product: KrakenD
+    dsl: cncf_KrakenD
+    kind: resource
+    tagName: cncf_KrakenD
+    iconURL: https://landscape.cncf.io/logos/kraken-d.svg
+    typeURI: null
+    docURL: https://www.krakend.io/
+  - provider: CNCF
+    category: Kubeshop
+    product: Kusk Gateway
+    dsl: cncf_Kusk_Gateway
+    kind: resource
+    tagName: cncf_Kusk_Gateway
+    iconURL: https://landscape.cncf.io/logos/kusk-gateway.svg
+    typeURI: null
+    docURL: https://kusk.kubeshop.io/
+  - provider: CNCF
+    category: Salesforce
+    product: MuleSoft
+    dsl: cncf_MuleSoft
+    kind: resource
+    tagName: cncf_MuleSoft
+    iconURL: https://landscape.cncf.io/logos/mule-soft.svg
+    typeURI: null
+    docURL: https://www.mulesoft.com/
+  - provider: CNCF
+    category: Accenture
+    product: Reactive Interaction Gateway
+    dsl: cncf_Reactive_Interaction_Gateway
+    kind: resource
+    tagName: cncf_Reactive_Interaction_Gateway
+    iconURL: https://landscape.cncf.io/logos/reactive-interaction-gateway.svg
+    typeURI: null
+    docURL: https://accenture.github.io/reactive-interaction-gateway/
+  - provider: CNCF
+    category: Alibaba Cloud
+    product: Sentinel
+    dsl: cncf_Sentinel
+    kind: resource
+    tagName: cncf_Sentinel
+    iconURL: https://landscape.cncf.io/logos/sentinel.svg
+    typeURI: null
+    docURL: https://github.com/alibaba/Sentinel
+  - provider: CNCF
+    category: Tyk
+    product: Tyk
+    dsl: cncf_Tyk
+    kind: resource
+    tagName: cncf_Tyk
+    iconURL: https://landscape.cncf.io/logos/tyk.svg
+    typeURI: null
+    docURL: https://tyk.io/
+  - provider: CNCF
+    category: WSO2
+    product: WSO2 API Microgateway
+    dsl: cncf_WSO2_API_Microgateway
+    kind: resource
+    tagName: cncf_WSO2_API_Microgateway
+    iconURL: https://landscape.cncf.io/logos/wso2-api-microgateway.svg
+    typeURI: null
+    docURL: https://wso2.com/api-manager/api-microgateway
+  - provider: CNCF
+    category: HashiCorp
+    product: Consul
+    dsl: cncf_Consul
+    kind: resource
+    tagName: cncf_Consul
+    iconURL: https://landscape.cncf.io/logos/consul.svg
+    typeURI: null
+    docURL: https://www.consul.io/
+  - provider: CNCF
+    category: MegaEase
+    product: EaseMesh
+    dsl: cncf_EaseMesh
+    kind: resource
+    tagName: cncf_EaseMesh
+    iconURL: https://megaease.com/easemesh
+    typeURI: null
+    docURL: ' Inc.'
+  - provider: CNCF
+    category: Solo.io
+    product: Gloo Mesh
+    dsl: cncf_Gloo_Mesh
+    kind: resource
+    tagName: cncf_Gloo_Mesh
+    iconURL: https://landscape.cncf.io/logos/gloo-mesh.svg
+    typeURI: null
+    docURL: https://docs.solo.io/gloo-mesh-enterprise/latest
+  - provider: CNCF
+    category: Google
+    product: Istio
+    dsl: cncf_Istio
+    kind: resource
+    tagName: cncf_Istio
+    iconURL: https://landscape.cncf.io/logos/istio.svg
+    typeURI: null
+    docURL: https://istio.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kuma
+    dsl: cncf_Kuma
+    kind: resource
+    tagName: cncf_Kuma
+    iconURL: https://landscape.cncf.io/logos/kuma.svg
+    typeURI: null
+    docURL: https://kuma.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Linkerd
+    dsl: cncf_Linkerd
+    kind: resource
+    tagName: cncf_Linkerd
+    iconURL: https://landscape.cncf.io/logos/linkerd.svg
+    typeURI: null
+    docURL: https://linkerd.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Meshery
+    dsl: cncf_Meshery
+    kind: resource
+    tagName: cncf_Meshery
+    iconURL: https://landscape.cncf.io/logos/meshery.svg
+    typeURI: null
+    docURL: https://meshery.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Open Service Mesh
+    dsl: cncf_Open_Service_Mesh
+    kind: resource
+    tagName: cncf_Open_Service_Mesh
+    iconURL: https://landscape.cncf.io/logos/open-service-mesh.svg
+    typeURI: null
+    docURL: https://openservicemesh.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Service Mesh Interface (SMI)
+    dsl: cncf_Service_Mesh_Interface_SMI_
+    kind: resource
+    tagName: cncf_Service_Mesh_Interface_SMI_
+    iconURL: https://landscape.cncf.io/logos/service-mesh-interface-smi.svg
+    typeURI: null
+    docURL: https://smi-spec.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Service Mesh Performance
+    dsl: cncf_Service_Mesh_Performance
+    kind: resource
+    tagName: cncf_Service_Mesh_Performance
+    iconURL: https://landscape.cncf.io/logos/service-mesh-performance.svg
+    typeURI: null
+    docURL: https://smp-spec.io/
+  - provider: CNCF
+    category: Traefik Labs
+    product: Traefik Mesh
+    dsl: cncf_Traefik_Mesh
+    kind: resource
+    tagName: cncf_Traefik_Mesh
+    iconURL: https://landscape.cncf.io/logos/traefik-mesh.svg
+    typeURI: null
+    docURL: https://traefik.io/traefik-mesh
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache CarbonData
+    dsl: cncf_Apache_CarbonData
+    kind: resource
+    tagName: cncf_Apache_CarbonData
+    iconURL: https://landscape.cncf.io/logos/apache-carbon-data.svg
+    typeURI: null
+    docURL: https://carbondata.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Hadoop
+    dsl: cncf_Apache_Hadoop
+    kind: resource
+    tagName: cncf_Apache_Hadoop
+    iconURL: https://landscape.cncf.io/logos/apache-hadoop.svg
+    typeURI: null
+    docURL: https://hadoop.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Ignite
+    dsl: cncf_Apache_Ignite
+    kind: resource
+    tagName: cncf_Apache_Ignite
+    iconURL: https://landscape.cncf.io/logos/apache-ignite.svg
+    typeURI: null
+    docURL: https://ignite.apache.org
+  - provider: CNCF
+    category: ArangoDB
+    product: ArangoDB
+    dsl: cncf_ArangoDB
+    kind: resource
+    tagName: cncf_ArangoDB
+    iconURL: https://landscape.cncf.io/logos/arango-db.svg
+    typeURI: null
+    docURL: https://www.arangodb.com/
+  - provider: CNCF
+    category: BigchainDB
+    product: BigchainDB
+    dsl: cncf_BigchainDB
+    kind: resource
+    tagName: cncf_BigchainDB
+    iconURL: https://landscape.cncf.io/logos/bigchain-db.svg
+    typeURI: null
+    docURL: https://www.bigchaindb.com/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Cassandra
+    dsl: cncf_Cassandra
+    kind: resource
+    tagName: cncf_Cassandra
+    iconURL: https://landscape.cncf.io/logos/cassandra.svg
+    typeURI: null
+    docURL: https://cassandra.apache.org/_/index.html
+  - provider: CNCF
+    category: Couchbase
+    product: Couchbase
+    dsl: cncf_Couchbase
+    kind: resource
+    tagName: cncf_Couchbase
+    iconURL: https://landscape.cncf.io/logos/couchbase.svg
+    typeURI: null
+    docURL: https://www.couchbase.com/
+  - provider: CNCF
+    category: Crate.io
+    product: Crate.io
+    dsl: cncf_Crate.io
+    kind: resource
+    tagName: cncf_Crate.io
+    iconURL: https://landscape.cncf.io/logos/crate-io.svg
+    typeURI: null
+    docURL: https://crate.io/
+  - provider: CNCF
+    category: Crunchy Data
+    product: Crunchy Postgres Operator
+    dsl: cncf_Crunchy_Postgres_Operator
+    kind: resource
+    tagName: cncf_Crunchy_Postgres_Operator
+    iconURL: https://landscape.cncf.io/logos/crunchy-postgres-operator.svg
+    typeURI: null
+    docURL: https://www.crunchydata.com
+  - provider: CNCF
+    category: JUXT
+    product: Crux
+    dsl: cncf_Crux
+    kind: resource
+    tagName: cncf_Crux
+    iconURL: https://landscape.cncf.io/logos/crux.svg
+    typeURI: null
+    docURL: https://xtdb.com/index.html
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Druid
+    dsl: cncf_Druid
+    kind: resource
+    tagName: cncf_Druid
+    iconURL: https://landscape.cncf.io/logos/druid.svg
+    typeURI: null
+    docURL: https://druid.apache.org/
+  - provider: CNCF
+    category: Apple
+    product: FoundationDB
+    dsl: cncf_FoundationDB
+    kind: resource
+    tagName: cncf_FoundationDB
+    iconURL: https://landscape.cncf.io/logos/foundation-db.svg
+    typeURI: null
+    docURL: https://www.foundationdb.org/
+  - provider: CNCF
+    category: Alibaba Group
+    product: GraphScope
+    dsl: cncf_GraphScope
+    kind: resource
+    tagName: cncf_GraphScope
+    iconURL: https://landscape.cncf.io/logos/graph-scope.svg
+    typeURI: null
+    docURL: https://graphscope.io/
+  - provider: CNCF
+    category: Red Hat
+    product: Infinispan
+    dsl: cncf_Infinispan
+    kind: resource
+    tagName: cncf_Infinispan
+    iconURL: https://landscape.cncf.io/logos/infinispan.svg
+    typeURI: null
+    docURL: https://infinispan.org/
+  - provider: CNCF
+    category: MariaDB
+    product: MariaDB
+    dsl: cncf_MariaDB
+    kind: resource
+    tagName: cncf_MariaDB
+    iconURL: https://landscape.cncf.io/logos/maria-db.svg
+    typeURI: null
+    docURL: https://mariadb.com/
+  - provider: CNCF
+    category: Oracle
+    product: MySQL
+    dsl: cncf_MySQL
+    kind: resource
+    tagName: cncf_MySQL
+    iconURL: https://landscape.cncf.io/logos/my-sql.svg
+    typeURI: null
+    docURL: https://www.oracle.com/mysql/
+  - provider: CNCF
+    category: Neo4j
+    product: Neo4j
+    dsl: cncf_Neo4j
+    kind: resource
+    tagName: cncf_Neo4j
+    iconURL: https://landscape.cncf.io/logos/neo4j.svg
+    typeURI: null
+    docURL: https://neo4j.com
+  - provider: CNCF
+    category: Salesforce
+    product: NomsDB
+    dsl: cncf_NomsDB
+    kind: resource
+    tagName: cncf_NomsDB
+    iconURL: https://landscape.cncf.io/logos/noms-db.svg
+    typeURI: null
+    docURL: https://github.com/attic-labs/noms
+  - provider: CNCF
+    category: SAP
+    product: OrientDB
+    dsl: cncf_OrientDB
+    kind: resource
+    tagName: cncf_OrientDB
+    iconURL: https://landscape.cncf.io/logos/orient-db.svg
+    typeURI: null
+    docURL: https://orientdb.com/why-orientdb/
+  - provider: CNCF
+    category: Percona
+    product: Percona Server for MySQL
+    dsl: cncf_Percona_Server_for_MySQL
+    kind: resource
+    tagName: cncf_Percona_Server_for_MySQL
+    iconURL: https://landscape.cncf.io/logos/percona-server-for-my-sql.svg
+    typeURI: null
+    docURL: https://www.percona.com/software/mysql-database/percona-server
+  - provider: CNCF
+    category: Pilosa
+    product: Pilosa
+    dsl: cncf_Pilosa
+    kind: resource
+    tagName: cncf_Pilosa
+    iconURL: https://landscape.cncf.io/logos/pilosa.svg
+    typeURI: null
+    docURL: https://www.pilosa.com/
+  - provider: CNCF
+    category: PostgreSQL
+    product: PostgreSQL
+    dsl: cncf_PostgreSQL
+    kind: resource
+    tagName: cncf_PostgreSQL
+    iconURL: https://landscape.cncf.io/logos/postgre-sql.svg
+    typeURI: null
+    docURL: https://www.postgresql.org/
+  - provider: CNCF
+    category: Presto Foundation
+    product: Presto
+    dsl: cncf_Presto
+    kind: resource
+    tagName: cncf_Presto
+    iconURL: https://landscape.cncf.io/logos/presto.svg
+    typeURI: null
+    docURL: https://prestodb.io/
+  - provider: CNCF
+    category: Redis
+    product: Redis
+    dsl: cncf_Redis
+    kind: resource
+    tagName: cncf_Redis
+    iconURL: https://landscape.cncf.io/logos/redis.svg
+    typeURI: null
+    docURL: https://redis.io/
+  - provider: CNCF
+    category: Linux Foundation
+    product: RethinkDB
+    dsl: cncf_RethinkDB
+    kind: resource
+    tagName: cncf_RethinkDB
+    iconURL: https://landscape.cncf.io/logos/rethink-db.svg
+    typeURI: null
+    docURL: https://rethinkdb.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: SchemaHero
+    dsl: cncf_SchemaHero
+    kind: resource
+    tagName: cncf_SchemaHero
+    iconURL: https://landscape.cncf.io/logos/schema-hero.svg
+    typeURI: null
+    docURL: https://schemahero.io
+  - provider: CNCF
+    category: ScyllaDB
+    product: Scylla
+    dsl: cncf_Scylla
+    kind: resource
+    tagName: cncf_Scylla
+    iconURL: https://landscape.cncf.io/logos/scylla.svg
+    typeURI: null
+    docURL: https://www.scylladb.com/
+  - provider: CNCF
+    category: Ant Group
+    product: Seata
+    dsl: cncf_Seata
+    kind: resource
+    tagName: cncf_Seata
+    iconURL: https://landscape.cncf.io/logos/seata.svg
+    typeURI: null
+    docURL: https://seata.io/en-us
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: ShardingSphere
+    dsl: cncf_ShardingSphere
+    kind: resource
+    tagName: cncf_ShardingSphere
+    iconURL: https://landscape.cncf.io/logos/sharding-sphere.svg
+    typeURI: null
+    docURL: https://shardingsphere.apache.org/
+  - provider: CNCF
+    category: Sorint.Lab
+    product: Stolon
+    dsl: cncf_Stolon
+    kind: resource
+    tagName: cncf_Stolon
+    iconURL: https://landscape.cncf.io/logos/stolon.svg
+    typeURI: null
+    docURL: https://sorintoss.io/projects/
+  - provider: CNCF
+    category: Taos Data
+    product: TDengine
+    dsl: cncf_TDengine
+    kind: resource
+    tagName: cncf_TDengine
+    iconURL: https://landscape.cncf.io/logos/t-dengine.svg
+    typeURI: null
+    docURL: https://www.taosdata.com/en/
+  - provider: CNCF
+    category: PingCAP
+    product: TiDB
+    dsl: cncf_TiDB
+    kind: resource
+    tagName: cncf_TiDB
+    iconURL: https://landscape.cncf.io/logos/ti-db.svg
+    typeURI: null
+    docURL: https://en.pingcap.com
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: TiKV
+    dsl: cncf_TiKV
+    kind: resource
+    tagName: cncf_TiKV
+    iconURL: https://landscape.cncf.io/logos/ti-kv.svg
+    typeURI: null
+    docURL: https://tikv.org
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Vitess
+    dsl: cncf_Vitess
+    kind: resource
+    tagName: cncf_Vitess
+    iconURL: https://landscape.cncf.io/logos/vitess.svg
+    typeURI: null
+    docURL: https://vitess.io/
+  - provider: CNCF
+    category: VoltDB
+    product: VoltDB
+    dsl: cncf_VoltDB
+    kind: resource
+    tagName: cncf_VoltDB
+    iconURL: https://landscape.cncf.io/logos/volt-db.svg
+    typeURI: null
+    docURL: https://voltdb.com
+  - provider: CNCF
+    category: SeMI Technologies
+    product: Weaviate
+    dsl: cncf_Weaviate
+    kind: resource
+    tagName: cncf_Weaviate
+    iconURL: https://landscape.cncf.io/logos/weaviate.svg
+    typeURI: null
+    docURL: https://www.semi.technology/developers/weaviate/current/
+  - provider: CNCF
+    category: Yugabyte
+    product: YugaByte DB
+    dsl: cncf_YugaByte_DB
+    kind: resource
+    tagName: cncf_YugaByte_DB
+    iconURL: https://landscape.cncf.io/logos/yuga-byte-db.svg
+    typeURI: null
+    docURL: https://www.yugabyte.com/yugabytedb/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Heron
+    dsl: cncf_Apache_Heron
+    kind: resource
+    tagName: cncf_Apache_Heron
+    iconURL: https://landscape.cncf.io/logos/apache-heron.svg
+    typeURI: null
+    docURL: https://apache.github.io/incubator-heron/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache NiFi
+    dsl: cncf_Apache_NiFi
+    kind: resource
+    tagName: cncf_Apache_NiFi
+    iconURL: https://landscape.cncf.io/logos/apache-ni-fi.svg
+    typeURI: null
+    docURL: https://nifi.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache RocketMQ
+    dsl: cncf_Apache_RocketMQ
+    kind: resource
+    tagName: cncf_Apache_RocketMQ
+    iconURL: https://landscape.cncf.io/logos/apache-rocket-mq.svg
+    typeURI: null
+    docURL: https://rocketmq.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Spark
+    dsl: cncf_Apache_Spark
+    kind: resource
+    tagName: cncf_Apache_Spark
+    iconURL: https://landscape.cncf.io/logos/apache-spark.svg
+    typeURI: null
+    docURL: https://spark.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Apache Storm
+    dsl: cncf_Apache_Storm
+    kind: resource
+    tagName: cncf_Apache_Storm
+    iconURL: https://landscape.cncf.io/logos/apache-storm.svg
+    typeURI: null
+    docURL: https://storm.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Beam
+    dsl: cncf_Beam
+    kind: resource
+    tagName: cncf_Beam
+    iconURL: https://landscape.cncf.io/logos/beam.svg
+    typeURI: null
+    docURL: https://beam.apache.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: CloudEvents
+    dsl: cncf_CloudEvents
+    kind: resource
+    tagName: cncf_CloudEvents
+    iconURL: https://landscape.cncf.io/logos/cloud-events.svg
+    typeURI: null
+    docURL: https://cloudevents.io/
+  - provider: CNCF
+    category: deepstreamHub
+    product: deepstream
+    dsl: cncf_deepstream
+    kind: resource
+    tagName: cncf_deepstream
+    iconURL: https://landscape.cncf.io/logos/deepstream.svg
+    typeURI: null
+    docURL: https://deepstream.io/
+  - provider: CNCF
+    category: EMQ Technologies
+    product: EMQ Technologies
+    dsl: cncf_EMQ_Technologies
+    kind: resource
+    tagName: cncf_EMQ_Technologies
+    iconURL: https://landscape.cncf.io/logos/emq-technologies.svg
+    typeURI: null
+    docURL: https://www.emqx.io/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Flink
+    dsl: cncf_Flink
+    kind: resource
+    tagName: cncf_Flink
+    iconURL: https://landscape.cncf.io/logos/flink.svg
+    typeURI: null
+    docURL: https://flink.apache.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Kafka
+    dsl: cncf_Kafka
+    kind: resource
+    tagName: cncf_Kafka
+    iconURL: https://landscape.cncf.io/logos/kafka.svg
+    typeURI: null
+    docURL: https://kafka.apache.org/
+  - provider: CNCF
+    category: KubeMQ
+    product: KubeMQ
+    dsl: cncf_KubeMQ
+    kind: resource
+    tagName: cncf_KubeMQ
+    iconURL: https://landscape.cncf.io/logos/kube-mq.svg
+    typeURI: null
+    docURL: https://kubemq.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: NATS
+    dsl: cncf_NATS
+    kind: resource
+    tagName: cncf_NATS
+    iconURL: https://landscape.cncf.io/logos/nats.svg
+    typeURI: null
+    docURL: https://nats.io/
+  - provider: CNCF
+    category: Linux Foundation
+    product: OpenMessaging
+    dsl: cncf_OpenMessaging
+    kind: resource
+    tagName: cncf_OpenMessaging
+    iconURL: https://landscape.cncf.io/logos/open-messaging.svg
+    typeURI: null
+    docURL: https://openmessaging.cloud
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Pravega
+    dsl: cncf_Pravega
+    kind: resource
+    tagName: cncf_Pravega
+    iconURL: https://landscape.cncf.io/logos/pravega.svg
+    typeURI: null
+    docURL: https://cncf.pravega.io
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: Pulsar
+    dsl: cncf_Pulsar
+    kind: resource
+    tagName: cncf_Pulsar
+    iconURL: https://landscape.cncf.io/logos/pulsar.svg
+    typeURI: null
+    docURL: https://pulsar.apache.org/
+  - provider: CNCF
+    category: Rabbit Technologies
+    product: RabbitMQ
+    dsl: cncf_RabbitMQ
+    kind: resource
+    tagName: cncf_RabbitMQ
+    iconURL: https://landscape.cncf.io/logos/rabbit-mq.svg
+    typeURI: null
+    docURL: https://www.rabbitmq.com/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: SeaTunnal
+    dsl: cncf_SeaTunnal
+    kind: resource
+    tagName: cncf_SeaTunnal
+    iconURL: https://landscape.cncf.io/logos/sea-tunnal.svg
+    typeURI: null
+    docURL: https://seatunnel.apache.org/
+  - provider: CNCF
+    category: WSO2
+    product: Siddhi
+    dsl: cncf_Siddhi
+    kind: resource
+    tagName: cncf_Siddhi
+    iconURL: https://landscape.cncf.io/logos/siddhi.svg
+    typeURI: null
+    docURL: https://siddhi.io/
+  - provider: CNCF
+    category: StreamSets
+    product: StreamSets
+    dsl: cncf_StreamSets
+    kind: resource
+    tagName: cncf_StreamSets
+    iconURL: https://landscape.cncf.io/logos/stream-sets.svg
+    typeURI: null
+    docURL: https://streamsets.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Strimzi
+    dsl: cncf_Strimzi
+    kind: resource
+    tagName: cncf_Strimzi
+    iconURL: https://landscape.cncf.io/logos/strimzi.svg
+    typeURI: null
+    docURL: https://strimzi.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Tremor
+    dsl: cncf_Tremor
+    kind: resource
+    tagName: cncf_Tremor
+    iconURL: https://landscape.cncf.io/logos/tremor.svg
+    typeURI: null
+    docURL: https://www.tremor.rs/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Artifact Hub
+    dsl: cncf_Artifact_Hub
+    kind: resource
+    tagName: cncf_Artifact_Hub
+    iconURL: https://landscape.cncf.io/logos/artifact-hub.svg
+    typeURI: null
+    docURL: https://artifacthub.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Backstage
+    dsl: cncf_Backstage
+    kind: resource
+    tagName: cncf_Backstage
+    iconURL: https://landscape.cncf.io/logos/backstage.svg
+    typeURI: null
+    docURL: https://backstage.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Buildpacks
+    dsl: cncf_Buildpacks
+    kind: resource
+    tagName: cncf_Buildpacks
+    iconURL: https://landscape.cncf.io/logos/buildpacks.svg
+    typeURI: null
+    docURL: https://buildpacks.io/
+  - provider: CNCF
+    category: VMware
+    product: Carvel
+    dsl: cncf_Carvel
+    kind: resource
+    tagName: cncf_Carvel
+    iconURL: https://landscape.cncf.io/logos/carvel.svg
+    typeURI: null
+    docURL: https://carvel.dev
+  - provider: CNCF
+    category: Chef Software
+    product: Chef Habitat
+    dsl: cncf_Chef_Habitat
+    kind: resource
+    tagName: cncf_Chef_Habitat
+    iconURL: https://landscape.cncf.io/logos/chef-habitat.svg
+    typeURI: null
+    docURL: https://community.chef.io/tools/chef-habitat
+  - provider: CNCF
+    category: CloudARK
+    product: CloudARK KubePlus
+    dsl: cncf_CloudARK_KubePlus
+    kind: resource
+    tagName: cncf_CloudARK_KubePlus
+    iconURL: https://landscape.cncf.io/logos/cloud-ark-kube-plus.svg
+    typeURI: null
+    docURL: https://cloudark.io/helm-chart-as-a-service
+  - provider: CNCF
+    category: Loft Labs
+    product: DevSpace
+    dsl: cncf_DevSpace
+    kind: resource
+    tagName: cncf_DevSpace
+    iconURL: https://landscape.cncf.io/logos/dev-space.svg
+    typeURI: null
+    docURL: https://loft.sh
+  - provider: CNCF
+    category: Docker
+    product: Docker Compose
+    dsl: cncf_Docker_Compose
+    kind: resource
+    tagName: cncf_Docker_Compose
+    iconURL: https://landscape.cncf.io/logos/docker-compose.svg
+    typeURI: null
+    docURL: https://docs.docker.com/compose/
+  - provider: CNCF
+    category: Eclipse Che
+    product: Eclipse Che
+    dsl: cncf_Eclipse_Che
+    kind: resource
+    tagName: cncf_Eclipse_Che
+    iconURL: https://landscape.cncf.io/logos/eclipse-che.svg
+    typeURI: null
+    docURL: https://www.eclipse.org/che/
+  - provider: CNCF
+    category: Gradle Inc.
+    product: Gradle Build Tool
+    dsl: cncf_Gradle_Build_Tool
+    kind: resource
+    tagName: cncf_Gradle_Build_Tool
+    iconURL: https://landscape.cncf.io/logos/gradle-build-tool.svg
+    typeURI: null
+    docURL: https://gradle.org
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Helm
+    dsl: cncf_Helm
+    kind: resource
+    tagName: cncf_Helm
+    iconURL: https://landscape.cncf.io/logos/helm.svg
+    typeURI: null
+    docURL: https://helm.sh/
+  - provider: CNCF
+    category: Google
+    product: kaniko
+    dsl: cncf_kaniko
+    kind: resource
+    tagName: cncf_kaniko
+    iconURL: https://landscape.cncf.io/logos/kaniko.svg
+    typeURI: null
+    docURL: https://github.com/GoogleContainerTools/kaniko
+  - provider: CNCF
+    category: Replicated
+    product: KOTS
+    dsl: cncf_KOTS
+    kind: resource
+    tagName: cncf_KOTS
+    iconURL: https://landscape.cncf.io/logos/kots.svg
+    typeURI: null
+    docURL: https://kots.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Krator
+    dsl: cncf_Krator
+    kind: resource
+    tagName: cncf_Krator
+    iconURL: https://landscape.cncf.io/logos/krator.svg
+    typeURI: null
+    docURL: https://docs.rs/crate/krator/latest
+  - provider: CNCF
+    category: Kubermatic
+    product: KubeCarrier
+    dsl: cncf_KubeCarrier
+    kind: resource
+    tagName: cncf_KubeCarrier
+    iconURL: https://landscape.cncf.io/logos/kube-carrier.svg
+    typeURI: null
+    docURL: https://github.com/kubermatic/kubecarrier
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: KubeVela
+    dsl: cncf_KubeVela
+    kind: resource
+    tagName: cncf_KubeVela
+    iconURL: https://landscape.cncf.io/logos/kube-vela.svg
+    typeURI: null
+    docURL: https://kubevela.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: KubeVirt
+    dsl: cncf_KubeVirt
+    kind: resource
+    tagName: cncf_KubeVirt
+    iconURL: https://landscape.cncf.io/logos/kube-virt.svg
+    typeURI: null
+    docURL: https://kubevirt.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: KUDO
+    dsl: cncf_KUDO
+    kind: resource
+    tagName: cncf_KUDO
+    iconURL: https://landscape.cncf.io/logos/kudo.svg
+    typeURI: null
+    docURL: https://kudo.dev/
+  - provider: CNCF
+    category: IBM
+    product: Kui
+    dsl: cncf_Kui
+    kind: resource
+    tagName: cncf_Kui
+    iconURL: https://landscape.cncf.io/logos/kui.svg
+    typeURI: null
+    docURL: https://kui.tools/
+  - provider: CNCF
+    category: amazee.io
+    product: Lagoon
+    dsl: cncf_Lagoon
+    kind: resource
+    tagName: cncf_Lagoon
+    iconURL: https://landscape.cncf.io/logos/lagoon.svg
+    typeURI: null
+    docURL: https://github.com/uselagoon/lagoon
+  - provider: CNCF
+    category: Kubeshop
+    product: Monokle
+    dsl: cncf_Monokle
+    kind: resource
+    tagName: cncf_Monokle
+    iconURL: https://landscape.cncf.io/logos/monokle.svg
+    typeURI: null
+    docURL: https://monokle.kubeshop.io
+  - provider: CNCF
+    category: CODING
+    product: Nocalhost
+    dsl: cncf_Nocalhost
+    kind: resource
+    tagName: cncf_Nocalhost
+    iconURL: https://landscape.cncf.io/logos/nocalhost.svg
+    typeURI: null
+    docURL: https://nocalhost.dev
+  - provider: CNCF
+    category: VMware
+    product: Octant
+    dsl: cncf_Octant
+    kind: resource
+    tagName: cncf_Octant
+    iconURL: https://landscape.cncf.io/logos/octant.svg
+    typeURI: null
+    docURL: https://github.com/vmware-tanzu/octant
+  - provider: CNCF
+    category: Okteto
+    product: Okteto
+    dsl: cncf_Okteto
+    kind: resource
+    tagName: cncf_Okteto
+    iconURL: https://landscape.cncf.io/logos/okteto.svg
+    typeURI: null
+    docURL: https://okteto.com/
+  - provider: CNCF
+    category: Microsoft
+    product: Open Application Model
+    dsl: cncf_Open_Application_Model
+    kind: resource
+    tagName: cncf_Open_Application_Model
+    iconURL: https://landscape.cncf.io/logos/open-application-model.svg
+    typeURI: null
+    docURL: https://oam.dev/
+  - provider: CNCF
+    category: Cloud Foundry Foundation
+    product: Open Service Broker API
+    dsl: cncf_Open_Service_Broker_API
+    kind: resource
+    tagName: cncf_Open_Service_Broker_API
+    iconURL: https://landscape.cncf.io/logos/open-service-broker-api.svg
+    typeURI: null
+    docURL: https://www.openservicebrokerapi.org/
+  - provider: CNCF
+    category: Open API Initiative
+    product: OpenAPI
+    dsl: cncf_OpenAPI
+    kind: resource
+    tagName: cncf_OpenAPI
+    iconURL: https://landscape.cncf.io/logos/open-api.svg
+    typeURI: null
+    docURL: https://www.openapis.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Operator Framework
+    dsl: cncf_Operator_Framework
+    kind: resource
+    tagName: cncf_Operator_Framework
+    iconURL: https://landscape.cncf.io/logos/operator-framework.svg
+    typeURI: null
+    docURL: https://cloud.redhat.com/learn/topics/operators
+  - provider: CNCF
+    category: HashiCorp
+    product: Packer
+    dsl: cncf_Packer
+    kind: resource
+    tagName: cncf_Packer
+    iconURL: https://landscape.cncf.io/logos/packer.svg
+    typeURI: null
+    docURL: https://www.packer.io/
+  - provider: CNCF
+    category: Red Hat
+    product: Podman
+    dsl: cncf_Podman
+    kind: resource
+    tagName: cncf_Podman
+    iconURL: https://landscape.cncf.io/logos/podman.svg
+    typeURI: null
+    docURL: https://podman.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Porter
+    dsl: cncf_Porter
+    kind: resource
+    tagName: cncf_Porter
+    iconURL: https://landscape.cncf.io/logos/porter.svg
+    typeURI: null
+    docURL: https://porter.sh/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Serverless Workflow
+    dsl: cncf_Serverless_Workflow
+    kind: resource
+    tagName: cncf_Serverless_Workflow
+    iconURL: https://landscape.cncf.io/logos/serverless-workflow.svg
+    typeURI: null
+    docURL: https://serverlessworkflow.github.io
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: ServiceComb
+    dsl: cncf_ServiceComb
+    kind: resource
+    tagName: cncf_ServiceComb
+    iconURL: https://landscape.cncf.io/logos/service-comb.svg
+    typeURI: null
+    docURL: https://servicecomb.apache.org
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: Shipwright
+    dsl: cncf_Shipwright
+    kind: resource
+    tagName: cncf_Shipwright
+    iconURL: https://landscape.cncf.io/logos/shipwright.svg
+    typeURI: null
+    docURL: https://shipwright.io
+  - provider: CNCF
+    category: Google
+    product: Skaffold
+    dsl: cncf_Skaffold
+    kind: resource
+    tagName: cncf_Skaffold
+    iconURL: https://landscape.cncf.io/logos/skaffold.svg
+    typeURI: null
+    docURL: https://github.com/GoogleContainerTools/skaffold
+  - provider: CNCF
+    category: Solo.io
+    product: Squash
+    dsl: cncf_Squash
+    kind: resource
+    tagName: cncf_Squash
+    iconURL: https://landscape.cncf.io/logos/squash.svg
+    typeURI: null
+    docURL: https://squash.solo.io/
+  - provider: CNCF
+    category: Grafana Labs
+    product: Tanka
+    dsl: cncf_Tanka
+    kind: resource
+    tagName: cncf_Tanka
+    iconURL: https://landscape.cncf.io/logos/tanka.svg
+    typeURI: null
+    docURL: https://tanka.dev/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Telepresence
+    dsl: cncf_Telepresence
+    kind: resource
+    tagName: cncf_Telepresence
+    iconURL: https://landscape.cncf.io/logos/telepresence.svg
+    typeURI: null
+    docURL: https://www.telepresence.io/
+  - provider: CNCF
+    category: Windmill Engineering
+    product: Tilt
+    dsl: cncf_Tilt
+    kind: resource
+    tagName: cncf_Tilt
+    iconURL: https://landscape.cncf.io/logos/tilt.svg
+    typeURI: null
+    docURL: https://tilt.dev/
+  - provider: CNCF
+    category: Sorint.Lab
+    product: Agola
+    dsl: cncf_Agola
+    kind: resource
+    tagName: cncf_Agola
+    iconURL: https://landscape.cncf.io/logos/agola.svg
+    typeURI: null
+    docURL: https://agola.io
+  - provider: CNCF
+    category: Akuity
+    product: Akuity
+    dsl: cncf_Akuity
+    kind: resource
+    tagName: cncf_Akuity
+    iconURL: https://landscape.cncf.io/logos/akuity.svg
+    typeURI: null
+    docURL: https://akuity.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Argo
+    dsl: cncf_Argo
+    kind: resource
+    tagName: cncf_Argo
+    iconURL: https://landscape.cncf.io/logos/argo.svg
+    typeURI: null
+    docURL: https://argoproj.github.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Brigade
+    dsl: cncf_Brigade
+    kind: resource
+    tagName: cncf_Brigade
+    iconURL: https://landscape.cncf.io/logos/brigade.svg
+    typeURI: null
+    docURL: https://brigade.sh/
+  - provider: CNCF
+    category: Buildkite
+    product: Buildkite
+    dsl: cncf_Buildkite
+    kind: resource
+    tagName: cncf_Buildkite
+    iconURL: https://landscape.cncf.io/logos/buildkite.svg
+    typeURI: null
+    docURL: https://buildkite.com/
+  - provider: CNCF
+    category: VMware
+    product: Concourse
+    dsl: cncf_Concourse
+    kind: resource
+    tagName: cncf_Concourse
+    iconURL: https://landscape.cncf.io/logos/concourse.svg
+    typeURI: null
+    docURL: https://concourse-ci.org/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: DolphinScheduler
+    dsl: cncf_DolphinScheduler
+    kind: resource
+    tagName: cncf_DolphinScheduler
+    iconURL: https://landscape.cncf.io/logos/dolphin-scheduler.svg
+    typeURI: null
+    docURL: https://dolphinscheduler.apache.org/
+  - provider: CNCF
+    category: Drone.io
+    product: Drone
+    dsl: cncf_Drone
+    kind: resource
+    tagName: cncf_Drone
+    iconURL: https://landscape.cncf.io/logos/drone.svg
+    typeURI: null
+    docURL: http://try.drone.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Flagger
+    dsl: cncf_Flagger
+    kind: resource
+    tagName: cncf_Flagger
+    iconURL: https://landscape.cncf.io/logos/flagger.svg
+    typeURI: null
+    docURL: https://docs.flagger.app
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Flux
+    dsl: cncf_Flux
+    kind: resource
+    tagName: cncf_Flux
+    iconURL: https://landscape.cncf.io/logos/flux.svg
+    typeURI: null
+    docURL: https://fluxcd.io/
+  - provider: CNCF
+    category: GitLab
+    product: GitLab
+    dsl: cncf_GitLab
+    kind: resource
+    tagName: cncf_GitLab
+    iconURL: https://landscape.cncf.io/logos/git-lab.svg
+    typeURI: null
+    docURL: https://about.gitlab.com/
+  - provider: CNCF
+    category: Thoughtworks
+    product: GoCD
+    dsl: cncf_GoCD
+    kind: resource
+    tagName: cncf_GoCD
+    iconURL: https://landscape.cncf.io/logos/go-cd.svg
+    typeURI: null
+    docURL: https://www.gocd.org/
+  - provider: CNCF
+    category: HyScale
+    product: HyScale
+    dsl: cncf_HyScale
+    kind: resource
+    tagName: cncf_HyScale
+    iconURL: https://landscape.cncf.io/logos/hy-scale.svg
+    typeURI: null
+    docURL: https://www.hyscale.io
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: Jenkins
+    dsl: cncf_Jenkins
+    kind: resource
+    tagName: cncf_Jenkins
+    iconURL: https://landscape.cncf.io/logos/jenkins.svg
+    typeURI: null
+    docURL: https://jenkins.io/
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: JenkinsX
+    dsl: cncf_JenkinsX
+    kind: resource
+    tagName: cncf_JenkinsX
+    iconURL: https://landscape.cncf.io/logos/jenkins-x.svg
+    typeURI: null
+    docURL: https://jenkins-x.io/
+  - provider: CNCF
+    category: Grafana Labs
+    product: k6
+    dsl: cncf_k6
+    kind: resource
+    tagName: cncf_k6
+    iconURL: https://landscape.cncf.io/logos/k6.svg
+    typeURI: null
+    docURL: https://k6.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Keptn
+    dsl: cncf_Keptn
+    kind: resource
+    tagName: cncf_Keptn
+    iconURL: https://landscape.cncf.io/logos/keptn.svg
+    typeURI: null
+    docURL: https://www.keptn.sh
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenGitOps
+    dsl: cncf_OpenGitOps
+    kind: resource
+    tagName: cncf_OpenGitOps
+    iconURL: https://landscape.cncf.io/logos/open-git-ops.svg
+    typeURI: null
+    docURL: https://opengitops.dev/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenKruise
+    dsl: cncf_OpenKruise
+    kind: resource
+    tagName: cncf_OpenKruise
+    iconURL: https://landscape.cncf.io/logos/open-kruise.svg
+    typeURI: null
+    docURL: https://openkruise.io/en-us/
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: Ortelius
+    dsl: cncf_Ortelius
+    kind: resource
+    tagName: cncf_Ortelius
+    iconURL: https://landscape.cncf.io/logos/ortelius.svg
+    typeURI: null
+    docURL: https://ortelius.io/
+  - provider: CNCF
+    category: CyberAgent
+    product: PipeCD
+    dsl: cncf_PipeCD
+    kind: resource
+    tagName: cncf_PipeCD
+    iconURL: https://landscape.cncf.io/logos/pipe-cd.svg
+    typeURI: null
+    docURL: https://pipecd.dev/
+  - provider: CNCF
+    category: IBM
+    product: Razee
+    dsl: cncf_Razee
+    kind: resource
+    tagName: cncf_Razee
+    iconURL: https://landscape.cncf.io/logos/razee.svg
+    typeURI: null
+    docURL: https://razee.io/
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: Screwdriver
+    dsl: cncf_Screwdriver
+    kind: resource
+    tagName: cncf_Screwdriver
+    iconURL: https://landscape.cncf.io/logos/screwdriver.svg
+    typeURI: null
+    docURL: https://screwdriver.cd
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: Spinnaker
+    dsl: cncf_Spinnaker
+    kind: resource
+    tagName: cncf_Spinnaker
+    iconURL: https://landscape.cncf.io/logos/spinnaker.svg
+    typeURI: null
+    docURL: https://www.spinnaker.io/
+  - provider: CNCF
+    category: Continuous Delivery Foundation (CDF)
+    product: Tekton Pipelines
+    dsl: cncf_Tekton_Pipelines
+    kind: resource
+    tagName: cncf_Tekton_Pipelines
+    iconURL: https://landscape.cncf.io/logos/tekton-pipelines.svg
+    typeURI: null
+    docURL: https://tekton.dev/
+  - provider: CNCF
+    category: Kubeshop
+    product: TestKube
+    dsl: cncf_TestKube
+    kind: resource
+    tagName: cncf_TestKube
+    iconURL: https://landscape.cncf.io/logos/test-kube.svg
+    typeURI: null
+    docURL: https://testkube.kubeshop.io
+  - provider: CNCF
+    category: Travis CI
+    product: Travis CI
+    dsl: cncf_Travis_CI
+    kind: resource
+    tagName: cncf_Travis_CI
+    iconURL: https://landscape.cncf.io/logos/travis-ci.svg
+    typeURI: null
+    docURL: https://travis-ci.com/
+  - provider: CNCF
+    category: Flant
+    product: werf
+    dsl: cncf_werf
+    kind: resource
+    tagName: cncf_werf
+    iconURL: https://landscape.cncf.io/logos/werf.svg
+    typeURI: null
+    docURL: https://werf.io/
+  - provider: CNCF
+    category: Woodpecker CI
+    product: Woodpecker CI
+    dsl: cncf_Woodpecker_CI
+    kind: resource
+    tagName: cncf_Woodpecker_CI
+    iconURL: https://landscape.cncf.io/logos/woodpecker-ci.svg
+    typeURI: null
+    docURL: https://woodpecker-ci.org
+  - provider: CNCF
+    category: ILKI
+    product: AgoraKube
+    dsl: cncf_AgoraKube
+    kind: resource
+    tagName: cncf_AgoraKube
+    iconURL: https://landscape.cncf.io/logos/agora-kube.svg
+    typeURI: null
+    docURL: https://github.com/ilkilab/agorakube
+  - provider: CNCF
+    category: Open Infrastructure Foundation
+    product: Airship (Certified Kubernetes)
+    dsl: cncf_Airship_Certified_Kubernetes_
+    kind: resource
+    tagName: cncf_Airship_Certified_Kubernetes_
+    iconURL: https://landscape.cncf.io/logos/airship-certified-kubernetes.svg
+    typeURI: null
+    docURL: https://www.airshipit.org/
+  - provider: CNCF
+    category: Microsoft
+    product: Azure (AKS) Engine
+    dsl: cncf_Azure_AKS_Engine
+    kind: resource
+    tagName: cncf_Azure_AKS_Engine
+    iconURL: https://landscape.cncf.io/logos/azure-aks-engine.svg
+    typeURI: null
+    docURL: https://github.com/Azure/aks-engine
+  - provider: CNCF
+    category: Canonical
+    product: Canonical Charmed Distribution of Kubernetes
+    dsl: cncf_Canonical_Charmed_Distribution_of_Kubernetes
+    kind: resource
+    tagName: cncf_Canonical_Charmed_Distribution_of_Kubernetes
+    iconURL: >-
+      https://landscape.cncf.io/logos/canonical-charmed-distribution-of-kubernetes.svg
+    typeURI: null
+    docURL: https://ubuntu.com/kubernetes
+  - provider: CNCF
+    category: Desktop Kubernetes
+    product: Desktop Kubernetes
+    dsl: cncf_Desktop_Kubernetes
+    kind: resource
+    tagName: cncf_Desktop_Kubernetes
+    iconURL: https://landscape.cncf.io/logos/desktop-kubernetes.svg
+    typeURI: null
+    docURL: https://github.com/aceeric/desktop-kubernetes
+  - provider: CNCF
+    category: Elastisys
+    product: Elastisys Compliant Kubernetes
+    dsl: cncf_Elastisys_Compliant_Kubernetes
+    kind: resource
+    tagName: cncf_Elastisys_Compliant_Kubernetes
+    iconURL: https://landscape.cncf.io/logos/elastisys-compliant-kubernetes.svg
+    typeURI: null
+    docURL: https://elastisys.io/compliantkubernetes
+  - provider: CNCF
+    category: Flant
+    product: Flant Deckhouse
+    dsl: cncf_Flant_Deckhouse
+    kind: resource
+    tagName: cncf_Flant_Deckhouse
+    iconURL: https://landscape.cncf.io/logos/flant-deckhouse.svg
+    typeURI: null
+    docURL: https://deckhouse.io/en
+  - provider: CNCF
+    category: Flexkube
+    product: Flexkube
+    dsl: cncf_Flexkube
+    kind: resource
+    tagName: cncf_Flexkube
+    iconURL: https://landscape.cncf.io/logos/flexkube.svg
+    typeURI: null
+    docURL: https://github.com/flexkube/libflexkube
+  - provider: CNCF
+    category: SIGHUP
+    product: Fury Distribution
+    dsl: cncf_Fury_Distribution
+    kind: resource
+    tagName: cncf_Fury_Distribution
+    iconURL: https://landscape.cncf.io/logos/fury-distribution.svg
+    typeURI: null
+    docURL: https://sighup.io
+  - provider: CNCF
+    category: Intel
+    product: Intel Smart Edge Open
+    dsl: cncf_Intel_Smart_Edge_Open
+    kind: resource
+    tagName: cncf_Intel_Smart_Edge_Open
+    iconURL: https://landscape.cncf.io/logos/intel-smart-edge-open.svg
+    typeURI: null
+    docURL: >-
+      https://www.intel.com/content/www/us/en/developer/tools/smart-edge-open/overview.html
+  - provider: CNCF
+    category: Mirantis
+    product: k0s
+    dsl: cncf_k0s
+    kind: resource
+    tagName: cncf_k0s
+    iconURL: https://landscape.cncf.io/logos/k0s.svg
+    typeURI: null
+    docURL: https://k0sproject.io
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: k3s
+    dsl: cncf_k3s
+    kind: resource
+    tagName: cncf_k3s
+    iconURL: https://landscape.cncf.io/logos/k3s.svg
+    typeURI: null
+    docURL: https://k3s.io
+  - provider: CNCF
+    category: NetEase
+    product: KubeCube
+    dsl: cncf_KubeCube
+    kind: resource
+    tagName: cncf_KubeCube
+    iconURL: https://landscape.cncf.io/logos/kube-cube.svg
+    typeURI: null
+    docURL: https://www.kubecube.io/
+  - provider: CNCF
+    category: Kubermatic
+    product: Kubermatic Kubernetes Platform
+    dsl: cncf_Kubermatic_Kubernetes_Platform
+    kind: resource
+    tagName: cncf_Kubermatic_Kubernetes_Platform
+    iconURL: https://landscape.cncf.io/logos/kubermatic-kubernetes-platform.svg
+    typeURI: null
+    docURL: https://www.kubermatic.com
+  - provider: CNCF
+    category: QingCloud
+    product: Kubesphere
+    dsl: cncf_Kubesphere
+    kind: resource
+    tagName: cncf_Kubesphere
+    iconURL: https://landscape.cncf.io/logos/kubesphere.svg
+    typeURI: null
+    docURL: https://kubesphere.io
+  - provider: CNCF
+    category: SUSE
+    product: Kubic
+    dsl: cncf_Kubic
+    kind: resource
+    tagName: cncf_Kubic
+    iconURL: https://landscape.cncf.io/logos/kubic.svg
+    typeURI: null
+    docURL: https://kubic.opensuse.org
+  - provider: CNCF
+    category: Replicated
+    product: kURL
+    dsl: cncf_kURL
+    kind: resource
+    tagName: cncf_kURL
+    iconURL: https://landscape.cncf.io/logos/k-url.svg
+    typeURI: null
+    docURL: https://kurl.sh
+  - provider: CNCF
+    category: Scality
+    product: MetalK8s
+    dsl: cncf_MetalK8s
+    kind: resource
+    tagName: cncf_MetalK8s
+    iconURL: https://landscape.cncf.io/logos/metal-k8s.svg
+    typeURI: null
+    docURL: https://www.zenko.io/metalk8s/
+  - provider: CNCF
+    category: Canonical
+    product: MicroK8s
+    dsl: cncf_MicroK8s
+    kind: resource
+    tagName: cncf_MicroK8s
+    iconURL: https://landscape.cncf.io/logos/micro-k8s.svg
+    typeURI: null
+    docURL: https://microk8s.io
+  - provider: CNCF
+    category: SUSE
+    product: Rancher Kubernetes
+    dsl: cncf_Rancher_Kubernetes
+    kind: resource
+    tagName: cncf_Rancher_Kubernetes
+    iconURL: https://landscape.cncf.io/logos/rancher-kubernetes.svg
+    typeURI: null
+    docURL: https://rancher.com
+  - provider: CNCF
+    category: Red Hat
+    product: Red Hat OpenShift
+    dsl: cncf_Red_Hat_OpenShift
+    kind: resource
+    tagName: cncf_Red_Hat_OpenShift
+    iconURL: https://landscape.cncf.io/logos/red-hat-open-shift.svg
+    typeURI: null
+    docURL: https://www.redhat.com/en/technologies/cloud-computing/openshift
+  - provider: CNCF
+    category: Rancher Labs
+    product: RKE Government
+    dsl: cncf_RKE_Government
+    kind: resource
+    tagName: cncf_RKE_Government
+    iconURL: https://landscape.cncf.io/logos/rke-government.svg
+    typeURI: null
+    docURL: https://docs.rke2.io/
+  - provider: CNCF
+    category: Poseidon
+    product: Typhoon
+    dsl: cncf_Typhoon
+    kind: resource
+    tagName: cncf_Typhoon
+    iconURL: https://landscape.cncf.io/logos/typhoon.svg
+    typeURI: null
+    docURL: https://typhoon.psdn.io/
+  - provider: CNCF
+    category: Loft Labs
+    product: vcluster
+    dsl: cncf_vcluster
+    kind: resource
+    tagName: cncf_vcluster
+    iconURL: https://landscape.cncf.io/logos/vcluster.svg
+    typeURI: null
+    docURL: https://vcluster.com/
+  - provider: CNCF
+    category: VMware
+    product: VMware Tanzu Community Edition
+    dsl: cncf_VMware_Tanzu_Community_Edition
+    kind: resource
+    tagName: cncf_VMware_Tanzu_Community_Edition
+    iconURL: https://landscape.cncf.io/logos/v-mware-tanzu-community-edition.svg
+    typeURI: null
+    docURL: https://tanzucommunityedition.io
+  - provider: CNCF
+    category: Catalyst Cloud
+    product: Catalyst Kubernetes Service
+    dsl: cncf_Catalyst_Kubernetes_Service
+    kind: resource
+    tagName: cncf_Catalyst_Kubernetes_Service
+    iconURL: https://landscape.cncf.io/logos/catalyst-kubernetes-service.svg
+    typeURI: null
+    docURL: https://catalystcloud.nz/services/paas/kubernetes/
+  - provider: CNCF
+    category: QingCloud
+    product: KubeSphere®️ (QKE)
+    dsl: cncf_KubeSphere®️_QKE_
+    kind: resource
+    tagName: cncf_KubeSphere®️_QKE_
+    iconURL: https://landscape.cncf.io/logos/kube-sphere-qke.svg
+    typeURI: null
+    docURL: https://www.qingcloud.com/products/kubesphereqke/
+  - provider: CNCF
+    category: VEXXHOST
+    product: VEXXHOST Kubernetes Container Service
+    dsl: cncf_VEXXHOST_Kubernetes_Container_Service
+    kind: resource
+    tagName: cncf_VEXXHOST_Kubernetes_Container_Service
+    iconURL: https://landscape.cncf.io/logos/vexxhost-kubernetes-container-service.svg
+    typeURI: null
+    docURL: https://vexxhost.com/public-cloud/container-services-certified-kubernetes
+  - provider: CNCF
+    category: Amazon Web Services
+    product: Amazon Elastic Kubernetes Service Anywhere (Amazon EKS Anywhere)
+    dsl: cncf_Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_
+    kind: resource
+    tagName: cncf_Amazon_Elastic_Kubernetes_Service_Anywhere_Amazon_EKS_Anywhere_
+    iconURL: >-
+      https://landscape.cncf.io/logos/amazon-elastic-kubernetes-service-anywhere-amazon-eks-anywhere.svg
+    typeURI: null
+    docURL: https://aws.amazon.com/eks/eks-anywhere
+  - provider: CNCF
+    category: Crane
+    product: Crane
+    dsl: cncf_Crane
+    kind: resource
+    tagName: cncf_Crane
+    iconURL: https://landscape.cncf.io/logos/crane.svg
+    typeURI: null
+    docURL: https://github.com/slzcc/crane
+  - provider: CNCF
+    category: Cybozu
+    product: Cybozu Kubernetes Engine
+    dsl: cncf_Cybozu_Kubernetes_Engine
+    kind: resource
+    tagName: cncf_Cybozu_Kubernetes_Engine
+    iconURL: https://landscape.cncf.io/logos/cybozu-kubernetes-engine.svg
+    typeURI: null
+    docURL: https://github.com/cybozu-go/cke
+  - provider: CNCF
+    category: SAP
+    product: Gardener
+    dsl: cncf_Gardener
+    kind: resource
+    tagName: cncf_Gardener
+    iconURL: https://landscape.cncf.io/logos/gardener.svg
+    typeURI: null
+    docURL: https://gardener.cloud
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: kind
+    dsl: cncf_kind
+    kind: resource
+    tagName: cncf_kind
+    iconURL: https://landscape.cncf.io/logos/kind.svg
+    typeURI: null
+    docURL: https://github.com/kubernetes-sigs/kind
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: kops
+    dsl: cncf_kops
+    kind: resource
+    tagName: cncf_kops
+    iconURL: https://landscape.cncf.io/logos/kops.svg
+    typeURI: null
+    docURL: https://github.com/kubernetes/kops
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kubeasz
+    dsl: cncf_Kubeasz
+    kind: resource
+    tagName: cncf_Kubeasz
+    iconURL: https://landscape.cncf.io/logos/kubeasz.svg
+    typeURI: null
+    docURL: https://github.com/easzlab/kubeasz
+  - provider: CNCF
+    category: QingCloud
+    product: Kubekey
+    dsl: cncf_Kubekey
+    kind: resource
+    tagName: cncf_Kubekey
+    iconURL: https://landscape.cncf.io/logos/kubekey.svg
+    typeURI: null
+    docURL: https://kubesphere.io/docs/installing-on-linux/introduction/kubekey
+  - provider: CNCF
+    category: FIT2CLOUD
+    product: KubeOperator
+    dsl: cncf_KubeOperator
+    kind: resource
+    tagName: cncf_KubeOperator
+    iconURL: https://landscape.cncf.io/logos/kube-operator.svg
+    typeURI: null
+    docURL: https://www.kubeoperator.io/
+  - provider: CNCF
+    category: Kubermatic
+    product: Kubermatic KubeOne
+    dsl: cncf_Kubermatic_KubeOne
+    kind: resource
+    tagName: cncf_Kubermatic_KubeOne
+    iconURL: https://landscape.cncf.io/logos/kubermatic-kube-one.svg
+    typeURI: null
+    docURL: https://www.kubermatic.com
+  - provider: CNCF
+    category: Kubernetes - The Easier Way
+    product: Kubernetes - The Easier Way
+    dsl: cncf_Kubernetes_The_Easier_Way
+    kind: resource
+    tagName: cncf_Kubernetes_The_Easier_Way
+    iconURL: https://landscape.cncf.io/logos/kubernetes-the-easier-way.svg
+    typeURI: null
+    docURL: https://github.com/darxkies/k8s-tew
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kubespray
+    dsl: cncf_Kubespray
+    kind: resource
+    tagName: cncf_Kubespray
+    iconURL: https://landscape.cncf.io/logos/kubespray.svg
+    typeURI: null
+    docURL: https://kubespray.io/
+  - provider: CNCF
+    category: Open Infrastructure Foundation
+    product: Magnum
+    dsl: cncf_Magnum
+    kind: resource
+    tagName: cncf_Magnum
+    iconURL: https://landscape.cncf.io/logos/magnum.svg
+    typeURI: null
+    docURL: https://opendev.org/openstack/magnum/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: minikube
+    dsl: cncf_minikube
+    kind: resource
+    tagName: cncf_minikube
+    iconURL: https://landscape.cncf.io/logos/minikube.svg
+    typeURI: null
+    docURL: https://minikube.sigs.k8s.io
+  - provider: CNCF
+    category: Puppet
+    product: puppetlabs-kubernetes
+    dsl: cncf_puppetlabs_kubernetes
+    kind: resource
+    tagName: cncf_puppetlabs_kubernetes
+    iconURL: https://landscape.cncf.io/logos/puppetlabs-kubernetes.svg
+    typeURI: null
+    docURL: https://forge.puppet.com/modules/puppetlabs/kubernetes
+  - provider: CNCF
+    category: SUSE
+    product: Rancher Kubernetes Engine (RKE)
+    dsl: cncf_Rancher_Kubernetes_Engine_RKE_
+    kind: resource
+    tagName: cncf_Rancher_Kubernetes_Engine_RKE_
+    iconURL: https://landscape.cncf.io/logos/rancher-kubernetes-engine-rke.svg
+    typeURI: null
+    docURL: https://github.com/rancher/rke
+  - provider: CNCF
+    category: Particule
+    product: Symplegma
+    dsl: cncf_Symplegma
+    kind: resource
+    tagName: cncf_Symplegma
+    iconURL: https://landscape.cncf.io/logos/symplegma.svg
+    typeURI: null
+    docURL: https://particuleio.github.io/symplegma/
+  - provider: CNCF
+    category: Sidero Labs
+    product: Talos
+    dsl: cncf_Talos
+    kind: resource
+    tagName: cncf_Talos
+    iconURL: https://landscape.cncf.io/logos/talos.svg
+    typeURI: null
+    docURL: https://www.sideroLabs.com
+  - provider: CNCF
+    category: Wise2c Technology
+    product: Wise2C Technology Breeze
+    dsl: cncf_Wise2C_Technology_Breeze
+    kind: resource
+    tagName: cncf_Wise2C_Technology_Breeze
+    iconURL: https://landscape.cncf.io/logos/wise2-c-technology-breeze.svg
+    typeURI: null
+    docURL: http://www.wise2c.com
+  - provider: CNCF
+    category: Lightbend
+    product: Akka
+    dsl: cncf_Akka
+    kind: resource
+    tagName: cncf_Akka
+    iconURL: https://landscape.cncf.io/logos/akka.svg
+    typeURI: null
+    docURL: https://akka.io/
+  - provider: CNCF
+    category: Cloud Foundry Foundation
+    product: Cloud Foundry Application Runtime
+    dsl: cncf_Cloud_Foundry_Application_Runtime
+    kind: resource
+    tagName: cncf_Cloud_Foundry_Application_Runtime
+    iconURL: https://landscape.cncf.io/logos/cloud-foundry-application-runtime.svg
+    typeURI: null
+    docURL: https://www.cloudfoundry.org/projects
+  - provider: CNCF
+    category: JHipster
+    product: JHipster
+    dsl: cncf_JHipster
+    kind: resource
+    tagName: cncf_JHipster
+    iconURL: https://landscape.cncf.io/logos/j-hipster.svg
+    typeURI: null
+    docURL: https://www.jhipster.tech/
+  - provider: CNCF
+    category: No Code
+    product: No Code
+    dsl: cncf_No_Code
+    kind: resource
+    tagName: cncf_No_Code
+    iconURL: https://landscape.cncf.io/logos/no-code.svg
+    typeURI: null
+    docURL: https://github.com/kelseyhightower/nocode
+  - provider: CNCF
+    category: Yelp
+    product: PaaSTA
+    dsl: cncf_PaaSTA
+    kind: resource
+    tagName: cncf_PaaSTA
+    iconURL: https://landscape.cncf.io/logos/paa-sta.svg
+    typeURI: null
+    docURL: >-
+      https://engineeringblog.yelp.com/2015/11/introducing-paasta-an-open-platform-as-a-service.html
+  - provider: CNCF
+    category: Portainer
+    product: Portainer
+    dsl: cncf_Portainer
+    kind: resource
+    tagName: cncf_Portainer
+    iconURL: https://landscape.cncf.io/logos/portainer.svg
+    typeURI: null
+    docURL: https://www.portainer.io/
+  - provider: CNCF
+    category: Rancher Labs
+    product: Rio
+    dsl: cncf_Rio
+    kind: resource
+    tagName: cncf_Rio
+    iconURL: https://landscape.cncf.io/logos/rio.svg
+    typeURI: null
+    docURL: https://rio.io/
+  - provider: CNCF
+    category: Sogou
+    product: Sogou C++ Workflow
+    dsl: cncf_Sogou_C_Workflow
+    kind: resource
+    tagName: cncf_Sogou_C_Workflow
+    iconURL: https://landscape.cncf.io/logos/sogou-c-workflow.svg
+    typeURI: null
+    docURL: https://github.com/sogou/workflow
+  - provider: CNCF
+    category: Tsuru
+    product: Tsuru
+    dsl: cncf_Tsuru
+    kind: resource
+    tagName: cncf_Tsuru
+    iconURL: https://landscape.cncf.io/logos/tsuru.svg
+    typeURI: null
+    docURL: https://tsuru.io/
+  - provider: CNCF
+    category: Elastic
+    product: Beats
+    dsl: cncf_Beats
+    kind: resource
+    tagName: cncf_Beats
+    iconURL: https://landscape.cncf.io/logos/beats.svg
+    typeURI: null
+    docURL: https://www.elastic.co/beats
+  - provider: CNCF
+    category: Centreon
+    product: Centreon
+    dsl: cncf_Centreon
+    kind: resource
+    tagName: cncf_Centreon
+    iconURL: https://landscape.cncf.io/logos/centreon.svg
+    typeURI: null
+    docURL: https://www.centreon.com/en/
+  - provider: CNCF
+    category: tribe29
+    product: Checkmk
+    dsl: cncf_Checkmk
+    kind: resource
+    tagName: cncf_Checkmk
+    iconURL: https://landscape.cncf.io/logos/checkmk.svg
+    typeURI: null
+    docURL: https://checkmk.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Cortex
+    dsl: cncf_Cortex
+    kind: resource
+    tagName: cncf_Cortex
+    iconURL: https://landscape.cncf.io/logos/cortex.svg
+    typeURI: null
+    docURL: https://github.com/cortexproject
+  - provider: CNCF
+    category: Xiaomi
+    product: Falcon
+    dsl: cncf_Falcon
+    kind: resource
+    tagName: cncf_Falcon
+    iconURL: https://landscape.cncf.io/logos/falcon.svg
+    typeURI: null
+    docURL: https://open-falcon.com
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Fonio
+    dsl: cncf_Fonio
+    kind: resource
+    tagName: cncf_Fonio
+    iconURL: https://landscape.cncf.io/logos/fonio.svg
+    typeURI: null
+    docURL: https://github.com/foniod/project
+  - provider: CNCF
+    category: Grafana Labs
+    product: Grafana
+    dsl: cncf_Grafana
+    kind: resource
+    tagName: cncf_Grafana
+    iconURL: https://landscape.cncf.io/logos/grafana.svg
+    typeURI: null
+    docURL: https://grafana.com/
+  - provider: CNCF
+    category: Graphite
+    product: Graphite
+    dsl: cncf_Graphite
+    kind: resource
+    tagName: cncf_Graphite
+    iconURL: https://landscape.cncf.io/logos/graphite.svg
+    typeURI: null
+    docURL: https://graphiteapp.org/
+  - provider: CNCF
+    category: Icinga
+    product: Icinga
+    dsl: cncf_Icinga
+    kind: resource
+    tagName: cncf_Icinga
+    iconURL: https://landscape.cncf.io/logos/icinga.svg
+    typeURI: null
+    docURL: https://icinga.com/
+  - provider: CNCF
+    category: InfluxData
+    product: InfluxData
+    dsl: cncf_InfluxData
+    kind: resource
+    tagName: cncf_InfluxData
+    iconURL: https://landscape.cncf.io/logos/influx-data.svg
+    typeURI: null
+    docURL: https://www.influxdata.com/
+  - provider: CNCF
+    category: Red Hat
+    product: Kiali
+    dsl: cncf_Kiali
+    kind: resource
+    tagName: cncf_Kiali
+    iconURL: https://landscape.cncf.io/logos/kiali.svg
+    typeURI: null
+    docURL: https://www.kiali.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Kuberhealthy
+    dsl: cncf_Kuberhealthy
+    kind: resource
+    tagName: cncf_Kuberhealthy
+    iconURL: https://landscape.cncf.io/logos/kuberhealthy.svg
+    typeURI: null
+    docURL: https://github.com/kuberhealthy/kuberhealthy
+  - provider: CNCF
+    category: Uber
+    product: M3
+    dsl: cncf_M3
+    kind: resource
+    tagName: cncf_M3
+    iconURL: https://landscape.cncf.io/logos/m3.svg
+    typeURI: null
+    docURL: https://www.m3db.io/
+  - provider: CNCF
+    category: Nagios
+    product: Nagios
+    dsl: cncf_Nagios
+    kind: resource
+    tagName: cncf_Nagios
+    iconURL: https://landscape.cncf.io/logos/nagios.svg
+    typeURI: null
+    docURL: https://www.nagios.com/
+  - provider: CNCF
+    category: Netdata
+    product: Netdata
+    dsl: cncf_Netdata
+    kind: resource
+    tagName: cncf_Netdata
+    iconURL: https://landscape.cncf.io/logos/netdata.svg
+    typeURI: null
+    docURL: https://www.netdata.cloud
+  - provider: CNCF
+    category: Netis Technologies
+    product: Netis
+    dsl: cncf_Netis
+    kind: resource
+    tagName: cncf_Netis
+    iconURL: https://landscape.cncf.io/logos/netis.svg
+    typeURI: null
+    docURL: https://wordpress.com/browsehappy
+  - provider: CNCF
+    category: NexCloud
+    product: NexClipper
+    dsl: cncf_NexClipper
+    kind: resource
+    tagName: cncf_NexClipper
+    iconURL: https://landscape.cncf.io/logos/nex-clipper.svg
+    typeURI: null
+    docURL: https://www.nexclipper.io/
+  - provider: CNCF
+    category: Didi Labs
+    product: Nightingale
+    dsl: cncf_Nightingale
+    kind: resource
+    tagName: cncf_Nightingale
+    iconURL: https://landscape.cncf.io/logos/nightingale.svg
+    typeURI: null
+    docURL: http://n9e.didiyun.com
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenMetrics
+    dsl: cncf_OpenMetrics
+    kind: resource
+    tagName: cncf_OpenMetrics
+    iconURL: https://landscape.cncf.io/logos/open-metrics.svg
+    typeURI: null
+    docURL: https://openmetrics.io/
+  - provider: CNCF
+    category: OpenTSDB
+    product: OpenTSDB
+    dsl: cncf_OpenTSDB
+    kind: resource
+    tagName: cncf_OpenTSDB
+    iconURL: https://landscape.cncf.io/logos/open-tsdb.svg
+    typeURI: null
+    docURL: http://opentsdb.net/
+  - provider: CNCF
+    category: Opstrace
+    product: Opstrace
+    dsl: cncf_Opstrace
+    kind: resource
+    tagName: cncf_Opstrace
+    iconURL: https://landscape.cncf.io/logos/opstrace.svg
+    typeURI: null
+    docURL: https://www.opstrace.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Pixie
+    dsl: cncf_Pixie
+    kind: resource
+    tagName: cncf_Pixie
+    iconURL: https://landscape.cncf.io/logos/pixie.svg
+    typeURI: null
+    docURL: https://px.dev/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Prometheus
+    dsl: cncf_Prometheus
+    kind: resource
+    tagName: cncf_Prometheus
+    iconURL: https://landscape.cncf.io/logos/prometheus.svg
+    typeURI: null
+    docURL: https://prometheus.io/
+  - provider: CNCF
+    category: Sensu
+    product: Sensu
+    dsl: cncf_Sensu
+    kind: resource
+    tagName: cncf_Sensu
+    iconURL: https://landscape.cncf.io/logos/sensu.svg
+    typeURI: null
+    docURL: https://sensu.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Skooner
+    dsl: cncf_Skooner
+    kind: resource
+    tagName: cncf_Skooner
+    iconURL: https://landscape.cncf.io/logos/skooner.svg
+    typeURI: null
+    docURL: https://github.com/skooner-k8s/skooner
+  - provider: CNCF
+    category: Sysdig
+    product: sysdig
+    dsl: cncf_sysdig
+    kind: resource
+    tagName: cncf_sysdig
+    iconURL: https://landscape.cncf.io/logos/sysdig.svg
+    typeURI: null
+    docURL: https://sysdig.com/opensource/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Thanos
+    dsl: cncf_Thanos
+    kind: resource
+    tagName: cncf_Thanos
+    iconURL: https://landscape.cncf.io/logos/thanos.svg
+    typeURI: null
+    docURL: https://thanos.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Trickster
+    dsl: cncf_Trickster
+    kind: resource
+    tagName: cncf_Trickster
+    iconURL: https://landscape.cncf.io/logos/trickster.svg
+    typeURI: null
+    docURL: https://github.com/trickstercache/trickster
+  - provider: CNCF
+    category: Timber
+    product: Vector
+    dsl: cncf_Vector
+    kind: resource
+    tagName: cncf_Vector
+    iconURL: https://landscape.cncf.io/logos/vector.svg
+    typeURI: null
+    docURL: https://vector.dev/
+  - provider: CNCF
+    category: VictoriaMetrics
+    product: VictoriaMetrics
+    dsl: cncf_VictoriaMetrics
+    kind: resource
+    tagName: cncf_VictoriaMetrics
+    iconURL: https://landscape.cncf.io/logos/victoria-metrics.svg
+    typeURI: null
+    docURL: https://victoriametrics.com/
+  - provider: CNCF
+    category: Weaveworks
+    product: Weave Scope
+    dsl: cncf_Weave_Scope
+    kind: resource
+    tagName: cncf_Weave_Scope
+    iconURL: https://landscape.cncf.io/logos/weave-scope.svg
+    typeURI: null
+    docURL: https://www.weave.works/oss/scope/
+  - provider: CNCF
+    category: Zabbix
+    product: Zabbix
+    dsl: cncf_Zabbix
+    kind: resource
+    tagName: cncf_Zabbix
+    iconURL: https://landscape.cncf.io/logos/zabbix.svg
+    typeURI: null
+    docURL: https://www.zabbix.com/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Fluentd
+    dsl: cncf_Fluentd
+    kind: resource
+    tagName: cncf_Fluentd
+    iconURL: https://landscape.cncf.io/logos/fluentd.svg
+    typeURI: null
+    docURL: https://www.fluentd.org/
+  - provider: CNCF
+    category: Grafana Labs
+    product: Grafana Loki
+    dsl: cncf_Grafana_Loki
+    kind: resource
+    tagName: cncf_Grafana_Loki
+    iconURL: https://landscape.cncf.io/logos/grafana-loki.svg
+    typeURI: null
+    docURL: https://grafana.com/oss/loki
+  - provider: CNCF
+    category: Elastic
+    product: Logstash
+    dsl: cncf_Logstash
+    kind: resource
+    tagName: cncf_Logstash
+    iconURL: https://landscape.cncf.io/logos/logstash.svg
+    typeURI: null
+    docURL: https://www.elastic.co/logstash
+  - provider: CNCF
+    category: MegaEase
+    product: EaseAgent
+    dsl: cncf_EaseAgent
+    kind: resource
+    tagName: cncf_EaseAgent
+    iconURL: https://github.com/megaease/easeagent
+    typeURI: null
+    docURL: ' Inc.'
+  - provider: CNCF
+    category: Elastic
+    product: Elastic APM
+    dsl: cncf_Elastic_APM
+    kind: resource
+    tagName: cncf_Elastic_APM
+    iconURL: https://landscape.cncf.io/logos/elastic-apm.svg
+    typeURI: null
+    docURL: https://www.elastic.co/observability/application-performance-monitoring
+  - provider: CNCF
+    category: Grafana Labs
+    product: Grafana Tempo
+    dsl: cncf_Grafana_Tempo
+    kind: resource
+    tagName: cncf_Grafana_Tempo
+    iconURL: https://landscape.cncf.io/logos/grafana-tempo.svg
+    typeURI: null
+    docURL: https://grafana.com/oss/tempo/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Jaeger
+    dsl: cncf_Jaeger
+    kind: resource
+    tagName: cncf_Jaeger
+    iconURL: https://landscape.cncf.io/logos/jaeger.svg
+    typeURI: null
+    docURL: https://www.jaegertracing.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenTelemetry
+    dsl: cncf_OpenTelemetry
+    kind: resource
+    tagName: cncf_OpenTelemetry
+    iconURL: https://landscape.cncf.io/logos/open-telemetry.svg
+    typeURI: null
+    docURL: https://opentelemetry.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: OpenTracing
+    dsl: cncf_OpenTracing
+    kind: resource
+    tagName: cncf_OpenTracing
+    iconURL: https://landscape.cncf.io/logos/open-tracing.svg
+    typeURI: null
+    docURL: https://opentracing.io/
+  - provider: CNCF
+    category: Pinpoint
+    product: Pinpoint
+    dsl: cncf_Pinpoint
+    kind: resource
+    tagName: cncf_Pinpoint
+    iconURL: https://landscape.cncf.io/logos/pinpoint.svg
+    typeURI: null
+    docURL: https://naver.github.io/pinpoint/
+  - provider: CNCF
+    category: The Apache Software Foundation
+    product: SkyWalking
+    dsl: cncf_SkyWalking
+    kind: resource
+    tagName: cncf_SkyWalking
+    iconURL: https://landscape.cncf.io/logos/sky-walking.svg
+    typeURI: null
+    docURL: https://skywalking.apache.org/
+  - provider: CNCF
+    category: Ant Group
+    product: SOFATracer
+    dsl: cncf_SOFATracer
+    kind: resource
+    tagName: cncf_SOFATracer
+    iconURL: https://landscape.cncf.io/logos/sofa-tracer.svg
+    typeURI: null
+    docURL: https://www.sofastack.tech/en/
+  - provider: CNCF
+    category: VMware
+    product: Spring Cloud Sleuth
+    dsl: cncf_Spring_Cloud_Sleuth
+    kind: resource
+    tagName: cncf_Spring_Cloud_Sleuth
+    iconURL: https://landscape.cncf.io/logos/spring-cloud-sleuth.svg
+    typeURI: null
+    docURL: https://spring.io/projects/spring-cloud-sleuth
+  - provider: CNCF
+    category: Zipkin
+    product: Zipkin
+    dsl: cncf_Zipkin
+    kind: resource
+    tagName: cncf_Zipkin
+    iconURL: https://landscape.cncf.io/logos/zipkin.svg
+    typeURI: null
+    docURL: https://zipkin.io/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Chaos Mesh
+    dsl: cncf_Chaos_Mesh
+    kind: resource
+    tagName: cncf_Chaos_Mesh
+    iconURL: https://landscape.cncf.io/logos/chaos-mesh.svg
+    typeURI: null
+    docURL: https://github.com/chaos-mesh/chaos-mesh
+  - provider: CNCF
+    category: ChaosIQ
+    product: Chaos Toolkit
+    dsl: cncf_Chaos_Toolkit
+    kind: resource
+    tagName: cncf_Chaos_Toolkit
+    iconURL: https://landscape.cncf.io/logos/chaos-toolkit.svg
+    typeURI: null
+    docURL: https://chaostoolkit.org/
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Chaosblade
+    dsl: cncf_Chaosblade
+    kind: resource
+    tagName: cncf_Chaosblade
+    iconURL: https://landscape.cncf.io/logos/chaosblade.svg
+    typeURI: null
+    docURL: https://github.com/chaosblade-io/chaosblade
+  - provider: CNCF
+    category: chaoskube
+    product: chaoskube
+    dsl: cncf_chaoskube
+    kind: resource
+    tagName: cncf_chaoskube
+    iconURL: https://landscape.cncf.io/logos/chaoskube.svg
+    typeURI: null
+    docURL: https://github.com/linki/chaoskube
+  - provider: CNCF
+    category: Cloud Native Computing Foundation (CNCF)
+    product: Litmus
+    dsl: cncf_Litmus
+    kind: resource
+    tagName: cncf_Litmus
+    iconURL: https://landscape.cncf.io/logos/litmus.svg
+    typeURI: null
+    docURL: https://litmuschaos.io/
+  - provider: CNCF
+    category: Bloomberg
+    product: PowerfulSeal
+    dsl: cncf_PowerfulSeal
+    kind: resource
+    tagName: cncf_PowerfulSeal
+    iconURL: https://landscape.cncf.io/logos/powerful-seal.svg
+    typeURI: null
+    docURL: https://github.com/powerfulseal/powerfulseal
+  - provider: CNCF
+    category: wasmcloud
+    product: wasmCloud
+    dsl: cncf_wasmCloud
+    kind: resource
+    tagName: cncf_wasmCloud
+    iconURL: https://landscape.cncf.io/logos/wasm-cloud.svg
+    typeURI: null
+    docURL: https://wasmcloud.com
