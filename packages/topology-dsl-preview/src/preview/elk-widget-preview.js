@@ -31,10 +31,12 @@ import { samples2 } from './samples-2.js';
 import * as dslmodule from '@imaguiraga/topology-dsl-core';
 import * as gcpmodule from '../assets/js/GCP';
 import * as awsmodule from '../assets/js/AWS';
+import * as cncfmodule from '../assets/js/CNCF';
 import { toElkGraph } from './diagram';
 
 registerJSModule('gcp-dsl', gcpmodule);
 registerJSModule('aws-dsl', awsmodule);
+registerJSModule('cncf-dsl', cncfmodule);
 
 // Dynamically register compiled modules
 registerJSModule('topology-dsl', dslmodule);
