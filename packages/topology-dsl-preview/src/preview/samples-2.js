@@ -17,11 +17,11 @@ export const v1 =
     terminal('b')
   );
 export const testflow =
-  sequence(
+  sequence('start',
     [
       terminal('a'),
       terminal('b'),
-      sequence(
+      sequence('start',
         [
           terminal('a'),
           terminal('b')
