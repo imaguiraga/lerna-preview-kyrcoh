@@ -370,7 +370,7 @@ class GroupEltDslToELKGenerator {
         id: `${visitor.edgeCntIt.next().value}`,
         sources: sources.map((e) => e.id),
         targets: targets.map((e) => e.id),
-        ...visitor.getEdgeModel(sources[0])//tree),
+        ...visitor.getEdgeModel(sources[0])
       });
 
     } else if (sources.length === 1 && targets.length > 1) {
@@ -380,7 +380,7 @@ class GroupEltDslToELKGenerator {
           id: `${visitor.edgeCntIt.next().value}`,
           sources: sources.map((e) => e.id),
           targets: [t].map((e) => e.id),
-          ...visitor.getEdgeModel(sources[0])//tree),
+          ...visitor.getEdgeModel(sources[0])
         });
       }, this);
 
@@ -391,7 +391,7 @@ class GroupEltDslToELKGenerator {
           id: `${visitor.edgeCntIt.next().value}`,
           sources: [s].map((e) => e.id),
           targets: targets.map((e) => e.id),
-          ...visitor.getEdgeModel(s)//tree),
+          ...visitor.getEdgeModel(s)
         });
       }, this);
 
@@ -498,20 +498,20 @@ class OptionalEltDslToELKGenerator extends GroupEltDslToELKGenerator {
 
     if (tree.elts.length > 0) {
       // start -> elts
-      let sources = [{ id: start.id }];//[start.id];
+      let sources = [{ id: start.id }];
       let targets = this.getStart(tree.elts[0]);
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // start -> finish
-      sources = [{ id: start.id }];//[start.id];
-      targets = [{ id: finish.id }];//[finish.id];
+      sources = [{ id: start.id }];
+      targets = [{ id: finish.id }];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> finish
       sources = this.getFinish(tree.elts);
-      targets = [{ id: finish.id }];//[finish.id];
+      targets = [{ id: finish.id }];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
@@ -551,20 +551,20 @@ class RepeatEltDslToELKGenerator extends GroupEltDslToELKGenerator {
     if (tree.elts.length > 0) {
 
       // start -> elts
-      let sources = [{ id: start.id }];//[start.id];
+      let sources = [{ id: start.id }];
       let targets = this.getStart(tree.elts);
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> finish
       sources = this.getFinish(tree.elts);
-      targets = [{ id: finish.id }];//[finish.id];
+      targets = [{ id: finish.id }];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 
       // elts -> elts
       sources = this.getFinish(tree.elts);
-      targets = [{ id: tree.elts[0].id }];//[tree.elts[0].id];
+      targets = [{ id: tree.elts[0].id }];
 
       this.buildLinks(sources, targets, graph, tree, visitor);
 

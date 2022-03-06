@@ -32,7 +32,7 @@ import * as dslmodule from '@imaguiraga/topology-dsl-core';
 import * as gcpmodule from '../assets/js/GCP';
 import * as awsmodule from '../assets/js/AWS';
 import * as cncfmodule from '../assets/js/CNCF';
-import { toElkGraph } from './diagram';
+import { toElkGraph } from './graph';
 
 registerJSModule('gcp-dsl', gcpmodule);
 registerJSModule('aws-dsl', awsmodule);

@@ -1,6 +1,6 @@
 import {
   DslToELKGenerator
-} from './elk-diagram-generator.js';
+} from './elk-graph-generator.js';
 
 const elkGenerator = new DslToELKGenerator();
 

@@ -2,24 +2,10 @@
 import ELK from 'elkjs/lib/elk.bundled.js';
 
 import {
-  //DslToELKGenerator,
   ELKDimensionVisitor
 } from '../visitor/index.js';
 
-//const elkGenerator = new DslToELKGenerator();
 const UNIT = 8;
-/*
-export function toElkGraph(dslObject) {
-  let elkgraph = null;
-  try {
-    // dslObject to elkgraph
-    //elkgraph = elkGenerator.toElkGraph(dslObject);
-  } catch (e) {
-    console.error(e);
-  }
-  return elkgraph;
-}
-// */
 
 export function elkLayout() {
   const elkDimensionVisitor = new ELKDimensionVisitor();
