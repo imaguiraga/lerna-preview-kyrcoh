@@ -1,0 +1,262 @@
+= The Lorenz Differential Equations
+:jupyter-language-name: python
+:jupyter-language-version: 3.7.8
+:url-ipywidgets: https://ipywidgets.readthedocs.io/en/stable/
+:plantuml-server-url: http://www.plantuml.com/plantuml
+:plantuml-fetch-diagram: true
+:imagesoutdir: ./assets/img
+
+Before we start, we import some preliminary libraries.
+We will also import (below) the accompanying `lorenz.py` file,
+which contains the actual solver and plotting routine.
+
+We explore the Lorenz system of differential equations:
+== PlantUML
+
+.table
+,===
+include::test.csv[]
+,===
+
+[source,python]
+----
+%pip install iplantuml
+----
+
+
+[source,python]
+----
+%pip install jinja2
+----
+
+[source,python]
+----
+from IPython import display
+from IPython.core.magic import register_cell_magic, Magics, magics_class, cell_magic
+import jinja2
+
+@magics_class
+class JinjaMagics(Magics):
+    '''Magics class containing the jinja2 magic and state'''
+    
+    def __init__(self, shell):
+        super(JinjaMagics, self).__init__(shell)
+        
+        # create a jinja2 environment to use for rendering
+        # this can be modified for desired effects (ie: using different variable syntax)
+        self.env = jinja2.Environment(loader=jinja2.FileSystemLoader('.'))
+        
+        # possible output types
+        self.display_functions = dict(html=display.HTML, 
+                                      latex=display.Latex,
+                                      json=display.JSON,
+                                      pretty=display.Pretty,
+                                      display=display.display)
+
+    
+    @cell_magic
+    def jinja(self, line, cell):
+        '''
+        jinja2 cell magic function.  Contents of cell are rendered by jinja2, and 
+        the line can be used to specify output type.
+
+        ie: "%%jinja html" will return the rendered cell wrapped in an HTML object.
+        '''
+        f = self.display_functions.get(line.lower().strip(), display.display)
+        
+        tmp = self.env.from_string(cell)
+        rend = tmp.render(dict((k,v) for (k,v) in self.shell.user_ns.items() 
+                                        if not k.startswith('_') and k not in self.shell.user_ns_hidden))
+        
+        return f(rend)
+        
+    
+ip = get_ipython()
+ip.register_magics(JinjaMagics)
+----
+
+[source,python]
+----
+%%jinja html
+<svg width="25%" height="25%" viewBox="0 0 42 42" class="donut">
+  <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+  <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+  <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="3" 
+    ></circle>
+</svg>
+----
+
+[source,python]
+----
+%%jinja html
+<div>
+<img src="diag1.svg" width="350" width="350"/>
+</div>
+----
+
+[source,python]
+----
+import iplantuml 
+----
+
+https://pypi.org/project/IPlantUML/
+[source,bash]
+----
+usage: ipykernel_launcher.py [-h] [-j] [-n NAME] [-p PLANTUML_PATH]
+ipykernel_launcher.py: error: unrecognized arguments: diag1
+----
+
+[source,python]
+----
+%%plantuml -n diag1 -j -p ./java/plantuml-1.2023.5.jar
+
+include::test.pu[]
+----
+
+[source,python]
+----
+%%plantuml -n diag2 -j -p ./java/plantuml-1.2023.5.jar
+
+@startuml
+start
+if (condition A) then (yes)
+  :Text 1;
+elseif (condition B) then (yes)
+  :Text 2;
+  stop
+(no) elseif (condition C) then (yes)
+  :Text 3;
+(no) elseif (condition D) then (yes)
+  :Text 4;
+else (nothing)
+  :Text else;
+endif
+stop
+@enduml
+
+----
+
+
+[latexmath]
+++++
+\begin{aligned}
+\dot{x} & = \sigma(y-x) \\
+\dot{y} & = \rho x - y - xz \\
+\dot{z} & = -\beta z + xy
+\end{aligned}
+++++
+
+Let's change (stem:[\sigma], stem:[\beta], stem:[\rho]) with {url-ipywidgets}[ipywidgets] and examine the trajectories.
+
+
+To install ipython-sql simply run the following command in a Jupyter Notebook:
+[source,python]
+----
+%pip install ipython-sql
+----
+Then load the SQL module:
+
+[source,python]
+----
+%load_ext sql
+----
+
+We need a connection string to connect to the database. For SQLite, it is as simple as:
+
+[source,python]
+----
+%sql sqlite://
+----
+
+If you’ve used SQLAlchemy before to connect to a database, you can use the code below to obtain the connection string:
+
+print("connecting with engine " + str(engine))
+Note, each cell needs to be annotated with %%sql. This tells the Jupyter Notebook that the code in the cell is SQL.
+
+Let’s add sample data to the SQLite database:
+
+[source,python]
+----
+%%sql
+CREATE TABLE IF NOT EXISTS sales
+(
+    key       varchar(6),
+    ts        timestamp,
+    product   integer,
+    completed boolean,
+    price     float
+);
+DELETE FROM sales;
+INSERT INTO sales
+VALUES ('sale_1', '2019-11-08 00:00', 0, TRUE, 1.1),
+       ('sale_2', '2019-11-08 01:00', 0, FALSE, 1.2),
+       ('sale_3', '2019-11-08 01:00', 0, TRUE, 1.3),
+       ('sale_4', '2019-11-08 01:00', 1, FALSE, 1.4),
+       ('sale_5', '2019-11-08 02:00', 1, TRUE, 1.5),
+       ('sale_6', '2019-11-08 02:00', 1, TRUE, 1.5);
+----
+
+
+Now, let’s query the database’
+
+[source,python]
+----
+%%sql
+select * from sales;
+----
+
+Works like a charm!
+
+We only ran the query, but results aren’t assigned to any variable, which is not much of a use. Luckily, Jupyter Notebook enables us to set the previous output of a cell to a variable:
+
+[source,python]
+----
+result = _
+----
+
+Let’s check the type of result variable:
+
+[source,python]
+----
+type(result)
+# sql.run.ResultSet
+----
+
+Now, let’s convert the ResultSet directly to a pandas DataFrame with:
+
+[source,python]
+----
+df = result.DataFrame()
+df
+----
+
+[source,python]
+----
+%pip install diagrams
+----
+
+[source,python]
+----
+from diagrams import Diagram, Cluster, Edge
+from diagrams.aws.compute import EC2
+from diagrams.aws.network import ELB
+from diagrams.aws.network import Route53
+from diagrams.onprem.database import PostgreSQL # Would typically use RDS from aws.database
+from diagrams.onprem.inmemory import Redis # Would typically use ElastiCache from aws.database
+
+with Diagram("Simple Website Diagram", direction='LR', outformat="svg", show=False) as diag: # It's LR by default, but you have a few options with the orientation
+    dns = Route53("dns")
+    load_balancer = ELB("Load Balancer")
+    database = PostgreSQL("User Database")
+    cache = Redis("Cache")
+    with Cluster("Webserver Cluster", direction='LR'):
+        
+        svc_group = [EC2("Webserver 1"),
+                    EC2("Webserver 2"),
+                    EC2("Webserver 3")]
+    dns >> load_balancer >> svc_group
+    svc_group <<  Edge(style='invis') << cache
+    svc_group >> database
+
+diag # This will illustrate the diagram if you are using a Google Colab or Jypiter notebook.
+----
